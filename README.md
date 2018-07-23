@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-# RNA_seq_protocol_OZ
-# RNA sequence protocol
+> # RNA sequence protocol
 
 This repository contains a protocol for the analysis of RNA-seq data. Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf).
 
@@ -123,6 +120,7 @@ __Paired End Sequencing__
 * The forward read will usually be filename_1 and backward read is filename_2
  
 ### Quality Scores
+* The first bioinformatic step is quality control. Use `fastqc` - see help page by typing `fastqc -h`
 * Base calling = deduce the nucleotide letter code sequence from the fluorescence signal edited when incorporated into the sequence read. Imperfect.
 * Phred score, Q = proportional to probability that a base call is incorrect. 10 = 1 in 10 bases are wrong (90% accuracy); 20 = 1 in 100 bases are wrong (99% accuracy). Higher Phred = higher quality
 * Sanger also have a quality score
@@ -190,7 +188,7 @@ __RNA seq Programmes (STAR, TopHat, GSNAP)__
  
 ### Reference Genomes
 As a rule for human data use GenCODE. For other species use Ensemble.
-ENCODE, Mouse Genome Project, Berkeley Drosphilia Project
+ENCODE, iGenomes, NCBI, UCSC, Mouse Genome Project, Berkeley Drosphilia Project
 
 Reference sequences = FASTA files. 
 Compress with `gzip` command or `faToTwoBit` (into .2bit files)\
@@ -260,7 +258,7 @@ __BED Format simplest annotation store__
 indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end)
 Aligning Reads
  
-1. Choose alignment tool
+### 1. Choose alignment tool
  
 * Multiple alignment programmes available, each specialising in detecting different factors eg structural variants; fusion transcripts
 * Straight forward RNA seq for differential gene expression analysis = use STAR [STAR manual PDF](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
@@ -270,18 +268,25 @@ Aligning Reads
 * TopHat = popular aligner – wrapper around the genomic aligner Bowtie
 * The alignment tool has relatively little impact on the downstream analyses (vs. annotation, quantification, differential expression tools)
  
-2. Generate Genome Index
+### 2. Generate  Genome Index
  
 Input Files = Reference Genome & Annotation File
+
+![RNA-seq Flowchart - Module 1](https://github.com/griffithlab/rnaseq_tutorial/wiki/Images/RNA-seq_Flowchart2.png)
+
 Genome sequence
 Suffix Arrays
 Chromosome names & lengths
 Splice junction coordinates
 Gene information
-Create directory to store index in: mkdir STARindex
+Create directory to store index in: `mkdir STARindex`
 Module load STAR `ml STAR`  
-Send cmd to generate genome as `batch job` to cluster:
 
+STAR command line has the following format:
+`STAR --option1-name option1-value(s)--option2-name option2-value(s) ...`
+If an option can accept multiple values, they are separated by spaces, and in a few cases - by commas.
+
+Send cmd to generate genome as `batch job` to cluster:
 `sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --genomeFastaFiles /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/Saccharomyces_cerevisiae.R64-1-1.92.gtf --sjdbOverhang 49 --runThreadN 8"`
 
 `N` is the number of nodes (usually leave at 1)
@@ -305,37 +310,143 @@ Alternative approach (assign runSTAR & REF_DIR variables):
 `--sjdbOverhang 49` # should be read length minus 1 ; length of the genomic sequence around the annotated junction to be used for the splice junctions database
 `--runThreadN 1\` # can be used to define more processors
  
-3. Align each FASTQ file
+### 3. Align each FASTQ file
 
-Sample distributed over n = X flow cell lanes → X fastq files per sample
-STAR merges the X files if multiple file names are indicated (other align tools dont)
-Separate the file names with a comma (no spaces)
-Create directory to store STAR output `mkdir alignment_STAR`
-List fast.qz files separated by commas (no spaces):
-`$FILES =ls -m /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/WT_rep1/*.fastq.gz| sed 's/ //g'`
-`$FILES = echo $FILES | sed 's/ //g'`
+* Need to align each FASTQ file
+* Sample distributed over n = X flow cell lanes → X fastq files per sample
+* STAR merges the X files if multiple file names are indicated (other align tools dont)
+* Separate the file names with a comma (no spaces)
+* Create directory to store STAR output `mkdir alignment_STAR`
+* List fast.qz files separated by commas and remove white spaces:
 
-`sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file
+INPUT=`ls -m /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/SNF2_rep1/*.fastq.gz| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
 
+`ls -m` list, fill width with a comma separated list of entries all the `fast.gz` files = compressed filed.
+`sed` remove a space from each file name
+`echo` displays a line of text - in this case it lists all the file names  - in this case the pipe to echo is to remove new spaces that are created between multiple lines.
+no space after FILES - with space after it thinks FILES is command.
+`sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
 
-Execute STAR in `runMode “alignReads”`
-`${ runSTAR } --genomeDir ${REF_DIR}/STARindex/ --readFilesIn $FILES --readFilesCommand zcat \ --outFileNamePrefix alignment_STAR/WT_1_ --outFilterMultimapNmax 1 \ --outReadsUnmapped Fastx \ --outSAMtype BAM SortedByCoordinate \ --twopassMode Basic \ --runThreadN 1`
+Execute STAR in runMode default `alignReads`
+For WT_rep1 folder (already uncompressed):
+`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --readFilesIn /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/WT_rep1/$INPUT --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_ --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"`
 
-#necessary because of gzipped fastq files
-#only reads with 1 match in the reference will be returned as aligned
-#will generate an extra output file with the unaligned reads
+For SNF2_rep1 folder (compressed):
+`sbatch -N 1 -c 8 --mem32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --readFilesIn /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/SNF2_rep1 --readFilesCommand gunzip -c  --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/SNF2_1_ --outFilterMutlimapNmax 1 \ --outReadsUnmapped Fastx \ --outSAMtype BAM SortedByCoordinate \ --twopassMode Basic \--runThreadN 1`
+
+Check the summary of the output:
+`cat file_name_Log.final.out`
+![enter image description here](https://user-images.githubusercontent.com/33317454/37438378-095cb442-282d-11e8-95fd-bfecefae5b75.png)
+
+By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together but it is best to do each separately and use the `snakemate` command - this makes it easier to see if there is an error in an individual sequencing file.
+
+The STAR PDF manual has all the explanations on how to write the STAR command and fine tune parameters e.g.:
+* multi-mapped reads
+* optimise for small genomes
+* define min & max intron sizes 
+* handle genomes with >5000 scaffolds
+* detect chimeric & circular transcripts
+
+ENCODE options:
+'outFilterMultimapNmax 1' max number of multiple alignments allowed for a read - if exceeded then read is considered unmapped i.e. when 1 is used this only identifies unique reads and removes multimapped reads. This is generally accepted.
+
 #`STAR` will perform mapping , then extract novel junctions which will be inserted into the genome index which will then be used to re -map all reads
 #`runThreadN` can be increased if sufficient computational power is available
 
-4. BAM file indexing
+### 4. BAM file indexing
 
 Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory
 Install samtools
-Run samtools index cmd for each BAM file once mapping is complete
-export PATH =~/working/oliver/bin/samtools -1.7: $PATH
-samtools index alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam
 
+Run samtools index cmd for each BAM file once mapping is complete:
+`ml SAMtools`
+`samtools index /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam`
 
+### 5. Store Aligned Reads: SAM/BAM files
+
+__SAM Files__
+
+SAM file = Sequence Alignment Map - generic nucleotide alignement format describing alignment of sequenced reads to a reference. [More Details](https://github.com/samtools/hts-specs) here.
+* Contain short header & long alignment sections
+* Each row represents a single read alignment
+	* starts with @ then abbreviation: SQ = sequence directory listing chromosomes names (SN) and lengths (LN)
+* Each read has 11 mandatory entries (black font) & optional fields (grey font)
+
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
+
+_SAM header section_
+
+* Begin with @, followed by `tag:value pairs`
+	* `tag` is two-letter string defining the value e.g. `@SQ` = names & lengths of reference sequences
+* 1 line per chromosome
+* To retrieve only the SAM header `samtools view -H`
+* To retrieve both the header & alignment sections `samtools view -h`
+* The default `samtools view` will not show the header section
+
+`samtools view -H WT_1_Aligned.sortedByCoord.out.bam`
+
+_SAM alignment section_
+
+* Each line coresponds to one sequenced read
+* 11 mandatory fields in specified order:
+
+`<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
+
+* If info is unavailable then value can be 0 or * 
+* Optional fields follow the mandatory fields
+
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_fields.png)
+
+FLAG field:
+* stores info on the respective read alignment in one single decimal number
+* decimal is the sum of all the answers to Yes/No questions:
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_flag.png)
+To convert the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
+
+`CIGAR` = Concise idiosyncratic gapped alignment report string
+* Indicates which operations were necessary to map the read to the reference sequence at that specific locus
+**M**  - Alignment (can be a sequence match or mismatch!)
+**I**  - Insertion in the read compared to the reference
+ **D**  - Deletion in the read compared to the reference
+**N**  - Skipped region from the reference. For mRNA-to-genome alignments, an N operation represents an intron. For other types of alignments, the interpretation of N is not defined.
+**S**  - Soft clipping (clipped sequences are present in read); S may only have H operations between them and the ends of the string
+**H**  - Hard clipping (clipped sequences are NOT present in the alignment record); can only be present as the first and/or last operation
+**P**  - Padding (silent deletion from padded reference)
+ **=**  - Sequence match (not widely used)
+**X**  - Sequence mismatch (not widely used)
+
+The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
+
+_Optional fields_
+Following the 11 mandatory fields, the optional fields are presented as key-value pairs in the format of  `<TAG>:<TYPE>:<VALUE>`, where  `TYPE`  is one of:
+-   `A`  - Character
+-   `i`  - Integer
+-   `f`  - Float number
+-   `Z`  - String
+-   `H`  - Hex string
+
+Reads within the same SAM file may have different numbers of optional fields, depending on the program that generated the SAM file. 
+
+Commonly used optional tags include:
+-   `AS:i`  - Alignment score
+-   `BC:Z`  - Barcode sequence
+-   `HI:i`  - Match is i-th hit to the read
+-   `NH:i`  - Number of reported alignments for the query sequence
+-   `NM:i`  - Edit distance of the query to the reference
+-   `MD:Z`  - String that contains the exact positions of mismatches (should complement the CIGAR string)
+-   `RG:Z`  - Read group (should match the entry after ID if @RG is present in the header.
+
+E.g. we can use the NM:i:0 tag to select only those reads which map perfectly to the reference (i.e., have no mismatches). Tags that begin with  `X`,  `Y`, and  `Z`  are reserved for particularly free usage and will never be part of the official SAM file format specifications.  `XS`, for example, is used by TopHat to encode the strand information (e.g.,  `XS:A:+`) while Bowtie2 and BWA use  `XS:i:`  for reads with multiple alignments to store the alignment score for the next-best-scoring alignment (e.g.,  `XS:i:30`).
+
+BAM file = Binary Alignment Map - human readable TAB-delimited compressed. Bigger than gzipped SAM files as they are optimised for rapid access (not just size reduction).
+Position sorted BAM files = indexed so all reads aligning to a locus can be retreived without loading the entire file to memory.
+
+__Convert a BAM file to SAM file__
+`samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
+
+## Manipulating SAM/BAM files
+PAGE 32 of 86
 
 ## Visualising Transcripts
  
@@ -344,4 +455,3 @@ http://software.broadinstitute.org/software/igv/
 ⁃                shows the transcripts amount related to an annotated genome
 ⁃                there is often mismatch between different annotations eg ref-seq and gencode: choosing between the two is controversial
 ⁃                top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
->>>>>>> f197036ca7a92787d1aefd98f22855d6ddfbb312
