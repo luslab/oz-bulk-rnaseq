@@ -528,7 +528,48 @@ Create SAM file with **intron spanning reads**:
 - Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
 
 ## Quality control of aligned reads
-page 34/86
+**STAR output files:**
+ - Aligned.sortedByCoord.out.bam - the loci of each read & sequence
+ - Log.final.out - summary of alignment statistics
+ - Log.out - commands, parameters, files used
+ - Log.progress.out - elapsed time
+ - SJ.out.tab - loci where splice junctions were detected & read number overlapping them
+ - Unmapped.out.mate1 - fastq file with unmapped reads
+
+More information on these is in the [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) chapter 4 page 10.
+ 
+ The main STAR output file for downstream analyses are
+ **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
+
+**out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip
+
+## Quality control of aligned reads
+
+After aligning and before performing downstream analyses check for:
+1. Excessive amounts of reads not aligned
+2. Obvious biases in the read distributions
+3. Similarity between replicate samples
+
+__Alignment Assessments__
+ 
+ **1. Check that mapping rate of RNA-seq reads is > 70%**
+ 
+ Check the aligner's output: `cat FILENAME_Log.final.out`
+ - most important number = **uniquely mapped reads**
+ - if using >2 BAM files then visualise alignment rate for each e.g. using MultiQC in R studio: see https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf
+Mount files onto laptop: Right click on Finder --> Connect to server --> Connect to Luscombe Lab
+- `infiles <- list.files(path="/Volumes/lab-luscomben/working/oliver/projects/rna_seq_worksheet/alignment_STAR", pattern = "WT_1_Log.final.out", full.names = TRUE)`
+- `align.results <- lapply(infiles, function(x) read.table(x, sep="|", strip.white = TRUE, stringsAsFactors = FALSE, skip = 3, fill = TRUE, header = FALSE))`
+- `typeof(align.results)`
+- `head(align.results[[1]])`
+- > `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
+
+
+ **2. Calculate number of alignments in each BAM file**
+- easiest to do using a line count ` samtools view Aligned.sortedByCoord.out.bam | wc -l`
+- unmapped reads in the BAM file & also multiple instances of the same read mapped to different locations will also be counted (latter only if multi-mapped reads were kept) so run specific tools to indicate FLAG values too.
+- `samtools flagstat` assesses the FLAG field and prints a summary report: `samtools flagstat Aligned.sortedByCoord.bam`
+
 
 ## Visualising Transcripts
  
