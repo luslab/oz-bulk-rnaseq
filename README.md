@@ -445,8 +445,90 @@ Position sorted BAM files = indexed so all reads aligning to a locus can be retr
 __Convert a BAM file to SAM file__
 `samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
 
+__Read Group__
+Key feature of SAM/BAM format is ability to label individual reads with readgroup tags. This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
+Downstream analysis tools eg `variant callers` recognise readgroup data and output results.
+
+[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
+
+Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/rg.png)
+
 ## Manipulating SAM/BAM files
-PAGE 32 of 86
+There are 4 major toolsets for processing SAM/BAM files:
+
+- [SAMTools](http://www.htslib.org/) - interact with high throughput sequencing data, manipulate alignments in SAM/BAM format, sort, merge, index, align in per-position format
+- [Picard](https://broadinstitute.github.io/picard/) - Java tools for manipulating high throughput sequencing data
+- [DeepTools](https://deeptools.readthedocs.io/en/develop/) - visualise, quality control, normalise data from deep-sequencing DNA seq
+- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) = read, write & manipulate BAM genome alingment files
+
+__Processing:__
+1. Filter using BAM Tools
+	-  mapping quality: remove poor  alignments - eg remove all alignments below Phred scale quality of 20
+	- keep only those which are "properly paired" ie forward is looking at reverse (for paired reads)
+	- reference chromosome: e.g. only keep mitochondrial genome alingments
+2. Remove duplicates with Picard
+3. Clean up with CleanSam Picard tool
+	- fixes alignments that hang off ends of ref sequence
+	- sets MAPQ to 0 if read is unmapped
+
+To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
+Convert a BAM file into a human readable SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
+Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
+Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
+
+SAMTools help page = `samtools --help`
+Usage:   `samtools <command> [options]`
+
+5 key commands:
+1. Indexing
+2. Editing
+3. File operations (aligning, converting, merging)
+4. Statistics
+5. Viewing
+
+For each command there are multiple options ` samtools COMMAND -X` 
+Create BAM with only **unmapped reads**: `samtools view -h -b -f4 FILENAME.bam > unmapped_reads.bam` 
+Create BAM with only **mapped reads**`samtools view -hb -F 4 FILENAME.bam > mapped_reads.bam` 
+Create BAM with **mapping quality >= 20**`samtools view -h -b -q 20 FILENAME.bam > high_mapq_reads.bam` 
+Create BAM with **uniquely aligned reads** (STAR gives uniquely aligned reads a mapping quality of 255 so you can use samtools to pull all reads with mapping quality = 255 only (using samtools command, option -q, = 255) `samtools view -h -q 255 FILENAME.bam > uniquely_aligned_reads.bam`
+
+- `-h` is used to print the header (always needed).
+- sam files are human readable, bam are compressed. BAM are much smaller
+	- `-b`will produce a BAM file. `-s` will produce a SAM file.
+	- for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
+
+Create BAM with only **reads aligned to reverse strand**:
+- First, sort the BAM file (A-Z; 0-9) using `sort`
+- Second, count the adjacent lines which are identical using `samtools view FILENAME.bam | cut -f 2 | sort | uniq -c`
+		- Third, create file with the specific feature e.g. reverse reads (FLAG = 16 in column 2): `samtools view -h -f 16 FILENAME.bam > reverse_reads.bam`
+		
+Alternatively used awk command using SAM file:
+- `cut -f 2 FILENAME.bam | sort | uniq -c`
+- `awk '{OFS="\t"} $1 ~ /^@/ || $2==0 {print $0}' FILENAME.sam | cut -f 2| sort | uniq -c`
+
+where:
+`cut -f 2` selects out only the field list 2 (2nd column)
+`{OFS="\t"}` converts spaces to tabs as awk would ordinarily use spaces but the file is separated by tabs
+`$1 ~ /^@/` represents the header line where $1 = column 1, ~ means looks like, ^@ means start with @
+`||` means OR
+`$2==0` means column 2 equals 0 i.e. FLAG (column 2) is forward strand (forward strand = 0, reverse strand = 16) - decode all SAM file numbers with https://broadinstitute.github.io/picard/explain-flags.html
+`{print $0}` means print everything ($0 means everything)
+
+- To **filter** an alignment file using the **optional tags** you have to use other tools eg `grep` to look for exact matches.
+- Optional SAM/BAM fields depend on the alignment program used - before filtering make sure you know how the aligned generated the value.
+
+Create SAM file with **reads of insert sizes > 1000bp** use the CIGAR string (column 6 in SAM file):
+- first convert BAM to SAM file ` samtools view -h FILENAME.bam > FILENAME.sam`
+- use `grep` to exclude (using `-v`) lines with >3 digits (using `[0-9][0-9][0-9][0-9]`) followed by `N` (N means mismatch i.e. skipped bases, whereas M = match) `egrep -v "[0-9][0-9][0-9][0-9]N" FILENAME.sam > smallinsert_reads.sam`
+- Alternatively use `awk` to focus on column 6 (`$6` in CIGAR string) and exclude lines with 3 digits (using `![0-9][0-9][0-9][0-9]`) then printing everything `{print $0}` and creating new file:  `awk '!($6 ~ /[0-9][0-9][0-9][0-9]N/) {print $0}' FILENAME.sam > smallinsert_reads.sam` 
+
+Create SAM file with **intron spanning reads**:  
+- use `grep` to select lines with a number of digits (using `[0-9]+`) then `M` (i.e. matches) then any number of digits again, then `N` (i.e. mismatches) then any number of digits and then M again at the end: `egrep "(^@|[0-9]+M[0-9]+N[0-9]+M)" FILENAME.sam > intron-spanning_reads.sam`
+- Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
+
+## Quality control of aligned reads
+page 34/86
 
 ## Visualising Transcripts
  
