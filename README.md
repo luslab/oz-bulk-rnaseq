@@ -571,10 +571,76 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 - `samtools flagstat` assesses the FLAG field and prints a summary report: `samtools flagstat Aligned.sortedByCoord.bam`
 
 
-## Visualising Transcripts
- 
+## Visualising Data
+
+
+__Visualise STAR alignment information in R studio using ggplot2__
+Full explanation available [here](https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf).
+
+**ggplot2** https://ggplot2.tidyverse.org/
+- create graphics : provide data --> map variables to aesthetics --> choose graphical primitives.
+
+R studio script `rna_seq_worksheet_rstudio_script.R` is saved in /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet
+
+Compare the results of STAR alignment across samples:
+
+1. Mount STAR files onto laptop: Right click on Finder --> Connect to server --> Connect to Luscombe Lab
+
+2. Assign variables (run the script):
+- plotting correlation
+- plotting alignement results
+- extract legend
+- extract histo info
+
+3. Read in a STAR log file
+4. Combine the STAR log files
+
+5. Make data suitable for ggplot2 plotting
+- remove % symbols to keep just numbers.
+- change appearance of each data frames name
+- concatenate (link together in a chain) data frames of align.results
+- remove lines without values
+- add columns with info on sample & replicate ID using info from row names in the align.results file
+- check results had 4 columns
+
+6. Combine various ggplot2 figures into 1
+- define the variables that we want to include
+- generate bar chart
+
+__Visualise the output of  RSeQC quality controls__
+Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
+
+To add results of samtools flagstat & RSeQC to a MultiQC report capture the output as a txt file.
+`bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam > bam_stat_WT_1.txt`
+`samtools flagstat WT_1_Aligned.sortedByCoord.out.bam > flagstat_WT_1.txt`
+
+To visualise the output of mulple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
+
+__Visualise Aligned Reads__
+Check results visually to ensure reads align to expected regions without excess mismatches.
+
+Genome Browsers:
+- Broad institute [Integrative Genomics Viewer IGV](http://software.broadinstitute.org/software/igv/book/export/html/6)  
+- Ensembl
+- UCSC
+![IGV image](http://software.broadinstitute.org/software/igv/sites/cancerinformatics.org.igv/files/images/igv_desktop_callouts.jpg)
 IGV = view reads in visual format
 http://software.broadinstitute.org/software/igv/
-⁃                shows the transcripts amount related to an annotated genome
-⁃                there is often mismatch between different annotations eg ref-seq and gencode: choosing between the two is controversial
-⁃                top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
+shows the transcripts amount related to an annotated genome
+there is often mismatch between different annotations eg ref-seq and gencode: choosing between the two is controversial
+top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
+
+Coverage line = quick identification of highly covered regions
+Grey boxes = aligned reads. 
+Gaps between reads with horizontal grey line = introns
+Blue lines within reads = insertions
+Red lines within reads = deletions
+Blue boxes = reference genome
+
+**Sashimi Plots**
+Visualise splice junctions & explore exon usage
+![sashimi plot explained](http://miso.readthedocs.io/en/fastmiso/_images/sashimi-plot-example-annotated.png)
+Bar graph height =  read coverage
+Arcs = splice junctions
+Numbers = number of reads that contain the respective splice junction.
+IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
