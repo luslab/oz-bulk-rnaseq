@@ -623,7 +623,9 @@ Genome Browsers:
 - Broad institute [Integrative Genomics Viewer IGV](http://software.broadinstitute.org/software/igv/book/export/html/6)  
 - Ensembl
 - UCSC
+
 ![IGV image](http://software.broadinstitute.org/software/igv/sites/cancerinformatics.org.igv/files/images/igv_desktop_callouts.jpg)
+
 IGV = view reads in visual format
 http://software.broadinstitute.org/software/igv/
 shows the transcripts amount related to an annotated genome
