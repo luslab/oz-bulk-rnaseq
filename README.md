@@ -3,7 +3,9 @@
 This repository contains a protocol for the analysis of RNA-seq data. Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf).
 
 __Requirements__
-TBC
+ml STAR
+ml SAMtools
+ml 
 
 ## Installing Bioconductor packages in R
 
