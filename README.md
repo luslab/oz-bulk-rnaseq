@@ -646,3 +646,51 @@ Bar graph height =  read coverage
 Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
+
+## Bias Identification
+
+**Typical Biases of RNA-seq:**
+- many reads aligned to introns indicates: 
+	- incomplete poly(A) enrichment 
+	- abundant presence of immature transcripts
+- many reads align outside of annoted gene sequences (intergenic reads) indicates:
+	- genomic DNA contamination
+	- abundant non-coding transcripts
+- over representation of 3' portions of transcripts indicates RNA degradation
+
+__Read distribution__
+- mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
+	- counts number of reads overlapping with various genes & transcript associated genomic regions (introns and exons)
+- download BED file from [UCSC genome](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=685446505_FqnRnlREChczp8SYDIJOSvLwBshv&clade=other&org=S.+cerevisiae&db=sacCer3&hgta_group=genes&hgta_track=sgdGene&hgta_table=0&hgta_regionType=genome&position=chrIV%3A765966-775965&hgta_outputType=primaryTable&hgta_outFileName=).
+
+`read_distribution.py -r sacCer3.bed -i /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam`
+
+Output: 
+Total Reads                   937851
+Total Tags                    947664
+Total Assigned Tags           0
+
+Group               		Total_bases         Tag_count           Tags/Kb
+CDS_Exons           	8832031             0                   0.00
+5'UTR_Exons         0                   0                   0.00
+3'UTR_Exons         0                   0                   0.00
+Introns             69259               0                   0.00
+TSS_up_1kb          2421198             0                   0.00
+TSS_up_5kb          3225862             0                   0.00
+TSS_up_10kb         3377251             0                   0.00
+TES_down_1kb        2073978             0                   0.00
+TES_down_5kb        3185496             0                   0.00
+TES_down_10kb       3386705             0                   0.00
+
+Visualise this output using this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
+
+__Gene body coverage__
+Assess 3' or 5' biases using RSeQC `geneBody_coverage.py` script:
+- uses an annotation file with transcript models of choice
+- it divides each transcript into 100 sections
+- then counts reads overlapping with each section
+- produces 2 plots showing abundance of reads across transcript bodies
+
+`samtools index WT_1_Aligned.sortedByCoord.out.bam`
+`geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1`
+
