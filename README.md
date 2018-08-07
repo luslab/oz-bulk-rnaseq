@@ -8,6 +8,7 @@ __Requirements__
 `ml RSeQC`
 `ml QoRTs`
 `ml multiqc`
+'ml Subread`
 
 ## Installing Bioconductor packages in R
 
