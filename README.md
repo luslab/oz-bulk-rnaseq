@@ -776,3 +776,52 @@ RNA specific QC:
 `multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
+
+## Read Quantification
+__Gene-based read counting__
+- To compare the expression rates of indvidual genes between samples you need to quantify the number of reads per gene.
+- Essentially you are counting the number of overlapping reads
+- Need to clarify:
+	- Overlap size (full read vs partial overlap)
+	- Multi-mapping reads
+	- Reads overlapping multiple genomic features of the same kind
+	- Reads overlapping introns
+![enter image description here](http://htseq.readthedocs.io/en/release_0.10.0/_images/count_modes.png)
+
+**Tools to count reads:**
+
+`htseq-count` has 3 modes union, intersection strict, and intersection nonempty (image above). Union mode is recommended which counts overlaps even if a read only shares part of its sequence with a gene but disregards  reads that overlap more than 1 gene. http://htseq.readthedocs.io/en/release_0.10.0/index.html
+
+`featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread`
+
+`QoRTs` also does counting - Nobby uses this.
+
+The underlying gene models supplied to the quantification program via GTF or BED files will affect the gene expression quantification.
+
+Count reads per gene:
+`featureCounts -a /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.gtf -o featureCounts_results.txt alignment/*bam`
+
+2 output files:
+featureCounts_results.txt has actual read counts per gene
+featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+
+Count reads overlapping with individual exons:
+`featureCounts -a /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.gtf -f -t exon -O -o featCounts_exons.txt alignment/*bam`
+
+N.B. if the exon is part of multiple isoforms in the annotation file, featureCounts will return the read counts for the same exon multiple times. *n = number of transcripts with that exon*. Remove the multiple entries in the result file before going on to differential expression analysis.
+
+Preparing an annotation:
+To **assess differential expression of exons**, create an annotation file where overlapping exons of different isoforms are split before running featureCounts. Use `dexseq_prepare_annotation.py` script of DEXSeq package or `QoRTs`.
+
+__Isoform counting__
+Strictly you should quantify reads that originate from transcripts (rather than genes as a whole).  Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
+
+Programmes to quantify isoforms:
+Cufflinks
+RSEM
+eXpress
+
+These use a deBruikin graph to assign reads to an isoform if they are compatible with that transcript structure.
+![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
+
+Schema of a simple deBruijn graphbased transcript assembly. (A) Read sequences are split into (B) all subsequence k-mers (here: of length 5) from the reads. (C) A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases). (D) The transcripts are assembled by traversing the two paths in the graph
