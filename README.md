@@ -696,6 +696,82 @@ Assess 3' or 5' biases using RSeQC `geneBody_coverage.py` script:
 - then counts reads overlapping with each section
 - produces 2 plots showing abundance of reads across transcript bodies
 
+generate index for the BAM file:
 `samtools index WT_1_Aligned.sortedByCoord.out.bam`
-`geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1`
 
+run the script on the aligned reads & annotation file and set the output file name.
+`geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1 -f pdf`
+
+CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
+
+Produces 2 figures to visualise for 3' or 5' bias:
+X axis = gene body percentile (left is 5' end; right is 3' end)
+Y axis = coverage
+Lines represent different quality RNA (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
+
+![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
+
+__mRIN calculation using tin.py__
+- RNA integrity number (RIN) is rarely reported in public data repositories.
+- Instead determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
+- TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
+- tin.py uses the deviation from an expected uniform read distribution across the gene body as a proxy
+
+`tin.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed`
+
+Output is an xls file and a summary txt file (mean & median values across all genes in sample).
+
+Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
+
+__Quality of RNA Seq Toolset (QoRTs)__
+- QoRT is a jar software file that is an alternative to RSeQC that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq.
+
+`ml QoRTs`
+You will get a return from terminal like:
+`To execute the QoRTs JAR run: java -jar $EBROOTQORTS/QoRTs.jar` 
+Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs command. 
+[Helpfile](https://hartleys.github.io/QoRTs/jarHtml/index.html) here.
+
+
+`for VARIABLE in *.fastq; do wc -l $VARIABLE; done`
+
+This is a [loop in bash](https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php). Loops are really helpful to perform a repeated command on multiple things and is built around:
+1. provide the list (for X)
+2. do the command repeatedly 
+3. done when the desired situation is achieved
+The `;` provides the sectioning in the command.
+
+_QC command in QoRTs_
+`java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam sacCer3.gtf ./QoRTs_output/`
+
+- assumes data is paired unless include `--singleEnded`
+- Can run individual functions by specifying their names eg `--runFunctions writeGeneBody` runs only the genebody coverage function. To add further individual functions use a comma without space (comma-delimited list).
+- Can exclude individual functions eg `--skipFunctions JunctionCalcs` will run all functions except JunctionCalcs
+
+This is an [example](http://chagall.med.cornell.edu/RNASEQcourse/QC.multiPlot.pdf) of QoRTs output.
+
+__Summarising results of different QC tools with MultiQC__
+
+ - Generate a comprehensive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs.
+ - [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
+ - MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
+
+General post-alignment QC:
+- STAR log files
+- samtools flagstat
+- RSeQCs bam_stat.py
+
+RNA specific QC:
+- read distribution (RSeQC or QoRTs)
+- gene body coverage (RSeQC or QoRTs)
+- splice junction info obtained with QoRTs
+
+1. collect all QC results of interest into one folder QC_collection
+
+2. create subfolders for each sample
+
+3. run multiQC
+`ml multiqc`
+`multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
+
+Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
