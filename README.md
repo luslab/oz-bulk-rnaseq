@@ -5,7 +5,7 @@ This repository contains a protocol for the analysis of RNA-seq data. Based arou
 __Requirements__
 ml STAR
 ml SAMtools
-ml 
+ml RSeQC
 
 ## Installing Bioconductor packages in R
 
