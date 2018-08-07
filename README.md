@@ -575,6 +575,7 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 
 ## Visualising Data
 
+`ml RSeQC`
 
 __Visualise STAR alignment information in R studio using ggplot2__
 Full explanation available [here](https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf).
