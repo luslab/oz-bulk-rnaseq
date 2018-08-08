@@ -857,5 +857,47 @@ Methods of normalising:
 - TMM (trimmed mean of M values)
 - upper quartile
 
-**DSeq:**
-Take the featureCounts (raw read counts) --> read them into R --> normalise for sequencing depth differences
+**`DSeq`:**
+
+ - Takes the `featureCounts` (raw read counts) --> read them into R --> normalise for sequencing depth differences
+ 
+`DSeqDataSet` contains all the information in R. 
+`rowRanges( )` rows = variables (genes, transcripts, exons)  - has info about genes (chr, start, end, strand, ID)
+`rownames` is the unique sample names
+`colData( )` columns = samples 
+`assay( )` stores count data with genes and samples. similar to `countData`
+
+DSeq process:
+1. load magrittr in R & DSeq2:
+`library(magrittr)`
+`library(DESeq2)`
+2. get table of read counts:
+`read.counts = read.table("featureCounts_results.txt", header = TRUE)` 
+3. store gene IDs as row.names:
+`row.names(read.counts) = readcounts$Geneid`
+4. exclude columns that dont have read counts:
+`readcounts = readcounts[ , -c(1:6)]`
+5. assign the sample names:
+`orig_names = names(readcounts)`
+`names(readcounts) = gsub(".*(WT|SNF2)(_[0-9]+).*", "\\1\\2 ", orig_names)`
+6. check data:
+`str(readcounts)`
+`head(readcounts)`
+7. make a data frame for rows (samples)
+`sample_info = data.frame(condition = gsub("_[0 -9]+", "", names(readcounts)), row.names = names(readcounts))`
+8. Generate the DSeqDataSet
+`DESeq.ds = DESeqDataSetFromMatrix(countData = readcounts, colData = sample_info, design = ~ condition)`
+9. Check and test dataset
+`colData(DESeq.ds) %>% head`
+`assay(DESeq.ds) %>% head`
+`rowRanges(DESeq.ds) %>% head` 
+`counts(DESeq.ds) %>% str`
+`DESeq.ds = DESeq.ds[rowSums(counts(DESeq.ds)) > 0, ]` #remove genes without any counts
+`colSums(counts(DESeq.ds))` # should be the same as `colSums(readcounts)`
+
+DSeq default for normalising for differences in sequencing depths is `estimateSizeFactors`
+calculate the size factor and add it to the data set:
+`DESeq.ds = estimateSizeFactors(DESeq.ds)`
+`sizeFactors(DESeq.ds)`
+`counts ()` allows you to immediately retrieve the normalized read counts:
+`counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)`
