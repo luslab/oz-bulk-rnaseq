@@ -825,3 +825,37 @@ These use a deBruikin graph to assign reads to an isoform if they are compatible
 ![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
 
 Schema of a simple deBruijn graphbased transcript assembly. (A) Read sequences are split into (B) all subsequence k-mers (here: of length 5) from the reads. (C) A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases). (D) The transcripts are assembled by traversing the two paths in the graph
+
+**Alternative approach** is to ignore exactly where within a transcript a read originates from. Instead **focus on which transcript the read represents**. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
+
+Tools for this approach:
+`Sailfish` and more updated version `Salmon`
+`Kallisto`
+
+This approach is much faster than alignment-counting routines but **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/).
+
+The main limitations to assigning reads to transcripts are:
+- annotation transcripts are inconsistent
+- many isoforms with very different lengths
+- anti-sense and overlapping transcripts of different genes
+
+# Normalising and Transforming Read Counts
+The number of sequenced reads depends on:
+1. expression level
+2. read length
+3. sequencing depth
+4. Expression of all other genes in the sample
+
+To compare two conditions then you must look at the fraction of transcripts assigned to a specific gene over the total number of reads which differs drastically between samples.
+
+Normalisation is performed to ensure that systematic effects not related to the biological differences between samples are removed. 
+
+Methods of normalising:
+- total count
+- Counts/million
+**- DSeq size factor** using R
+- TMM (trimmed mean of M values)
+- upper quartile
+
+**DSeq:**
+Take the featureCounts (raw read counts) --> read them into R --> normalise for sequencing depth differences
