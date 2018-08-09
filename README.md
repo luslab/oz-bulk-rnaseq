@@ -12,7 +12,7 @@ Wet-lab sequencing phase:
 3. Strand Sequence
 
 Bioinformatic phase:
-1. Confirm the experimental design: variability, spike ins, blocking & randomise `base-calling` `demultiplexing`
+1. Experimental design: variability, spike-ins, blocking & randomise
 2. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
 3. Align reads to reference genome (FASTA, GFF): annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
 4. Estimate individual gene expression levels: Read count table 
@@ -38,7 +38,7 @@ Bioinformatic phase:
 For example, for erccdashboard (for artificial spike in quantification) 
 `source ("https://bioconductor.org/biocLite.R")` `biocLite("erccdashboard")`
  
- ## Wet-lab RNA Sequencing
+ # Wet-lab RNA Sequencing
  __RNA extraction__
 * silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
 * remove DNA and proteins. Improve with DNase.
@@ -81,7 +81,7 @@ Prioritise increasing the number of biological replicates rather than the sequen
 * for detecting de novo transcriptome assembly in humans need 100-200 x10^6 paired end reads.
 ![enter image description here](https://www.yourgenome.org/sites/default/files/images/illustrations/bioinformatics_single-end_pair-end_reads_yourgenome.png)
 
-## Experimental Design
+# Experimental Design
  
 **Variability** in results:
 * need **replicates** to capture breadth of isolate noise
