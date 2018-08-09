@@ -984,3 +984,83 @@ in R use `prcomp` function"
 `P = plotPCA(DESeq.rlog)` # PCA plot using DESeq2 based on ggplot2
 `P = P + theme_bw() + ggtitle("Rlog transformed counts")` #plot cosmetics
 `print(P)`
+
+![enter image description here](https://onlinecourses.science.psu.edu/stat857/sites/onlinecourses.science.psu.edu.stat857/files/lesson05/PCA_plot/index.gif)
+
+# Differential Gene Expression (DGE) Analysis
+the 2 tasks of DGE are to:
+1. Estimate the magnitude **fold change** of differential expression in read counts between different conditions, accounting for differences in sequencing depth & variability
+2. Estimate the **significance** of the difference, accounting for multiple testing
+
+Null hypothesis = the mean read counts of genes in different samples are equal between different conditions.
+
+Model read counts using *Poisson distribution*. This is useful as:
+- individual reads can be interpreted as binary
+- we can model the discrete probability distribution of the number of reads identified in the sequenced library
+- the pool of possible reads is huge, but the proportion of reads belonging to gene x is small
+- variance = mean in Poisson distribution --> from the mean read count per condition, we know the variance --> we can identify genes with greater differences between conditions
+- repeat libraries can be well approximated using poisson - biological replicates have relatively high variance and this *over-dispersion* can be captured with the *negative binomial* distribution
+
+Need to estimate the **mean** and **dispersion** from the read counts:
+- precision depends on the number & variation of replicates (i.e. the statistical power). 
+- For RNA-seq typically there is only 2-3 replicates creating poor precision. There are tools to compensate for this by looking across genes with similar expression to reduce a given genes variance towards the regressed values.
+
+Tools for DGE:
+`edgeR` (better for false positives, less conservative, recommended if <12 replicates)
+`DESeq`
+`DESeq2` sample wise size factor
+`limma-voom`
+`cuffdiff`slow, cant support multifactored experiments, can detect differential isoforms, high false positives
+
+![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
+
+## Running DGE analysis tools in R
+
+**DSeq2 workflow**
+This is *performed on the raw read* counts and not the transformed normalised reads.
+`str(colData(DESeq.ds)$condition)` #use the levels of condition to determine the comparison order
+`colData(DESeq.ds)$condition = relevel(colData(DESeq.ds)$condition, "WT")` #set wild type as the first level factor (the mutants should be compared with the control - use the wildtype as the denominator)
+`DESeq.ds = DESeq(DESeq.ds)` #run the DGE analysis
+DESeq( ) function wraps around the following 3 functions:
+`DESeq.ds = estimateSizeFactors(DESeq.ds)` #sequencing depth normalisation
+`DESeq.ds = estimateDispersions(DESeq.ds)` #gene wise dispersion estimates
+`DESeq.ds = nbinomWaldTest(DESeq.ds)` #fits a negative binomial GLM & applies Wald stats to each gene
+
+`DGE. results = results(DESeq.ds, independentFiltering = TRUE, alpha = 0.05)` #results function allows extraction of base means across sample, SEs, and basic stats for each gene.
+`summary(DGE.results)`
+
+The DESeqResult behaves as a data frame:
+head (DGE. results )
+table (DGE. results $ padj < 0.05)
+rownames ( subset (DGE. results , padj < 0.05) )
+
+### Exploratory Plots
+
+**Histograms**
+hist (DGE. results $ pvalue, col = " grey ", border = " white ", xlab = "", ylab = "", main = " frequencies of p- values ") # histogram of p-valus
+
+**MA plot**
+- provides global view of relationship between expression change in different conditions, average expression strength of genes and ability og algorithrm to detect differential expression
+	- red dots are significant adjusted p<0.05
+`plotMA(DGE.results, alpha = 0.05, main = "WT vs. SNF2 mutants", ylim = c(-4, 4))`
+
+![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
+
+**Heatmaps**
+- show expression values across individual samples
+many R functions to do this:
+`aheartmap( )`
+`gplots::heatmap.2( )`
+`pheatmap::pheatmap( )`
+**PAGE 60 for R code**
+
+![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
+Genes are sorted by adjusted p-value. Colours represent read counts.
+
+**Read counts of single genes**
+- For gene which you have prior knowledge about, you should check to see if they behaved as expected. For example a knockout gene should be very strongly downregulated in the DGE analysis.
+- Map the ORF identifiers from the read count matrix to the gene name --> retreive the rlog transformed read counts & log2 fold changes.
+- Use an annotation database within R specific for your sample eg for human use org.Hs.eg.db https://www.bioconductor.org/packages/release/data/annotation/
+**PAGE 61 for R code**
+
+**Edge R workflow** page 62
