@@ -1,24 +1,28 @@
 > # RNA sequence protocol
 
-This repository contains a protocol for the analysis of RNA-seq data. Based around the [RNA seq worksheet] (http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf) using a combination of bash commmands and R scripts.
+- This repository contains a protocol for the analysis of RNA-seq data. 
+- Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf) using a combination of `bash` commmands and `R` scripts.
 
-## RNA seq Workflow
+# RNA-seq Workflow
+This forms the chapters in this repository:
 
-Wet lab sequencing:
+Wet-lab sequencing phase:
 1. Extract RNA
-2. Prepare library
+2. Prepare library (mRNA enrichment)
 3. Strand Sequence
-4. then bioinformatic analysis:
 
-Bioinformatic Workflow:
-1. Images: `base-calling` `demultiplexing`
-2. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
-3. Aligning Reads: reference genomes (FASTA, GFF), annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
-4. Read count table `normalise DESeq2` `edgeR`
-5. List of fold changes & stats `filter`
-6. Downstream analyses on differentially expressed genes
+Bioinformatic phase:
+4. Confirm the experimental design: variability, spike ins, blocking & randomise `base-calling` `demultiplexing`
+5. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
+6. Align reads to reference genome (FASTA, GFF): annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
+7. Estimate individual gene expression levels: Read count table 
+8. Normalise - list of fold changes & stats `filter` `normalise DESeq2` `edgeR`
+9. Identify differentially expressed genes
 
-__Requirements__
+![enter image description here](https://ycl6.gitbooks.io/rna-seq-data-analysis/Workflow.png) 
+![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
+
+## Requirements
 `ml STAR`
 `ml SAMtools`
 `ml RSeQC`
@@ -27,24 +31,19 @@ __Requirements__
 `ml Subread`
 
 **Installing Bioconductor packages in R**
+`install.package( )`
 [Install Bioconductor](https://www.bioconductor.org/install/)
 [Source]("https://bioconductor.org/biocLite.R")
 `biocLite (“package name“)`
 For example, for erccdashboard (for artificial spike in quantification) 
 `source ("https://bioconductor.org/biocLite.R")` `biocLite("erccdashboard")`
-
-__Sequencing__
-RNA extraction --> Library preparation (mRNA enrichment) --> Sequence
-
-__Bioinformatics__ 
-Process sequence reads (align) —> estimate individual gene expression levels —> normalise —> identify differentially expressed (DE) genes
  
- ## RNA Sequencing
+ ## Wet-lab RNA Sequencing
  __RNA extraction__
 * silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
-* remove DNA and proteins. Improve with DNase
-* quality control: Aligent bioanalyser creates an RNA integrity number (RIN) is objective way of assessing RNA quality. 10 = intact; 1 = degraded. Looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
- 
+* remove DNA and proteins. Improve with DNase.
+* quality control: Aligent bioanalyser creates an **RNA integrity number (RIN)** is objective way of assessing RNA quality. 10 = intact; 1 = degraded. Looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
+ ![enter image description here](http://tlcr.amegroups.com/article/viewFile/286/596/2055)
 __Library Preparation__
 * cDNA fragments 150-300bp —> hybridisation to flowcell (50-150 bp)
 * small transcripts <150bp is lost in standard RNA-seq preparation
@@ -55,65 +54,60 @@ __Stand sequencing__
 * usually use deoxy-UTP in synthesising the 2nd cDNA strand
 * hybridise DNA fragments to flowcell via adapters —> clonal amplify fragments forming clusters of dsDNA = improve signal of each fragment
 * Illumina seuqencing protocols: covers 50 - 100bp of each fragment
-* fragment ends is based on labelled dNTPs with reversible terminator elements —> incorporated + excited by a laser —> enables optical identification of bases
+* fragment ends is based on labelled dNTPs with reversible terminator elements —> incorporated & excited by a laser —> enables optical identification of bases
 * coverage = number of reads sequences in relation to genome size (how many times each base of the genome is referenced) - for RNA-seq the size of the transcriptome is not accurately known
 * Lander-waterman equation: coverage = (read length + read number)/haploid genome length
 * every base should be covered more than once to identify sequence errors
 * coverage is not uniform: euchromatin is overrepresented, GC rich regions are favoured by PCR
 * for RNA-seq use the least abundant RNA species of interest to determine the number of required reads (= sequence depth)
 
-Estimating the sequence depth (capture enough fragments of the least expressed genes) = ENCODE guidelines
-* experiment type and biological question
-* transcriptome size
-* error rate of the sequencing platform
+Estimate the sequence depth (aim is to capture enough fragments of the least expressed genes)
+-  Recommendations from [ENCODE guidelines](https://www.encodeproject.org/about/experiment-guidelines/)
+- experiment type and biological question
+- transcriptome size
+- error rate of the sequencing platform
 
-Deeper sequencing required for:
-* low expressed genes
+Deeper sequencing of RNA is required to:
+* identify low expressed genes
 * identify small changes between conditions
-* quantify alternative splicing
+* quantify alternative splicing (intron retention & exon skipping)
 * detect chimeric transcripts; novel transcripts; start and end sites
 
-Differential gene expression analysis: prioritise increasing the number of biological replicates rather than sequencing depth
-* Single read vs. paired end read:
-* single read = determines the DNA sequence of just one end of each DNA fragment
-* paired end = yields both ends of each DNA fragment. more expensive but increase mappability for repetitive regions —> easier to identify structural variations + indwells
-* for detecting de novo transcriptome assembly in humans need 100-200 x10^6 paired end reads.
+Prioritise increasing the number of biological replicates rather than the sequencing depth
 
-## Bioinformatics
-__Experimental Design__
+**Single read vs. paired end reads:**
+* single read = determines the DNA sequence of just one end of each DNA fragment
+* paired end = yields both ends of each DNA fragment. More expensive but increases mappability for repetitive regions —> easier to identify structural variations & indwells
+* for detecting de novo transcriptome assembly in humans need 100-200 x10^6 paired end reads.
+![enter image description here](https://www.yourgenome.org/sites/default/files/images/illustrations/bioinformatics_single-end_pair-end_reads_yourgenome.png)
+
+## Experimental Design
  
-Variability in results
-* need replicates to capture breadth of isolate noise
-* Technical replicates: repeat library preparations from the same RNA sample —> avoid batch effects, lane effects. Should multiplex same sample over different lanes of same flowcell
-* Biological replicates: parallel measurements on different samples = RNA from independent cells/tissues. Most RNA seq have 3 biological replicates but ideally need 6 per condition
+**Variability** in results:
+* need **replicates** to capture breadth of isolate noise
+* Technical replicates = repeat library preparations from the same RNA sample —> avoid batch effects & lane effects. Should multiplex same sample over different lanes of same flowcell.
+* Biological replicates = parallel measurements on different samples i.e. RNA from independent cells/tissues. Most RNA-seq have 3 biological replicates but ideally need 6 per condition to improve statistical power.
  
-Artificial RNA spike-ins
-* used to accurately quantify absolute transcript concentration. RNA of known quantities used for calibration eg ERCC. R package = erccdashboard. Different spike-in controls are needed for each RNA type.
+**Artificial RNA spike-ins**
+* used to accurately quantify absolute transcript concentration. 
+* RNA of known quantities is used for calibration eg ERCC. R package `erccdashboard`. Different spike-in controls are needed for each RNA type.
 * dont use spike ins to normalise between different samples (they dont account for differences in amount of starting material).
  
-Blocking and randomise:
+**Blocking and randomise**
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
  
-### Raw Data (Sequencing Reads)
-SRA = sequencing read archive = main repository for nucleic acid sequences (includes USA NCBI + European Bioinformatics Institute + DNA Databank of Japan)
+## Raw Data (Sequencing Reads)
+**[Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)**
+- main repository for nucleic acid sequences
+- includes USA NCBI + European Bioinformatics Institute + DNA Databank of Japan
 
-* FASTQ files are the formate in which we store sequencing reads. There are lots of other formats but FASTQ is the most common.
-* FastQ files end in SRR and SRX
-*FASTQ files bundle the sequence of each single read with the quality score.
- 
-__Download FASTQ files__
-[ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/sra)
-Search accession number (indicated in published paper)
-DOWNLOAD
-click link in column (Fastq files ftp) & save OR copy link address of Fastq files column —> command line & move target directory: `$ wget <link copied from the ENA website >`
-Alternatively if there are many samples then download summary (right click on TEXT) & copy link location: `$ wget -O samples_at_ENA .txt "<LINK copied>"` NB the quotation marks are crucial 
-Change directory `cd` to where you will store data & use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `$ cut -f11 samples_at_ENA . txt | xargs wget`
- 
-__Fastq-dump NCBI tool to convert fastq.sra files__
-fastq.gz  = compressed version of fast file (needs unzipping)
+**FASTQ files**
 
-[NCBI Format Guide](https://www.ncbi.nlm.nih.gov/books/NBK242622/)
+* the format in which we store sequencing reads. 
+* lots of other formats but FASTQ is the most common.
+* FastQ files end in **SRR** and **SRX**
+* FASTQ files bundle the sequence of each single read with the **quality score**.
 
 FASTQ files are uncompressed & large. They contain:
 1. `@ then read ID +- informs on sequencing run`
@@ -123,45 +117,56 @@ FASTQ files are uncompressed & large. They contain:
  
 Read ID format:  
 `@<machine_id>:<run number>:<flowcell ID>:<lane>:<tile>:<x-pos>:<y-pos><read>:<is filtered>:<control number>:<index sequence>`
+
+![enter image description here](https://www.researchgate.net/profile/Morteza_Hosseini17/publication/309134977/figure/fig2/AS:417452136648711@1476539753452/A-sample-of-the-FASTQ-file.png) 
+__Downloading FASTQ files__
+Source: [ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/sra)
+1. Search accession number (indicated in published paper)
+2. DOWNLOAD
+	click link in column (Fastq files ftp) & save
+	Alternatively copy link address of Fastq files column —> in command line, move to the target directory then run: 	`wget <link copied from the ENA website >`
+	If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<LINK copied>"` #the quotation marks are crucial 
+Change directory `cd` to where you will store data & use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
+ 
+**Fastq-dump NCBI tool** to convert fastq.sra files
+fastq.gz  = compressed version of fast file (needs unzipping before analysing)
+
+[NCBI Format Guide](https://www.ncbi.nlm.nih.gov/books/NBK242622/)
  
 __Paired End Sequencing__
 * 2 FASTQ files: 1 forward read; 1 backward read
 * know the origin of each read (forward vs reverse) - encoded in read name - some analysis tools require combining the 2 files into 1.
+	* The **forward** read will usually be **filename_1** and **backward** read is **filename_2**
 * Need to process the read as Split Reads/files
-	* Look at to explain process `fastq help`
-* The forward read will usually be filename_1 and backward read is filename_2
  
-### Quality Scores
+### FASTQ Quality Scores
 * The first bioinformatic step is quality control. Use `fastqc` - see help page by typing `fastqc -h`
-* Base calling = deduce the nucleotide letter code sequence from the fluorescence signal edited when incorporated into the sequence read. Imperfect.
-* Phred score, Q = proportional to probability that a base call is incorrect. 10 = 1 in 10 bases are wrong (90% accuracy); 20 = 1 in 100 bases are wrong (99% accuracy). Higher Phred = higher quality
+* **Base calling** = deduce the nucleotide letter code sequence from the fluorescence signal edited when incorporated into the sequence read. Imperfect. Information on [base calling here](https://academic.oup.com/bib/article/12/5/489/268399).
+* **Phred score, Q** = proportional to probability that a base call is incorrect. 10 = 1 in 10 bases are wrong (90% accuracy); 20 = 1 in 100 bases are wrong (99% accuracy). Higher Phred = higher quality
 * Sanger also have a quality score
 * ASCII character = represents that Phred Score. Depends on:
 	* sequence technology used
 	* base caller assignment used (eg Bustard, RTA0 HiSeq X). 
 * Maximum score is 45.
 * converting Illumina FASTQ file 1.3 (Phred + 64) to version 1.8 (Phred +33) use: 
-
 `sed -e '4~4y/ @ABCDEFGHIJKLMNOPQRSTUVWXYZ [\\]^_abcdefghi/!"#$%& '\ ' '()*+ , -.\/0123456789:; <= >? @ABCDEFGHIJ /' originalFile.fastq`
-[Base calling](https://academic.oup.com/bib/article/12/5/489/268399)
+
+Note: If the quality scores contain character 0 it is either Sanger phred+33 or Illumina 1.8+ phred+33. When they also contain the character J, it is Illumina 1.8+ phred 33, otherwise it is Sanger phred + 33.  When the quality scores do not contain 0, it is either Solexa +64, Illumina 1.3+ Phred+64, Illumina 1.5+ Phred+64. It is Illumina 1.3 phred + 64 when it contains A It is Illumina 1.5 phred +64 
  
-If the quality scores contain character 0 it is either Sanger phred+33 or Illumina 1.8+ phred+33. When they also contain the character J, it is Illumina 1.8+ phred 33, otherwise it is Sanger phred + 33. 
-When the quality scores do not contain 0, it is either Solexa +64, Illumina 1.3+ Phred+64, Illumina 1.5+ Phred+64.
-It is Illumina 1.3 phred + 64 when it contains A It is Illumina 1.5 phred +64 
+## Quality Control (QC)
+Main points for QC in analysis:
+1.  FASTQC on raw sequenced reads
+2. RSeQC on aligned reads
+3. Descriptive plots in R to visually assess read counts
  
-### Quality Control
-Main points for QC:
-* FASTQC on raw sequenced reads
-* RSeQC on aligned reads
-* Descriptive plots - assess read counts
- 
-__1st quality control point__ = RAW READS = FastQ file —> FastQC program  http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+**1st quality control point**
+FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 `wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.7.zip`
 `unzip fastqc_v0.11.7.zip`
 `cd FastQC`
 `chmod 755 fastqc`
 
-Check for:
+Checking for:
 * PCR duplicates
 * adapter contamination
 * rRNA + tRNA reads
@@ -170,10 +175,8 @@ Check for:
  
 __run FastQC__
 `mkdir fastqc_results` # make a folder to store the results
-run FastQC (for the course it 's available in the software folder )
-`/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/FastQC/fastqc ERR458493.fastq .gz -- extract -o fastqc_results`
-Look at the results
-`ls fastqc_results/ERR458493_fastqc/`
+`/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/FastQC/fastqc ERR458493.fastq .gz -- extract -o fastqc_results` #run FastQC
+`ls fastqc_results/ERR458493_fastqc/` #Look at the results
 `cat fastqc_results/ERR458493_fastqc/summary .txt`
  
 To summarise multiple QC outputs use the [MultiQC tool](http://multiqc.info/)
@@ -183,11 +186,12 @@ $ for SAMPLE in WT_1 WT_2 WT_3 WT_25 # random selection of samples
 `mkdir fastqc_results/${SAMPLE}`
 run `multiqc` within the `fastqc_results` folder and use the folder names (WT_1 etc.) as prefixes to the sample names in the final output
  
-## Read Alignment / Mapping
-Identify cDNA transcripts in a sample by mapping them to the genomic origin using a reference genome
+## Read Alignment (Mapping)
+Identify cDNA transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**
 Aim is to map millions of reads accurately and quickly
-Limitations are sequencing errors; genomic variation; repetitive elements
-Main Challenge of RNA seq = spliced alignment of exon-exon spanning reads (eg Read 2 in image); multiple different transcripts (isoforms) from same gene
+Limitations are: sequencing errors; genomic variation; repetitive elements.
+The main Challenge of RNA seq is the spliced alignment of exon-exon spanning reads; multiple different transcripts (isoforms) from same gene
+![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
 
 __RNA seq Programmes (STAR, TopHat, GSNAP)__
         	1. align reads to transcriptome (required transcripts to be known and annotated)
@@ -197,19 +201,21 @@ __RNA seq Programmes (STAR, TopHat, GSNAP)__
 * Mapping ambiguity = many reads overlap with more than one isoform
 * Sequencing reads longer improves alignment
 * Alignment-free transcript quanitification = ignore location of reads in a transcript; compare k-mers of the reads in hash tables of transcriptome and note matches.
+
+![enter image description here](https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/resize/user/18/Figure19-700x527.png)
  
 ### Reference Genomes
-As a rule for human data use GenCODE. For other species use Ensemble.
+As a rule for human data use **GenCODE**. For other species use **Ensemble**.
 ENCODE, iGenomes, NCBI, UCSC, Mouse Genome Project, Berkeley Drosphilia Project
 
-Reference sequences = FASTA files. 
-Compress with `gzip` command or `faToTwoBit` (into .2bit files)\
+Reference sequences = **FASTA files.** 
+Compress with `gzip` command or `faToTwoBit` (.fa --> .2bit files)
 
 Reference sequences are long strings of ATCGN letters. 
 File formats store start sites, exon, introns. One line per genomic feature.
  
-__File Formats__
-GFF = General Feature Format
+__Reference Genome File Formats__
+**GFF** = General Feature Format
 9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = ‘.’)
 * Reference sequence: coordinate system of annotation eg Chr1
 * Source: annotation software
@@ -225,9 +231,9 @@ GFF = General Feature Format
 * version 2 = Sanger Institute http://gmod.org/wiki/GFF2
 * version 3 = Sequence Ontology Project http://gmod.org/wiki/GFF3        
  
-GTF = Gene Transfer Format (aka GFF 2.5). More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
+**GTF** = Gene Transfer Format (aka GFF 2.5). More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
 
-__Download GTF & FASTA files__
+**Download Reference Genome files (GTF & FASTA)**
 UCSC https://genome.ucsc.edu/          	https://genome.ucsc.edu/cgi-bin/hgTables
 ENSEMBL http://www.ensembl.org/index.html
 RefSeq
@@ -235,10 +241,9 @@ GenCODE
 
 * UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
  
-Convert 2bit format —> FASTA format: 
-`twobittofa file_name.2bit file_name.fa`
+Convert 2bit format —> FASTA format:  `twobittofa file_name.2bit file_name.fa`
 
-_from ENSEMBL:_
+ **ENSEMBL process:**
 http://www.ensembl.org/info/data/ftp/index.html
 Search for species Saccharomyces cerevesiae
 Click on Gene sets GTF link & DNA FASTA link
@@ -247,7 +252,7 @@ FASTA: Right click on DNA top level file.
 In command line (in appropriate Folder) `wget [paste link address]`
 Unzip file `gunzip file_name`
 
-_From UCSC:_
+**UCSC process:**
 Download a GTF file of yeast transcripts from the UCSC Genome Table Browser https://genome.ucsc.edu/cgi-bin/hgTables
 Move the downloaded gtf file to the appropriate folder
 **![](https://lh4.googleusercontent.com/piQkvTkiSIYCY9m-gATKN8CTmWGFPVZaP7KItC44zJP_oztaNMxjf9O33hljoHvARnSAqaXP1lz5pUo8_7X49xlHKXtX5hUyU-vAfehxNnXAVQ3mh152qUNwlywheUpx5P2GUa4Y)**
@@ -263,12 +268,14 @@ Linux version - download to bin folder
 remove first column & first line: `cut -f 2- file_name.txt | sed ‘1d”`
 `genePredToGtf file file_name file_name.gtf`
 
-__BED Format simplest annotation store__
+### Annotation files
+**BED Format** is the simplest annotation store
 3 compulsory fields: chromosome & start & end.
 9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
         	field number can vary from 3 - 12. Must be consistent within a file.
-indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end)
-Aligning Reads
+indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
+
+### Alignment Workflow:
  
 ### 1. Choose alignment tool
  
@@ -277,12 +284,12 @@ Aligning Reads
 	* Efficient
 	* Sensitive
 	* But large number of novel splice sites (caution)
-* TopHat = popular aligner – wrapper around the genomic aligner Bowtie
+* **TopHat** = popular aligner – wrapper around the genomic aligner Bowtie
 * The alignment tool has relatively little impact on the downstream analyses (vs. annotation, quantification, differential expression tools)
  
 ### 2. Generate  Genome Index
  
-Input Files = Reference Genome & Annotation File
+Input Files = Reference Genome (GFF and FASTA) & Annotation File (BED)
 
 ![RNA-seq Flowchart - Module 1](https://github.com/griffithlab/rnaseq_tutorial/wiki/Images/RNA-seq_Flowchart2.png)
 
@@ -322,7 +329,7 @@ Alternative approach (assign runSTAR & REF_DIR variables):
 `--sjdbOverhang 49` # should be read length minus 1 ; length of the genomic sequence around the annotated junction to be used for the splice junctions database
 `--runThreadN 1\` # can be used to define more processors
  
-### 3. Align each FASTQ file
+### 3. Align each FASTQ file to the Genome Index
 
 * Need to align each FASTQ file
 * Sample distributed over n = X flow cell lanes → X fastq files per sample
@@ -359,24 +366,45 @@ The STAR PDF manual has all the explanations on how to write the STAR command an
 * handle genomes with >5000 scaffolds
 * detect chimeric & circular transcripts
 
-ENCODE options:
-'outFilterMultimapNmax 1' max number of multiple alignments allowed for a read - if exceeded then read is considered unmapped i.e. when 1 is used this only identifies unique reads and removes multimapped reads. This is generally accepted.
+**The STAR output files are:**
+ - Aligned.sortedByCoord.out.bam - the loci of each read & sequence
+ - Log.final.out - summary of alignment statistics
+ - Log.out - commands, parameters, files used
+ - Log.progress.out - elapsed time
+ - SJ.out.tab - loci where splice junctions were detected & read number overlapping them
+ - Unmapped.out.mate1 - fastq file with unmapped reads
 
-#`STAR` will perform mapping , then extract novel junctions which will be inserted into the genome index which will then be used to re -map all reads
+More information on these is in the [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) chapter 4 page 10.
+
+**ENCODE options:**
+`outFilterMultimapNmax 1` max number of multiple alignments allowed for a read - if exceeded then read is considered unmapped i.e. when 1 is used this only identifies unique reads and removes multimapped reads. This is generally accepted.
+
+#`STAR` will perform the alignment, then extract novel junctions which will be inserted into the genome index which will then be used to re-align all reads
 #`runThreadN` can be increased if sufficient computational power is available
 
-### 4. BAM file indexing
+### 4. Create [BAM/SAM files](http://software.broadinstitute.org/software/igv/bam) to store the sequence alignment data 
 
 Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory
-Install samtools
-
+Install `samtools` in command line
 Run samtools index cmd for each BAM file once mapping is complete:
 `ml SAMtools`
 `samtools index /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam`
 
-### 5. Store Aligned Reads: SAM/BAM files
+### 5. Store Aligned Reads as SAM/BAM files
+SAM & BAM files contain the same information but in different formats
 
-__SAM Files__
+**Converting BAM files to and from SAM files**
+BAM --> SAM:
+`samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
+Convert a BAM file into a human readable SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
+
+Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
+
+To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
+
+Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
+
+__[SAM Files](https://genome.sph.umich.edu/wiki/SAM)__
 
 SAM file = Sequence Alignment Map - generic nucleotide alignement format describing alignment of sequenced reads to a reference. [More Details](https://github.com/samtools/hts-specs) here.
 * Contain short header & long alignment sections
@@ -388,7 +416,7 @@ SAM file = Sequence Alignment Map - generic nucleotide alignement format describ
 
 _SAM header section_
 
-* Begin with @, followed by `tag:value pairs`
+* Begin with **@**, followed by `tag:value pairs`
 	* `tag` is two-letter string defining the value e.g. `@SQ` = names & lengths of reference sequences
 * 1 line per chromosome
 * To retrieve only the SAM header `samtools view -H`
@@ -409,13 +437,13 @@ _SAM alignment section_
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_fields.png)
 
-FLAG field:
+*FLAG field:*
 * stores info on the respective read alignment in one single decimal number
 * decimal is the sum of all the answers to Yes/No questions:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_flag.png)
 To convert the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
 
-`CIGAR` = Concise idiosyncratic gapped alignment report string
+*CIGAR field* = Concise idiosyncratic gapped alignment report string
 * Indicates which operations were necessary to map the read to the reference sequence at that specific locus
 **M**  - Alignment (can be a sequence match or mismatch!)
 **I**  - Insertion in the read compared to the reference
@@ -454,9 +482,6 @@ E.g. we can use the NM:i:0 tag to select only those reads which map perfectly to
 BAM file = Binary Alignment Map - human readable TAB-delimited compressed. Bigger than gzipped SAM files as they are optimised for rapid access (not just size reduction).
 Position sorted BAM files = indexed so all reads aligning to a locus can be retreived without loading the entire file to memory.
 
-__Convert a BAM file to SAM file__
-`samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
-
 __Read Group__
 Key feature of SAM/BAM format is ability to label individual reads with readgroup tags. This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
 Downstream analysis tools eg `variant callers` recognise readgroup data and output results.
@@ -475,31 +500,26 @@ There are 4 major toolsets for processing SAM/BAM files:
 - [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) = read, write & manipulate BAM genome alingment files
 
 __Processing:__
-1. Filter using BAM Tools
-	-  mapping quality: remove poor  alignments - eg remove all alignments below Phred scale quality of 20
+1. **Filter** using BAM Tools
+	-  mapping quality: remove poor alignments - eg remove all alignments below Phred scale quality of 20
 	- keep only those which are "properly paired" ie forward is looking at reverse (for paired reads)
 	- reference chromosome: e.g. only keep mitochondrial genome alingments
-2. Remove duplicates with Picard
-3. Clean up with CleanSam Picard tool
+2. **Remove duplicates** with Picard
+3. **Clean up** with CleanSam Picard tool
 	- fixes alignments that hang off ends of ref sequence
 	- sets MAPQ to 0 if read is unmapped
-
-To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
-Convert a BAM file into a human readable SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
-Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
-Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
 
 SAMTools help page = `samtools --help`
 Usage:   `samtools <command> [options]`
 
-5 key commands:
+5 key SAMTool commands:
 1. Indexing
 2. Editing
 3. File operations (aligning, converting, merging)
 4. Statistics
 5. Viewing
 
-For each command there are multiple options ` samtools COMMAND -X` 
+For each command there are multiple options `samtools COMMAND -X` 
 Create BAM with only **unmapped reads**: `samtools view -h -b -f4 FILENAME.bam > unmapped_reads.bam` 
 Create BAM with only **mapped reads**`samtools view -hb -F 4 FILENAME.bam > mapped_reads.bam` 
 Create BAM with **mapping quality >= 20**`samtools view -h -b -q 20 FILENAME.bam > high_mapq_reads.bam` 
@@ -510,7 +530,7 @@ Create BAM with **uniquely aligned reads** (STAR gives uniquely aligned reads a 
 	- `-b`will produce a BAM file. `-s` will produce a SAM file.
 	- for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
 
-Create BAM with only **reads aligned to reverse strand**:
+Create BAM file with only **reads aligned to reverse strand**:
 - First, sort the BAM file (A-Z; 0-9) using `sort`
 - Second, count the adjacent lines which are identical using `samtools view FILENAME.bam | cut -f 2 | sort | uniq -c`
 		- Third, create file with the specific feature e.g. reverse reads (FLAG = 16 in column 2): `samtools view -h -f 16 FILENAME.bam > reverse_reads.bam`
@@ -539,43 +559,32 @@ Create SAM file with **intron spanning reads**:
 - use `grep` to select lines with a number of digits (using `[0-9]+`) then `M` (i.e. matches) then any number of digits again, then `N` (i.e. mismatches) then any number of digits and then M again at the end: `egrep "(^@|[0-9]+M[0-9]+N[0-9]+M)" FILENAME.sam > intron-spanning_reads.sam`
 - Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
 
-## Quality control of aligned reads
-**STAR output files:**
- - Aligned.sortedByCoord.out.bam - the loci of each read & sequence
- - Log.final.out - summary of alignment statistics
- - Log.out - commands, parameters, files used
- - Log.progress.out - elapsed time
- - SJ.out.tab - loci where splice junctions were detected & read number overlapping them
- - Unmapped.out.mate1 - fastq file with unmapped reads
+## Quality control of Aligned Reads
+Analyses now switch from command line to R studi.
 
-More information on these is in the [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) chapter 4 page 10.
+After aligning and before performing downstream analyses check for:
+1. Excessive amounts of reads not aligned
+2. Obvious biases in the read distributions
+3. Similarity between replicate samples
  
  The main STAR output file for downstream analyses are
  **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
 
 **out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip
 
-## Quality control of aligned reads
-
-After aligning and before performing downstream analyses check for:
-1. Excessive amounts of reads not aligned
-2. Obvious biases in the read distributions
-3. Similarity between replicate samples
-
 __Alignment Assessments__
  
- **1. Check that mapping rate of RNA-seq reads is > 70%**
+ **1. Check that alignment rate of RNA-seq reads is > 70%**
  
  Check the aligner's output: `cat FILENAME_Log.final.out`
  - most important number = **uniquely mapped reads**
- - if using >2 BAM files then visualise alignment rate for each e.g. using MultiQC in R studio: see https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf
+ - if using >2 BAM files then visualise alignment rate for each e.g. using MultiQC in **R studio**: see https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf
 Mount files onto laptop: Right click on Finder --> Connect to server --> Connect to Luscombe Lab
 - `infiles <- list.files(path="/Volumes/lab-luscomben/working/oliver/projects/rna_seq_worksheet/alignment_STAR", pattern = "WT_1_Log.final.out", full.names = TRUE)`
 - `align.results <- lapply(infiles, function(x) read.table(x, sep="|", strip.white = TRUE, stringsAsFactors = FALSE, skip = 3, fill = TRUE, header = FALSE))`
 - `typeof(align.results)`
 - `head(align.results[[1]])`
-- > `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
-
+-  `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
 
  **2. Calculate number of alignments in each BAM file**
 - easiest to do using a line count ` samtools view Aligned.sortedByCoord.out.bam | wc -l`
@@ -583,7 +592,7 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 - `samtools flagstat` assesses the FLAG field and prints a summary report: `samtools flagstat Aligned.sortedByCoord.bam`
 
 
-## Visualising Data
+### Visualising Data in R
 
 `ml RSeQC`
 
@@ -620,7 +629,7 @@ Compare the results of STAR alignment across samples:
 - define the variables that we want to include
 - generate bar chart
 
-__Visualise the output of  RSeQC quality controls__
+__Visualise the output of  `RSeQC` quality controls__
 Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
 
 To add results of samtools flagstat & RSeQC to a MultiQC report capture the output as a txt file.
@@ -683,7 +692,7 @@ Total Reads                   937851
 Total Tags                    947664
 Total Assigned Tags           0
 
-Group               		Total_bases         Tag_count           Tags/Kb
+**Group               		Total_bases         Tag_count           Tags/Kb**
 CDS_Exons           	8832031             0                   0.00
 5'UTR_Exons         0                   0                   0.00
 3'UTR_Exons         0                   0                   0.00
@@ -698,7 +707,7 @@ TES_down_10kb       3386705             0                   0.00
 Visualise this output using this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
 
 __Gene body coverage__
-Assess 3' or 5' biases using RSeQC `geneBody_coverage.py` script:
+Assess 3' or 5' biases using **RSeQC** `geneBody_coverage.py` script:
 - uses an annotation file with transcript models of choice
 - it divides each transcript into 100 sections
 - then counts reads overlapping with each section
@@ -732,7 +741,7 @@ Output is an xls file and a summary txt file (mean & median values across all ge
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
 
 __Quality of RNA Seq Toolset (QoRTs)__
-- QoRT is a jar software file that is an alternative to RSeQC that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq.
+- `QoRT` is a `jar` software file that is an alternative to `RSeQC` that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq.
 
 `ml QoRTs`
 You will get a return from terminal like:
@@ -786,8 +795,8 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 ## Read Quantification
 __Gene-based read counting__
-- To compare the expression rates of indvidual genes between samples you need to quantify the number of reads per gene.
-- Essentially you are counting the number of overlapping reads
+- To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
+- Essentially you are **counting the number of overlapping reads**
 - Need to clarify:
 	- Overlap size (full read vs partial overlap)
 	- Multi-mapping reads
@@ -817,41 +826,42 @@ Count reads overlapping with individual exons:
 
 N.B. if the exon is part of multiple isoforms in the annotation file, featureCounts will return the read counts for the same exon multiple times. *n = number of transcripts with that exon*. Remove the multiple entries in the result file before going on to differential expression analysis.
 
-Preparing an annotation:
+**Preparing an annotation:**
 To **assess differential expression of exons**, create an annotation file where overlapping exons of different isoforms are split before running featureCounts. Use `dexseq_prepare_annotation.py` script of DEXSeq package or `QoRTs`.
 
 __Isoform counting__
 Strictly you should quantify reads that originate from transcripts (rather than genes as a whole).  Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
 Programmes to quantify isoforms:
-Cufflinks
-RSEM
-eXpress
+`Cufflinks`
+`RSEM`
+`eXpress`
 
-These use a deBruikin graph to assign reads to an isoform if they are compatible with that transcript structure.
+These use a **deBruikin graph** to assign reads to an isoform if they are compatible with that transcript structure.
 ![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
 
-Schema of a simple deBruijn graphbased transcript assembly. (A) Read sequences are split into (B) all subsequence k-mers (here: of length 5) from the reads. (C) A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases). (D) The transcripts are assembled by traversing the two paths in the graph
+Schema of a simple deBruijn graph-based transcript assembly. (A) Read sequences are split into (B) all subsequence k-mers (here: of length 5) from the reads. (C) A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases). (D) The transcripts are assembled by traversing the two paths in the graph
 
-**Alternative approach** is to ignore exactly where within a transcript a read originates from. Instead **focus on which transcript the read represents**. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
+### Alternative approach to read counting
+Ignore exactly where within a transcript a read originates from. Instead **focus on which transcript the read represents**. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
 
 Tools for this approach:
 `Sailfish` and more updated version `Salmon`
 `Kallisto`
 
-This approach is much faster than alignment-counting routines but **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/).
+This approach is much faster than alignment-counting routines but **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/)).
 
 The main limitations to assigning reads to transcripts are:
 - annotation transcripts are inconsistent
 - many isoforms with very different lengths
 - anti-sense and overlapping transcripts of different genes
 
-# Normalising and Transforming Read Counts
+# Normalising and Log Transforming Read Counts
 The number of sequenced reads depends on:
 1. expression level
 2. read length
 3. sequencing depth
-4. Expression of all other genes in the sample
+4. expression of all other genes in the sample
 
 To compare two conditions then you must look at the fraction of transcripts assigned to a specific gene over the total number of reads which differs drastically between samples.
 
@@ -860,7 +870,7 @@ Normalisation is performed to ensure that systematic effects not related to the 
 Methods of normalising:
 - total count
 - Counts/million
-**- DSeq size factor** using R
+- **DSeq size factor** using R
 - TMM (trimmed mean of M values)
 - upper quartile
 
@@ -874,7 +884,7 @@ Methods of normalising:
 `colData( )` columns = samples 
 `assay( )` stores count data with genes and samples. similar to `countData`
 
-DSeq process:
+**DSeq process:**
 1. load magrittr in R & DSeq2:
 `library(magrittr)`
 `library(DESeq2)`
@@ -922,7 +932,7 @@ Log2 transform read counts:
 `boxplot(counts.sf_normalized, notch = TRUE, main = "untransformed read counts", ylab = "read counts")` #plots the non-logged boxplots
 `boxplot(log.norm.counts, notch = TRUE, main = "log2 - transformed read counts", ylab = "log2(read counts)")` #plots the logged boxplots
 
-Plot replicate  results in a pairwise manner
+Plot replicate results in a pairwise manner
 `plot(log.norm.counts[ ,1:2], cex =.1, main = "Normalized log2 (read counts)")`
 
 Check data to ensure variable have similar variance (homoskedastic behaviour):
@@ -932,9 +942,9 @@ Check data to ensure variable have similar variance (homoskedastic behaviour):
 `msd_plot$gg + ggtitle ("sequencing depth normalized log2 (read counts)") + ylab("standard deviation")`
 y-axis shows variance of read counts. Any rise in the best fit line indicates an increase in variance at that read count length (x axis) - if to left = shorter count lengths; to right = long count lengths.
 
-## Variance Shrinkage
+### Variance Shrinkage
 
-- DSeq2 and edgeR both offer means to reduce the variance using the dispersion mean trend using the entire dataset as a reference.
+- `DSeq2` and `edgeR` both offer means to reduce the variance using the dispersion mean trend using the entire dataset as a reference.
 - Low read counts that are highly variable will be assigned more homogenous read estimates --> variance resembles the majority of the genes and hopefully has a more stable variance
 
 Regularise log-transformed values:
@@ -944,12 +954,12 @@ Regularise log-transformed values:
 `msd_plot = meanSdPlot(rlog.norm.counts, ranks = FALSE, plot = FALSE)` #show data on original scale and dont print plot
 `msd_plot$gg + ggtitle("rlog-transformed read counts") + ylab("standard deviation)`
 
-## Explore Global Read Count Patterns
+### Explore Global Read Count Patterns
 - check that basic global patterns are met:
 	- do replicates have similar expression patterns; 
 	- do experimental conditions have differences
 
-3 most commonly ways to assess RNA-seq expression patterns:
+3 most commonly ways to **assess RNA-seq expression patterns**:
 
 **1. Pairwise correlation**
 
@@ -1012,7 +1022,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 - precision depends on the number & variation of replicates (i.e. the statistical power). 
 - For RNA-seq typically there is only 2-3 replicates creating poor precision. There are tools to compensate for this by looking across genes with similar expression to reduce a given genes variance towards the regressed values.
 
-Tools for DGE:
+**Tools for DGE:**
 `edgeR` (better for false positives, less conservative, recommended if <12 replicates)
 `DESeq`
 `DESeq2` sample wise size factor
