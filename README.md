@@ -12,12 +12,12 @@ Wet-lab sequencing phase:
 3. Strand Sequence
 
 Bioinformatic phase:
-4. Confirm the experimental design: variability, spike ins, blocking & randomise `base-calling` `demultiplexing`
-5. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
-6. Align reads to reference genome (FASTA, GFF): annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
-7. Estimate individual gene expression levels: Read count table 
-8. Normalise - list of fold changes & stats `filter` `normalise DESeq2` `edgeR`
-9. Identify differentially expressed genes
+1. Confirm the experimental design: variability, spike ins, blocking & randomise `base-calling` `demultiplexing`
+2. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
+3. Align reads to reference genome (FASTA, GFF): annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
+4. Estimate individual gene expression levels: Read count table 
+5. Normalise - list of fold changes & stats `filter` `normalise DESeq2` `edgeR`
+6. Identify differentially expressed genes
 
 ![enter image description here](https://ycl6.gitbooks.io/rna-seq-data-analysis/Workflow.png) 
 ![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
