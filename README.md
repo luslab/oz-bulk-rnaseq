@@ -901,3 +901,70 @@ calculate the size factor and add it to the data set:
 `sizeFactors(DESeq.ds)`
 `counts ()` allows you to immediately retrieve the normalized read counts:
 `counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)`
+
+
+### Log Transformation of Sequencing Depth Normalised read counts
+
+Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
+
+Log2 transform read counts:
+`log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
+
+### Plot images to visually explore normalised read counts:
+`par(mfrow = c(2, 1))` #plot the 2 image on top of each other
+`boxplot(counts.sf_normalized, notch = TRUE, main = "untransformed read counts", ylab = "read counts")` #plots the non-logged boxplots
+`boxplot(log.norm.counts, notch = TRUE, main = "log2 - transformed read counts", ylab = "log2(read counts)")` #plots the logged boxplots
+
+Plot replicate  results in a pairwise manner
+`plot(log.norm.counts[ ,1:2], cex =.1, main = "Normalized log2 (read counts)")`
+
+Check data to ensure variable have similar variance (homoskedastic behaviour):
+`library(vsn)`
+`library(ggplot2)`
+`msd_plot = meanSdPlot(log.norm.counts, ranks =FALSE , plot = FALSE)` #plot mean against SD
+`msd_plot$gg + ggtitle ("sequencing depth normalized log2 (read counts)") + ylab("standard deviation")`
+y-axis shows variance of read counts. Any rise in the best fit line indicates an increase in variance at that read count length (x axis) - if to left = shorter count lengths; to right = long count lengths.
+
+## Variance Shrinkage
+
+- DSeq2 and edgeR both offer means to reduce the variance using the dispersion mean trend using the entire dataset as a reference.
+- Low read counts that are highly variable will be assigned more homogenous read estimates --> variance resembles the majority of the genes and hopefully has a more stable variance
+
+Regularise log-transformed values:
+`DSeq.rlog = rlog(DESeq.ds, blind = TRUE)` #can set rlog to FALSE if there are large differences in a large proportion of the genes to avoid overestimating the dispersion
+`rlog.norm.counts = assay(DESeq.rlog)`
+
+`msd_plot = meanSdPlot(rlog.norm.counts, ranks = FALSE, plot = FALSE)` #show data on original scale and dont print plot
+`msd_plot$gg + ggtitle("rlog-transformed read counts") + ylab("standard deviation)`
+
+## Explore Global Read Count Patterns
+- check that basic global patterns are met:
+	- do replicates have similar expression patterns; 
+	- do experimental conditions have differences
+
+3 most commonly ways to assess RNA-seq expression patterns:
+
+**1. Pairwise correlation**
+
+- Pearson correlation coefficient, r is used to assess similarity between RNA-seq samples in a pair wise fashion.
+- ENCODE guideline advises **>0.9** correlation should achieved for mRNA transcripts.
+- in R use `cor( )` function
+
+**2. Hierarchical clustering**
+- separate samples in an **unsupervised** fashion to see if samples of different conditions differ more than replicates within the same condition.
+- pairwise compairsons of individual samples, grouped into "neighbourhoods" of similar samples.
+- hierachical clustering analyses require decisions on:
+	- how the disimilarity between pairs should be calculated?
+	- how the disimilarity be used for clustering?
+		- Pearson correlation coefficient
+		- Euclidean distance (distance between two vectors) - calculate the distance using `linkage` function (complete, average, or single intercluster distance - complete intercluster distance is best and single IC distance is worst).
+- Output = dendogram:
+	- clustures obtained by cutting dendoram at a level where the jump between two nodes is large
+	- connected components form individual clusters
+	- clustering algorithms differ and there is no concensus on which is optimal
+in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
+### code page55
+
+![enter image description here](http://www.sthda.com/english/sthda-upload/figures/cluster-analysis/009c-divisive-hierarchical-clustering-compute-diana-1.png)
+
+**3. Prinicipal Components Analysis (PCA)**
