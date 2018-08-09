@@ -967,4 +967,20 @@ in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
 
 ![enter image description here](http://www.sthda.com/english/sthda-upload/figures/cluster-analysis/009c-divisive-hierarchical-clustering-compute-diana-1.png)
 
-**3. Prinicipal Components Analysis (PCA)**
+**3. Principal Components Analysis (PCA)**
+
+ - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
+ - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
+ - Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points.
+ - Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample)/ Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
+	 - identify unexpected patterns - batch effects; outliers
+	 - does not identify unknown groupings
+
+in R use `prcomp` function"
+`library(DESeq2)`
+`library(ggplot2)`
+`pc = prcomp(t(rlog.norm.counts))`
+`plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"`
+`P = plotPCA(DESeq.rlog)` # PCA plot using DESeq2 based on ggplot2
+`P = P + theme_bw() + ggtitle("Rlog transformed counts")` #plot cosmetics
+`print(P)`
