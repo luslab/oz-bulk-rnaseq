@@ -13,11 +13,11 @@ Wet-lab sequencing phase:
 
 Bioinformatic phase:
 1. Experimental design: variability, spike-ins, blocking & randomise
-2. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
-3. Align reads to reference genome (FASTA, GFF): annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
-4. Estimate individual gene expression levels: Read count table 
-5. Normalise - list of fold changes & stats `filter` `normalise DESeq2` `edgeR`
-6. Identify differentially expressed genes
+2. Raw Reads: FATQ files download SRA, quality scores (Phred), paired vs single end sequence, FASTQC quality control
+3. Align (map) reads to reference genome (FASTA, GFF, GTF): annotation file (BED), alignment program STAR, reference genomes (GenCODE, Ensemble), generate genome index, create & manipulate BAM/SAM files containing sequence alignment data
+4. Visualise alingment data in R studio: ggplot2, IGV genome browser, sashimi plots, bias identification QoRTs, read quantification with gene based read counting 
+5. Normalise & Log Transform read counts: `DESeq2` `edgeR`, Log2 scale, visually explore, variance shrinkage, global read count patterns (pairwise correlation, hierarchical clustering, PCA analysis)
+6. Differential Gene Expression (DGE): poisson distribution, DSeq2, exploratory plots (histograms, MA plot, heatmaps, read counts of single genes)
 
 ![enter image description here](https://ycl6.gitbooks.io/rna-seq-data-analysis/Workflow.png) 
 ![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
@@ -97,7 +97,7 @@ Prioritise increasing the number of biological replicates rather than the sequen
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
  
-## Raw Data (Sequencing Reads)
+# Raw Data (Sequencing Reads)
 **[Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)**
 - main repository for nucleic acid sequences
 - includes USA NCBI + European Bioinformatics Institute + DNA Databank of Japan
