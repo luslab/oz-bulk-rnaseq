@@ -1,6 +1,22 @@
 > # RNA sequence protocol
 
-This repository contains a protocol for the analysis of RNA-seq data. Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf).
+This repository contains a protocol for the analysis of RNA-seq data. Based around the [RNA seq worksheet] (http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf) using a combination of bash commmands and R scripts.
+
+## RNA seq Workflow
+
+Wet lab sequencing:
+1. Extract RNA
+2. Prepare library
+3. Strand Sequence
+4. then bioinformatic analysis:
+
+Bioinformatic Workflow:
+1. Images: `base-calling` `demultiplexing`
+2. Raw Reads: fastq files download, paired vs single end sequence, quality scores `mapping` 
+3. Aligning Reads: reference genomes (FASTA, GFF), annotation file (GTF), alignment tool eg STAR, align each FASTQ `counting`
+4. Read count table `normalise DESeq2` `edgeR`
+5. List of fold changes & stats `filter`
+6. Downstream analyses on differentially expressed genes
 
 __Requirements__
 `ml STAR`
@@ -10,21 +26,12 @@ __Requirements__
 `ml multiqc`
 `ml Subread`
 
-## Installing Bioconductor packages in R
-
+**Installing Bioconductor packages in R**
 [Install Bioconductor](https://www.bioconductor.org/install/)
 [Source]("https://bioconductor.org/biocLite.R")
 `biocLite (“package name“)`
 For example, for erccdashboard (for artificial spike in quantification) 
 `source ("https://bioconductor.org/biocLite.R")` `biocLite("erccdashboard")`
-
-## RNA seq Workflow
-1. Images: `base-calling` `demultiplexing`
-2. Raw Reads `fastq` `mapping` `aligning` `STAR`
-3. Aligned Reads `counting`
-4. Read count table `normalise DESeq2` `edgeR`
-5. List of fold changes & stats `filter`
-6. Downstream analyses on differentially expressed genes
 
 __Sequencing__
 RNA extraction --> Library preparation (mRNA enrichment) --> Sequence
