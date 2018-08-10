@@ -9,14 +9,14 @@ This forms the chapters in this repository:
 **Wet-lab sequencing phase:**
 1. Extract & isolate RNA
 2. Prepare library: break RNA into small fragments, convert to dsDNA, add sequencing adapters, PCR amplify
-3. Strand Sequence the cDNA library: flow cell, base calling & quality score
+3. Strand Sequence the cDNA library: flow cell, base calling & quality score, replicates (technical = multiple lanes in flow cell; biological = multiple samples from each condition)
 ![Preparing RNA seq library](https://lh3.googleusercontent.com/RYpyReGfJbJOWjm20hzclqR6KUMkacZ6p_xaKvQs3piOTfxXdRiXUmiKAd45nHWj30cxJPVXmqTfnQ)
 ![enter image description here](https://lh3.googleusercontent.com/EBRN0O87F248JvjOzL_yHF1U328THjmXywtF4shxKxmzIwePgU-XR6ETv9Q0LCFP7bEcltsTXrN9hg)
 
 **Bioinformatic phase:**
 1. Experimental design: variability, spike-ins, blocking & randomise, filter out low quality reads & artifacts (adapter sequence reads)
 2. Raw Reads: FATQ files download SRA, quality scores (Phred), paired vs single end sequence, FASTQC quality control
-3. Align (map) reads to reference genome (FASTA, GFF, GTF): annotation file (BED), alignment program STAR, reference genomes (GenCODE, Ensemble), generate genome index, create & manipulate BAM/SAM files containing sequence alignment data
+3. Align (map) reads to reference genome (FASTA, GFF, GTF): annotation file (BED), alignment program (STAR, HISAT), reference genomes (GenCODE, Ensemble), generate genome index, create & manipulate BAM/SAM files containing sequence alignment data
 4. Visualise alingment data in R studio: ggplot2, IGV genome browser, sashimi plots, bias identification QoRTs, read quantification with gene based read counting 
 5. Normalise between samples & Log Transform read counts: adjust each gene read counts for the total aligned reads in within each sample. Log2 scale, visually explore, variance shrinkage, 
 6. Plot the data using global read count patterns: as there are 20,000 genes with multiple samples there are too many data points to plot everything. Summarise data with pairwise correlation, hierarchical clustering, PCA analysis - look for differences between samples & identify outliers to consider excluding
@@ -46,7 +46,7 @@ For example, for erccdashboard (for artificial spike in quantification)
  __RNA extraction__
 * silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
 * remove DNA and proteins. Improve with DNase.
-* quality control: Aligent bioanalyser creates an **RNA integrity number (RIN)** is objective way of assessing RNA quality. 10 = intact; 1 = degraded. Looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
+* quality control: Aligent bioanalyser creates an **RNA integrity number (RIN)** is objective way of assessing RNA quality & degradation. 10 = intact; 1 = degraded. RIN of 8 is generally accepted threshold before proceeding to RNA seq. Uses elecetophoresis and looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
  ![enter image description here](http://tlcr.amegroups.com/article/viewFile/286/596/2055)
 __Library Preparation__
 * cDNA fragments 150-300bp —> hybridisation to flowcell (50-150 bp)
