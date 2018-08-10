@@ -28,6 +28,7 @@ This forms the chapters in this repository:
 ![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
 
 ## Requirements
+
 On the CAMP cluster most packages are preinstalled but to use them you need to use the module load function:
 `ml STAR`
 `ml SAMtools`
@@ -35,6 +36,9 @@ On the CAMP cluster most packages are preinstalled but to use them you need to u
 `ml QoRTs`
 `ml multiqc`
 `ml Subread`
+Use `module spider` to search for packages.
+
+Install `conda` and activate `bioconda`
 
 **Installing packages in R**
 `install.package("package name")`
@@ -139,6 +143,8 @@ Source: [ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/
 	Alternatively copy link address of Fastq files column —> in command line, move to the target directory then run: 	`wget <link copied from the ENA website >`
 	If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<LINK copied>"` #the quotation marks are crucial 
 Change directory `cd` to where you will store data & use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
+
+An alternative approach is to utilise the easy-to-use data analysis platform [Galaxy](https://usegalaxy.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsra_tools%2Ffastq_dump%2F2.8.1.3&version=2.8.1.3&__identifer=x2w589n8woh) which removes the need for programming experience.
  
 **Fastq-dump NCBI tool** to convert fastq.sra files
 fastq.gz  = compressed version of fast file (needs unzipping before analysing)
