@@ -19,6 +19,7 @@ Bioinformatic phase:
 5. Normalise & Log Transform read counts: `DESeq2` `edgeR`, Log2 scale, visually explore, variance shrinkage, global read count patterns (pairwise correlation, hierarchical clustering, PCA analysis)
 6. Differential Gene Expression (DGE): poisson distribution, DSeq2, exploratory plots (histograms, MA plot, heatmaps, read counts of single genes)
 
+![Compare mutant vs wild type gene expression](https://lh3.googleusercontent.com/VtBLKXVhTx_hwbUNxN59byRcd2Ums76QpdRmtHYGUSo2wiwi5MkDEld8Eej6Bgsiqo25kJ4vxwtxNw)
 ![enter image description here](https://ycl6.gitbooks.io/rna-seq-data-analysis/Workflow.png) 
 ![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
 
