@@ -1,7 +1,8 @@
 > # RNA sequence protocol
 
 - This repository contains a protocol for the analysis of RNA-seq data. 
-- Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf) using a combination of `bash` commmands and `R` scripts.
+- Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf) and the [Biostar handbook](https://www.biostarhandbook.com/)
+- Uses a combination of `bash unix` commmand line and `R` scripts.
 
 # RNA-seq Workflow
 This forms the chapters in this repository:
@@ -27,6 +28,7 @@ This forms the chapters in this repository:
 ![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
 
 ## Requirements
+On the CAMP cluster most packages are preinstalled but to use them you need to use the module load function:
 `ml STAR`
 `ml SAMtools`
 `ml RSeQC`
@@ -34,13 +36,19 @@ This forms the chapters in this repository:
 `ml multiqc`
 `ml Subread`
 
-**Installing Bioconductor packages in R**
-`install.package( )`
+**Installing packages in R**
+`install.package("package name")`
+**Bioconductor** is a free software project for genomic analyses based on R programming. 
 [Install Bioconductor](https://www.bioconductor.org/install/)
 [Source]("https://bioconductor.org/biocLite.R")
-`biocLite (“package name“)`
-For example, for erccdashboard (for artificial spike in quantification) 
-`source ("https://bioconductor.org/biocLite.R")` `biocLite("erccdashboard")`
+`source ("https://bioconductor.org/biocLite.R")` 
+`biocLite (“package_name“)`
+`biocLite("erccdashboard")` # erccdashboard (for artificial spike in quantification) 
+`biocLite("DESeq")`
+
+Even though packages have been installed into R locally, then need to be brought into the working memory before using them:
+`library("erccdashboard")`
+`library("DESeq")`
  
  # Wet-lab RNA Sequencing
  __RNA extraction__
