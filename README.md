@@ -1,3 +1,4 @@
+
 > # RNA sequence protocol assessing for Alternative Splicing & Polyadenylation
 
 - This repository contains a protocol for the analysis of RNA-seq data authored by Oliver Ziff. 
@@ -117,6 +118,14 @@ Prioritise increasing the number of biological replicates rather than the sequen
 **[Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)**
 - main repository for nucleic acid sequences
 - includes USA NCBI + European Bioinformatics Institute + DNA Databank of Japan
+
+**GEO, Gene Expression Omnibus**
+https://www.ncbi.nlm.nih.gov/geo/
+Public functional genomics data repository with sequence based data. Only stores gene expression level results - the sequence data is deposited in SRA. (i.e. projects have two locations for data).
+
+Ctrl & F in manuscript PDF to find SRA & GEO unique identifiers.
+SRA numbers start with PRJNA
+GEO numbers start with GSE
 
 **FASTQ files**
 
@@ -1097,5 +1106,4 @@ Genes are sorted by adjusted p-value. Colours represent read counts.
 - Map the ORF identifiers from the read count matrix to the gene name --> retreive the rlog transformed read counts & log2 fold changes.
 - Use an annotation database within R specific for your sample eg for human use org.Hs.eg.db https://www.bioconductor.org/packages/release/data/annotation/
 **PAGE 61 for R code**
-
 **Edge R workflow** page 62
