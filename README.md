@@ -1,9 +1,9 @@
 
 > # RNA sequence protocol assessing for Alternative Splicing & Polyadenylation
 
-- This repository contains a protocol for the analysis of RNA-seq data authored by Oliver Ziff. 
-- Based around the [RNA seq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf) and the [Biostar handbook](https://www.biostarhandbook.com/)
-- Uses a combination of `bash unix` commmand line and `R` scripts.
+- This repository contains a protocol to analyse RNA-seq data, focusing on alternative splicing & polyadenylation, authored by Oliver Ziff. 
+- The contents are based on multiple resource including the [RNAseq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf); [Biostars handbook](https://www.biostarhandbook.com/); Data Camp; Coursera; and most importantly the experience of established experts in RNAseq analysis within my laboratory. 
+- The protcol utilises a combination of bash `unix` commmand line and `R` scripts.
 
 # RNA-seq Workflow
 This forms the chapters in this repository:
