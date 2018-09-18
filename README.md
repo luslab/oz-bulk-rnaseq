@@ -1,4 +1,3 @@
-
 > # RNA sequence protocol assessing for Alternative Splicing & Polyadenylation
 
 - This repository contains a protocol to analyse RNA-seq data, focusing on alternative splicing & polyadenylation, authored by Oliver Ziff. 
@@ -148,13 +147,78 @@ __Downloading FASTQ files__
 Source: [ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/sra)
 1. Search accession number (indicated in published paper)
 2. DOWNLOAD
-	click link in column (Fastq files ftp) & save
-	Alternatively copy link address of Fastq files column —> in command line, move to the target directory then run: 	`wget <link copied from the ENA website >`
-	If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<LINK copied>"` #the quotation marks are crucial 
-Change directory `cd` to where you will store data & use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
+- *Copy Link Address* of Fastq files column	
+- in command line use `wget` or `curl` tools to download - https://daniel.haxx.se/docs/curl-vs-wget.html
+- in terminal move to the target directory then run: 	`wget link_copied_from the_website`
+- If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<LINK copied>"` #the quotation marks are crucial 
+- Change directory `cd` to where you will store data & use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
+3. View the downloaded data: 
+ - `more file_name.README` Press `space` to move forward; `b` to move back, `q` or `ESC` to exit.
+ - print the content of the file to the terminal window: `cat file_name`
+	 - scan the text to find columns and rows of interest
+4. Interrogate the downloaded file:
+- count lines, words & characters: `cat file_name | wc`
+- how does the file start: `cat file_name | head`
+- find information on a specific gene or transcript gene_x by searching for text matching the gene name: ` cat file_name | grep gene_x`
+	- `grep -v` will show lines that dont match
+	- `cat file_name | cut -f 2 | grep gene_feature | head` to select genes, this command shows the gene_feature in column 2
+	- `cat file_name | cut -f 2 | grep gene_feature | wc -l` counts the number of genes present
+- if you plan to use the data to interrogate further then place it in a separate file to analyse: `cat file_name | cut -f 2 > new_file.txt`
+	- sort into identical consecutive entries: `cat new_file.text | sort`
+	- collapse duplicated identical words: `cat new_file.txt | sort | uniq | head`
+	- print counts: `cat new_file.txt | sort | uniq -c | head`
+	- unique types of features: ` cat file_name | cut -f 2 | sort | uniq -c | wc -l`
 
 An alternative approach is to utilise the easy-to-use data analysis platform [Galaxy](https://usegalaxy.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsra_tools%2Ffastq_dump%2F2.8.1.3&version=2.8.1.3&__identifer=x2w589n8woh) which removes the need for programming experience.
- 
+
+**Compressed Files**
+A "compressed file" is a single file reduced in size. The name may end with .gz , .bz , .bz2 , or .zip 
+A "compressed archive" is a folder containing multiple files combined, and then compressed. The name may end with .tar.gz , .tar.bz2
+
+There are programmes to compress & uncompress files:
+- ZIP , extension .zip , program names are zip/unzip
+- GZIP extension .gz , program names are gzip/gunzip
+- BZIP2 extension .bz/.bz2 , program names are bzip2/bunzip2
+- XZ extension .xz . A more recent invention. Technically bzip2 and (more so) xz are improvements over gzip , but gzip is still quite prevalent for historical reasons and because it requires less memory.
+- [BGZIP extension](http://www.htslib.org/doc/tabix.html). Specific for bioinformatics. Allows random access to content of compressed file. Can decompress with gzip but only bgzip creates a bgzip file.
+
+To compress a file:
+1. efetch sequence file usually in fasta .fa format `efetch sequence id`
+2. compress file name with gzip `gzip sequence_name.fa`
+
+You can read compressed files without uncompressing using `zcat` on Linux (`gzcat` on macOS)
+`zcat sequence_name.fa.gz | head`
+
+To uncompress file: `gunzip sequence_name.fa.gz` creates the file sequence_name.fa
+
+To compress multiple files together us `tar` Tape Archive:
+`tar czfv sequences.tar.gz AF086833.fa AF086833.gb`
+Means that we want to create `c` , a compressed `z` , file `f` , in verbose `v` mode in a file called `sequences.tar.gz`. The 2 files to add are listed at the end.
+
+The best was to compress multiple files (if there are many) is to put all files into a folder and then compress that entire directory:
+`mkdir sequences`
+`mv sequence_names.* sequences/`
+`tar czvf sequences.tar.gz sequences/*`
+
+rsyncable archive:
+- `rsync` tool synchronises files by sending only the differences between existing files. 
+- When files are compressed, you cant use `rsync` but you can use `gzip --rsyncable` flag. This allows gziped files to by synced much faster. e.g. `tar -c sequences/* | gzip --rsyncable > file.tar.gz`
+
+**Sequence Ontology**
+There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
+To search a defined sequence trm use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
+To quickly search Sequence Ontology, use grep on the raw data:
+`URL=https://raw.githubusercontent.com/The-Sequence-Ontology/SO-Ontologies/master/so-simple.obo`
+`wget $URL`
+`cat so-simple.obo | grep 'name: gene$' -B 1 _A 6` where $ represents the end of line; -B -A prints lines before & after a match.
+
+**[Gene Ontology](http://geneontology.org/)**
+Connects each gene to one or more functions.
+3 sub-ontologies for each gene product:
+- Cellular Component (CC): cellular location where product exhibits its effect
+- Molecular function (MF): How does gene work?
+- Biological Process (BP): What is the gene product purpose?
+
 **Fastq-dump NCBI tool** to convert fastq.sra files
 fastq.gz  = compressed version of fast file (needs unzipping before analysing)
 
