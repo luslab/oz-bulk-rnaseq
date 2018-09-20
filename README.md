@@ -113,37 +113,147 @@ Prioritise increasing the number of biological replicates rather than the sequen
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
  
-# Raw Data (Sequencing Reads)
+# Sequencing Data
+
+Sequencing data are stored in GenBank, FASTA & FASTQ formats. Whilst GenBank & FASTA are usually curated, FASTQ is experimentally obtained.
+
+**1. GenBank format**
+
+- oldest, designed to be human readable --> therefore not optimised for data analysis.
+- fixed-width format. first 10 characters form an identifier column.
+- convert to simpler format using ReadSeq.
+- RefSeq (NCBI Reference Sequence project) database provides reference standards from all the data in GenBank. RefSeq recods have accession numbers that begin with two capitals followed by underscore eg NP_  
+
+**2. FASTA format**
+
+- Header: `>` symbol on the FASTA header line indicates a FASTA record start. The header line may contain an arbitrary amount of text (including spaces) on the same line. This text may include structured information e.g. accession numbers. 
+- A string of letters - the sequence ID follows the `>` symbol according to [IUPAC nucleotide guidelines](https://www.bioinformatics.org/sms/iupac.html).
+	- `ATGC` represent nucleotides.
+	- `N` indicates the base could be any of `ATGC`
+	- `W` indicates either of `A` or `T`
+	- gaps are represented by `.` or `-`
+- sequence lines should be short
+- tools can accept letters beyond the IUPAC guidelines and wont be recognised.
+- sequence lines should wrap at the same width (exception being the last line).
+- use capital letters (lower case letters were previously used to represent repetitive regions) as some tools skip over lower-case regions.
+
+**3. FASTQ format**
+
+- format by which all sequencing instuments represent data.
+- each sequence base is associated with a quality score.
+-  end in **SRR** and **SRX**
+- FASTQ files are uncompressed & large. 
+
+FASTQ format consisted of 4 sections:
+1. **Header**: instead of `>` in FASTA, FASTQ start with `@`. Followed by the sequence ID with option for more text which  contains:
+	- `@<machine_id>:<run ID>:<flowcell ID>:<flowcell lane>:<tile in the lane>:<x-pos>:<y-pos of the cluster in the tile><read single or paired-end>:<is filtered Y or N>:<control number 0 if none>:<index sequence>`
+2. **Sequence**: usually, but not necessarily, on a single line!
+3. Starts with `+` followed by optional text  e.g. sequence ID again
+4. **Quality scores** of each base in the Sequence (from section 2) - must be same length & wrapped in the same way as section 2. Each character represents a numerical value from the [Phred Score, Q](https://en.wikipedia.org/wiki/Phred_quality_score).
+
+FASTQ example:
+5. `@SEQ_ID`
+6. `GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT`
+7. `+`
+8. `!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65 `
+
+![enter image description here](https://www.researchgate.net/profile/Morteza_Hosseini17/publication/309134977/figure/fig2/AS:417452136648711@1476539753452/A-sample-of-the-FASTQ-file.png)
+
+* **Base calling** = deduce the nucleotide letter code sequence from the fluorescence signal edited when incorporated into the sequence read. Imperfect. Information on [base calling here](https://academic.oup.com/bib/article/12/5/489/268399).
+* **Phred score, Q** = proportional to probability that a base call is incorrect. P = 10 ^ (-Q/10)
+	*  10 = 1 in 10 bases are wrong (90% accuracy); 
+	* 20 = 1 in 100 bases are wrong (99% accuracy). 
+	* Higher Phred = higher quality. 
+	* Maximum score is 40.  
+	* Each Phred score is represented as a single ASCII character but may represent a 2 digit score, e.g. score I = Phred of 40. 
+* Using the current standard (Sanger +33 format), ASCII character symbols are mapped to scores as follows:
+
+ASCII character = !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI
+Phred score ----= 0------5---10---15-----20-----25---30------35-----40
+Quality----------= worst-----------------------------------------------best
+
+* There are different versions of FASTQ quality score encoding. Depends on the sequence technology and the base caller assignment used (eg Bustard, RTA0 HiSeq X). The newer Sanger +64 format has the following mapping:
+
+ASCII character = @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghi
+Phred score ----= 0-------5-----10-------15-----20-------25---30----35----40
+Quality----------= worst-------------------------------------------------------best
+
+- Note that in Sanger +64, characters `@` `A` `B` `C` etc map to low quality (score <5) whereas in Sanger +33 these same characters map to high quality (>30).
+
+As a general rule remember that:
+- !"#$%&'()*+,-.  = low quality 1/10
+- -./0123456789 = medium quality 1/100
+- ABCDEFGHI = high quality 1/1000
+
+Easily distinguish between Sanger +33 and +64 by the presence of:
+- lower case letters = +33 version. 
+- 0 character = +33 version.  When the quality scores do not contain 0, it is either Solexa +64, Illumina 1.3+ Phred+64, Illumina 1.5+ Phred+64.
+- characters J - Z = +64 version
+
+Depending on the tool being used you can either (a) account for different version or (b) convert data to correct coding, e.g. using `seqtk` 
+- e.g. `seqtk seq -Q64 input.fq >output.fa`
+- converting Illumina FASTQ file 1.3 (Phred + 64) > version 1.8 (Phred +33) can also use: 
+`sed -e '4~4y/ @ABCDEFGHIJKLMNOPQRSTUVWXYZ [\\]^_abcdefghi/!"#$%& '\ ' '()*+ , -.\/0123456789:; <= >? @ABCDEFGHIJ /' originalFile.fastq`
+
+## Sequence Database Repositories
+
+Ctrl & F in manuscript PDF to find unique ID accession numbers. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
+
 **[Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)**
-- main repository for nucleic acid sequences
+- main repository for raw sequencing reads from next generation sequencing
 - includes USA NCBI + European Bioinformatics Institute + DNA Databank of Japan
+- SRA accession ID start with PRJNA
 
-**GEO, Gene Expression Omnibus**
-https://www.ncbi.nlm.nih.gov/geo/
-Public functional genomics data repository with sequence based data. Only stores gene expression level results - the sequence data is deposited in SRA. (i.e. projects have two locations for data).
+**[Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/)**
+- Functional genomic data repository including RNA-Seq, ChIP-seq, RIP-seq, HiC-seq, methyl-seq etc. 
+- Also accepts expression data e.g. microarray, SAGE and mass spectrometry.
+- Only stores gene expression level results - the sequence data is deposited in SRA. (i.e. projects can have two locations for data).
+- GEO accession ID start with GSE
 
-Ctrl & F in manuscript PDF to find SRA & GEO unique identifiers.
-SRA numbers start with PRJNA
-GEO numbers start with GSE
+**[Transcriptome Shotgun Assembly (TSA)](https://www.ncbi.nlm.nih.gov/genbank/tsa/)**
+- Transcriptome assemblies
+- Division of GenBank 
 
-**FASTQ files**
+**GenBank**
+- everything else.
+- Divisions include
+	- Genomes - complete genome assemblies
+	- WGS (whole genome shotgun)
 
-* the format in which we store sequencing reads. 
-* lots of other formats but FASTQ is the most common.
-* FastQ files end in **SRR** and **SRX**
-* FASTQ files bundle the sequence of each single read with the **quality score**.
+**[ArrayExpress](https://www.ebi.ac.uk/arrayexpress/)**
+- in addition to GEO is the main repository for functional genomics data e.g. RNA-seq
+- From EMBL-EBI
 
-FASTQ files are uncompressed & large. They contain:
-1. `@ then read ID +- informs on sequencing run`
-2. `Sequenced bases`
-3. `+ (read ID again or description)`
-4. `Quality score of each base (ASCII-encoded)`
- 
-Read ID format:  
-`@<machine_id>:<run number>:<flowcell ID>:<lane>:<tile>:<x-pos>:<y-pos><read>:<is filtered>:<control number>:<index sequence>`
+### Accessing Sequence Data
 
-![enter image description here](https://www.researchgate.net/profile/Morteza_Hosseini17/publication/309134977/figure/fig2/AS:417452136648711@1476539753452/A-sample-of-the-FASTQ-file.png) 
-__Downloading FASTQ files__
+NCBI & Entrez
+- ginormous data store of sequence data.
+- Entrez is NCBIs primary text search integrating PubMed with 39 other databases
+- Entrez enables you to access NCBI databses via the command line. 
+- Accession number applies to the complete database record for that entity. Updates and revisions remain under the same accession number but with a different version number.
+- Prior to 2015 NCBI versions began with GI.
+- Entrez web API allows us to query NCBI data using the URL construct: 
+
+`https://service.nih.gov/?param1=value1&param2=value2&param3=value3`
+- place `\` before each `&` to escape the command line `&` meaning or alternatively place ' ' around the whole URL.
+- For example to access AF086833.2 in FASTA format via the command line: 
+
+`curl -s 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?id=AF086833.2&db=nuccore&rettype=fasta'`
+
+- Entrez direct tool simplifies the command line access e.g. `efetch`
+
+`efetch -db=nuccore -format=gb -id=AF086833 | head`
+
+[ENSEMBL](http://www.ensembl.org/index.html) 
+- has the most detailed annotations of genomes. Download the latest Ensembl release of the human transcriptome `curl -0 ftp://ftp.ensembl.org/pub/release-86/gtf/homo_sapiens/Homo_sapiens.GRCh38.86.gtf.gz`
+
+UCSC Table Browser
+* Stores large scale result tiles produced by consortia e.g. ENCODE. Contains multiple sequence alignment datasets across entire genomes.
+* UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
+* must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
+
+## Downloading FASTQ files
+
 Source: [ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/sra)
 1. Search accession number (indicated in published paper)
 2. DOWNLOAD
@@ -171,7 +281,7 @@ Source: [ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/
 
 An alternative approach is to utilise the easy-to-use data analysis platform [Galaxy](https://usegalaxy.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsra_tools%2Ffastq_dump%2F2.8.1.3&version=2.8.1.3&__identifer=x2w589n8woh) which removes the need for programming experience.
 
-**Compressed Files**
+**Compress Files**
 A "compressed file" is a single file reduced in size. The name may end with .gz , .bz , .bz2 , or .zip 
 A "compressed archive" is a folder containing multiple files combined, and then compressed. The name may end with .tar.gz , .tar.bz2
 
@@ -204,21 +314,6 @@ rsyncable archive:
 - `rsync` tool synchronises files by sending only the differences between existing files. 
 - When files are compressed, you cant use `rsync` but you can use `gzip --rsyncable` flag. This allows gziped files to by synced much faster. e.g. `tar -c sequences/* | gzip --rsyncable > file.tar.gz`
 
-**Sequence Ontology**
-There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
-To search a defined sequence trm use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
-To quickly search Sequence Ontology, use grep on the raw data:
-`URL=https://raw.githubusercontent.com/The-Sequence-Ontology/SO-Ontologies/master/so-simple.obo`
-`wget $URL`
-`cat so-simple.obo | grep 'name: gene$' -B 1 _A 6` where $ represents the end of line; -B -A prints lines before & after a match.
-
-**[Gene Ontology](http://geneontology.org/)**
-Connects each gene to one or more functions.
-3 sub-ontologies for each gene product:
-- Cellular Component (CC): cellular location where product exhibits its effect
-- Molecular function (MF): How does gene work?
-- Biological Process (BP): What is the gene product purpose?
-
 **Fastq-dump NCBI tool** to convert fastq.sra files
 fastq.gz  = compressed version of fast file (needs unzipping before analysing)
 
@@ -229,20 +324,6 @@ __Paired End Sequencing__
 * know the origin of each read (forward vs reverse) - encoded in read name - some analysis tools require combining the 2 files into 1.
 	* The **forward** read will usually be **filename_1** and **backward** read is **filename_2**
 * Need to process the read as Split Reads/files
- 
-### FASTQ Quality Scores
-* The first bioinformatic step is quality control. Use `fastqc` - see help page by typing `fastqc -h`
-* **Base calling** = deduce the nucleotide letter code sequence from the fluorescence signal edited when incorporated into the sequence read. Imperfect. Information on [base calling here](https://academic.oup.com/bib/article/12/5/489/268399).
-* **Phred score, Q** = proportional to probability that a base call is incorrect. 10 = 1 in 10 bases are wrong (90% accuracy); 20 = 1 in 100 bases are wrong (99% accuracy). Higher Phred = higher quality
-* Sanger also have a quality score
-* ASCII character = represents that Phred Score. Depends on:
-	* sequence technology used
-	* base caller assignment used (eg Bustard, RTA0 HiSeq X). 
-* Maximum score is 45.
-* converting Illumina FASTQ file 1.3 (Phred + 64) to version 1.8 (Phred +33) use: 
-`sed -e '4~4y/ @ABCDEFGHIJKLMNOPQRSTUVWXYZ [\\]^_abcdefghi/!"#$%& '\ ' '()*+ , -.\/0123456789:; <= >? @ABCDEFGHIJ /' originalFile.fastq`
-
-Note: If the quality scores contain character 0 it is either Sanger phred+33 or Illumina 1.8+ phred+33. When they also contain the character J, it is Illumina 1.8+ phred 33, otherwise it is Sanger phred + 33.  When the quality scores do not contain 0, it is either Solexa +64, Illumina 1.3+ Phred+64, Illumina 1.5+ Phred+64. It is Illumina 1.3 phred + 64 when it contains A It is Illumina 1.5 phred +64 
  
 ## Quality Control (QC)
 Main points for QC in analysis:
@@ -325,12 +406,11 @@ __Reference Genome File Formats__
 **GTF** = Gene Transfer Format (aka GFF 2.5). More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
 
 **Download Reference Genome files (GTF & FASTA)**
-UCSC https://genome.ucsc.edu/          	https://genome.ucsc.edu/cgi-bin/hgTables
+[UCSC](https://genome.ucsc.edu/) - comprehensive comparative genomics data across genomes         	https://genome.ucsc.edu/cgi-bin/hgTables
 ENSEMBL http://www.ensembl.org/index.html
 RefSeq
 GenCODE
-
-* UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
+[RNA-Central](http://rnacentral.org/) - non coding RNA sequencing database
  
 Convert 2bit format —> FASTA format:  `twobittofa file_name.2bit file_name.fa`
 
@@ -366,7 +446,7 @@ remove first column & first line: `cut -f 2- file_name.txt | sed ‘1d”`
         	field number can vary from 3 - 12. Must be consistent within a file.
 indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
 
-### Alignment Workflow:
+## Alignment Workflow:
  
 ### 1. Choose alignment tool
  
@@ -407,7 +487,6 @@ no space between -- and the parameter
 quotation marks: use ` and not ' or "
 
 no `<>` needed
-must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
 Check it is running using `myq`
 If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
@@ -1071,7 +1150,7 @@ Regularise log-transformed values:
 	- connected components form individual clusters
 	- clustering algorithms differ and there is no concensus on which is optimal
 in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
-### code page55
+code on page 55
 
 ![enter image description here](http://www.sthda.com/english/sthda-upload/figures/cluster-analysis/009c-divisive-hierarchical-clustering-compute-diana-1.png)
 
@@ -1160,7 +1239,7 @@ many R functions to do this:
 `aheartmap( )`
 `gplots::heatmap.2( )`
 `pheatmap::pheatmap( )`
-**PAGE 60 for R code**
+page 60 for R code
 
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 Genes are sorted by adjusted p-value. Colours represent read counts.
@@ -1169,5 +1248,65 @@ Genes are sorted by adjusted p-value. Colours represent read counts.
 - For gene which you have prior knowledge about, you should check to see if they behaved as expected. For example a knockout gene should be very strongly downregulated in the DGE analysis.
 - Map the ORF identifiers from the read count matrix to the gene name --> retreive the rlog transformed read counts & log2 fold changes.
 - Use an annotation database within R specific for your sample eg for human use org.Hs.eg.db https://www.bioconductor.org/packages/release/data/annotation/
-**PAGE 61 for R code**
-**Edge R workflow** page 62
+p61 for R code
+Edge R workflow: page 62
+
+## Ontologies
+
+**[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
+There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
+To search a defined sequence term use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
+To quickly search Sequence Ontology, use grep on the raw data:
+`URL=https://raw.githubusercontent.com/The-Sequence-Ontology/SO-Ontologies/master/so-simple.obo`
+`wget $URL`
+`cat so-simple.obo | grep 'name: gene$' -B 1 _A 6` where $ represents the end of line; -B -A prints lines before & after a match.
+
+**[Gene Ontology](http://geneontology.org/)**
+Connects each gene to one or more functions.
+3 sub-ontologies for each gene product:
+- Cellular Component (CC): cellular location where product exhibits its effect
+- Molecular function (MF): How does gene work?
+- Biological Process (BP): What is the gene product purpose?
+Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
+
+GO Download page:
+http://geneontology.org/page/download-annotations
+- 2 files to download: 
+1. definition (term) file
+`wget http://purl.obolibrary.org/obo/go.obo`
+
+2. association file
+ `wget http://geneontology.org/gene-associations/goa_human.gaf.gz`. In GAF compressed format defined at http://geneontology.org/page/go-annotation-file-gaf-format-21
+Contains both gene and protein IDs.
+
+To search the function of a gene use the [GeneCards](http://www.genecards.org/) database to easily locate the gene by name.
+
+### Gene Set Enrichment Analysis
+- Identify common characteristics within a list of genes
+- When using GO terms, this is called "functional enrichment"
+- Most common variant is the ORA (over-representation analysis): 
+	- examines genes in a list > 
+	- summarises the GO annotations for each gene > 
+	- determines if any annotations are statistically over-represented.
+
+Multiple **GO enrichment tools** exist, many are difficult to use and outdated. The best are:
+- [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
+- AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
+- DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
+- Panther is offered directly from the GO website. It produces very limited information and no visualization.
+- goatools a command line Python scripts.
+- ermineJ Standalone tool with easy to use interface. It has detailed documentation.
+- GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
+- ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
+
+#### Gene Set Enrichment Analysis Methodology
+1. Enter gene names to be studies
+2. Enter background gene names (usually all genes for the organism)
+3. Perform statistical comparison
+
+[g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
+[g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
+
+The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
+
+Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
