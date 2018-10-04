@@ -29,13 +29,16 @@ This forms the chapters in this repository:
 
 ## Requirements
 
-On the CAMP cluster most packages are preinstalled but to use them you need to use the module load function:
+On the CAMP cluscd ter most packages are preinstalled but to use them you need to use the module load function:
 `ml STAR`
+`ml ncbi-vdb`
+`ml fastq-tools`
 `ml SAMtools`
 `ml RSeQC`
 `ml QoRTs`
 `ml multiqc`
 `ml Subread`
+`ml Java`
 Use `module spider` to search for packages.
 
 Install `conda` and activate `bioconda`
@@ -91,11 +94,61 @@ Deeper sequencing of RNA is required to:
 
 Prioritise increasing the number of biological replicates rather than the sequencing depth
 
+Illumina is the top sequencing platform. Types:
+MiniSeq (cheap)
+MiSeq (Bench top)
+MiSeqDX (high throughput)
+NextSeq 500 benchtop
+HiSeq 2500/3000/4000 - workhorses of sequencing - large scale genomics, production scale.
+HiSeq X 5/10
+NovaSeq 5000 (for counting)
+NovaSeq 6000 (high seuqence coverage)
+
+PacBio sequencers offer longer reads than Illumina. 
+
 **Single read vs. paired end reads:**
 * single read = determines the DNA sequence of just one end of each DNA fragment
-* paired end = yields both ends of each DNA fragment. More expensive but increases mappability for repetitive regions —> easier to identify structural variations & indwells
+* paired end = sequence both ends of each DNA fragment making pairing and directionality information available. 
+	* Disadvantages: (i) 20% more expensive (ii) measures same fragment twice, thus at same genomic coverage will utilise only half as many unique fragments as single end sequencing. 
 * for detecting de novo transcriptome assembly in humans need 100-200 x10^6 paired end reads.
 ![enter image description here](https://www.yourgenome.org/sites/default/files/images/illustrations/bioinformatics_single-end_pair-end_reads_yourgenome.png)
+
+## Compress & Uncompress Files
+A "compressed file" is a single file reduced in size. The name may end with .gz , .bz , .bz2 , or .zip 
+A "compressed archive" is a folder containing multiple files combined, and then compressed. The name may end with .tar.gz , .tar.bz2
+
+There are programmes to compress & uncompress files:
+- ZIP , extension .zip , program names are zip/unzip
+- GZIP extension .gz , program names are gzip/gunzip
+- BZIP2 extension .bz/.bz2 , program names are bzip2/bunzip2
+- XZ extension .xz . A more recent invention. Technically bzip2 and (more so) xz are improvements over gzip , but gzip is still quite prevalent for historical reasons and because it requires less memory.
+- [BGZIP extension](http://www.htslib.org/doc/tabix.html). Specific for bioinformatics. Allows random access to content of compressed file. Can decompress with gzip but only bgzip creates a bgzip file.
+
+To compress a file:
+1. efetch sequence file usually in fasta .fa format `efetch sequence id`
+2. compress file name with gzip `gzip sequence_name.fa`
+
+You can read compressed files without uncompressing using `zcat` on Linux (`gzcat` on macOS)
+`zcat sequence_name.fa.gz | head`
+
+To uncompress file: `gunzip sequence_name.fa.gz` creates the file sequence_name.fa
+
+To compress multiple files together us `tar` Tape Archive:
+`tar czfv sequences.tar.gz AF086833.fa AF086833.gb`
+Means that we want to create `c` , a compressed `z` , file `f` , in verbose `v` mode in a file called `sequences.tar.gz`. The 2 files to add are listed at the end.
+
+The best was to compress multiple files (if there are many) is to put all files into a folder and then compress that entire directory:
+`mkdir sequences`
+`mv sequence_names.* sequences/`
+`tar czvf sequences.tar.gz sequences/*`
+
+rsyncable archive:
+- `rsync` tool synchronises files by sending only the differences between existing files. 
+- When files are compressed, you cant use `rsync` but you can use `gzip --rsyncable` flag. This allows gziped files to by synced much faster. e.g. `tar -c sequences/* | gzip --rsyncable > file.tar.gz`
+
+fastq.gz  = compressed version of fast file (needs unzipping before analysing)
+
+[NCBI Format Guide](https://www.ncbi.nlm.nih.gov/books/NBK242622/)
 
 # Experimental Design
  
@@ -195,41 +248,20 @@ Depending on the tool being used you can either (a) account for different versio
 - converting Illumina FASTQ file 1.3 (Phred + 64) > version 1.8 (Phred +33) can also use: 
 `sed -e '4~4y/ @ABCDEFGHIJKLMNOPQRSTUVWXYZ [\\]^_abcdefghi/!"#$%& '\ ' '()*+ , -.\/0123456789:; <= >? @ABCDEFGHIJ /' originalFile.fastq`
 
-## Sequence Database Repositories
+## Sequencing Database Repositories:
+**[Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)**: main repository for raw sequencing reads from next generation sequencing. Includes NCBI & European Bioinformatics Institute & DNA Databank of Japan
+**[European Nucleotide Archive, (ENA)](http://www.ebi.ac.uk/ena)**: similar to SRA except files are stored directly as FASTQ & BAM formats (dont need to convert with `sratoolkit`)
+**[Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/)**: All GEO sequences are in SRA (both NCBI). GEO consists of functional genomic data repository including RNA-Seq, ChIP-seq, RIP-seq, HiC-seq, methyl-seq etc.  Only stores gene expression level results - the sequence data is deposited in SRA. (i.e. projects can have two locations for data). GEO accession ID start with GSE
+**GenBank**: everything else. Divisions include Genomes (complete genome assemblies) & WGS (whole genome shotgun)
+**[Transcriptome Shotgun Assembly (TSA)](https://www.ncbi.nlm.nih.gov/genbank/tsa/)**: Transcriptome assemblies. Division of GenBank 
+**[ArrayExpress](https://www.ebi.ac.uk/arrayexpress/)**: in addition to GEO is the main repository for functional genomics data e.g. RNA-seq. From EMBL-EBI.
 
-Ctrl & F in manuscript PDF to find unique ID accession numbers. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
+## Accessing Sequence Data
 
-**[Sequencing Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra)**
-- main repository for raw sequencing reads from next generation sequencing
-- includes USA NCBI + European Bioinformatics Institute + DNA Databank of Japan
-- SRA accession ID start with PRJNA
-
-**[Gene Expression Omnibus (GEO)](https://www.ncbi.nlm.nih.gov/geo/)**
-- Functional genomic data repository including RNA-Seq, ChIP-seq, RIP-seq, HiC-seq, methyl-seq etc. 
-- Also accepts expression data e.g. microarray, SAGE and mass spectrometry.
-- Only stores gene expression level results - the sequence data is deposited in SRA. (i.e. projects can have two locations for data).
-- GEO accession ID start with GSE
-
-**[Transcriptome Shotgun Assembly (TSA)](https://www.ncbi.nlm.nih.gov/genbank/tsa/)**
-- Transcriptome assemblies
-- Division of GenBank 
-
-**GenBank**
-- everything else.
-- Divisions include
-	- Genomes - complete genome assemblies
-	- WGS (whole genome shotgun)
-
-**[ArrayExpress](https://www.ebi.ac.uk/arrayexpress/)**
-- in addition to GEO is the main repository for functional genomics data e.g. RNA-seq
-- From EMBL-EBI
-
-### Accessing Sequence Data
-
-NCBI & Entrez
+**NCBI & Entrez**
 - ginormous data store of sequence data.
 - Entrez is NCBIs primary text search integrating PubMed with 39 other databases
-- Entrez enables you to access NCBI databses via the command line. 
+- Entrez enables you to access NCBI databases via the command line. 
 - Accession number applies to the complete database record for that entity. Updates and revisions remain under the same accession number but with a different version number.
 - Prior to 2015 NCBI versions began with GI.
 - Entrez web API allows us to query NCBI data using the URL construct: 
@@ -240,129 +272,213 @@ NCBI & Entrez
 
 `curl -s 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?id=AF086833.2&db=nuccore&rettype=fasta'`
 
-- Entrez direct tool simplifies the command line access e.g. `efetch`
+- Entrez direct tool simplifies the command line access e.g. `efetch`, `esearch`, `xtract`
 
 `efetch -db=nuccore -format=gb -id=AF086833 | head`
 
-[ENSEMBL](http://www.ensembl.org/index.html) 
-- has the most detailed annotations of genomes. Download the latest Ensembl release of the human transcriptome `curl -0 ftp://ftp.ensembl.org/pub/release-86/gtf/homo_sapiens/Homo_sapiens.GRCh38.86.gtf.gz`
+#e.g. accession number AF086833 in Genbank format. `efetch -db=nuccore -format=gb -id=AF086833 > AF086833.gb`
+#e.g. accession number AF086833 in Fasta format. `efetch -db=nuccore -format=fasta -id=AF086833 > AF086833.fa`
+#efetch can take additional parameters and select a section of the sequence. `efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=3`
+#It can even produce the sequence from reverse strands: `efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=5 -strand=1`
+>gb|AF086833.2|:1-5 Ebola virus - Mayinga, Zaire, 1976, complete genome CGGAC
 
-UCSC Table Browser
-* Stores large scale result tiles produced by consortia e.g. ENCODE. Contains multiple sequence alignment datasets across entire genomes.
+`efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=5 -strand=2`
+
+>gb|AF086833.2|:c5-1 Ebola virus - Mayinga, Zaire, 1976, complete genome GTCCG
+
+Note strand 2 is the reverse complement (not simple complement) represented by `c5-1` tag.
+
+- searching Entrez Direct:
+	- use the project accession number from the published paper to search the data that comes with it
+
+ `esearch -help`
+ `esearch -db nucleotide -query accession_number`
+
+To fetch the data from a search pipe it to efetch: `esearch -db nucleotide -query accession_number | efectch -format=fasta >genome.fa` This generates a XML file.
+
+To navigate and select parts of the XML file from `efetch` pipe it to `xtract`
+`efetch -db taxonomy -id 9606,7227,10090 -format xml | xtract -Pattern Taxon -first TaxId ScientificName GenbankCommonName Division`
+
+**[ENSEMBL](http://www.ensembl.org/index.html)** : has the most detailed annotations of genomes. Download the latest Ensembl release of the human transcriptome `curl -0 ftp://ftp.ensembl.org/pub/release-86/gtf/homo_sapiens/Homo_sapiens.GRCh38.86.gtf.gz`
+
+**UCSC Table Browser**: Stores large scale result tiles produced by consortia e.g. ENCODE. Contains multiple sequence alignment datasets across entire genomes.
 * UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
 * must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
-## Downloading FASTQ files
+## Downloading from Sequence Database Repositories
 
-Source: [ENA](https://www.ebi.ac.uk/ena) OR  [SRA](https://www.ncbi.nlm.nih.gov/sra)
-1. Search accession number (indicated in published paper)
-2. DOWNLOAD
-- *Copy Link Address* of Fastq files column	
-- in command line use `wget` or `curl` tools to download - https://daniel.haxx.se/docs/curl-vs-wget.html
-- in terminal move to the target directory then run: 	`wget link_copied_from the_website`
-- If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<LINK copied>"` #the quotation marks are crucial 
-- Change directory `cd` to where you will store data & use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
-3. View the downloaded data: 
+`ml ncbi-vdb`
+`ml fastq-tools`
+`ml seqtk`
+
+1. Ctrl & F in manuscript PDF to find unique ID accession numbers. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
+2. For `GSE****` accession numbers go to: https://www.ncbi.nlm.nih.gov/geo/ and search the `GSE****` ID
+3. On the [GEO Accession Display](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98290) page click the BioProject or BioSample ID under Relations `PRJNA****`
+	- NCBI BioProjects accession IDs start with `PRJNA****`
+	- NCBI BioSample start with `SAMN****` and `SRS****`. They describe biological source material
+4. On the [BioProject page](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA384592) click on SRA Experiments links under Project Data
+   -  `esearch`  the BioProject number: `esearch -db sra -query PRJNA******` . The reveals how many sequencing runs there are for the project ID.
+   - Format the output as a RunInfo.csv format: `esearch -db sra -query PRJNA****** | efetch -format runinfo > info.csv`
+   - To see SRR IDs, head the first column: `cat info.csv | cut -f 1 -d ',' | head`
+	- Filter for `SRR` & store the first 10 IDs: `cat info.csv | cut -f 1 -d ',' | grep SRR | head > ids.txt`
+6. On the [SRA page](https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=384592) show 200 results & then click on Send Results to Run Selector. This creates the SRA Run Selector table which has useful information on each sequencing file.
+	- [SRA Handbook](https://www.ncbi.nlm.nih.gov/books/NBK47528/)
+	- SRA experiment IDs start with `SRS****`. Unique sequencing library for a sample.
+	- SRA run IDs start with  `SRR****` and `ERR****`. Data file linked to the sequencing library.
+7. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_110487706_130.14.18.97_5555_1538386558_3578612985_0MetA0_S_HStore&query_key=2) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
+8. In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file. 
+	- in command line type `fastq-dump SRR1553607`. Generates `SRR1553607.fastq` file
+
+The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: `while read line; do sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; done < SRR_Acc_List.txt`
+Can remove the slurm files after downoad (that is just the log): `rm slurm-*`
+
+Alternatively using the `ids.txt` file list of SRR run IDs & invoke `fastq-dump` on each ID: `fastq-fump -X 10000 --split-files SRR******` but this can be done in one go using: `cat ids.txt | xargs -n 1 fastq-dump -X 10000 --split-files $1`
+
+- **Paired-end reads** are concatenated by SRA (because that is how the instrument measures them). Therefore need to separate these into 2 different FASTQ files: 1 forward read; 1 backward read using the command: `fastq-dump --split-files SRR1553607`. Generates files `SRR1553607_1.fastq` & `SRR1553607_2.fastq`
+	* know the origin of each read (forward vs reverse) - encoded in read name - some analysis tools require combining the 2 files into 1. The **forward** read is **filename_1** and **backward** read is **filename_2**
+	* Need to process the read as Split Reads/files
+
+**Alternative approach to downloads:**
+- Copy the URL Address for the relevant FASTQ files from the column in the [SRA run selector table](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_110487706_130.14.18.97_5555_1538386558_3578612985_0MetA0_S_HStore&query_key=2). 
+- in terminal change to the target directory `cd`, then in command line use `wget` or `curl` tools to download e.g. `curl -O ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR197/SRR1972739/SRR
+1972739.sra` or  	`wget link_copied_from the_website`
+- These generate SRA files which need to be converted to FASTQ using: `fastq-dump -X 10000 --split-files SRR1972739.sra` # we specified to download the first 10,000 reads using `-X 10000` and split the "spots" using `--split-files`. Spots are reads.
+- If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<paste LINK >"` #the quotation marks are crucial 
+- use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
+
+## View & Interrogate the downloaded data: 
  - `more file_name.README` Press `space` to move forward; `b` to move back, `q` or `ESC` to exit.
  - print the content of the file to the terminal window: `cat file_name`
 	 - scan the text to find columns and rows of interest
-4. Interrogate the downloaded file:
 - count lines, words & characters: `cat file_name | wc`
 - how does the file start: `cat file_name | head`
-- find information on a specific gene or transcript gene_x by searching for text matching the gene name: ` cat file_name | grep gene_x`
-	- `grep -v` will show lines that dont match
+- find information on a specific gene or transcript by searching for text matching the gene name: ` cat file_name | grep gene_x`
+	- `grep -v` will show lines that don't match
 	- `cat file_name | cut -f 2 | grep gene_feature | head` to select genes, this command shows the gene_feature in column 2
 	- `cat file_name | cut -f 2 | grep gene_feature | wc -l` counts the number of genes present
-- if you plan to use the data to interrogate further then place it in a separate file to analyse: `cat file_name | cut -f 2 > new_file.txt`
+- if you plan to use this grepped data to interrogate further then place it in a separate file to analyse: `cat file_name | cut -f 2 > new_file.txt`
 	- sort into identical consecutive entries: `cat new_file.text | sort`
 	- collapse duplicated identical words: `cat new_file.txt | sort | uniq | head`
 	- print counts: `cat new_file.txt | sort | uniq -c | head`
 	- unique types of features: ` cat file_name | cut -f 2 | sort | uniq -c | wc -l`
 
-An alternative approach is to utilise the easy-to-use data analysis platform [Galaxy](https://usegalaxy.org/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsra_tools%2Ffastq_dump%2F2.8.1.3&version=2.8.1.3&__identifer=x2w589n8woh) which removes the need for programming experience.
+The [`sra-stat` program](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc&f=sra-stat) can rapidly generate an XML report on the sequence data: 
+`sra-stat --xml --quick SRR1553610`	
+`sra-stat --xml --statistics SRR4237168` generates read length statistics.
 
-**Compress Files**
-A "compressed file" is a single file reduced in size. The name may end with .gz , .bz , .bz2 , or .zip 
-A "compressed archive" is a folder containing multiple files combined, and then compressed. The name may end with .tar.gz , .tar.bz2
+## Manipulating FASTQ & FASTA files (Optional Step)
+`ml seqtk` 
+Installed [SeqKit](https://github.com/shenwei356/seqkit) & [csvtk](https://github.com/shenwei356/csvtk)
 
-There are programmes to compress & uncompress files:
-- ZIP , extension .zip , program names are zip/unzip
-- GZIP extension .gz , program names are gzip/gunzip
-- BZIP2 extension .bz/.bz2 , program names are bzip2/bunzip2
-- XZ extension .xz . A more recent invention. Technically bzip2 and (more so) xz are improvements over gzip , but gzip is still quite prevalent for historical reasons and because it requires less memory.
-- [BGZIP extension](http://www.htslib.org/doc/tabix.html). Specific for bioinformatics. Allows random access to content of compressed file. Can decompress with gzip but only bgzip creates a bgzip file.
-
-To compress a file:
-1. efetch sequence file usually in fasta .fa format `efetch sequence id`
-2. compress file name with gzip `gzip sequence_name.fa`
-
-You can read compressed files without uncompressing using `zcat` on Linux (`gzcat` on macOS)
-`zcat sequence_name.fa.gz | head`
-
-To uncompress file: `gunzip sequence_name.fa.gz` creates the file sequence_name.fa
-
-To compress multiple files together us `tar` Tape Archive:
-`tar czfv sequences.tar.gz AF086833.fa AF086833.gb`
-Means that we want to create `c` , a compressed `z` , file `f` , in verbose `v` mode in a file called `sequences.tar.gz`. The 2 files to add are listed at the end.
-
-The best was to compress multiple files (if there are many) is to put all files into a folder and then compress that entire directory:
-`mkdir sequences`
-`mv sequence_names.* sequences/`
-`tar czvf sequences.tar.gz sequences/*`
-
-rsyncable archive:
-- `rsync` tool synchronises files by sending only the differences between existing files. 
-- When files are compressed, you cant use `rsync` but you can use `gzip --rsyncable` flag. This allows gziped files to by synced much faster. e.g. `tar -c sequences/* | gzip --rsyncable > file.tar.gz`
-
-**Fastq-dump NCBI tool** to convert fastq.sra files
-fastq.gz  = compressed version of fast file (needs unzipping before analysing)
-
-[NCBI Format Guide](https://www.ncbi.nlm.nih.gov/books/NBK242622/)
+Overview of FASTQ data: `seqkit stat *.gz` or `seqkit stat *.fastq`
  
-__Paired End Sequencing__
-* 2 FASTQ files: 1 forward read; 1 backward read
-* know the origin of each read (forward vs reverse) - encoded in read name - some analysis tools require combining the 2 files into 1.
-	* The **forward** read will usually be **filename_1** and **backward** read is **filename_2**
-* Need to process the read as Split Reads/files
+Convert FASTQ file into 3-column tabular format (1st col name/ID, 2nd col sequence, 3rd col quality) then add optional columns e.g. sequence length, GC content: `seqkit fx2tab --name --only-id --gc *.gz`
+
+Extract a subset of sequences from a FASTQ file: ` seqkit sample --proportion 0.001 *.gz | seqkit seq --name --only-id > id.txt`
+ID list file: `head id.txt` prints the relevant run IDs with specified proportion 0.1%
+Search by ID list file: `seqkit grep --pattern-file id.txt *.gz > subset.fq.gz`
+ 
+ Find degenerate bases in FASTQ file:  `seqkit fx2tab` converts FASTQ to tabular format & outputs the sequence in a new column.  `seqkit fx2tab --name --only-id --alphabet *.gz | csvtk --no-header-row --tabs grep --fields 4 --use-regexp --ignore-case --pattern "[^ACGT]" | c svtk -H -t cut -f 1 > id2.txt`
+ 
+ Use grep text search to filter the table: `seqkit grep --pattern-file id2.txt --invert-match *.gz > clean.fa`
+Or locate degenerate bases K & N: `seqkit grep --pattern-file id2.txt viral.1.1.genomic.fna.gz | seqkit locate --ignore-case --only-positive-strand --pattern K+ --pattern N+`
+
+Remove duplicated sequences: `seqkit rmdup --by-seq --ignore-case *.fq.gz > uniq.fq.gz`
+
+Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-case --pattern-file *.gz` use the degenerate flag to identify pattern of interest
  
 ## Quality Control (QC)
-Main points for QC in analysis:
-1.  FASTQC on raw sequenced reads
-2. RSeQC on aligned reads
-3. Descriptive plots in R to visually assess read counts
- 
-**1st quality control point**
-FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-`wget http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.7.zip`
-`unzip fastqc_v0.11.7.zip`
-`cd FastQC`
-`chmod 755 fastqc`
+Quality control (abbreviated as QC from now on) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
+- Pre-alignment: “raw data” - the protocols are the same regardless of what analysis will follow
+	- **FastQC** on raw sequenced reads
+	- reliability of sequencing decreases along the read. Trimming works from the end of the read & removes low quality measurements.
+	- trim adapters
+- Post-alignment: “data filtering” - the protocols are specific to the analysis that is being performed.
 
-Checking for:
+### FastQC
+FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - need to install. FastQC generates its reports by evaluating a small subset of the data and extrapolating those findings to the entirety of the dataset. Many of the metrics are only computed on the first 200,000 measurements then are being tracked through the rest of the data.
+
+Check for:
 * PCR duplicates
 * adapter contamination
 * rRNA + tRNA reads
 * unmappable reads (contaminating nucleic acids) - FASTQC doesn’t check this
 * each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
-__run FastQC__
-`mkdir fastqc_results` # make a folder to store the results
-`/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/FastQC/fastqc ERR458493.fastq .gz -- extract -o fastqc_results` #run FastQC
-`ls fastqc_results/ERR458493_fastqc/` #Look at the results
-`cat fastqc_results/ERR458493_fastqc/summary .txt`
- 
-To summarise multiple QC outputs use the [MultiQC tool](http://multiqc.info/)
+__FastQC Workflow__
+`ml FastQC`
+`ml python`
+`ml pip`
 
-run FastQC on all fastq.gz files per sample
-$ for SAMPLE in WT_1 WT_2 WT_3 WT_25 # random selection of samples
-`mkdir fastqc_results/${SAMPLE}`
-run `multiqc` within the `fastqc_results` folder and use the folder names (WT_1 etc.) as prefixes to the sample names in the final output
+make a folder to store the results: `mkdir fastqc_results`
+run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results`
+$ for SAMPLE in WT_1 WT_2 WT_3 WT_25 # random selection of samples: `mkdir fastqc_results/${SAMPLE}`
+if there are many sequencing files can speed up by running as `sbatch`
+
+Look at the results: `ls fastqc_results/ERR458493_fastqc/`
+Summarise multiple FastQC outputs using the [MultiQC tool](http://multiqc.info/):
+[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder and use the folder names (WT_1 etc.) as prefixes to the sample names in the final output: 
+Go to the folder with the fastqc files in and simply run: `multiqc .`
+Open the MultiQC html report: `open multiqc_report.html` or open in the browser
+[Interpret](https://www.youtube.com/watch?v=qPbIlO_KWN0) the MultiQC report: general stats, quality scores (Phred score), 
+
+### Trim low quality bases & adapters
+There are many QC tools available (most in bash but some in R - bioconductor) each with basic QC methods plus unique functionality. Best ones include:
+`Trimmomatic`  application note in Nucleic Acid Research, 2012, web server issue
+`BBDuk` part of the BBMap package
+`FlexBar` Flexible barcode and adapter removal  published in Biology, 2012
+`CutAdapt`  application note in Embnet Journal, 2011 - advised by Nobby
+`Trimer Galore` is a wrapper around `Cutadapt` - this performs quality trimming then adaptor trimming in one step.
+
+`ml cutadapt`
+`ml trimomatic`
+`ml Trim_Galore`
+
+`trim_galore -q 20 --gzip -o trim_galore SRR5*_1.fastq`
+
+for multiple sequences can parralelise by using sbatch & for loop:
+```bash
+find  ~/working/oliver/projects/airals/fastq_files -name "SRR5*_1.fastq" | cut -d "_" -f1 | parallel -j 1 trim_galore -q 20 --gzip -o trim_galore/ {}\SRR5*_1.fastq {}\_1_merged.fastq.gz {}\_R2_merged.fastq.gz
+
+```
+
+```bash
+for file in ~/working/oliver/projects/airals/fastq_files/SRR5*_1.fastq
+do
+	withpath="${file}"
+	filename=${withpath##*/}
+	base="${filename%SRR5*_1.fastq}"
+	echo "${base}"
+	trim_galore -q 20 --length --gzip -o trim_galore_results SRR5*_1.fastq
+ /path/to/"${base}"*_1.fastq /path/to/"${base}"_R1.trimmed_PE.fastq /path/to/"${base}"_R1.trimmed_SE.fastq /path/to/"${base}"_R2.trimmed_PE.fastq /path/to/"${base}"_R2.trimmed_SE.fastq ILLUMINACLIP:/path/to//Trimmomatic-0.33/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 HEADCROP:14
+done
+```
+
+`while read line; do sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; done < SRR_Acc_List.txt`
  
 ## Read Alignment (Mapping)
+- the purpose of alignment is to arrange 2 sequences so the regions of similarity line up. For each base alignment the options are:
+	- `-` a space
+	- `|` match
+	- `.` a mismatch
+- CIGAR (Concise idiosyncratic gapped alignment report string) string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus:
+**M**  - Alignment (can be a sequence match or mismatch!)
+**I**  - Insertion in the read compared to the reference
+ **D**  - Deletion in the read compared to the reference
+**N**  - Skipped region from the reference. For mRNA-to-genome alignments, an N operation represents an intron. For other types of alignments, the interpretation of N is not defined.
+**S**  - Soft clipping (clipped sequences are present in read); S may only have H operations between them and the ends of the string
+**H**  - Hard clipping (clipped sequences are NOT present in the alignment record); can only be present as the first and/or last operation
+**P**  - Padding (silent deletion from padded reference)
+ **=**  - Sequence match (not widely used)
+**X**  - Sequence mismatch (not widely used)
+
+The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
+
+- Alignments are scored based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score.
+
 Identify cDNA transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**
-Aim is to map millions of reads accurately and quickly
-Limitations are: sequencing errors; genomic variation; repetitive elements.
-The main Challenge of RNA seq is the spliced alignment of exon-exon spanning reads; multiple different transcripts (isoforms) from same gene
+Aim is to map millions of reads accurately and quickly. Limitations are: sequencing errors; genomic variation; repetitive elements. The main Challenge of RNA seq is the spliced alignment of exon-exon spanning reads; multiple different transcripts (isoforms) from same gene
 ![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
 
 __RNA seq Programmes (STAR, TopHat, GSNAP)__
@@ -372,19 +488,17 @@ __RNA seq Programmes (STAR, TopHat, GSNAP)__
 * False positives: lowly expressed isoforms are excluded by algorithms —> bias towards identifying strongly expressed genes
 * Mapping ambiguity = many reads overlap with more than one isoform
 * Sequencing reads longer improves alignment
-* Alignment-free transcript quanitification = ignore location of reads in a transcript; compare k-mers of the reads in hash tables of transcriptome and note matches.
+* Alignment-free transcript quantification = ignore location of reads in a transcript; compare k-mers of the reads in hash tables of transcriptome and note matches.
 
 ![enter image description here](https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/resize/user/18/Figure19-700x527.png)
  
 ### Reference Genomes
-As a rule for human data use **GenCODE**. For other species use **Ensemble**.
+Generally for human data use **GenCODE**. For other species use **Ensemble**.
 ENCODE, iGenomes, NCBI, UCSC, Mouse Genome Project, Berkeley Drosphilia Project
 
-Reference sequences = **FASTA files.** 
-Compress with `gzip` command or `faToTwoBit` (.fa --> .2bit files)
+Reference sequences = **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. One line per genomic feature.
 
-Reference sequences are long strings of ATCGN letters. 
-File formats store start sites, exon, introns. One line per genomic feature.
+Compress with `gzip` command or `faToTwoBit` (.fa --> .2bit files)
  
 __Reference Genome File Formats__
 **GFF** = General Feature Format
@@ -447,7 +561,8 @@ remove first column & first line: `cut -f 2- file_name.txt | sed ‘1d”`
 indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
 
 ## Alignment Workflow:
- 
+
+ - `sam-dump` tool downloads SRA data in SAM alignment format.
 ### 1. Choose alignment tool
  
 * Multiple alignment programmes available, each specialising in detecting different factors eg structural variants; fusion transcripts
@@ -612,21 +727,6 @@ _SAM alignment section_
 * decimal is the sum of all the answers to Yes/No questions:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_flag.png)
 To convert the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
-
-*CIGAR field* = Concise idiosyncratic gapped alignment report string
-* Indicates which operations were necessary to map the read to the reference sequence at that specific locus
-**M**  - Alignment (can be a sequence match or mismatch!)
-**I**  - Insertion in the read compared to the reference
- **D**  - Deletion in the read compared to the reference
-**N**  - Skipped region from the reference. For mRNA-to-genome alignments, an N operation represents an intron. For other types of alignments, the interpretation of N is not defined.
-**S**  - Soft clipping (clipped sequences are present in read); S may only have H operations between them and the ends of the string
-**H**  - Hard clipping (clipped sequences are NOT present in the alignment record); can only be present as the first and/or last operation
-**P**  - Padding (silent deletion from padded reference)
- **=**  - Sequence match (not widely used)
-**X**  - Sequence mismatch (not widely used)
-
-The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
-![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
 
 _Optional fields_
 Following the 11 mandatory fields, the optional fields are presented as key-value pairs in the format of  `<TAG>:<TYPE>:<VALUE>`, where  `TYPE`  is one of:
