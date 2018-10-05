@@ -329,8 +329,17 @@ To navigate and select parts of the XML file from `efetch` pipe it to `xtract`
 8. In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file. 
 	- in command line type `fastq-dump SRR1553607`. Generates `SRR1553607.fastq` file
 
-The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: `while read line; do sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; done < SRR_Acc_List.txt`
-Can remove the slurm files after downoad (that is just the log): `rm slurm-*`
+The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: 
+```bash
+while read line; 
+do 
+	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; 
+done < SRR_Acc_List.txt
+```
+`N` is the number of nodes (usually leave at 1)
+`c` is the number of cores (i.e. threads - so you could change the STAR command to `runThreadN 8` with this example)
+`--mem` is the amount of memory you want
+Can remove the `slurm` files after download (that is just the log): `rm slurm-*`
 
 Alternatively using the `ids.txt` file list of SRR run IDs & invoke `fastq-dump` on each ID: `fastq-fump -X 10000 --split-files SRR******` but this can be done in one go using: `cat ids.txt | xargs -n 1 fastq-dump -X 10000 --split-files $1`
 
@@ -436,32 +445,61 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 
 `trim_galore -q 20 --gzip -o trim_galore SRR5*_1.fastq`
 
-for multiple sequences can parralelise by using sbatch & for loop:
-```bash
-find  ~/working/oliver/projects/airals/fastq_files -name "SRR5*_1.fastq" | cut -d "_" -f1 | parallel -j 1 trim_galore -q 20 --gzip -o trim_galore/ {}\SRR5*_1.fastq {}\_1_merged.fastq.gz {}\_R2_merged.fastq.gz
-
-```
+for multiple sequences can parallelise by using for loop & sbatch:
 
 ```bash
 for file in ~/working/oliver/projects/airals/fastq_files/SRR5*_1.fastq
 do
-	withpath="${file}"
-	filename=${withpath##*/}
-	base="${filename%SRR5*_1.fastq}"
-	echo "${base}"
-	trim_galore -q 20 --length --gzip -o trim_galore_results SRR5*_1.fastq
- /path/to/"${base}"*_1.fastq /path/to/"${base}"_R1.trimmed_PE.fastq /path/to/"${base}"_R1.trimmed_SE.fastq /path/to/"${base}"_R2.trimmed_PE.fastq /path/to/"${base}"_R2.trimmed_SE.fastq ILLUMINACLIP:/path/to//Trimmomatic-0.33/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 HEADCROP:14
+	sbatch -N 1 -c 1 --mem 8 --wrap="trim_galore -q 20 --length 20 --gzip -o trim_galore_results $file";
 done
 ```
-
-`while read line; do sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; done < SRR_Acc_List.txt`
  
-## Read Alignment (Mapping)
-- the purpose of alignment is to arrange 2 sequences so the regions of similarity line up. For each base alignment the options are:
+### Error Correction (Optional step)
+Nobby doesn't routinely do this. 
+Sequencing instruments occasionally make random errors. Can recognise errors by computing k-mer density. K-mers are all possible short subsequences of length `k` contained in a string (sequence) that occur many times. They can be 2-5 bases long. K-mers that contain errors will be rare so can be used in error correction but also genome identification/classification & alignement.
+
+- The 2 base long k-mers ( 2-mers ) are AT , TG , GC and CA
+- The 3 base long k-mers ( 3-mers ) are ATG , TGC and GCA
+- The 4 base long k-mers ( 4-mers ) are ATGC , TGCA
+- The 5 base long k-mer ( 5-mer ) is ATGCA
+
+FaASTQ error correction programs correct or remove reads that appear to have errors in. Very useful when data is of high coverage.
+
+`ml BBMap`
+`bbmap` package using `tadpole.sh` error corrector
+`tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
+
+### Sequence patterns
+Sequence patterns can be summarised probabilistically into motifs e.g. where `GC` is followed by `A` 80% of time.
+Adapters are very simple sequence patterns that can be identified by a pattern. 
+When sequences are on a single line (line orinentated), `grep` with `--colour=always` allows us to identify the mataches e.g. `cat SRR5483788_1.fastq | grep --color=always CTGTCTCTTATACA | head -2`
+
+Searching sequences for patterns:
+`grep` and extended grep `egrep` work on single line.
+`dreg` and `fuzznuc` Emboss tools wra over many lines
+
+Regular expressions:
+`^` matches the beginning of the line
+`.` matches any character
+`{m,n}` matches the preceding elements at least m but not more than n times.
+
+## Sequence Alignment
+- the purpose of alignment (aka pairwise alignment; mapping) is to arrange 2 sequences so the regions of similarity line up. For each base alignment the options are:
 	- `-` a space
 	- `|` match
 	- `.` a mismatch
-- CIGAR (Concise idiosyncratic gapped alignment report string) string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus:
+
+> Mapping
+> -   A mapping is a region where a read sequence is placed.
+> -   A mapping is regarded to be correct if it overlaps the true region.
+> 
+> Alignment
+> -   An alignment is the detailed placement of each base in a read.
+> -   An alignment is regarded to be correct if each base is placed correctly.
+
+Tools used to be separated into aligners vs mappers. However these have become combined over time. However a dinstiction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
+
+- **CIGAR** (Concise idiosyncratic gapped alignment report string) string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
 **M**  - Alignment (can be a sequence match or mismatch!)
 **I**  - Insertion in the read compared to the reference
  **D**  - Deletion in the read compared to the reference
@@ -475,34 +513,84 @@ done
 The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
 
-- Alignments are scored based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score.
+- Aim of alignment is to identify transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**. We want to map millions of reads accurately and quickly. 
+- The limitations of alignment are: 
+	- sequencing errors
+	- genomic variation 
+	- repetitive elements
+	- multiple different transcript isoforms from same gene
+	- main challenge is the spliced alignment of exon-exon spanning reads
+	- mapping ambiguity = many reads overlap with more than one isoform
+	-  False positives: lowly expressed isoforms are excluded by alignment algorithms —> bias towards identifying strongly expressed genes
 
-Identify cDNA transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**
-Aim is to map millions of reads accurately and quickly. Limitations are: sequencing errors; genomic variation; repetitive elements. The main Challenge of RNA seq is the spliced alignment of exon-exon spanning reads; multiple different transcripts (isoforms) from same gene
 ![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
 
-__RNA seq Programmes (STAR, TopHat, GSNAP)__
-        	1. align reads to transcriptome (required transcripts to be known and annotated)
-        	2. identify novel splice events (using reads that cant be aligned to reference transcriptome)
 
-* False positives: lowly expressed isoforms are excluded by algorithms —> bias towards identifying strongly expressed genes
-* Mapping ambiguity = many reads overlap with more than one isoform
-* Sequencing reads longer improves alignment
-* Alignment-free transcript quantification = ignore location of reads in a transcript; compare k-mers of the reads in hash tables of transcriptome and note matches.
+- **Alignment scoring** is based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
+	- 5 points for a match.
+	- -4 points for a mismatch.
+	- -10 points for opening a gap.
+	- -0.5 points for extending an open gap.
+- Modifying the scoring algorithm can dramatically change the way that the sequence is aligned to the reference. See [this example](https://www.biostarhandbook.com/align/misleading-alignments.html) where reducing the gap penalty from -10 to -9 actually corrects the alignment. This setting means that 2 matches (5 + 5 = 10) overcomes a penality gap open (9). Thus to achieve a higher overall score the aligner will prefer opening a gap anytime it can find two matches later on (net score +1). 
+- [EDNAFULL](ftp://ftp.ncbi.nlm.nih.gov/blast/matrices/NUC.4.4) is the default scoring choice for all aligners.
+
+### Types of alignment
+
+- **Global alignment** is where every base of both sequences has to align to another matching base, to another mismatching base, or to a gap in the other sequence.
+- **Local alignment** algorithms look for the highest scoring subregions (or single region). Local alignments are used when we need to find the region of maximal similarity between two sequences.
+- **Semi-global alignment** (global-local, global) is a method mixture between the global and local alignments. It attempts to fully align a shorter sequence against a longer one. They are used when matching sequencing reads produced by sequencing instruments against reference genomes. Majority of data analysis protocols rely on semi-global alignment.
+- Multiple sequence alignments uses 3 or more sequences (i.e. not pairwise alignment). 
+
+### Short read aligners
+In 2005 high throughput short-read sequencers changed the face of sequencing which became much cheaper and accessible. Previously sequencing was laborious and expensive and the focus was on producing accurate long reads (1000bp). Sequencing reads longer improves alignment.  Sequencers now produce millions of short reads (50-300bp). Aligners have thus changed to adapt to short reads - rapidly select the best mapping at the expense of not investigating all potential alternative alignments.
+- Short read aligners are incredible! They match > 10,000 sequences per second against 3 billion bases of the human genome.
+- There is large variation in results between different aligners. A tool that prioritises finding exact matches will do so at the exense of missing locations and overlaps and vice versa.
+- Limitations:
+	- finds alignments that are reasonably similar but not exact (algorithm will not search beyond a defined matching threshold)
+	- cannot handle very long reads or very short reads (<30bp) (become inefficient)
+
+### Choosing an Aligner (STAR, bwa, bowtie2, TopHat2)
+When choosing an aligner, we need to decide what features the aligner should provide:
+-   Alignment algorithm: global, local, or semi-global?
+-   Is there a need to report non-linear arrangements?
+-   How will the aligner handle INDELs (insertions/deletions)?
+-   Can the aligner skip (or splice) over large regions?
+-   Can the aligner filter alignments to suit our needs?
+-   Will the aligner find chimeric alignments?
+
+For RNA-seq we need to:
+- align reads to the reference transcriptome index (required transcripts to be known and annotated in the reference)
+- identify novel splice events (using reads that cant be aligned to reference transcriptome)
 
 ![enter image description here](https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/resize/user/18/Figure19-700x527.png)
- 
+
+* Multiple alignment programmes available for RNA-seq, each specialising in detecting different factors eg structural variants; fusion transcripts
+* Straight forward RNA seq for differential gene expression analysis = use STAR [STAR manual PDF](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
+	* Efficient
+	* Sensitive
+	* But large number of novel splice sites (caution)
+* **TopHat** = popular aligner – wrapper around the genomic aligner Bowtie
+
 ### Reference Genomes
-Generally for human data use **GenCODE**. For other species use **Ensemble**.
-ENCODE, iGenomes, NCBI, UCSC, Mouse Genome Project, Berkeley Drosphilia Project
+Reference genome sequence repositories:
+**GenCODE** - Generally for human data use 
+[ENSEMBL](http://www.ensembl.org/index.html) - use for most other species
+[UCSC](https://genome.ucsc.edu/) - comprehensive comparative genomics data across genomes         	https://genome.ucsc.edu/cgi-bin/hgTables
+ENCODE
+iGenomes
+NCBI
+Mouse Genome Project
+Berkeley Drosphilia Project
+RefSeq
+[RNA-Central](http://rnacentral.org/) - non coding RNA sequencing database
 
-Reference sequences = **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. One line per genomic feature.
-
-Compress with `gzip` command or `faToTwoBit` (.fa --> .2bit files)
- 
 __Reference Genome File Formats__
-**GFF** = General Feature Format
-9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = ‘.’)
+Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. One line per genomic feature.
+
+Reference annotations are **GFF** or **GTF** format.
+
+GFF = General Feature Format
+9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = `.`)
 * Reference sequence: coordinate system of annotation eg Chr1
 * Source: annotation software
 * Method: annotation type (eg gene)   	[GFF3 = Type: term from lite Sequence Ontology SOFA or accession number]
@@ -517,20 +605,27 @@ __Reference Genome File Formats__
 * version 2 = Sanger Institute http://gmod.org/wiki/GFF2
 * version 3 = Sequence Ontology Project http://gmod.org/wiki/GFF3        
  
-**GTF** = Gene Transfer Format (aka GFF 2.5). More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
+**GTF** = Gene Transfer Format. More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
 
-**Download Reference Genome files (GTF & FASTA)**
-[UCSC](https://genome.ucsc.edu/) - comprehensive comparative genomics data across genomes         	https://genome.ucsc.edu/cgi-bin/hgTables
-ENSEMBL http://www.ensembl.org/index.html
-RefSeq
-GenCODE
-[RNA-Central](http://rnacentral.org/) - non coding RNA sequencing database
- 
-Convert 2bit format —> FASTA format:  `twobittofa file_name.2bit file_name.fa`
+**BED Format** is the simplest annotation store
+3 compulsory fields: chromosome & start & end.
+9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
+        	field number can vary from 3 - 12. Must be consistent within a file.
+indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
+
+### Download Reference Sequence (FASTA) & Annotation (GTF) files
+Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
+
+**GENCODE process:**
+https://www.gencodegenes.org/releases/current.html
+find the latest human reference genome: currently this is Release 28 (GRCh38.p12)
+Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table. 
+Then in command line download to the appropriate directory: `wget  [paste link address]` then `gunzip filename`
+Do the same for the GTF file to the **Comprehensive gene annotation PRI (primary) regions**.
 
  **ENSEMBL process:**
 http://www.ensembl.org/info/data/ftp/index.html
-Search for species Saccharomyces cerevesiae
+Search for species of interest
 Click on Gene sets GTF link & DNA FASTA link
 GTF: Right click on Saccharomyces)cerevisiae.R64-1-1.92.gtf.gz → copy link address
 FASTA: Right click on DNA top level file.
@@ -538,102 +633,73 @@ In command line (in appropriate Folder) `wget [paste link address]`
 Unzip file `gunzip file_name`
 
 **UCSC process:**
+`ml Kent_tools`
 Download a GTF file of yeast transcripts from the UCSC Genome Table Browser https://genome.ucsc.edu/cgi-bin/hgTables
-Move the downloaded gtf file to the appropriate folder
+Move the downloaded GTF file to the appropriate folder
 **![](https://lh4.googleusercontent.com/piQkvTkiSIYCY9m-gATKN8CTmWGFPVZaP7KItC44zJP_oztaNMxjf9O33hljoHvARnSAqaXP1lz5pUo8_7X49xlHKXtX5hUyU-vAfehxNnXAVQ3mh152qUNwlywheUpx5P2GUa4Y)**
-N.B. GTF files downloaded from UCSC table have same entries for gene ID and transcript ID → creates problem with analysing different exon isoforms (same gene ID but different transcriptt ID)
+N.B. GTF files downloaded from UCSC table have same entries for gene ID and transcript ID → creates problem with analysing different exon isoforms (same gene ID but different transcript ID)
 
-__Install genePredToGft__
-`wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh`
-Linux version - download to bin folder
-`bash Miniconda3-latest-Linux-x86_64.sh  https://conda.io/docs/user-guide/install/linux.html`
-`wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/`
-`source .bash_profile`
-`conda install -c bioconda ucsc-genepredtogtf `
 remove first column & first line: `cut -f 2- file_name.txt | sed ‘1d”`
 `genePredToGtf file file_name file_name.gtf`
 
-### Annotation files
-**BED Format** is the simplest annotation store
-3 compulsory fields: chromosome & start & end.
-9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
-        	field number can vary from 3 - 12. Must be consistent within a file.
-indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
+Compress with `gzip` command or `faToTwoBit filename.fa filename.2bit`. Can then reconvert 2bit format —> FASTA format:  `twobittofa file_name.2bit file_name.fa`
+
 
 ## Alignment Workflow:
 
- - `sam-dump` tool downloads SRA data in SAM alignment format.
-### 1. Choose alignment tool
- 
-* Multiple alignment programmes available, each specialising in detecting different factors eg structural variants; fusion transcripts
-* Straight forward RNA seq for differential gene expression analysis = use STAR [STAR manual PDF](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
-	* Efficient
-	* Sensitive
-	* But large number of novel splice sites (caution)
-* **TopHat** = popular aligner – wrapper around the genomic aligner Bowtie
-* The alignment tool has relatively little impact on the downstream analyses (vs. annotation, quantification, differential expression tools)
- 
-### 2. Generate  Genome Index
- 
-Input Files = Reference Genome (GFF and FASTA) & Annotation File (BED)
+ - The aim of alignment is to produce a SAM (Sequence Alignment Map) file which contains all information on the sequencing & its alignment. After creating the SAM file there is no need to look at the FASTQ file again since the SAM contains all the FASTQ information.
 
 ![RNA-seq Flowchart - Module 1](https://github.com/griffithlab/rnaseq_tutorial/wiki/Images/RNA-seq_Flowchart2.png)
 
-Genome sequence
-Suffix Arrays
-Chromosome names & lengths
-Splice junction coordinates
-Gene information
-Create directory to store index in: `mkdir STARindex`
+### 1. Build Index
+
+- All short read aligners firstly build an index from the reference genome. Then the FASTQ sequencing files are aligned against this index.
+- Index building prepares the reference genome to allow the tools to search it efficiently. It creates multiple files that should be stored near to the FASTA reference sequence.
+- Can take days for large genomes to build an index. 
+ 
+Input Files = Reference genome sequence (FASTA) & annotation file (GTF)
+
+Create directory to store index in: `mkdir GRCh38.12_STAR_index`
 Module load STAR `ml STAR`  
 
-STAR command line has the following format:
-`STAR --option1-name option1-value(s)--option2-name option2-value(s) ...`
-If an option can accept multiple values, they are separated by spaces, and in a few cases - by commas.
+STAR commands have the format: `STAR --option1-name option1-value(s)--option2-name option2-value(s) ...`
+To generate the index in STAR, specify the location of:
+1. index directory to store the output
+2. FASTA reference genome file
+3. GTF annotation file
+4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
-Send cmd to generate genome as `batch job` to cluster:
-`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --genomeFastaFiles /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/Saccharomyces_cerevisiae.R64-1-1.92.gtf --sjdbOverhang 49 --runThreadN 8"`
-
-`N` is the number of nodes (usually leave at 1)
-`c` is the number of cores (i.e. threads - so you could change the STAR command to `runThreadN 8` with this example)
-`--mem` is the amount of memory you want
-
-no space between -- and the parameter
-quotation marks: use ` and not ' or "
-
-no `<>` needed
+Send cmd to generate index as `batch job` to cluster:
+`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 59 --runThreadN 8"`
 
 Check it is running using `myq`
 If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
 Open slurm file: `more slurm…` which will explain outcome of file eg FATAL INPUT PARAMETER ERROR
  
-Alternative approach (assign runSTAR & REF_DIR variables):
-`${runSTAR } --runMode genomeGenerate \ --genomeDir ~/STARindex\` # index will be stored there
- `--genomeFastaFiles ${REF_DIR}/sacCer3 .fa\` # reference genome sequence
-`--sjdbGTFfile ${REF_DIR}/sacCer3.gtf\` # annotation file
-`--sjdbOverhang 49` # should be read length minus 1 ; length of the genomic sequence around the annotated junction to be used for the splice junctions database
-`--runThreadN 1\` # can be used to define more processors
+To make the command shorter and easier to interpret you can assign names to files using $name. E.g
+`REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa`
+`ANO=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf`
+`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --genomeFastaFiles $REF --sjdbGTFfile $ANO --sjdbOverhang 59 --runThreadN 8"`
  
-### 3. Align each FASTQ file to the Genome Index
+### 2. Align each FASTQ file to the Index
 
-* Need to align each FASTQ file
 * Sample distributed over n = X flow cell lanes → X fastq files per sample
 * STAR merges the X files if multiple file names are indicated (other align tools dont)
 * Separate the file names with a comma (no spaces)
 * Create directory to store STAR output `mkdir alignment_STAR`
 * List fast.qz files separated by commas and remove white spaces:
 
-INPUT=`ls -m /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/SNF2_rep1/*.fastq.gz| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
+`INPUT= ls -m /home/camp/ziffo/working/oliver/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
 
-`ls -m` list, fill width with a comma separated list of entries all the `fast.gz` files = compressed filed.
+`ls -m` list, fill width with a comma separated list of entries all the fastq files.
 `sed` remove a space from each file name
 `echo` displays a line of text - in this case it lists all the file names  - in this case the pipe to echo is to remove new spaces that are created between multiple lines.
 no space after FILES - with space after it thinks FILES is command.
 `sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
 
 Execute STAR in runMode default `alignReads`
-For WT_rep1 folder (already uncompressed):
-`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --readFilesIn /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/WT_rep1/$INPUT --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_ --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"`
+If already uncompressed:
+`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/$INPUT --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/airals --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"`
 
 For SNF2_rep1 folder (compressed):
 `sbatch -N 1 -c 8 --mem32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --readFilesIn /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/SNF2_rep1 --readFilesCommand gunzip -c  --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/SNF2_1_ --outFilterMutlimapNmax 1 \ --outReadsUnmapped Fastx \ --outSAMtype BAM SortedByCoordinate \ --twopassMode Basic \--runThreadN 1`
@@ -644,7 +710,7 @@ Check the summary of the output:
 
 By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together but it is best to do each separately and use the `snakemate` command - this makes it easier to see if there is an error in an individual sequencing file.
 
-The STAR PDF manual has all the explanations on how to write the STAR command and fine tune parameters e.g.:
+The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters e.g.:
 * multi-mapped reads
 * optimise for small genomes
 * define min & max intron sizes 
@@ -667,42 +733,32 @@ More information on these is in the [STAR manual](https://github.com/alexdobin/S
 #`STAR` will perform the alignment, then extract novel junctions which will be inserted into the genome index which will then be used to re-align all reads
 #`runThreadN` can be increased if sufficient computational power is available
 
-### 4. Create [BAM/SAM files](http://software.broadinstitute.org/software/igv/bam) to store the sequence alignment data 
-
+### 4. Build index for BAM file](http://software.broadinstitute.org/software/igv/bam)
+Usually you generate the SAM file > convert to BAM format > index the BAM file.
+Use samtools package to index.
 Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory
 Install `samtools` in command line
 Run samtools index cmd for each BAM file once mapping is complete:
 `ml SAMtools`
-`samtools index /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam`
+`samtools index /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/alignment_STARAligned.sortedByCoord.out.bam`
 
-### 5. Store Aligned Reads as SAM/BAM files
-SAM & BAM files contain the same information but in different formats
+`samtools sort alignment_STARAligned.sortedByCoord.out.bam > STARAligned.sortedByCoord.out.sam
 
-**Converting BAM files to and from SAM files**
-BAM --> SAM:
-`samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
-Convert a BAM file into a human readable SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
+## Sequence Alignment Maps (SAM)
 
-Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
+SAM files are generic nucleotide alignment format describing alignment of sequenced reads to a reference.. SAM format are TAB-delimited line-orientated (each row represents a single read alignment) text consisting of:
+1. Header: meta-data
+2. Alignment: longer with information on alignment.
 
-To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
+-   The  [SAM format specification](http://samtools.github.io/hts-specs/SAMv1.pdf)  is the official specification of the SAM format.
+-   The  [SAM tag specification](http://samtools.github.io/hts-specs/SAMtags.pdf)  is the official specification of the SAM tags.
 
-Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
-
-__[SAM Files](https://genome.sph.umich.edu/wiki/SAM)__
-
-SAM file = Sequence Alignment Map - generic nucleotide alignement format describing alignment of sequenced reads to a reference. [More Details](https://github.com/samtools/hts-specs) here.
-* Contain short header & long alignment sections
-* Each row represents a single read alignment
-	* starts with @ then abbreviation: SQ = sequence directory listing chromosomes names (SN) and lengths (LN)
-* Each read has 11 mandatory entries (black font) & optional fields (grey font)
+* Each SAM file has 11 mandatory columns. Despite this aligners vary in how much information they put into these columns - impossible to transform one aligners SAM file into another aligners SAM file.
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
 
-_SAM header section_
-
-* Begin with **@**, followed by `tag:value pairs`
-	* `tag` is two-letter string defining the value e.g. `@SQ` = names & lengths of reference sequences
+**SAM header**
+- Header rows start with `@`then tag: value pairs 2 letter abbreviations e.g. `SQ` = sequence directory listing  `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `PG` program version that was ran.
 * 1 line per chromosome
 * To retrieve only the SAM header `samtools view -H`
 * To retrieve both the header & alignment sections `samtools view -h`
@@ -710,10 +766,9 @@ _SAM header section_
 
 `samtools view -H WT_1_Aligned.sortedByCoord.out.bam`
 
-_SAM alignment section_
-
+**SAM alignment**
 * Each line coresponds to one sequenced read
-* 11 mandatory fields in specified order:
+* 11 mandatory columns in specified order:
 
 `<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
 
@@ -722,7 +777,7 @@ _SAM alignment section_
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_fields.png)
 
-*FLAG field:*
+*2nd column FLAG field:*
 * stores info on the respective read alignment in one single decimal number
 * decimal is the sum of all the answers to Yes/No questions:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_flag.png)
@@ -760,6 +815,37 @@ Downstream analysis tools eg `variant callers` recognise readgroup data and outp
 
 Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/rg.png)
+
+### BAM files
+- BAM files are binary, compressed and sorted representation of SAM information. 
+- They are usually sorted by alignment coordinate which allows fast query on the information by location.
+- Can rarely be sorted by read name when read pairs (with identical names) need to be accessed quickly (stored in adjacent lines)
+- Used to exchange data as it quicker than SAM.
+
+### CRAM format
+Similar to BAM (binary compressed) but smaller as some compression is in the reference genome.
+Sometimes you need the reference genome information so these arnt always appropriate.
+Supported by samtools
+Concerted effort to move from BAM to CRAM.
+
+### 5. Store Aligned Reads as SAM/BAM files
+SAM & BAM files contain the same information but in different formats
+
+ - `sam-dump` tool downloads SRA data in SAM alignment format.
+
+**Converting BAM files to and from SAM files**
+BAM --> SAM:
+`samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
+Convert a BAM file into a human readable SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
+
+Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
+
+To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
+
+Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
+
+
+
 
 ## Manipulating SAM/BAM files
 There are 4 major toolsets for processing SAM/BAM files:
