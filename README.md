@@ -1,3 +1,5 @@
+
+
 > # RNA sequence protocol assessing for Alternative Splicing & Polyadenylation
 
 - This repository contains a protocol to analyse RNA-seq data, focusing on alternative splicing & polyadenylation, authored by Oliver Ziff. 
@@ -739,15 +741,7 @@ execute workflow:
 no space after FILES - with space after it thinks FILES is command.
 `sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
 
-`
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq,SRR5483789_1.fastq,SRR5483790_1.fastq,SRR5483794_1.fastq,SRR5483796_1.fastq,SRR5483795_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/D7_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
-
-Optional additions in STAR manual: e.g.
-if files are compressed add `--readFilesCommand gunzip -c`
-
-Check the summary of the output:
-`cat FILENAME_Log.final.out`
-![summary of alignment](https://user-images.githubusercontent.com/33317454/37438378-095cb442-282d-11e8-95fd-bfecefae5b75.png)
+`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq,SRR5483789_1.fastq,SRR5483790_1.fastq,SRR5483794_1.fastq,SRR5483796_1.fastq,SRR5483795_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/D7_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
 
 The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters including:
 * multi-mapped reads
@@ -755,6 +749,11 @@ The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.p
 * define min & max intron sizes 
 * handle genomes with >5000 scaffolds
 * detect chimeric & circular transcripts
+if files are compressed add `--readFilesCommand gunzip -c`
+STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments allowed for a read - if exceeded then read is considered unmapped i.e. when 1 is used this only identifies unique reads and removes multimapped reads. This is generally accepted.
+
+#`STAR` will perform the alignment, then extract novel junctions which will be inserted into the genome index which will then be used to re-align all reads
+#`runThreadN` can be increased if sufficient computational power is available
 
 **STAR output files:**
  - Aligned.sortedByCoord.out.bam - the loci of each read & sequence
@@ -764,23 +763,25 @@ The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.p
  - SJ.out.tab - loci where splice junctions were detected & read number overlapping them
  - Unmapped.out.mate1 - fastq file with unmapped reads
 
-More information on these is in the [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) chapter 4 page 10.
-
-**ENCODE options:**
-`outFilterMultimapNmax 1` max number of multiple alignments allowed for a read - if exceeded then read is considered unmapped i.e. when 1 is used this only identifies unique reads and removes multimapped reads. This is generally accepted.
-
-#`STAR` will perform the alignment, then extract novel junctions which will be inserted into the genome index which will then be used to re-align all reads
-#`runThreadN` can be increased if sufficient computational power is available
+First check the summary of the output: `cat FILENAME_Log.final.out`
+![summary of alignment](https://user-images.githubusercontent.com/33317454/37438378-095cb442-282d-11e8-95fd-bfecefae5b75.png)
 
 ### 4. [Indexing read alignments](http://software.broadinstitute.org/software/igv/bam)
 Generate the SAM file > convert to BAM format > index the BAM file.
 Use `samtools` package to index. Load `samtools` in command line: `ml SAMtools`
 Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory.
-Run samtools index cmd for each BAM file once mapping is complete:
-`samtools index alignment_STARAligned.sortedByCoord.out.bam`
+Generate an index for the BAM file for downstream analysis: 
+`samtools index D7_Aligned.sortedByCoord.out.bam`
+Convert BAM files to and from SAM files
+`samtools sort D7_Aligned.sortedByCoord.out.bam > D7_Aligned.sortedByCoord.out.sam`
+or alternatively: 
+`samtools view -h FILENAME_Aligned.sortedByCoord.out.bam > FILENAME_Aligned.sortedByCoord.out.sam`
+Convert a BAM file into a SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
+Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
+To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
 
-`samtools sort alignment_STARAligned.sortedByCoord.out.bam > STARAligned.sortedByCoord.out.sam`
-
+Using snakemake:
+```bash 
 rule samtools_index:
     input:
         "sorted_reads/{sample}.bam"
@@ -788,12 +789,11 @@ rule samtools_index:
         "sorted_reads/{sample}.bam.bai"
     shell:
         "samtools index {input}"
-
+        ```
 Look at the Directed Acyclic Graph (DAG):
 `snakemake --dag sorted_reads/{A,B}.bam.bai | dot -Tsvg > dag.svg`
 
-@Raphaelle used:
-Map with tophat2 (however please note that I did this step in 2016 and if I would need to restart now, I would rather use STAR) : `tophat -g  1 -p 8 -G $geneModel --library-type fr-firststrand -o ${out}${data} $genome ${paths}${data}-no_rRNA.fq`
+@Raphaelle mapped with tophat2 but did this step in 2016 but now advises STAR: `tophat -g  1 -p 8 -G $geneModel --library-type fr-firststrand -o ${out}${data} $genome ${paths}${data}-no_rRNA.fq`
 
 ## Sequence Alignment Maps (SAM)
 
@@ -879,23 +879,6 @@ Similar to BAM (binary compressed) but smaller as some compression is in the ref
 Sometimes you need the reference genome information so these arnt always appropriate.
 Supported by samtools
 Concerted effort to move from BAM to CRAM.
-
-### 5. Store Aligned Reads as SAM/BAM files
-SAM & BAM files contain the same information but in different formats
-
- - `sam-dump` tool downloads SRA data in SAM alignment format.
-
-**Converting BAM files to and from SAM files**
-BAM --> SAM:
-`samtools view -h WT_1_Aligned.sortedByCoord.out.bam > WT_1_Aligned.sortedByCoord.out.sam`
-Convert a BAM file into a human readable SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
-
-Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
-
-To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
-
-Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
-
 
 ## Manipulating SAM/BAM files
 There are 4 major toolsets for processing SAM/BAM files:
@@ -1563,4 +1546,5 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 -   The I used  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
 
 **SVD (singular value decomposition) analysis**
--   For doing this you can use the gene-level count table obtained from Kallisto.
+
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
