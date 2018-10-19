@@ -325,7 +325,7 @@ To navigate and select parts of the XML file from `efetch` pipe it to `xtract`
 	- [SRA Handbook](https://www.ncbi.nlm.nih.gov/books/NBK47528/)
 	- SRA experiment IDs start with `SRS****`. Unique sequencing library for a sample.
 	- SRA run IDs start with  `SRR****` and `ERR****`. Data file linked to the sequencing library.
-7. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_110487706_130.14.18.97_5555_1538386558_3578612985_0MetA0_S_HStore&query_key=2) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
+7. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_2827488_130.14.18.97_5555_1539957447_3051893689_0MetA0_S_HStore&query_key=3) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
 8. In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file. 
 	- in command line type `fastq-dump SRR1553607`. Generates `SRR1553607.fastq` file
 
@@ -431,7 +431,7 @@ Go to the folder with the fastqc files in and simply run: `multiqc .`
 Open the MultiQC html report: `open multiqc_report.html` or open in the browser
 [Interpret](https://www.youtube.com/watch?v=qPbIlO_KWN0) the MultiQC report: general stats, quality scores (Phred score), 
 
-### Trim low quality bases & adapters
+### Trim low quality bases & adapters & rRNA
 There are many QC tools available (most in bash but some in R - bioconductor) each with basic QC methods plus unique functionality. Best ones include:
 `Trimmomatic`  application note in Nucleic Acid Research, 2012, web server issue
 `BBDuk` part of the BBMap package
@@ -442,17 +442,23 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 `ml cutadapt`
 `ml trimomatic`
 `ml Trim_Galore`
+`ml FASTX-Toolkit`
+`ml Bowtie2`
 
 `trim_galore -q 20 --gzip -o trim_galore SRR5*_1.fastq`
 
 for multiple sequences can parallelise by using for loop & sbatch:
 
 ```bash
-for file in ~/working/oliver/projects/airals/fastq_files/SRR5*_1.fastq
+for file in ~/working/oliver/projects/airals/fastq_files/D7_samples/SRR5*_1.fastq
 do
-	sbatch -N 1 -c 1 --mem 8 --wrap="trim_galore -q 20 --length 20 --gzip -o trim_galore_results $file";
+	sbatch -N 1 -c 1 --mem 8 --wrap="trim_galore -q 20 --length 20 --gzip -o trimmed_D7 $file";
 done
 ```
+@Raphaelle used:
+adapter removal: `fastx_clipper -Q 33 -l 24 -a $adapt -i ${paths}${file} > ${paths}${data}-clipped.fastq`
+
+rRNA removal using bowtie (the indexed fasta sequence of ribosomal RNA as obtained from UCSC): `bowtie -q -p 8 -v 0 --un ${paths}${data}-no_rRNA.fq $ribosomal ${paths}${data}-clipped.fastq > ${paths}${data}-rRNA.sam`
  
 ### Error Correction (Optional step)
 Nobby doesn't routinely do this. 
@@ -653,11 +659,11 @@ Compress with `gzip` command or `faToTwoBit filename.fa filename.2bit`. Can then
 
 ### 1. Build Index
 
-- All short read aligners firstly build an index from the reference genome. Then the FASTQ sequencing files are aligned against this index.
+- All short read aligners first build an index from the reference genome. Then the FASTQ sequencing files are aligned against this index.
 - Index building prepares the reference genome to allow the tools to search it efficiently. It creates multiple files that should be stored near to the FASTA reference sequence.
-- Can take days for large genomes to build an index. 
+- Can take days for large genomes to build an index. The relevant indexes have already been created and stored on the CAMP cluster in `/home/camp/ziffo/working/luscombelab-UCL`
  
-Input Files = Reference genome sequence (FASTA) & annotation file (GTF)
+Input Files = Reference genome sequence (FASTA) & Annotation file (GTF)
 
 Create directory to store index in: `mkdir GRCh38.12_STAR_index`
 Module load STAR `ml STAR`  
@@ -679,14 +685,50 @@ Open slurm file: `more slurm…` which will explain outcome of file eg FATAL INP
 To make the command shorter and easier to interpret you can assign names to files using $name. E.g
 `REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa`
 `ANO=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf`
+
 `sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --genomeFastaFiles $REF --sjdbGTFfile $ANO --sjdbOverhang 59 --runThreadN 8"`
+
+Alternative approach is to build Index using [snakemake](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html) which parallelises the indexing process:
+
+ - Write the Snakefile in Atom and save it in the relevant directory near the index. Define input, output and shell script.
+
+`input: ref="/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"+"/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa", starref="/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"+"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR",
+output: "/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"+"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR"+"/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index/chrName.txt"
+shell: 
+"STAR --runMode genomeGenerate --genomeDir {input.starref} --genomeFastaFiles {input.ref} --sjdbOverhang 59 --runThreadN 8"`
+
  
 ### 2. Align each FASTQ file to the Index
+ml Python/3.5.2-foss-2016b
+ml SAMtools
 
-* Sample distributed over n = X flow cell lanes → X fastq files per sample
-* STAR merges the X files if multiple file names are indicated (other align tools dont)
+* Sample distributed over X flow cell lanes → X fastq files per sample
+* STAR merges the X files if multiple file names are indicated (other align tools don't)
 * Separate the file names with a comma (no spaces)
 * Create directory to store STAR output `mkdir alignment_STAR`
+
+By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together (see example further down) but it is best to do each separately and use the [snakemake command](http://slides.com/johanneskoester/snakemake-tutorial#/) - this makes it easier to see if there is an alignment error in each individual sequencing file:
+
+**Snakefile**
+- write the following rules in Atom and save the file in the appropriate directory
+```bash
+rule star_map:
+input: 
+	index="/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"
+	sample="/home/camp/ziffo/working/oliver/projects/airals/fastq_files/{sample}.fastq", 
+output: 
+	"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam"
+shell:
+	"STAR --genomeDir {input.index} --readFilesIn {input.sample} --outFileNamePrefix {output}_ --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"
+```
+
+dry run workflow:
+`snakemake -np /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
+execute workflow:
+`snakemake /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
+
+`snakemake /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
+
 * List fast.qz files separated by commas and remove white spaces:
 
 `INPUT= ls -m /home/camp/ziffo/working/oliver/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
@@ -697,27 +739,24 @@ To make the command shorter and easier to interpret you can assign names to file
 no space after FILES - with space after it thinks FILES is command.
 `sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
 
-Execute STAR in runMode default `alignReads`
-If already uncompressed:
-`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/$INPUT --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/airals --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"`
+`
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq,SRR5483789_1.fastq,SRR5483790_1.fastq,SRR5483794_1.fastq,SRR5483796_1.fastq,SRR5483795_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/D7_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
 
-For SNF2_rep1 folder (compressed):
-`sbatch -N 1 -c 8 --mem32G --wrap="STAR --genomeDir /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/STARindex --readFilesIn /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/SNF2_rep1 --readFilesCommand gunzip -c  --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/SNF2_1_ --outFilterMutlimapNmax 1 \ --outReadsUnmapped Fastx \ --outSAMtype BAM SortedByCoordinate \ --twopassMode Basic \--runThreadN 1`
+Optional additions in STAR manual: e.g.
+if files are compressed add `--readFilesCommand gunzip -c`
 
 Check the summary of the output:
-`cat file_name_Log.final.out`
-![enter image description here](https://user-images.githubusercontent.com/33317454/37438378-095cb442-282d-11e8-95fd-bfecefae5b75.png)
+`cat FILENAME_Log.final.out`
+![summary of alignment](https://user-images.githubusercontent.com/33317454/37438378-095cb442-282d-11e8-95fd-bfecefae5b75.png)
 
-By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together but it is best to do each separately and use the `snakemate` command - this makes it easier to see if there is an error in an individual sequencing file.
-
-The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters e.g.:
+The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters including:
 * multi-mapped reads
 * optimise for small genomes
 * define min & max intron sizes 
 * handle genomes with >5000 scaffolds
 * detect chimeric & circular transcripts
 
-**The STAR output files are:**
+**STAR output files:**
  - Aligned.sortedByCoord.out.bam - the loci of each read & sequence
  - Log.final.out - summary of alignment statistics
  - Log.out - commands, parameters, files used
@@ -733,16 +772,28 @@ More information on these is in the [STAR manual](https://github.com/alexdobin/S
 #`STAR` will perform the alignment, then extract novel junctions which will be inserted into the genome index which will then be used to re-align all reads
 #`runThreadN` can be increased if sufficient computational power is available
 
-### 4. Build index for BAM file](http://software.broadinstitute.org/software/igv/bam)
-Usually you generate the SAM file > convert to BAM format > index the BAM file.
-Use samtools package to index.
-Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory
-Install `samtools` in command line
+### 4. [Indexing read alignments](http://software.broadinstitute.org/software/igv/bam)
+Generate the SAM file > convert to BAM format > index the BAM file.
+Use `samtools` package to index. Load `samtools` in command line: `ml SAMtools`
+Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory.
 Run samtools index cmd for each BAM file once mapping is complete:
-`ml SAMtools`
-`samtools index /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/alignment_STARAligned.sortedByCoord.out.bam`
+`samtools index alignment_STARAligned.sortedByCoord.out.bam`
 
-`samtools sort alignment_STARAligned.sortedByCoord.out.bam > STARAligned.sortedByCoord.out.sam
+`samtools sort alignment_STARAligned.sortedByCoord.out.bam > STARAligned.sortedByCoord.out.sam`
+
+rule samtools_index:
+    input:
+        "sorted_reads/{sample}.bam"
+    output:
+        "sorted_reads/{sample}.bam.bai"
+    shell:
+        "samtools index {input}"
+
+Look at the Directed Acyclic Graph (DAG):
+`snakemake --dag sorted_reads/{A,B}.bam.bai | dot -Tsvg > dag.svg`
+
+@Raphaelle used:
+Map with tophat2 (however please note that I did this step in 2016 and if I would need to restart now, I would rather use STAR) : `tophat -g  1 -p 8 -G $geneModel --library-type fr-firststrand -o ${out}${data} $genome ${paths}${data}-no_rRNA.fq`
 
 ## Sequence Alignment Maps (SAM)
 
@@ -757,7 +808,7 @@ SAM files are generic nucleotide alignment format describing alignment of sequen
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
 
-**SAM header**
+**SAM header section**
 - Header rows start with `@`then tag: value pairs 2 letter abbreviations e.g. `SQ` = sequence directory listing  `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `PG` program version that was ran.
 * 1 line per chromosome
 * To retrieve only the SAM header `samtools view -H`
@@ -766,8 +817,8 @@ SAM files are generic nucleotide alignment format describing alignment of sequen
 
 `samtools view -H WT_1_Aligned.sortedByCoord.out.bam`
 
-**SAM alignment**
-* Each line coresponds to one sequenced read
+**SAM alignment section**
+* Each line corresponds to one sequenced read
 * 11 mandatory columns in specified order:
 
 `<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
@@ -781,7 +832,8 @@ SAM files are generic nucleotide alignment format describing alignment of sequen
 * stores info on the respective read alignment in one single decimal number
 * decimal is the sum of all the answers to Yes/No questions:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_flag.png)
-To convert the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
+* To convert the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
+* When a read has multiple alignments matching equally well the aligner designates one as the primary alignment.
 
 _Optional fields_
 Following the 11 mandatory fields, the optional fields are presented as key-value pairs in the format of  `<TAG>:<TYPE>:<VALUE>`, where  `TYPE`  is one of:
@@ -845,15 +897,13 @@ To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
 Generate an index for a BAM file (needed for downstream tools): `samtools index FILENAME.bam`
 
 
-
-
 ## Manipulating SAM/BAM files
 There are 4 major toolsets for processing SAM/BAM files:
 
 - [SAMTools](http://www.htslib.org/) - interact with high throughput sequencing data, manipulate alignments in SAM/BAM format, sort, merge, index, align in per-position format
 - [Picard](https://broadinstitute.github.io/picard/) - Java tools for manipulating high throughput sequencing data
 - [DeepTools](https://deeptools.readthedocs.io/en/develop/) - visualise, quality control, normalise data from deep-sequencing DNA seq
-- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) = read, write & manipulate BAM genome alingment files
+- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) - read, write & manipulate BAM genome alingment files
 
 __Processing:__
 1. **Filter** using BAM Tools
@@ -916,7 +966,7 @@ Create SAM file with **intron spanning reads**:
 - Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
 
 ## Quality control of Aligned Reads
-Analyses now switch from command line to R studi.
+Analyses now switch from command line to R studio.
 
 After aligning and before performing downstream analyses check for:
 1. Excessive amounts of reads not aligned
@@ -1496,3 +1546,21 @@ Multiple **GO enrichment tools** exist, many are difficult to use and outdated. 
 The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
+
+
+@Raphaelle used: 
+ **Splicing analysis**  
+   
+-   I first used  [VAST-tools](https://github.com/vastgroup/vast-tools) which performs alignment for you. So basically you submit your fastq files directly. Have a look at the GitHub vignette as it is rather complete however please do not hesitate to contact me if you want help with shell scripting as you will need to run this as a loop. Or Nobby will certainly be happy to help on CAMP (I am working from UCL cluster and have never logged onto CAMP).
+-   Then to perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
+
+  **3' UTR isoforms analysis**
+-   I have written an entire pipeline for this which I can explain and share with you scripts when needed. But basically I extract genome-wide coverage using bedtools, then extract regions of continuous coverage along genome, then intersect these with Ensembl annotated regions, extend 3' UTR. Finally to annotate all alternative 3' UTR isoforms I then run an algo which identifies shifts in coverage along 3' UTR which are expected to occur at PAS sites.
+
+ **Differential gene expression**
+
+-   I first use  [Kallisto](https://pachterlab.github.io/kallisto/)  which is a really user-friendly algo which extract both gene and transcript level gene expression directly from fastq files. So here again I directly used the raw fastq files.
+-   The I used  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
+
+**SVD (singular value decomposition) analysis**
+-   For doing this you can use the gene-level count table obtained from Kallisto.
