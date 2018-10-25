@@ -958,23 +958,34 @@ Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 - [UCSC](https://genome.ucsc.edu/)
 
 #### [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
-
-Best resource is the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
-Run IGV on local computer and mount CAMP
-[Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
-`cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal and run IGV: `java -Xmx750m -jar igv.jar`
-Click File load from file > click Desktop > load CAMP locally > find relevant fold with BAM file in.
-
 `ml IGVTools`
 
-![IGV image](http://software.broadinstitute.org/software/igv/sites/cancerinformatics.org.igv/files/images/igv_desktop_callouts.jpg)
+Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
+1. Run IGV on local computer and mount CAMP. [Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
+On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
+2. Set reference genome to Human (hg38) top left box.
+3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM files (can load multiple at once).
 
-IGV = view reads in visual format
-http://software.broadinstitute.org/software/igv/
-shows the transcripts amount related to an annotated genome
-there is often mismatch between different annotations eg ref-seq and gencode: choosing between the two is controversial
-top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
+To visualise on IGV its easier to generate TDF files which are much lighter. This is useful if want to add more data-sets later. To generate TDF files first generate Bedgraph coverage files, then sort and then create the tdf file. Create 3 different coverage files: positive, negative strands and total. As the data is stranded it is better to look at both strands separately. Run the code in file: PE_strandedBedGraph.sh
 
+4. Rename BAM files: right click file name in left hand column.
+5. Go to the Genomic Location of interest. For SFPQ type chr1:35,176,378-35,193,158 in top middle box > Go. Find Genomic Locations using google search eg https://www.genecards.org/cgi-bin/carddisp.pl?gene=SFPQ
+Mark the region of interest: Regions > Region Navigator > Add
+6. Zoom in & out using top right zoomer or +/-. IGV will ask you to zoom in to see alignment data. This is because it has a default of 30 kb memory. You can change this to a higher value to see alignment data from a further out zoom but this will slow down the processing speed when scrolling across the genome. If you have deep coverage files then keep memory low to avoid it slowing down processing.
+
+For each BAM file there are 2 tracks. Top track shows summary distribution of the coverage of the exonic islands separated by spice junctions (introns). Bottom tracks show all the individual sequence read alignments piled up.
+
+7. Compare exon usage in the top tracks to transcript genome (bottom row): make the rows for each of the BAM files smaller and right click on the reference genome at the bottom row (in blue) > expand to show all the previously annotated differential splicing.
+
+Bases that dont match the reference sequences are highlighted by colour. The deeper the shade of grey the more confidence you can have that the sequence was aligned correctly. White means no confidence alignment.
+
+![IGV screen layout](https://lh3.googleusercontent.com/sOSIM9tCveT60ZWs2W9-AliTlVfLPmO4ik9w_ZFBAKh90z5HH9qLXRMQQ0RCajk73UL-ypVJYQbw7w "IGV screen layout")
+
+![IGV RNA-seq specific view](https://lh3.googleusercontent.com/h7PbqBtb3kHxxevIpjvKJUAd451K0UFOoACMogIZzUhVVMz-_AqRnjSYsNpmhYeCbct9ikfaZU8-Yg "IGV RNA-seq specific view")
+IGV is used only to validate & confirm analysis results.  Use it to explore large genomic datasets. It is not good for the primary analysis.
+![IGV of SFPQ D7 NPC samples](https://lh3.googleusercontent.com/r8Ph08oRuLWUBmnc6gbEyX5Rg3iBEkGhNmmNTHqTr7J01dtwdBGIdAqYJ2BMNlLcVIyYxPbn0QEhTQ "IGV of SFPQ D7 NPC samples")
+
+Top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
 Coverage line = quick identification of highly covered regions
 Grey boxes = aligned reads. 
 Gaps between reads with horizontal grey line = introns
@@ -991,12 +1002,12 @@ Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 
 
-### Merge BAM files
+## Merge BAM files
 
-As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge the BAM files.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
+As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 
-## Quality control of Aligned Reads
+## Quality Control of Aligned Reads
 Analyses now switch from command line to R studio.
 
 After aligning and before performing downstream analyses check for:
@@ -1004,12 +1015,14 @@ After aligning and before performing downstream analyses check for:
 2. Obvious biases in the read distributions
 3. Similarity between replicate samples
  
- The main STAR output file for downstream analyses are
- **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
-
+ The main STAR output file for downstream analyses are **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
 **out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip
 
-__Alignment Assessments__
+### Data Simulation
+Evaluate performance of processing. 
+[Polyester](http://bioconductor.org/packages/release/bioc/vignettes/polyester/inst/doc/polyester.html) is an RNA Seq measurement simulator that simulates fragmentation, reverse-complementing & sequencing.
+
+### Alignment Assessments
  
  **1. Check that alignment rate of RNA-seq reads is > 70%**
  
