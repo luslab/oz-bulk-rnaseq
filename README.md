@@ -1,5 +1,3 @@
-
-
 > # RNA sequence protocol assessing for Alternative Splicing & Polyadenylation
 
 - This repository contains a protocol to analyse RNA-seq data, focusing on alternative splicing & polyadenylation, authored by Oliver Ziff. 
@@ -741,7 +739,17 @@ execute workflow:
 no space after FILES - with space after it thinks FILES is command.
 `sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
 
-`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq,SRR5483789_1.fastq,SRR5483790_1.fastq,SRR5483794_1.fastq,SRR5483796_1.fastq,SRR5483795_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/D7_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483788_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+
+`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483789_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+
+`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483790_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483790_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+
+`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483794_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483794_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+
+`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483795_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483795_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+
+`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483796_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483796_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
 
 The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters including:
 * multi-mapped reads
@@ -763,116 +771,41 @@ STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments
  - SJ.out.tab - loci where splice junctions were detected & read number overlapping them
  - Unmapped.out.mate1 - fastq file with unmapped reads
 
-First check the summary of the output: `cat FILENAME_Log.final.out`
+1. check the slurm file: `more slurm-132XXX.out`
+
+2. check the summary of the output: `cat FILENAME_Log.final.out`
 ![summary of alignment](https://user-images.githubusercontent.com/33317454/37438378-095cb442-282d-11e8-95fd-bfecefae5b75.png)
 
+3. check that the number of reads in the fastq files matches the STAR log output: 
+`more SRR5483788_Log.final.out`
+`echo $( cat /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq | wc -l)/4 | bc`
+
 ### 4. [Indexing read alignments](http://software.broadinstitute.org/software/igv/bam)
-Generate the SAM file > convert to BAM format > index the BAM file.
+Star auto creates BAM files. Now need to index the BAM file.
 Use `samtools` package to index. Load `samtools` in command line: `ml SAMtools`
 Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory.
-Generate an index for the BAM file for downstream analysis: 
-`samtools index D7_Aligned.sortedByCoord.out.bam`
-Convert BAM files to and from SAM files
-`samtools sort D7_Aligned.sortedByCoord.out.bam > D7_Aligned.sortedByCoord.out.sam`
+Generate an index for the BAM file for downstream analysis:  `samtools index filename_Aligned.sortedByCoord.out.bam`
+
+### BAM files
+- BAM file = Binary Alignment Map - human readable TAB-delimited compressed. 
+- Bigger than gzipped SAM files as they are optimised for rapid access (not just size reduction).
+Position sorted BAM files = indexed so all reads aligning to a locus can be retreived without loading the entire file to memory.
+- BAM files are binary, compressed and sorted representation of SAM information. 
+- They are usually sorted by alignment coordinate which allows fast query on the information by location.
+- Can rarely be sorted by read name when read pairs (with identical names) need to be accessed quickly (stored in adjacent lines)
+- Used to exchange data as it quicker than SAM.
+- SAM files are human readable, BAM are compressed. BAM are much smaller
+	- `-b`will produce a BAM file. `-s` will produce a SAM file.
+	- for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
+
+You can convert BAM > SAM if needed. 
+`samtools sort filename_Aligned.sortedByCoord.out.bam > filename_Aligned.sortedByCoord.out.sam`
 or alternatively: 
 `samtools view -h FILENAME_Aligned.sortedByCoord.out.bam > FILENAME_Aligned.sortedByCoord.out.sam`
 Convert a BAM file into a SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
 Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
 To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
 
-Using snakemake:
-```bash 
-rule samtools_index:
-    input:
-        "sorted_reads/{sample}.bam"
-    output:
-        "sorted_reads/{sample}.bam.bai"
-    shell:
-        "samtools index {input}"
-        ```
-Look at the Directed Acyclic Graph (DAG):
-`snakemake --dag sorted_reads/{A,B}.bam.bai | dot -Tsvg > dag.svg`
-
-@Raphaelle mapped with tophat2 but did this step in 2016 but now advises STAR: `tophat -g  1 -p 8 -G $geneModel --library-type fr-firststrand -o ${out}${data} $genome ${paths}${data}-no_rRNA.fq`
-
-## Sequence Alignment Maps (SAM)
-
-SAM files are generic nucleotide alignment format describing alignment of sequenced reads to a reference.. SAM format are TAB-delimited line-orientated (each row represents a single read alignment) text consisting of:
-1. Header: meta-data
-2. Alignment: longer with information on alignment.
-
--   The  [SAM format specification](http://samtools.github.io/hts-specs/SAMv1.pdf)  is the official specification of the SAM format.
--   The  [SAM tag specification](http://samtools.github.io/hts-specs/SAMtags.pdf)  is the official specification of the SAM tags.
-
-* Each SAM file has 11 mandatory columns. Despite this aligners vary in how much information they put into these columns - impossible to transform one aligners SAM file into another aligners SAM file.
-
-![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
-
-**SAM header section**
-- Header rows start with `@`then tag: value pairs 2 letter abbreviations e.g. `SQ` = sequence directory listing  `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `PG` program version that was ran.
-* 1 line per chromosome
-* To retrieve only the SAM header `samtools view -H`
-* To retrieve both the header & alignment sections `samtools view -h`
-* The default `samtools view` will not show the header section
-
-`samtools view -H WT_1_Aligned.sortedByCoord.out.bam`
-
-**SAM alignment section**
-* Each line corresponds to one sequenced read
-* 11 mandatory columns in specified order:
-
-`<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
-
-* If info is unavailable then value can be 0 or * 
-* Optional fields follow the mandatory fields
-
-![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_fields.png)
-
-*2nd column FLAG field:*
-* stores info on the respective read alignment in one single decimal number
-* decimal is the sum of all the answers to Yes/No questions:
-![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/sam_flag.png)
-* To convert the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
-* When a read has multiple alignments matching equally well the aligner designates one as the primary alignment.
-
-_Optional fields_
-Following the 11 mandatory fields, the optional fields are presented as key-value pairs in the format of  `<TAG>:<TYPE>:<VALUE>`, where  `TYPE`  is one of:
--   `A`  - Character
--   `i`  - Integer
--   `f`  - Float number
--   `Z`  - String
--   `H`  - Hex string
-
-Reads within the same SAM file may have different numbers of optional fields, depending on the program that generated the SAM file. 
-
-Commonly used optional tags include:
--   `AS:i`  - Alignment score
--   `BC:Z`  - Barcode sequence
--   `HI:i`  - Match is i-th hit to the read
--   `NH:i`  - Number of reported alignments for the query sequence
--   `NM:i`  - Edit distance of the query to the reference
--   `MD:Z`  - String that contains the exact positions of mismatches (should complement the CIGAR string)
--   `RG:Z`  - Read group (should match the entry after ID if @RG is present in the header.
-
-E.g. we can use the NM:i:0 tag to select only those reads which map perfectly to the reference (i.e., have no mismatches). Tags that begin with  `X`,  `Y`, and  `Z`  are reserved for particularly free usage and will never be part of the official SAM file format specifications.  `XS`, for example, is used by TopHat to encode the strand information (e.g.,  `XS:A:+`) while Bowtie2 and BWA use  `XS:i:`  for reads with multiple alignments to store the alignment score for the next-best-scoring alignment (e.g.,  `XS:i:30`).
-
-BAM file = Binary Alignment Map - human readable TAB-delimited compressed. Bigger than gzipped SAM files as they are optimised for rapid access (not just size reduction).
-Position sorted BAM files = indexed so all reads aligning to a locus can be retreived without loading the entire file to memory.
-
-__Read Group__
-Key feature of SAM/BAM format is ability to label individual reads with readgroup tags. This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
-Downstream analysis tools eg `variant callers` recognise readgroup data and output results.
-
-[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
-
-Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
-![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/rg.png)
-
-### BAM files
-- BAM files are binary, compressed and sorted representation of SAM information. 
-- They are usually sorted by alignment coordinate which allows fast query on the information by location.
-- Can rarely be sorted by read name when read pairs (with identical names) need to be accessed quickly (stored in adjacent lines)
-- Used to exchange data as it quicker than SAM.
 
 ### CRAM format
 Similar to BAM (binary compressed) but smaller as some compression is in the reference genome.
@@ -883,23 +816,7 @@ Concerted effort to move from BAM to CRAM.
 ## Manipulating SAM/BAM files
 There are 4 major toolsets for processing SAM/BAM files:
 
-- [SAMTools](http://www.htslib.org/) - interact with high throughput sequencing data, manipulate alignments in SAM/BAM format, sort, merge, index, align in per-position format
-- [Picard](https://broadinstitute.github.io/picard/) - Java tools for manipulating high throughput sequencing data
-- [DeepTools](https://deeptools.readthedocs.io/en/develop/) - visualise, quality control, normalise data from deep-sequencing DNA seq
-- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) - read, write & manipulate BAM genome alingment files
-
-__Processing:__
-1. **Filter** using BAM Tools
-	-  mapping quality: remove poor alignments - eg remove all alignments below Phred scale quality of 20
-	- keep only those which are "properly paired" ie forward is looking at reverse (for paired reads)
-	- reference chromosome: e.g. only keep mitochondrial genome alingments
-2. **Remove duplicates** with Picard
-3. **Clean up** with CleanSam Picard tool
-	- fixes alignments that hang off ends of ref sequence
-	- sets MAPQ to 0 if read is unmapped
-
-SAMTools help page = `samtools --help`
-Usage:   `samtools <command> [options]`
+- [SAMTools](http://www.htslib.org/) - interact with high throughput sequencing data, manipulate alignments in SAM/BAM format, sort, merge, index, align in per-position format. SAMTools help page = `samtools --help` Usage:   `samtools <command> [options]`
 
 5 key SAMTool commands:
 1. Indexing
@@ -907,46 +824,177 @@ Usage:   `samtools <command> [options]`
 3. File operations (aligning, converting, merging)
 4. Statistics
 5. Viewing
+- [Picard](https://broadinstitute.github.io/picard/) - Java tools for manipulating high throughput sequencing data
+- [DeepTools](https://deeptools.readthedocs.io/en/develop/) - visualise, quality control, normalise data from deep-sequencing DNA seq
+- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) - read, write & manipulate BAM genome alingment files . `ml BamTools`
 
-For each command there are multiple options `samtools COMMAND -X` 
-Create BAM with only **unmapped reads**: `samtools view -h -b -f4 FILENAME.bam > unmapped_reads.bam` 
-Create BAM with only **mapped reads**`samtools view -hb -F 4 FILENAME.bam > mapped_reads.bam` 
-Create BAM with **mapping quality >= 20**`samtools view -h -b -q 20 FILENAME.bam > high_mapq_reads.bam` 
-Create BAM with **uniquely aligned reads** (STAR gives uniquely aligned reads a mapping quality of 255 so you can use samtools to pull all reads with mapping quality = 255 only (using samtools command, option -q, = 255) `samtools view -h -q 255 FILENAME.bam > uniquely_aligned_reads.bam`
+### Filter data from BAM files
+- Unlike other aligners, STAR already creates separate bam files of aligned and unmapped.
+- Remove poor alignments - eg Phred scale quality <20 & keep alignments which are "properly paired"
+- Use FLAGS to filter using samtools: `-f` flag includes matches; `-F` flag includes mismatches. Flag `4` indicates unmapped.  `-h` is used to print the header
 
-- `-h` is used to print the header (always needed).
-- sam files are human readable, bam are compressed. BAM are much smaller
-	- `-b`will produce a BAM file. `-s` will produce a SAM file.
-	- for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
+Count alignments that were aligned: `samtools view -c -F 4 filename.bam`
+Get overview of alignments: 
+report of flags `samtools flagstat filename.bam` 
+report on how many reads align to each chromosome `samtools idxstats filename.bam` 
+report on flags `bamtools stats -in filename.bam`
 
-Create BAM file with only **reads aligned to reverse strand**:
-- First, sort the BAM file (A-Z; 0-9) using `sort`
-- Second, count the adjacent lines which are identical using `samtools view FILENAME.bam | cut -f 2 | sort | uniq -c`
-		- Third, create file with the specific feature e.g. reverse reads (FLAG = 16 in column 2): `samtools view -h -f 16 FILENAME.bam > reverse_reads.bam`
-		
-Alternatively used awk command using SAM file:
-- `cut -f 2 FILENAME.bam | sort | uniq -c`
-- `awk '{OFS="\t"} $1 ~ /^@/ || $2==0 {print $0}' FILENAME.sam | cut -f 2| sort | uniq -c`
+Filter on mapping quality using `-q` flag:
+Count number of reads with mapping quality >1 `samtools view -c -q 1 filename.bam`
+Create bam file with mapping quality >= 20`samtools view -h -b -q 20 FILENAME.bam > high_mapq_reads.bam` 
 
-where:
-`cut -f 2` selects out only the field list 2 (2nd column)
-`{OFS="\t"}` converts spaces to tabs as awk would ordinarily use spaces but the file is separated by tabs
-`$1 ~ /^@/` represents the header line where $1 = column 1, ~ means looks like, ^@ means start with @
-`||` means OR
-`$2==0` means column 2 equals 0 i.e. FLAG (column 2) is forward strand (forward strand = 0, reverse strand = 16) - decode all SAM file numbers with https://broadinstitute.github.io/picard/explain-flags.html
-`{print $0}` means print everything ($0 means everything)
+Calculate the depth of coverage: `samtools depth filename.bam | head`  or `bamtools coverage -in filename.bam | head`
+Count reads that have multiple alignments `samtools view -c -F 4 -f 256 filename.bam`
+Count supplementary (chimeric) alignements `samtools view -c -F 4 -f 2048 filename.bam`
+Count primary (non supplementary & non secondary) alignments `samtools view -c -F 4 -F 2304 filename.bam`
+Create BAM with uniquely aligned reads (STAR gives uniquely aligned reads a mapping quality of 255 so pull reads with mapping quality = 255 `samtools view -h -q 255 FILENAME.bam > uniquely_aligned_reads.bam` .  
 
-- To **filter** an alignment file using the **optional tags** you have to use other tools eg `grep` to look for exact matches.
-- Optional SAM/BAM fields depend on the alignment program used - before filtering make sure you know how the aligned generated the value.
+Create BAM file with only reads aligned to reverse strand:
+- sort the BAM file (A-Z; 0-9) and count the adjacent lines which are identical using `samtools view FILENAME.bam | cut -f 2 | sort | uniq -c`
+- Then, create file with the specific feature e.g. reverse reads (FLAG = 16 in column 2): `samtools view -h -f 16 FILENAME.bam > reverse_reads.bam`
 
-Create SAM file with **reads of insert sizes > 1000bp** use the CIGAR string (column 6 in SAM file):
+Create SAM file with reads of insert sizes > 1000bp use the CIGAR string (column 6 in SAM file):
 - first convert BAM to SAM file ` samtools view -h FILENAME.bam > FILENAME.sam`
 - use `grep` to exclude (using `-v`) lines with >3 digits (using `[0-9][0-9][0-9][0-9]`) followed by `N` (N means mismatch i.e. skipped bases, whereas M = match) `egrep -v "[0-9][0-9][0-9][0-9]N" FILENAME.sam > smallinsert_reads.sam`
 - Alternatively use `awk` to focus on column 6 (`$6` in CIGAR string) and exclude lines with 3 digits (using `![0-9][0-9][0-9][0-9]`) then printing everything `{print $0}` and creating new file:  `awk '!($6 ~ /[0-9][0-9][0-9][0-9]N/) {print $0}' FILENAME.sam > smallinsert_reads.sam` 
 
-Create SAM file with **intron spanning reads**:  
+Create SAM file with intron spanning reads:  
 - use `grep` to select lines with a number of digits (using `[0-9]+`) then `M` (i.e. matches) then any number of digits again, then `N` (i.e. mismatches) then any number of digits and then M again at the end: `egrep "(^@|[0-9]+M[0-9]+N[0-9]+M)" FILENAME.sam > intron-spanning_reads.sam`
 - Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
+
+## [Sequence Alignment Maps (SAM)](https://www.biostarhandbook.com/sam/sam-flags.html)
+
+SAM files are generic nucleotide alignment format describing alignment of sequenced reads to a reference. SAM format are TAB-delimited line-orientated (each row represents a single read alignment) text consisting of 2 types of tags:
+1. Header: meta-data
+2. Alignment: longer with information on alignment.
+
+-   The  [SAM format specification](http://samtools.github.io/hts-specs/SAMv1.pdf)  is the official specification of the SAM format.
+-   The  [SAM tag specification](http://samtools.github.io/hts-specs/SAMtags.pdf)  is the official specification of the [SAM tags](https://www.biostarhandbook.com/sam/sam-flags.html).
+-  Each SAM file has 11 mandatory columns. Despite this aligners vary in how much information they put into these columns - impossible to transform one aligners SAM file into another aligners SAM file.
+
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
+
+### SAM header tags
+- Header tags start with `@`then value pairs 2 letter abbreviations e.g. `SQ` = sequence directory listing  `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `PG` program version that was ran.
+* 1 line per chromosome
+* To retrieve only the SAM header `samtools view -H`
+* To retrieve both the header & alignment sections `samtools view -h`
+* The default `samtools view` will not show the header section
+
+`samtools view -H filename.bam`
+
+### SAM alignment tags
+* Each line corresponds to one sequenced read.
+* The SAM tags are defined [here](http://samtools.github.io/hts-specs/SAMtags.pdf)
+* [11 mandatory columns](https://www.biostarhandbook.com/sam/sam-flags.html) in specified order:
+
+`<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
+
+*[2nd column FLAG field](https://www.biostarhandbook.com/sam/sam-flags.html):*
+* stores info on the respective read alignment in one single decimal number
+* decimal is the sum of all the answers to Yes/No questions:
+```
+   Binary       Integer   Name              Meaning 
+000000000001       1     PAIRED          Read paired
+000000000010       2     PROPER_PAIR     Read mapped in proper pair
+000000000100       4     UNMAP           Read unmapped
+000000001000       8     MUNMAP          Mate unmapped
+000000010000      16     REVERSE         Read reverse strand
+000000100000      32     MREVERSE        Mate reverse strand
+000001000000      64     READ1           First in pair, file 1
+000010000000     128     READ2           Second in pair, file 2
+000100000000     256     SECONDARY       Not a primary alignment 
+001000000000     512     QCFAIL          Read fails platform/vendor quality checks
+010000000000    1024     DUP             Read is PCR or optical duplicate
+100000000000    2048     SUPPLEMENTARY   Supplementary alignment
+```
+
+* To decode the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html). 
+
+_Optional fields_
+Following the 11 mandatory fields, the optional fields are presented as key-value pairs in the format of  `<TAG>:<TYPE>:<VALUE>`, where  `TYPE`  is one of:
+-   `A`  - Character
+-   `i`  - Integer
+-   `f`  - Float number
+-   `Z`  - String
+-   `H`  - Hex string
+
+Reads within the same SAM file may have different numbers of optional fields, depending on the aligner program that generated the SAM file. 
+
+### Read Group tags
+[Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
+Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`
+You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
+This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
+
+[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
+
+Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
+
+## Data Visualisation
+
+### Genome Browser
+- Check results visually to ensure reads align to expected regions without excess mismatches.
+- Genome browsers give a linear track representing the forward stand of the genome. left = 5'. right = 3'
+- can visualise line orientated formats (fasta, bed, gff, SAM/BAM)
+- genomic features are drawn over the linear track in **glyphs** (pictogram)
+	- Horizontal intervals = directions, genes, alignments
+	- Values over intervals = coverages, probabilities
+	- Attributes at locations = mutations, deletions, junctions
+
+#### `samtools tview`
+- simplest genome browser. can visualise any DAM file `samtools tview --reference reference_genome.fa filename.bam`
+
+#### Standalone Genome Browsers
+- [Integrative Genomics Viewer IGV](http://software.broadinstitute.org/software/igv/book/export/html/6)  by the Broad Institute
+- [Integrated Genome Browser IGB](https://bioviz.org/) by University of North Carolina
+- [Artemis](https://www.sanger.ac.uk/science/tools/artemis) by the Wellcome Sanger Institute
+- [Tablet](https://ics.hutton.ac.uk/tablet/) by James Hutton Institute
+- [SeqMonk](https://www.bioinformatics.babraham.ac.uk/projects/seqmonk/) for high throughput RNA-seq
+- [iobio](http://iobio.io/) for real-time genomic analysis
+
+#### Online Genome Browsers
+- [Ensembl](http://useast.ensembl.org/index.html)
+- [UCSC](https://genome.ucsc.edu/)
+
+#### [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
+
+Best resource is the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
+Run IGV on local computer and mount CAMP
+[Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
+`cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal and run IGV: `java -Xmx750m -jar igv.jar`
+Click File load from file > click Desktop > load CAMP locally > find relevant fold with BAM file in.
+
+`ml IGVTools`
+
+![IGV image](http://software.broadinstitute.org/software/igv/sites/cancerinformatics.org.igv/files/images/igv_desktop_callouts.jpg)
+
+IGV = view reads in visual format
+http://software.broadinstitute.org/software/igv/
+shows the transcripts amount related to an annotated genome
+there is often mismatch between different annotations eg ref-seq and gencode: choosing between the two is controversial
+top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
+
+Coverage line = quick identification of highly covered regions
+Grey boxes = aligned reads. 
+Gaps between reads with horizontal grey line = introns
+Blue lines within reads = insertions
+Red lines within reads = deletions
+Blue boxes = reference genome
+
+**Sashimi Plots**
+Visualise splice junctions & explore exon usage
+![sashimi plot explained](http://miso.readthedocs.io/en/fastmiso/_images/sashimi-plot-example-annotated.png)
+Bar graph height =  read coverage
+Arcs = splice junctions
+Numbers = number of reads that contain the respective splice junction.
+IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
+
+
+### Merge BAM files
+
+As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge the BAM files.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
+Check the new merged bam file: `samtools view -H all_bam_files.bam`
 
 ## Quality control of Aligned Reads
 Analyses now switch from command line to R studio.
@@ -1027,36 +1075,6 @@ To add results of samtools flagstat & RSeQC to a MultiQC report capture the outp
 
 To visualise the output of mulple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
 
-__Visualise Aligned Reads__
-Check results visually to ensure reads align to expected regions without excess mismatches.
-
-Genome Browsers:
-- Broad institute [Integrative Genomics Viewer IGV](http://software.broadinstitute.org/software/igv/book/export/html/6)  
-- Ensembl
-- UCSC
-
-![IGV image](http://software.broadinstitute.org/software/igv/sites/cancerinformatics.org.igv/files/images/igv_desktop_callouts.jpg)
-
-IGV = view reads in visual format
-http://software.broadinstitute.org/software/igv/
-shows the transcripts amount related to an annotated genome
-there is often mismatch between different annotations eg ref-seq and gencode: choosing between the two is controversial
-top row = chromosome. red bar is location. blue lines mid-section refer to transcripts binding with more = higher peak. bottom section = reference genomes.
-
-Coverage line = quick identification of highly covered regions
-Grey boxes = aligned reads. 
-Gaps between reads with horizontal grey line = introns
-Blue lines within reads = insertions
-Red lines within reads = deletions
-Blue boxes = reference genome
-
-**Sashimi Plots**
-Visualise splice junctions & explore exon usage
-![sashimi plot explained](http://miso.readthedocs.io/en/fastmiso/_images/sashimi-plot-example-annotated.png)
-Bar graph height =  read coverage
-Arcs = splice junctions
-Numbers = number of reads that contain the respective splice junction.
-IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 
 ## Bias Identification
 
@@ -1547,4 +1565,4 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 
 **SVD (singular value decomposition) analysis**
 
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea.
