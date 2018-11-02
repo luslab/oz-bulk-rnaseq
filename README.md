@@ -5,25 +5,25 @@
 - The protocol utilises a combination of bash `unix` commmand line and `R` scripts.
 
 # RNA-seq Workflow
-This forms the chapters in this repository:
 
-**Wet-lab sequencing phase:**
+## Wet-lab sequencing phase:
 1. Extract & isolate RNA
 2. Prepare library: break RNA into small fragments, convert to dsDNA, add sequencing adapters, PCR amplify
 3. Strand Sequence the cDNA library: flow cell, base calling & quality score, replicates (technical = multiple lanes in flow cell; biological = multiple samples from each condition)
 ![Preparing RNA seq library](https://lh3.googleusercontent.com/RYpyReGfJbJOWjm20hzclqR6KUMkacZ6p_xaKvQs3piOTfxXdRiXUmiKAd45nHWj30cxJPVXmqTfnQ)
 ![enter image description here](https://lh3.googleusercontent.com/EBRN0O87F248JvjOzL_yHF1U328THjmXywtF4shxKxmzIwePgU-XR6ETv9Q0LCFP7bEcltsTXrN9hg)
 
-**Bioinformatic phase:**
-1. Experimental design: variability, spike-ins, blocking & randomise, filter out low quality reads & artifacts (adapter sequence reads)
-2. Raw Reads: FATQ files download SRA, quality scores (Phred), paired vs single end sequence, FASTQC quality control
-3. Align (map) reads to reference genome (FASTA, GFF, GTF): annotation file (BED), alignment program (STAR, HISAT), reference genomes (GenCODE, Ensemble), generate genome index, create & manipulate BAM/SAM files containing sequence alignment data
-4. Visualise alingment data in R studio: ggplot2, IGV genome browser, sashimi plots, bias identification QoRTs, read quantification with gene based read counting 
-5. Normalise between samples & Log Transform read counts: adjust each gene read counts for the total aligned reads in within each sample. Log2 scale, visually explore, variance shrinkage, 
-6. Plot the data using global read count patterns: as there are 20,000 genes with multiple samples there are too many data points to plot everything. Summarise data with pairwise correlation, hierarchical clustering, PCA analysis - look for differences between samples & identify outliers to consider excluding
-7. Identify differentially expressed genes between normal & mutants:  poisson distribution, exploratory plots (histograms, MA plot, heatmaps, read counts of single genes). Use `DESeq2` `edgeR`
+## Bioinformatic phase:
+https://www.biostarhandbook.com/rnaseq/rnaseq-intro.html
+
+1. Process raw Reads: FATQ files download SRA, quality scores (Phred), paired vs single end sequence, FASTQC quality control, variability, spike-ins, blocking & randomise, filter out low quality reads & artifacts (adapter sequence reads).
+2. Align (map) reads to reference genome (FASTA, GFF, GTF): annotation file (BED), alignment program (STAR, HISAT), reference genomes (GenCODE, Ensemble), generate genome index, create & manipulate BAM/SAM files containing sequence alignment data
+3. Visualise & explore alignment data in IGV and R studio: ggplot2, bias identification QoRTs, 
+4. Estimate Read Quantification (abundance) with gene based read counting 
+5. Compare abundances between conditions & replicates (differential expression): Normalise, adjust each gene read counts for the total aligned reads  within each sample. Summarise data with pairwise correlation, hierarchical clustering, PCA analysis - look for differences between samples & identify outliers to consider excluding.
 
 ![Compare mutant vs wild type gene expression](https://lh3.googleusercontent.com/VtBLKXVhTx_hwbUNxN59byRcd2Ums76QpdRmtHYGUSo2wiwi5MkDEld8Eej6Bgsiqo25kJ4vxwtxNw)
+
 ![enter image description here](https://ycl6.gitbooks.io/rna-seq-data-analysis/Workflow.png) 
 ![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
 
@@ -416,49 +416,121 @@ Check for:
  
 __FastQC Workflow__
 `ml FastQC`
-`ml python`
-`ml pip`
+`ml MultiQC`
 
 make a folder to store the results: `mkdir fastqc_results`
-run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results`
-$ for SAMPLE in WT_1 WT_2 WT_3 WT_25 # random selection of samples: `mkdir fastqc_results/${SAMPLE}`
-if there are many sequencing files can speed up by running as `sbatch`
+run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results/`
+if there are many fastq files needing FastQC then speed up by running as `sbatch`: `sbatch -N 1 -c 8 --mem 32 --wrap="fastqc SRR5* -o fastqc_results/"`
 
 Look at the results: `ls fastqc_results/ERR458493_fastqc/`
 Summarise multiple FastQC outputs using the [MultiQC tool](http://multiqc.info/):
-[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder and use the folder names (WT_1 etc.) as prefixes to the sample names in the final output: 
+[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder
 Go to the folder with the fastqc files in and simply run: `multiqc .`
-Open the MultiQC html report: `open multiqc_report.html` or open in the browser
-[Interpret](https://www.youtube.com/watch?v=qPbIlO_KWN0) the MultiQC report: general stats, quality scores (Phred score), 
+Open the MultiQC html report: `open multiqc_report.html` or [open in the browser](https://multiqc.info/docs/#using-multiqc-reports)
+[Interpret](https://www.youtube.com/watch?v=qPbIlO_KWN0) the MultiQC report: 
+general stats
+quality scores (Phred score)
+Over-represented sequences: these indicate how much % the adapter sequences compose
 
-### Trim low quality bases & adapters & rRNA
+### Filter low quality bases & Trim adapters (Essential Step)
 There are many QC tools available (most in bash but some in R - bioconductor) each with basic QC methods plus unique functionality. Best ones include:
 `Trimmomatic`  application note in Nucleic Acid Research, 2012, web server issue
 `BBDuk` part of the BBMap package
 `FlexBar` Flexible barcode and adapter removal  published in Biology, 2012
 `CutAdapt`  application note in Embnet Journal, 2011 - advised by Nobby
-`Trimer Galore` is a wrapper around `Cutadapt` - this performs quality trimming then adaptor trimming in one step.
+`Trim Galore` is a wrapper around `Cutadapt` - this performs quality trimming then adaptor trimming all in 1. It can also run FastQC.
 
+`ml Trim_Galore`
 `ml cutadapt`
 `ml trimomatic`
-`ml Trim_Galore`
 `ml FASTX-Toolkit`
 `ml Bowtie2`
 
-`trim_galore -q 20 --gzip -o trim_galore SRR5*_1.fastq`
+1. `mkdir trimmed_results`
+
+2. Run Trim Galore 
+`trim_galore -q 20 --length 20 --gzip -o /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq`
 
 for multiple sequences can parallelise by using for loop & sbatch:
-
 ```bash
 for file in ~/working/oliver/projects/airals/fastq_files/D7_samples/SRR5*_1.fastq
 do
-	sbatch -N 1 -c 1 --mem 8 --wrap="trim_galore -q 20 --length 20 --gzip -o trimmed_D7 $file";
+	sbatch -N 1 -c 1 --mem 32 --wrap="trim_galore -q 20 --length 20 --gzip -fastqc -o /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results $file";
 done
 ```
+
+`-q 20` = trim low quality ends Phred <20 & remove adapters
+`--length 20` = discard reads shorter than 20bp
+`-o` = specify output directory
+`-fastqc` = will perform FastQC after low quality & adapter removal
+You can specify the precise adapter sequence you want removed e.g. `-a AGCGCTAG` but if this isnt specified explicitly, Trim Galore auto-detects the Illumina adapter sequence that was used. It specifies what it removed in the output txt file.
+
 @Raphaelle used:
 adapter removal: `fastx_clipper -Q 33 -l 24 -a $adapt -i ${paths}${file} > ${paths}${data}-clipped.fastq`
 
-rRNA removal using bowtie (the indexed fasta sequence of ribosomal RNA as obtained from UCSC): `bowtie -q -p 8 -v 0 --un ${paths}${data}-no_rRNA.fq $ribosomal ${paths}${data}-clipped.fastq > ${paths}${data}-rRNA.sam`
+3. Re-run MultiQC
+run `multiqc` within the `trimmed_fastqc_results` folder
+Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
+Compare this new Trimmed MultiQC HTML report with the report on the Raw FastQC prior to trimming.
+
+### Remove rRNA & tRNA (Optional step)
+Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads. 
+There are disadvantages to removing these sequences:
+Generally for most RNA-seq remove rRNA at this point pre-processing.
+
+1. Create rRNA&tRNA reference genome
+`ml BEDOPS`
+```bash
+awk '/rRNA|tRNA|Mt_rRNA|Mt_tRNA|miRNA|misc_RNA|snRNA|snoRNA/{print $0}' gencode.v28.primary_assembly.annotation.gtf > temp.gtf
+awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' temp.gtf > gencode.v28_ribosomal.gtf
+gtf2bed < gencode.v28_ribosomal.gtf > gencode.v28_ribosomal.bed
+sed -i -r 's/^([0-9]+|[XY]|MT)/chr\1/' gencode.v28_ribosomal.bed
+```
+
+2. Index the rRNA reference genome
+`ml Bowtie2`
+`ml BEDTools`
+`ml SAMtools`
+`ml BWA`
+`mkdir rRNA_depleted`
+
+```bash
+#BEDTools (any many other programs) need TABS, not spaces.
+#sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed
+#mv temp.bed Homo_sapiens.GRCh38.77_ribosomal.bed
+bedtools getfasta -fi /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa -bed gencode.v28_ribosomal.bed -fo gencode.v28_ribosomal.fa
+bwa index gencode.v28_ribosomal.bed
+bowtie2-build gencode.v28_ribosomal.fa gencode.v28_ribosomal
+samtools faidx gencode.v28_ribosomal.fa
+```
+
+3. Map sequences to the rRNA & tRNA genome
+
+```bash
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_no_rRNA.fq -x /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal -U /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results/SRR5483788_1_trimmed.fq.gz -S /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_with_rRNA.sam"
+
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483789_1_no_rRNA.fq -x /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal -U /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results/SRR5483789_1_trimmed.fq.gz -S /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483789_1_with_rRNA.sam"
+
+sbatch -N 1 -c 8 --mem 44 --wrap="bowtie2 -q -p 8 --un /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483790_1_no_rRNA.fq -x /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal -U /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results/SRR5483790_1_trimmed.fq.gz -S /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483790_1_with_rRNA.sam"
+
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483794_1_no_rRNA.fq -x /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal -U /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results/SRR5483794_1_trimmed.fq.gz -S /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483794_1_with_rRNA.sam"
+
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483795_1_no_rRNA.fq -x /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal -U /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results/SRR5483795_1_trimmed.fq.gz -S /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483795_1_with_rRNA.sam"
+
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483796_1_no_rRNA.fq -x /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal -U /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results/SRR5483796_1_trimmed.fq.gz -S /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483796_1_with_rRNA.sam"
+```
+
+-q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
+
+4. Re-run FastQC & MultiQC step
+`ml pandoc`
+```bash
+for file in ~/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5*_1.fastq
+do
+	sbatch -N 1 -c 8 --mem 40 --wrap="fastqc $file -o rRNA_depleted_fastqc_results/";
+done
+run multiqc within the rRNA_depleted_fastqc_results/ folder: multiqc -f .
+```
  
 ### Error Correction (Optional step)
 Nobby doesn't routinely do this. 
@@ -469,27 +541,13 @@ Sequencing instruments occasionally make random errors. Can recognise errors by 
 - The 4 base long k-mers ( 4-mers ) are ATGC , TGCA
 - The 5 base long k-mer ( 5-mer ) is ATGCA
 
-FaASTQ error correction programs correct or remove reads that appear to have errors in. Very useful when data is of high coverage.
+FastQC error correction programs correct or remove reads that appear to have errors in. Very useful when data is of high coverage.
 
 `ml BBMap`
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 
-### Sequence patterns
-Sequence patterns can be summarised probabilistically into motifs e.g. where `GC` is followed by `A` 80% of time.
-Adapters are very simple sequence patterns that can be identified by a pattern. 
-When sequences are on a single line (line orinentated), `grep` with `--colour=always` allows us to identify the mataches e.g. `cat SRR5483788_1.fastq | grep --color=always CTGTCTCTTATACA | head -2`
-
-Searching sequences for patterns:
-`grep` and extended grep `egrep` work on single line.
-`dreg` and `fuzznuc` Emboss tools wra over many lines
-
-Regular expressions:
-`^` matches the beginning of the line
-`.` matches any character
-`{m,n}` matches the preceding elements at least m but not more than n times.
-
-## Sequence Alignment
+# Sequence Alignment
 - the purpose of alignment (aka pairwise alignment; mapping) is to arrange 2 sequences so the regions of similarity line up. For each base alignment the options are:
 	- `-` a space
 	- `|` match
@@ -550,12 +608,20 @@ The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations mus
 ### Short read aligners
 In 2005 high throughput short-read sequencers changed the face of sequencing which became much cheaper and accessible. Previously sequencing was laborious and expensive and the focus was on producing accurate long reads (1000bp). Sequencing reads longer improves alignment.  Sequencers now produce millions of short reads (50-300bp). Aligners have thus changed to adapt to short reads - rapidly select the best mapping at the expense of not investigating all potential alternative alignments.
 - Short read aligners are incredible! They match > 10,000 sequences per second against 3 billion bases of the human genome.
-- There is large variation in results between different aligners. A tool that prioritises finding exact matches will do so at the exense of missing locations and overlaps and vice versa.
+- There is large variation in results between different aligners. A tool that prioritises finding exact matches will do so at the expense of missing locations and overlaps and vice versa.
 - Limitations:
 	- finds alignments that are reasonably similar but not exact (algorithm will not search beyond a defined matching threshold)
 	- cannot handle very long reads or very short reads (<30bp) (become inefficient)
 
-### Choosing an Aligner (STAR, bwa, bowtie2, TopHat2)
+## Choosing a splice-aware Aligner
+
+Options:
+-   HiSat2: similar algorithms as Bowtie2/Tophat2 but performs at much faster speeds
+-   Subjunc: designed specifically for gene expression analysis.
+-   BWA: the MEM algorithm of bwa supports spliced alignments.
+-   BBMap: Is capable of detecting very long splicing.
+-   STAR: Really fast, produces counts for you too.
+
 When choosing an aligner, we need to decide what features the aligner should provide:
 -   Alignment algorithm: global, local, or semi-global?
 -   Is there a need to report non-linear arrangements?
@@ -575,11 +641,10 @@ For RNA-seq we need to:
 	* Efficient
 	* Sensitive
 	* But large number of novel splice sites (caution)
-* **TopHat** = popular aligner – wrapper around the genomic aligner Bowtie
 
-### Reference Genomes
+## Reference Genomes
 Reference genome sequence repositories:
-**GenCODE** - Generally for human data use 
+**[GenCODE](https://www.gencodegenes.org/human/)** - Generally for human data use 
 [ENSEMBL](http://www.ensembl.org/index.html) - use for most other species
 [UCSC](https://genome.ucsc.edu/) - comprehensive comparative genomics data across genomes         	https://genome.ucsc.edu/cgi-bin/hgTables
 ENCODE
@@ -619,14 +684,14 @@ GFF = General Feature Format
         	field number can vary from 3 - 12. Must be consistent within a file.
 indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
 
-### Download Reference Sequence (FASTA) & Annotation (GTF) files
+## Download Reference Sequence (FASTA) & Annotation (GTF) files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
 
 **GENCODE process:**
 https://www.gencodegenes.org/releases/current.html
 find the latest human reference genome: currently this is Release 28 (GRCh38.p12)
 Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table. 
-Then in command line download to the appropriate directory: `wget  [paste link address]` then `gunzip filename`
+Then in command line download to the appropriate directory: `wget [paste link address]` then `gunzip filename`
 Do the same for the GTF file to the **Comprehensive gene annotation PRI (primary) regions**.
 
  **ENSEMBL process:**
@@ -720,15 +785,12 @@ output:
 	"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam"
 shell:
 	"STAR --genomeDir {input.index} --readFilesIn {input.sample} --outFileNamePrefix {output}_ --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"
-```
 
-dry run workflow:
+#dry run workflow:
 `snakemake -np /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
-execute workflow:
+#execute workflow:
 `snakemake /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
-
-`snakemake /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
-
+```
 * List fast.qz files separated by commas and remove white spaces:
 
 `INPUT= ls -m /home/camp/ziffo/working/oliver/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
@@ -738,18 +800,19 @@ execute workflow:
 `echo` displays a line of text - in this case it lists all the file names  - in this case the pipe to echo is to remove new spaces that are created between multiple lines.
 no space after FILES - with space after it thinks FILES is command.
 `sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
+```bash
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 
-`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483788_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483789_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483789_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 
-`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483789_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483790_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483790_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 
-`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483790_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483790_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483794_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483794_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 
-`sbatch -N 1 -c 8 --mem 32G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483794_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483794_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483795_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483795_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 
-`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483795_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483795_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
-
-`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483796_1.fastq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/SRR5483796_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"`
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483796_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483796_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+```
 
 The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters including:
 * multi-mapped reads
@@ -781,10 +844,18 @@ STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments
 `echo $( cat /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq | wc -l)/4 | bc`
 
 ### 4. [Indexing read alignments](http://software.broadinstitute.org/software/igv/bam)
+`ml SAMtools`
 Star auto creates BAM files. Now need to index the BAM file.
-Use `samtools` package to index. Load `samtools` in command line: `ml SAMtools`
+Use `samtools` package to index. Load `samtools` in command line: 
 Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory.
-Generate an index for the BAM file for downstream analysis:  `samtools index filename_Aligned.sortedByCoord.out.bam`
+Generate an index for the BAM file for downstream analysis: 
+```bash
+for file in ~/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+do
+	sbatch -N 1 -c 8 --mem 40 --wrap="samtools index $file";
+done
+```
+for individual files: `samtools index filename_Aligned.sortedByCoord.out.bam`
 
 ### BAM files
 - BAM file = Binary Alignment Map - human readable TAB-delimited compressed. 
@@ -862,6 +933,7 @@ Create SAM file with intron spanning reads:
 - use `grep` to select lines with a number of digits (using `[0-9]+`) then `M` (i.e. matches) then any number of digits again, then `N` (i.e. mismatches) then any number of digits and then M again at the end: `egrep "(^@|[0-9]+M[0-9]+N[0-9]+M)" FILENAME.sam > intron-spanning_reads.sam`
 - Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
 
+
 ## [Sequence Alignment Maps (SAM)](https://www.biostarhandbook.com/sam/sam-flags.html)
 
 SAM files are generic nucleotide alignment format describing alignment of sequenced reads to a reference. SAM format are TAB-delimited line-orientated (each row represents a single read alignment) text consisting of 2 types of tags:
@@ -920,6 +992,7 @@ Following the 11 mandatory fields, the optional fields are presented as key-valu
 -   `H`  - Hex string
 
 Reads within the same SAM file may have different numbers of optional fields, depending on the aligner program that generated the SAM file. 
+`samtools flagstat` assesses the FLAG field and prints a summary report: `samtools flagstat Aligned.sortedByCoord.bam`
 
 ### Read Group tags
 [Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
@@ -931,9 +1004,9 @@ This allows pooling results of multiple experiments into a single BAM dataset to
 
 Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 
-## Data Visualisation
+# Data Visualisation
 
-### Genome Browser
+## Genome Browser
 - Check results visually to ensure reads align to expected regions without excess mismatches.
 - Genome browsers give a linear track representing the forward stand of the genome. left = 5'. right = 3'
 - can visualise line orientated formats (fasta, bed, gff, SAM/BAM)
@@ -957,14 +1030,14 @@ Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 - [Ensembl](http://useast.ensembl.org/index.html)
 - [UCSC](https://genome.ucsc.edu/)
 
-#### [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
+## [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
 `ml IGVTools`
 
 Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
 1. Run IGV on local computer and mount CAMP. [Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
 On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
 2. Set reference genome to Human (hg38) top left box.
-3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM files (can load multiple at once).
+3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
 
 To visualise on IGV its easier to generate TDF files which are much lighter. This is useful if want to add more data-sets later. To generate TDF files first generate Bedgraph coverage files, then sort and then create the tdf file. Create 3 different coverage files: positive, negative strands and total. As the data is stranded it is better to look at both strands separately. Run the code in file: PE_strandedBedGraph.sh
 
@@ -1001,30 +1074,24 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 
-
 ## Merge BAM files
 
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 
-## Quality Control of Aligned Reads
+# Quality Control of Aligned Reads
 Analyses now switch from command line to R studio.
+ The main STAR output file for downstream analyses are **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
+**out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip.
 
 After aligning and before performing downstream analyses check for:
 1. Excessive amounts of reads not aligned
 2. Obvious biases in the read distributions
 3. Similarity between replicate samples
- 
- The main STAR output file for downstream analyses are **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
-**out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip
-
-### Data Simulation
-Evaluate performance of processing. 
-[Polyester](http://bioconductor.org/packages/release/bioc/vignettes/polyester/inst/doc/polyester.html) is an RNA Seq measurement simulator that simulates fragmentation, reverse-complementing & sequencing.
 
 ### Alignment Assessments
  
- **1. Check that alignment rate of RNA-seq reads is > 70%**
+Check that alignment rate of RNA-seq reads is > 70%:
  
  Check the aligner's output: `cat FILENAME_Log.final.out`
  - most important number = **uniquely mapped reads**
@@ -1036,17 +1103,20 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 - `head(align.results[[1]])`
 -  `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
 
- **2. Calculate number of alignments in each BAM file**
-- easiest to do using a line count ` samtools view Aligned.sortedByCoord.out.bam | wc -l`
-- unmapped reads in the BAM file & also multiple instances of the same read mapped to different locations will also be counted (latter only if multi-mapped reads were kept) so run specific tools to indicate FLAG values too.
-- `samtools flagstat` assesses the FLAG field and prints a summary report: `samtools flagstat Aligned.sortedByCoord.bam`
 
 
-### Visualising Data in R
+
+### Data Simulation
+Evaluate performance of processing. 
+[Polyester](http://bioconductor.org/packages/release/bioc/vignettes/polyester/inst/doc/polyester.html) is an RNA Seq measurement simulator that simulates fragmentation, reverse-complementing & sequencing.
+
+
+
+## ggplot2 R
 
 `ml RSeQC`
 
-__Visualise STAR alignment information in R studio using ggplot2__
+### Visualise STAR alignment information in R studio using ggplot2
 Full explanation available [here](https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf).
 
 **ggplot2** https://ggplot2.tidyverse.org/
@@ -1079,7 +1149,7 @@ Compare the results of STAR alignment across samples:
 - define the variables that we want to include
 - generate bar chart
 
-__Visualise the output of  `RSeQC` quality controls__
+### Visualise the output of  `RSeQC` quality controls
 Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
 
 To add results of samtools flagstat & RSeQC to a MultiQC report capture the output as a txt file.
@@ -1091,7 +1161,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 ## Bias Identification
 
-**Typical Biases of RNA-seq:**
+### Typical Biases of RNA-seq
 - many reads aligned to introns indicates: 
 	- incomplete poly(A) enrichment 
 	- abundant presence of immature transcripts
@@ -1100,7 +1170,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 	- abundant non-coding transcripts
 - over representation of 3' portions of transcripts indicates RNA degradation
 
-__Read distribution__
+### Read distribution
 - mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
 	- counts number of reads overlapping with various genes & transcript associated genomic regions (introns and exons)
 - download BED file from [UCSC genome](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=685446505_FqnRnlREChczp8SYDIJOSvLwBshv&clade=other&org=S.+cerevisiae&db=sacCer3&hgta_group=genes&hgta_track=sgdGene&hgta_table=0&hgta_regionType=genome&position=chrIV%3A765966-775965&hgta_outputType=primaryTable&hgta_outFileName=).
@@ -1126,7 +1196,7 @@ TES_down_10kb       3386705             0                   0.00
 
 Visualise this output using this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
 
-__Gene body coverage__
+### Gene body coverage
 Assess 3' or 5' biases using **RSeQC** `geneBody_coverage.py` script:
 - uses an annotation file with transcript models of choice
 - it divides each transcript into 100 sections
@@ -1148,7 +1218,7 @@ Lines represent different quality RNA (RIN 0 = degraded; RIN 9 = high quality). 
 
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 
-__mRIN calculation using tin.py__
+### mRIN calculation using tin.py
 - RNA integrity number (RIN) is rarely reported in public data repositories.
 - Instead determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
 - TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
@@ -1160,7 +1230,7 @@ Output is an xls file and a summary txt file (mean & median values across all ge
 
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
 
-__Quality of RNA Seq Toolset (QoRTs)__
+### Quality of RNA Seq Toolset (QoRTs)
 - `QoRT` is a `jar` software file that is an alternative to `RSeQC` that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq.
 
 `ml QoRTs`
@@ -1204,17 +1274,36 @@ RNA specific QC:
 - splice junction info obtained with QoRTs
 
 1. collect all QC results of interest into one folder QC_collection
-
 2. create subfolders for each sample
-
 3. run multiQC
 `ml multiqc`
 `multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
-## Read Quantification
-__Gene-based read counting__
+# Read Quantification
+We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
+
+Gene isoforms are mRNA produced from the same locus but with diferent protein codeing sequences:
+
+![3 isoforms of the same gene](https://www.biostarhandbook.com/rnaseq/images/isoforms.png)
+
+5 modes of alternative splicing are recognized:
+
+1.  Exon skipping or cassette exon.
+2.  Mutually exclusive exons.
+3.  Alternative donor (5') site.
+4.  Alternative acceptor (3') site.
+5.  Intron retention.
+
+![enter image description here](https://www.biostarhandbook.com/rnaseq/images/splicing.png)
+
+Different ways to quantify mRNA abundances:
+1.  Counts: The number of reads overlapping with a transcript.
+2.  RPKM/FPKM: Reads/Fragments per kilobase of transcript per millions of read mapped.
+3.  TPM: Transcripts per million
+
+## Gene-based read counting
 - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
 - Essentially you are **counting the number of overlapping reads**
 - Need to clarify:
@@ -1224,7 +1313,7 @@ __Gene-based read counting__
 	- Reads overlapping introns
 ![enter image description here](http://htseq.readthedocs.io/en/release_0.10.0/_images/count_modes.png)
 
-**Tools to count reads:**
+### Tools to count reads
 
 `htseq-count` has 3 modes union, intersection strict, and intersection nonempty (image above). Union mode is recommended which counts overlaps even if a read only shares part of its sequence with a gene but disregards  reads that overlap more than 1 gene. http://htseq.readthedocs.io/en/release_0.10.0/index.html
 
@@ -1249,7 +1338,8 @@ N.B. if the exon is part of multiple isoforms in the annotation file, featureCou
 **Preparing an annotation:**
 To **assess differential expression of exons**, create an annotation file where overlapping exons of different isoforms are split before running featureCounts. Use `dexseq_prepare_annotation.py` script of DEXSeq package or `QoRTs`.
 
-__Isoform counting__
+## Gene Isoform counting
+
 Strictly you should quantify reads that originate from transcripts (rather than genes as a whole).  Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
 Programmes to quantify isoforms:
@@ -1276,7 +1366,15 @@ The main limitations to assigning reads to transcripts are:
 - many isoforms with very different lengths
 - anti-sense and overlapping transcripts of different genes
 
-# Normalising and Log Transforming Read Counts
+
+
+
+# Compare read abundances
+
+1.  _Within-sample_  comparisons: compare the expression of genes within the same experiment eg in this experiment does gene A express at a higher level than gene B?
+2.  _Between-sample_  comparisons: compare the expression of genes across experimental conditions eg has the gene expression for gene A  changed across different experimental conditions?
+
+## Normalising and Log Transforming Read Counts
 The number of sequenced reads depends on:
 1. expression level
 2. read length
@@ -1578,4 +1676,4 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 
 **SVD (singular value decomposition) analysis**
 
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea.
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
