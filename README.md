@@ -113,6 +113,14 @@ PacBio sequencers offer longer reads than Illumina.
 * for detecting de novo transcriptome assembly in humans need 100-200 x10^6 paired end reads.
 ![enter image description here](https://www.yourgenome.org/sites/default/files/images/illustrations/bioinformatics_single-end_pair-end_reads_yourgenome.png)
 
+## Naming Sample Files
+
+- make each attribute of the data be represented by a single, isolated region of the filename
+- Utilise heirarchy of the samples. Start with the most generic information in the file name, then become more specific. E.g sample_replicate number_paired file (1 or 2)
+- Dont mix sample information with replicate information
+- keep as simple as possible
+
+
 ## Compress & Uncompress Files
 A "compressed file" is a single file reduced in size. The name may end with .gz , .bz , .bz2 , or .zip 
 A "compressed archive" is a folder containing multiple files combined, and then compressed. The name may end with .tar.gz , .tar.bz2
@@ -157,9 +165,9 @@ fastq.gz  = compressed version of fast file (needs unzipping before analysing)
 * Technical replicates = repeat library preparations from the same RNA sample —> avoid batch effects & lane effects. Should multiplex same sample over different lanes of same flowcell.
 * Biological replicates = parallel measurements on different samples i.e. RNA from independent cells/tissues. Most RNA-seq have 3 biological replicates but ideally need 6 per condition to improve statistical power.
  
-**Artificial RNA spike-ins**
+**Artificial RNA spike-in control**
 * used to accurately quantify absolute transcript concentration. 
-* RNA of known quantities is used for calibration eg ERCC. R package `erccdashboard`. Different spike-in controls are needed for each RNA type.
+* RNA of known quantities (92 transcripts) is used for **calibration** eg ERCC ExFold RNA Spike-In Control Mix. R package `erccdashboard`. Different spike-in controls are needed for each RNA type.
 * dont use spike ins to normalise between different samples (they dont account for differences in amount of starting material).
  
 **Blocking and randomise**
@@ -258,58 +266,61 @@ Depending on the tool being used you can either (a) account for different versio
 
 ## Accessing Sequence Data
 
-**NCBI & Entrez**
+### NCBI & Entrez
 - ginormous data store of sequence data.
 - Entrez is NCBIs primary text search integrating PubMed with 39 other databases
 - Entrez enables you to access NCBI databases via the command line. 
 - Accession number applies to the complete database record for that entity. Updates and revisions remain under the same accession number but with a different version number.
 - Prior to 2015 NCBI versions began with GI.
-- Entrez web API allows us to query NCBI data using the URL construct: 
-
-`https://service.nih.gov/?param1=value1&param2=value2&param3=value3`
+- Entrez web API allows us to query NCBI data using the URL construct:  https://service.nih.gov/?param1=value1&param2=value2&param3=value3
 - place `\` before each `&` to escape the command line `&` meaning or alternatively place ' ' around the whole URL.
 - For example to access AF086833.2 in FASTA format via the command line: 
 
 `curl -s 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?id=AF086833.2&db=nuccore&rettype=fasta'`
 
+### Entrez Direct Tools
 - Entrez direct tool simplifies the command line access e.g. `efetch`, `esearch`, `xtract`
 
-`efetch -db=nuccore -format=gb -id=AF086833 | head`
+```bash
+efetch -db=nuccore -format=gb -id=AF086833 | head
 
-#e.g. accession number AF086833 in Genbank format. `efetch -db=nuccore -format=gb -id=AF086833 > AF086833.gb`
-#e.g. accession number AF086833 in Fasta format. `efetch -db=nuccore -format=fasta -id=AF086833 > AF086833.fa`
-#efetch can take additional parameters and select a section of the sequence. `efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=3`
-#It can even produce the sequence from reverse strands: `efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=5 -strand=1`
+#e.g. accession number AF086833 in Genbank format
+efetch -db=nuccore -format=gb -id=AF086833 > AF086833.gb
+#e.g. accession number AF086833 in Fasta format. 
+efetch -db=nuccore -format=fasta -id=AF086833 > AF086833.fa
+#efetch can take additional parameters and select a section of the sequence
+efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=3
+
+#It can even produce the sequence from reverse strands
+efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=5 -strand=1
 >gb|AF086833.2|:1-5 Ebola virus - Mayinga, Zaire, 1976, complete genome CGGAC
 
 `efetch -db=nuccore -format=fasta -id=AF086833 -seq_start=1 -seq_stop=5 -strand=2`
-
 >gb|AF086833.2|:c5-1 Ebola virus - Mayinga, Zaire, 1976, complete genome GTCCG
+```
 
 Note strand 2 is the reverse complement (not simple complement) represented by `c5-1` tag.
 
 - searching Entrez Direct:
-	- use the project accession number from the published paper to search the data that comes with it
-
+	- use the project accession number from the published paper to search the data that comes with it:
  `esearch -help`
  `esearch -db nucleotide -query accession_number`
 
-To fetch the data from a search pipe it to efetch: `esearch -db nucleotide -query accession_number | efectch -format=fasta >genome.fa` This generates a XML file.
+- To fetch the data from a search pipe it to efetch: 
+`esearch -db nucleotide -query accession_number | efectch -format=fasta > genome.fa` 
+`esearch -db sra -query PRJNA*** | efetch -format runinfo > sequencing_data.csv`
 
-To navigate and select parts of the XML file from `efetch` pipe it to `xtract`
-`efetch -db taxonomy -id 9606,7227,10090 -format xml | xtract -Pattern Taxon -first TaxId ScientificName GenbankCommonName Division`
+- Manipulate the sequencing library if required:
+isolate specific run IDs 
+isolate single-end reads: `cat sequencing_data.csv | cut -f 1,16 -d , | grep SRR.*SINGLE | cut -f 1 -d "," > single_ids.tx`
 
-**[ENSEMBL](http://www.ensembl.org/index.html)** : has the most detailed annotations of genomes. Download the latest Ensembl release of the human transcriptome `curl -0 ftp://ftp.ensembl.org/pub/release-86/gtf/homo_sapiens/Homo_sapiens.GRCh38.86.gtf.gz`
-
-**UCSC Table Browser**: Stores large scale result tiles produced by consortia e.g. ENCODE. Contains multiple sequence alignment datasets across entire genomes.
-* UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
-* must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
 ## Downloading from Sequence Database Repositories
+ml ncbi-vdb
+ml fastq-tools
+ml seqtk
 
-`ml ncbi-vdb`
-`ml fastq-tools`
-`ml seqtk`
+### Accession numbers
 
 1. Ctrl & F in manuscript PDF to find unique ID accession numbers. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
 2. For `GSE****` accession numbers go to: https://www.ncbi.nlm.nih.gov/geo/ and search the `GSE****` ID
@@ -321,13 +332,17 @@ To navigate and select parts of the XML file from `efetch` pipe it to `xtract`
    - Format the output as a RunInfo.csv format: `esearch -db sra -query PRJNA****** | efetch -format runinfo > info.csv`
    - To see SRR IDs, head the first column: `cat info.csv | cut -f 1 -d ',' | head`
 	- Filter for `SRR` & store the first 10 IDs: `cat info.csv | cut -f 1 -d ',' | grep SRR | head > ids.txt`
-6. On the [SRA page](https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=384592) show 200 results & then click on Send Results to Run Selector. This creates the SRA Run Selector table which has useful information on each sequencing file.
+5. On the [SRA page](https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=384592) show 200 results & then click on Send Results to Run Selector. This creates the SRA Run Selector table which has useful information on each sequencing file.
 	- [SRA Handbook](https://www.ncbi.nlm.nih.gov/books/NBK47528/)
 	- SRA experiment IDs start with `SRS****`. Unique sequencing library for a sample.
 	- SRA run IDs start with  `SRR****` and `ERR****`. Data file linked to the sequencing library.
-7. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_2827488_130.14.18.97_5555_1539957447_3051893689_0MetA0_S_HStore&query_key=3) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
-8. In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file. 
-	- in command line type `fastq-dump SRR1553607`. Generates `SRR1553607.fastq` file
+6. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_2827488_130.14.18.97_5555_1539957447_3051893689_0MetA0_S_HStore&query_key=3) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
+
+### fastq-dump
+
+Now that we have the accessions, we can get the sequence files in fastq format using fastq-dump from the SRA toolkit
+
+In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type `fastq-dump SRR1553607`. Generates `SRR1553607.fastq` file
 
 The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: 
 ```bash
@@ -336,26 +351,32 @@ do
 	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; 
 done < SRR_Acc_List.txt
 ```
-`N` is the number of nodes (usually leave at 1)
-`c` is the number of cores (i.e. threads - so you could change the STAR command to `runThreadN 8` with this example)
-`--mem` is the amount of memory you want
-Can remove the `slurm` files after download (that is just the log): `rm slurm-*`
 
-Alternatively using the `ids.txt` file list of SRR run IDs & invoke `fastq-dump` on each ID: `fastq-fump -X 10000 --split-files SRR******` but this can be done in one go using: `cat ids.txt | xargs -n 1 fastq-dump -X 10000 --split-files $1`
+Alternatively using the `ids.txt` file list of SRR run IDs & invoke `fastq-dump` on each ID:
+```bash
+fastq-fump -X 10000 --split-files SRR******` 
 
-- **Paired-end reads** are concatenated by SRA (because that is how the instrument measures them). Therefore need to separate these into 2 different FASTQ files: 1 forward read; 1 backward read using the command: `fastq-dump --split-files SRR1553607`. Generates files `SRR1553607_1.fastq` & `SRR1553607_2.fastq`
-	* know the origin of each read (forward vs reverse) - encoded in read name - some analysis tools require combining the 2 files into 1. The **forward** read is **filename_1** and **backward** read is **filename_2**
-	* Need to process the read as Split Reads/files
+#This can be done in one go using
+## make reads directory
+mkdir -p reads
+## run fastq-dump on each line of text file with xargs
+cat ids.txt | xargs -n 1 fastq-dump -X 10000 --split-files reads
+```
 
-**Alternative approach to downloads:**
+- **Paired-end reads** are concatenated by SRA (because that is how the instrument measures them). Therefore need to separate these into 2 different FASTQ files: 1 forward read; 1 backward read using the command: 
+`fastq-dump --split-files SRR1553607`. Generates files `SRR1553607_1.fastq` & `SRR1553607_2.fastq`
+- know the origin of each read (forward vs reverse) - encoded in read name - some analysis tools require combining the 2 files into 1. The **forward** read is **filename_1** and **backward** read is **filename_2**
+- Need to process the read as Split Reads/files
+
+**Using accession code to download fastq files directly**
 - Copy the URL Address for the relevant FASTQ files from the column in the [SRA run selector table](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_110487706_130.14.18.97_5555_1538386558_3578612985_0MetA0_S_HStore&query_key=2). 
-- in terminal change to the target directory `cd`, then in command line use `wget` or `curl` tools to download e.g. `curl -O ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR197/SRR1972739/SRR
+- use `wget` or `curl` tools to download e.g. `curl -O ftp://ftp-trace.ncbi.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR197/SRR1972739/SRR
 1972739.sra` or  	`wget link_copied_from the_website`
-- These generate SRA files which need to be converted to FASTQ using: `fastq-dump -X 10000 --split-files SRR1972739.sra` # we specified to download the first 10,000 reads using `-X 10000` and split the "spots" using `--split-files`. Spots are reads.
+- These generate SRA files which need to be converted to FASTQ using: `fastq-dump -X 10000 --split-files SRR1972739.sra` we specified to download the first 10,000 reads using `-X 10000` and split the "spots" using `--split-files`. Spots are reads.
 - If there are many samples then download summary (right click on TEXT) & copy link location: then in command line run: `wget -O samples_at_ENA .txt "<paste LINK >"` #the quotation marks are crucial 
 - use 11th column of TEXT file (Fastq file top) to feed the URLs of different samples `cut -f11 samples_at_ENA . txt | xargs wget`
 
-## View & Interrogate the downloaded data: 
+## Interrogate the downloaded data fastq files
  - `more file_name.README` Press `space` to move forward; `b` to move back, `q` or `ESC` to exit.
  - print the content of the file to the terminal window: `cat file_name`
 	 - scan the text to find columns and rows of interest
@@ -375,11 +396,27 @@ The [`sra-stat` program](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=
 `sra-stat --xml --quick SRR1553610`	
 `sra-stat --xml --statistics SRR4237168` generates read length statistics.
 
-## Manipulating FASTQ & FASTA files (Optional Step)
-`ml seqtk` 
-Installed [SeqKit](https://github.com/shenwei356/seqkit) & [csvtk](https://github.com/shenwei356/csvtk)
+## Seqkit report on fastq
+Installed [SeqKit](https://github.com/shenwei356/seqkit) & [csvtk](https://github.com/shenwei356/csvtk) and placed in PATH
 
-Overview of FASTQ data: `seqkit stat *.gz` or `seqkit stat *.fastq`
+Use seqkit to generate a report on fastq files:
+For whole folder:`seqkit stat fastq_files/*` 
+For individuals fastq files`seqkit stat *.fastq`
+
+The report tells you:
+- number of reads
+- read lengths: min, avg, max
+```
+file       format  type    num_seqs      sum_len  min_len  avg_len  max_len
+CTRL_1.fq  FASTQ   DNA    8,038,427  474,081,305       20       59       60
+CTRL_2.fq  FASTQ   DNA    7,822,813  461,011,169       20     58.9       60
+CTRL_3.fq  FASTQ   DNA    9,226,252  542,706,850       20     58.8       60
+VCP_1.fq   FASTQ   DNA   12,475,620  736,312,401       20       59       60
+VCP_2.fq   FASTQ   DNA   16,605,828  980,025,826       20       59       60
+VCP_3.fq   FASTQ   DNA   13,406,845  789,756,869       20     58.9       60
+```
+ 
+ ## Optimise and manipulate fastq files (optional)
  
 Convert FASTQ file into 3-column tabular format (1st col name/ID, 2nd col sequence, 3rd col quality) then add optional columns e.g. sequence length, GC content: `seqkit fx2tab --name --only-id --gc *.gz`
 
@@ -388,15 +425,14 @@ ID list file: `head id.txt` prints the relevant run IDs with specified proportio
 Search by ID list file: `seqkit grep --pattern-file id.txt *.gz > subset.fq.gz`
  
  Find degenerate bases in FASTQ file:  `seqkit fx2tab` converts FASTQ to tabular format & outputs the sequence in a new column.  `seqkit fx2tab --name --only-id --alphabet *.gz | csvtk --no-header-row --tabs grep --fields 4 --use-regexp --ignore-case --pattern "[^ACGT]" | c svtk -H -t cut -f 1 > id2.txt`
- 
- Use grep text search to filter the table: `seqkit grep --pattern-file id2.txt --invert-match *.gz > clean.fa`
+Use grep search to filter the table: `seqkit grep --pattern-file id2.txt --invert-match *.gz > clean.fa`
 Or locate degenerate bases K & N: `seqkit grep --pattern-file id2.txt viral.1.1.genomic.fna.gz | seqkit locate --ignore-case --only-positive-strand --pattern K+ --pattern N+`
 
 Remove duplicated sequences: `seqkit rmdup --by-seq --ignore-case *.fq.gz > uniq.fq.gz`
 
 Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-case --pattern-file *.gz` use the degenerate flag to identify pattern of interest
  
-## Quality Control (QC)
+## Quality Control (QC) Processing on Sequencing files
 Quality control (abbreviated as QC from now on) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
 - Pre-alignment: “raw data” - the protocols are the same regardless of what analysis will follow
 	- **FastQC** on raw sequenced reads
@@ -488,13 +524,15 @@ sed -i -r 's/^([0-9]+|[XY]|MT)/chr\1/' gencode.v28_ribosomal.bed
 ```
 
 2. Index the rRNA reference genome
-`ml Bowtie2`
-`ml BEDTools`
-`ml SAMtools`
-`ml BWA`
-`mkdir rRNA_depleted`
+
+ml Bowtie2
+ml BEDTools
+ml SAMtools
+ml BWA
 
 ```bash
+mkdir rRNA_depleted
+
 #BEDTools (any many other programs) need TABS, not spaces.
 #sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed
 #mv temp.bed Homo_sapiens.GRCh38.77_ribosomal.bed
@@ -616,11 +654,16 @@ In 2005 high throughput short-read sequencers changed the face of sequencing whi
 ## Choosing a splice-aware Aligner
 
 Options:
--   HiSat2: similar algorithms as Bowtie2/Tophat2 but performs at much faster speeds
+-   HiSat2: similar algorithms as Bowtie2/Tophat2 - but performs at much faster speeds
 -   Subjunc: designed specifically for gene expression analysis.
 -   BWA: the MEM algorithm of bwa supports spliced alignments.
 -   BBMap: Is capable of detecting very long splicing.
 -   STAR: Really fast, produces counts for you too.
+- Tuxedo suite refers to the pioneering automating pipelines for RNA-seq = alignment with tophat & bowtie, and Quantification & Differential Expression with cufflinks - all now outdated. 
+- The new Tuxedo suite refers to
+	- alignment: hisat2
+	- quantification: stringtie
+	- differential expression: ballgown (R package)
 
 When choosing an aligner, we need to decide what features the aligner should provide:
 -   Alignment algorithm: global, local, or semi-global?
@@ -645,7 +688,7 @@ For RNA-seq we need to:
 ## Reference Genomes
 Reference genome sequence repositories:
 **[GenCODE](https://www.gencodegenes.org/human/)** - Generally for human data use 
-[ENSEMBL](http://www.ensembl.org/index.html) - use for most other species
+**[ENSEMBL](http://www.ensembl.org/index.html)** : has the most detailed annotations of genomes.
 [UCSC](https://genome.ucsc.edu/) - comprehensive comparative genomics data across genomes         	https://genome.ucsc.edu/cgi-bin/hgTables
 ENCODE
 iGenomes
@@ -654,6 +697,10 @@ Mouse Genome Project
 Berkeley Drosphilia Project
 RefSeq
 [RNA-Central](http://rnacentral.org/) - non coding RNA sequencing database
+
+**UCSC Table Browser**: Stores large scale result tiles produced by consortia e.g. ENCODE. Contains multiple sequence alignment datasets across entire genomes.
+* UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
+* must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
 __Reference Genome File Formats__
 Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. One line per genomic feature.
@@ -740,18 +787,25 @@ To generate the index in STAR, specify the location of:
 3. GTF annotation file
 4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
-Send cmd to generate index as `batch job` to cluster:
-`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 59 --runThreadN 8"`
+```bash
+#Set the changable elements
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+
+#Send cmd to generate index as batch job to cluster:
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir $IDX --genomeFastaFiles $REF  --sjdbGTFfile $GTF --sjdbOverhang 59 --runThreadN 8"
+```
+
+The above code is resuable and applicable to all situations by editing the $changable elements.
+The "hard-coding" looks like this (very long and difficult to edit):
+```bash
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 59 --runThreadN 8"
+```
 
 Check it is running using `myq`
 If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
 Open slurm file: `more slurm…` which will explain outcome of file eg FATAL INPUT PARAMETER ERROR
- 
-To make the command shorter and easier to interpret you can assign names to files using $name. E.g
-`REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa`
-`ANO=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf`
-
-`sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --genomeFastaFiles $REF --sjdbGTFfile $ANO --sjdbOverhang 59 --runThreadN 8"`
 
 Alternative approach is to build Index using [snakemake](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html) which parallelises the indexing process:
 
@@ -772,7 +826,65 @@ ml SAMtools
 * Separate the file names with a comma (no spaces)
 * Create directory to store STAR output `mkdir alignment_STAR`
 
-By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together (see example further down) but it is best to do each separately and use the [snakemake command](http://slides.com/johanneskoester/snakemake-tutorial#/) - this makes it easier to see if there is an alignment error in each individual sequencing file:
+By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together (see example further down) but it is best to do each separately - can use [snakemake](http://slides.com/johanneskoester/snakemake-tutorial#/) - this makes it easier to see if there is an alignment error in each individual sequencing file:
+
+* List fast.qz files separated by commas and remove white spaces:
+
+`INPUT= ls -m /home/camp/ziffo/working/oliver/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
+
+`ls -m` list, fill width with a comma separated list of entries all the fastq files.
+`sed` remove a space from each file name
+`echo` displays a line of text - in this case it lists all the file names  - in this case the pipe to echo is to remove new spaces that are created between multiple lines. no space after FILES - with space after it thinks FILES is command.
+`sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
+
+```bash
+#SET CHANAGABLE ELEMENTS
+#set the index
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+#set the fastq sequencing file to read in
+READ1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_no_rRNA.fq
+#set the paired fastq sequencing file to read in (for paired end data only)
+READ2=
+#set name under which to store the BAM file output
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_
+
+#SEND ALIGNMENT AS SBATCH
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+```
+
+The above script needs editing for each sequencing file (redundant). 
+To create a script that runs all sequencing files (non-redundant) you can use a for loop or snakemake.
+
+**For Loop**
+```bash
+# Create output folder
+mkdir -p bam
+
+# Exit this script on any error.
+set -euo pipefail
+
+# set the index
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+
+for SAMPLE in VCP CTRL;
+do
+    for REPLICATE in 1 2 3;
+    do
+        # Build the name of the files.
+        READ1=reads/${SAMPLE}_${REPLICATE}_R1.fq
+        BAM=bam/${SAMPLE}_${REPLICATE}.bam
+
+        # Run the aligner.
+        STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic
+        # Index each BAM file as they are produced
+        samtools index $BAM
+    done
+done
+
+#Place the above into a script with atom & save in appropriate folder, name it `align.sh` and run it with
+bash align.sh
+```
+
 
 **Snakefile**
 - write the following rules in Atom and save the file in the appropriate directory
@@ -791,28 +903,7 @@ shell:
 #execute workflow:
 `snakemake /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
 ```
-* List fast.qz files separated by commas and remove white spaces:
-
-`INPUT= ls -m /home/camp/ziffo/working/oliver/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
-
-`ls -m` list, fill width with a comma separated list of entries all the fastq files.
-`sed` remove a space from each file name
-`echo` displays a line of text - in this case it lists all the file names  - in this case the pipe to echo is to remove new spaces that are created between multiple lines.
-no space after FILES - with space after it thinks FILES is command.
-`sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
-```bash
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483789_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483789_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483790_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483790_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483794_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483794_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483795_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483795_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir /home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index --readFilesIn /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483796_1_no_rRNA.fq --outFileNamePrefix /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483796_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-```
+## STAR output
 
 The [STAR manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)  has all the explanations on how to write the STAR command and fine tune parameters including:
 * multi-mapped reads
@@ -826,7 +917,7 @@ STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments
 #`STAR` will perform the alignment, then extract novel junctions which will be inserted into the genome index which will then be used to re-align all reads
 #`runThreadN` can be increased if sufficient computational power is available
 
-**STAR output files:**
+**STAR Files**
  - Aligned.sortedByCoord.out.bam - the loci of each read & sequence
  - Log.final.out - summary of alignment statistics
  - Log.out - commands, parameters, files used
@@ -843,12 +934,11 @@ STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments
 `more SRR5483788_Log.final.out`
 `echo $( cat /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq | wc -l)/4 | bc`
 
-### 4. [Indexing read alignments](http://software.broadinstitute.org/software/igv/bam)
-`ml SAMtools`
-Star auto creates BAM files. Now need to index the BAM file.
-Use `samtools` package to index. Load `samtools` in command line: 
-Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory.
-Generate an index for the BAM file for downstream analysis: 
+### [Indexing read alignments](http://software.broadinstitute.org/software/igv/bam)
+ml SAMtools
+
+- Star auto creates BAM files. Now need to index the BAM file. With a For Loop above you can automate this already as each BAM file is produced.
+- Create BAM.BAI file with every BAM file to quickly access the BAM files without having to load them to memory.
 ```bash
 for file in ~/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 do
@@ -1104,8 +1194,6 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 -  `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
 
 
-
-
 ### Data Simulation
 Evaluate performance of processing. 
 [Polyester](http://bioconductor.org/packages/release/bioc/vignettes/polyester/inst/doc/polyester.html) is an RNA Seq measurement simulator that simulates fragmentation, reverse-complementing & sequencing.
@@ -1286,8 +1374,6 @@ We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather
 
 Gene isoforms are mRNA produced from the same locus but with diferent protein codeing sequences:
 
-![3 isoforms of the same gene](https://www.biostarhandbook.com/rnaseq/images/isoforms.png)
-
 5 modes of alternative splicing are recognized:
 
 1.  Exon skipping or cassette exon.
@@ -1295,8 +1381,6 @@ Gene isoforms are mRNA produced from the same locus but with diferent protein co
 3.  Alternative donor (5') site.
 4.  Alternative acceptor (3') site.
 5.  Intron retention.
-
-![enter image description here](https://www.biostarhandbook.com/rnaseq/images/splicing.png)
 
 Different ways to quantify mRNA abundances:
 1.  Counts: The number of reads overlapping with a transcript.
@@ -1311,29 +1395,249 @@ Different ways to quantify mRNA abundances:
 	- Multi-mapping reads
 	- Reads overlapping multiple genomic features of the same kind
 	- Reads overlapping introns
-![enter image description here](http://htseq.readthedocs.io/en/release_0.10.0/_images/count_modes.png)
 
-### Tools to count reads
+## Spike-in control
 
-`htseq-count` has 3 modes union, intersection strict, and intersection nonempty (image above). Union mode is recommended which counts overlaps even if a read only shares part of its sequence with a gene but disregards  reads that overlap more than 1 gene. http://htseq.readthedocs.io/en/release_0.10.0/index.html
+- Spike-ins provide a known concentrations of transcripts that we can compare to the experimental samples
+- A common spike in product is [ERCC ExFold RNA spike-in control mix](http://data.biostarhandbook.com/rnaseq/ERCC/ERCC-information.pdf) which is added to the experimental samples
+- Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
+- At lower transcript expression levels accuracy in determining fold change deteriorates. 
 
-`featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread`
+## Tools to count reads
 
-`QoRTs` also does counting - Nobby uses this.
+- [htseq-count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) has 3 modes union, intersection strict, and intersection nonempty (image above). 
+- `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
+- `QoRTs` also does counting - Nobby uses this.
 
-The underlying gene models supplied to the quantification program via GTF or BED files will affect the gene expression quantification.
+## featureCounts Workflow
+ml Subread
 
-Count reads per gene:
-`featureCounts -a /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.gtf -o featureCounts_results.txt alignment/*bam`
+Input:
+- Gene feature file
+- BAM file 
 
-2 output files:
-featureCounts_results.txt has actual read counts per gene
-featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+1. Count reads (estimate abundance) per sample:
+```bash
 
-Count reads overlapping with individual exons:
-`featureCounts -a /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.gtf -f -t exon -O -o featCounts_exons.txt alignment/*bam`
+# Create output folder
+mkdir -p featureCounts
 
-N.B. if the exon is part of multiple isoforms in the annotation file, featureCounts will return the read counts for the same exon multiple times. *n = number of transcripts with that exon*. Remove the multiple entries in the result file before going on to differential expression analysis.
+#set gene coordinates
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+COUNTS=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts_SRR5483788.txt
+
+#run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
+featureCounts -a $GTF -g gene_name -o counts.txt $COUNTS $BAM
+```
+This script produces 1 txt file per BAM file.
+Using the * wildcard you can list all BAM files into 1 text file.
+
+`featureCounts -a $GTF -g gene_name -o counts.txt /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam`
+
+The output file contains a column for each sample. 
+
+For each BAM file there are 2 output files:
+- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
+- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+
+2. Find sequences with highest abundance
+
+To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
+Output table is in columns as:
+```
+Geneid            Chr         Start     End  Strand   Length  Hits
+```
+
+# Differential Gene Expression Analysis
+
+**Tools for DGE:**
+`edgeR` (better for false positives, less conservative, recommended if <12 replicates)
+`DESeq`
+`DESeq2` sample wise size factor
+`limma-voom`
+`cuffdiff`slow, cant support multifactored experiments, can detect differential isoforms, high false positives
+
+## Compare replicates between conditions (i.e. differential expression)
+
+Using R assess differential expression with DESeq2 using the output from featureCounts
+```bash
+ml R
+
+#print out only columns representing Gene ID & sample abundances (ie remove Chr, Start, End, Strand & length)
+cat counts.txt | cut -f 1,7-12 > simple_counts.txt
+
+#download R script to run DESeq & DESeq2 using the simple_counts.txt file
+curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
+curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
+
+#pass simple_counts.txt through the script specifying the design of the experiment 
+## in this case = 3 x 3 (3 cases, 3 controls)
+cat simple_counts.txt | Rscript deseq1.r 3x3 > results.txt
+```
+The results.txt file describes changes between the 2 conditions e.g.
+```bash
+id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
+ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
+ERCC-00108        808          264         1352        5.10        2.35         2.40e-62    9.39e-61
+ERCC-00136       1898          615         3180        5.16        2.36         2.80e-58    7.30e-57
+```
+-   `id`: Gene or transcript name that the differential expression is computed for
+-   `baseMean`: The average normalized value across all samples,
+-   `baseMeanA`,  `baseMeanB`: The average normalized gene expression for each condition,
+-   `foldChange`: The ratio  `baseMeanB/baseMeanA`,
+-   `log2FoldChange`: log2 transform of  `foldChange`. When we apply a 2-based logarithm the values become symmetrical around 0. A log2 fold change of 1 means a doubling of the expression level, a log2 fold change of -1 shows show a halving of the expression level.
+-   `pval`: The probability that this effect is observed by chance. Only use this value if you selected the target gene a priori.
+-   `padj`: The adjusted probability that this effect is observed by chance. Adjusted for multiple testing errors.
+
+```bash
+#Sort data by gene ID to paste into columns & select only foldchange and log2FoldChange. The results.txt file is already sorted according to padj
+cat results.txt | sort | cut -f 1,5,6 > table
+
+#How many genes are significantly differentially expressed (i.e. padj < 0.05)?
+cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
+
+#How many differentially expressed genes do we have?
+cat diffgenes.txt | wc -l
+```
+Visualise the most significantly differentially expressed genes in IGV:
+1. On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
+2. Set reference genome to Human (hg38) top left box.
+3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
+
+## Gene Enrichment
+https://www.biostarhandbook.com/ontology/gene-set-erichment.html
+Now that you have identified the differentially expessed genes you need to identify their function.
+
+**[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
+There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
+To search a defined sequence term use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
+
+**[Gene Ontology](http://geneontology.org/)**
+Connects each gene to one or more functions.
+3 sub-ontologies for each gene product:
+- Cellular Component (CC): cellular location where product exhibits its effect
+- Molecular function (MF): How does gene work?
+- Biological Process (BP): What is the gene product purpose?
+Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
+
+GO Download page: http://geneontology.org/page/download-annotations
+
+2 files to download: 
+1. definition (term) file `wget http://purl.obolibrary.org/obo/go.obo`
+2. association file `wget http://geneontology.org/gene-associations/goa_human.gaf.gz`. In GAF compressed format defined at http://geneontology.org/page/go-annotation-file-gaf-format-21
+Contains both gene and protein IDs.
+
+To search the function of a gene use the [GeneCards](http://www.genecards.org/) database to easily locate the gene by name.
+
+### Gene Set Enrichment Analysis
+- Identify common characteristics within a list of genes. When using GO terms, this is called "functional enrichment"
+- Most common variant is the ORA (over-representation analysis): 
+	- examines genes in a list > 
+	- summarises the GO annotations for each gene > 
+	- determines if any annotations are statistically over-represented.
+
+ **GO enrichment tools** 
+ The best are:
+- [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
+- AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
+- DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
+- Panther is offered directly from the GO website. It produces very limited information and no visualization.
+- goatools a command line Python scripts.
+- ermineJ Standalone tool with easy to use interface. It has detailed documentation.
+- GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
+- ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
+
+#### Gene Set Enrichment Analysis Methodology
+1. Enter gene names to be studies
+2. Enter background gene names (usually all genes for the organism)
+3. Perform statistical comparison
+
+[g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
+[g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
+
+The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
+
+Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
+
+## Using pseudo-alignment to quantify transcript abundances
+
+This is an alternative method to perform DE involving identifying which transcript that the reads originates from. Thus it aligns to the transcriptome (not to the genome).
+This makes processing much quicker as it bypasses alignment to the genome but will not identify new transcripts.
+
+Tools:
+- [Kallisto](https://www.nature.com/articles/nbt.3519)
+- Salmon
+
+### Kallisto workflow
+ml kallisto
+
+```bash
+#set shortcuts
+REF=PATH_TO_FASTA_FILE.fa
+IDX=PATH_TO_INDEX.idx
+R1=PATH_TO_FASTQ_forward_strand.fq
+R2=PATH_TO_FASTQ_reverse_strand.fq
+
+#build kallisto index
+kallisto index -i $IDX $REF
+
+#create directory for kallisto data and set subdirectory for output called out
+mkdir -p kallisto
+OUTDIR=out
+#run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
+kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
+```
+You can run this for multiple samples as a For Loop (example [here](https://www.biostarhandbook.com/rnaseq/rnaseq-griffith-kallisto.html))
+```bash
+# Create output folder
+mkdir -p kallisto
+
+# Exit this script on any error.
+set -euo pipefail
+
+# This is the path & name of the reference transcriptome (not genome).
+REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+
+# This the path & name of the index to build
+IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
+
+# Build kallisto index
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto index -i $IDX  $REF"
+
+for SAMPLE in VCP CTRL;
+do
+    for REPLICATE in 1 2 3;
+    do
+        # Build the name of the files.
+        R=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}_${REPLICATE}.fq
+        # The kallisto output directory.
+        OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/${SAMPLE}_${REPLICATE}
+        # Run kallisto quantification in single-end mode.
+        kallisto quant --single -l 200 -s 0.1 -i $IDX -o $OUTDIR -b 100 $R
+
+        # Copy the abundance file to a proper name - i.e. remove the long path name so that it only contains information on the sample e.g. VCP_3.tsv
+        cp $OUTDIR/abundance.tsv $OUTDIR.counts.tsv
+    done
+done
+
+#concatenate all counts into 1 file that can be used for DESeq DE analysis.
+paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/VCP_*.tsv  /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/CTRL_*.tsv | cut -f 1,4,9,14,19,24,29 > counts.txt
+```
+The main output of Kallisto is the abundance.txt file with columns:
+```
+target_id   length eff_length est_counts 	tpm
+ERCC-00002  1061   891.059      18946      243099
+ERCC-00003  1023   853.059      1452       19460.7
+ERCC-00004  523    353.059      455        14734.5
+ERCC-00009  984	   814.059      319        4480.29
+```
+eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
+est_counts = transcript abundances
+tpm = Transcripts Per Million
+
 
 **Preparing an annotation:**
 To **assess differential expression of exons**, create an annotation file where overlapping exons of different isoforms are split before running featureCounts. Use `dexseq_prepare_annotation.py` script of DEXSeq package or `QoRTs`.
@@ -1367,12 +1671,18 @@ The main limitations to assigning reads to transcripts are:
 - anti-sense and overlapping transcripts of different genes
 
 
+# Differential Gene Expression Analysis
 
+**Tools for DGE:**
+`edgeR` (better for false positives, less conservative, recommended if <12 replicates)
+`DESeq`
+`DESeq2` sample wise size factor
+`limma-voom`
+`cuffdiff`slow, cant support multifactored experiments, can detect differential isoforms, high false positives
 
-# Compare read abundances
 
 1.  _Within-sample_  comparisons: compare the expression of genes within the same experiment eg in this experiment does gene A express at a higher level than gene B?
-2.  _Between-sample_  comparisons: compare the expression of genes across experimental conditions eg has the gene expression for gene A  changed across different experimental conditions?
+2.  _Between-sample_  comparisons: compare the expression of a gene between experimental conditions aka pairwise comparison e.g. has the gene expression for gene A  changed across different experimental conditions? if yes, then differentially expressed (DE).
 
 ## Normalising and Log Transforming Read Counts
 The number of sequenced reads depends on:
@@ -1391,6 +1701,7 @@ Methods of normalising:
 - **DSeq size factor** using R
 - TMM (trimmed mean of M values)
 - upper quartile
+
 
 **`DSeq`:**
 
@@ -1540,16 +1851,15 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 - precision depends on the number & variation of replicates (i.e. the statistical power). 
 - For RNA-seq typically there is only 2-3 replicates creating poor precision. There are tools to compensate for this by looking across genes with similar expression to reduce a given genes variance towards the regressed values.
 
-**Tools for DGE:**
-`edgeR` (better for false positives, less conservative, recommended if <12 replicates)
-`DESeq`
-`DESeq2` sample wise size factor
-`limma-voom`
-`cuffdiff`slow, cant support multifactored experiments, can detect differential isoforms, high false positives
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
-## Running DGE analysis tools in R
+##  DE analysis in R
+
+1. Normalise matrix between genes 
+2. Plot the normalised matrix
+
+Clustered heatmap 
 
 **DSeq2 workflow**
 This is *performed on the raw read* counts and not the transformed normalised reads.
@@ -1599,65 +1909,8 @@ Genes are sorted by adjusted p-value. Colours represent read counts.
 p61 for R code
 Edge R workflow: page 62
 
-## Ontologies
 
-**[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
-There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
-To search a defined sequence term use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
-To quickly search Sequence Ontology, use grep on the raw data:
-`URL=https://raw.githubusercontent.com/The-Sequence-Ontology/SO-Ontologies/master/so-simple.obo`
-`wget $URL`
-`cat so-simple.obo | grep 'name: gene$' -B 1 _A 6` where $ represents the end of line; -B -A prints lines before & after a match.
 
-**[Gene Ontology](http://geneontology.org/)**
-Connects each gene to one or more functions.
-3 sub-ontologies for each gene product:
-- Cellular Component (CC): cellular location where product exhibits its effect
-- Molecular function (MF): How does gene work?
-- Biological Process (BP): What is the gene product purpose?
-Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
-
-GO Download page:
-http://geneontology.org/page/download-annotations
-- 2 files to download: 
-1. definition (term) file
-`wget http://purl.obolibrary.org/obo/go.obo`
-
-2. association file
- `wget http://geneontology.org/gene-associations/goa_human.gaf.gz`. In GAF compressed format defined at http://geneontology.org/page/go-annotation-file-gaf-format-21
-Contains both gene and protein IDs.
-
-To search the function of a gene use the [GeneCards](http://www.genecards.org/) database to easily locate the gene by name.
-
-### Gene Set Enrichment Analysis
-- Identify common characteristics within a list of genes
-- When using GO terms, this is called "functional enrichment"
-- Most common variant is the ORA (over-representation analysis): 
-	- examines genes in a list > 
-	- summarises the GO annotations for each gene > 
-	- determines if any annotations are statistically over-represented.
-
-Multiple **GO enrichment tools** exist, many are difficult to use and outdated. The best are:
-- [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
-- AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
-- DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
-- Panther is offered directly from the GO website. It produces very limited information and no visualization.
-- goatools a command line Python scripts.
-- ermineJ Standalone tool with easy to use interface. It has detailed documentation.
-- GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
-- ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
-
-#### Gene Set Enrichment Analysis Methodology
-1. Enter gene names to be studies
-2. Enter background gene names (usually all genes for the organism)
-3. Perform statistical comparison
-
-[g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
-[g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
-
-The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
-
-Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 
 
 @Raphaelle used: 
