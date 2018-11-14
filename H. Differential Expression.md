@@ -291,8 +291,10 @@ many R functions to do this:
 `gplots::heatmap.2( )`
 `pheatmap::pheatmap( )`
 
-Biostars code to generate: 
+Biostars code to generate a clustered heatmap: 
 `curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
+This generates a PDF output using:
+`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > 
 
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 
@@ -385,5 +387,5 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNzU5ODk3NywtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTI5NzgxNTg0MiwtMTUxOTExMTA5OF19
 -->
