@@ -1,10 +1,17 @@
 
 
-> # RNA sequence protocol assessing for Alternative Splicing & Polyadenylation
+> # RNA sequence protocol for assessing Alternative Splicing
+
+# Contents
 
 - This repository contains a protocol to analyse RNA-seq data, focusing on alternative splicing & polyadenylation, authored by Oliver Ziff. 
 - The contents are based on multiple resources including the [RNAseq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf); [Biostars handbook](https://www.biostarhandbook.com/); [Data Camp](https://www.datacamp.com/home); [Coursera](https://www.coursera.org/specializations/bioinformatics); and most importantly the experience of established experts in RNAseq analysis within [my host laboratory](https://www.luscombelab.org/crickmembersdetail). 
 - The protocol utilises a combination of bash `unix` commmand line and `R` scripts.
+
+## Chapters
+1. RNA seq workflow
+2. Wet-lab RNA sequencing phase
+3. 
 
 # RNA-seq Workflow
 
@@ -58,29 +65,8 @@ Install `conda` and activate `bioconda`
 Even though packages have been installed into R locally, then need to be brought into the working memory before using them:
 `library("erccdashboard")`
 `library("DESeq")`
- 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY3OTY0MywtMTY4ODMwNjA2NF19
+eyJoaXN0b3J5IjpbLTE0OTAwNjQxNTksLTE2ODgzMDYwNjRdfQ
+==
 -->
