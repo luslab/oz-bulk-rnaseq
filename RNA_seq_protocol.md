@@ -11,7 +11,15 @@
 ## Chapters
 1. RNA seq workflow
 2. Wet-lab RNA sequencing phase
-3. 
+3. Accessing sequencing data
+4. QC of sequencing files
+5. Alignment
+6. Visualisation in IGV browser
+7. QE of aligned reads
+8. Read quantification
+9. Differential expression analysis
+10. Splicing analysis
+11. Gene enrichment analysis 
 
 # RNA-seq Workflow
 
@@ -67,6 +75,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTAwNjQxNTksLTE2ODgzMDYwNjRdfQ
+eyJoaXN0b3J5IjpbLTE2MTAxNDk5MjMsLTE2ODgzMDYwNjRdfQ
 ==
 -->
