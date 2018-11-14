@@ -294,7 +294,8 @@ many R functions to do this:
 Biostars code to generate a clustered heatmap: 
 `curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
 This generates a PDF output using:
-`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > 
+`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > clustered-heatmap.pdf`
+Each column referrs to a sample. Red refers to upregulated genes & green downregulated.
 
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 
@@ -387,5 +388,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5NzgxNTg0MiwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ
+==
 -->
