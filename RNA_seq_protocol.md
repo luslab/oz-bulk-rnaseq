@@ -59,106 +59,14 @@ Even though packages have been installed into R locally, then need to be brought
 `library("erccdashboard")`
 `library("DESeq")`
  
- # Wet-lab RNA Sequencing
- __RNA extraction__
-* silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
-* remove DNA and proteins. Improve with DNase.
-* quality control: Aligent bioanalyser creates an **RNA integrity number (RIN)** is objective way of assessing RNA quality & degradation. 10 = intact; 1 = degraded. RIN of 8 is generally accepted threshold before proceeding to RNA seq. Uses elecetophoresis and looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
- ![enter image description here](http://tlcr.amegroups.com/article/viewFile/286/596/2055)
-__Library Preparation__
-* cDNA fragments 150-300bp —> hybridisation to flowcell (50-150 bp)
-* small transcripts <150bp is lost in standard RNA-seq preparation
-* mRNA enrichment: remove rRNA and tRNA by selecting polyA tails using oligodT beads OR removing rRNA with complementary sequences (ribo-minus approach —> retains unspliced RNAs).
- 
-__Stand sequencing__
-* distinguish overlapping transcripts —> identify anti-sense transcripts by preserving which strand a fragment came from
-* usually use deoxy-UTP in synthesising the 2nd cDNA strand
-* hybridise DNA fragments to flowcell via adapters —> clonal amplify fragments forming clusters of dsDNA = improve signal of each fragment
-* Illumina seuqencing protocols: covers 50 - 100bp of each fragment
-* fragment ends is based on labelled dNTPs with reversible terminator elements —> incorporated & excited by a laser —> enables optical identification of bases
-* coverage = number of reads sequences in relation to genome size (how many times each base of the genome is referenced) - for RNA-seq the size of the transcriptome is not accurately known
-* Lander-waterman equation: coverage = (read length + read number)/haploid genome length
-* every base should be covered more than once to identify sequence errors
-* coverage is not uniform: euchromatin is overrepresented, GC rich regions are favoured by PCR
-* for RNA-seq use the least abundant RNA species of interest to determine the number of required reads (= sequence depth)
-
-Estimate the sequence depth (aim is to capture enough fragments of the least expressed genes)
--  Recommendations from [ENCODE guidelines](https://www.encodeproject.org/about/experiment-guidelines/)
-- experiment type and biological question
-- transcriptome size
-- error rate of the sequencing platform
-
-Deeper sequencing of RNA is required to:
-* identify low expressed genes
-* identify small changes between conditions
-* quantify alternative splicing (intron retention & exon skipping)
-* detect chimeric transcripts; novel transcripts; start and end sites
-
-Prioritise increasing the number of biological replicates rather than the sequencing depth
-
-Illumina is the top sequencing platform. Types:
-MiniSeq (cheap)
-MiSeq (Bench top)
-MiSeqDX (high throughput)
-NextSeq 500 benchtop
-HiSeq 2500/3000/4000 - workhorses of sequencing - large scale genomics, production scale.
-HiSeq X 5/10
-NovaSeq 5000 (for counting)
-NovaSeq 6000 (high seuqence coverage)
-
-PacBio sequencers offer longer reads than Illumina. 
-
-**Single read vs. paired end reads:**
-* single read = determines the DNA sequence of just one end of each DNA fragment
-* paired end = sequence both ends of each DNA fragment making pairing and directionality information available. 
-	* Disadvantages: (i) 20% more expensive (ii) measures same fragment twice, thus at same genomic coverage will utilise only half as many unique fragments as single end sequencing. 
-* for detecting de novo transcriptome assembly in humans need 100-200 x10^6 paired end reads.
-![enter image description here](https://www.yourgenome.org/sites/default/files/images/illustrations/bioinformatics_single-end_pair-end_reads_yourgenome.png)
-
-## Naming Sample Files
-
-- make each attribute of the data be represented by a single, isolated region of the filename
-- Utilise heirarchy of the samples. Start with the most generic information in the file name, then become more specific. E.g sample_replicate number_paired file (1 or 2)
-- Dont mix sample information with replicate information
-- keep as simple as possible
 
 
-## Compress & Uncompress Files
-A "compressed file" is a single file reduced in size. The name may end with .gz , .bz , .bz2 , or .zip 
-A "compressed archive" is a folder containing multiple files combined, and then compressed. The name may end with .tar.gz , .tar.bz2
 
-There are programmes to compress & uncompress files:
-- ZIP , extension .zip , program names are zip/unzip
-- GZIP extension .gz , program names are gzip/gunzip
-- BZIP2 extension .bz/.bz2 , program names are bzip2/bunzip2
-- XZ extension .xz . A more recent invention. Technically bzip2 and (more so) xz are improvements over gzip , but gzip is still quite prevalent for historical reasons and because it requires less memory.
-- [BGZIP extension](http://www.htslib.org/doc/tabix.html). Specific for bioinformatics. Allows random access to content of compressed file. Can decompress with gzip but only bgzip creates a bgzip file.
 
-To compress a file:
-1. efetch sequence file usually in fasta .fa format `efetch sequence id`
-2. compress file name with gzip `gzip sequence_name.fa`
 
-You can read compressed files without uncompressing using `zcat` on Linux (`gzcat` on macOS)
-`zcat sequence_name.fa.gz | head`
 
-To uncompress file: `gunzip sequence_name.fa.gz` creates the file sequence_name.fa
 
-To compress multiple files together us `tar` Tape Archive:
-`tar czfv sequences.tar.gz AF086833.fa AF086833.gb`
-Means that we want to create `c` , a compressed `z` , file `f` , in verbose `v` mode in a file called `sequences.tar.gz`. The 2 files to add are listed at the end.
 
-The best was to compress multiple files (if there are many) is to put all files into a folder and then compress that entire directory:
-`mkdir sequences`
-`mv sequence_names.* sequences/`
-`tar czvf sequences.tar.gz sequences/*`
-
-rsyncable archive:
-- `rsync` tool synchronises files by sending only the differences between existing files. 
-- When files are compressed, you cant use `rsync` but you can use `gzip --rsyncable` flag. This allows gziped files to by synced much faster. e.g. `tar -c sequences/* | gzip --rsyncable > file.tar.gz`
-
-fastq.gz  = compressed version of fast file (needs unzipping before analysing)
-
-[NCBI Format Guide](https://www.ncbi.nlm.nih.gov/books/NBK242622/)
 
 # Experimental Design
  
@@ -1916,5 +1824,5 @@ Edge R workflow: page 62
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODgzMDYwNjRdfQ==
+eyJoaXN0b3J5IjpbLTI1NDkwODgxNywtMTY4ODMwNjA2NF19
 -->
