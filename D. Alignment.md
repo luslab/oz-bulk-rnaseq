@@ -262,6 +262,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/tr
 #SEND ALIGNMENT AS SBATCH
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 ```
+
 The above script needs editing for each sequencing file (redundant). 
 To create a script that runs all sequencing files (non-redundant) you can use a for loop or snakemake.
 
@@ -284,6 +285,7 @@ do
         READ1=reads/${SAMPLE}_${REPLICATE}_R1.fq
         BAM=bam/${SAMPLE}_${REPLICATE}.bam
 
+        echo "Running STAR on $SAMPLE"
         # Run the aligner.
         STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic
         # Index each BAM file as they are produced
@@ -501,5 +503,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbMTE2MTQ2OTg2NSw2NTc1NDIyMThdfQ==
 -->
