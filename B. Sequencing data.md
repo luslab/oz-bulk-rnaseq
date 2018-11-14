@@ -221,6 +221,23 @@ The [`sra-stat` program](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=
 `sra-stat --xml --quick SRR1553610`	
 `sra-stat --xml --statistics SRR4237168` generates read length statistics.
 
+## Edit fastq file names
+
+It is very error prone to generate filenames from meaningless numbers e.g. SRR1553607. It is better to use programming constructs to create filenames like so:
+
+```
+# Iterate over arrays and create file names from them.
+CTRL=(SRR3191542 SRR3191543 SRR3194428)
+for NAME in ${CTRL[@]}; do
+    CTRL_FQ+="PATH/${NAME}.fq"
+done
+
+VCP=(SRR3191544 SRR3191545 SRR3194430)
+for NAME in ${ZIKV[@]}; do
+    VCP_FQ+="PATH/${NAME}.fq"
+done
+```
+
 ## Seqkit report on fastq
 Installed [SeqKit](https://github.com/shenwei356/seqkit) & [csvtk](https://github.com/shenwei356/csvtk) and placed in PATH
 
@@ -258,5 +275,5 @@ Remove duplicated sequences: `seqkit rmdup --by-seq --ignore-case *.fq.gz > uniq
 Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-case --pattern-file *.gz` use the degenerate flag to identify pattern of interest
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzQ5MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
 -->
