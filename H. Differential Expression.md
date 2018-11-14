@@ -334,17 +334,6 @@ hist (DGE. results $ pvalue, col = " grey ", border = " white ", xlab = "", ylab
 
 ![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
 
-## Heatmap
-- show expression values across individual samples
-many R functions to do this:
-`aheartmap( )`
-`gplots::heatmap.2( )`
-`pheatmap::pheatmap( )`
-page 60 for R code
-
-![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
-Genes are sorted by adjusted p-value. Colours represent read counts.
-
 ## Variance Shrinkage
 
 `DSeq2` and `edgeR` both offer means to reduce the variance using the dispersion mean trend using the entire dataset as a reference.
@@ -376,5 +365,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbLTE2ODA1NjA2NDAsLTE1MTkxMTEwOThdfQ
+==
 -->
