@@ -261,17 +261,17 @@ Check that basic global patterns are met:
 - Map the ORF identifiers from the read count matrix to the gene name --> retreive the rlog transformed read counts & log2 fold changes.
 
 Assess RNA-seq expression patterns with:
-Pairwise Correlation
-Heirarchical Clustering
-Principal Component Analysis
+1. Pairwise Correlation
+2. Hierarchical Clustering
+3. Principal Component Analysis
 
-### Pairwise correlation
+## Pairwise correlation
 
 - Pearson correlation coefficient, r is used to assess similarity between RNA-seq samples in a pair wise fashion.
 - ENCODE guideline advises **>0.9** correlation should achieved for mRNA transcripts.
 - in R use `cor( )` function
 
-### Hierarchical clustering
+## Hierarchical clustering
 - separate samples in an **unsupervised** fashion to see if samples of different conditions differ more than replicates within the same condition.
 - pairwise compairsons of individual samples, grouped into "neighbourhoods" of similar samples.
 - hierachical clustering analyses require decisions on:
@@ -279,12 +279,27 @@ Principal Component Analysis
 	- how the disimilarity be used for clustering?
 		- Pearson correlation coefficient
 		- Euclidean distance (distance between two vectors) - calculate the distance using `linkage` function (complete, average, or single intercluster distance - complete intercluster distance is best and single IC distance is worst).
-- Output = dendogram:
+
+Can visualise DE genes as a Dendogram or Heatmap
+
+### Heatmap
+- show expression values across individual samples
+many R functions to do this:
+`aheartmap( )`
+`gplots::heatmap.2( )`
+`pheatmap::pheatmap( )`
+page 60 for R code
+
+![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
+Genes are sorted by adjusted p-value. Colours represent read counts.
+Output = dendogram:
 	- clustures obtained by cutting dendoram at a level where the jump between two nodes is large
 	- connected components form individual clusters
 	- clustering algorithms differ and there is no concensus on which is optimal
 in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
-code on page 55
+
+
+
 
 ![enter image description here](http://www.sthda.com/english/sthda-upload/figures/cluster-analysis/009c-divisive-hierarchical-clustering-compute-diana-1.png)
 
@@ -365,6 +380,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODA1NjA2NDAsLTE1MTkxMTEwOThdfQ
+eyJoaXN0b3J5IjpbLTEzOTc3NzAxMDAsLTE1MTkxMTEwOThdfQ
 ==
 -->
