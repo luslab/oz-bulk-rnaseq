@@ -291,11 +291,12 @@ many R functions to do this:
 page 60 for R code
 
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
+
+### Dendogram
 Genes are sorted by adjusted p-value. Colours represent read counts.
-Output = dendogram:
-	- clustures obtained by cutting dendoram at a level where the jump between two nodes is large
-	- connected components form individual clusters
-	- clustering algorithms differ and there is no concensus on which is optimal
+- clustures obtained by cutting dendoram at a level where the jump between two nodes is large
+- connected components form individual clusters
+- clustering algorithms differ and there is no concensus on which is optimal
 in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
 
 
@@ -380,6 +381,5 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTc3NzAxMDAsLTE1MTkxMTEwOThdfQ
-==
+eyJoaXN0b3J5IjpbNzcxNTQ4MjgzLC0xNTE5MTExMDk4XX0=
 -->
