@@ -138,7 +138,7 @@ A single line record stores all the information on the block structure of a reco
 GFF is 1 based, inclusive on both ends. This means that [1,5] contains 1,2,3,4,5 and that coordinate 1 is the first coordinate of the genome.
 The relationship is built from data distributed over multiple lines. 
 
-9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = `.`)
+9 fields separated by TAB. 
 * Reference sequence: coordinate system of annotation eg Chr1
 * Source: annotation software
 * Method: annotation type (eg gene)   	[GFF3 = Type: term from lite Sequence Ontology SOFA or accession number]
@@ -148,6 +148,8 @@ The relationship is built from data distributed over multiple lines.
 * Strand: + = forward. - = reverse. “.” = no stranded
 * Phase: codon phase for annotations linked to proteins. 0; 1; or 2 = indicates frame (bases to be removed from beginning of feature to reach first base of next codon)
 * Group: class and ID of an annotation which is the parent of the current one.  	[GFF3 = Attributes: TAG=VALUE pairs - ID, name, alias, parent, target, gap]
+* Source
+* Type
 
 Always use GFF based formats (BED is being gradually phased out).
 
@@ -514,5 +516,6 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1Nz
+U0MjIxOF19
 -->
