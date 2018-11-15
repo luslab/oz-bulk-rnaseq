@@ -236,7 +236,7 @@ ERCC-00136       1898          615         3180        5.16        2.36         
 -   `padj`: The adjusted probability that this effect is observed by chance. Adjusted for multiple testing errors.
 
 ```bash
-#Sort data by gene ID to paste into columns & select only foldchange and log2FoldChange. The results.txt file is already sorted according to padj
+#Sort by gene ID to paste into columns & select only foldchange and log2FoldChange. The results.txt file is already sorted according to padj
 cat results.txt | sort | cut -f 1,5,6 > table
 
 #How many genes are significantly differentially expressed (i.e. padj < 0.05)?
@@ -388,6 +388,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
-UxOTExMTA5OF19
+eyJoaXN0b3J5IjpbMjIyNzc1MTYyLDEyMzgyNjA4ODgsLTEyNT
+E0MDUzNTUsLTE1MTkxMTEwOThdfQ==
 -->
