@@ -3,7 +3,7 @@
 
 > # Differential Gene Expression Analysis
 
-# Comparisons between conditions (i.e. differential expression)
+# Comparisons between conditions
 
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
 1. expression level
@@ -388,6 +388,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ
-==
+eyJoaXN0b3J5IjpbLTEyODUzOTI2MSwtMTI1MTQwNTM1NSwtMT
+UxOTExMTA5OF19
 -->
