@@ -12,7 +12,7 @@ Quality control (abbreviated as QC) is the process of improving data by removing
 - fragments shorter than the target read length
 - base quality
 
-Strategies to improve quality at this point include:
+**Strategies to improve quality at this point include:**
 - Quality trimming
 - Adapter trimming
 
@@ -156,5 +156,5 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA3ODM4NDc4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTE4Njg3NjcyMTgsLTE4OTk4MjAyMl19
 -->
