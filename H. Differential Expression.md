@@ -53,7 +53,13 @@ Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
 
 Kallisto quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
-Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript. 
+Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript. These use a **deBruikin graph** to assign reads to an isoform if they are compatible with that transcript structure.
+![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
+
+Schema of a simple deBruijn graph-based transcript assembly:
+- Read sequences are split into all subsequence k-mers (here: of length 5) from the reads.
+- A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases).
+- The transcripts are assembled by traversing the two paths in the graph
 
 Although much faster than alignment-counting routines it **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/)).
 
@@ -65,18 +71,6 @@ The main limitations to assigning reads to transcripts are:
 **Tools**:
 Sailfish and more updated version Salmon
 [Kallisto](https://www.nature.com/articles/nbt.3519)
-
-
-
-
-
-These use a **deBruikin graph** to assign reads to an isoform if they are compatible with that transcript structure.
-![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
-
-Schema of a simple deBruijn graph-based transcript assembly:
-- Read sequences are split into all subsequence k-mers (here: of length 5) from the reads.
-- A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases).
-- The transcripts are assembled by traversing the two paths in the graph
 
 ## Kallisto Workflow
 ml kallisto
@@ -396,7 +390,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNzY2MTc3Myw2NjM2OTY5MDMsLTMyMj
-M4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1
-NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTE0MDI5ODU1MDMsNjYzNjk2OTAzLC0zMj
+IzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUz
+NTUsLTE1MTkxMTEwOThdfQ==
 -->
