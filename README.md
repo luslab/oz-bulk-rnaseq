@@ -39,7 +39,8 @@ Analysis goals:
 2. genome annotation
 3. alternative expression analysis
 4. gene fusion detection
-5. other typ
+5. viral detection
+6. detect RNA editing (CRISP/Cas9)
 
 ## Wet-lab sequencing phase:
 1. Extract & isolate RNA
@@ -94,6 +95,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzg5MjA4OSwxNDAxNTI3NTEyLDE5OT
+eyJoaXN0b3J5IjpbMTkyMTI2MDY1MCwxNDAxNTI3NTEyLDE5OT
 U4MDQwODgsLTE2MTAxNDk5MjNdfQ==
 -->
