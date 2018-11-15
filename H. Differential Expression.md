@@ -126,6 +126,7 @@ do
         # The kallisto output directory.
         OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/${SAMPLE}_${REPLICATE}
         # Run kallisto quantification in single-end mode.
+        echo "*** Running kallisto on single end sample: $SAMPLE"
         kallisto quant --single -l 187 -s 70 -i $IDX -o $OUTDIR -b 100 $R1
 
         # Copy the abundance file to a proper name - i.e. remove the long path name so that it only contains information on the sample e.g. VCP_3.tsv
@@ -406,8 +407,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY1MjE3NzYwLDEwNjA5OTgwNjYsLTE0MD
-IzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2
-LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNT
-E5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMT
+QwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYz
+NTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLT
+E1MTkxMTEwOThdfQ==
 -->
