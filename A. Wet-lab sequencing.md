@@ -16,6 +16,8 @@
 * cDNA fragments 150-300bp —> hybridisation to flowcell (50-150 bp)
 * small transcripts <150bp is lost in standard RNA-seq preparation
 * mRNA enrichment: remove rRNA and tRNA by selecting polyA tails using oligodT beads OR removing rRNA with complementary sequences (ribo-minus approach —> retains unspliced RNAs).
+
+![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g003)
  
 # Sequencing strategy
 * distinguish overlapping transcripts —> identify anti-sense transcripts by preserving which strand a fragment came from
@@ -43,7 +45,7 @@ Deeper sequencing of RNA is required to:
 
 Prioritise increasing the number of biological replicates rather than the sequencing depth
 
-## Platforms
+## Platform
 Illumina is the top sequencing platform. Types:
 MiniSeq (cheap)
 MiSeq (Bench top)
@@ -87,5 +89,5 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5MDk5MjYzNSwtMTY3NzQyMjU4NV19
+eyJoaXN0b3J5IjpbNzkzMjYzMDA4LC0xNjc3NDIyNTg1XX0=
 -->
