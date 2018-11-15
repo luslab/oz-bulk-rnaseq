@@ -36,7 +36,10 @@ The aim of RNA-seq is to interrogate relative transcript abundance and diversity
 
 Analysis goals:
 1. transcript discovery
-2. 
+2. genome annotation
+3. alternative expression analysis
+4. gene fusion detection
+5. other typ
 
 ## Wet-lab sequencing phase:
 1. Extract & isolate RNA
@@ -91,6 +94,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDU3MTUxMzcsMTQwMTUyNzUxMiwxOT
-k1ODA0MDg4LC0xNjEwMTQ5OTIzXX0=
+eyJoaXN0b3J5IjpbLTEwMzg5MjA4OSwxNDAxNTI3NTEyLDE5OT
+U4MDQwODgsLTE2MTAxNDk5MjNdfQ==
 -->
