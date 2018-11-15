@@ -1,8 +1,11 @@
 > # Sequence Alignment
 
-Alignment = Mapping = Assembly
+Alignment = Mapping
 
-The purpose of alignment is to merge reads into larger contiguous sequences (contigs) based on their . For each base alignment the options are:
+The purpose of **ASSEMBLY** is to merge reads into larger contiguous sequences (contigs) based on their sequence similarity to each other. 
+The purpose of ALIGNMENT is to compare the contig to a previously assembled reference genome (or transcriptome) sequence.
+
+For each base alignment the options are:
 	- `-` a space
 	- `|` match
 	- `.` a mismatch
@@ -523,6 +526,6 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzgzMzgwODYsLTE0Nzg1NjA0OTYsLT
+eyJoaXN0b3J5IjpbLTE2MjI0MjYyODQsLTE0Nzg1NjA0OTYsLT
 E1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
