@@ -232,8 +232,10 @@ ml R
 # Using kallisto output (counts.txt) first remove empty rows (represent transcripts that were not detected at all) by keeping rows only where the sum of all reads is > 25
 cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
 
-# Convert effective lengths to integers using ask & %3.0f formating operator (DESeq2 only accepts integers)
+# Convert effective lengths to integers using ask & %3.0f formating operator (DESeq2 only accepts integers) - this is arranged for 3x3.
 cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7) } ' > valid.txt
+## for 4x4 samples
+cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9) } ' > valid.txt
 
 # Run the differential expression estimator
 cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
@@ -464,7 +466,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM1MDY0OTcsLTIwNTc2MjM0MjUsOT
+eyJoaXN0b3J5IjpbLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOT
 YyMTU5MjEwLDI0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1
 NTI3LC04Nzc4MDI4NTcsOTY1NDM1MTc3LDExMTg1NjE5OTIsLT
 Q2MDY5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1
