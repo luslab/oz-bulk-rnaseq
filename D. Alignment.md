@@ -111,11 +111,11 @@ RefSeq
 * must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
 ### Reference Genome File Formats
-Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. These files contain spacial information describing genomic loci according to their pattern (chromosome, start, end) as intergers. These integers represent the left & right positions of an interval on the genome.
+Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. They contain spacial coordinate information describing genomic loci (2D position) according to their pattern (chromosome, start, end) as intergers. These integers represent the left & right positions of an interval on the genome.
 
 2 types of genome formats exist:
 - [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) originally designed for UCSC genome browser
-- GFF (also its variants GFF2, GTF & GFF3)
+- [GFF](http://mblab.wustl.edu/GTF22.html) (also its variants GFF2, GTF & GFF3)
 
 **BED Format** is the simplest annotation store
 3 compulsory fields: chromosome & start & end.
@@ -507,5 +507,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4OTI2NzY5Miw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbLTQzNDczNTA3MSw2NTc1NDIyMThdfQ==
 -->
