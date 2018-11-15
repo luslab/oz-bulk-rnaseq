@@ -38,7 +38,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 There are 2 approaches:
 1. Rapid approach: [Kallisto](https://pachterlab.github.io/kallisto/)  which is a really user-friendly algo which extract both gene and transcript level gene expression directly from fastq files using the raw fastq files. Then use  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
-2. Detailed approach: DESeq2
+2. Detailed approach: DESeq, DESeq2, edgeR
 
 `edgeR` (better for false positives, less conservative, recommended if <12 replicates)
 `DESeq`
@@ -205,9 +205,12 @@ calculate the size factor and add it to the data set:
 Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
 Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
 
-## Biostars DESeq2 example
+## Biostars DESeq Script
 ```bash
 ml R
+
+#download the DESeq biostart
+curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
 
 #print out only columns representing Gene ID & sample abundances (ie remove Chr, Start, End, Strand & length)
 cat counts.txt | cut -f 1,7-12 > simple_counts.txt
@@ -388,6 +391,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODUzOTI2MSwtMTI1MTQwNTM1NSwtMT
+eyJoaXN0b3J5IjpbMTYzNDc1NTYxMSwtMTI1MTQwNTM1NSwtMT
 UxOTExMTA5OF19
 -->
