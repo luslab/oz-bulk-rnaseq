@@ -196,6 +196,7 @@ You can change the header to include the sample names.
 # Detailed Approach: DESeq2 > Visualisation
 
 DESeq( ) function wraps around the following 3 functions:
+```r
 `DESeq.ds = estimateSizeFactors(DESeq.ds)` #sequencing depth normalisation
 `DESeq.ds = estimateDispersions(DESeq.ds)` #gene wise dispersion estimates
 `DESeq.ds = nbinomWaldTest(DESeq.ds)` #fits a negative binomial GLM & applies Wald stats to each gene
@@ -204,17 +205,59 @@ DESeq( ) function wraps around the following 3 functions:
 `summary(DGE.results)`
 
 The DESeqResult behaves as a data frame:
-head (DGE. results )
+head (DGE. results)
 table (DGE. results $ padj < 0.05)
 rownames ( subset (DGE. results , padj < 0.05) )
+```
 
- Takes the `featureCounts` (raw read counts) --> read them into R --> normalise for sequencing depth differences
+DESeq takes either `featureCounts` (raw read counts) or `Kallisto` counts --> read them into R --> normalise for sequencing depth differences
  
  `DSeqDataSet` contains all the information in R. 
 `rowRanges( )` rows = variables (genes, transcripts, exons)  - has info about genes (chr, start, end, strand, ID)
 `rownames` is the unique sample names
 `colData( )` columns = samples 
 `assay( )` stores count data with genes and samples. similar to `countData`
+
+## Biostars DESeq Script
+```bash
+ml R
+
+#download the DESeq biostars script
+curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
+curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
+
+# Using featureCounts output (counts.txt) print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
+cat counts.txt | cut -f 1,7-14 > sample_counts.txt
+
+#pass simple_counts.txt through the script specifying the design of the experiment 
+## in this case = 3 x 3 (3 cases, 3 controls)
+cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
+```
+The results_deseq1.txt file describes changes between the 2 conditions e.g.
+```bash
+id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
+ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
+ERCC-00108        808          264         1352        5.10        2.35         2.40e-62    9.39e-61
+ERCC-00136       1898          615         3180        5.16        2.36         2.80e-58    7.30e-57
+```
+-   `id`: Gene or transcript name that the differential expression is computed for
+-   `baseMean`: The average normalized value across all samples,
+-   `baseMeanA`,  `baseMeanB`: The average normalized gene expression for each condition,
+-   `foldChange`: The ratio  `baseMeanB/baseMeanA`,
+-   `log2FoldChange`: log2 transform of  `foldChange`. When we apply a 2-based logarithm the values become symmetrical around 0. A log2 fold change of 1 means a doubling of the expression level, a log2 fold change of -1 shows show a halving of the expression level.
+-   `pval`: The probability that this effect is observed by chance. Only use this value if you selected the target gene a priori.
+-   `padj`: The adjusted probability that this effect is observed by chance. Adjusted for multiple testing errors.
+
+```bash
+#Sort by gene ID select only columns foldchange and log2FoldChange. The results.txt file is already sorted according to padj
+cat results.txt | sort | cut -f 1,5,6 > table
+
+#How many genes are significantly differentially expressed (i.e. padj < 0.05 in column 8)?
+cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
+
+#How many differentially expressed genes do we have?
+cat diffgenes.txt | wc -l
+```
 
 ## DSeq2 process
 
@@ -256,7 +299,6 @@ calculate the size factor and add it to the data set:
 
 Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
 Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
-
 
 
 
@@ -406,9 +448,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTczODc0MzIsOTY1NDM1MTc3LDExMT
-g1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2
-NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMj
-IzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUz
-NTUsLTE1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbLTk4MTY4NzMwNCw5NjU0MzUxNzcsMTExOD
+U2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2
+LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMj
+M4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1
+NSwtMTUxOTExMTA5OF19
 -->
