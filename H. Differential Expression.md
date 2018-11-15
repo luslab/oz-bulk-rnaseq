@@ -76,10 +76,10 @@ Sailfish and more updated version Salmon
 ml kallisto
 
 ```bash
-#set shortcuts
+#set changable elements
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
-R1=PATH_TO_FASTQ_forward_strand.fq
+R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/CTRL_1.fq
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
 #build kallisto index
@@ -390,7 +390,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2Mz
-Y5NjkwMywtMzIyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4
-LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbMTg3NjE5MTAzLC0xNDAyMzUxMzc0LDczMD
+MxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIs
+MTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
