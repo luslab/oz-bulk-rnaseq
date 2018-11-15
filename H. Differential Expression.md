@@ -178,7 +178,7 @@ done
 ls $CTRL_FILES $VCP_FILES
 
 #create the counts.txt file using all samples abundance.tsv files & remove unnessary columns
-paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
+paste $CTRL_FILES $VCP_FILES | cut -f 1,4,9,14,19,24,29,34,39 > counts.txt
 
 #Alternatively:
 paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/VCP_*.tsv  /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/CTRL_*.tsv | cut -f 1,4,9,14,19,24,29 > counts.txt
@@ -471,9 +471,10 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5Nj
-U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
-MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
-M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
-OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtOD
+c3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5
+LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNz
+MwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMTU5Mjkz
+MiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX
+0=
 -->
