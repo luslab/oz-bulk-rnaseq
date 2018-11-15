@@ -49,9 +49,7 @@ There are 2 approaches:
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
 # Rapid Approach: Kallisto > Sleuth
-Uses pseudo-alignment to quantify transcript abundances.
-
-Strictly you should quantify reads that originate from transcripts (rather than genes as a whole).  Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
+Kallisto qunatifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Strictly you should quantify reads that originate from transcripts (rather than genes as a whole).  Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
 Ignore exactly where within a transcript a read originates from. Instead **focus on which transcript the read represents**. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
 
@@ -392,6 +390,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg0MzM3NzA0LDYxMTU5MjkzMiwxMjM4Mj
-YwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzOD
+I2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
