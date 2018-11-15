@@ -6,9 +6,13 @@ Quality control (abbreviated as QC) is the process of improving data by removing
 	- trim adapters
 - Post-alignment: “data filtering” - the protocols are specific to the analysis that is being performed.
 
-Pre-alignment QC 
+**Pre-alignment QC identifies:**
+- adapter contamination
+- ribosomal sequences
+- fragments shorter than the target read length
+- base quality
 
-### FastQC
+# FastQC
 FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - need to install. FastQC generates its reports by evaluating a small subset of the data and extrapolating those findings to the entirety of the dataset. Many of the metrics are only computed on the first 200,000 measurements then are being tracked through the rest of the data.
 
 Check for:
@@ -18,7 +22,7 @@ Check for:
 * unmappable reads (contaminating nucleic acids) - FASTQC doesn’t check this
 * each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
-__FastQC Workflow__
+## FastQC Workflow
 `ml FastQC`
 `ml MultiQC`
 
@@ -153,5 +157,5 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4NjE1OTgwLC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbMTE3NjA4NTQxNiwtMTg5OTgyMDIyXX0=
 -->
