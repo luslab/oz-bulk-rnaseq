@@ -3,11 +3,11 @@
 
 > # Differential Gene Expression Analysis
 
-# Comparisons between conditions
-
 There are two broad strategies for assessing transcript abundance:
 1. Count based method: assign each read to the most probably gene
 2. Transcript per million mapped reads
+
+# Comparisons between conditions
 
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
 3. expression level
@@ -470,11 +470,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5ODUyNjYwMCw5MTAxODQyMzMsLTIxMj
-gyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4
-MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOT
-Y1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDky
-OTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNj
-YzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4
-ODhdfQ==
+eyJoaXN0b3J5IjpbLTExOTY2Njg0OTAsOTEwMTg0MjMzLC0yMT
+I4MjIzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1
+ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LD
+k2NTQzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5LC0xMjA3NDA5
+MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNzMwMzE4NTkxLD
+Y2MzY5NjkwMywtMzIyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYw
+ODg4XX0=
 -->
