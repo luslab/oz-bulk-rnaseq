@@ -13,6 +13,7 @@
 	- [Coursera](https://www.coursera.org/specializations/bioinformatics)
 	- and most importantly the experience of established experts in RNAseq analysis within [the Luscombe lab - my host laboratory](https://www.luscombelab.org/crickmembersdetail). 
 - The protocol utilises a combination of bash `unix` commmand line and `R` scripts.
+- FAQs https://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s009
 
 ## Chapters
 1. RNA seq workflow
@@ -98,7 +99,7 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTk3NzUyMzksMTQwNzI2NTYxMywxMD
-Q0MjYxNjQxLDE5MjEyNjA2NTAsMTQwMTUyNzUxMiwxOTk1ODA0
-MDg4LC0xNjEwMTQ5OTIzXX0=
+eyJoaXN0b3J5IjpbLTEzNjQzMDE4NTksLTEyMTk3NzUyMzksMT
+QwNzI2NTYxMywxMDQ0MjYxNjQxLDE5MjEyNjA2NTAsMTQwMTUy
+NzUxMiwxOTk1ODA0MDg4LC0xNjEwMTQ5OTIzXX0=
 -->
