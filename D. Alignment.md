@@ -117,8 +117,6 @@ Reference sequences are **FASTA files.** Reference sequences are long strings of
 - [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) originally designed for UCSC genome browser
 - [GFF](http://mblab.wustl.edu/GTF22.html) (also its variants GFF2, GTF & GFF3)
 
-Both formats contain information:
-
 
 **BED Format** is the simplest annotation store
 3 compulsory fields: chromosome & start & end.
@@ -504,5 +502,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM5NjE1NTU2LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbLTM0Mzk0NzkyNSw2NTc1NDIyMThdfQ==
 -->
