@@ -1,15 +1,21 @@
 >  # Wet-lab RNA Sequencing
- __RNA extraction__
+
+# Wet Lab phases
+
+![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g002)
+ 
+ # RNA extraction
 * silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
 * remove DNA and proteins. Improve with DNase.
 * quality control: Aligent bioanalyser creates an **RNA integrity number (RIN)** is objective way of assessing RNA quality & degradation. 10 = intact; 1 = degraded. RIN of 8 is generally accepted threshold before proceeding to RNA seq. Uses elecetophoresis and looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
  ![enter image description here](http://tlcr.amegroups.com/article/viewFile/286/596/2055)
-__Library Preparation__
+
+# Library Preparation
 * cDNA fragments 150-300bp —> hybridisation to flowcell (50-150 bp)
 * small transcripts <150bp is lost in standard RNA-seq preparation
 * mRNA enrichment: remove rRNA and tRNA by selecting polyA tails using oligodT beads OR removing rRNA with complementary sequences (ribo-minus approach —> retains unspliced RNAs).
  
-__Stand sequencing__
+# Stand sequencing
 * distinguish overlapping transcripts —> identify anti-sense transcripts by preserving which strand a fragment came from
 * usually use deoxy-UTP in synthesising the 2nd cDNA strand
 * hybridise DNA fragments to flowcell via adapters —> clonal amplify fragments forming clusters of dsDNA = improve signal of each fragment
@@ -47,7 +53,7 @@ NovaSeq 6000 (high seuqence coverage)
 
 PacBio sequencers offer longer reads than Illumina. 
 
-**Single read vs. paired end reads:**
+**Single read vs. paired end reads
 * single read = determines the DNA sequence of just one end of each DNA fragment
 * paired end = sequence both ends of each DNA fragment making pairing and directionality information available. 
 	* Disadvantages: (i) 20% more expensive (ii) measures same fragment twice, thus at same genomic coverage will utilise only half as many unique fragments as single end sequencing. 
@@ -78,5 +84,6 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Nzc0MjI1ODVdfQ==
+eyJoaXN0b3J5IjpbLTIwODYzMTc1MDUsLTE2Nzc0MjI1ODVdfQ
+==
 -->
