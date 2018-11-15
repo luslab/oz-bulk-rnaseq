@@ -126,12 +126,18 @@ Both formats contain information:
 - [GFF](http://mblab.wustl.edu/GTF22.html) (also its variants GFF2, GTF & GFF3)
 
 **BED Format** is the simplest annotation store
+BED is 0 based, non-inclusive on the right. This means that the interval [1, 5) contains 1,2,3,4 and coordinate 1 is the second coordinate of the genome (0 is the first).
+A single line record stores all the information on the block structure of a record.
+
 3 compulsory fields: chromosome & start & end.
 9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
         	field number can vary from 3 - 12. Must be consistent within a file.
-indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
+
 
 **GFF = General Feature Format**
+GFF is 1 based, inclusive on both ends. This means that [1,5] contains 1,2,3,4,5 and that coordinate 1 is the first coordinate of the genome.
+The relationship is built from data distributed over multiple lines. 
+
 9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = `.`)
 * Reference sequence: coordinate system of annotation eg Chr1
 * Source: annotation software
@@ -509,5 +515,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMDMxMjg1Myw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbOTUzNzUzMzMyLDY1NzU0MjIxOF19
 -->
