@@ -21,7 +21,9 @@
  
  Enrichment strategy options:
  1. total RNA (most reads correspond to rRNAs)
- 2. rRNA reduction using rRNA sequence pr
+ 2. rRNA reduction using rRNA sequence probes
+ 3. Poly(A) selection - this selects mature RNAs (polyadenylation happens late in transcription)
+ 4. cDNA capture of mature polyadenylated RNA
  ![enter image description here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393#sec001)
 # Sequencing strategy
 * distinguish overlapping transcripts —> identify anti-sense transcripts by preserving which strand a fragment came from
@@ -93,6 +95,6 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4ODMzODkzOSw3OTMyNjMwMDgsLTE2Nz
+eyJoaXN0b3J5IjpbMTE0OTcwODk0MSw3OTMyNjMwMDgsLTE2Nz
 c0MjI1ODVdfQ==
 -->
