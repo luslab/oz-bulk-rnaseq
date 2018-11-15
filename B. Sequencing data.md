@@ -223,7 +223,7 @@ The [`sra-stat` program](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=
 
 ## Edit fastq file names
 
-It is very error prone to generate filenames from meaningless numbers e.g. SRR1553607. It is better to use programming constructs to create filenames like so:
+It is very error prone to generate filenames from meaningless numbers e.g. SRR1553607. Better to rename into something meaningful e.g. VCP_D7_1. If there are many samples then use programming constructs to create filenames like so:
 
 ```
 # Iterate over arrays and create file names from them.
@@ -275,5 +275,6 @@ Remove duplicated sequences: `seqkit rmdup --by-seq --ignore-case *.fq.gz > uniq
 Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-case --pattern-file *.gz` use the degenerate flag to identify pattern of interest
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
+eyJoaXN0b3J5IjpbLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMz
+M0OTA0NTQ3XX0=
 -->
