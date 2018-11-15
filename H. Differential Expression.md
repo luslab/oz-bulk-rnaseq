@@ -51,9 +51,7 @@ There are 2 approaches:
 # Rapid Approach: Kallisto > Sleuth
 Kallisto quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
-Method of pseudoalignment: for each read the program aims to identify the target that it originates from 
-
-Ignore exactly where within a transcript a read originates from. Instead **focus on which transcript the read represents**. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
+Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
 
 **Tools**:
 Sailfish and more updated version Salmon
@@ -392,7 +390,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0NzI4MTE4MCwtMzIyMzg2MzU2LDYxMT
+eyJoaXN0b3J5IjpbMTg1NTMwODk1NCwtMzIyMzg2MzU2LDYxMT
 U5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTEx
 MDk4XX0=
 -->
