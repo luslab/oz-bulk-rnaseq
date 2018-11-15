@@ -78,6 +78,7 @@ ml kallisto
 For an individual single or paired end fastq file you can run:
 ```bash
 #set changable elements
+
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 SAMPLE=CTRL_3
@@ -432,8 +433,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNz
-QwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5
-MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzOD
-I2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTI5Mzk2MTU0NiwxMTE4NTYxOTkyLC00Nj
+A2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEz
+NzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMT
+U5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTEx
+MDk4XX0=
 -->
