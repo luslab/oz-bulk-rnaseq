@@ -75,6 +75,7 @@ Sailfish and more updated version Salmon
 ## Kallisto Workflow
 ml kallisto
 
+For an individual single or paired end fastq file you can run:
 ```bash
 #set changable elements
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
@@ -100,7 +101,7 @@ kallisto quant -i $IDX -o $SAMPLE -b 100 --single -l 187 -s 70 $R1
 #move the output to kallisto results folder
 mv $SAMPLE /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto
 ```
-You can run this for multiple samples as a For Loop (example [here](https://www.biostarhandbook.com/rnaseq/rnaseq-griffith-kallisto.html))
+However for multiple fastq files use a For Loop:
 ```bash
 # Create output folder
 mkdir -p kallisto
@@ -405,7 +406,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwMTg0MTk0MSwxMDYwOTk4MDY2LC0xND
+eyJoaXN0b3J5IjpbMTI1NjQ2NzM2NiwxMDYwOTk4MDY2LC0xND
 AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
 Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
 UxOTExMTA5OF19
