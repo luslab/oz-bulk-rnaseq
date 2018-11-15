@@ -30,10 +30,9 @@
 # RNA-seq Workflow
 
 ## Introduction
-
+The aim of RNA-seq is to interrogate relative transcript abundance and diversity. It's accuracy is superior to microarray and similar to qPCR
 
 ![Central dogma of molecular biology](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393)
-
 
 ## Wet-lab sequencing phase:
 1. Extract & isolate RNA
@@ -87,6 +86,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2MDQ4NDMwNSwxNDAxNTI3NTEyLDE5OT
+eyJoaXN0b3J5IjpbLTczMTQ2ODc5OSwxNDAxNTI3NTEyLDE5OT
 U4MDQwODgsLTE2MTAxNDk5MjNdfQ==
 -->
