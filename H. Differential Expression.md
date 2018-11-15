@@ -209,10 +209,11 @@ Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #
 ```bash
 ml R
 
-#download the DESeq biostart
+#download the DESeq biostars script
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
+curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 
-#print out only columns representing Gene ID & sample abundances (ie remove Chr, Start, End, Strand & length)
+# Using featureCounts output (counts.txt) print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
 cat counts.txt | cut -f 1,7-12 > simple_counts.txt
 
 #download R script to run DESeq & DESeq2 using the simple_counts.txt file
@@ -391,6 +392,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzNDc1NTYxMSwtMTI1MTQwNTM1NSwtMT
-UxOTExMTA5OF19
+eyJoaXN0b3J5IjpbMTQ0ODgzMTQxLC0xMjUxNDA1MzU1LC0xNT
+E5MTExMDk4XX0=
 -->
