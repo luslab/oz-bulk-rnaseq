@@ -184,10 +184,13 @@ paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
 paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/VCP_*.tsv  /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/CTRL_*.tsv | cut -f 1,4,9,14,19,24,29 > counts.txt
 ```
 This produces a Counts file that can be used as an input into DESeq. This file looks like:
-
-
-### Quantify results
-
+```
+target_id          est_counts  est_counts est_counts  est_counts  est_counts  est_counts
+ENST00000472225.6    6.11331    1.28737     10.0567     2.23768     2.1543      0
+ENST00000496578.3    3.12574    3.97029     8.18468     0           1.6547      1.49019
+ENST00000624726.1    6.73189    3.0668      1.16443     2.39545     4.31444     1.26448
+```
+You can change the header to include the sample names.
 
 
 # Detailed Approach: DESeq2 > Visualisation
@@ -254,46 +257,8 @@ calculate the size factor and add it to the data set:
 Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
 Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
 
-## Biostars DESeq Script
-```bash
-ml R
 
-#download the DESeq biostars script
-curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
-curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 
-# Using featureCounts output (counts.txt) print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
-cat counts.txt | cut -f 1,7-14 > sample_counts.txt
-
-#pass simple_counts.txt through the script specifying the design of the experiment 
-## in this case = 3 x 3 (3 cases, 3 controls)
-cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
-```
-The results_deseq1.txt file describes changes between the 2 conditions e.g.
-```bash
-id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
-ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
-ERCC-00108        808          264         1352        5.10        2.35         2.40e-62    9.39e-61
-ERCC-00136       1898          615         3180        5.16        2.36         2.80e-58    7.30e-57
-```
--   `id`: Gene or transcript name that the differential expression is computed for
--   `baseMean`: The average normalized value across all samples,
--   `baseMeanA`,  `baseMeanB`: The average normalized gene expression for each condition,
--   `foldChange`: The ratio  `baseMeanB/baseMeanA`,
--   `log2FoldChange`: log2 transform of  `foldChange`. When we apply a 2-based logarithm the values become symmetrical around 0. A log2 fold change of 1 means a doubling of the expression level, a log2 fold change of -1 shows show a halving of the expression level.
--   `pval`: The probability that this effect is observed by chance. Only use this value if you selected the target gene a priori.
--   `padj`: The adjusted probability that this effect is observed by chance. Adjusted for multiple testing errors.
-
-```bash
-#Sort by gene ID select only columns foldchange and log2FoldChange. The results.txt file is already sorted according to padj
-cat results.txt | sort | cut -f 1,5,6 > table
-
-#How many genes are significantly differentially expressed (i.e. padj < 0.05 in column 8)?
-cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
-
-#How many differentially expressed genes do we have?
-cat diffgenes.txt | wc -l
-```
 
 # Visualise Differential Expression
 
@@ -441,9 +406,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjYxMTY0NDA0LDk2NTQzNTE3NywxMTE4NT
-YxOTkyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYs
-LTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMz
-g2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1
-LC0xNTE5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbLTE2MTczODc0MzIsOTY1NDM1MTc3LDExMT
+g1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2
+NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMj
+IzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUz
+NTUsLTE1MTkxMTEwOThdfQ==
 -->
