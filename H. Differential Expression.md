@@ -94,7 +94,7 @@ OUTDIR=out
 #run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
 ##paired-end mode
 kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
-##single-end mode (set mean length & standard deviation)
+##single-end mode (set fragment mean length & standard deviation - Illumina generates fragments 180-200bp - acurately determine this from a library quantification with an instrument such as an Agilent Bioanalyzer)
 kallisto quant -i $IDX -o $SAMPLE -b 100 --single -l 187 -s 70 $R1
 ```
 You can run this for multiple samples as a For Loop (example [here](https://www.biostarhandbook.com/rnaseq/rnaseq-griffith-kallisto.html))
@@ -396,7 +396,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MTQ1OTk3NiwtMTQwMjM1MTM3NCw3Mz
+eyJoaXN0b3J5IjpbMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3Mz
 AzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMy
 LDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ
 ==
