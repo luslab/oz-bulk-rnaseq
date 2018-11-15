@@ -5,11 +5,14 @@
 
 # Comparisons between conditions
 
+There are two broad strategies for assessing transcript abundance:
+1. Count based method: assign each read to the most probably gene
+2. 
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
-1. expression level
-2. read length
-3. sequencing depth
-4. expression of all other genes in the sample
+3. expression level
+4. read length
+5. sequencing depth
+6. expression of all other genes in the sample
 
 Normalisation & Log Transforming Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. Methods of normalising:
 - total count
@@ -466,11 +469,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOT
-YyMTU5MjEwLDI0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1
-NTI3LC04Nzc4MDI4NTcsOTY1NDM1MTc3LDExMTg1NjE5OTIsLT
-Q2MDY5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1
-MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNj
-ExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkx
-MTEwOThdfQ==
+eyJoaXN0b3J5IjpbOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMD
+U3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1
+NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3NywxMT
+E4NTYxOTkyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgw
+NjYsLTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMz
+IyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1
+MzU1XX0=
 -->
