@@ -134,7 +134,31 @@ do
     done
 done
 
-#concatenate all counts into 1 file that can be used for DESeq DE analysis.
+```
+Concatenate all counts into 1 file that can be used for DESeq DE analysis.
+```bash
+# In the kallisto output directory match sample names to conditions
+CTRL=(CTRL_1 CTRL_2 CTRL_3)
+VCP=(VCP_1 VCP_2 VCP_3)
+
+#set up variables to help create count files
+CTRL_FILES=''
+for NAME in ${CTRL[@]}; do
+    CTRL_FILES+="${NAME}/abundance.tsv "
+done
+
+VCP_FILES=''
+for NAME in ${VCP[@]}; do
+    VCP_FILES+="${NAME}/abundance.tsv "
+done
+
+#check names are correct:
+ls $CTRL_FILES $VCP_FILES
+
+#create the counts.txt file using all samples abundance.tsv files & remove unnessary columns
+paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
+
+#Alternatively:
 paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/VCP_*.tsv  /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/CTRL_*.tsv | cut -f 1,4,9,14,19,24,29 > counts.txt
 ```
 ### Kallisto Output
@@ -157,32 +181,8 @@ Column 4 = est_counts = transcript abundance count
 Column 5 = tpm = Transcripts Per Million
 
 ### Quantify results
-In the kallisto output directory match sample names to conditions
-```bash
-# These are the control samples.
-CTRL=(CTRL_1 CTRL_2 CTRL_3)
 
-# These are the VCP numbers.
-VCP=(VCP_1 VCP_2 VCP_3)
-```
-Set up variables to help create count files:
-```bash
-CTRL_FILES=''
-for NAME in ${CTRL[@]}; do
-    CTRL_FILES+="${NAME}/abundance.tsv "
-done
 
-VCP_FILES=''
-for NAME in ${VCP[@]}; do
-    VCP_FILES+="${NAME}/abundance.tsv "
-done
-
-#check names are correct:
-ls $CTRL_FILES $VCP_FILES
-
-#create the counts.txt file using all samples abundance.tsv files & remove unnessary columns
-paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
-```
 
 # Detailed Approach: DESeq2 > Visualisation
 
@@ -435,8 +435,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MjA0MTI3NiwtMTIwNzQwOTI5MywxMD
-YwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5
-MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMT
-I1MTQwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTQ2MDY5NjksLTEyMDc0MDkyOTMsMTA2MD
+k5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAz
+LC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNT
+E0MDUzNTUsLTE1MTkxMTEwOThdfQ==
 -->
