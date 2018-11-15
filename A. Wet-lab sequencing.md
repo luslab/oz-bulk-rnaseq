@@ -17,7 +17,7 @@
 * small transcripts <150bp is lost in standard RNA-seq preparation
 * mRNA enrichment: remove rRNA and tRNA by selecting polyA tails using oligodT beads OR removing rRNA with complementary sequences (ribo-minus approach —> retains unspliced RNAs).
  
-# Stand sequencing
+# Sequencing strategy
 * distinguish overlapping transcripts —> identify anti-sense transcripts by preserving which strand a fragment came from
 * usually use deoxy-UTP in synthesising the 2nd cDNA strand
 * hybridise DNA fragments to flowcell via adapters —> clonal amplify fragments forming clusters of dsDNA = improve signal of each fragment
@@ -43,6 +43,7 @@ Deeper sequencing of RNA is required to:
 
 Prioritise increasing the number of biological replicates rather than the sequencing depth
 
+## Platforms
 Illumina is the top sequencing platform. Types:
 MiniSeq (cheap)
 MiSeq (Bench top)
@@ -86,5 +87,5 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzU3OTc2OCwtMTY3NzQyMjU4NV19
+eyJoaXN0b3J5IjpbLTQ5MDk5MjYzNSwtMTY3NzQyMjU4NV19
 -->
