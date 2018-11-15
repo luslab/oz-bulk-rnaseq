@@ -79,7 +79,7 @@ ml kallisto
 #set changable elements
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
-SAMPLE=
+SAMPLE=CTRL_1
 R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
@@ -391,7 +391,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ0ODUyNTk3LC0xNDAyMzUxMzc0LDczMD
+eyJoaXN0b3J5IjpbNzY0MDI3NjAyLC0xNDAyMzUxMzc0LDczMD
 MxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIs
 MTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
