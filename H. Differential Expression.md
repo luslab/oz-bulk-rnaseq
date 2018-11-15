@@ -157,7 +157,15 @@ Column 4 = est_counts = transcript abundance count
 Column 5 = tpm = Transcripts Per Million
 
 ### Quantify results
-In Match sample names to conditions
+In the kallisto output directory match sample names to conditions
+```
+# These are the control samples.
+CTRL=(CTRL_1 CTRL_2 CTRL_3)
+
+# These are the VCP numbers.
+VCP=(VCP_1 VCP_2 VCP_3)
+```
+
 
 # Detailed Approach: DESeq2 > Visualisation
 
@@ -410,8 +418,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTczNjM3NCwtMTIwNzQwOTI5MywxMD
-YwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5
-MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMT
-I1MTQwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTE3MjA0OTE4NTUsLTEyMDc0MDkyOTMsMT
+A2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2
+OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLT
+EyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
 -->
