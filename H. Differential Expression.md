@@ -195,28 +195,29 @@ You can change the header to include the sample names.
 
 # Detailed Approach: DESeq2 > Visualisation
 
-DESeq( ) function wraps around the following 3 functions:
+DESeq takes either `featureCounts` (raw read counts) or `Kallisto` counts --> read them into R --> normalise for sequencing depth differences
+
 ```r
-`DESeq.ds = estimateSizeFactors(DESeq.ds)` #sequencing depth normalisation
-`DESeq.ds = estimateDispersions(DESeq.ds)` #gene wise dispersion estimates
-`DESeq.ds = nbinomWaldTest(DESeq.ds)` #fits a negative binomial GLM & applies Wald stats to each gene
+# DESeq( ) function wraps around the following 3 functions:
+DESeq.ds = estimateSizeFactors(DESeq.ds) #sequencing depth normalisation
+DESeq.ds = estimateDispersions(DESeq.ds) #gene wise dispersion estimates
+DESeq.ds = nbinomWaldTest(DESeq.ds) #fits a negative binomial GLM & applies Wald stats to each gene
 
-`DGE. results = results(DESeq.ds, independentFiltering = TRUE, alpha = 0.05)` #results function allows extraction of base means across sample, SEs, and basic stats for each gene.
-`summary(DGE.results)`
+DGE. results = results(DESeq.ds, independentFiltering = TRUE, alpha = 0.05) #results function allows extraction of base means across sample, SEs, and basic stats for each gene.
+summary(DGE.results)
 
-The DESeqResult behaves as a data frame:
+# The DESeq Result behaves as a data frame:
 head (DGE. results)
 table (DGE. results $ padj < 0.05)
 rownames ( subset (DGE. results , padj < 0.05) )
+
+DSeqDataSet #contains all the information in R. 
+rowRanges( )` rows = variables (genes, transcripts, exons)  - has info about genes (chr, start, end, strand, ID)
+rownames is the unique sample names
+colData( )` columns = samples 
+assay( )` stores count data with genes and samples. similar to `countData`
 ```
 
-DESeq takes either `featureCounts` (raw read counts) or `Kallisto` counts --> read them into R --> normalise for sequencing depth differences
- 
- `DSeqDataSet` contains all the information in R. 
-`rowRanges( )` rows = variables (genes, transcripts, exons)  - has info about genes (chr, start, end, strand, ID)
-`rownames` is the unique sample names
-`colData( )` columns = samples 
-`assay( )` stores count data with genes and samples. similar to `countData`
 
 ## Biostars DESeq Script
 ```bash
@@ -448,7 +449,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4MTY4NzMwNCw5NjU0MzUxNzcsMTExOD
+eyJoaXN0b3J5IjpbLTE2NzgwODcwNSw5NjU0MzUxNzcsMTExOD
 U2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2
 LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMj
 M4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1
