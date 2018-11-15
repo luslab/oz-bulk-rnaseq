@@ -177,7 +177,11 @@ for NAME in ${VCP[@]}; do
     VCP_FILES+="${NAME}/abundance.tsv "
 done
 
-#check names a
+#check names are correct:
+ls $CTRL_FILES $VCP_FILES
+
+#create the counts.txt file for all 
+paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
 ```
 
 # Detailed Approach: DESeq2 > Visualisation
@@ -431,7 +435,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNzYwNzc4MDUsLTEyMDc0MDkyOTMsMT
+eyJoaXN0b3J5IjpbLTE3NzQ1NTI4OTAsLTEyMDc0MDkyOTMsMT
 A2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2
 OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLT
 EyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
