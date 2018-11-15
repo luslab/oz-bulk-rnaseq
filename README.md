@@ -29,6 +29,12 @@
 
 # RNA-seq Workflow
 
+## Introduction
+
+
+![Central dogma of molecular biology](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393)
+
+
 ## Wet-lab sequencing phase:
 1. Extract & isolate RNA
 2. Prepare library: break RNA into small fragments, convert to dsDNA, add sequencing adapters, PCR amplify
@@ -81,6 +87,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwMTUyNzUxMiwxOTk1ODA0MDg4LC0xNj
-EwMTQ5OTIzXX0=
+eyJoaXN0b3J5IjpbMTA2MDQ4NDMwNSwxNDAxNTI3NTEyLDE5OT
+U4MDQwODgsLTE2MTAxNDk5MjNdfQ==
 -->
