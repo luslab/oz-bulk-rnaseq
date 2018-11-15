@@ -150,9 +150,9 @@ ERCC-00003  1023   853.059      1452       19460.7
 ERCC-00004  523    353.059      455        14734.5
 ERCC-00009  984	   814.059      319        4480.29
 ```
-eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
-est_counts = transcript abundances
-tpm = Transcripts Per Million
+Column 3 = eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
+Column 4 = est_counts = transcript abundance count
+Column 5 = tpm = Transcripts Per Million
 
 # Detailed Approach: DESeq2 > Visualisation
 
@@ -405,7 +405,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMjI1NTIwOCwxMDYwOTk4MDY2LC0xND
+eyJoaXN0b3J5IjpbLTkwMTg0MTk0MSwxMDYwOTk4MDY2LC0xND
 AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
 Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
 UxOTExMTA5OF19
