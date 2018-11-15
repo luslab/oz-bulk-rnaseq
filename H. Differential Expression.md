@@ -108,7 +108,7 @@ mkdir -p kallisto
 # Exit this script on any error.
 set -euo pipefail
 
-# This is the path & name of the reference transcriptome (not genome).
+# Set Reference transcriptome (not genome).
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 
 # This the path & name of the index to build
@@ -136,6 +136,8 @@ done
 #concatenate all counts into 1 file that can be used for DESeq DE analysis.
 paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/VCP_*.tsv  /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/CTRL_*.tsv | cut -f 1,4,9,14,19,24,29 > counts.txt
 ```
+### Kallisto Output
+
 The main output of Kallisto is the abundance.txt file with columns:
 ```
 target_id   length eff_length est_counts 	tpm
@@ -399,7 +401,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3NTU3NjYzOSwxMDYwOTk4MDY2LC0xND
+eyJoaXN0b3J5IjpbLTI5OTczODQ3OSwxMDYwOTk4MDY2LC0xND
 AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
 Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
 UxOTExMTA5OF19
