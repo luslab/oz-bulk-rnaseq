@@ -212,12 +212,11 @@ table (DGE. results $ padj < 0.05)
 rownames ( subset (DGE. results , padj < 0.05) )
 
 DSeqDataSet #contains all the information in R. 
-rowRanges( )` rows = variables (genes, transcripts, exons)  - has info about genes (chr, start, end, strand, ID)
-rownames is the unique sample names
-colData( )` columns = samples 
-assay( )` stores count data with genes and samples. similar to `countData`
+rowRanges( ) # rows = variables (genes, transcripts, exons)  - has info about genes (chr, start, end, strand, ID)
+rownames #is the unique sample names
+colData( ) #columns = samples 
+assay( ) #stores count data with genes and samples. similar to `countData`
 ```
-
 
 ## Biostars DESeq Script
 ```bash
@@ -449,7 +448,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzgwODcwNSw5NjU0MzUxNzcsMTExOD
+eyJoaXN0b3J5IjpbLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExOD
 U2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2
 LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMj
 M4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1
