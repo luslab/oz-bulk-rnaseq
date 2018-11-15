@@ -214,13 +214,13 @@ curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 
 # Using featureCounts output (counts.txt) print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
-cat counts.txt | cut -f 1,7-14 > simple_counts.txt
+cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 
 #pass simple_counts.txt through the script specifying the design of the experiment 
 ## in this case = 3 x 3 (3 cases, 3 controls)
-cat simple_counts.txt | Rscript deseq1.r 3x3 > results.txt
+cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
 ```
-The results.txt file describes changes between the 2 conditions e.g.
+The results_deseq1.txt file describes changes between the 2 conditions e.g.
 ```bash
 id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
 ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
@@ -388,6 +388,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDI2MDYxOTgsLTEyNTE0MDUzNTUsLT
-E1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
+UxOTExMTA5OF19
 -->
