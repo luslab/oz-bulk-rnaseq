@@ -75,10 +75,14 @@ Sailfish and more updated version Salmon
 ## Kallisto Workflow
 ml kallisto
 
+Two steps:
+1. Build Index ( 
+2. Quantify Reads
+
 For an individual single or paired end fastq file you can run:
 ```bash
 #set changable elements
-
+##set reference transcriptome (cDNA)
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 SAMPLE=CTRL_3
@@ -433,9 +437,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5Mzk2MTU0NiwxMTE4NTYxOTkyLC00Nj
-A2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEz
-NzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMT
-U5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTEx
-MDk4XX0=
+eyJoaXN0b3J5IjpbNTk1OTEwMDEzLDExMTg1NjE5OTIsLTQ2MD
+Y5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3
+NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNT
+kyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEw
+OThdfQ==
 -->
