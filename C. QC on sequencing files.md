@@ -1,4 +1,4 @@
-> # Quality Control (QC) on Sequencing files
+> # Quality Control (QC) on Raw Reads
 Quality control (abbreviated as QC from now on) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
 - Pre-alignment: “raw data” - the protocols are the same regardless of what analysis will follow
 	- **FastQC** on raw sequenced reads
@@ -151,5 +151,5 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbLTU5OTMyMjkwNCwtMTg5OTgyMDIyXX0=
 -->
