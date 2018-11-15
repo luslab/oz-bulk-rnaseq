@@ -230,8 +230,9 @@ curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 ml R
 
 # Using kallisto output (counts.txt) you firstly need to remove empty rows (represent transcripts that were detected at all. Keep rows only where the sum of all reads is > 25
-```
 cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
+
+# convert effective lengths to integers (DESeq2 only accepts 
 print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
 cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 
@@ -468,9 +469,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjMwNjgzMDYsLTg3NzgwMjg1Nyw5Nj
-U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
-MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
-M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
-OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTQ1MjIwMDE3LC04Nzc4MDI4NTcsOTY1ND
+M1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDkyOTMs
+MTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNj
+k2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgs
+LTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
 -->
