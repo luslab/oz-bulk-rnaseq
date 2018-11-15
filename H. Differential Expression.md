@@ -137,7 +137,12 @@ paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kall
 ```
 ### Kallisto Output
 
-The main output of Kallisto is the abundance.txt file with columns:
+Output files:
+- abundance.h5
+- abundance.tsv
+- run_info.jso
+
+The main output of Kallisto is the **abundance.tsv** file with columns:
 ```
 target_id   length eff_length est_counts 	tpm
 ERCC-00002  1061   891.059      18946      243099
@@ -400,8 +405,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTYyNzk1MzM0LDEwNjA5OTgwNjYsLTE0MD
-IzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2
-LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNT
-E5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbMTEzMjI1NTIwOCwxMDYwOTk4MDY2LC0xND
+AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
+Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
+UxOTExMTA5OF19
 -->
