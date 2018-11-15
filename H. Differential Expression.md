@@ -180,7 +180,7 @@ done
 #check names are correct:
 ls $CTRL_FILES $VCP_FILES
 
-#create the counts.txt file for all 
+#create the counts.txt file using all samples abundance.tsv files & remove unnessary columns
 paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
 ```
 
@@ -435,8 +435,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzQ1NTI4OTAsLTEyMDc0MDkyOTMsMT
-A2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2
-OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLT
-EyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbMTE3MjA0MTI3NiwtMTIwNzQwOTI5MywxMD
+YwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5
+MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMT
+I1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
