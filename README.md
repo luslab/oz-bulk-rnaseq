@@ -8,7 +8,7 @@
 - The contents are based on multiple resources including:
 	- [RNAseq worksheet](http://chagall.med.cornell.edu/RNASEQcourse/Intro2RNAseq.pdf)
 	- [Biostars handbook](https://www.biostarhandbook.com/)
-	- [Griffith Github](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393)
+	- [rnaseq.wiki](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393)
 	- [Data Camp](https://www.datacamp.com/home)
 	- [Coursera](https://www.coursera.org/specializations/bioinformatics)
 	- and most importantly the experience of established experts in RNAseq analysis within [the Luscombe lab - my host laboratory](https://www.luscombelab.org/crickmembersdetail). 
@@ -81,5 +81,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NTgwNDA4OCwtMTYxMDE0OTkyM119
+eyJoaXN0b3J5IjpbMTQwMTUyNzUxMiwxOTk1ODA0MDg4LC0xNj
+EwMTQ5OTIzXX0=
 -->
