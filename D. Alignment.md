@@ -111,8 +111,11 @@ RefSeq
 * must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
 ## Reference Genome File Formats
+
+### Reference Sequence
 Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  
 
+### Reference Annotation
 Annotation files store start sites, exon, introns. They contain spacial coordinate information describing genomic loci (2D position) according to their pattern (chromosome, start, end) as intergers. These integers represent the left & right positions of an interval on the genome.
 
 Both formats contain information:
@@ -152,7 +155,7 @@ The relationship is built from data distributed over multiple lines.
 
 Always use GFF based formats (BED is being gradually phased out).
 
-# Download Reference Sequence (FASTA) & Annotation (GTF) files
+# Download Reference Sequence & Annotation files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
 
 **GENCODE process:**
@@ -184,7 +187,7 @@ remove first column & first line: `cut -f 2- file_name.txt | sed ‘1d”`
 Compress with `gzip` command or `faToTwoBit filename.fa filename.2bit`. Can then reconvert 2bit format —> FASTA format:  `twobittofa file_name.2bit file_name.fa`
 
 
-## Alignment Workflow:
+# Alignment Workflow:
 
  - The aim of alignment is to produce a SAM (Sequence Alignment Map) file which contains all information on the sequencing & its alignment. After creating the SAM file there is no need to look at the FASTQ file again since the SAM contains all the FASTQ information.
 
@@ -515,6 +518,6 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNj
-MwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbMjA1MjcyODc5NywtMTQ3ODU2MDQ5NiwtMT
+U4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
