@@ -7,7 +7,8 @@
 
 There are two broad strategies for assessing transcript abundance:
 1. Count based method: assign each read to the most probably gene
-2. 
+2. Transcript per million mapped reads
+
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
 3. expression level
 4. read length
@@ -469,11 +470,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMD
-U3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1
-NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3NywxMT
-E4NTYxOTkyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgw
-NjYsLTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMz
-IyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1
-MzU1XX0=
+eyJoaXN0b3J5IjpbMTg5ODUyNjYwMCw5MTAxODQyMzMsLTIxMj
+gyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4
+MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOT
+Y1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDky
+OTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNj
+YzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4
+ODhdfQ==
 -->
