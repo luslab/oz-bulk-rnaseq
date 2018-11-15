@@ -19,7 +19,7 @@ For each base alignment the options are:
 Tools used to be separated into aligners vs mappers. However these have become combined over time. However a distinction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
 
 ### **CIGAR** (Concise idiosyncratic gapped alignment report string)
-CIstring is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
+CIGAR string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
 **M**  - Alignment (can be a sequence match or mismatch!)
 **I**  - Insertion in the read compared to the reference
  **D**  - Deletion in the read compared to the reference
@@ -65,6 +65,7 @@ The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations mus
 For RNA-seq we need to either :
 - align reads to the reference **transcriptome** index (required transcripts to be known and annotated in the reference)
 - align reads to the reference **genome** index to identify novel splice events (i.e. reads that cant be aligned to reference transcriptome)
+- de novo assembly: assemble transcripts from overlapping tags
 
 ![enter image description here](https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/resize/user/18/Figure19-700x527.png)
 
@@ -525,7 +526,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNDE5MTc1MCwtNDg2ODg0ODQ0LC0xND
-c4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIy
-MThdfQ==
+eyJoaXN0b3J5IjpbLTE2MTIxODcyMzEsLTQ4Njg4NDg0NCwtMT
+Q3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQy
+MjE4XX0=
 -->
