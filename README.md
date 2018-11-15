@@ -34,10 +34,15 @@ The aim of RNA-seq is to interrogate relative transcript abundance and diversity
 
 ![Central dogma of molecular biology](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393)
 
+Analysis goals:
+1. transcript discovery
+2. 
+
 ## Wet-lab sequencing phase:
 1. Extract & isolate RNA
 2. Prepare library: break RNA into small fragments, enrich nonribosomal RNA, convert to cDNA, construct fragment library (add sequencing adapters, PCR amplify)
-3. High-thrSequence the cDNA library: flow cell, base calling & quality score, replicates (technical = multiple lanes in flow cell; biological = multiple samples from each condition)
+3. High-throughput Sequence the cDNA library: generate single or paired end reads of 30-300bp in length. Flow cell, base calling & quality score, replicates (technical = multiple lanes in flow cell; biological = multiple samples from each condition)
+
 ![Preparing RNA seq library](https://lh3.googleusercontent.com/RYpyReGfJbJOWjm20hzclqR6KUMkacZ6p_xaKvQs3piOTfxXdRiXUmiKAd45nHWj30cxJPVXmqTfnQ)
 ![enter image description here](https://lh3.googleusercontent.com/EBRN0O87F248JvjOzL_yHF1U328THjmXywtF4shxKxmzIwePgU-XR6ETv9Q0LCFP7bEcltsTXrN9hg)
 
@@ -86,6 +91,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwMzg5NzkzNCwxNDAxNTI3NTEyLDE5OT
-U4MDQwODgsLTE2MTAxNDk5MjNdfQ==
+eyJoaXN0b3J5IjpbLTE5MDU3MTUxMzcsMTQwMTUyNzUxMiwxOT
+k1ODA0MDg4LC0xNjEwMTQ5OTIzXX0=
 -->
