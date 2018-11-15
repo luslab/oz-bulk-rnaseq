@@ -94,7 +94,7 @@ When choosing an aligner, we need to decide what features the aligner should pro
 -   Can the aligner filter alignments to suit our needs?
 -   Will the aligner find chimeric alignments?
 
-## Reference Genomes
+# Reference Genomes
 Reference genome sequence repositories:
 **[GenCODE](https://www.gencodegenes.org/human/)** - Generally for human data use 
 **[ENSEMBL](http://www.ensembl.org/index.html)** : has the most detailed annotations of genomes.
@@ -110,12 +110,15 @@ RefSeq
 * UCSC and Ensembl use different naming conventions (which impacts on analyses) - try to stick to one.
 * must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
-### Reference Genome File Formats
+## Reference Genome File Formats
 Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. They contain spacial coordinate information describing genomic loci (2D position) according to their pattern (chromosome, start, end) as intergers. These integers represent the left & right positions of an interval on the genome.
 
 2 types of genome formats exist:
 - [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) originally designed for UCSC genome browser
 - [GFF](http://mblab.wustl.edu/GTF22.html) (also its variants GFF2, GTF & GFF3)
+
+Both formats contain information:
+
 
 **BED Format** is the simplest annotation store
 3 compulsory fields: chromosome & start & end.
@@ -135,16 +138,10 @@ indicates region with 0-based start and 1-based end position (GFF & GTF are 1-ba
 * Phase: codon phase for annotations linked to proteins. 0; 1; or 2 = indicates frame (bases to be removed from beginning of feature to reach first base of next codon)
 * Group: class and ID of an annotation which is the parent of the current one.  	[GFF3 = Attributes: TAG=VALUE pairs - ID, name, alias, parent, target, gap]
 
-2 versions in use - similar but not compatible
-* version 2 = Sanger Institute http://gmod.org/wiki/GFF2
-* version 3 = Sequence Ontology Project http://gmod.org/wiki/GFF3        
- 
-**GTF = Gene Transfer Format** 
-More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
 
 
 
-## Download Reference Sequence (FASTA) & Annotation (GTF) files
+# Download Reference Sequence (FASTA) & Annotation (GTF) files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
 
 **GENCODE process:**
@@ -507,5 +504,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNDczNTA3MSw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbOTM5NjE1NTU2LDY1NzU0MjIxOF19
 -->
