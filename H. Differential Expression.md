@@ -233,7 +233,7 @@ ml R
 cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
 
 # Convert effective lengths to integers using ask & %3.0f formating operator (DESeq2 only accepts integers)
-cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9) } ' > valid.txt
+cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7) } ' > valid.txt
 
 # Run the differential expression estimator
 cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
@@ -464,11 +464,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTAxMzE2NiwtMjA1NzYyMzQyNSw5Nj
-IxNTkyMTAsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMjU1
-MjcsLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5MiwtND
-YwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUx
-Mzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MT
-E1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTEx
-MTA5OF19
+eyJoaXN0b3J5IjpbLTY0NDk3ODUzLC0yMDU3NjIzNDI1LDk2Mj
+E1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUy
+NywtODc3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOTkyLC00Nj
+A2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEz
+NzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMT
+U5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTEx
+MDk4XX0=
 -->
