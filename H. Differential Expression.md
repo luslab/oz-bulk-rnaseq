@@ -229,7 +229,7 @@ curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 ```bash
 ml R
 
-# Using kallisto output (counts.txt) you firstly need to remove empty rows (represent transcripts that were detected at all. Keep rows only where the sum of all reads is > 25
+# Using kallisto output (counts.txt) firstly need to remove empty rows (represent transcripts that were detected at all. Keep rows only where the sum of all reads is > 25
 cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
 
 # convert effective lengths to integers using ask & %3.0f formating operator (DESeq2 only accepts integers)
@@ -237,17 +237,6 @@ cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.
 
 # Run the differential expression estimator
 cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
-
-ENST00000456328.2|ENSG00000223972.5|OTTHUMG00000000961.2|OTTHUMT00000362751.1|DDX11L1-202|DDX11L1|1657|processed_transcript|	 10	  0	  0	 16	  0	  0	  0	  0
-ENST00000488147.1|ENSG00000227232.5|OTTHUMG00000000958.1|OTTHUMT00000002839.1|WASH7P-201|WASH7P|1351|unprocessed_pseudogene|	  8	  0	  0	 37	 61	 31	  0	  0
-ENST00000461467.1|ENSG00000237613.2|OTTHUMG00000000960.1|OTTHUMT00000002843.1|FAM138A-202|FAM138A|590|lincRNA|	  5	  0	  0	  1	 40	  1	  0	  0
-ENST00000495576.1|ENSG00000239945.1|OTTHUMG00000001097.2|OTTHUMT00000003226.2|AL627309.3-201|AL627309.3|1319|lincRNA|	  0	  7	  4	  3	  0	 12	  0	  0
-ENST00000442987.3|ENSG00000233750.3|OTTHUMG00000001257.3|OTTHUMT00000003691.3|CICP27-201|CICP27|3812|processed_pseudogene|	 13	  7	 11	 23	 16	 26	  0	  0
-ENST00000494149.2|ENSG00000268903.1|OTTHUMG00000182518.2|OTTHUMT00000461982.2|AL627309.6-201|AL627309.6|755|processed_pseudogene|	  1	 49	145	 39	 82	171	  0	  0
-ENST00000595919.1|ENSG00000269981.1|OTTHUMG00000182738.2|OTTHUMT00000463398.2|AL627309.7-201|AL627309.7|284|processed_pseudogene|	  0	 11	  7	 23	 13	 51	  0	  0
-ENST00000484859.1|ENSG00000241860.6|OTTHUMG00000002480.3|OTTHUMT00000007035.1|AL627309.5-201|AL627309.5|4860|antisense|	113	234	 31	1167	1172	1232	  0	  0
-ENST00000490997.5|ENSG00000241860.6|OTTHUMG00000002480.3|OTTHUMT00000007036.1|AL627309.5-202|AL627309.5|518|antisense|	  0	  4	  1	 23	  0	 34	  0	  0
-ENST00000466557.6|ENSG00000241860.6|OTTHUMG00000002480.3|OTTHUMT00000007037.2|AL627309.5-203|AL627309.5|1301|lincRNA|	  0	 19	  0	 23	 23	 87	  0	  0
 ```
 ### Using featureCounts Output
 ```bash
@@ -475,10 +464,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0Mj
-AwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4
-NTcsOTY1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMD
-c0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1
-OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMz
-gyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbOTIyMDMyMzYzLC0yMDU3NjIzNDI1LDk2Mj
+E1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUy
+NywtODc3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOTkyLC00Nj
+A2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEz
+NzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMT
+U5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTEx
+MDk4XX0=
 -->
