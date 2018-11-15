@@ -219,13 +219,18 @@ assay( ) #stores count data with genes and samples. similar to `countData`
 ```
 
 ## Biostars DESeq Script
-```bash
-ml R
 
+```bash
 #download the DESeq biostars script
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
+```
+### Using Kallisto Output
 
+### Using featureCounts Ouput
+
+```bash
+ml R
 # Using featureCounts output (counts.txt) print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
 cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 
@@ -448,9 +453,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExOD
-U2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2
-LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMj
-M4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1
-NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTEyMTg0Nzg2ODAsLTg3NzgwMjg1Nyw5Nj
+U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
+MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
+M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
+OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
