@@ -33,8 +33,9 @@
 The aim of RNA-seq is to interrogate relative transcript abundance and diversity. It's accuracy is superior to microarray and similar to qPCR
 
 ![Central Dogma of molecular biology](https://journals.plos.org/ploscompbiol/article/figure/image?size=inline&id=info:doi/10.1371/journal.pcbi.1004393.g001)
+Steps of RNA-Seq:
 
-
+![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g002)
 Analysis goals:
 1. transcript discovery
 2. genome annotation
@@ -96,6 +97,7 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NDI2MTY0MSwxOTIxMjYwNjUwLDE0MD
-E1Mjc1MTIsMTk5NTgwNDA4OCwtMTYxMDE0OTkyM119
+eyJoaXN0b3J5IjpbMTQwNzI2NTYxMywxMDQ0MjYxNjQxLDE5Mj
+EyNjA2NTAsMTQwMTUyNzUxMiwxOTk1ODA0MDg4LC0xNjEwMTQ5
+OTIzXX0=
 -->
