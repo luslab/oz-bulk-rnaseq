@@ -34,6 +34,7 @@ The aim of RNA-seq is to interrogate relative transcript abundance and diversity
 
 ![Central dogma of molecular biology](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393)
 
+
 Analysis goals:
 1. transcript discovery
 2. genome annotation
@@ -95,6 +96,6 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMTI2MDY1MCwxNDAxNTI3NTEyLDE5OT
-U4MDQwODgsLTE2MTAxNDk5MjNdfQ==
+eyJoaXN0b3J5IjpbMTg3NTM4NDg5MiwxOTIxMjYwNjUwLDE0MD
+E1Mjc1MTIsMTk5NTgwNDA4OCwtMTYxMDE0OTkyM119
 -->
