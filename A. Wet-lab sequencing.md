@@ -20,8 +20,8 @@
 ![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g003)
  
  Enrichment strategy options:
- 1. total RNA
- 2. rRNA reduction
+ 1. total RNA (most reads correspond to rRNAs)
+ 2. rRNA reduction using rRNA sequence pr
  ![enter image description here](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004393#sec001)
 # Sequencing strategy
 * distinguish overlapping transcripts —> identify anti-sense transcripts by preserving which strand a fragment came from
@@ -93,6 +93,6 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDY2Mzg0OTQsNzkzMjYzMDA4LC0xNj
-c3NDIyNTg1XX0=
+eyJoaXN0b3J5IjpbLTg4ODMzODkzOSw3OTMyNjMwMDgsLTE2Nz
+c0MjI1ODVdfQ==
 -->
