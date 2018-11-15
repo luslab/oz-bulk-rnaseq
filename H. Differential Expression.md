@@ -226,11 +226,26 @@ curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 ```
 ### Using Kallisto Output
+```bash
+ml R
 
+# Using kallisto output (counts.txt) you firstly need to remove empty rows (represent transcripts that were detected at all. Keep rows only where the sum of all reads is > 25
+```
+cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
+print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
+cat counts.txt | cut -f 1,7-14 > sample_counts.txt
+
+#pass simple_counts.txt through the script specifying the design of the experiment 
+## in this case = 3 x 3 (3 cases, 3 controls)
+cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
+```
+The results_deseq1.txt file describes changes between the 2 conditions e.g.
+```bash
 ### Using featureCounts Ouput
 
 ```bash
 ml R
+
 # Using featureCounts output (counts.txt) print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
 cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 
@@ -453,7 +468,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTg0Nzg2ODAsLTg3NzgwMjg1Nyw5Nj
+eyJoaXN0b3J5IjpbLTE0NjMwNjgzMDYsLTg3NzgwMjg1Nyw5Nj
 U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
 MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
 M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
