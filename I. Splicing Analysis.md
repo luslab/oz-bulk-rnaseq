@@ -1,7 +1,8 @@
 
 
 
-> # Splicing Analysis
+> # Alternative Expression Analysis
+
 
 # Gene Isoform counting
 
@@ -34,5 +35,5 @@ To **assess differential expression of exons**, create an annotation file where 
   **3' UTR isoforms analysis**
 -   I have written an entire pipeline for this which I can explain and share with you scripts when needed. But basically I extract genome-wide coverage using bedtools, then extract regions of continuous coverage along genome, then intersect these with Ensembl annotated regions, extend 3' UTR. Finally to annotate all alternative 3' UTR isoforms I then run an algo which identifies shifts in coverage along 3' UTR which are expected to occur at PAS sites.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbMjAzNDAwMDA0NywtNTQyMzA4MzY5XX0=
 -->
