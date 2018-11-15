@@ -239,13 +239,14 @@ ERCC-00136       1898          615         3180        5.16        2.36         
 #Sort by gene ID select only columns foldchange and log2FoldChange. The results.txt file is already sorted according to padj
 cat results.txt | sort | cut -f 1,5,6 > table
 
-#How many genes are significantly differentially expressed (i.e. padj < 0.05)?
+#How many genes are significantly differentially expressed (i.e. padj < 0.05 in column 8)?
 cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
 
 #How many differentially expressed genes do we have?
 cat diffgenes.txt | wc -l
 ```
-Visualise the most significantly differentially expressed genes in IGV:
+### Visualise differentially expressed genes in IGV
+
 1. On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
 2. Set reference genome to Human (hg38) top left box.
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
@@ -388,6 +389,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg5MDc1ODYsMTIzODI2MDg4OCwtMTI1MT
-QwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTE2OTQ4Nzc3NjQsMTIzODI2MDg4OCwtMT
+I1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
