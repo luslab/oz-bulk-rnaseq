@@ -81,14 +81,15 @@ REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcri
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 SAMPLE=CTRL_1
 R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
-##if you have paired-end data then set the 2nd read files to read in.
+##if you have paired-end data then set the 2nd read files for input
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
 #build kallisto index
 sbatch -N 1 -c 8 --mem 40 --wrap="kallisto index -i $IDX $REF"
 
-#create directory for kallisto data and set subdirectory for output called out
+#create directory for kallisto data 
 mkdir -p kallisto
+#set subdirectory for output called out
 OUTDIR=out
 #run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
 ##paired-end mode
@@ -395,8 +396,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjQ3Mzg5MjEsLTE0MDIzNTEzNzQsNz
-MwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMTU5Mjkz
-MiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX
-0=
+eyJoaXN0b3J5IjpbMTI0MTQ1OTk3NiwtMTQwMjM1MTM3NCw3Mz
+AzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMy
+LDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ
+==
 -->
