@@ -1,12 +1,12 @@
 >  # Wet-lab RNA Sequencing
 
 # Wet Lab phases
-1. isolate RNA from samples
-2. generate sequencing libaries
-3. high-throughoutput sequencing producing millions of short reads
+1. RNA isolation
+2. Library Preparation
+3. high-throughput sequencing
 
- 
  # RNA extraction
+ 
 * silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
 * remove DNA and proteins. Improve with DNase.
 * quality control: Aligent bioanalyser creates an **RNA integrity number (RIN)** is objective way of assessing RNA quality & degradation. 10 = intact; 1 = degraded. RIN of 8 is generally accepted threshold before proceeding to RNA seq. Uses elecetophoresis and looks for densitometry spike at 28S and 18S rRNA bands - ratio of 28S/18S = RIN.
@@ -86,5 +86,5 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxMzIyMDU0OCwtMTY3NzQyMjU4NV19
+eyJoaXN0b3J5IjpbLTE1NzU3OTc2OCwtMTY3NzQyMjU4NV19
 -->
