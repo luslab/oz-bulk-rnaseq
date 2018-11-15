@@ -90,7 +90,10 @@ sbatch -N 1 -c 8 --mem 40 --wrap="kallisto index -i $IDX $REF"
 mkdir -p kallisto
 OUTDIR=out
 #run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
+##paired-end mode
 kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
+##single-end mode (m
+kallisto quant -i $IDX -o $SAMPLE -b 100 --single -l 187 -s 70 $R1
 ```
 You can run this for multiple samples as a For Loop (example [here](https://www.biostarhandbook.com/rnaseq/rnaseq-griffith-kallisto.html))
 ```bash
@@ -391,7 +394,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY0MDI3NjAyLC0xNDAyMzUxMzc0LDczMD
-MxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIs
-MTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
+eyJoaXN0b3J5IjpbLTE3Njg3MjgyMCwtMTQwMjM1MTM3NCw3Mz
+AzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMy
+LDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ
+==
 -->
