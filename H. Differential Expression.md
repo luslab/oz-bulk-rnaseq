@@ -81,6 +81,7 @@ REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcri
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 SAMPLE=CTRL_1
 R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
+##if you have paired-end data then set the 2nd read files to read in.
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
 #build kallisto index
@@ -92,7 +93,7 @@ OUTDIR=out
 #run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
 ##paired-end mode
 kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
-##single-end mode (m
+##single-end mode (set mean length & standard deviation)
 kallisto quant -i $IDX -o $SAMPLE -b 100 --single -l 187 -s 70 $R1
 ```
 You can run this for multiple samples as a For Loop (example [here](https://www.biostarhandbook.com/rnaseq/rnaseq-griffith-kallisto.html))
@@ -394,8 +395,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njg3MjgyMCwtMTQwMjM1MTM3NCw3Mz
-AzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMy
-LDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ
-==
+eyJoaXN0b3J5IjpbLTExNjQ3Mzg5MjEsLTE0MDIzNTEzNzQsNz
+MwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMTU5Mjkz
+MiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX
+0=
 -->
