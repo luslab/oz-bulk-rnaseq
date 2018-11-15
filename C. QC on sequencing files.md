@@ -1,10 +1,12 @@
 > # Quality Control (QC) on Raw Reads
-Quality control (abbreviated as QC from now on) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
+Quality control (abbreviated as QC) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
 - Pre-alignment: “raw data” - the protocols are the same regardless of what analysis will follow
 	- **FastQC** on raw sequenced reads
 	- reliability of sequencing decreases along the read. Trimming works from the end of the read & removes low quality measurements.
 	- trim adapters
 - Post-alignment: “data filtering” - the protocols are specific to the analysis that is being performed.
+
+Pre-alignment QC 
 
 ### FastQC
 FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - need to install. FastQC generates its reports by evaluating a small subset of the data and extrapolating those findings to the entirety of the dataset. Many of the metrics are only computed on the first 200,000 measurements then are being tracked through the rest of the data.
@@ -151,5 +153,5 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5OTMyMjkwNCwtMTg5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbMTg4NjE1OTgwLC0xODk5ODIwMjJdfQ==
 -->
