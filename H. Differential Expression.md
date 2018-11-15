@@ -245,13 +245,16 @@ cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
 #How many differentially expressed genes do we have?
 cat diffgenes.txt | wc -l
 ```
-### Visualise differentially expressed genes in IGV
 
+# Visualise Differential Expression
+
+## IGV
+
+Firstly, visualise DE genes in IGV
 1. On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
 2. Set reference genome to Human (hg38) top left box.
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
 
-# Visualise Differential Expression
 
 ## Explore Read Count Patterns
 
@@ -389,6 +392,6 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTQ4Nzc3NjQsMTIzODI2MDg4OCwtMT
+eyJoaXN0b3J5IjpbLTE3MTk4NDg3ODIsMTIzODI2MDg4OCwtMT
 I1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
