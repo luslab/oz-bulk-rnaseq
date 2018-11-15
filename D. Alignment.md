@@ -133,7 +133,6 @@ A single line record stores all the information on the block structure of a reco
 9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
         	field number can vary from 3 - 12. Must be consistent within a file.
 
-
 **GFF = General Feature Format**
 GFF is 1 based, inclusive on both ends. This means that [1,5] contains 1,2,3,4,5 and that coordinate 1 is the first coordinate of the genome.
 The relationship is built from data distributed over multiple lines. 
@@ -516,6 +515,6 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1Nz
-U0MjIxOF19
+eyJoaXN0b3J5IjpbLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNj
+MwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
