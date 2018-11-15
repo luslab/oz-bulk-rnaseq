@@ -238,7 +238,7 @@ cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.
 # Run the differential expression estimator
 cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
 ```
-### Using featureCounts Ouput
+### Using featureCounts Output
 ```bash
 ml R
 
@@ -464,10 +464,10 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNT
-QxMjU1MjcsLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5
-MiwtNDYwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xND
-AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
-Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
-UxOTExMTA5OF19
+eyJoaXN0b3J5IjpbOTYyMTU5MjEwLDI0MjAwODU4MCwxNzA5NT
+A3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOTY1NDM1MTc3
+LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDkyOTMsMTA2MD
+k5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAz
+LC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNT
+E0MDUzNTUsLTE1MTkxMTEwOThdfQ==
 -->
