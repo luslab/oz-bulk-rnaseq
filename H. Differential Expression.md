@@ -137,6 +137,26 @@ do
 done
 
 ```
+
+### Kallisto Output
+
+Output files:
+- abundance.txt
+- abundance.h5 (large scale format form of txt file)
+- run_info.json
+
+The main output of Kallisto is the **abundance.tsv** file with columns:
+```
+target_id   length eff_length est_counts 	tpm
+ERCC-00002  1061   891.059      18946      243099
+ERCC-00003  1023   853.059      1452       19460.7
+ERCC-00004  523    353.059      455        14734.5
+ERCC-00009  984	   814.059      319        4480.29
+```
+Column 3 = eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
+Column 4 = est_counts = transcript abundance count
+Column 5 = tpm = Transcripts Per Million
+
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
 ```bash
 # In the kallisto output directory match sample names to conditions
@@ -163,24 +183,8 @@ paste $CTRL_FILES $VCP_FILES | -f 1,4,9,14,19,24,29,34,39 > counts.txt
 #Alternatively:
 paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/VCP_*.tsv  /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/CTRL_*.tsv | cut -f 1,4,9,14,19,24,29 > counts.txt
 ```
-### Kallisto Output
+This produces a Counts file that can be used as an input into DESeq. This file looks like:
 
-Output files:
-- abundance.txt
-- abundance.h5 (large scale format form of txt file)
-- run_info.json
-
-The main output of Kallisto is the **abundance.tsv** file with columns:
-```
-target_id   length eff_length est_counts 	tpm
-ERCC-00002  1061   891.059      18946      243099
-ERCC-00003  1023   853.059      1452       19460.7
-ERCC-00004  523    353.059      455        14734.5
-ERCC-00009  984	   814.059      319        4480.29
-```
-Column 3 = eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
-Column 4 = est_counts = transcript abundance count
-Column 5 = tpm = Transcripts Per Million
 
 ### Quantify results
 
@@ -437,9 +441,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MD
-Y5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3
-NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNT
-kyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEw
-OThdfQ==
+eyJoaXN0b3J5IjpbMjYxMTY0NDA0LDk2NTQzNTE3NywxMTE4NT
+YxOTkyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYs
+LTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMz
+g2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1
+LC0xNTE5MTExMDk4XX0=
 -->
