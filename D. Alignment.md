@@ -375,7 +375,9 @@ done
 ```
 for individual files: `samtools index filename_Aligned.sortedByCoord.out.bam`
 
-## Sequence Alignment Maps (SAM) files
+# Sequence Alignment Map (SAM/BAM) file
+
+SAM/BAM files store read alignments.
 
 [SAM files](https://www.biostarhandbook.com/sam/sam-flags.html) are generic nucleotide alignment format describing alignment of sequenced reads to a reference. SAM format are TAB-delimited line-orientated (each row represents a single read alignment) text consisting of 2 types of tags:
 1. Header: meta-data
@@ -518,6 +520,6 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MjcyODc5NywtMTQ3ODU2MDQ5NiwtMT
+eyJoaXN0b3J5IjpbMTk0MDQ0NjcxOSwtMTQ3ODU2MDQ5NiwtMT
 U4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
