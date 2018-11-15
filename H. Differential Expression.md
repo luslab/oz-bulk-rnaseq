@@ -76,8 +76,8 @@ Sailfish and more updated version Salmon
 ml kallisto
 
 Two steps:
-1. Build Index ( 
-2. Quantify Reads
+1. Build Index (10mins to run)
+2. Quantify Reads (10mins to run)
 
 For an individual single or paired end fastq file you can run:
 ```bash
@@ -166,9 +166,9 @@ paste /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kall
 ### Kallisto Output
 
 Output files:
-- abundance.h5
-- abundance.tsv
-- run_info.jso
+- abundance.txt
+- abundance.h5 (large scale format form of txt file)
+- run_info.json
 
 The main output of Kallisto is the **abundance.tsv** file with columns:
 ```
@@ -437,9 +437,9 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk1OTEwMDEzLDExMTg1NjE5OTIsLTQ2MD
-Y5NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3
-NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNT
-kyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEw
-OThdfQ==
+eyJoaXN0b3J5IjpbMTI0NjI0NDMyNiwxMTE4NTYxOTkyLC00Nj
+A2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEz
+NzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMT
+U5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTEx
+MDk4XX0=
 -->
