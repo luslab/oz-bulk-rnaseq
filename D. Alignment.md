@@ -125,7 +125,7 @@ Both formats contain information:
 - [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) originally designed for UCSC genome browser
 - [GFF](http://mblab.wustl.edu/GTF22.html) (also its variants GFF2, GTF & GFF3)
 
-**BED Format** is the simplest annotation store
+**BED Format**
 BED is 0 based, non-inclusive on the right. This means that the interval [1, 5) contains 1,2,3,4 and coordinate 1 is the second coordinate of the genome (0 is the first).
 A single line record stores all the information on the block structure of a record.
 
@@ -149,8 +149,7 @@ The relationship is built from data distributed over multiple lines.
 * Phase: codon phase for annotations linked to proteins. 0; 1; or 2 = indicates frame (bases to be removed from beginning of feature to reach first base of next codon)
 * Group: class and ID of an annotation which is the parent of the current one.  	[GFF3 = Attributes: TAG=VALUE pairs - ID, name, alias, parent, target, gap]
 
-
-
+Always use GFF based formats (BED is being gradually phased out).
 
 # Download Reference Sequence (FASTA) & Annotation (GTF) files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
@@ -515,5 +514,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTUzNzUzMzMyLDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
