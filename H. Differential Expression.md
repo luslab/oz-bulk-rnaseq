@@ -110,8 +110,7 @@ set -euo pipefail
 
 # Set Reference transcriptome (not genome).
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-
-# This the path & name of the index to build
+# Set index to build
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 
 # Build kallisto index
@@ -126,7 +125,7 @@ do
         # The kallisto output directory.
         OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/${SAMPLE}_${REPLICATE}
         # Run kallisto quantification in single-end mode.
-        kallisto quant --single -l 200 -s 0.1 -i $IDX -o $OUTDIR -b 100 $R
+        kallisto quant --single -l 187 -s 0.1 -i $IDX -o $OUTDIR -b 100 $R
 
         # Copy the abundance file to a proper name - i.e. remove the long path name so that it only contains information on the sample e.g. VCP_3.tsv
         cp $OUTDIR/abundance.tsv $OUTDIR.counts.tsv
@@ -401,8 +400,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5OTczODQ3OSwxMDYwOTk4MDY2LC0xND
-AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
-Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
-UxOTExMTA5OF19
+eyJoaXN0b3J5IjpbMjIyNzczMDA2LDEwNjA5OTgwNjYsLTE0MD
+IzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2
+LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNT
+E5MTExMDk4XX0=
 -->
