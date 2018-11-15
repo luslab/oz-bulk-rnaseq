@@ -12,15 +12,14 @@ Quality control (abbreviated as QC) is the process of improving data by removing
 - fragments shorter than the target read length
 - base quality
 
+Strategies to improve quality at this point include:
+- Quality trimming
+- Adapter trimming
+
 # FastQC
 FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - need to install. FastQC generates its reports by evaluating a small subset of the data and extrapolating those findings to the entirety of the dataset. Many of the metrics are only computed on the first 200,000 measurements then are being tracked through the rest of the data.
 
-Check for:
-* PCR duplicates
-* adapter contamination
-* rRNA + tRNA reads
-* unmappable reads (contaminating nucleic acids) - FASTQC doesn’t check this
-* each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
+Each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
 ## FastQC Workflow
 `ml FastQC`
@@ -157,5 +156,5 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NjA4NTQxNiwtMTg5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbMzA3ODM4NDc4LC0xODk5ODIwMjJdfQ==
 -->
