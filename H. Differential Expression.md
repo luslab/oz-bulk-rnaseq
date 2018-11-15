@@ -91,7 +91,7 @@ sbatch -N 1 -c 8 --mem 40 --wrap="kallisto index -i $IDX $REF"
 #create directory for kallisto data 
 mkdir -p kallisto
 #set subdirectory for output called out
-OUTDIR=out
+OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto
 #run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
 ##paired-end mode
 kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
@@ -435,7 +435,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4Njg2NDI2NSwtNDYwNjk2OSwtMTIwNz
+eyJoaXN0b3J5IjpbLTgzMjE2OTg5NywtNDYwNjk2OSwtMTIwNz
 QwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5
 MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzOD
 I2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
