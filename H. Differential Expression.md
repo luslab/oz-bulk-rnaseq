@@ -156,6 +156,9 @@ Column 3 = eff_length = scales the transcript length by fragment length distribu
 Column 4 = est_counts = transcript abundance count
 Column 5 = tpm = Transcripts Per Million
 
+### Quantify results
+In Match sample names to conditions
+
 # Detailed Approach: DESeq2 > Visualisation
 
 DESeq( ) function wraps around the following 3 functions:
@@ -407,8 +410,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMT
-QwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYz
-NTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLT
-E1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbLTE1NTczNjM3NCwtMTIwNzQwOTI5MywxMD
+YwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5
+MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMT
+I1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
