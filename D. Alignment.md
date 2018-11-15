@@ -113,7 +113,9 @@ RefSeq
 ### Reference Genome File Formats
 Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. One line per genomic feature.
 
-Reference annotations are **GFF** or **GTF** format.
+2 types of genome formats exist:
+- BED originally designed for UCSC genome browser
+- GFF (also GFF2, GTReference annotations are **GFF** or **GTF** format.
 
 **GFF = General Feature Format**
 9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = `.`)
@@ -503,5 +505,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2MTQ2OTg2NSw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbMTg3MjAyNjA3Myw2NTc1NDIyMThdfQ==
 -->
