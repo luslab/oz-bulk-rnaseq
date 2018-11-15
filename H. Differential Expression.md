@@ -249,7 +249,7 @@ cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 ## in this case = 3 x 3 (3 cases, 3 controls)
 cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
 ```
-The results_deseq1.txt file describes changes between the 2 conditions e.g.
+The results.txt file describes changes between the 2 conditions e.g.
 ```bash
 id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
 ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
@@ -464,10 +464,10 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzAxMzczODgsMTcwOTUwNzY1NSwtMT
-E1NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYx
-OTkyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLT
-E0MDIzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2
-MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC
-0xNTE5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNT
+QxMjU1MjcsLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5
+MiwtNDYwNjk2OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xND
+AyMzUxMzc0LDczMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1
+Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1NSwtMT
+UxOTExMTA5OF19
 -->
