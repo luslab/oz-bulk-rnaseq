@@ -1,14 +1,7 @@
 > # Sequence Alignment
 
-Alignment = Mapping
-
 The purpose of **ASSEMBLY** is to merge reads into larger contiguous sequences (contigs) based on their sequence similarity to each other. 
 The purpose of **ALIGNMENT** is to compare the contig to a previously assembled reference genome (or transcriptome) sequence.
-
-For each base alignment the options are:
-	- `-` a space
-	- `|` match
-	- `.` a mismatch
 
 > Mapping
 > -   A mapping is a region where a read sequence is placed.
@@ -18,9 +11,15 @@ For each base alignment the options are:
 > -   An alignment is the detailed placement of each base in a read.
 > -   An alignment is regarded to be correct if each base is placed correctly.
 
-Tools used to be separated into aligners vs mappers. However these have become combined over time. However a dinstiction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
+For each base alignment the options are:
+	- `-` a space
+	- `|` match
+	- `.` a mismatch
 
-- **CIGAR** (Concise idiosyncratic gapped alignment report string) string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
+Tools used to be separated into aligners vs mappers. However these have become combined over time. However a distinction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
+
+### **CIGAR** (Concise idiosyncratic gapped alignment report string)
+CIstring is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
 **M**  - Alignment (can be a sequence match or mismatch!)
 **I**  - Insertion in the read compared to the reference
  **D**  - Deletion in the read compared to the reference
@@ -526,6 +525,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMT
-U4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbMTczNDE5MTc1MCwtNDg2ODg0ODQ0LC0xND
+c4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIy
+MThdfQ==
 -->
