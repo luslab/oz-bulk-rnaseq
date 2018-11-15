@@ -232,8 +232,8 @@ ml R
 # Using kallisto output (counts.txt) you firstly need to remove empty rows (represent transcripts that were detected at all. Keep rows only where the sum of all reads is > 25
 cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
 
-# convert effective lengths to integers (DESeq2 only accepts integers)
- cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9) } ' > valid.txt
+# convert effective lengths to integers using ask & %3.0f  (DESeq2 only accepts integers)
+cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9) } ' > valid.txt
 
 print out only columns representing Gene ID & sample abundances (ie remove intermediate columns - Chr, Start, End, Strand & length)
 cat counts.txt | cut -f 1,7-14 > sample_counts.txt
@@ -471,10 +471,10 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtOD
-c3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5
-LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNz
-MwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2MzU2LDYxMTU5Mjkz
-MiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX
-0=
+eyJoaXN0b3J5IjpbLTE1ODA5MDE3NTgsMTcwOTUwNzY1NSwtMT
+E1NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYx
+OTkyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLT
+E0MDIzNTEzNzQsNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMzg2
+MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1LC
+0xNTE5MTExMDk4XX0=
 -->
