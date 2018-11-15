@@ -53,18 +53,22 @@ Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
 
 Kallisto quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
-Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript.
+Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript. 
 
-**Tools**:
-Sailfish and more updated version Salmon
-[Kallisto](https://www.nature.com/articles/nbt.3519)
-
-This approach is much faster than alignment-counting routines but **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/)).
+Although much faster than alignment-counting routines it **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/)).
 
 The main limitations to assigning reads to transcripts are:
 - annotation transcripts are inconsistent
 - many isoforms with very different lengths
 - anti-sense and overlapping transcripts of different genes
+
+**Tools**:
+Sailfish and more updated version Salmon
+[Kallisto](https://www.nature.com/articles/nbt.3519)
+
+
+
+
 
 These use a **deBruikin graph** to assign reads to an isoform if they are compatible with that transcript structure.
 ![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
@@ -392,7 +396,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNT
-kyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUzNTUsLTE1MTkxMTEw
-OThdfQ==
+eyJoaXN0b3J5IjpbMTAzNzY2MTc3Myw2NjM2OTY5MDMsLTMyMj
+M4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4OCwtMTI1MTQwNTM1
+NSwtMTUxOTExMTA5OF19
 -->
