@@ -80,7 +80,7 @@ For an individual single or paired end fastq file you can run:
 #set changable elements
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
-SAMPLE=CTRL_1
+SAMPLE=CTRL_3
 R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
 ##if you have paired-end data then set the 2nd read files for input
 R2=PATH_TO_FASTQ_reverse_strand.fq
@@ -435,8 +435,8 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MDY5NjksLTEyMDc0MDkyOTMsMTA2MD
-k5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2OTAz
-LC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNT
-E0MDUzNTUsLTE1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbMTM4Njg2NDI2NSwtNDYwNjk2OSwtMTIwNz
+QwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5
+MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzOD
+I2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
 -->
