@@ -10,7 +10,8 @@ Can ignore structure of full length transcript & focus on individual sequence fe
 
 ![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g006)
 yellow gene = noncoding RNA gene.
-
+brown & green genes = coding genes
+Few exon-exon spanning genes.
 
 # Tools
 Cuffdiff [14], DEXSeq [192], ALEXA-seq [3], IUTA [193], FineSplice [194], PennSeq [195], FlipFlop [196], SNPlice [197], spliceR [198], GESS [102], RNASeq-MATS [199], SplicingCompass [200], DiffSplice [201], SigFuge [202], SUPPA [bioRXiv], CLASS [bioRXiv], SplAdder [bioRXiv], SplicePie [203].
@@ -46,6 +47,6 @@ To **assess differential expression of exons**, create an annotation file where 
   **3' UTR isoforms analysis**
 -   I have written an entire pipeline for this which I can explain and share with you scripts when needed. But basically I extract genome-wide coverage using bedtools, then extract regions of continuous coverage along genome, then intersect these with Ensembl annotated regions, extend 3' UTR. Finally to annotate all alternative 3' UTR isoforms I then run an algo which identifies shifts in coverage along 3' UTR which are expected to occur at PAS sites.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYxMzE0MzU3LC0xMTQ2MTg3MTcsLTU0Mj
-MwODM2OV19
+eyJoaXN0b3J5IjpbLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNT
+QyMzA4MzY5XX0=
 -->
