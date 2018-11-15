@@ -61,10 +61,11 @@ https://www.biostarhandbook.com/rnaseq/rnaseq-intro.html
 4. Estimate Read Quantification (abundance) with gene based read counting 
 5. Compare abundances between conditions & replicates (differential expression): Normalise, adjust each gene read counts for the total aligned reads  within each sample. Summarise data with pairwise correlation, hierarchical clustering, PCA analysis - look for differences between samples & identify outliers to consider excluding.
 
+![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g005)
+
 ![Compare mutant vs wild type gene expression](https://lh3.googleusercontent.com/VtBLKXVhTx_hwbUNxN59byRcd2Ums76QpdRmtHYGUSo2wiwi5MkDEld8Eej6Bgsiqo25kJ4vxwtxNw)
 
-![enter image description here](https://ycl6.gitbooks.io/rna-seq-data-analysis/Workflow.png) 
-![enter image description here](https://www.rna-seqblog.com/wp-content/uploads/2016/02/typical.jpg)
+
 
 ## Requirements
 
@@ -97,7 +98,7 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNzI2NTYxMywxMDQ0MjYxNjQxLDE5Mj
-EyNjA2NTAsMTQwMTUyNzUxMiwxOTk1ODA0MDg4LC0xNjEwMTQ5
-OTIzXX0=
+eyJoaXN0b3J5IjpbLTEyMTk3NzUyMzksMTQwNzI2NTYxMywxMD
+Q0MjYxNjQxLDE5MjEyNjA2NTAsMTQwMTUyNzUxMiwxOTk1ODA0
+MDg4LC0xNjEwMTQ5OTIzXX0=
 -->
