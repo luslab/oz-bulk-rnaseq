@@ -78,12 +78,12 @@ ml kallisto
 ```bash
 #set shortcuts
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-IDX=gencode.v29.transcripts.cdna.fa.idx
+IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 R1=PATH_TO_FASTQ_forward_strand.fq
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
 #build kallisto index
-kallisto index -i $IDX $REF
+sbatch -N 1 -c 8 --mem 40 --wrap="kallisto index -i $IDX $REF"
 
 #create directory for kallisto data and set subdirectory for output called out
 mkdir -p kallisto
@@ -390,7 +390,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4NTk2OTczNSw3MzAzMTg1OTEsNjYzNj
-k2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgs
-LTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
+eyJoaXN0b3J5IjpbLTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2Mz
+Y5NjkwMywtMzIyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4
+LC0xMjUxNDA1MzU1LC0xNTE5MTExMDk4XX0=
 -->
