@@ -158,14 +158,27 @@ Column 5 = tpm = Transcripts Per Million
 
 ### Quantify results
 In the kallisto output directory match sample names to conditions
-```
+```bash
 # These are the control samples.
 CTRL=(CTRL_1 CTRL_2 CTRL_3)
 
 # These are the VCP numbers.
 VCP=(VCP_1 VCP_2 VCP_3)
 ```
+Set up variables to help create count files:
+```bash
+CTRL_FILES=''
+for NAME in ${CTRL[@]}; do
+    CTRL_FILES+="${NAME}/abundance.tsv "
+done
 
+VCP_FILES=''
+for NAME in ${VCP[@]}; do
+    VCP_FILES+="${NAME}/abundance.tsv "
+done
+
+#check names a
+```
 
 # Detailed Approach: DESeq2 > Visualisation
 
@@ -418,7 +431,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjA0OTE4NTUsLTEyMDc0MDkyOTMsMT
+eyJoaXN0b3J5IjpbLTEyNzYwNzc4MDUsLTEyMDc0MDkyOTMsMT
 A2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2
 OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLT
 EyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
