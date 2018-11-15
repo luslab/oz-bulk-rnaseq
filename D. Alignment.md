@@ -111,11 +111,17 @@ RefSeq
 * must use Ensembl FASTA file with Ensemble GTF file. You cannot mix Ensembl with UCSC without modifying first and this isn't advised as they have different scaffolds.
 
 ### Reference Genome File Formats
-Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. One line per genomic feature.
+Reference sequences are **FASTA files.** Reference sequences are long strings of ATCGN letters.  File formats store start sites, exon, introns. These files contain spacial information describing genomic loci according to their pattern (chromosome, start, end)
 
 2 types of genome formats exist:
 - BED originally designed for UCSC genome browser
-- GFF (also GFF2, GTReference annotations are **GFF** or **GTF** format.
+- GFF (also its variants GFF2, GTF & GFF3)
+
+**BED Format** is the simplest annotation store
+3 compulsory fields: chromosome & start & end.
+9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
+        	field number can vary from 3 - 12. Must be consistent within a file.
+indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
 
 **GFF = General Feature Format**
 9 fields separated by TAB. No white space - all fields except last in each feature must contain value (missing values = `.`)
@@ -136,11 +142,7 @@ Reference sequences are **FASTA files.** Reference sequences are long strings of
 **GTF = Gene Transfer Format** 
 More strict than GFF. Same as GFF2 but 9th field expanded into attributes (like GFF3). http://mblab.wustl.edu/GTF2.html
 
-**BED Format** is the simplest annotation store
-3 compulsory fields: chromosome & start & end.
-9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
-        	field number can vary from 3 - 12. Must be consistent within a file.
-indicates region with 0-based start and 1-based end position (GFF & GTF are 1-based in both start and end) Aligning Reads
+
 
 ## Download Reference Sequence (FASTA) & Annotation (GTF) files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
@@ -505,5 +507,5 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MjAyNjA3Myw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbNDE2ODM4NjgzLDY1NzU0MjIxOF19
 -->
