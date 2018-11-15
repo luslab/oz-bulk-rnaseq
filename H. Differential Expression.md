@@ -78,7 +78,7 @@ ml kallisto
 ```bash
 #set shortcuts
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-IDX=PATH_TO_INDEX.idx
+IDX=gencode.v29.transcripts.cdna.fa.idx
 R1=PATH_TO_FASTQ_forward_strand.fq
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
@@ -390,7 +390,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMwMzE4NTkxLDY2MzY5NjkwMywtMzIyMz
-g2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4LC0xMjUxNDA1MzU1
-LC0xNTE5MTExMDk4XX0=
+eyJoaXN0b3J5IjpbLTM4NTk2OTczNSw3MzAzMTg1OTEsNjYzNj
+k2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgs
+LTEyNTE0MDUzNTUsLTE1MTkxMTEwOThdfQ==
 -->
