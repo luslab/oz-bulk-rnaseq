@@ -48,7 +48,7 @@ There are 2 approaches:
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
-# Rapid Approach: Kallisto > Sleuth
+# Rapid Approach: Kallisto - Sleuth pipeline
 Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
 
 Kallisto quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
@@ -390,7 +390,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDI5ODU1MDMsNjYzNjk2OTAzLC0zMj
+eyJoaXN0b3J5IjpbLTEyNjM0NjQ5MzgsNjYzNjk2OTAzLC0zMj
 IzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4ODgsLTEyNTE0MDUz
 NTUsLTE1MTkxMTEwOThdfQ==
 -->
