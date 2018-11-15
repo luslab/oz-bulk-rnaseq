@@ -97,9 +97,6 @@ OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kal
 kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
 ##single-end mode (set fragment mean length & standard deviation - Illumina generates fragments 180-200bp - acurately determine this from a library quantification with an instrument such as an Agilent Bioanalyzer)
 kallisto quant -i $IDX -o $SAMPLE -b 100 --single -l 187 -s 70 $R1
-
-#move the output to kallisto results folder
-mv $SAMPLE /home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto
 ```
 However for multiple fastq files use a For Loop:
 ```bash
@@ -435,7 +432,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzMjE2OTg5NywtNDYwNjk2OSwtMTIwNz
+eyJoaXN0b3J5IjpbMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNz
 QwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5
 MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzOD
 I2MDg4OCwtMTI1MTQwNTM1NSwtMTUxOTExMTA5OF19
