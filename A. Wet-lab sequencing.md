@@ -1,8 +1,10 @@
 >  # Wet-lab RNA Sequencing
 
 # Wet Lab phases
+1. isolate RNA from samples
+2. generate sequencing libaries
+3. high-throughoutput sequencing producing millions of short reads
 
-![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g002)
  
  # RNA extraction
 * silica gel based membranes or liquid-liquid extractions with acidic phenol chloroform
@@ -53,7 +55,7 @@ NovaSeq 6000 (high seuqence coverage)
 
 PacBio sequencers offer longer reads than Illumina. 
 
-**Single read vs. paired end reads
+## Single read vs. paired end reads
 * single read = determines the DNA sequence of just one end of each DNA fragment
 * paired end = sequence both ends of each DNA fragment making pairing and directionality information available. 
 	* Disadvantages: (i) 20% more expensive (ii) measures same fragment twice, thus at same genomic coverage will utilise only half as many unique fragments as single end sequencing. 
@@ -84,6 +86,5 @@ PacBio sequencers offer longer reads than Illumina.
 * Randomly choose which samples to treat and sample
 * Block samples into groups based on known sources of variation (sex, weight, cell cycle status) - subexperiments in each block increases sensitivity.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODYzMTc1MDUsLTE2Nzc0MjI1ODVdfQ
-==
+eyJoaXN0b3J5IjpbMTMxMzIyMDU0OCwtMTY3NzQyMjU4NV19
 -->
