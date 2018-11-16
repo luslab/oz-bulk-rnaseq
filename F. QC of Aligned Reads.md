@@ -113,8 +113,18 @@ read_duplication.py -i $BAM -o $OUT
 ## Assess Sequencing Depth
 
 In DNA-seq easily determine sequencing depth by assessing average coverage over the sequenced region.
-In RNA-seq its challenging due to variability in transcript abundance. Use splice junctions detection rate to identify desired sequencing depth. Use a saturation analysis to assess this - check for splcing junctions by sampling 5% of reads, then 10%, then 15% etc until you dont see any furthe
+In RNA-seq its challenging due to variability in transcript abundance. Use splice junctions detection rate to identify desired sequencing depth. Use a saturation analysis to assess this - check for splcing junctions by sampling 5% of reads, then 10%, then 15% etc until you dont see any new splicing junctions identified (i.e. saturated).
 Crucial to ensure there is adequate depth to perform alternative splicing analysis.
+![enter image description here](http://rseqc.sourceforge.net/_images/junction_saturation.png)
+```bash
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+#set output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+
+#run junction saturation command
+junction_saturation.py -i Pairend_nonStrandSpecific_36mer_Human_hg19.bam -r hg19.refseq.bed12 -o output
+```
 
 
 ### Read distribution
@@ -283,8 +293,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNTY5ODczLDE3NDcwOTg5MCwtMTgwOT
-A5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4
-MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMT
-g0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbLTE2MTMyNTc2MzcsMTc0NzA5ODkwLC0xOD
+A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
+MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
+wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
