@@ -31,6 +31,8 @@ Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 - here there are 2 groups of transcripts. 1 group are symmetrical and have good transcript coverage. The other group has a skew towards the 3' end. This comes from:
 	- polyA reads
 	- degradation of RNA > check the RIN numbers.
+Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
+![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 - If you detect 3' bias at this stage you can either 1. resequence (costly) or 2. adjust for this bias in downstream analysis.
 
 ```bash
@@ -43,8 +45,7 @@ CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output
 
 Produces 2 figures to visualise for 3' or 5' bias:
 
-Lines represent different quality RNA (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
-![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
+
 
 
 ### Read distribution
@@ -215,6 +216,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgyOTQxMzcxLC04MzgxNTQxNTksMTkyMT
-gzNDMxXX0=
+eyJoaXN0b3J5IjpbMTg0MTQ2MjE5OCwtODM4MTU0MTU5LDE5Mj
+E4MzQzMV19
 -->
