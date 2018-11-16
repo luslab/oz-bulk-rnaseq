@@ -267,17 +267,9 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run QoRTs command for each BAM file using a For Loop
 for file in $BAM
 do
-	java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $file $GTF $OUT
-	echo "QoRTs QC running on $file..."
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $file $GTF $OUT"
 done
 
-sbatch -N 1 -c 4 --mem=24GB --wrap="
-
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/QoRTs
-java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF $OUT
-```
 
 - assumes data is paired unless include `--singleEnded`
 - Can run individual functions by specifying their names eg `--runFunctions writeGeneBody` runs only the genebody coverage function. To add further individual functions use a comma without space (comma-delimited list).
@@ -374,11 +366,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODY1NjkxNDgsLTc1MDg4MjU0MiwyND
-A1MDI4OTAsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4
-NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLD
-IxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYy
-NTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC
-0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIx
-NDAwMDEyOTVdfQ==
+eyJoaXN0b3J5IjpbLTc4ODk4ODAyNywtNzUwODgyNTQyLDI0MD
+UwMjg5MCwtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0
+NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMj
+EwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1
+NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLT
+ExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0
+MDAwMTI5NV19
 -->
