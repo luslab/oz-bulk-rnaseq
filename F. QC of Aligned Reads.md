@@ -23,9 +23,11 @@ Typical Biases of RNA-seq
 ## Assess gene body coverage for 3' & 5' Bias
 
 Use **RSeQC** `geneBody_coverage.py` script:
-- it divides each transcript into 100 sections (irrespective of the transcript length)
+- First it divides each transcript into 100 sections (irrespective of the transcript length)
+![enter image description here](http://rseqc.sourceforge.net/_images/geneBody_workflow.png)
 - then counts reads overlapping with each section
 - produces 2 plots showing abundance of reads across transcript bodies
+![enter image description here](http://rseqc.sourceforge.net/_images/Aug_26.geneBodyCoverage.curves.png)
 
 generate index for the BAM file:
 `samtools index WT_1_Aligned.sortedByCoord.out.bam`
@@ -211,5 +213,5 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDAwMDM0MDYsMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTE0NTE5MjE3MTYsMTkyMTgzNDMxXX0=
 -->
