@@ -269,7 +269,7 @@ for file in $BAM
 do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $file $GTF $OUT"
 done
-
+```
 
 - assumes data is paired unless include `--singleEnded`
 - Can run individual functions by specifying their names eg `--runFunctions writeGeneBody` runs only the genebody coverage function. To add further individual functions use a comma without space (comma-delimited list).
@@ -366,7 +366,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4ODk4ODAyNywtNzUwODgyNTQyLDI0MD
+eyJoaXN0b3J5IjpbLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MD
 UwMjg5MCwtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0
 NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMj
 EwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1
