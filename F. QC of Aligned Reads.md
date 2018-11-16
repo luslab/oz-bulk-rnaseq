@@ -86,6 +86,12 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 # run read_quality command
 read_quality.py -i $BAM -o $OUT
 ```
+Can trim bases with phred <30.
+
+ ## Assess PCR duplication
+
+Duplicate reads are reads with the same start/end positions & exact same sequence.
+
 
 ### Read distribution
 - mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
@@ -253,7 +259,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDg2MTY3NCwtMTgwOTA5MDE0LC0xMT
+eyJoaXN0b3J5IjpbLTMxODk3MTEwMywtMTgwOTA5MDE0LC0xMT
 g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
 MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
 wtODM4MTU0MTU5LDE5MjE4MzQzMV19
