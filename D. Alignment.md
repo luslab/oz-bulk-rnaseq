@@ -65,9 +65,11 @@ If you are aligning to a genome then you need a splice aware aligner:
 - but aligning back to the reference genome needs to recognise intron sites
 - unless reads a short <50bp then you need a splice aware aligner
 
+![enter image description here](https://media.nature.com/lw926/nature-assets/nmeth/journal/v12/n4/images/nmeth.3317-F1.jpg)
+
 Options:
 -   [STAR](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf): Really fast, produces counts for you too. Straight forward RNA seq for differential gene expression analysis. Efficient. Sensitivie. Identified large number of novel splice sites.
--   HISAT2: similar algorithms as Bowtie2/Tophat2 - but performs at much faster speeds
+-   [HISAT2](https://www.nature.com/articles/nmeth.3317): similar algorithms as Bowtie2/Tophat2 - but performs at much faster speeds
 -   Subjunc: designed specifically for gene expression analysis.
 -   BWA: the MEM algorithm of bwa supports spliced alignments.
 -   BBMap: Is capable of detecting very long splicing.
@@ -555,8 +557,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5Njk5MTU2NywtMzc3MzQzNjE4LDk5OD
-k4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYw
-NDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ
-==
+eyJoaXN0b3J5IjpbLTE4Mzc0NzIzMTksLTM3NzM0MzYxOCw5OT
+g5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2
+MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX
+0=
 -->
