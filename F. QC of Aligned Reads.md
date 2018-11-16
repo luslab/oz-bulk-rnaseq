@@ -38,7 +38,7 @@ Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality).
 ```bash
 #set changable elements
 ## set BAM files to read in. can list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 BED=/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed
 #set designed output file
 OUT=/home/camp/ziffo/working/oliver/projects/geneBodyCoverage_WT_1
@@ -220,6 +220,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM3MzYyNzYsNjAzNzcxMjAsMTg0MTQ2Mj
-E5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbNzA3MjM4ODI4LDYwMzc3MTIwLDE4NDE0Nj
+IxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
