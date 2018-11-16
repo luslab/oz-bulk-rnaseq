@@ -50,7 +50,6 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
 ```
-
 This produces 2 figures to visualise for 3' or 5' bias
 
 ### Estimate RIN
@@ -358,7 +357,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3Mzc3Mjg4MSw2MTMwOTc3MzYsMTQ3ND
+eyJoaXN0b3J5IjpbMTE0MDMyNDgyOSw2MTMwOTc3MzYsMTQ3ND
 IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
 LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
 kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
