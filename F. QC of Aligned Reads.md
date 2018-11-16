@@ -81,12 +81,12 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command
-read_NVC.py -i $BAM -o $OUT
+sbatch "read_NVC.py -i $BAM -o $OUT"
 ```
 
 ## Assess Quality
@@ -353,10 +353,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTkwNDIxNzUsNjEzMDk3NzM2LDE0Nz
-QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
-NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
-A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
-MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
-wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbMjE0Mjc5ODc1OCw2MTMwOTc3MzYsMTQ3ND
+IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
+LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
+kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
+ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
+E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
