@@ -11,7 +11,7 @@ After aligning and before performing downstream analyses check for:
 
 # Bias Assessment
 
-### Typical Biases of RNA-seq
+Typical Biases of RNA-seq
 - many reads aligned to introns indicates: 
 	- incomplete poly(A) enrichment 
 	- abundant presence of immature transcripts
@@ -19,6 +19,29 @@ After aligning and before performing downstream analyses check for:
 	- genomic DNA contamination
 	- abundant non-coding transcripts
 - over representation of 3' portions of transcripts indicates RNA degradation
+
+## Gene body coverage: 3
+Assess 3' or 5' biases using **RSeQC** `geneBody_coverage.py` script:
+- uses an annotation file with transcript models of choice
+- it divides each transcript into 100 sections
+- then counts reads overlapping with each section
+- produces 2 plots showing abundance of reads across transcript bodies
+
+generate index for the BAM file:
+`samtools index WT_1_Aligned.sortedByCoord.out.bam`
+
+run the script on the aligned reads & annotation file and set the output file name.
+`geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1 -f pdf`
+
+CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
+
+Produces 2 figures to visualise for 3' or 5' bias:
+X axis = gene body percentile (left is 5' end; right is 3' end)
+Y axis = coverage
+Lines represent different quality RNA (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
+
+![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
+
 
 ### Read distribution
 - mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
@@ -48,27 +71,8 @@ TES_down_10kb       3386705             0                   0.00
 
 Visualise this output using this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
 
-### Gene body coverage
-Assess 3' or 5' biases using **RSeQC** `geneBody_coverage.py` script:
-- uses an annotation file with transcript models of choice
-- it divides each transcript into 100 sections
-- then counts reads overlapping with each section
-- produces 2 plots showing abundance of reads across transcript bodies
 
-generate index for the BAM file:
-`samtools index WT_1_Aligned.sortedByCoord.out.bam`
-
-run the script on the aligned reads & annotation file and set the output file name.
-`geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1 -f pdf`
-
-CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
-
-Produces 2 figures to visualise for 3' or 5' bias:
-X axis = gene body percentile (left is 5' end; right is 3' end)
-Y axis = coverage
-Lines represent different quality RNA (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
-
-![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
+)
 
 ### mRIN calculation using tin.py
 - RNA integrity number (RIN) is rarely reported in public data repositories.
@@ -207,5 +211,5 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjQyNTkwODUsMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTE0NTkyNTY5ODEsMTkyMTgzNDMxXX0=
 -->
