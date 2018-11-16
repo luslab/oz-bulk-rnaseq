@@ -161,15 +161,15 @@ The relationship is built from data distributed over multiple lines.
 * Source
 * Type
 
-Always use GFF based formats. [Can convert between the two formats.](https://www.biostars.org/p/56280/)
+Always use GFF based formats. [Can convert between the two formats using:](https://www.biostars.org/p/56280/)
 ```bash
 ml BEDOPS
+
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
 
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
 
-gtf2bed < $GTF > $BED
 ```
 # Download Reference Sequence & Annotation files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
@@ -570,9 +570,9 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA5NjYzODY4LC0xNTgwNzgzMzc2LC0zOD
-c3NjY5NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQz
-NjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC
-0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1
-NDIyMThdfQ==
+eyJoaXN0b3J5IjpbMTkzMTE5MzA0MiwtMTU4MDc4MzM3NiwtMz
+g3NzY2OTcyLDEzNDM5MjgzMTcsLTE0MjM4MjcxNjcsLTM3NzM0
+MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NC
+wtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3
+NTQyMjE4XX0=
 -->
