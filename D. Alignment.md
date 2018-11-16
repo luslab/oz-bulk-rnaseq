@@ -453,20 +453,11 @@ CIGAR string is an alignment format used in SAM (sequence alignment map) files. 
 The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
 
-- Aim of alignment is to identify transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**. We want to map millions of reads accurately and quickly. 
-- The limitations of alignment are: 
-	- sequencing errors
-	- genomic variation 
-	- repetitive elements
-	- multiple different transcript isoforms from same gene
-	- main challenge is the spliced alignment of exon-exon spanning reads
-	- mapping ambiguity = many reads overlap with more than one isoform
-	-  False positives: lowly expressed isoforms are excluded by alignment algorithms —> bias towards identifying strongly expressed genes
-
-![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
 
 
-- **Alignment scoring** is based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
+##  **Alignment scoring**
+
+Scoring is based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
 	- 5 points for a match.
 	- -4 points for a mismatch.
 	- -10 points for opening a gap.
@@ -558,8 +549,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTcyMzkyMDcsLTE0MjM4MjcxNjcsLT
-M3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4
-NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MD
-UsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbMTMyOTU5MjY2NSwtMTQyMzgyNzE2NywtMz
+c3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0
+ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNS
+w2NTc1NDIyMThdfQ==
 -->
