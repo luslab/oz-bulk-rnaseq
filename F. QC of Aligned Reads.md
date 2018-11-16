@@ -133,8 +133,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 #set output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/duplication
 
-# run read_duplication command
-read_duplication.py -i $BAM -o $OUT
+#run each BAM file into read_duplication using a For Loop
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $file -o $OUT"
+done
 ```
 
 ## Assess Sequencing Depth
@@ -365,7 +368,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNDA3ODQ4NywxOTUzOTk3NzgxLC00Nj
+eyJoaXN0b3J5IjpbMTkzNjEwNDgwNywxOTUzOTk3NzgxLC00Nj
 A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
 NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
 IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
