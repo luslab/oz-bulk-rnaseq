@@ -254,15 +254,15 @@ You will get a return from terminal like:
 Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs command. 
 [Helpfile](https://hartleys.github.io/QoRTs/jarHtml/index.html) here.
 
-`for VARIABLE in *.fastq; do wc -l $VARIABLE; done`
+```bash
+for VARIABLE in *.fastq; 
+do 
+	wc -l $VARIABLE; 
+done
+```
 
-This is a [loop in bash](https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php). Loops are really helpful to perform a repeated command on multiple things and is built around:
-1. provide the list (for X)
-2. do the command repeatedly 
-3. done when the desired situation is achieved
-The `;` provides the sectioning in the command.
+## QC command in QoRTs
 
-_QC command in QoRTs_
 `java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam sacCer3.gtf ./QoRTs_output/`
 
 - assumes data is paired unless include `--singleEnded`
@@ -367,11 +367,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExODc3Mjc0OCwxOTUzOTk3NzgxLC00Nj
-A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
-NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
-IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
-MTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOS
-wtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQx
-NDYyMTk4XX0=
+eyJoaXN0b3J5IjpbMzMxNTYwODYzLDE5NTM5OTc3ODEsLTQ2MD
+k3ODQ1MCwtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0
+MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMj
+A2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAx
+NCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC
+0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0
+NjIxOThdfQ==
 -->
