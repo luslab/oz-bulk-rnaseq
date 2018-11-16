@@ -38,6 +38,18 @@ Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality).
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 - If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
+### mRIN calculation using tin.py
+- RNA integrity number (RIN) is rarely reported in public data repositories.
+- Instead determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
+- TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
+- tin.py uses the deviation from an expected uniform read distribution across the gene body as a proxy
+
+`tin.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed`
+
+Output is an xls file and a summary txt file (mean & median values across all genes in sample).
+
+Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
+
 ```bash
 ml RSeQC
 ml R
@@ -207,17 +219,13 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 inner_distance.py -i $BAM -o $OUT -r $BED
 ```
 
-### mRIN calculation using tin.py
-- RNA integrity number (RIN) is rarely reported in public data repositories.
-- Instead determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
-- TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
-- tin.py uses the deviation from an expected uniform read distribution across the gene body as a proxy
 
-`tin.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed`
 
-Output is an xls file and a summary txt file (mean & median values across all genes in sample).
 
-Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
+
+
+
+
 
 ### Quality of RNA Seq Toolset (QoRTs)
 - `QoRT` is a `jar` software file that is an alternative to `RSeQC` that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq.
@@ -342,10 +350,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NzE3MTA3OCw2MTMwOTc3MzYsMTQ3ND
-IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
-LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
-kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
-ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
-E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbMjQ4MzMwNzMwLDYxMzA5NzczNiwxNDc0Mj
+E2NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcs
+MTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOT
+A5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4
+MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMT
+g0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
