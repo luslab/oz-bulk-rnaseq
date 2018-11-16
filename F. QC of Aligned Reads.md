@@ -267,7 +267,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run QoRTs command for each BAM file using a For Loop
 for file in $BAM;
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF $OUT";
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF $OUT"
 done
 
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam
@@ -371,11 +371,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMxNjk3OTUsMjQwNTAyODkwLC0xNzUwOT
-QzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNjgz
-MSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMD
-M2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5
-MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMT
-Q0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcw
-NDE4OTkwXX0=
+eyJoaXN0b3J5IjpbLTk1NjY5MDEwNiwyNDA1MDI4OTAsLTE3NT
+A5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4MzA2
+ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzODQsMT
+MwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMTcxMzEz
+NzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMTg0MTAyMDc4LC
+0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5
+NzA0MTg5OTBdfQ==
 -->
