@@ -96,20 +96,7 @@ for file in $BAM
 do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
 done
-
-
-
-#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
-
-#run each BAM file into tin.py using a For Loop
-for file in $BAM
-do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
-done
 ```
-
-
 
 ## Assess Quality
 Use the Phred Quality score to assess quality of base calling. The higher Phred score, the less chance of error.
@@ -125,6 +112,18 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 
 # run read_quality command
 sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $BAM -o $OUT"
+
+
+
+
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
+
+#run each BAM file into tin.py using a For Loop
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
+done
 ```
 Can trim bases with phred <30.
 
@@ -375,11 +374,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4Mjg0NTEyOCwxOTUzOTk3NzgxLC00Nj
-A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
-NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
-IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
-MTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOS
-wtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQx
-NDYyMTk4XX0=
+eyJoaXN0b3J5IjpbNjM2NTAzMjcwLDE5NTM5OTc3ODEsLTQ2MD
+k3ODQ1MCwtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0
+MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMj
+A2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAx
+NCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC
+0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0
+NjIxOThdfQ==
 -->
