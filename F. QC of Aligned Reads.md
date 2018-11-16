@@ -123,7 +123,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 #run junction saturation command
-junction_saturation.py -i Pairend_nonStrandSpecific_36mer_Human_hg19.bam -r hg19.refseq.bed12 -o output
+junction_saturation.py -i $BAM -r hg19.refseq.bed12 -o output
 ```
 
 
@@ -293,7 +293,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTMyNTc2MzcsMTc0NzA5ODkwLC0xOD
+eyJoaXN0b3J5IjpbLTE3NzYyMjI4MDYsMTc0NzA5ODkwLC0xOD
 A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
 MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
 wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
