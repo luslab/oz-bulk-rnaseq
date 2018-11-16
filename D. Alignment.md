@@ -166,10 +166,9 @@ Always use GFF based formats. [Can convert between the two formats.](https://www
 ml BEDOPS
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
-```bash
-$ awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' input.gtf | gtf2bed - > output.bed
 
-```
+awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
+
 gtf2bed < $GTF > $BED
 ```
 # Download Reference Sequence & Annotation files
@@ -571,9 +570,9 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODM3MjgwOTcsLTE1ODA3ODMzNzYsLT
-M4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC0zNzcz
-NDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4ND
-QsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1
-NzU0MjIxOF19
+eyJoaXN0b3J5IjpbODA5NjYzODY4LC0xNTgwNzgzMzc2LC0zOD
+c3NjY5NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQz
+NjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC
+0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1
+NDIyMThdfQ==
 -->
