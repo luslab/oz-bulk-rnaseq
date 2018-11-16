@@ -112,7 +112,8 @@ read_duplication.py -i $BAM -o $OUT
 
 ## Assess Sequencing Depth
 
-In DNA-seq e
+In DNA-seq easily determine sequencing depth by assessing average coverage over the sequenced region.
+In RNA-seq its challenging due to variability in transcript abundance. Use splice junctions detection rate to identify desired sequencing depth. 
 
 
 ### Read distribution
@@ -281,8 +282,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwMjI2NTQ0NCwxNzQ3MDk4OTAsLTE4MD
-kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
-ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
-E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTIwNDU0NzAyNTYsMTc0NzA5ODkwLC0xOD
+A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
+MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
+wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
