@@ -33,12 +33,16 @@ Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 	- degradation of RNA > check the RIN numbers.
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
-- If you detect 3' bias at this stage you can either resequence (costly) or 2. adjust for this bias in downstream analysis.
+- If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
 ```bash
+#set changable elements
+BAM=Aligned.sortedByCoord.out.bam
+BED=/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed
+OUT=geneBodyCoverage_WT_1
 
-run the script on the aligned reads & annotation file and set the output file name.
-`geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1 -f pdf`
+#run the script on the aligned reads & annotation file and set the output file name.
+geneBody_coverage.py -i $BAM -r $BED -o  -f pdf
 
 CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 ```
@@ -216,6 +220,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDE1MDI3NDMsMTg0MTQ2MjE5OCwtOD
-M4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbNzgzMDUyMjEyLDE4NDE0NjIxOTgsLTgzOD
+E1NDE1OSwxOTIxODM0MzFdfQ==
 -->
