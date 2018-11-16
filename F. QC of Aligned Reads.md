@@ -63,7 +63,7 @@ do
 	done
 done
 ```
-Asses the merged BAM file only:
+Assess the merged BAM file only:
 ```bash
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/all_D7_samples.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
@@ -389,11 +389,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNCwtOT
-k2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUwOTQz
-ODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMS
-w2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2
-NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5Mi
-wxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0
-NDc3NzY2XX0=
+eyJoaXN0b3J5IjpbLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMT
+kyNDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAy
+ODkwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MC
+wtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3
+ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2Nj
+UsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4
+NDEwMjA3OF19
 -->
