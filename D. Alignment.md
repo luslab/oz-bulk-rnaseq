@@ -400,8 +400,11 @@ SAM/BAM files store read alignments.
 ## SAM header
 Describes the data source, reference sequence, method of alignment. 
 Each section begins with `@`then value pairs 2 letter abbreviations:
-`@HD` = header line: `VN
- `@SQ` = sequence directory listing `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `SP` species, `PG` program version that was ran.
+`@HD` = header line: `VN` version format, `SO` sorting order of alignments
+`@SQ` = sequence directory listing `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `SP` species, 
+`@RG` Read Group = `ID` read group identifier, `CN` name of sequencing centre, `SM` sample name
+`@PG` program version that was ran. `PN` programme name
+
 * 1 line per chromosome
 * To retrieve only the SAM header `samtools view -H`
 * To retrieve both the header & alignment sections `samtools view -h`
@@ -560,8 +563,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk0MzIyNzQ2LDEzNDM5MjgzMTcsLTE0Mj
-M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
-OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
-w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbLTExMDkzNDM5MDAsMTM0MzkyODMxNywtMT
+QyMzgyNzE2NywtMzc3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDky
+ODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzOD
+I2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ==
 -->
