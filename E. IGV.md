@@ -44,8 +44,6 @@ For each BAM file there are 2 tracks. Top track shows summary distribution of th
 
 Bases that dont match the reference sequences are highlighted by colour. The deeper the shade of grey the more confidence you can have that the sequence was aligned correctly. White means no confidence alignment.
 
-![IGV screen layout](https://lh3.googleusercontent.com/sOSIM9tCveT60ZWs2W9-AliTlVfLPmO4ik9w_ZFBAKh90z5HH9qLXRMQQ0RCajk73UL-ypVJYQbw7w "IGV screen layout")
-
 ![IGV RNA-seq specific view](https://lh3.googleusercontent.com/h7PbqBtb3kHxxevIpjvKJUAd451K0UFOoACMogIZzUhVVMz-_AqRnjSYsNpmhYeCbct9ikfaZU8-Yg "IGV RNA-seq specific view")
 IGV is used only to validate & confirm analysis results.  Use it to explore large genomic datasets. It is not good for the primary analysis.
 ![IGV of SFPQ D7 NPC samples](https://lh3.googleusercontent.com/r8Ph08oRuLWUBmnc6gbEyX5Rg3iBEkGhNmmNTHqTr7J01dtwdBGIdAqYJ2BMNlLcVIyYxPbn0QEhTQ "IGV of SFPQ D7 NPC samples")
@@ -66,5 +64,5 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbLTEwOTI0OTIwMDQsMTI2MDU1NzkxMV19
 -->
