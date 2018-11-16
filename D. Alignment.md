@@ -406,7 +406,7 @@ SAM/BAM files store read alignments.
 
 `<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
 
-*[2nd column FLAG field](https://www.biostarhandbook.com/sam/sam-flags.html):*
+### *[2nd column FLAG field](https://www.biostarhandbook.com/sam/sam-flags.html):*
 * stores info on the respective read alignment in one single decimal number
 * decimal is the sum of all the answers to Yes/No questions:
 ```
@@ -438,7 +438,44 @@ Following the 11 mandatory fields, the optional fields are presented as key-valu
 Reads within the same SAM file may have different numbers of optional fields, depending on the aligner program that generated the SAM file. 
 `samtools flagstat` assesses the FLAG field and prints a summary report: `samtools flagstat Aligned.sortedByCoord.bam`
 
-### Read Group tags
+### 6th Column **CIGAR** (Concise idiosyncratic gapped alignment report string) field
+CIGAR string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
+**M**  - Alignment (can be a sequence match or mismatch!)
+**I**  - Insertion in the read compared to the reference
+ **D**  - Deletion in the read compared to the reference
+**N**  - Skipped region from the reference. For mRNA-to-genome alignments, an N operation represents an intron. For other types of alignments, the interpretation of N is not defined.
+**S**  - Soft clipping (clipped sequences are present in read); S may only have H operations between them and the ends of the string
+**H**  - Hard clipping (clipped sequences are NOT present in the alignment record); can only be present as the first and/or last operation
+**P**  - Padding (silent deletion from padded reference)
+ **=**  - Sequence match (not widely used)
+**X**  - Sequence mismatch (not widely used)
+
+The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
+![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
+
+- Aim of alignment is to identify transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**. We want to map millions of reads accurately and quickly. 
+- The limitations of alignment are: 
+	- sequencing errors
+	- genomic variation 
+	- repetitive elements
+	- multiple different transcript isoforms from same gene
+	- main challenge is the spliced alignment of exon-exon spanning reads
+	- mapping ambiguity = many reads overlap with more than one isoform
+	-  False positives: lowly expressed isoforms are excluded by alignment algorithms —> bias towards identifying strongly expressed genes
+
+![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
+
+
+- **Alignment scoring** is based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
+	- 5 points for a match.
+	- -4 points for a mismatch.
+	- -10 points for opening a gap.
+	- -0.5 points for extending an open gap.
+- Modifying the scoring algorithm can dramatically change the way that the sequence is aligned to the reference. See [this example](https://www.biostarhandbook.com/align/misleading-alignments.html) where reducing the gap penalty from -10 to -9 actually corrects the alignment. This setting means that 2 matches (5 + 5 = 10) overcomes a penality gap open (9). Thus to achieve a higher overall score the aligner will prefer opening a gap anytime it can find two matches later on (net score +1). 
+- [EDNAFULL](ftp://ftp.ncbi.nlm.nih.gov/blast/matrices/NUC.4.4) is the default scoring choice for all aligners.
+
+
+## Read Group tags
 [Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
 Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`
 You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
@@ -521,8 +558,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NTA5MjUzMCwtMTQyMzgyNzE2NywtMz
-c3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0
-ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNS
-w2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbLTk4MzE2MDUzLC0xNDIzODI3MTY3LC0zNz
+czNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4
+NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LD
+Y1NzU0MjIxOF19
 -->
