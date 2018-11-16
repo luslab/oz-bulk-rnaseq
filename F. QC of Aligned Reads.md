@@ -50,15 +50,13 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
 ```
-This produces 2 figures to visualise for 3' or 5' bias
+This produces 2 figures to visualise for 3' or 5' bias. If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
 ### Estimate RIN
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
-- If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
-
-- determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
+Determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
 - TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
 - tin.py uses the deviation from an expected uniform read distribution across the gene body as a proxy
 ```bash
@@ -72,8 +70,6 @@ tin.py -i $BAM -r $BED
 ```
 Output is an xls file and a summary txt file (mean & median values across all genes in sample).
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
-
-
 
 ## Assess Nucleotide Content
 
@@ -357,10 +353,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0MDMyNDgyOSw2MTMwOTc3MzYsMTQ3ND
-IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
-LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
-kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
-ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
-E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTEzNTkwNDIxNzUsNjEzMDk3NzM2LDE0Nz
+QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
+NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
+A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
+MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
+wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
