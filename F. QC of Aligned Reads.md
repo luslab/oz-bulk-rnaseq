@@ -47,13 +47,10 @@ BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.b
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
 
-#run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
-geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
-
 #run each BAM file into geneBody coverage using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $file -r $BED -o $OUT -f pdf"
 done
 ```
 This produces 2 figures to visualise for 3' or 5' bias. If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
@@ -365,7 +362,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5MTMxNDEwNiwtMTY0ODMwNjgzMSw2MT
+eyJoaXN0b3J5IjpbLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMSw2MT
 MwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2Nzgz
 MTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNz
 Q3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3
