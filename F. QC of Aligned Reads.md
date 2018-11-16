@@ -1,6 +1,5 @@
 > # Quality Control of Aligned Reads
- The main STAR output file for downstream analyses are **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
-**out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip.
+ The main STAR output file for QC analysis is **Aligned.sortedByCoord.out.bam**.
 
 After aligning and before performing downstream analyses check for:
 1. Excessive amounts of reads not aligned
@@ -8,6 +7,8 @@ After aligning and before performing downstream analyses check for:
 3. Read quality
 4. Sequencing depth
 5. Similarity between replicate samples
+
+All this can be done with RSeQC package http://rseqc.sourceforge.net/
 
 # Bias Assessment
 ml RSeQC
@@ -360,7 +361,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDQ4MTE4MDQsNjEzMDk3NzM2LDE0Nz
+eyJoaXN0b3J5IjpbLTE5MDI3ODY4NDIsNjEzMDk3NzM2LDE0Nz
 QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
 NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
 A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
