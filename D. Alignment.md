@@ -95,49 +95,6 @@ When choosing an aligner, we need to decide what features the aligner should pro
 -   Will the aligner find chimeric alignments?
 
 
-
-# **CIGAR** (Concise idiosyncratic gapped alignment report string)
-CIGAR string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
-**M**  - Alignment (can be a sequence match or mismatch!)
-**I**  - Insertion in the read compared to the reference
- **D**  - Deletion in the read compared to the reference
-**N**  - Skipped region from the reference. For mRNA-to-genome alignments, an N operation represents an intron. For other types of alignments, the interpretation of N is not defined.
-**S**  - Soft clipping (clipped sequences are present in read); S may only have H operations between them and the ends of the string
-**H**  - Hard clipping (clipped sequences are NOT present in the alignment record); can only be present as the first and/or last operation
-**P**  - Padding (silent deletion from padded reference)
- **=**  - Sequence match (not widely used)
-**X**  - Sequence mismatch (not widely used)
-
-The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
-![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
-
-- Aim of alignment is to identify transcripts (reads) in a sample by mapping them to the genomic origin using a **reference genome**. We want to map millions of reads accurately and quickly. 
-- The limitations of alignment are: 
-	- sequencing errors
-	- genomic variation 
-	- repetitive elements
-	- multiple different transcript isoforms from same gene
-	- main challenge is the spliced alignment of exon-exon spanning reads
-	- mapping ambiguity = many reads overlap with more than one isoform
-	-  False positives: lowly expressed isoforms are excluded by alignment algorithms —> bias towards identifying strongly expressed genes
-
-![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
-
-
-- **Alignment scoring** is based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
-	- 5 points for a match.
-	- -4 points for a mismatch.
-	- -10 points for opening a gap.
-	- -0.5 points for extending an open gap.
-- Modifying the scoring algorithm can dramatically change the way that the sequence is aligned to the reference. See [this example](https://www.biostarhandbook.com/align/misleading-alignments.html) where reducing the gap penalty from -10 to -9 actually corrects the alignment. This setting means that 2 matches (5 + 5 = 10) overcomes a penality gap open (9). Thus to achieve a higher overall score the aligner will prefer opening a gap anytime it can find two matches later on (net score +1). 
-- [EDNAFULL](ftp://ftp.ncbi.nlm.nih.gov/blast/matrices/NUC.4.4) is the default scoring choice for all aligners.
-
-
-
-
-
-
-
 # Reference Genomes
 Reference genome sequence repositories:
 **[GenCODE](https://www.gencodegenes.org/human/)** - Generally for human data use 
@@ -433,7 +390,7 @@ SAM/BAM files store read alignments.
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
 
-### SAM header tags
+## SAM header tags
 - Header tags start with `@`then value pairs 2 letter abbreviations e.g. `SQ` = sequence directory listing  `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `PG` program version that was ran.
 * 1 line per chromosome
 * To retrieve only the SAM header `samtools view -H`
@@ -442,7 +399,7 @@ SAM/BAM files store read alignments.
 
 `samtools view -H filename.bam`
 
-### SAM alignment tags
+## SAM alignment tags
 * Each line corresponds to one sequenced read.
 * The SAM tags are defined [here](http://samtools.github.io/hts-specs/SAMtags.pdf)
 * [11 mandatory columns](https://www.biostarhandbook.com/sam/sam-flags.html) in specified order:
@@ -564,8 +521,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OT
-g5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2
-MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX
-0=
+eyJoaXN0b3J5IjpbMTM1NTA5MjUzMCwtMTQyMzgyNzE2NywtMz
+c3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0
+ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNS
+w2NTc1NDIyMThdfQ==
 -->
