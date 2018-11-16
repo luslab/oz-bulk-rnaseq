@@ -169,7 +169,6 @@ TES_down_10kb       258048637           71704               0.28
 
 ## Assess Insert Size
 
-
 The inner mate is the insert = the segment of the transcript between the paired end reads R1 & R2.
 http://thegenomefactory.blogspot.com/2013/08/paired-end-read-confusion-library.html
 ```html
@@ -186,8 +185,18 @@ inner mate                ....................
 ```
 Insert size distribution plot: ideally you want a normal distribution of inserts. A bimodal distribution suggests you are selecting another fragment size.
 ![enter image description here](http://rseqc.sourceforge.net/_images/inner_distance.png)
-Inner distance = insert size
+Inner distance = insert size.
 The minus -50 size size happens because there is overlap (the reads R1 & R2 are running into each other). Ideally you want some insert size in between.
+
+```bash
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
+
+#run inner distance script
+inner_distance.py -i $BAM -o  -r hg19.refseq.bed12
+```
 
 ### mRIN calculation using tin.py
 - RNA integrity number (RIN) is rarely reported in public data repositories.
@@ -324,10 +333,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTYyMjY2MDAsMTQ3NDIxNjQ0MCwyMT
-A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
-NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
-E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
-MDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOT
-gsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTM3MjczOTk5MiwxNDc0MjE2NDQwLDIxMD
+c4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2
+NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMT
+g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
+MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
+wtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
