@@ -79,7 +79,9 @@ Options:
 	- quantification: stringtie
 	- differential expression: ballgown (R package)
 
-The aligners firs
+The aligners first align to a global index (slow) & then to a local index (faster):
+- global indexing: tries to anchor the first 28 
+
 When choosing an aligner, we need to decide what features the aligner should provide:
 -   Alignment algorithm: global, local, or semi-global?
 -   Is there a need to report non-linear arrangements?
@@ -558,7 +560,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTgzMTA5MzIsLTM3NzM0MzYxOCw5OT
+eyJoaXN0b3J5IjpbLTIwNzcwMTg3MzYsLTM3NzM0MzYxOCw5OT
 g5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2
 MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX
 0=
