@@ -267,8 +267,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run QoRTs command for each BAM file using a For Loop
 for file in $BAM
 do
-	echo "QoRTs QC running on $file..."
 	java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $file $GTF $OUT
+	echo "QoRTs QC running on $file..."
 done
 
 sbatch -N 1 -c 4 --mem=24GB --wrap="
@@ -374,7 +374,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTQwNjEyMzgsLTc1MDg4MjU0MiwyND
+eyJoaXN0b3J5IjpbLTE0ODY1NjkxNDgsLTc1MDg4MjU0MiwyND
 A1MDI4OTAsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4
 NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLD
 IxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYy
