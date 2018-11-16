@@ -419,6 +419,8 @@ Each section begins with `@`then value pairs 2 letter abbreviations:
 
 `<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
 
+![SAM alignment section](http://felixfan.github.io/figure2016/SAMv1_3.png)
+
 ### *[2nd column FLAG field](https://www.biostarhandbook.com/sam/sam-flags.html)*
 * stores info on the respective read alignment in one single decimal number
 * decimal is the sum of all the answers to Yes/No questions:
@@ -554,8 +556,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0Mjk0NDEzOSwxMzQzOTI4MzE3LC0xND
-IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
-ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
-YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbMjA0NTYxMjIsMTM0MzkyODMxNywtMTQyMz
+gyNzE2NywtMzc3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5
+NiwtNDg2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LD
+YzMDI0NzkwNSw2NTc1NDIyMThdfQ==
 -->
