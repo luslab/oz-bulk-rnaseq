@@ -71,6 +71,9 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 read_NVC.py -i $BAM -o $OUT
 ```
 
+## Assess Quality
+Phred quality scor
+
 ### Read distribution
 - mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
 	- counts number of reads overlapping with various genes & transcript associated genomic regions (introns and exons)
@@ -237,8 +240,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMT
-QzODAxMzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3
-NzEyMCwxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX
-0=
+eyJoaXN0b3J5IjpbNzYyNzQ0OTEyLC0xMTg0MTAyMDc4LC0xND
+Q0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0
+MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LD
+E5MjE4MzQzMV19
 -->
