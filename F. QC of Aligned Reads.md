@@ -170,11 +170,17 @@ TES_down_10kb       258048637           71704               0.28
 ## Assess Insert Size
 
 
+```html
 fragment                  ========================================
 fragment + adaptors    ~~~========================================~~~
 SE read                   --------->
 PE reads                R1--------->                    <---------R2
 unknown gap                         ....................
+
+PE reads      R1--------->                    <---------R2
+fragment     ~~~========================================~~~
+insert          ========================================
+inner mate                ....................
 ```
 
 
@@ -313,10 +319,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTAwOTI4NzEsMTQ3NDIxNjQ0MCwyMT
-A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
-NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
-E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
-MDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOT
-gsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbMjA1ODI0NDg1OSwxNDc0MjE2NDQwLDIxMD
+c4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2
+NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMT
+g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
+MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
+wtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
