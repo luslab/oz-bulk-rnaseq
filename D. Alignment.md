@@ -55,7 +55,7 @@ The main RNA-seq aligner milestones are:
 |--|--|--|--|
 | TopHat > TopHat2 |1000mins|4GB |2009|
 |STAR|24mins| 28GB |2012|
-|HISAT  |20mins|4GB |2016|
+|HISAT > HISAT2 |20mins|4GB |2016|
 
 ## Splice-aware Aligners
 
@@ -555,7 +555,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0Nz
-A5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQx
-MzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbMTI5Njk5MTU2NywtMzc3MzQzNjE4LDk5OD
+k4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYw
+NDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ
+==
 -->
