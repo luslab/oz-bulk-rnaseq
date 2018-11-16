@@ -184,8 +184,8 @@ fragment     ~~~========================================~~~
 insert          ========================================
 inner mate                ....................
 ```
-
-
+Insert size distribution plot: ideally you want a normal distribution of inserts. A bin
+![enter image description here](http://rseqc.sourceforge.net/_images/inner_distance.png)
 
 
 ### mRIN calculation using tin.py
@@ -323,7 +323,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjMwMDg4NTksMTQ3NDIxNjQ0MCwyMT
+eyJoaXN0b3J5IjpbLTE2MTE1MjAzMzgsMTQ3NDIxNjQ0MCwyMT
 A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
 NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
 E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
