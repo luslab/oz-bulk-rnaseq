@@ -161,10 +161,6 @@ TES_down_10kb       258048637           71704               0.28
 =====================================================================
 ```
 
-Visualise this output using this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
-
-
-)
 
 ### mRIN calculation using tin.py
 - RNA integrity number (RIN) is rarely reported in public data repositories.
@@ -301,10 +297,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMD
-M2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5
-MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMT
-Q0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcw
-NDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OS
-wxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTQ4NzgzOTkzNSwxNDc0MjE2NDQwLDIxMD
+c4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2
+NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMT
+g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
+MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
+wtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
