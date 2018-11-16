@@ -134,6 +134,15 @@ What is the composition of aligned bases? Are they coding (exon) or noncoding. m
 The distribution will depend on the library preparation protocol selected.
 
 ```bash
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
+#set output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+
+#run read d
+read_distribution.py  -i Pairend_StrandSpecific_51mer_Human_hg19.bam -r hg19.refseq.bed12
  
 read_distribution.py -r sacCer3.bed -i /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam
 ```
@@ -297,9 +306,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMD
-YyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0
-LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLT
-IxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2
-MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbNjgxMjE0NzYxLDEzMDM2NzgzMTUsMjIwMz
+U3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAs
+LTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xND
+M4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3
+MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ
+==
 -->
