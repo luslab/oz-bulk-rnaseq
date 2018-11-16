@@ -87,7 +87,7 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=~/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+BAM=~/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
@@ -362,11 +362,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMSw2MT
-MwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2Nzgz
-MTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNz
-Q3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3
-NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OT
-kwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIx
-ODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTE3MzM0NjEwNzYsLTQ2MDk3ODQ1MCwtMT
+Y0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIy
+Mzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMT
+E3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEw
+MjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMj
+k1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgz
+ODE1NDE1OV19
 -->
