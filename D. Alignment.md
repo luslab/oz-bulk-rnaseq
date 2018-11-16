@@ -415,7 +415,7 @@ Each section begins with `@`then value pairs 2 letter abbreviations:
 ## SAM body
 * Each line corresponds to one sequenced read.
 * The SAM tags are defined [here](http://samtools.github.io/hts-specs/SAMtags.pdf)
-* [11 mandatory columns](https://www.biostarhandbook.com/sam/sam-flags.html) in specified order:
+* Each SAM file has 11 mandatory columns. Despite this aligners vary in how much information they put into these columns:
 
 `<QNAME> <FLAG> <RNAME> <POS> <MAPQ> <CIGAR> <MRNM> <MPOS> <ISIZE> <SEQ> <QUAL>`
 
@@ -554,7 +554,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NzAyNjI4OSwxMzQzOTI4MzE3LC0xND
+eyJoaXN0b3J5IjpbMTg0Mjk0NDEzOSwxMzQzOTI4MzE3LC0xND
 IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
 ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
 YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
