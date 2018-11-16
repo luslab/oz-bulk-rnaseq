@@ -51,15 +51,20 @@ The main RNA-seq aligner milestones are:
 2. STAR. Faster 24mins. Used more memory 28GB (need a server)
 3. HISAT. Faster 20mins & reduce memory 4GB
 
+|Aligner|  |
+|--|--|
+|  |  |
+
+
 ## Splice-aware Aligners
 
 If you are aligning to a genome then you need a splice aware aligner:
 - reads span large introns
 - reads represent mature mRNA have introns removed
-- but aligning back 
+- but aligning back to the reference genome needs to recognise intron sites
 - unless reads a short <50bp then you need a splice aware aligner
 
-Multiple alignment programmes are available for RNA-seq, each specialising in detecting different factors eg structural variants; fusion transcripts:
+Options:
 -   [STAR](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf): Really fast, produces counts for you too. Straight forward RNA seq for differential gene expression analysis. Efficient. Sensitivie. Identified large number of novel splice sites.
 -   HISAT2: similar algorithms as Bowtie2/Tophat2 - but performs at much faster speeds
 -   Subjunc: designed specifically for gene expression analysis.
@@ -549,7 +554,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MTEyOTM2MiwtMTQ3MDkyODg5NiwtND
-g2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0
-NzkwNSw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbLTE2NjAzMDQ2MTYsLTE0NzA5Mjg4OTYsLT
+Q4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAy
+NDc5MDUsNjU3NTQyMjE4XX0=
 -->
