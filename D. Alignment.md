@@ -460,7 +460,15 @@ CIGAR string is an alignment format used in SAM (sequence alignment map) files. 
 The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
 
+## Read Group tags
+[Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
+Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`
+You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
+This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
 
+[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
+
+Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 
 ##  **Alignment scoring**
 
@@ -477,18 +485,7 @@ Scoring is based on the value you associate with a match, mismatch or a space. A
 - Modifying the scoring algorithm can dramatically change the way that the sequence is aligned to the reference. See [this example](https://www.biostarhandbook.com/align/misleading-alignments.html) where reducing the gap penalty from -10 to -9 actually corrects the alignment. This setting means that 2 matches (5 + 5 = 10) overcomes a penality gap open (9). Thus to achieve a higher overall score the aligner will prefer opening a gap anytime it can find two matches later on (net score +1). 
 - [EDNAFULL](ftp://ftp.ncbi.nlm.nih.gov/blast/matrices/NUC.4.4) is the default scoring choice for all aligners.
 
-
-## Read Group tags
-[Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
-Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`
-You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
-This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
-
-[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
-
-Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
-
-### BAM versus SAM
+## BAM versus SAM
 - BAM file = Binary Alignment Map - human readable TAB-delimited compressed. BAM files are binary, compressed and sorted representation of SAM information with alignment coordinates allowing fast query on info by location. Used to exchange data as it quicker than SAM.
 - Bigger than gzipped SAM files as they are optimised for rapid access (not just size reduction). SAM files are human readable, BAM are compressed. BAM are much smaller. 
 - for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
@@ -501,13 +498,13 @@ Convert a BAM file into a SAM file (including the header): `samtools view -h FIL
 Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
 To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
 
-### CRAM format
+## CRAM format
 Similar to BAM (binary compressed) but smaller as some compression is in the reference genome.
 Sometimes you need the reference genome information so these arnt always appropriate.
 Supported by samtools
 Concerted effort to move from BAM to CRAM.
 
-## Manipulating BAM files
+# Manipulating BAM files
 There are 4 major toolsets for processing SAM/BAM files:
 
 - [SAMTools](http://www.htslib.org/) - interact with high throughput sequencing data, manipulate alignments in SAM/BAM format, sort, merge, index, align in per-position format. SAMTools help page = `samtools --help` Usage:   `samtools <command> [options]`
@@ -522,7 +519,7 @@ There are 4 major toolsets for processing SAM/BAM files:
 - [DeepTools](https://deeptools.readthedocs.io/en/develop/) - visualise, quality control, normalise data from deep-sequencing DNA seq
 - [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) - read, write & manipulate BAM genome alingment files . `ml BamTools`
 
-### Filter data from BAM files
+## Filter data from BAM files
 - Unlike other aligners, STAR already creates separate bam files of aligned and unmapped.
 - Remove poor alignments - eg Phred scale quality <20 & keep alignments which are "properly paired"
 - Use FLAGS to filter using samtools: `-f` flag includes matches; `-F` flag includes mismatches. Flag `4` indicates unmapped.  `-h` is used to print the header
@@ -556,13 +553,13 @@ Create SAM file with intron spanning reads:
 - use `grep` to select lines with a number of digits (using `[0-9]+`) then `M` (i.e. matches) then any number of digits again, then `N` (i.e. mismatches) then any number of digits and then M again at the end: `egrep "(^@|[0-9]+M[0-9]+N[0-9]+M)" FILENAME.sam > intron-spanning_reads.sam`
 - Alternatively use awk to focus on column 6 (CIGAR string) and select the header `$1 ~ /^@/` and the 6th column with any number of digits followed by M followed by digits then N then digits the M: `awk '$1 ~ /^@/ || $6 ~ /[0-9]+M[0-9]+N[0-9]+M/ {print $0}' FILENAME.sam > intron-spanning_reads.sam`
 
-### Merge BAM files
+## Merge BAM files
 
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk2NzkwMDgyLC0xNDIzODI3MTY3LC0zNz
-czNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4
-NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LD
-Y1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMz
+c3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0
+ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNS
+w2NTc1NDIyMThdfQ==
 -->
