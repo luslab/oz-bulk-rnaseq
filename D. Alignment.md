@@ -485,7 +485,10 @@ Convert a BAM file into a SAM file (including the header): `samtools view -h FIL
 Compress a SAM file into BAM format (-Sb = -S -b)" `samtools view -Sb FILENAME.sam > FILENAME.bam`
 To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
 
-## CRAM format
+### BED format
+Often we are only interested in a focused subset of the reference genome
+
+### CRAM format
 Similar to BAM (binary compressed) but smaller as some compression is in the reference genome.
 Sometimes you need the reference genome information so these arnt always appropriate.
 Supported by samtools
@@ -545,7 +548,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0MDM2Mzg2MywxMzQzOTI4MzE3LC0xND
+eyJoaXN0b3J5IjpbLTM3MDc1MDQ4OSwxMzQzOTI4MzE3LC0xND
 IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
 ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
 YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
