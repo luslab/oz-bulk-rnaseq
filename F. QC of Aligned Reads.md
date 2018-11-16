@@ -20,7 +20,7 @@ Typical Biases of RNA-seq
 	- abundant non-coding transcripts
 - over representation of 3' portions of transcripts indicates RNA degradation
 
-## Gene body coverage: 3
+## Gene body coverage: 3' & 5' Bias
 Assess 3' or 5' biases using **RSeQC** `geneBody_coverage.py` script:
 - uses an annotation file with transcript models of choice
 - it divides each transcript into 100 sections
@@ -211,5 +211,5 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTkyNTY5ODEsMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTE3OTM1OTczMTcsMTkyMTgzNDMxXX0=
 -->
