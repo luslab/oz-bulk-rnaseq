@@ -81,8 +81,8 @@ Options:
 
 ### Global > Local Alignment
 The aligners first align to a global index (slow) & then to a local index (faster):
-- global indexing: tries to anchor the first 28 bp of the read to the ference genome > find the global location in the genome of where the read belongs
-- local indexing: extends the anchor base by base
+- global indexing: tries to anchor the first 28 bp of the read to the ference genome > find the global location in the genome of where the read belongs. Then extends the anchor base by base. If the read crosses a splice junction it will encounter a mismatch > switch to local index.
+- local indexing: align remaining bases
 
 When choosing an aligner, we need to decide what features the aligner should provide:
 -   Alignment algorithm: global, local, or semi-global?
@@ -562,8 +562,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NjAxODY3MSwtMzc3MzQzNjE4LDk5OD
-k4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYw
-NDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ
-==
+eyJoaXN0b3J5IjpbLTQ2NzM1MTU3LC0zNzczNDM2MTgsOTk4OT
+g4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0
+OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
