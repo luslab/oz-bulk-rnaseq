@@ -138,13 +138,9 @@ The distribution will depend on the library preparation protocol selected.
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
-#set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
-#run read d
-read_distribution.py  -i Pairend_StrandSpecific_51mer_Human_hg19.bam -r hg19.refseq.bed12
- 
-read_distribution.py -r sacCer3.bed -i /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam
+#run read distribution script
+read_distribution.py  -i $BAM -r $BED
 ```
 
 Output: 
@@ -306,10 +302,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgxMjE0NzYxLDEzMDM2NzgzMTUsMjIwMz
-U3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAs
-LTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xND
-M4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3
-MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ
-==
+eyJoaXN0b3J5IjpbLTE1OTQzNTU2MzgsMTMwMzY3ODMxNSwyMj
+AzNTczOTcsMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5
+MCwtMTgwOTA5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLT
+E0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAz
+NzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV
+19
 -->
