@@ -90,7 +90,8 @@ Can trim bases with phred <30.
 
  ## Assess PCR duplication
 
-Duplicate reads are reads with the same start/end positions & exact same sequence.
+Duplicate reads are reads with the same start/end positions & exact same sequence. You dont expect reads to pile up with the same start & end - this suggests it is from PCR.
+There are no fixed start points for DNA replication s DNA-seq it is well accepted to collapse duplicates, since there are fixed start points for transcription it is 
 
 ![PCR duplication](http://rseqc.sourceforge.net/_images/duplicate.png)
 A good sample will have the inflexion point low down (i.e. less reads with duplications). The higher the inflexion, the worse the sample.
@@ -261,8 +262,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MDczNDQ1MCwtMTgwOTA5MDE0LC0xMT
-g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
-MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
-wtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbLTIxMzg1NDQ0MzEsLTE4MDkwOTAxNCwtMT
+E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
+MDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOT
+gsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
