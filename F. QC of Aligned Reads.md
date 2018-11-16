@@ -137,7 +137,7 @@ The distribution will depend on the library preparation protocol selected.
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
 #run read distribution script
 read_distribution.py  -i $BAM -r $BED
@@ -302,7 +302,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4NTk1NDQzMywxMzAzNjc4MzE1LDIyMD
+eyJoaXN0b3J5IjpbMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMD
 M1NzM5NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkw
 LC0xODA5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMT
 QzODAxMzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3
