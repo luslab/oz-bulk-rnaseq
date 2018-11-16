@@ -15,7 +15,8 @@ Check that alignment rate of RNA-seq reads is > 70%:
  
  Check the aligner's output: `cat FILENAME_Log.final.out`
  - most important number = **uniquely mapped reads**
- - if using >2 BAM files then visualise alignment rate for each e.g. using MultiQC in **R studio**: see https://github.com/friedue/course_RNA-seq2015/blob/master/01_Alignment_visualizeSTARresults.pdf
+ - if using >2 BAM files then visualise alignment rate for each using MultiQC
+
 Mount files onto laptop: Right click on Finder --> Connect to server --> Connect to Luscombe Lab
 - `infiles <- list.files(path="/Volumes/lab-luscomben/working/oliver/projects/rna_seq_worksheet/alignment_STAR", pattern = "WT_1_Log.final.out", full.names = TRUE)`
 - `align.results <- lapply(infiles, function(x) read.table(x, sep="|", strip.white = TRUE, stringsAsFactors = FALSE, skip = 3, fill = TRUE, header = FALSE))`
@@ -199,5 +200,5 @@ RNA specific QC:
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NDc2Nzg0NSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbMTU5NzQ1ODgzMywxOTIxODM0MzFdfQ==
 -->
