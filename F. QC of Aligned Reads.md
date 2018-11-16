@@ -83,7 +83,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 # run read_quality command
-read_quality.py -i Pairend_nonStrandSpecific_36mer_Human_hg19.bam -o output
+read_quality.py -i $BAM -o $OUT
 ```
 
 ### Read distribution
@@ -252,8 +252,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAxMjc1MjgwLC0xMTg0MTAyMDc4LC0xND
-Q0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0
-MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LD
-E5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMT
+Q0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcw
+NDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OS
+wxOTIxODM0MzFdfQ==
 -->
