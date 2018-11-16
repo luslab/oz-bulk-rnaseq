@@ -265,7 +265,7 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 #run QoRTs command for each BAM file using a For Loop
 for file in $BAM;
 do
-	java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF ./QoRTs_output/;
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF ./QoRTs_output/";
 done
 ```
 
@@ -371,7 +371,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzQyMzY3MzIsMTk1Mzk5Nzc4MSwtND
+eyJoaXN0b3J5IjpbLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtND
 YwOTc4NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2
 NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMT
 AyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5
