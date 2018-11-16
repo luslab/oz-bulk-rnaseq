@@ -38,17 +38,18 @@ Aligning to Genome vs de-novo assembly:
 	- finds alignments that are reasonably similar but not exact (algorithm will not search beyond a defined matching threshold)
 	- cannot handle very long reads or very short reads (<30bp) (become inefficient)
 
-Note the RNA aligners in red below:
-![enter image description here](https://www.ebi.ac.uk/~nf/hts_mappers/mappers_timeline.jpeg)
 Aligners aim to:
 1. speed up process
 2. reduce amount of memory used
 3. maximise quality of the alignment
 
-The main RNA-seq aligners are:
-1. TopHat > TopHat2. Slowish 1000mins. Everyone used it from 2009
-2. STAR. Faster 20mins. Used more memory (need a server)
-3. HISAT. Faster 20mins& reduce memory
+Note the RNA aligners in red below:
+![enter image description here](https://www.ebi.ac.uk/~nf/hts_mappers/mappers_timeline.jpeg)
+
+The main RNA-seq aligner milestones are:
+1. TopHat > TopHat2. Slowish 1000mins. Low memory 4GB. Everyone used it from 2009
+2. STAR. Faster 24mins. Used more memory 28GB (need a server)
+3. HISAT. Faster 20mins & reduce memory 4GB
 
 ## Splice-aware Aligners
 
@@ -542,7 +543,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyNjEzMzY4MSwtMTQ3MDkyODg5NiwtND
+eyJoaXN0b3J5IjpbMTk1NzAxNzcwMSwtMTQ3MDkyODg5NiwtND
 g2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0
 NzkwNSw2NTc1NDIyMThdfQ==
 -->
