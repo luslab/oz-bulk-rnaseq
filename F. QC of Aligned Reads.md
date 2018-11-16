@@ -40,8 +40,8 @@ ml RSeQC
 ml R
 
 #set changable elements
-## set INDEXED BAM files (BAM.BAI) to read in. can list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5*_Aligned.sortedByCoord.out.bam
+## set BAM files to read in. can list multiple separated by ","
+/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
@@ -87,7 +87,7 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
@@ -375,11 +375,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTYyMjQ5MjcsLTQ2MDk3ODQ1MCwtMT
-Y0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIy
-Mzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMT
-E3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEw
-MjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMj
-k1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgz
-ODE1NDE1OV19
+eyJoaXN0b3J5IjpbMTE1MTc0NTk0MywtNDYwOTc4NDUwLC0xNj
+Q4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIz
+ODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMT
+cxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMTg0MTAy
+MDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOT
+UsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4
+MTU0MTU5XX0=
 -->
