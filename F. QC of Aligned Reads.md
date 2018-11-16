@@ -254,13 +254,6 @@ You will get a return from terminal like:
 Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs command. 
 [Helpfile](https://hartleys.github.io/QoRTs/jarHtml/index.html) here.
 
-```bash
-for VARIABLE in *.fastq; 
-do 
-	wc -l $VARIABLE; 
-done
-```
-
 ## QC command in QoRTs
 
 ```bash
@@ -269,8 +262,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 
-#run QoRTs command
-java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF ./QoRTs_output/
+#run QoRTs command for each BAM file using a For Loop
+for file in $BAM;
+do
+	java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF ./QoRTs_output/;
+done
 ```
 
 - assumes data is paired unless include `--singleEnded`
@@ -375,11 +371,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzE5ODM0OCwxOTUzOTk3NzgxLC00Nj
-A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
-NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
-IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
-MTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOS
-wtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQx
-NDYyMTk4XX0=
+eyJoaXN0b3J5IjpbLTIxMzQyMzY3MzIsMTk1Mzk5Nzc4MSwtND
+YwOTc4NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2
+NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMT
+AyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5
+MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4Mj
+ksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0
+MTQ2MjE5OF19
 -->
