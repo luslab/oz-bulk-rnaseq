@@ -58,7 +58,7 @@ This produces 2 figures to visualise for 3' or 5' bias
 Converting mRNA to cDNA uses **random primers** which causes certain patterns to be over represented at the beginning (5') end of reads.
 We expect A = C = G = T = 25% (if truly random)
 
-To address this you can trim the first 10 bases of all reads. Then re-perform alignment & assess alignment rates. 
+To address this you can trim the first 10 bases of all reads. Then re-perform alignment > assess & compare alignment rates . 
 
 
 
@@ -230,7 +230,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDA1NzE5OTgsLTIxNDAwMDEyOTUsLT
-E5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0
-MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbLTk4Nzk2NjY2MSwtMjE0MDAwMTI5NSwtMT
+k3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC04MzgxNTQx
+NTksMTkyMTgzNDMxXX0=
 -->
