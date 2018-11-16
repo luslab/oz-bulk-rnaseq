@@ -1,11 +1,10 @@
 > # Quality Control of Aligned Reads
-Analyses now switch from command line to R studio.
  The main STAR output file for downstream analyses are **Aligned.sortedByCoord.out.bam** & **Log.final.out**.
 **out.mate1 files** are fastx files that are uncompressed and can be made smaller using gzip.
 
 After aligning and before performing downstream analyses check for:
 1. Excessive amounts of reads not aligned
-2. Obvious biases in the read distributions
+2. Obvious biases in the read distributions: 3' & 5' bias
 3. Similarity between replicate samples
 
 ### Alignment Assessments
@@ -198,5 +197,5 @@ RNA specific QC:
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTE4Njc4NTg2ODAsMTkyMTgzNDMxXX0=
 -->
