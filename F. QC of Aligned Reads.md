@@ -72,7 +72,7 @@ BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.b
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
 
 #run each BAM file into geneBody coverage using a For Loop
-sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $file -r $BED -o $OUT -f pdf"
+sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $ -r $BED -o $OUT -f pdf"
 ```
 This ouptut is 2 figures to visualise 3' or 5' bias. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
@@ -389,11 +389,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMT
-kyNDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAy
-ODkwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MC
-wtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3
-ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2Nj
-UsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4
-NDEwMjA3OF19
+eyJoaXN0b3J5IjpbMTAzMjY1NDY2MiwtMTUyNDI4OTU5MCwtMT
+UwMDU1NDcwNywxOTI0NDUzNzM0LC05OTY0NzE1ODksLTc1MDg4
+MjU0MiwyNDA1MDI4OTAsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MS
+wtNDYwOTc4NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0
+MjE2NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOT
+csMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgw
+OTA5MDE0XX0=
 -->
