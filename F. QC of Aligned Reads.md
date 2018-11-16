@@ -4,10 +4,12 @@
 
 After aligning and before performing downstream analyses check for:
 1. Excessive amounts of reads not aligned
-2. Obvious biases in the read distributions: 3' & 5' bias
-3. Similarity between replicate samples
+2. Obvious biases in the read distributions: 3' & 5' bias, base distribution, nucleotide content
+3. Read quality
+4. Sequencing depth
+5. Similarity between replicate samples
 
-### Alignment Assessments
+# Alignment Assessments
  
 Check that alignment rate of RNA-seq reads is > 70%:
  
@@ -197,5 +199,5 @@ RNA specific QC:
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Njc4NTg2ODAsMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbMTA4NDc2Nzg0NSwxOTIxODM0MzFdfQ==
 -->
