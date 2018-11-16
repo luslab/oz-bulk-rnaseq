@@ -450,16 +450,8 @@ Each section begins with `@`then value pairs 2 letter abbreviations:
 `samtools flagstat Aligned.sortedByCoord.bam`
 
 ### 6th Column **CIGAR** (Concise idiosyncratic gapped alignment report string) field
-CIGAR string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
-**M**  - Alignment (can be a sequence match or mismatch!)
-**I**  - Insertion in the read compared to the reference
- **D**  - Deletion in the read compared to the reference
-**N**  - Skipped region from the reference. For mRNA-to-genome alignments, an N operation represents an intron. For other types of alignments, the interpretation of N is not defined.
-**S**  - Soft clipping (clipped sequences are present in read); S may only have H operations between them and the ends of the string
-**H**  - Hard clipping (clipped sequences are NOT present in the alignment record); can only be present as the first and/or last operation
-**P**  - Padding (silent deletion from padded reference)
- **=**  - Sequence match (not widely used)
-**X**  - Sequence mismatch (not widely used)
+CIGAR string letters M, I, D etc to indicate how the read aligned to the reference sequence. 
+![CIGAR string](http://felixfan.github.io/figure2016/SAMv1_5.png)
 
 The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
@@ -552,8 +544,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MzY2MzM4OSwxMzQzOTI4MzE3LC0xND
-IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
-ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
-YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbOTU4MTczNzY1LDEzNDM5MjgzMTcsLTE0Mj
+M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
+OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
+w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
