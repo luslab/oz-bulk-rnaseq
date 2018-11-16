@@ -74,6 +74,7 @@ read_NVC.py -i $BAM -o $OUT
 ## Assess Quality
 Use the Phred Quality score to assess quality of base calling. The higher Phred score, the less chance of error.
 Quality of bases drops towards the end of the read (3' end) due to synthesis techniques.
+Accepted quality is Phred > 30
 ![Quality distribution](http://rseqc.sourceforge.net/_images/36mer.qual.plot.png)
 
 ```bash
@@ -252,8 +253,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMT
-Q0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcw
-NDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OS
-wxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTE4NDg2MTY3NCwtMTgwOTA5MDE0LC0xMT
+g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
+MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
+wtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
