@@ -74,7 +74,17 @@ read_NVC.py -i $BAM -o $OUT
 ## Assess Quality
 Use the Phred Quality score to assess quality of base calling. The higher Phred score, the less chance of error.
 Quality of bases drops towards the end of the read (3' end) due to synthesis techniques.
-![Quality distributi](http://rseqc.sourceforge.net/_images/36mer.qual.plot.png)
+![Quality distribution](http://rseqc.sourceforge.net/_images/36mer.qual.plot.png)
+
+```bash
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+#set designed output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+
+# run read_quality command
+read_quality.py -i Pairend_nonStrandSpecific_36mer_Human_hg19.bam -o output
+```
 
 ### Read distribution
 - mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
@@ -242,7 +252,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI5NzU1MDI3LC0xMTg0MTAyMDc4LC0xND
+eyJoaXN0b3J5IjpbOTAxMjc1MjgwLC0xMTg0MTAyMDc4LC0xND
 Q0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0
 MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LD
 E5MjE4MzQzMV19
