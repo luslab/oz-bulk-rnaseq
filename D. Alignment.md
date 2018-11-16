@@ -393,7 +393,7 @@ SAM/BAM files store read alignments.
 
 -   The  [SAM format specification](http://samtools.github.io/hts-specs/SAMv1.pdf)  is the official specification of the SAM format.
 -   The  [SAM tag specification](http://samtools.github.io/hts-specs/SAMtags.pdf)  is the official specification of the [SAM tags](https://www.biostarhandbook.com/sam/sam-flags.html).
--  Each SAM file has 11 mandatory columns. Despite this aligners vary in how much information they put into these columns - impossible to transform one aligners SAM file into another aligners SAM file.
+- impossible to transform one aligners SAM file into another aligners SAM file.
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
 
@@ -409,17 +409,10 @@ Each section begins with `@`then value pairs 2 letter abbreviations:
 * To retrieve only the SAM header `samtools view -H`
 * To retrieve both the header & alignment sections `samtools view -h`
 * The default `samtools view` will not show the header section
-* Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`. You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
+* Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`. You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`. This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
 `samtools view -H filename.bam`
 
-
-This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
-
-[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
-
-Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
-
-## SAM alignment tags
+## SAM body
 * Each line corresponds to one sequenced read.
 * The SAM tags are defined [here](http://samtools.github.io/hts-specs/SAMtags.pdf)
 * [11 mandatory columns](https://www.biostarhandbook.com/sam/sam-flags.html) in specified order:
@@ -561,8 +554,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUzMTc4MTY5LDEzNDM5MjgzMTcsLTE0Mj
-M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
-OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
-w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbMTg2NzAyNjI4OSwxMzQzOTI4MzE3LC0xND
+IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
+ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
+YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
