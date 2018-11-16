@@ -11,11 +11,6 @@ The purpose of **ALIGNMENT** is to compare the contig to a previously assembled 
 > -   An alignment is the detailed placement of each base in a read.
 > -   An alignment is regarded to be correct if each base is placed correctly.
 
-For each base alignment the options are:
-	- `-` a space
-	- `|` match
-	- `.` a mismatch
-
 Tools used to be separated into aligners vs mappers. However these have become combined over time. However a distinction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
 
 The limitations of alignment are: 
@@ -106,7 +101,6 @@ When choosing an aligner, we need to decide what features the aligner should pro
 -   Can the aligner skip (or splice) over large regions?
 -   Can the aligner filter alignments to suit our needs?
 -   Will the aligner find chimeric alignments?
-
 
 # Reference Genomes
 Reference genome sequence repositories:
@@ -470,7 +464,12 @@ The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations mus
 
 ##  **Alignment scoring**
 
-Scoring is based on the value you associate with a match, mismatch or a gap. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
+For each base alignment the options are:
+	- `-` a space
+	- `|` match
+	- `.` a mismatch
+
+Scoring is based on the value you associate with a match, mismatch or a space. Alignment algorithms find the arrangement that produce the maximal alignment score. Example scoring matrix:
 	- 5 points for a match.
 	- -4 points for a mismatch.
 	- -10 points for opening a gap.
@@ -562,8 +561,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2NzY2MzIyMCwtMTQyMzgyNzE2NywtMz
-c3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0
-ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNS
-w2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbMzk2NzkwMDgyLC0xNDIzODI3MTY3LC0zNz
+czNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4
+NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LD
+Y1NzU0MjIxOF19
 -->
