@@ -128,9 +128,9 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 junction_saturation.py -i $BAM -r $BED -o output
 ```
 
+## Assess base distribution
 
-### Read distribution
-- mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
+mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
 	- counts number of reads overlapping with various genes & transcript associated genomic regions (introns and exons)
 - download BED file from [UCSC genome](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=685446505_FqnRnlREChczp8SYDIJOSvLwBshv&clade=other&org=S.+cerevisiae&db=sacCer3&hgta_group=genes&hgta_track=sgdGene&hgta_table=0&hgta_regionType=genome&position=chrIV%3A765966-775965&hgta_outputType=primaryTable&hgta_outFileName=).
 
@@ -295,9 +295,9 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3ND
-cwOTg5MCwtMTgwOTA5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3
-NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OT
-AsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4
-MzQzMV19
+eyJoaXN0b3J5IjpbNDAyODA0NzIsMTAyMDYyNTY2NSwxMTcxMz
+EzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMTg0MTAyMDc4
+LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLT
+E5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0
+MTU5LDE5MjE4MzQzMV19
 -->
