@@ -155,7 +155,7 @@ Total Assigned Tags           11820580
 =====================================================================
 Group               Total_bases         Tag_count           Tags/Kb
 CDS_Exons           38890108            6051962             155.62
-5'UTR_Exons         40728595            427657              10.50
+5`UTR_Exons         40728595            427657              10.50
 3'UTR_Exons         69257701            2703660             39.04
 Introns             1556956010          2520202             1.62
 TSS_up_1kb          32291585            8727                0.27
@@ -303,10 +303,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTM0ODE4MDksMTQ3NDIxNjQ0MCwyMT
-A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
-NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
-E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
-MDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOT
-gsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbODk3NTY1MTQyLDE0NzQyMTY0NDAsMjEwNz
+gyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1
+LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExOD
+QxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAw
+MTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC
+04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
