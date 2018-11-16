@@ -65,7 +65,7 @@ If you are aligning to a genome then you need a splice aware aligner:
 - but aligning back to the reference genome needs to recognise intron sites
 - unless reads a short <50bp then you need a splice aware aligner
 
-![enter image description here](https://media.nature.com/lw926/nature-assets/nmeth/journal/v12/n4/images/nmeth.3317-F1.jpg)
+![(**a**) Five types of RNA-seq reads: (i) M, exonic read; (ii) 2M_gt_15, junction reads with long, >15-bp anchors in both exons; (iii) 2M_8_15, junction reads with intermediate, 8- to 15-bp anchors; (iv) 2M_1_7, junction reads with short, 1- to 7-bp, anchors; and (v) gt_2M, junction reads spanning more than two exons. (**b**) Relative proportions of different types of reads in the 20 million 100-bp simulated read data.](https://media.nature.com/lw926/nature-assets/nmeth/journal/v12/n4/images/nmeth.3317-F1.jpg)
 
 Options:
 -   [STAR](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf): Really fast, produces counts for you too. Straight forward RNA seq for differential gene expression analysis. Efficient. Sensitivie. Identified large number of novel splice sites.
@@ -557,8 +557,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Mzc0NzIzMTksLTM3NzM0MzYxOCw5OT
-g5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2
-MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX
-0=
+eyJoaXN0b3J5IjpbMzYxOTQyOTY4LC0zNzczNDM2MTgsOTk4OT
+g4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0
+OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
