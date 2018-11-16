@@ -425,7 +425,7 @@ Each section begins with `@`then value pairs 2 letter abbreviations:
 * Following the 11 mandatory fields, the optional fields are presented as key-value pairs in the format of  `<TAG>:<TYPE>:<VALUE>`, where  `TYPE`  is one of:  `A`  - Character  `i`  - Integer`f`  - Float number `Z`  - String  `H`  - Hex string
 * Reads within the same SAM file may have different numbers of optional fields, depending on the aligner program that generated the SAM file. 
 
-### *[2nd column FLAG field](https://www.biostarhandbook.com/sam/sam-flags.html)*
+### 2nd column FLAG field
 * compresses all mapping information on a read alignment into one single decimal number
 * decimal is the sum of all the answers to Yes/No questions:
 ```
@@ -444,9 +444,10 @@ Each section begins with `@`then value pairs 2 letter abbreviations:
 100000000000    2048     SUPPLEMENTARY   Supplementary alignment
 ```
 
-* To decode the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html). 
+* To decode the FLAG integer into plain english [click here](https://broadinstitute.github.io/picard/explain-flags.html).
 
-
+`samtools flagstat` assesses the FLAG field and prints a summary report: 
+`samtools flagstat Aligned.sortedByCoord.bam`
 
 ### 6th Column **CIGAR** (Concise idiosyncratic gapped alignment report string) field
 CIGAR string is an alignment format used in SAM (sequence alignment map) files. CIGAR uses letters M, I, D etc to indicate how the read aligned to the reference sequence at that specific locus. In  extended CIGAR the symbol `X` is used for mismatches.
@@ -551,7 +552,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxOTk3ODcwMCwxMzQzOTI4MzE3LC0xND
+eyJoaXN0b3J5IjpbMTc0MzY2MzM4OSwxMzQzOTI4MzE3LC0xND
 IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
 ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
 YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
