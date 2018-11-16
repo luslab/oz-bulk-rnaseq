@@ -508,6 +508,10 @@ There are 4 major toolsets for processing SAM/BAM files:
 5. Viewing
 
 
+## Sort BAM files
+
+BAM files are usually sorted by position coordinates. 
+
 ## Filter BAM files
 
 Unlike other aligners, STAR already creates separate bam files of aligned and unmapped.
@@ -537,6 +541,8 @@ Create bam file with mapping quality (Phred Scale) >= 20
 
 Create BAM with uniquely aligned reads (STAR gives uniquely aligned reads a mapping quality of 255 so pull reads with mapping quality = 255 `samtools view -h -q 255 FILENAME.bam > uniquely_aligned_reads.bam` .  
 
+### Other Filtering
+
 Create BAM file with only reads aligned to reverse strand:
 - sort the BAM file (A-Z; 0-9) and count the adjacent lines which are identical using `samtools view FILENAME.bam | cut -f 2 | sort | uniq -c`
 - Then, create file with the specific feature e.g. reverse reads (FLAG = 16 in column 2): `samtools view -h -f 16 FILENAME.bam > reverse_reads.bam`
@@ -555,8 +561,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3MTgzMDQwMywxMzQzOTI4MzE3LC0xND
-IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
-ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
-YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbLTMzNTI4NDgxLDEzNDM5MjgzMTcsLTE0Mj
+M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
+OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
+w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
