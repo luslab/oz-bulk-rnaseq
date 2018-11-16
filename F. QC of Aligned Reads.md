@@ -35,25 +35,35 @@ Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 	- polyA reads
 	- degradation of RNA > check the RIN numbers.
 
+Assess each BAM file separately:
 ```bash
 ml RSeQC
 ml R
 
 #set changable elements
 ## set BAM files to read in. can list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/cd ..*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
+# Exit this script on any error.
+set -euo pipefail
 
 #run each BAM file into geneBody coverage using a For Loop
-for file in $BAM
+for SAMPLE in $BAM;
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $file -r $BED -o $OUT -f pdf"
+	for REPLICATE in 1 2 3 4 5 6;
+	do
+		# Build the name of the files.
+        INPUT=$BAM/${SAMPLE}_${REPLICATE}.bam
+        
+        echo "Running geneBody_coverage on $SAMPLE"
+		sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $INPUT -r $BED -o $OUT -f pdf"
+	done
 done
 ```
-For merged BAM file only:
+Asses the merged BAM file only:
 ```bash
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/all_D7_samples.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
@@ -64,8 +74,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run each BAM file into geneBody coverage using a For Loop
 sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $file -r $BED -o $OUT -f pdf"
 ```
-
-This produces 2 figures to visualise for 3' or 5' bias. If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
+This ouptut is 2 figures to visualise 3' or 5' bias. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
 ### Estimate RIN
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
@@ -380,7 +389,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTIwNjkwOTQsMTkyNDQ1MzczNCwtOT
+eyJoaXN0b3J5IjpbLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNCwtOT
 k2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUwOTQz
 ODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMS
 w2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2
