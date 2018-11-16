@@ -41,7 +41,7 @@ ml R
 
 #set changable elements
 ## set BAM files to read in. can list multiple separated by ","
-/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/cd ..*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
@@ -375,11 +375,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNj
-Q4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIz
-ODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMT
-cxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMTg0MTAy
-MDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOT
-UsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4
-MTU0MTU5XX0=
+eyJoaXN0b3J5IjpbLTY4Mjg0NTEyOCwxOTUzOTk3NzgxLC00Nj
+A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
+NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
+IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
+MTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOS
+wtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQx
+NDYyMTk4XX0=
 -->
