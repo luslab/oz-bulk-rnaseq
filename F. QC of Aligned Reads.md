@@ -64,8 +64,11 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ml RSeQC
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam.bai
+#set designed output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+
 #run read_NVC command
-read_NVC.py -i $BAM -o output
+read_NVC.py -i $BAM -o $OUT
 ```
 
 ### Read distribution
@@ -236,7 +239,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MzMwNjA5OSwtMTQzODAxMzgyOSwtMj
+eyJoaXN0b3J5IjpbLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMj
 E0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYy
 MTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
