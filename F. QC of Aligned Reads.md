@@ -41,7 +41,7 @@ ml R
 
 #set changable elements
 ## set INDEXED BAM files (BAM.BAI) to read in. can list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
@@ -49,6 +49,12 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 
 #run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
+
+#run each BAM file into geneBody coverage using a For Loop
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
+done
 ```
 This produces 2 figures to visualise for 3' or 5' bias. If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
@@ -65,12 +71,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
-#run tin.py
+#run each BAM file into tin.py using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
 done
-
 ```
 Output is an xls file and a summary txt file (mean & median values across all genes in sample).
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
@@ -360,7 +365,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MTg3OTA4OCwtMTY0ODMwNjgzMSw2MT
+eyJoaXN0b3J5IjpbLTQ5MTMxNDEwNiwtMTY0ODMwNjgzMSw2MT
 MwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2Nzgz
 MTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNz
 Q3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3
