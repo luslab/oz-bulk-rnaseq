@@ -106,28 +106,19 @@ Accepted quality is Phred > 30
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/quality
 
-# run read_quality command
-sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $BAM -o $OUT"
-
-
-
-
-#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
-
-#run each BAM file into tin.py using a For Loop
+#run each BAM file into read_quality using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $file -o $OUT"
 done
 ```
 Can trim bases with phred <30.
 
- ## Assess PCR duplication
+## Assess PCR duplication
 
 Duplicate reads are reads with the same start/end positions & exact same sequence. You dont expect reads to pile up with the same start & end - this suggests it is from PCR. Whilst you want to remove PCR duplicates you dont want to remove unique reads.
 
@@ -374,11 +365,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM2NTAzMjcwLDE5NTM5OTc3ODEsLTQ2MD
-k3ODQ1MCwtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0
-MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMj
-A2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAx
-NCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC
-0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0
-NjIxOThdfQ==
+eyJoaXN0b3J5IjpbMTAwNDA3ODQ4NywxOTUzOTk3NzgxLC00Nj
+A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
+NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
+IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
+MTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOS
+wtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQx
+NDYyMTk4XX0=
 -->
