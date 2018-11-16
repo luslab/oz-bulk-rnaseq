@@ -81,7 +81,7 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
@@ -97,7 +97,7 @@ Accepted quality is Phred > 30
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/quality
 
@@ -353,10 +353,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzODAwMzQ1Nyw2MTMwOTc3MzYsMTQ3ND
-IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
-LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
-kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
-ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
-E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTQ4OTY1Mjg5LDYxMzA5NzczNiwxNDc0Mj
+E2NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcs
+MTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOT
+A5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4
+MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMT
+g0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
