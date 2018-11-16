@@ -13,7 +13,6 @@ After aligning and before performing downstream analyses check for:
 ml RSeQC
 ml R
 
-
 Typical Biases of RNA-seq
 - many reads aligned to introns indicates: 
 	- incomplete poly(A) enrichment 
@@ -34,11 +33,34 @@ Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 - here there are 2 groups of transcripts. 1 group are symmetrical and have good transcript coverage. The other group has a skew towards the 3' end. This comes from:
 	- polyA reads
 	- degradation of RNA > check the RIN numbers.
+
+```bash
+ml RSeQC
+ml R
+
+#set changable elements
+## set INDEXED BAM files (BAM.BAI) to read in. can list multiple separated by ","
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam.bai
+
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
+#set designed output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
+
+#run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
+geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
+```
+
+This produces 2 figures to visualise for 3' or 5' bias
+
+### mRIN calculation using tin.py
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 - If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
-### mRIN calculation using tin.py
+
 - determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
 - TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
 - tin.py uses the deviation from an expected uniform read distribution across the gene body as a proxy
@@ -53,7 +75,6 @@ tin.py -i $BAM -r $BED
 ```
 Output is an xls file and a summary txt file (mean & median values across all genes in sample).
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
-
 
 
 
@@ -339,7 +360,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTYyNDIxMjAsNjEzMDk3NzM2LDE0Nz
+eyJoaXN0b3J5IjpbLTE1NDQ4MTE4MDQsNjEzMDk3NzM2LDE0Nz
 QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
 NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
 A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
