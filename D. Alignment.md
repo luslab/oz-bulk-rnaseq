@@ -43,10 +43,12 @@ Note the RNA aligners in red below:
 Aligners aim to:
 1. speed up process
 2. reduce amount of memory used
-3. maximise quality of the alingme
+3. maximise quality of the alignment
 
 The main RNA-seq aligners are:
-4. TopHat > TopHat2
+1. TopHat > TopHat2. Slowish 1000mins. Everyone used it from 2009
+2. STAR. Faster 20mins. Used more memory (need a server)
+3. HISAT. Faster 20mins& reduce memory
 
 ## Splice-aware Aligners
 
@@ -540,7 +542,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyNDkyOTU3MiwtMTQ3MDkyODg5NiwtND
+eyJoaXN0b3J5IjpbMjEyNjEzMzY4MSwtMTQ3MDkyODg5NiwtND
 g2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0
 NzkwNSw2NTc1NDIyMThdfQ==
 -->
