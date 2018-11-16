@@ -130,9 +130,8 @@ junction_saturation.py -i $BAM -r $BED -o output
 
 ## Assess base distribution
 
-mRNA reads should mostly overlap with exons. 
+What is the composition of aligned bases? Are they coding (exon) or noncoding. mRNA reads should mostly overlap with exons. 
 Counts number of reads overlapping with various genes & transcript associated genomic regions (introns and exons)
-- download BED file from [UCSC genome](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=685446505_FqnRnlREChczp8SYDIJOSvLwBshv&clade=other&org=S.+cerevisiae&db=sacCer3&hgta_group=genes&hgta_track=sgdGene&hgta_table=0&hgta_regionType=genome&position=chrIV%3A765966-775965&hgta_outputType=primaryTable&hgta_outFileName=).
 
 `read_distribution.py -r sacCer3.bed -i /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam`
 
@@ -295,7 +294,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NTQ2MjUxMCwxMDIwNjI1NjY1LDExNz
+eyJoaXN0b3J5IjpbMTkxNDg1MjIzMSwxMDIwNjI1NjY1LDExNz
 EzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExODQxMDIw
 NzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAwMTI5NS
 wtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC04Mzgx
