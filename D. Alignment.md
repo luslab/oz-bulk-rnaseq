@@ -397,7 +397,9 @@ SAM/BAM files store read alignments.
 
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/bam_structure.png)
 
-## SAM header tags
+## SAM header
+Describes the data source, reference sequence, method of alignment.
+
 - Header tags start with `@`then value pairs 2 letter abbreviations e.g. `SQ` = sequence directory listing  `SN` sequence name aligned against (from FASTA), `LN`  sequence length, `PG` program version that was ran.
 * 1 line per chromosome
 * To retrieve only the SAM header `samtools view -H`
@@ -405,6 +407,15 @@ SAM/BAM files store read alignments.
 * The default `samtools view` will not show the header section
 
 `samtools view -H filename.bam`
+
+[Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
+Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`
+You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
+This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
+
+[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
+
+Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 
 ## SAM alignment tags
 * Each line corresponds to one sequenced read.
@@ -459,16 +470,6 @@ CIGAR string is an alignment format used in SAM (sequence alignment map) files. 
 
 The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations must equal the length of the read. Here are some examples:
 ![enter image description here](https://galaxyproject.github.io/training-material/topics/introduction/images/cigar.png)
-
-## Read Group tags
-[Read group](https://www.biostarhandbook.com/sam/sam-analyze.html) tags `RG` contain sample information in the BAM file. e.g. read group ID, library, sample etc.
-Print read group tags `samtools view -H filename.bam | cut -f 12-16 | head -1`
-You may need to add a custom read group tag in individual bam files prior to merging with `samtools addreplacerg` using `TAG:FORMAT:VALUE`
-This allows pooling results of multiple experiments into a single BAM dataset to simplify downstream logistics into 1 dataset.
-
-[BAM readgroups GATK website](https://gatkforums.broadinstitute.org/gatk/discussion/1317/collected-faqs-about-bam-files)
-
-Most important readgroup tags: `ID`, `SM`, `LB`, `PL`
 
 ##  **Alignment scoring**
 
@@ -558,7 +559,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgzOTI0NTMyLDEzNDM5MjgzMTcsLTE0Mj
+eyJoaXN0b3J5IjpbMjI0NDc4MDQwLDEzNDM5MjgzMTcsLTE0Mj
 M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
 OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
 w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
