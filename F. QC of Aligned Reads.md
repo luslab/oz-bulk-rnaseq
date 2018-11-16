@@ -42,6 +42,7 @@ ml RSeQC
 #set changable elements
 ## set BAM files to read in. can list multiple separated by ","
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+#set the reference genome - RSeQC requires BED format
 BED=/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed
 #set designed output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC
@@ -223,6 +224,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA5MDE0OTA4LDYwMzc3MTIwLDE4NDE0Nj
-IxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTE5Nzc0Njc1MTUsNjAzNzcxMjAsMTg0MT
+Q2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
