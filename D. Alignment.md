@@ -142,6 +142,8 @@ A single line record stores all the information on the block structure of a reco
 9 optional fields: name, score, strand, thickStart, thickEnd, itemRgb, blockCount, blockSizes, blockStarts
         	field number can vary from 3 - 12. Must be consistent within a file.
 
+RSeQC requires BED format.
+
 **GFF = General Feature Format**
 GFF is 1 based, inclusive on both ends. This means that [1,5] contains 1,2,3,4,5 and that coordinate 1 is the first coordinate of the genome.
 The relationship is built from data distributed over multiple lines. 
@@ -159,8 +161,12 @@ The relationship is built from data distributed over multiple lines.
 * Source
 * Type
 
-Always use GFF based formats (BED is being gradually phased out).
+Always use GFF based formats. [Can convert between the two formats.](https://www.biostars.org/p/56280/)
+```bash
+ml BEDOPS
 
+g
+```
 # Download Reference Sequence & Annotation files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
 
@@ -560,8 +566,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4ODM1NDM0OSwtMzg3NzY2OTcyLDEzND
-M5MjgzMTcsLTE0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2
-NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5Ni
-wtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbLTEzMzQ3NDU0MzMsLTM4Nzc2Njk3MiwxMz
+QzOTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4
+NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OT
+YsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
