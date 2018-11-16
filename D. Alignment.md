@@ -366,7 +366,7 @@ STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments
 `more SRR5483788_Log.final.out`
 `echo $( cat /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq | wc -l)/4 | bc`
 
-### Index BAM read alignments
+## Index BAM read alignment files
 ml SAMtools
 
 - STAR auto creates [BAM files](http://software.broadinstitute.org/software/igv/bam).  `-b`will produce a BAM file. `-s` will produce a SAM file.
@@ -560,8 +560,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjg4NDA5MjgsLTM4Nzc2Njk3MiwxMz
-QzOTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4
-NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OT
-YsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbMTY4ODM1NDM0OSwtMzg3NzY2OTcyLDEzND
+M5MjgzMTcsLTE0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2
+NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5Ni
+wtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
