@@ -31,10 +31,9 @@ Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 - here there are 2 groups of transcripts. 1 group are symmetrical and have good transcript coverage. The other group has a skew towards the 3' end. This comes from:
 	- polyA reads
 	- degradation of RNA > check the RIN numbers.
-- If you detect 3' bias at this stage you can eithe
+- If you detect 3' bias at this stage you can either 1. resequence (costly) or 2. adjust for this bias in downstream analysis.
 
-generate index for the BAM file:
-`samtools index WT_1_Aligned.sortedByCoord.out.bam`
+
 
 run the script on the aligned reads & annotation file and set the output file name.
 `geneBody_coverage.py -i WT_1_Aligned.sortedByCoord.out.bam -r /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed -o geneBodyCoverage_WT_1 -f pdf`
@@ -217,5 +216,5 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzI4ODg3MzAsMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
