@@ -18,7 +18,7 @@ For each base alignment the options are:
 
 Tools used to be separated into aligners vs mappers. However these have become combined over time. However a distinction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
 
-## Alignment Strategies
+# Alignment Strategies
 
 1. align reads to **genome** index to identify novel splice events. Most common approach.
 2. align reads to **transcriptome** index (required transcripts to be known and annotated in the reference) - i.e. pseudoalignment. Use if you have short reads < 50bp. Using Kallisto or Salmon - much quicker but wont identify new transcripts.
@@ -26,9 +26,40 @@ Tools used to be separated into aligners vs mappers. However these have become c
 
 ![enter image description here](https://lh3.googleusercontent.com/K400ZHmBCmhNY475bKN4PGdSpxK0lbqTNGBWHkWzh5DmcCuUKoDGbnuZDh6S_C_UEjPkcvTkjXIY0w "3 RNA seq mapping strategies")
 
-
+Aligning to Genome vs de-novo assembly:
 
 ![enter image description here](https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/resize/user/18/Figure19-700x527.png)
+
+# Short read aligners
+In 2005 high throughput short-read sequencers changed the face of sequencing which became much cheaper and accessible. Previously sequencing was laborious and expensive and the focus was on producing accurate long reads (1000bp). Sequencing reads longer improves alignment.  Sequencers now produce millions of short reads (50-300bp). Aligners have thus changed to adapt to short reads - rapidly select the best mapping at the expense of not investigating all potential alternative alignments.
+- Short read aligners are incredible! They match > 10,000 sequences per second against 3 billion bases of the human genome.
+- There is large variation in results between different aligners. A tool that prioritises finding exact matches will do so at the expense of missing locations and overlaps and vice versa.
+- Limitations:
+	- finds alignments that are reasonably similar but not exact (algorithm will not search beyond a defined matching threshold)
+	- cannot handle very long reads or very short reads (<30bp) (become inefficient)
+
+## Splice-aware Aligners
+
+Multiple alignment programmes are available for RNA-seq, each specialising in detecting different factors eg structural variants; fusion transcripts:
+-   [STAR](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf): Really fast, produces counts for you too. Straight forward RNA seq for differential gene expression analysis. Efficient. Sensitivie. Identified large number of novel splice sites.
+-   HISAT2: similar algorithms as Bowtie2/Tophat2 - but performs at much faster speeds
+-   Subjunc: designed specifically for gene expression analysis.
+-   BWA: the MEM algorithm of bwa supports spliced alignments.
+-   BBMap: Is capable of detecting very long splicing.
+- Tuxedo suite refers to the pioneering automating pipelines for RNA-seq = alignment with tophat & bowtie, and Quantification & Differential Expression with cufflinks - all now outdated. 
+- The new Tuxedo suite refers to
+	- alignment: hisat2
+	- quantification: stringtie
+	- differential expression: ballgown (R package)
+
+When choosing an aligner, we need to decide what features the aligner should provide:
+-   Alignment algorithm: global, local, or semi-global?
+-   Is there a need to report non-linear arrangements?
+-   How will the aligner handle INDELs (insertions/deletions)?
+-   Can the aligner skip (or splice) over large regions?
+-   Can the aligner filter alignments to suit our needs?
+-   Will the aligner find chimeric alignments?
+
 
 
 ### **CIGAR** (Concise idiosyncratic gapped alignment report string)
@@ -70,35 +101,8 @@ The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations mus
 
 
 
-### Short read aligners
-In 2005 high throughput short-read sequencers changed the face of sequencing which became much cheaper and accessible. Previously sequencing was laborious and expensive and the focus was on producing accurate long reads (1000bp). Sequencing reads longer improves alignment.  Sequencers now produce millions of short reads (50-300bp). Aligners have thus changed to adapt to short reads - rapidly select the best mapping at the expense of not investigating all potential alternative alignments.
-- Short read aligners are incredible! They match > 10,000 sequences per second against 3 billion bases of the human genome.
-- There is large variation in results between different aligners. A tool that prioritises finding exact matches will do so at the expense of missing locations and overlaps and vice versa.
-- Limitations:
-	- finds alignments that are reasonably similar but not exact (algorithm will not search beyond a defined matching threshold)
-	- cannot handle very long reads or very short reads (<30bp) (become inefficient)
 
-## Splice-aware Aligners
 
-Multiple alignment programmes are available for RNA-seq, each specialising in detecting different factors eg structural variants; fusion transcripts:
--   [STAR](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf): Really fast, produces counts for you too. Straight forward RNA seq for differential gene expression analysis. Efficient. Sensitivie. Identified large number of novel splice sites.
--   HISAT2: similar algorithms as Bowtie2/Tophat2 - but performs at much faster speeds
--   Subjunc: designed specifically for gene expression analysis.
--   BWA: the MEM algorithm of bwa supports spliced alignments.
--   BBMap: Is capable of detecting very long splicing.
-- Tuxedo suite refers to the pioneering automating pipelines for RNA-seq = alignment with tophat & bowtie, and Quantification & Differential Expression with cufflinks - all now outdated. 
-- The new Tuxedo suite refers to
-	- alignment: hisat2
-	- quantification: stringtie
-	- differential expression: ballgown (R package)
-
-When choosing an aligner, we need to decide what features the aligner should provide:
--   Alignment algorithm: global, local, or semi-global?
--   Is there a need to report non-linear arrangements?
--   How will the aligner handle INDELs (insertions/deletions)?
--   Can the aligner skip (or splice) over large regions?
--   Can the aligner filter alignments to suit our needs?
--   Will the aligner find chimeric alignments?
 
 # Reference Genomes
 Reference genome sequence repositories:
@@ -526,7 +530,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODU3MzE3MTgsLTE0NzA5Mjg4OTYsLT
+eyJoaXN0b3J5IjpbLTEzMDIzNzQzMDUsLTE0NzA5Mjg4OTYsLT
 Q4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAy
 NDc5MDUsNjU3NTQyMjE4XX0=
 -->
