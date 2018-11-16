@@ -130,7 +130,13 @@ junction_saturation.py -i $BAM -r $BED -o $OUT
 
 ## Assess base distribution
 
-What is the composition of aligned bases? Are they coding (exon) or noncoding. mRNA reads should mostly overlap with exons. 
+What is the composition of aligned bases? Are they coding (exon) or noncoding. mRNA reads should mostly overlap with exons. The read_distribution.py script calculates how mapped reads are distributed over genome features:
+- CDS exon
+- 5' UTR exon
+- 3' UTR exon
+- intron
+- intergenic regions
+
 The distribution will depend on the library preparation protocol selected.
 
 ```bash
@@ -297,10 +303,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4NzgzOTkzNSwxNDc0MjE2NDQwLDIxMD
-c4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2
-NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMT
-g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
-MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
-wtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbLTIwMTM0ODE4MDksMTQ3NDIxNjQ0MCwyMT
+A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
+NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
+E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
+MDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOT
+gsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
