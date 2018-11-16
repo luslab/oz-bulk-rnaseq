@@ -141,25 +141,24 @@ BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.b
 
 #run read distribution script
 read_distribution.py  -i $BAM -r $BED
-```
 
-Output: 
-Total Reads                   937851
-Total Tags                    947664
-Total Assigned Tags           0
-
-```
-Group             Total_bases         Tag_count           Tags/Kb
-CDS_Exons           8832031             0                   0.00
-5'UTR_Exons         0                   0                   0.00
-3'UTR_Exons         0                   0                   0.00
-Introns             69259               0                   0.00
-TSS_up_1kb          2421198             0                   0.00
-TSS_up_5kb          3225862             0                   0.00
-TSS_up_10kb         3377251             0                   0.00
-TES_down_1kb        2073978             0                   0.00
-TES_down_5kb        3185496             0                   0.00
-TES_down_10kb       3386705             0                   0.00
+#Output is printed into the terminal
+Total Reads                   10952306
+Total Tags                    12476273
+Total Assigned Tags           11820580
+=====================================================================
+Group               Total_bases         Tag_count           Tags/Kb
+CDS_Exons           38890108            6051962             155.62
+5'UTR_Exons         40728595            427657              10.50
+3'UTR_Exons         69257701            2703660             39.04
+Introns             1556956010          2520202             1.62
+TSS_up_1kb          32291585            8727                0.27
+TSS_up_5kb          143148651           29969               0.21
+TSS_up_10kb         254502721           45395               0.18
+TES_down_1kb        34286667            20436               0.60
+TES_down_5kb        147689423           52724               0.36
+TES_down_10kb       258048637           71704               0.28
+=====================================================================
 ```
 
 Visualise this output using this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
@@ -302,10 +301,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMD
-M1NzM5NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkw
-LC0xODA5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMT
-QzODAxMzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3
-NzEyMCwxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX
-0=
+eyJoaXN0b3J5IjpbMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMD
+M2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5
+MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMT
+Q0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcw
+NDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OS
+wxOTIxODM0MzFdfQ==
 -->
