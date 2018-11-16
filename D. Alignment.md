@@ -301,10 +301,8 @@ To create a script that runs all sequencing files (non-redundant) you can use a 
 ```bash
 # Create output folder
 mkdir -p bam
-
 # Exit this script on any error.
 set -euo pipefail
-
 # set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 
@@ -570,9 +568,9 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMTE5MzA0MiwtMTU4MDc4MzM3NiwtMz
-g3NzY2OTcyLDEzNDM5MjgzMTcsLTE0MjM4MjcxNjcsLTM3NzM0
-MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NC
-wtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3
-NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1OD
+A3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3
+MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC
+00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMw
+MjQ3OTA1LDY1NzU0MjIxOF19
 -->
