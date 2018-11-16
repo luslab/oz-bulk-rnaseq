@@ -510,7 +510,8 @@ There are 4 major toolsets for processing SAM/BAM files:
 
 ## Sort BAM files
 
-BAM files are usually sorted by position coordinates. 
+BAM files are usually sorted by **position** coordinates. This allows rapid access to the huge BAM file.
+Some tools require BAM files to be sorted by **read name** usually when we need to identify both reads of a pair.
 
 ## Filter BAM files
 
@@ -561,7 +562,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNTI4NDgxLDEzNDM5MjgzMTcsLTE0Mj
+eyJoaXN0b3J5IjpbODEzODYwNDU4LDEzNDM5MjgzMTcsLTE0Mj
 M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
 OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
 w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
