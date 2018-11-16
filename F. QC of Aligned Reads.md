@@ -261,11 +261,13 @@ Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set output directory
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/QoRTs
 
 #run QoRTs command for each BAM file using a For Loop
 for file in $BAM;
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF ./QoRTs_output/";
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF $OUT";
 done
 ```
 
@@ -371,11 +373,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtND
-YwOTc4NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2
-NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMT
-AyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5
-MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4Mj
-ksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0
-MTQ2MjE5OF19
+eyJoaXN0b3J5IjpbMjQwNTAyODkwLC0xNzUwOTQzODY5LDE5NT
+M5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMSw2MTMwOTc3
+MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMj
+IwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4
+OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC
+0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYw
+Mzc3MTIwXX0=
 -->
