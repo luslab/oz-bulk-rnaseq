@@ -55,6 +55,8 @@ This produces 2 figures to visualise for 3' or 5' bias
 
 ## Assess Nucleotide Content
 
+Converting mRNA to cDNA uses **random primers** which causes certain patterns to be over represented at the beginning (5') end of reads.
+We expect A = C = G = T = 25%
 
 
 
@@ -226,7 +228,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQ4NjM2OTk0LC0yMTQwMDAxMjk1LC0xOT
-cwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1
-OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTE0NjI4ODk1NDMsLTIxNDAwMDEyOTUsLT
+E5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0
+MTU5LDE5MjE4MzQzMV19
 -->
