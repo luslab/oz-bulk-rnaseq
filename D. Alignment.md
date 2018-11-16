@@ -18,6 +18,19 @@ For each base alignment the options are:
 
 Tools used to be separated into aligners vs mappers. However these have become combined over time. However a distinction still exists. For example, studies examining SNPs and variations in a genome would be primarily alignment-oriented. However, studies focusing on RNA-Seq would be essentially mapping-oriented. The reason for this difference is that in RNA-Seq you would need to know where the measurements come from, but you would be less concerned about their proper alignment.
 
+The limitations of alignment are: 
+- sequencing errors
+- genomic variation 
+- repetitive elements
+- multiple different transcript isoforms from same gene
+- main challenge is the spliced alignment of exon-exon spanning reads
+- mapping ambiguity = many reads overlap with more than one isoform
+-  False positives: lowly expressed isoforms are excluded by alignment algorithms —> bias towards identifying strongly expressed genes
+
+![enter image description here](https://www.researchgate.net/profile/Daehwan_Kim13/publication/275410550/figure/fig1/AS:281862078517250@1444212564204/Two-possible-incorrect-alignments-of-spliced-reads-1-A-read-extending-a-few-bases-into.png)
+
+
+
 # Alignment Strategies
 
 1. align reads to **genome** index to identify novel splice events. Most common approach.
@@ -549,7 +562,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyOTU5MjY2NSwtMTQyMzgyNzE2NywtMz
+eyJoaXN0b3J5IjpbLTI2NzY2MzIyMCwtMTQyMzgyNzE2NywtMz
 c3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0
 ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNS
 w2NTc1NDIyMThdfQ==
