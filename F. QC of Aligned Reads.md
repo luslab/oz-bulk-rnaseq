@@ -10,6 +10,9 @@ After aligning and before performing downstream analyses check for:
 5. Similarity between replicate samples
 
 # Bias Assessment
+ml RSeQC
+ml R
+
 
 Typical Biases of RNA-seq
 - many reads aligned to introns indicates: 
@@ -21,7 +24,6 @@ Typical Biases of RNA-seq
 - over representation of 3' portions of transcripts indicates RNA degradation
 
 ## Assess gene body coverage for 3' & 5' Bias
-ml RSeQC
 
 Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 - First it divides each transcript into 100 sections (irrespective of the transcript length)
@@ -38,6 +40,7 @@ Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality).
 
 ```bash
 ml RSeQC
+ml R
 
 #set changable elements
 ## set INDEXED BAM files (BAM.BAI) to read in. can list multiple separated by ","
@@ -104,8 +107,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 # run read_duplication command
-read_duplication.py -i Pairend_nonStrandSpecific_36mer_Human_hg19.bam -o output
+read_duplication.py -i $BAM -o $OUT
 ```
+
+## Assess Sequencing Depth
+
 
 ### Read distribution
 - mRNA reads should mostly overlap with exons. Test this with `read_distribution.py` script
@@ -273,8 +279,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzOTU3ODg2OSwtMTgwOTA5MDE0LC0xMT
-g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
-MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
-wtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExOD
+QxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAw
+MTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC
+04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
