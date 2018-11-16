@@ -508,9 +508,13 @@ There are 4 major toolsets for processing SAM/BAM files:
 5. Viewing
 
 
-## Filter data from BAM files
-- Unlike other aligners, STAR already creates separate bam files of aligned and unmapped.
-- Remove poor alignments - eg Phred scale quality <20 & keep alignments which are "properly paired"
+## Filter BAM files
+
+Unlike other aligners, STAR already creates separate bam files of aligned and unmapped.
+
+##Filter out poor alignments
+
+eg Phred scale quality <20 & keep alignments which are "properly paired"
 - Use FLAGS to filter using samtools: `-f` flag includes matches; `-F` flag includes mismatches. Flag `4` indicates unmapped.  `-h` is used to print the header
 
 Count alignments that were aligned: `samtools view -c -F 4 filename.bam`
@@ -547,8 +551,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDIyMDcyMTQsMTM0MzkyODMxNywtMT
-QyMzgyNzE2NywtMzc3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDky
-ODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzOD
-I2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ==
+eyJoaXN0b3J5IjpbLTk5MjA2MDY3MywxMzQzOTI4MzE3LC0xND
+IzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4
+ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4Mj
+YsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
