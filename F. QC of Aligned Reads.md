@@ -31,7 +31,7 @@ Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 - then counts reads overlapping with each section
 - produces 2 plots showing abundance of reads (coverage) across transcript bodies. Ideally you want to see equal coverage of sections across the whole transcript length.
 ![enter image description here](http://rseqc.sourceforge.net/_images/Aug_26.geneBodyCoverage.curves.png)
-- here there are 2 groups of transcripts. 1 group are symmetrical and have good transcript coverage. The other group has a skew towards the 3' end. This comes from:
+- in this plot there are 2 groups of transcripts. 1 group are symmetrical and have good transcript coverage. The other group has a skew towards the 3' end. This skew comes from:
 	- polyA reads
 	- degradation of RNA > check the RIN numbers.
 
@@ -42,9 +42,6 @@ ml R
 #set changable elements
 ## set INDEXED BAM files (BAM.BAI) to read in. can list multiple separated by ","
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam.bai
-
-#set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
 #set designed output path & prefix
@@ -56,7 +53,7 @@ geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
 
 This produces 2 figures to visualise for 3' or 5' bias
 
-### mRIN calculation using tin.py
+### Estimate RIN
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 - If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
@@ -361,10 +358,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDI3ODY4NDIsNjEzMDk3NzM2LDE0Nz
-QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
-NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
-A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
-MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
-wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbNzc4MjAwODc4LDYxMzA5NzczNiwxNDc0Mj
+E2NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcs
+MTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOT
+A5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4
+MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMT
+g0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
