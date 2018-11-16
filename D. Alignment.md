@@ -488,16 +488,16 @@ To peak into a SAM or BAM file: `samtools view FILENAME.bam | head`
 ### BED format
 BAM files can be massive. Often we are only interested in a focused subset of the reference genome. These region of interest subsets are speficied in BED files. To make files smaller you can use only the BED file which are accepted by BAM manipulation tools eg SAMTools, piccard
 
-
 ### CRAM format
 Similar to BAM (binary compressed) but smaller as some compression is in the reference genome.
 Sometimes you need the reference genome information so these arnt always appropriate.
 Supported by samtools
 Concerted effort to move from BAM to CRAM.
 
-# Manipulating BAM files
+# Manipulate SAM/BAM files
 There are 4 major toolsets for processing SAM/BAM files:
-
+- [Picard](https://broadinstitute.github.io/picard/) - Java tools for manipulating high throughput sequencing data
+- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) - read, write & manipulate BAM genome alingment files . `ml BamTools`
 - [SAMTools](http://www.htslib.org/) - interact with high throughput sequencing data, manipulate alignments in SAM/BAM format, sort, merge, index, align in per-position format. SAMTools help page = `samtools --help` Usage:   `samtools <command> [options]`
 
 5 key SAMTool commands:
@@ -506,9 +506,7 @@ There are 4 major toolsets for processing SAM/BAM files:
 3. File operations (aligning, converting, merging)
 4. Statistics
 5. Viewing
-- [Picard](https://broadinstitute.github.io/picard/) - Java tools for manipulating high throughput sequencing data
-- [DeepTools](https://deeptools.readthedocs.io/en/develop/) - visualise, quality control, normalise data from deep-sequencing DNA seq
-- [BAMtools](https://github.com/pezmaster31/bamtools/wiki/Tutorial_Toolkit_BamTools-1.0.pdf) - read, write & manipulate BAM genome alingment files . `ml BamTools`
+
 
 ## Filter data from BAM files
 - Unlike other aligners, STAR already creates separate bam files of aligned and unmapped.
@@ -549,8 +547,8 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE0NzUwNjI0LDEzNDM5MjgzMTcsLTE0Mj
-M4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4
-OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNi
-w2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbLTEyNDIyMDcyMTQsMTM0MzkyODMxNywtMT
+QyMzgyNzE2NywtMzc3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDky
+ODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzOD
+I2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ==
 -->
