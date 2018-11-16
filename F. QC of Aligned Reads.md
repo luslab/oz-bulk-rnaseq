@@ -150,12 +150,15 @@ Crucial to ensure there is adequate depth to perform alternative splicing analys
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/sequencing_depth
 
-#run junction saturation command
-junction_saturation.py -i $BAM -r $BED -o $OUT
+#run each BAM file into junction_saturation using a For Loop
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $file -r $BED -o $OUT"
+done
 ```
 
 ## Assess base distribution
@@ -368,7 +371,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNjEwNDgwNywxOTUzOTk3NzgxLC00Nj
+eyJoaXN0b3J5IjpbLTEzMzA2NjQyMSwxOTUzOTk3NzgxLC00Nj
 A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
 NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
 IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
