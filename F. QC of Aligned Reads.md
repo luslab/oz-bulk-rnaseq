@@ -168,8 +168,7 @@ TES_down_10kb       258048637           71704               0.28
 ```
 
 ## Assess Insert Size
-
-The inner mate is the insert = the segment of the transcript between the paired end reads R1 & R2.
+This is important for paired end reads only. The inner mate (or insert) = the segment of the transcript between the paired end reads R1 & R2.
 http://thegenomefactory.blogspot.com/2013/08/paired-end-read-confusion-library.html
 ```html
 fragment                  ========================================
@@ -335,10 +334,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNz
-gyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1
-LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExOD
-QxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAw
-MTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC
-04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTE2Njg4OTUyNTksNjEzMDk3NzM2LDE0Nz
+QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
+NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
+A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
+MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
+wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
