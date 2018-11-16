@@ -193,9 +193,11 @@ The minus -50 size size happens because there is overlap (the reads R1 & R2 are 
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
+#set output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/insert_size
 
 #run inner distance script
-inner_distance.py -i $BAM -o  -r hg19.refseq.bed12
+inner_distance.py -i $BAM -o $OUT -r $BED
 ```
 
 ### mRIN calculation using tin.py
@@ -333,10 +335,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MjczOTk5MiwxNDc0MjE2NDQwLDIxMD
-c4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2
-NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0LC0xMT
-g0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLTIxNDAw
-MDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OC
-wtODM4MTU0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNz
+gyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1
+LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExOD
+QxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAw
+MTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC
+04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
