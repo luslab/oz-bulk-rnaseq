@@ -9,6 +9,30 @@ After aligning and before performing downstream analyses check for:
 4. Sequencing depth
 5. Similarity between replicate samples
 
+# MultiQC
+
+ - Generate a comprehensive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs.
+ - [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
+ - MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
+
+General post-alignment QC:
+- STAR log files
+- samtools flagstat
+- RSeQCs bam_stat.py
+
+RNA specific QC:
+- read distribution (RSeQC or QoRTs)
+- gene body coverage (RSeQC or QoRTs)
+- splice junction info obtained with QoRTs
+
+1. collect all QC results of interest into one folder QC_collection
+2. create subfolders for each sample
+3. run multiQC
+`ml multiqc`
+`multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
+
+Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
+
 # Alignment Assessments
  
 Check that alignment rate of RNA-seq reads is > 70%:
@@ -23,6 +47,7 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 - `typeof(align.results)`
 - `head(align.results[[1]])`
 -  `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
+
 
 
 ### Data Simulation
@@ -176,29 +201,8 @@ _QC command in QoRTs_
 
 This is an [example](http://chagall.med.cornell.edu/RNASEQcourse/QC.multiPlot.pdf) of QoRTs output.
 
-__Summarising results of different QC tools with MultiQC__
 
- - Generate a comprehensive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs.
- - [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
- - MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
 
-General post-alignment QC:
-- STAR log files
-- samtools flagstat
-- RSeQCs bam_stat.py
-
-RNA specific QC:
-- read distribution (RSeQC or QoRTs)
-- gene body coverage (RSeQC or QoRTs)
-- splice junction info obtained with QoRTs
-
-1. collect all QC results of interest into one folder QC_collection
-2. create subfolders for each sample
-3. run multiQC
-`ml multiqc`
-`multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
-
-Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NzQ1ODgzMywxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTIwOTY2NDU1MTgsMTkyMTgzNDMxXX0=
 -->
