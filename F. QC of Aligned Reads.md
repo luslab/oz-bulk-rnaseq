@@ -61,9 +61,10 @@ We expect A = C = G = T = 25% (if truly random)
 To address this you can trim the first 10 bases of all reads. Then re-perform alignment > assess & compare alignment rates . 
 
 ```bash
+ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples
-
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam.bai
+#run read_NVC command
 read_NVC.py -i $BAM -o output
 ```
 
@@ -235,7 +236,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMDkyNTQ4NiwtMTQzODAxMzgyOSwtMj
+eyJoaXN0b3J5IjpbLTg5MzMwNjA5OSwtMTQzODAxMzgyOSwtMj
 E0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYy
 MTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
