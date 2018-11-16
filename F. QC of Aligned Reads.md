@@ -103,7 +103,7 @@ A good sample will have the inflexion point low down (i.e. less reads with dupli
 ```bash
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
-#set designed output path & prefix
+#set output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 # run read_duplication command
@@ -111,6 +111,8 @@ read_duplication.py -i $BAM -o $OUT
 ```
 
 ## Assess Sequencing Depth
+
+In DNA-seq e
 
 
 ### Read distribution
@@ -279,8 +281,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExOD
-QxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAw
-MTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC
-04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbMTUwMjI2NTQ0NCwxNzQ3MDk4OTAsLTE4MD
+kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
+ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
+E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
