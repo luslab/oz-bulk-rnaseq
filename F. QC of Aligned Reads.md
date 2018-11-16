@@ -37,6 +37,7 @@ Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality).
 
 ```bash
 #set changable elements
+## set BAM files to read in. can list multiple separated by ","
 BAM=Aligned.sortedByCoord.out.bam
 BED=/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed
 #set designed output file
@@ -219,6 +220,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MT
-U0MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbNDI0NTc5NDU1LDYwMzc3MTIwLDE4NDE0Nj
+IxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
