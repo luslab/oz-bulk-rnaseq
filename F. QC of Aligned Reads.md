@@ -184,9 +184,10 @@ fragment     ~~~========================================~~~
 insert          ========================================
 inner mate                ....................
 ```
-Insert size distribution plot: ideally you want a normal distribution of inserts. A bin
+Insert size distribution plot: ideally you want a normal distribution of inserts. A bimodal distribution suggests you are selecting another fragment size.
 ![enter image description here](http://rseqc.sourceforge.net/_images/inner_distance.png)
-
+Inner distance = insert size
+The minus -50 size size happens because there is overlap (the reads R1 & R2 are running into each other). Ideally you want some insert size in between.
 
 ### mRIN calculation using tin.py
 - RNA integrity number (RIN) is rarely reported in public data repositories.
@@ -323,7 +324,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTE1MjAzMzgsMTQ3NDIxNjQ0MCwyMT
+eyJoaXN0b3J5IjpbLTEzMTYyMjY2MDAsMTQ3NDIxNjQ0MCwyMT
 A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
 NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
 E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
