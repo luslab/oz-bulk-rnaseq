@@ -264,9 +264,12 @@ done
 ## QC command in QoRTs
 
 ```bash
-BAM=
-GTF=
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+#set GTF reference annotation
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 
+#run QoRTs command
 java -jar $EBROOTQORTS/QoRTs.jar QC --singleEnded --seqReadCt 7014609 --generatePdfReport $BAM $GTF ./QoRTs_output/
 ```
 
@@ -372,7 +375,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxOTU4MTg3MiwxOTUzOTk3NzgxLC00Nj
+eyJoaXN0b3J5IjpbLTE1MzE5ODM0OCwxOTUzOTk3NzgxLC00Nj
 A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
 NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
 IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
