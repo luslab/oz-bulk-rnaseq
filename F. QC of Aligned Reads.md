@@ -167,6 +167,16 @@ TES_down_10kb       258048637           71704               0.28
 =====================================================================
 ```
 
+## Assess Insert Size
+
+
+fragment                  ========================================
+fragment + adaptors    ~~~========================================~~~
+SE read                   --------->
+PE reads                R1--------->                    <---------R2
+unknown gap                         ....................
+```
+
 
 ### mRIN calculation using tin.py
 - RNA integrity number (RIN) is rarely reported in public data repositories.
@@ -303,10 +313,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk3NTY1MTQyLDE0NzQyMTY0NDAsMjEwNz
-gyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1
-LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLTExOD
-QxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0MDAw
-MTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC
-04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTExOTAwOTI4NzEsMTQ3NDIxNjQ0MCwyMT
+A3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2
+NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMT
+E4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQw
+MDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOT
+gsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
