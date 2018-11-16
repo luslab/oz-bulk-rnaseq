@@ -54,19 +54,7 @@ The sum of lengths of the  **M**,  **I**,  **S**,  **=**,  **X**  operations mus
 - Modifying the scoring algorithm can dramatically change the way that the sequence is aligned to the reference. See [this example](https://www.biostarhandbook.com/align/misleading-alignments.html) where reducing the gap penalty from -10 to -9 actually corrects the alignment. This setting means that 2 matches (5 + 5 = 10) overcomes a penality gap open (9). Thus to achieve a higher overall score the aligner will prefer opening a gap anytime it can find two matches later on (net score +1). 
 - [EDNAFULL](ftp://ftp.ncbi.nlm.nih.gov/blast/matrices/NUC.4.4) is the default scoring choice for all aligners.
 
-## Types of alignment
 
-1. align reads to **transcriptome** index (required transcripts to be known and annotated in the reference)
-2. align reads to **genome** index to identify novel splice events (i.e. reads that cant be aligned to reference transcriptome)
-3. de novo assembly: assemble transcripts from overlapping tags
-
-- **Global alignment** is where every base of both sequences has to align to another matching base, to another mismatching base, or to a gap in the other sequence.
-- **Local alignment** algorithms look for the highest scoring subregions (or single region). Local alignments are used when we need to find the region of maximal similarity between two sequences.
-- **Semi-global alignment** (global-local, global) is a method mixture between the global and local alignments. It attempts to fully align a shorter sequence against a longer one. They are used when matching sequencing reads produced by sequencing instruments against reference genomes. Majority of data analysis protocols rely on semi-global alignment.
-- Multiple sequence alignments uses 3 or more sequences (i.e. not pairwise alignment). 
-- **Pseudoalignment** - using Kallisto or Salmon - aligns reads to transcripts (not genomes) - much quicker but wont identify new transcripts.
-
-![enter image description here](https://www.ebi.ac.uk/training/online/sites/ebi.ac.uk.training.online/files/resize/user/18/Figure19-700x527.png)
 
 
 ### Short read aligners
@@ -525,7 +513,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMT
-Q3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQy
-MjE4XX0=
+eyJoaXN0b3J5IjpbLTg3Mjk4MDAzMywtMTQ3MDkyODg5NiwtND
+g2ODg0ODQ0LC0xNDc4NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0
+NzkwNSw2NTc1NDIyMThdfQ==
 -->
