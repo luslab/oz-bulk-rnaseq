@@ -178,8 +178,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
-#run read distribution script
-read_distribution.py  -i $BAM -r $BED
+#run each BAM file into read_distribution using a For Loop
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_distribution.py  -i $file -r $BED"
+done
 
 #Output is printed into the terminal
 Total Reads                   10952306
@@ -371,11 +374,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzA2NjQyMSwxOTUzOTk3NzgxLC00Nj
-A5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0
-NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMD
-IwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkw
-MTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOS
-wtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQx
-NDYyMTk4XX0=
+eyJoaXN0b3J5IjpbLTE0NDMxNTYwOTAsMTk1Mzk5Nzc4MSwtND
+YwOTc4NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2
+NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOTcsMT
+AyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5
+MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4Mj
+ksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0
+MTQ2MjE5OF19
 -->
