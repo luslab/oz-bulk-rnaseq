@@ -51,7 +51,8 @@ The main RNA-seq aligner milestones are:
 2. STAR. Faster 24mins. Used more memory 28GB (need a server)
 3. HISAT. Faster 20mins & reduce memory 4GB
 
-|Aligner|  |
+|
+|  |  |
 |--|--|
 |  |  |
 
@@ -554,7 +555,7 @@ Create SAM file with intron spanning reads:
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  `samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
 Check the new merged bam file: `samtools view -H all_bam_files.bam`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjAzMDQ2MTYsLTE0NzA5Mjg4OTYsLT
-Q4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAy
-NDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00OD
+Y4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3
+OTA1LDY1NzU0MjIxOF19
 -->
