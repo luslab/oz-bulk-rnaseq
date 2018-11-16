@@ -48,7 +48,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
 
 #run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
@@ -302,10 +302,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA0MzQwMDczLDEzMDM2NzgzMTUsMjIwMz
-U3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAs
-LTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xND
-M4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3
-MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ
-==
+eyJoaXN0b3J5IjpbMTY4NTk1NDQzMywxMzAzNjc4MzE1LDIyMD
+M1NzM5NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkw
+LC0xODA5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMT
+QzODAxMzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3
+NzEyMCwxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX
+0=
 -->
