@@ -44,13 +44,16 @@ ml RSeQC
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam.bai
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
-#set designed output path & prefix OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+#set designed output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 #run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
 ```
 
-This produces 2 figures to visualise for 3' or 5' bias:
+This produces 2 figures to visualise for 3' or 5' bias
+
+## Assess Nucleotide Content
 
 
 
@@ -223,7 +226,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0Mzk3OTg0MywtMjE0MDAwMTI5NSwtMT
-k3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC04MzgxNTQx
-NTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbNjQ4NjM2OTk0LC0yMTQwMDAxMjk1LC0xOT
+cwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1
+OSwxOTIxODM0MzFdfQ==
 -->
