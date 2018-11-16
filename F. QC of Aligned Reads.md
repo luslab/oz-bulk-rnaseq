@@ -104,7 +104,7 @@ A good sample will have the inflexion point low down (i.e. less reads with dupli
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/output
 
 # run read_duplication command
 read_duplication.py -i $BAM -o $OUT
@@ -295,8 +295,9 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
-kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
-ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
-E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3ND
+cwOTg5MCwtMTgwOTA5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3
+NjYsLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OT
+AsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4
+MzQzMV19
 -->
