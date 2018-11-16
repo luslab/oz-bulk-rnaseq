@@ -87,7 +87,7 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=~/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
@@ -96,7 +96,20 @@ for file in $BAM
 do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
 done
+
+
+
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
+
+#run each BAM file into tin.py using a For Loop
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
+done
 ```
+
+
 
 ## Assess Quality
 Use the Phred Quality score to assess quality of base calling. The higher Phred score, the less chance of error.
@@ -362,7 +375,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzM0NjEwNzYsLTQ2MDk3ODQ1MCwtMT
+eyJoaXN0b3J5IjpbLTE0MTYyMjQ5MjcsLTQ2MDk3ODQ1MCwtMT
 Y0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIy
 Mzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMT
 E3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEw
