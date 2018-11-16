@@ -184,6 +184,8 @@ do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="read_distribution.py  -i $file -r $BED"
 done
 
+#print the output to the terminal
+more slurm-**********
 #Output is printed into the terminal
 Total Reads                   10952306
 Total Tags                    12476273
@@ -366,11 +368,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MD
-UwMjg5MCwtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0
-NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMj
-EwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1
-NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xODA5MDkwMTQsLT
-ExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMjE0
-MDAwMTI5NV19
+eyJoaXN0b3J5IjpbMTkyNDQ1MzczNCwtOTk2NDcxNTg5LC03NT
+A4ODI1NDIsMjQwNTAyODkwLC0xNzUwOTQzODY5LDE5NTM5OTc3
+ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMT
+Q3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3
+Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLT
+E4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4
+MDEzODI5XX0=
 -->
