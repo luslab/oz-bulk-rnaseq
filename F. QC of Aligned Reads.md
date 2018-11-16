@@ -21,6 +21,7 @@ Typical Biases of RNA-seq
 - over representation of 3' portions of transcripts indicates RNA degradation
 
 ## Assess gene body coverage for 3' & 5' Bias
+ml RSeQC
 
 Use **[RSeQC](http://rseqc.sourceforge.net/)** `geneBody_coverage.py` script:
 - First it divides each transcript into 100 sections (irrespective of the transcript length)
@@ -36,12 +37,13 @@ Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality).
 - If you detect 3' bias at this stage you can either resequence (costly) or adjust for this bias in downstream analysis.
 
 ```bash
+ml RSeQC
 #set changable elements
 ## set BAM files to read in. can list multiple separated by ","
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 BED=/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed
 #set designed output file
-OUT=/home/camp/ziffo/working/oliver/projects/geneBodyCoverage_WT_1
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC
 
 #run the script on the aligned reads & annotation file and set the output file name. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
@@ -220,6 +222,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA3MjM4ODI4LDYwMzc3MTIwLDE4NDE0Nj
-IxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbLTEyNDczMTU0NzgsNjAzNzcxMjAsMTg0MT
+Q2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
