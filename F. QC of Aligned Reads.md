@@ -134,7 +134,7 @@ What is the composition of aligned bases? Are they coding (exon) or noncoding. m
 The distribution will depend on the library preparation protocol selected.
 
 ```bash
-
+ 
 read_distribution.py -r sacCer3.bed -i /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/alignment_STAR/WT_1_Aligned.sortedByCoord.out.bam
 ```
 
@@ -297,9 +297,9 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MT
-MxMzc5MiwxNzQ3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3
-OCwtMTQ0NDc3NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC
-0xOTcwNDE4OTkwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1
-NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMD
+YyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgwOTA5MDE0
+LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLTE0MzgwMTM4MjksLT
+IxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2
+MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV19
 -->
