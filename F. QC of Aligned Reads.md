@@ -62,9 +62,9 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 
 ```bash
 #set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples
 
-
-ead_NVC.py -i Pairend_nonStrandSpecific_36mer_Human_hg19.bam -o output
+read_NVC.py -i $BAM -o output
 ```
 
 ### Read distribution
@@ -235,7 +235,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzgwMTM4MjksLTIxNDAwMDEyOTUsLT
-E5NzA0MTg5OTAsNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0
-MTU5LDE5MjE4MzQzMV19
+eyJoaXN0b3J5IjpbMTcxMDkyNTQ4NiwtMTQzODAxMzgyOSwtMj
+E0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYy
+MTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
 -->
