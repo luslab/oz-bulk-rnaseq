@@ -63,7 +63,7 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam.bai
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
@@ -181,8 +181,6 @@ Mount files onto laptop: Right click on Finder --> Connect to server --> Connect
 - `head(align.results[[1]])`
 -  `align.results <- lapply(align.results, function(x) transform(x,V2 = as.numeric(gsub("%", "", x$V2) )))`
 
-
-
 ### Data Simulation
 Evaluate performance of processing. 
 [Polyester](http://bioconductor.org/packages/release/bioc/vignettes/polyester/inst/doc/polyester.html) is an RNA Seq measurement simulator that simulates fragmentation, reverse-complementing & sequencing.
@@ -239,7 +237,8 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDQ3Nzc2NiwtMTQzODAxMzgyOSwtMj
-E0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYy
-MTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMT
+QzODAxMzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3
+NzEyMCwxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX
+0=
 -->
