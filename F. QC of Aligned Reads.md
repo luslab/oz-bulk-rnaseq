@@ -68,7 +68,7 @@ ml RSeQC
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command
 read_NVC.py -i $BAM -o $OUT
@@ -84,7 +84,7 @@ Accepted quality is Phred > 30
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/quality
 
 # run read_quality command
 read_quality.py -i $BAM -o $OUT
@@ -104,7 +104,7 @@ A good sample will have the inflexion point low down (i.e. less reads with dupli
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/output
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/duplication
 
 # run read_duplication command
 read_duplication.py -i $BAM -o $OUT
@@ -122,10 +122,10 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
 #set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/sequencing_depth
 
 #run junction saturation command
-junction_saturation.py -i $BAM -r $BED -o output
+junction_saturation.py -i $BAM -r $BED -o $OUT
 ```
 
 ## Assess base distribution
@@ -302,10 +302,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTQzNTU2MzgsMTMwMzY3ODMxNSwyMj
-AzNTczOTcsMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5
-MCwtMTgwOTA5MDE0LC0xMTg0MTAyMDc4LC0xNDQ0Nzc3NjYsLT
-E0MzgwMTM4MjksLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNjAz
-NzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQzMV
-19
+eyJoaXN0b3J5IjpbNDA0MzQwMDczLDEzMDM2NzgzMTUsMjIwMz
+U3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAs
+LTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xND
+M4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3
+MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ
+==
 -->
