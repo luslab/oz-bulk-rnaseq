@@ -66,7 +66,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
 #run tin.py
-tin.py -i $BAM -r $BED
+for file in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
+done
+
 ```
 Output is an xls file and a summary txt file (mean & median values across all genes in sample).
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
@@ -356,10 +360,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0Nz
-QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
-NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
-A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
-MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
-wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbMTI2MTg3OTA4OCwtMTY0ODMwNjgzMSw2MT
+MwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2Nzgz
+MTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNz
+Q3MDk4OTAsLTE4MDkwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3
+NzY2LC0xNDM4MDEzODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OT
+kwLDYwMzc3MTIwLDE4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIx
+ODM0MzFdfQ==
 -->
