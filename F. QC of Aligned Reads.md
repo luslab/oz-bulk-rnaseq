@@ -86,7 +86,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command
-sbatch "read_NVC.py -i $BAM -o $OUT"
+sbatch sbatch -N 1 -c 4 --mem=24GB --wrap= "read_NVC.py -i $BAM -o $OUT"
 ```
 
 ## Assess Quality
@@ -353,7 +353,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0Mjc5ODc1OCw2MTMwOTc3MzYsMTQ3ND
+eyJoaXN0b3J5IjpbLTkzNjIzMzc0Nyw2MTMwOTc3MzYsMTQ3ND
 IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
 LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
 kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
