@@ -39,12 +39,11 @@ Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality).
 #set changable elements
 BAM=Aligned.sortedByCoord.out.bam
 BED=/home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/sacCer3.bed
-OUT=geneBodyCoverage_WT_1
+#set designed output file
+OUT=/home/camp/ziffo/working/oliver/projects/geneBodyCoverage_WT_1
 
-#run the script on the aligned reads & annotation file and set the output file name.
-geneBody_coverage.py -i $BAM -r $BED -o  -f pdf
-
-CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
+#run the script on the aligned reads & annotation file and set the output file name. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
+geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
 ```
 
 Produces 2 figures to visualise for 3' or 5' bias:
@@ -220,6 +219,6 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgzMDUyMjEyLDE4NDE0NjIxOTgsLTgzOD
-E1NDE1OSwxOTIxODM0MzFdfQ==
+eyJoaXN0b3J5IjpbNjAzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MT
+U0MTU5LDE5MjE4MzQzMV19
 -->
