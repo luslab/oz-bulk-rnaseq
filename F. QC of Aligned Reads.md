@@ -41,11 +41,10 @@ ml RSeQC
 
 #set changable elements
 ## set INDEXED BAM files (BAM.BAI) to read in. can list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
-#set the reference genome - RSeQC requires BED format (convert GTF > BED)
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam.bai,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam.bai
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
-#set designed output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+#set designed output path & prefix OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 #run the script. CAMP will not produce a png image file. Only a PDF so use `-f pdf` to set output as PDF file.
 geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf
@@ -224,7 +223,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDAwMDEyOTUsLTE5NzA0MTg5OTAsNj
-AzNzcxMjAsMTg0MTQ2MjE5OCwtODM4MTU0MTU5LDE5MjE4MzQz
-MV19
+eyJoaXN0b3J5IjpbLTU0Mzk3OTg0MywtMjE0MDAwMTI5NSwtMT
+k3MDQxODk5MCw2MDM3NzEyMCwxODQxNDYyMTk4LC04MzgxNTQx
+NTksMTkyMTgzNDMxXX0=
 -->
