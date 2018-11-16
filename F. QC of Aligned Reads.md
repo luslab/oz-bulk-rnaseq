@@ -185,7 +185,15 @@ inner mate                ....................
 Insert size distribution plot: ideally you want a normal distribution of inserts. A bimodal distribution suggests you are selecting another fragment size.
 ![enter image description here](http://rseqc.sourceforge.net/_images/inner_distance.png)
 Inner distance = insert size.
-The minus -50 size size happens because there is overlap (the reads R1 & R2 are running into each other). Ideally you want some insert size in between.
+The minus -50 size size happens because there is overlap (the reads R1 & R2 are running into each other). Ideally you want some insert size in between:
+```html
+fragment          ~~~========================================~~~
+insert               ========================================
+R1                   ------------------------->                    
+R2                                   <-----------------------
+overlap                              ::::::::::
+stitched SE read     --------------------------------------->
+```
 
 ```bash
 #set bam input
@@ -334,10 +342,10 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Njg4OTUyNTksNjEzMDk3NzM2LDE0Nz
-QyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5
-NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0NzA5ODkwLC0xOD
-A5MDkwMTQsLTExODQxMDIwNzgsLTE0NDQ3Nzc2NiwtMTQzODAx
-MzgyOSwtMjE0MDAwMTI5NSwtMTk3MDQxODk5MCw2MDM3NzEyMC
-wxODQxNDYyMTk4LC04MzgxNTQxNTksMTkyMTgzNDMxXX0=
+eyJoaXN0b3J5IjpbLTk5NzE3MTA3OCw2MTMwOTc3MzYsMTQ3ND
+IxNjQ0MCwyMTA3ODIyMzg0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3
+LDEwMjA2MjU2NjUsMTE3MTMxMzc5MiwxNzQ3MDk4OTAsLTE4MD
+kwOTAxNCwtMTE4NDEwMjA3OCwtMTQ0NDc3NzY2LC0xNDM4MDEz
+ODI5LC0yMTQwMDAxMjk1LC0xOTcwNDE4OTkwLDYwMzc3MTIwLD
+E4NDE0NjIxOTgsLTgzODE1NDE1OSwxOTIxODM0MzFdfQ==
 -->
