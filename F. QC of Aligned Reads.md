@@ -45,7 +45,7 @@ ml R
 
 #set changable elements
 ## set BAM files to read in. can list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
@@ -369,11 +369,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNzQwODQzOSwxODk3MTkxOTgxLDEwNz
-cwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1
-MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC
-0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0
-ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMz
-g0LDEzMDM2NzgzMTUsMjIwMzU3Mzk3LDEwMjA2MjU2NjUsMTE3
-MTMxMzc5Ml19
+eyJoaXN0b3J5IjpbMzU0NzgzOTQ5LDE4OTcxOTE5ODEsMTA3Nz
+AxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUz
+NzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLT
+E3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4
+MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzOD
+QsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMTcx
+MzEzNzkyXX0=
 -->
