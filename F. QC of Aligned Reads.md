@@ -44,17 +44,16 @@ ml RSeQC
 ml R
 
 #set changable elements
-## set BAM files to read in. can list multiple separated by ","
+## set BAM files to read in. list multiple separated by ","
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
 #run each BAM file into geneBody coverage
-sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $INPUT -r $BED -o $OUT -f pdf"
+sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
 ```
-
-This ouptut is 2 figures to visualise 3' or 5' bias. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
+This ouptut is 2 figures (line graph & hea to visualise 3' or 5' bias. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
 ### Estimate RIN
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
@@ -369,11 +368,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU0NzgzOTQ5LDE4OTcxOTE5ODEsMTA3Nz
-AxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUz
-NzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLT
-E3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4
-MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzOD
-QsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMTcx
-MzEzNzkyXX0=
+eyJoaXN0b3J5IjpbLTExMTM1NTc4OTcsMTg5NzE5MTk4MSwxMD
+c3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0
+NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MC
+wtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2
+NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMj
+M4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1LDEx
+NzEzMTM3OTJdfQ==
 -->
