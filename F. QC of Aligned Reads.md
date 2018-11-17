@@ -7,8 +7,10 @@ After aligning and before performing downstream analyses check for:
 3. Read quality
 4. Sequencing depth
 5. Similarity between replicate samples
-
-All this can be done with RSeQC package http://rseqc.sourceforge.net/
+### Tools
+1. RSeQC package http://rseqc.sourceforge.net/
+2. [QoRTs package](http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf)
+3. MultiQC
 
 # Bias Assessment
 ml RSeQC
@@ -389,11 +391,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NzAxNTg5NCwtMTUyNDI4OTU5MCwtMT
-UwMDU1NDcwNywxOTI0NDUzNzM0LC05OTY0NzE1ODksLTc1MDg4
-MjU0MiwyNDA1MDI4OTAsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MS
-wtNDYwOTc4NDUwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0
-MjE2NDQwLDIxMDc4MjIzODQsMTMwMzY3ODMxNSwyMjAzNTczOT
-csMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3NDcwOTg5MCwtMTgw
-OTA5MDE0XX0=
+eyJoaXN0b3J5IjpbLTE4NDYzNjc3OTgsMTA3NzAxNTg5NCwtMT
+UyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUzNzM0LC05OTY0
+NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLTE3NTA5NDM4Nj
+ksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4MzA2ODMxLDYx
+MzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzODQsMTMwMzY3OD
+MxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3
+NDcwOTg5MF19
 -->
