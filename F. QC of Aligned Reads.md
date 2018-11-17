@@ -55,7 +55,7 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT
 ```
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
-### Estimate RIN
+## Estimate RIN
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 
@@ -74,7 +74,7 @@ do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
 done
 ```
-Output is an xls file and a summary txt file (mean & median values across all genes in sample).
+Output is an xls file and a summary txt file (mean; median; SD values across all genes in sample).
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
 
 ## Assess Nucleotide Content
@@ -368,11 +368,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIyODMyNjE3LDE4OTcxOTE5ODEsMTA3Nz
-AxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUz
-NzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLT
-E3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4
-MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzOD
-QsMTMwMzY3ODMxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMTcx
-MzEzNzkyXX0=
+eyJoaXN0b3J5IjpbLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMD
+c3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0
+NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MC
+wtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2
+NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMj
+M4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1LDEx
+NzEzMTM3OTJdfQ==
 -->
