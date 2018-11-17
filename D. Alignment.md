@@ -566,12 +566,20 @@ Create SAM file with intron spanning reads:
 ## Merge BAM files
 
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge all the BAM files for downstream processing.  
-`samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
-Check the new merged bam file: `samtools view -H all_bam_files.bam`
+```bash
+#run samtools merge command listing all BAM files to read in
+samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
+
+#Check the new merged bam file
+samtools view -H all_bam_files.bam
+
+#index the new merged bam file (creates the BAI file which is required for downstream analysis)
+samtools index all_bam_files.bam
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjA1NjUyNzYsNzc1ODQwNTk0LDE5Mz
-ExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4
-MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC
-0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1
-ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkzMT
+E5MzA0MiwtMTU4MDc4MzM3NiwtMzg3NzY2OTcyLDEzNDM5Mjgz
+MTcsLTE0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLT
+E0NzA5Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4
+NjQxMzgyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
