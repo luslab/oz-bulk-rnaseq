@@ -50,33 +50,10 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
-# Exit this script on any error.
-set -euo pipefail
-
-#run each BAM file into geneBody coverage using a For Loop
-for SAMPLE in $BAM;
-do
-	for REPLICATE in 1 2 3 4 5 6;
-	do
-		# Build the name of the files.
-        INPUT=$BAM/${SAMPLE}_${REPLICATE}.bam
-        
-        echo "Running geneBody_coverage on $SAMPLE"
-		sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $INPUT -r $BED -o $OUT -f pdf"
-	done
-done
+#run each BAM file into geneBody coverage
+sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $INPUT -r $BED -o $OUT -f pdf"
 ```
-Assess the merged BAM file only:
-```bash
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/all_D7_samples.bam
-#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
-#set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
 
-#run each BAM file into geneBody coverage using a For Loop
-sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
-```
 This ouptut is 2 figures to visualise 3' or 5' bias. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
 ### Estimate RIN
@@ -392,7 +369,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxODM1OTg3MiwxMDc3MDE1ODk0LC0xNT
+eyJoaXN0b3J5IjpbMTg5NzE5MTk4MSwxMDc3MDE1ODk0LC0xNT
 I0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0NTM3MzQsLTk5NjQ3
 MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MCwtMTc1MDk0Mzg2OS
 wxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2NDgzMDY4MzEsNjEz
