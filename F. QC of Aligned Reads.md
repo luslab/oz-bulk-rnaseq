@@ -79,7 +79,7 @@ Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq
 ```bash
 #save the script as mRIN.r in relevant directory
 #run this script in the terminal
-cat *tin.xls | Rscript mRIN.r > mRIN.r
+cat *tin.xls | Rscript mRIN.r > RIN.out.r
 ```
 
 ## Assess Nucleotide Content
@@ -373,7 +373,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxMzY0NzA4MCwtMTQzMDc2MDE1NywxOD
+eyJoaXN0b3J5IjpbLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxOD
 k3MTkxOTgxLDEwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1
 NTQ3MDcsMTkyNDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1ND
 IsMjQwNTAyODkwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2
