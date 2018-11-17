@@ -7,16 +7,8 @@ After aligning and before performing downstream analyses check for:
 3. Read quality
 4. Sequencing depth
 5. Similarity between replicate samples
-### Tools
-1. RSeQC package http://rseqc.sourceforge.net/
-2. [QoRTs package](http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf)
-3. MultiQC
 
-# Bias Assessment
-ml RSeQC
-ml R
-
-Typical Biases of RNA-seq
+Typical Biases of RNA-seq alignment:
 - many reads aligned to introns indicates: 
 	- incomplete poly(A) enrichment 
 	- abundant presence of immature transcripts
@@ -24,6 +16,15 @@ Typical Biases of RNA-seq
 	- genomic DNA contamination
 	- abundant non-coding transcripts
 - over representation of 3' portions of transcripts indicates RNA degradation
+
+### Tools
+1. RSeQC package http://rseqc.sourceforge.net/
+2. [QoRTs package](http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf)
+3. MultiQC
+
+# RSeQC
+ml RSeQC
+ml R
 
 ## Assess gene body coverage for 3' & 5' Bias
 
@@ -391,11 +392,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDYzNjc3OTgsMTA3NzAxNTg5NCwtMT
-UyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUzNzM0LC05OTY0
-NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLTE3NTA5NDM4Nj
-ksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4MzA2ODMxLDYx
-MzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzODQsMTMwMzY3OD
-MxNSwyMjAzNTczOTcsMTAyMDYyNTY2NSwxMTcxMzEzNzkyLDE3
-NDcwOTg5MF19
+eyJoaXN0b3J5IjpbMTc3MzUxNTM4OCwxMDc3MDE1ODk0LC0xNT
+I0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0NTM3MzQsLTk5NjQ3
+MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MCwtMTc1MDk0Mzg2OS
+wxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2NDgzMDY4MzEsNjEz
+MDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMjM4NCwxMzAzNjc4Mz
+E1LDIyMDM1NzM5NywxMDIwNjI1NjY1LDExNzEzMTM3OTIsMTc0
+NzA5ODkwXX0=
 -->
