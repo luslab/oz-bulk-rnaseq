@@ -76,6 +76,10 @@ done
 ```
 Output is an xls file and a summary txt file (mean; median; SD values across all genes in sample).
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
+```bash
+
+cat valid.txt | Rscript mRIN.r > mRIN.txt
+```
 
 ## Assess Nucleotide Content
 
@@ -368,11 +372,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMD
-c3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0
-NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MC
-wtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2
-NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMj
-M4NCwxMzAzNjc4MzE1LDIyMDM1NzM5NywxMDIwNjI1NjY1LDEx
-NzEzMTM3OTJdfQ==
+eyJoaXN0b3J5IjpbLTExMDA5NjU0OTYsLTE0MzA3NjAxNTcsMT
+g5NzE5MTk4MSwxMDc3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAw
+NTU0NzA3LDE5MjQ0NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNT
+QyLDI0MDUwMjg5MCwtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00
+NjA5Nzg0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMT
+Y0NDAsMjEwNzgyMjM4NCwxMzAzNjc4MzE1LDIyMDM1NzM5Nywx
+MDIwNjI1NjY1XX0=
 -->
