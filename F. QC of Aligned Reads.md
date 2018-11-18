@@ -118,10 +118,11 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 
 ```bash
 ml RSeQC
+##NB looking for a way to stop overwriting the output with a for loop - currently inputing each file individually.
 #set BAM input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/SRR5483795
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/SRR5483796
 
 sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
 
@@ -129,26 +130,6 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
 for sample in $BAM
 do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o $OUT"
-done
-
-geneBody_coverage.py -i <sample>.star.Aligned.out.bam -f 'png' -r /ref/data/root/human/ref-build/rseqc/HouseKeepingGenes.bed -o <sample>
-
-# Exit this script on any error.
-set -euo pipefail
-# set the changeable elements
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/
-
-for file in $BAM;
-do
-    for REPLICATE in 88 89 90 94 95 96;
-    do
-        # Build the name of the files.
-        OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/${file}_${REPLICATE}
-
-        echo "Running read_NVC on $file"
-        # Run the aligner.
-        sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
-    done
 done
 ```
 
@@ -422,7 +403,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzMyNDA0MTgsNzc2MzQ2NDY0LDgxNT
+eyJoaXN0b3J5IjpbLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNT
 YyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3
 OTcsNjI2NzkxNDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5NywxOT
 I3NjUxNTk4LDI0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUzMDk0
