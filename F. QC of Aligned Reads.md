@@ -123,8 +123,6 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
-sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
-
 #run read_NVC command on each BAM file using a For Loop
 for sample in $BAM
 do
@@ -402,11 +400,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3Nz
-YzNDY0NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5
-NywtMTYxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQwNSwxMj
-AxODgzNTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0
-NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLT
-E3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcw
-MTU4OTRdfQ==
+eyJoaXN0b3J5IjpbMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNj
+U1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIx
+LC0xNjEwNDMxNzk3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxOD
+I0MTM3NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIy
+MTMsMTQwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LD
+MwMjg4OTI5OCwtMTczODY5NDQ5LC0xNDMwNzYwMTU3LDE4OTcx
+OTE5ODFdfQ==
 -->
