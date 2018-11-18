@@ -121,12 +121,12 @@ ml RSeQCmv
 #set BAM input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
 for sample in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o ${OUT}_${SAMPLE}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o ${OUT}_${sample}"
 done
 ```
 
@@ -143,9 +143,9 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/quality
 
 #run each BAM file into read_quality using a For Loop
-for file in $BAM
+for sample in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $file -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $sample -o ${OUT}_${SAMPLE}"
 done
 ```
 Can trim bases with phred <30.
@@ -400,7 +400,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTA5NTgyNDIsMTYzMzI0MTc4MCwxNz
+eyJoaXN0b3J5IjpbLTIwNzczNDU0NTcsMTYzMzI0MTc4MCwxNz
 MyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2Mjcw
 NzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNzk3LD
 YyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTkyNzY1
