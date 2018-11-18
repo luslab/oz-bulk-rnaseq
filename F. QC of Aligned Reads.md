@@ -117,8 +117,7 @@ We expect A = C = G = T = 25% (if truly random)
 To address this you can trim the first 10 bases of all reads. Then re-perform alignment > assess & compare alignment rates . 
 
 ```bash
-ml RSeQC
-##NB looking for a way to stop overwriting the output with a for loop - currently inputing each file individually.
+ml RSeQCmv 
 #set BAM input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
@@ -403,7 +402,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MjYxMDE4NCwtMTY1NTAyOTk3Nyw3Nz
+eyJoaXN0b3J5IjpbMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3Nz
 YzNDY0NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5
 NywtMTYxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQwNSwxMj
 AxODgzNTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0
