@@ -119,14 +119,14 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
 for sample in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample.sortedByCoord.out.bam -o $sample"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o $OUT"
 done
 
 geneBody_coverage.py -i <sample>.star.Aligned.out.bam -f 'png' -r /ref/data/root/human/ref-build/rseqc/HouseKeepingGenes.bed -o <sample>
@@ -420,11 +420,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyMjA2Njg1NSwzNzg4MTY5MjEsLTE2MT
-A0MzE3OTcsLTE2MTA0MzE3OTcsNjI2NzkxNDE5LDE4MjQxMzc0
-MDUsMTIwMTg4MzU5NywxOTI3NjUxNTk4LDI0MDg3MjIxMywxND
-A1MzA5NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMzAyODg5
-Mjk4LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MS
-wxMDc3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5
-MjQ0NTM3MzRdfQ==
+eyJoaXN0b3J5IjpbODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMD
+QzMTc5NywtMTYxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQw
+NSwxMjAxODgzNTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MD
+UzMDk0NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODky
+OTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLD
+EwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTky
+NDQ1MzczNF19
 -->
