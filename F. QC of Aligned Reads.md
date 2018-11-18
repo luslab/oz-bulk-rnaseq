@@ -76,7 +76,7 @@ do
 done
 ```
 Output is an xls file and a summary txt file (mean; median; SD values across all genes in sample).
-Visualise TIN as boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
+Visualise TIN as boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot:
 ```R
 ## Compare the distribution of mRIN (= TIN) values across different samples
 
@@ -106,7 +106,7 @@ ggplot(data = subset(TIN.df, TIN > 0), aes(x = sample, y = TIN)) +
 	ggtitle("relationship between mRIN (=TIN) and the experimentally determined RIN")
 
 #export the file as PDF landscape
-#move all files back to CAMP
+#move all files (tin.xls & plot) back to CAMP server
 ```
 
 ## Assess Nucleotide Content
@@ -400,7 +400,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4OTQ4ODAxOSwtMTEwMTAxNDQ2OSwzMD
+eyJoaXN0b3J5IjpbMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMD
 I4ODkyOTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkx
 OTgxLDEwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MD
 csMTkyNDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQw
