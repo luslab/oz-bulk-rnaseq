@@ -331,16 +331,9 @@ RNA specific QC:
 - gene body coverage (RSeQC or QoRTs)
 - splice junction info obtained with QoRTs
 
-1. collect all QC results of interest into one folder QC_collection
-2. create subfolders for each sample
-3. run multiQC
-`ml MultiQC`
-`multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
-
-
 run `MultiQC` within the `alignment_QC` folder
 Go to the folder with the aligned QC files in and simply run: `multiqc .`
-Compare this new MultiQC HTML report with the report on the Raw FastQC prior to trimming.
+Compare this new MultiQC HTML report with the report on the trimmed, filtered & depleted alignment_QC.
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
@@ -408,11 +401,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzA4NTAxMzQsLTExODE2NDc1NiwtOT
-k0ODIwNzcyLDE2MzMyNDE3ODAsMTczMjY4NjMzMCwtMTY1NTAy
-OTk3Nyw3NzYzNDY0NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMT
-YxMDQzMTc5NywtMTYxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEz
-NzQwNSwxMjAxODgzNTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLD
-E0MDUzMDk0NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4
-ODkyOThdfQ==
+eyJoaXN0b3J5IjpbMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OT
+Q4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5
+OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNj
+EwNDMxNzk3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3
+NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMT
+QwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4
+OTI5OF19
 -->
