@@ -119,14 +119,14 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT >>nucleotide"
 done
 
 # Exit this script on any error.
@@ -418,7 +418,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMDI5MTY1NSwxMjAxODgzNTk3LDE5Mj
+eyJoaXN0b3J5IjpbLTMxNDI0MzAxNywxMjAxODgzNTk3LDE5Mj
 c2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNTMwOTQ2
 NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0OSwtMT
 QzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4OTQsLTE1MjQy
