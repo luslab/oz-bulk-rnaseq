@@ -119,14 +119,14 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT >nucleotide_context"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
 done
 
 # Exit this script on any error.
@@ -418,11 +418,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMTg4MzU5NywxOTI3NjUxNTk4LDI0MD
-g3MjIxMywxNDA1MzA5NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0
-NjksMzAyODg5Mjk4LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMT
-g5NzE5MTk4MSwxMDc3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAw
-NTU0NzA3LDE5MjQ0NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNT
-QyLDI0MDUwMjg5MCwtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00
-NjA5Nzg0NTBdfQ==
+eyJoaXN0b3J5IjpbMTQyMDI5MTY1NSwxMjAxODgzNTk3LDE5Mj
+c2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNTMwOTQ2
+NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0OSwtMT
+QzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4OTQsLTE1MjQy
+ODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNCwtOTk2NDcxNT
+g5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUwOTQzODY5LDE5
+NTM5OTc3ODFdfQ==
 -->
