@@ -117,7 +117,7 @@ We expect A = C = G = T = 25% (if truly random)
 To address this you can trim the first 10 bases of all reads. Then re-perform alignment > assess & compare alignment rates . 
 
 ```bash
-ml RSeQCmv 
+ml RSeQC
 #set BAM input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
@@ -271,7 +271,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/insert_size
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/insert_size
 
 #run each BAM file into inner_distance using a For Loop
 for SAMPLE in $BAM
@@ -295,11 +295,11 @@ Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/QoRTs
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs
 
 #run QoRTs command for each BAM file using a For Loop
 for SAMPLE in $BAM
@@ -401,11 +401,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5NzE2NjE4MSwxNjY4NjMxOTczLC0xMT
-gxNjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYz
-MzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNz
-g4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3OTcsNjI2Nzkx
-NDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5NywxOTI3NjUxNTk4LD
-I0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUzMDk0NjQsLTExMDEw
-MTQ0NjldfQ==
+eyJoaXN0b3J5IjpbLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMT
+E4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2
+MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMz
+c4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNzk3LDYyNjc5
+MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5OC
+wyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMTAx
+MDE0NDY5XX0=
 -->
