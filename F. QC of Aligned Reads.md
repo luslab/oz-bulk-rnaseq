@@ -126,8 +126,14 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run read_NVC command on each BAM file using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT >>nucleotide_content"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT >>$nucleotide_content"
 done
+
+
+for i in *gz; do 
+  zcat $i > $(basename $i .gz).unpacked
+done
+
 
 # Exit this script on any error.
 set -euo pipefail
@@ -418,11 +424,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNDEzNzQwNSwxMjAxODgzNTk3LDE5Mj
-c2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNTMwOTQ2
-NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0OSwtMT
-QzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4OTQsLTE1MjQy
-ODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNCwtOTk2NDcxNT
-g5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUwOTQzODY5LDE5
-NTM5OTc3ODFdfQ==
+eyJoaXN0b3J5IjpbMTUyNjMxNzcxMiwxODI0MTM3NDA1LDEyMD
+E4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMwOTQ2
+NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4OTI5OCwtMT
+czODY5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5ODEsMTA3NzAx
+NTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUzNz
+M0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLTE3
+NTA5NDM4NjldfQ==
 -->
