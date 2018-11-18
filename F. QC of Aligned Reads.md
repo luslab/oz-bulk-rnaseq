@@ -119,12 +119,13 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQC
 #set bam input
+PATH=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
-for file in $BAM
+for file in $PATH/*_Aligned.sortedByCoord.out.bam
 do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $file.nucleotide_content"
 done
@@ -419,11 +420,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTA0MzE3OTcsNjI2NzkxNDE5LDE4Mj
-QxMzc0MDUsMTIwMTg4MzU5NywxOTI3NjUxNTk4LDI0MDg3MjIx
-MywxNDA1MzA5NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMz
-AyODg5Mjk4LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5
-MTk4MSwxMDc3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0Nz
-A3LDE5MjQ0NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0
-MDUwMjg5MF19
+eyJoaXN0b3J5IjpbMTY3MDEzMzgxLC0xNjEwNDMxNzk3LDYyNj
+c5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5
+OCwyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMT
+AxMDE0NDY5LDMwMjg4OTI5OCwtMTczODY5NDQ5LC0xNDMwNzYw
+MTU3LDE4OTcxOTE5ODEsMTA3NzAxNTg5NCwtMTUyNDI4OTU5MC
+wtMTUwMDU1NDcwNywxOTI0NDUzNzM0LC05OTY0NzE1ODksLTc1
+MDg4MjU0Ml19
 -->
