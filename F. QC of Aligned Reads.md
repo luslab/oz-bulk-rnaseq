@@ -55,15 +55,14 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT
 ```
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
-## Estimate TIN
-Evaluate RNA integrity at transcript level (transcript integrity number) - analogous to to RIN. Measure of RNA quality. TIN range from 0 (worse) to 100 (best).
+## Estimate RIN/TIN
+Evaluate RNA integrity at transcript level (transcript integrity number) - analogous to to RIN. Measure of RNA quality. 
 
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
 
 Determine a measure of mRNA degradation in silico using RSeQCs tin.py script to produce a TIN.
 - TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
-- tin.py uses the deviation from an expected uniform read distribution across the gene body as a proxy
 ```bash
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
@@ -377,7 +376,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NzA3MTgzNywzMDI4ODkyOTgsLTE3Mz
+eyJoaXN0b3J5IjpbMTE4NTA5NDIwNywzMDI4ODkyOTgsLTE3Mz
 g2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4
 OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNC
 wtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUw
