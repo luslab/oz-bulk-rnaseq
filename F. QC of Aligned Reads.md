@@ -168,7 +168,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run each BAM file into read_duplication using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $SAMPLE -o ${OUT}_${SAMPLE}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $SAMPLE -o $OUT_${SAMPLE}"
 done
 ```
 
@@ -189,7 +189,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run each BAM file into junction_saturation using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o ${OUT}_${SAMPLE}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o $OUT_${SAMPLE}"
 done
 ```
 
@@ -211,9 +211,9 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
 #run each BAM file into read_distribution using a For Loop
-for file in $BAM
+for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_distribution.py  -i $file -r $BED"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_distribution.py  -i $SAMPLE -r $BED"
 done
 
 #print the output to the terminal
@@ -276,7 +276,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run each BAM file into inner_distance using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="inner_distance.py -i $SAMPLE -o ${OUT}_${SAMPLE} -r $BED"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="inner_distance.py -i $SAMPLE -o $OUT_${SAMPLE} -r $BED"
 done
 ```
 
@@ -403,7 +403,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg1MTU4MzY0LC05OTQ4MjA3NzIsMTYzMz
+eyJoaXN0b3J5IjpbNzgwNjE3MDk2LC05OTQ4MjA3NzIsMTYzMz
 I0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2
 NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNj
 EwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1
