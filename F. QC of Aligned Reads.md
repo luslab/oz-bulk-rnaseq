@@ -168,7 +168,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run each BAM file into read_duplication using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $SAMPLE -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $SAMPLE -o ${OUT}_${SAMPLE}"
 done
 ```
 
@@ -187,9 +187,9 @@ BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.b
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/sequencing_depth
 
 #run each BAM file into junction_saturation using a For Loop
-for file in $BAM
+for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $file -r $BED -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o ${OUT}_${SAMPLE}"
 done
 ```
 
@@ -400,11 +400,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0MDcyODAxNSwxNjMzMjQxNzgwLDE3Mz
-I2ODYzMzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3
-MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3OTcsNj
-I2NzkxNDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5NywxOTI3NjUx
-NTk4LDI0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUzMDk0NjQsLT
-ExMDEwMTQ0NjksMzAyODg5Mjk4LC0xNzM4Njk0NDksLTE0MzA3
-NjAxNTddfQ==
+eyJoaXN0b3J5IjpbMTM1MzQyMTQ1LDE2MzMyNDE3ODAsMTczMj
+Y4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1NjI3MDcy
+LDM3ODgxNjkyMSwtMTYxMDQzMTc5NywtMTYxMDQzMTc5Nyw2Mj
+Y3OTE0MTksMTgyNDEzNzQwNSwxMjAxODgzNTk3LDE5Mjc2NTE1
+OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNTMwOTQ2NCwtMT
+EwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0OSwtMTQzMDc2
+MDE1N119
 -->
