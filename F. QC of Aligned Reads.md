@@ -145,7 +145,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run each BAM file into read_quality using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $SAMPLE -o ${OUT}_${SAMPLE}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $SAMPLE -o $OUT_${SAMPLE}"
 done
 ```
 Can trim bases with phred <30.
@@ -403,11 +403,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3MTA4ODYzMiwtOTk0ODIwNzcyLDE2Mz
-MyNDE3ODAsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0
-NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5NywtMT
-YxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQwNSwxMjAxODgz
-NTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMT
-QwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2
-OTQ0OV19
+eyJoaXN0b3J5IjpbNDg1MTU4MzY0LC05OTQ4MjA3NzIsMTYzMz
+I0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2
+NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNj
+EwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1
+OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxND
+A1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4OTI5OCwtMTczODY5
+NDQ5XX0=
 -->
