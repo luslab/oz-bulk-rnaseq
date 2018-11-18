@@ -120,9 +120,9 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ml RSeQC
 ##NB looking for a way to stop overwriting the output with a for loop - currently inputing each file individually.
 #set BAM input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/SRR5483796
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/
 
 sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
 
@@ -403,11 +403,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTE4MDIzNzgsLTE2NTUwMjk5NzcsNz
-c2MzQ2NDY0LDgxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3
-OTcsLTE2MTA0MzE3OTcsNjI2NzkxNDE5LDE4MjQxMzc0MDUsMT
-IwMTg4MzU5NywxOTI3NjUxNTk4LDI0MDg3MjIxMywxNDA1MzA5
-NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMzAyODg5Mjk4LC
-0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMDc3
-MDE1ODk0XX0=
+eyJoaXN0b3J5IjpbLTc2MjYxMDE4NCwtMTY1NTAyOTk3Nyw3Nz
+YzNDY0NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5
+NywtMTYxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQwNSwxMj
+AxODgzNTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0
+NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLT
+E3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcw
+MTU4OTRdfQ==
 -->
