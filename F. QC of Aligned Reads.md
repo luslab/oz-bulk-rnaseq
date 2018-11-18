@@ -45,11 +45,11 @@ ml R
 
 #set changable elements
 ## set BAM files to read in. list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/SRR5483796_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483796_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/coverage
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/coverage
 #run each BAM file into geneBody coverage
 sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
 ```
@@ -70,9 +70,9 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
 #run each BAM file into tin.py using a For Loop
-for file in $BAM
+for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $file -r $BED"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="tin.py -i $SAMPLE -r $BED"
 done
 ```
 Output is an xls file and a summary txt file (mean; median; SD values across all genes in sample).
@@ -401,11 +401,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OT
-Q4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5
-OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNj
-EwNDMxNzk3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3
-NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMT
-QwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4
-OTI5OF19
+eyJoaXN0b3J5IjpbMjAyMjY0ODM3MiwxNjY4NjMxOTczLC0xMT
+gxNjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYz
+MzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNz
+g4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3OTcsNjI2Nzkx
+NDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5NywxOTI3NjUxNTk4LD
+I0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUzMDk0NjQsLTExMDEw
+MTQ0NjldfQ==
 -->
