@@ -131,12 +131,12 @@ done
 
 # Exit this script on any error.
 set -euo pipefail
-# set the index
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+# set the changeable elements
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/
 
-for SAMPLE in VCP CTRL;
+for SAMPLE in $BAM;
 do
-    for REPLICATE in 1 2 3;
+    for REPLICATE in 1 2 3 4 5 6;
     do
         # Build the name of the files.
         READ1=reads/${SAMPLE}_${REPLICATE}_R1.fq
@@ -421,11 +421,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgwODU1NzQ1LDI0MDg3MjIxMywxNDA1Mz
-A5NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMzAyODg5Mjk4
-LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMD
-c3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0
-NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MC
-wtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2
-NDgzMDY4MzFdfQ==
+eyJoaXN0b3J5IjpbLTE2MjgwMDg4OCwyNDA4NzIyMTMsMTQwNT
+MwOTQ2NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4OTI5
+OCwtMTczODY5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5ODEsMT
+A3NzAxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0
+NDUzNzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OT
+AsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0x
+NjQ4MzA2ODMxXX0=
 -->
