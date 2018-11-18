@@ -139,13 +139,11 @@ do
     for REPLICATE in 1 2 3 4 5 6;
     do
         # Build the name of the files.
-        BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/${SAMPLE}_${REPLICATE}.bam
+        OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/${SAMPLE}_${REPLICATE}.bam
 
         echo "Running read_NVC on $SAMPLE"
         # Run the aligner.
-        STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic
-        # Index each BAM file as they are produced
-        samtools index $BAM
+        sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o $OUT"
     done
 done
 ```
@@ -420,11 +418,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMTg1NDUxODYsMjQwODcyMjEzLDE0MD
-UzMDk0NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODky
-OTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLD
-EwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTky
-NDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyOD
-kwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwt
-MTY0ODMwNjgzMV19
+eyJoaXN0b3J5IjpbMTk0MDYyNDYzLDI0MDg3MjIxMywxNDA1Mz
+A5NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMzAyODg5Mjk4
+LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMD
+c3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0
+NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MC
+wtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2
+NDgzMDY4MzFdfQ==
 -->
