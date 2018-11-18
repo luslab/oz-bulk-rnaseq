@@ -124,9 +124,9 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
-for sample in $BAM
+for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o ${OUT}_${sample}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}_${SAMPLE}"
 done
 ```
 
@@ -400,11 +400,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzczNDU0NTcsMTYzMzI0MTc4MCwxNz
-MyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2Mjcw
-NzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNzk3LD
-YyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTkyNzY1
-MTU5OCwyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxNDA1MzA5NDY0LC
-0xMTAxMDE0NDY5LDMwMjg4OTI5OCwtMTczODY5NDQ5LC0xNDMw
-NzYwMTU3XX0=
+eyJoaXN0b3J5IjpbODc3MDIwNDk1LDE2MzMyNDE3ODAsMTczMj
+Y4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1NjI3MDcy
+LDM3ODgxNjkyMSwtMTYxMDQzMTc5NywtMTYxMDQzMTc5Nyw2Mj
+Y3OTE0MTksMTgyNDEzNzQwNSwxMjAxODgzNTk3LDE5Mjc2NTE1
+OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNTMwOTQ2NCwtMT
+EwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0OSwtMTQzMDc2
+MDE1N119
 -->
