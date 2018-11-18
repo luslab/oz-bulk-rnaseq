@@ -78,21 +78,18 @@ done
 Output is an xls file and a summary txt file (mean; median; SD values across all genes in sample).
 Visualise TIN as boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
 ```R
+## Compare the distribution of mRIN (= TIN) values across different samples
+
 # Check the local working directory in Rstudio
 getwd()
 #move the tin.xls files from CAMP to this local working directory. 
-#run the Rscript from 
-#ensure the tin.xls files
-the script as mRIN.r in relevant directory https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R
-#set TIN input
-TIN=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/*.tin.xls
-#run this script on each tin.xls file in the terminal
-for file in $TIN
-do
-	cat $file | Rscript mRIN.r > $file.r
-done
+#run the Rscript on the xls files from https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R
+#This script will result in boxplots based on mRIN values calculated by## RSeQC
 
-#open graphs in Rstudio
+## read in the RSeQC results
+# list the respective files
+TIN.files <- list.files(pattern = "xls") 
+# lapply will iterate over the list of file names in TIN.files, read the respective# tables and return a list of data frames where each data frame corresponds to # one of the original xls tablesTIN.list <- lapply(TIN.files, function(x) read.table(x, header = TRUE)[c("geneID", "TIN")]) # to give meaningful names to each data frame, we can use regex on the file names# the regex will have to be adjusted if you use different filesnames(TIN.list) <- gsub("UHR-(.*)_Aligned.*", "\\1", TIN.files) # make a long data frame that is suitable for ggplot2 plottingTIN.df <- as.data.frame(do.call(rbind, TIN.list)) # add a column that indicates the sample type for each gene ID and TIN value,# here, I use the information from the original data frame's name in the TIN.list# which is kept in the row.names of TIN.dfTIN.df$sample <- gsub("\\.[0-9]+", "", row.names(TIN.df)) # make the boxplotslibrary(ggplot2)ggplot(data = TIN.df, aes(x = sample, y = TIN)) + geom_boxplot(notch=TRUE) # excluding genes with TIN = 0, which are most likely due to lack of read coverageggplot(data = subset(TIN.df, TIN > 0), aes(x = sample, y = TIN)) + geom_boxplot(notch=TRUE) + theme_bw(base_size = 14) + ggtitle("relationship between mRIN (=TIN) and the experimentally determined RIN")
 ```
 
 ## Assess Nucleotide Content
@@ -386,11 +383,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2ODgxNjEwMCwtMTEwMTAxNDQ2OSwzMD
-I4ODkyOTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkx
-OTgxLDEwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MD
-csMTkyNDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQw
-NTAyODkwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3OD
-Q1MCwtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwy
-MTA3ODIyMzg0XX0=
+eyJoaXN0b3J5IjpbLTE3NTkzNTU4NzAsLTExMDEwMTQ0NjksMz
+AyODg5Mjk4LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5
+MTk4MSwxMDc3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0Nz
+A3LDE5MjQ0NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0
+MDUwMjg5MCwtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nz
+g0NTAsLTE2NDgzMDY4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAs
+MjEwNzgyMjM4NF19
 -->
