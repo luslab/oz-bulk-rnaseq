@@ -302,9 +302,9 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/QoRTs
 
 #run QoRTs command for each BAM file using a For Loop
-for file in $BAM
+for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $file $GTF $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SAMPLE}"
 done
 ```
 
@@ -403,7 +403,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4Njg2NzU5MSwxNjMzMjQxNzgwLDE3Mz
+eyJoaXN0b3J5IjpbLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3Mz
 I2ODYzMzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3
 MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3OTcsNj
 I2NzkxNDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5NywxOTI3NjUx
