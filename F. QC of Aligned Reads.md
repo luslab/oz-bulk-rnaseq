@@ -94,7 +94,19 @@ TIN.list <- lapply(TIN.files, function(x) read.table(x, header = TRUE)[c("geneID
 names(TIN.list) <- gsub("UHR-(.*)_Aligned.*", "\\1", TIN.files) 
 # make a long data frame that is suitable for ggplot2 plotting
 TIN.df <- as.data.frame(do.call(rbind, TIN.list)) 
-# add a column that indicates the sample type for each gene ID and TIN value,here, I use the information from the original data frame's name in the TIN.list# which is kept in the row.names of TIN.dfTIN.df$sample <- gsub("\\.[0-9]+", "", row.names(TIN.df)) # make the boxplotslibrary(ggplot2)ggplot(data = TIN.df, aes(x = sample, y = TIN)) + geom_boxplot(notch=TRUE) # excluding genes with TIN = 0, which are most likely due to lack of read coverageggplot(data = subset(TIN.df, TIN > 0), aes(x = sample, y = TIN)) + geom_boxplot(notch=TRUE) + theme_bw(base_size = 14) + ggtitle("relationship between mRIN (=TIN) and the experimentally determined RIN")
+# add a column that indicates the sample type for each gene ID and TIN value,here, I use the information from the original data frame's name in the TIN.list which is kept in the row.names of TIN.df
+TIN.df$sample <- gsub("\\.[0-9]+", "", row.names(TIN.df)) 
+# make the boxplots
+library(ggplot2)
+ggplot(data = TIN.df, aes(x = sample, y = TIN)) + geom_boxplot(notch=TRUE) 
+# excluding genes with TIN = 0, which are most likely due to lack of read coverage
+ggplot(data = subset(TIN.df, TIN > 0), aes(x = sample, y = TIN)) +
+	geom_boxplot(notch=TRUE) + 
+	theme_bw(base_size = 12) + 
+	ggtitle("relationship between mRIN (=TIN) and the experimentally determined RIN")
+
+#export the file as PDF landscape
+#move all files back to CAMP
 ```
 
 ## Assess Nucleotide Content
@@ -388,11 +400,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI0NjYzNDE2LC0xMTAxMDE0NDY5LDMwMj
-g4OTI5OCwtMTczODY5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5
-ODEsMTA3NzAxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNy
-wxOTI0NDUzNzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1
-MDI4OTAsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4ND
-UwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIx
-MDc4MjIzODRdfQ==
+eyJoaXN0b3J5IjpbLTM4OTQ4ODAxOSwtMTEwMTAxNDQ2OSwzMD
+I4ODkyOTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkx
+OTgxLDEwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MD
+csMTkyNDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQw
+NTAyODkwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3OD
+Q1MCwtMTY0ODMwNjgzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwy
+MTA3ODIyMzg0XX0=
 -->
