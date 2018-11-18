@@ -337,6 +337,11 @@ RNA specific QC:
 `ml multiqc`
 `multiqc /home/camp/ziffo/working/oliver/projects/rna_seq_worksheet/QC_collection --dirs --ignore ERR* --filename multiqc_align`
 
+`ml multiqc`
+run `multiqc` within the `alignment_QC` folder
+Go to the folder with the aligned QC files in and simply run: `multiqc .`
+Compare this new Trimmed MultiQC HTML report with the report on the Raw FastQC prior to trimming.
+
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 # Alignment Assessments
@@ -403,11 +408,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2Mz
-MyNDE3ODAsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0
-NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5NywtMT
-YxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQwNSwxMjAxODgz
-NTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMT
-QwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2
-OTQ0OV19
+eyJoaXN0b3J5IjpbMTI0NTU5NDk3NCwtMTE4MTY0NzU2LC05OT
+Q4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5
+OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNj
+EwNDMxNzk3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3
+NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMT
+QwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4
+OTI5OF19
 -->
