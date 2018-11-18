@@ -124,11 +124,12 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Align
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
-for file in $BAM
+for sample in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o $sample"
 done
 
+geneBody_coverage.py -i <sample>.star.Aligned.out.bam -f 'png' -r /ref/data/root/human/ref-build/rseqc/HouseKeepingGenes.bed -o <sample>
 
 # Exit this script on any error.
 set -euo pipefail
@@ -419,11 +420,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNj
-EwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1
-OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxND
-A1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4OTI5OCwtMTczODY5
-NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5ODEsMTA3NzAxNTg5NC
-wtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUzNzM0LC05
-OTY0NzE1ODldfQ==
+eyJoaXN0b3J5IjpbLTMxNDIzNzA4LDM3ODgxNjkyMSwtMTYxMD
+QzMTc5NywtMTYxMDQzMTc5Nyw2MjY3OTE0MTksMTgyNDEzNzQw
+NSwxMjAxODgzNTk3LDE5Mjc2NTE1OTgsMjQwODcyMjEzLDE0MD
+UzMDk0NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODky
+OTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLD
+EwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTky
+NDQ1MzczNF19
 -->
