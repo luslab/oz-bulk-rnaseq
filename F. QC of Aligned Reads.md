@@ -139,7 +139,7 @@ do
     for REPLICATE in 88 89 90 94 95 96;
     do
         # Build the name of the files.
-        OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/${SAMPLE}_${REPLICATE}.bam
+        OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/${SAMPLE}_${REPLICATE}
 
         echo "Running read_NVC on $SAMPLE"
         # Run the aligner.
@@ -418,7 +418,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDg2NzE5NTQsMjQwODcyMjEzLDE0MD
+eyJoaXN0b3J5IjpbLTIwMzkxNzk0NDIsMjQwODcyMjEzLDE0MD
 UzMDk0NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODky
 OTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLD
 EwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTky
