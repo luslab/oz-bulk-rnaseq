@@ -65,7 +65,7 @@ Determine a measure of mRNA degradation in silico using RSeQCs tin.py script to 
 - TIN 0 (worst) - 100 (best). TIN 60 = 60% of transcript has been covered.
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
@@ -119,9 +119,9 @@ To address this you can trim the first 10 bases of all reads. Then re-perform al
 ```bash
 ml RSeQCmv 
 #set BAM input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/nucleotide_content
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/nucleotide_content
 
 #run read_NVC command on each BAM file using a For Loop
 for SAMPLE in $BAM
@@ -138,9 +138,9 @@ Accepted quality is Phred > 30
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/quality
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/quality
 
 #run each BAM file into read_quality using a For Loop
 for SAMPLE in $BAM
@@ -161,9 +161,9 @@ A good sample will have the inflexion point low down (i.e. less reads with dupli
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/duplication
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/duplication
 
 #run each BAM file into read_duplication using a For Loop
 for SAMPLE in $BAM
@@ -180,11 +180,11 @@ Crucial to ensure there is adequate depth to perform alternative splicing analys
 ![enter image description here](http://rseqc.sourceforge.net/_images/junction_saturation.png)
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/sequencing_depth
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/sequencing_depth
 
 #run each BAM file into junction_saturation using a For Loop
 for SAMPLE in $BAM
@@ -206,7 +206,7 @@ The distribution will depend on the library preparation protocol selected.
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 
@@ -267,7 +267,7 @@ stitched SE read     --------------------------------------->
 
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set output path & prefix
@@ -401,7 +401,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMjY0ODM3MiwxNjY4NjMxOTczLC0xMT
+eyJoaXN0b3J5IjpbMTE5NzE2NjE4MSwxNjY4NjMxOTczLC0xMT
 gxNjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYz
 MzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNz
 g4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3OTcsNjI2Nzkx
