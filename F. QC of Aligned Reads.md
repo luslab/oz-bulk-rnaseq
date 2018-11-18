@@ -56,8 +56,7 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
 ## Estimate TIN
-Evaluate RNA integrity at transcript level (transcript integrity number) - analogous to to RIN. Measure of RNA quality.
-TIN 
+Evaluate RNA integrity at transcript level (transcript integrity number) - analogous to to RIN. Measure of RNA quality. TIN range from 0 (worse) to 100 (best).
 
 ![enter image description here](https://www.researchgate.net/profile/Benjamin_Sigurgeirsson/publication/260841079/figure/fig5/AS:296675668185106@1447744400111/Gene-body-coverage-on-average-for-each-group-Both-RIN-10-and-RiboMinus-show-even.png)
 Colours represent different RIN values (RIN 0 = degraded; RIN 9 = high quality). The RIN 0 line (degraded RNA) shows more 3' bias.
@@ -378,11 +377,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTI0NDk3MjYsMzAyODg5Mjk4LC0xNz
-M4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMDc3MDE1
-ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0NTM3Mz
-QsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MCwtMTc1
-MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2NDgzMD
-Y4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMjM4NCwx
-MzAzNjc4MzE1XX0=
+eyJoaXN0b3J5IjpbMTA3NzA3MTgzNywzMDI4ODkyOTgsLTE3Mz
+g2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4
+OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNC
+wtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUw
+OTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNj
+gzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEz
+MDM2NzgzMTVdfQ==
 -->
