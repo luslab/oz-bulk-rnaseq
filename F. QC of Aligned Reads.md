@@ -126,7 +126,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignme
 #run read_NVC command on each BAM file using a For Loop
 for file in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT >>nucleotide"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT >>nucleotide_content"
 done
 
 # Exit this script on any error.
@@ -418,7 +418,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNDI0MzAxNywxMjAxODgzNTk3LDE5Mj
+eyJoaXN0b3J5IjpbMTgyNDEzNzQwNSwxMjAxODgzNTk3LDE5Mj
 c2NTE1OTgsMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNTMwOTQ2
 NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0OSwtMT
 QzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4OTQsLTE1MjQy
