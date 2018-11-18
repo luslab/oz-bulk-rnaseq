@@ -128,6 +128,27 @@ for file in $BAM
 do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $file -o $OUT"
 done
+
+# Exit this script on any error.
+set -euo pipefail
+# set the index
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+
+for SAMPLE in VCP CTRL;
+do
+    for REPLICATE in 1 2 3;
+    do
+        # Build the name of the files.
+        READ1=reads/${SAMPLE}_${REPLICATE}_R1.fq
+        BAM=bam/${SAMPLE}_${REPLICATE}.bam
+
+        echo "Running STAR on $SAMPLE"
+        # Run the aligner.
+        STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic
+        # Index each BAM file as they are produced
+        samtools index $BAM
+    done
+done
 ```
 
 ## Assess Quality
@@ -400,11 +421,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQwODcyMjEzLDE0MDUzMDk0NjQsMTQwNT
-MwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODkyOTgsLTE3Mzg2OTQ0
-OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4OTQsLT
-E1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNCwtOTk2
-NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUwOTQzOD
-Y5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNjgzMSw2
-MTMwOTc3MzZdfQ==
+eyJoaXN0b3J5IjpbOTgwODU1NzQ1LDI0MDg3MjIxMywxNDA1Mz
+A5NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMzAyODg5Mjk4
+LC0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMD
+c3MDE1ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0
+NTM3MzQsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MC
+wtMTc1MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2
+NDgzMDY4MzFdfQ==
 -->
