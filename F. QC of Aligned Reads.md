@@ -129,7 +129,7 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $BAM -o $OUT"
 #run read_NVC command on each BAM file using a For Loop
 for sample in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o $OUT"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $sample -o $OUT_$SAMPLE"
 done
 ```
 
@@ -403,11 +403,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNT
-YyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0MzE3
-OTcsNjI2NzkxNDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5NywxOT
-I3NjUxNTk4LDI0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUzMDk0
-NjQsLTExMDEwMTQ0NjksMzAyODg5Mjk4LC0xNzM4Njk0NDksLT
-E0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMDc3MDE1ODk0LC0xNTI0
-Mjg5NTkwXX0=
+eyJoaXN0b3J5IjpbLTE1OTE4MDIzNzgsLTE2NTUwMjk5NzcsNz
+c2MzQ2NDY0LDgxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3
+OTcsLTE2MTA0MzE3OTcsNjI2NzkxNDE5LDE4MjQxMzc0MDUsMT
+IwMTg4MzU5NywxOTI3NjUxNTk4LDI0MDg3MjIxMywxNDA1MzA5
+NDY0LDE0MDUzMDk0NjQsLTExMDEwMTQ0NjksMzAyODg5Mjk4LC
+0xNzM4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMDc3
+MDE1ODk0XX0=
 -->
