@@ -79,8 +79,12 @@ Output is an xls file and a summary txt file (mean; median; SD values across all
 Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
 ```bash
 #save the script as mRIN.r in relevant directory https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R
+#set TIN input
+TIN=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/*.tin.xls
 #run this script in the terminal
-cat *tin.xls | Rscript mRIN.r > RIN.out.r
+for file in $TIN
+cat 
+	tin.xls | Rscript mRIN.r > RIN.out.r
 
 #open graphs in Rstudio
 ```
@@ -376,11 +380,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NTA5NDIwNywzMDI4ODkyOTgsLTE3Mz
-g2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLDEwNzcwMTU4
-OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTkyNDQ1MzczNC
-wtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyODkwLC0xNzUw
-OTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwtMTY0ODMwNj
-gzMSw2MTMwOTc3MzYsMTQ3NDIxNjQ0MCwyMTA3ODIyMzg0LDEz
-MDM2NzgzMTVdfQ==
+eyJoaXN0b3J5IjpbMjQwMDc5ODI1LDMwMjg4OTI5OCwtMTczOD
+Y5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5ODEsMTA3NzAxNTg5
+NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUzNzM0LC
+05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLTE3NTA5
+NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4MzA2OD
+MxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzODQsMTMw
+MzY3ODMxNV19
 -->
