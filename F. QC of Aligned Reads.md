@@ -81,10 +81,11 @@ Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq
 #save the script as mRIN.r in relevant directory https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R
 #set TIN input
 TIN=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/*.tin.xls
-#run this script in the terminal
+#run this script on each tin.xls file in the terminal
 for file in $TIN
-cat 
-	tin.xls | Rscript mRIN.r > RIN.out.r
+do
+	cat $file | Rscript mRIN.r > $file.r
+done
 
 #open graphs in Rstudio
 ```
@@ -380,11 +381,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQwMDc5ODI1LDMwMjg4OTI5OCwtMTczOD
-Y5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5ODEsMTA3NzAxNTg5
-NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0NDUzNzM0LC
-05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OTAsLTE3NTA5
-NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0xNjQ4MzA2OD
-MxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIxMDc4MjIzODQsMTMw
-MzY3ODMxNV19
+eyJoaXN0b3J5IjpbLTExMDEwMTQ0NjksMzAyODg5Mjk4LC0xNz
+M4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMDc3MDE1
+ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0NTM3Mz
+QsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MCwtMTc1
+MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2NDgzMD
+Y4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMjM4NCwx
+MzAzNjc4MzE1XX0=
 -->
