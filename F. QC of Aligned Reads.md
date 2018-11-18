@@ -76,9 +76,9 @@ do
 done
 ```
 Output is an xls file and a summary txt file (mean; median; SD values across all genes in sample).
-Visualise TIN in boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
+Visualise TIN as boxplots in [Rstudio](https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R) using ggplot
 ```bash
-#save the script as mRIN.r in relevant directory https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R
+#move the tin.xls files from CAMP to local working directory. Ch the script as mRIN.r in relevant directory https://github.com/friedue/course_RNA-seq2015/blob/master/03_mRIN.R
 #set TIN input
 TIN=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/alignment_QC/*.tin.xls
 #run this script on each tin.xls file in the terminal
@@ -381,11 +381,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDEwMTQ0NjksMzAyODg5Mjk4LC0xNz
-M4Njk0NDksLTE0MzA3NjAxNTcsMTg5NzE5MTk4MSwxMDc3MDE1
-ODk0LC0xNTI0Mjg5NTkwLC0xNTAwNTU0NzA3LDE5MjQ0NTM3Mz
-QsLTk5NjQ3MTU4OSwtNzUwODgyNTQyLDI0MDUwMjg5MCwtMTc1
-MDk0Mzg2OSwxOTUzOTk3NzgxLC00NjA5Nzg0NTAsLTE2NDgzMD
-Y4MzEsNjEzMDk3NzM2LDE0NzQyMTY0NDAsMjEwNzgyMjM4NCwx
-MzAzNjc4MzE1XX0=
+eyJoaXN0b3J5IjpbNzM3NjUwNjU4LC0xMTAxMDE0NDY5LDMwMj
+g4OTI5OCwtMTczODY5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5
+ODEsMTA3NzAxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNy
+wxOTI0NDUzNzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1
+MDI4OTAsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4ND
+UwLC0xNjQ4MzA2ODMxLDYxMzA5NzczNiwxNDc0MjE2NDQwLDIx
+MDc4MjIzODRdfQ==
 -->
