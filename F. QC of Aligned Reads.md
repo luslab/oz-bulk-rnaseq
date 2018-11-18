@@ -139,10 +139,9 @@ do
     for REPLICATE in 1 2 3 4 5 6;
     do
         # Build the name of the files.
-        READ1=reads/${SAMPLE}_${REPLICATE}_R1.fq
-        BAM=bam/${SAMPLE}_${REPLICATE}.bam
+        BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/${SAMPLE}_${REPLICATE}.bam
 
-        echo "Running STAR on $SAMPLE"
+        echo "Running read_NVC on $SAMPLE"
         # Run the aligner.
         STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic
         # Index each BAM file as they are produced
@@ -421,11 +420,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjgwMDg4OCwyNDA4NzIyMTMsMTQwNT
-MwOTQ2NCwxNDA1MzA5NDY0LC0xMTAxMDE0NDY5LDMwMjg4OTI5
-OCwtMTczODY5NDQ5LC0xNDMwNzYwMTU3LDE4OTcxOTE5ODEsMT
-A3NzAxNTg5NCwtMTUyNDI4OTU5MCwtMTUwMDU1NDcwNywxOTI0
-NDUzNzM0LC05OTY0NzE1ODksLTc1MDg4MjU0MiwyNDA1MDI4OT
-AsLTE3NTA5NDM4NjksMTk1Mzk5Nzc4MSwtNDYwOTc4NDUwLC0x
-NjQ4MzA2ODMxXX0=
+eyJoaXN0b3J5IjpbLTIxMTg1NDUxODYsMjQwODcyMjEzLDE0MD
+UzMDk0NjQsMTQwNTMwOTQ2NCwtMTEwMTAxNDQ2OSwzMDI4ODky
+OTgsLTE3Mzg2OTQ0OSwtMTQzMDc2MDE1NywxODk3MTkxOTgxLD
+EwNzcwMTU4OTQsLTE1MjQyODk1OTAsLTE1MDA1NTQ3MDcsMTky
+NDQ1MzczNCwtOTk2NDcxNTg5LC03NTA4ODI1NDIsMjQwNTAyOD
+kwLC0xNzUwOTQzODY5LDE5NTM5OTc3ODEsLTQ2MDk3ODQ1MCwt
+MTY0ODMwNjgzMV19
 -->
