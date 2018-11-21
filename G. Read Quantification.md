@@ -2,19 +2,19 @@
 We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
 Different ways to quantify mRNA abundances of known genes and transcripts:
-1.  RPKM/FPKM: Reads/Fragments per kilobase of transcript per millions of read mapped.
+1.  FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped.
 2.  Raw Counts: The number of reads overlapping with a transcript.
 
-Where as IGV is used as an intial glance at quantifying expression, these methods objectively quantify gene expression.
+Where as IGV is used as an initial glance at quantifying expression, these methods objectively quantify gene expression.
 
-## FPKM (RPKM)
+## FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads
 
 Transcript expression is proportional to the number of cDNA fragments that originate from it. However:
 - fragment number is biased towards larger genes
-- total fragment number is related to total library sequencing depth
+- total fragment number is related to total library sequencing depth (number of lanes, multiplex reads) 
 
-FPKM attempts to normalise for gene size & library depth
+FPKM normalises for gene size & library depth using:
 
 **FPKM = (10^9^ * C ) / (N * L)**
 
@@ -87,6 +87,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MDMyNDY2MCw2MDQ2MDA0NTUsMTU3ND
-E4ODE1NCwtNjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbMTI0NzgxNzg1LDYwNDYwMDQ1NSwxNTc0MT
+g4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
