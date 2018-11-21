@@ -2,10 +2,16 @@
 We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
 Different ways to quantify mRNA abundances of known genes and transcripts:
-1.  Raw Counts: The number of reads overlapping with a transcript.
-2.  RPKM/FPKM: Reads/Fragments per kilobase of transcript per millions of read mapped.
+1.  RPKM/FPKM: Reads/Fragments per kilobase of transcript per millions of read mapped.
+2.  Raw Counts: The number of reads overlapping with a transcript.
 
 Where as IGV is used as an intial glance at quantifying expression, these methods objectively quantify gene expression.
+
+## FPKM (RPKM)
+Reads per kilobase of transcript per million mapped reads
+Fragments per kilbase of transcript per million mapped reads
+
+The 
 
 ## Gene-based read counting
 - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
@@ -71,6 +77,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0Nj
-Y5NDQ5NF19
+eyJoaXN0b3J5IjpbLTUyNTA1MDQzNiw2MDQ2MDA0NTUsMTU3ND
+E4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
