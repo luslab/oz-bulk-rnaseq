@@ -7,8 +7,6 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 
 Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.
 
-Tools:
-Cuff
 
 ## FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
@@ -24,7 +22,6 @@ FPKM normalises for gene size & library depth using:
 C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
-
 
 ## Gene-based read counting
 - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
@@ -44,9 +41,13 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 ## Tools to count reads
 
+- [cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/)
 - [htseq-count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) has 3 modes union, intersection strict, and intersection nonempty (image above). 
 - `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
 - `QoRTs` also does counting - Nobby uses this.
+
+
+
 
 ## featureCounts Workflow
 ml Subread
@@ -90,6 +91,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg1NTk3NjY4LDYwNDYwMDQ1NSwxNTc0MT
-g4MTU0LC02NDY2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbNzM1ODM3MDgsNjA0NjAwNDU1LDE1NzQxOD
+gxNTQsLTY0NjY5NDQ5NF19
 -->
