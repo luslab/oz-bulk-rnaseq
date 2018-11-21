@@ -47,7 +47,9 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 - `QoRTs` also does counting - Nobby uses this.
 
 
+## Cufflinks
 
+Overlapping bundles of fragment are assembled > Fragments are connected in an overlap graph > Transcript isoforms are inferred from the minimum paths required to cover the graph > abundance of each isoform is estimated w
 
 ## featureCounts Workflow
 ml Subread
@@ -91,6 +93,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM1ODM3MDgsNjA0NjAwNDU1LDE1NzQxOD
-gxNTQsLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbMTU1ODI2Nzk3OCw2MDQ2MDA0NTUsMTU3ND
+E4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
