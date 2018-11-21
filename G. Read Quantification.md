@@ -49,7 +49,9 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 ## Cufflinks
 
-Overlapping bundles of fragment are assembled > Fragments are connected in an overlap graph > Transcript isoforms are inferred from the minimum paths required to cover the graph > abundance of each isoform is estimated w
+Overlapping bundles of fragment are assembled > Fragments are connected in an overlap graph > Transcript isoforms are inferred from the minimum paths required to cover the graph > abundance of each isoform is estimated with a maximum lieklihood probabilstic model
+
+
 
 ## featureCounts Workflow
 ml Subread
@@ -93,6 +95,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1ODI2Nzk3OCw2MDQ2MDA0NTUsMTU3ND
+eyJoaXN0b3J5IjpbMjA5ODc0Mzk1Myw2MDQ2MDA0NTUsMTU3ND
 E4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
