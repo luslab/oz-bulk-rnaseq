@@ -1,8 +1,8 @@
 > # Read Quantification
 We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
-Different ways to quantify mRNA abundances:
-1.  Counts: The number of reads overlapping with a transcript.
+Different ways to quantify mRNA abundances of known genes and transcripts:
+1.  Raw Counts: The number of reads overlapping with a transcript.
 2.  RPKM/FPKM: Reads/Fragments per kilobase of transcript per millions of read mapped.
 3.  TPM: Transcripts per million
 
@@ -70,5 +70,5 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
