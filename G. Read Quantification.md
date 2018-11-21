@@ -8,10 +8,12 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 Where as IGV is used as an intial glance at quantifying expression, these methods objectively quantify gene expression.
 
 ## FPKM (RPKM)
-Reads per kilobase of transcript per million mapped reads
-Fragments per kilbase of transcript per million mapped reads
+Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads
 
-The 
+Transcript expression is proportional to the number of cDNA fragments that originate from it. However:
+- fragment number is biased towards larger genes
+- total fragment number is related to total library sequencing depth
+FPKM attempts to normalise f
 
 ## Gene-based read counting
 - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
@@ -77,6 +79,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNTA1MDQzNiw2MDQ2MDA0NTUsMTU3ND
+eyJoaXN0b3J5IjpbLTMwMDg0ODcwOCw2MDQ2MDA0NTUsMTU3ND
 E4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
