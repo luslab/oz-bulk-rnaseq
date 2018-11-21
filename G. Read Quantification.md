@@ -1,3 +1,5 @@
+7.07mins  https://www.youtube.com/watch?v=jK4MJU4bFo8&index=4&list=PL3izGL6oi0S-bCqt0qIJVZy7Y6IVZ1om0
+
 > # Read Quantification
 We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
@@ -51,7 +53,7 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 Overlapping bundles of fragment are assembled > Fragments are connected in an overlap graph > Transcript isoforms are inferred from the minimum paths required to cover the graph > abundance of each isoform is estimated with a maximum lieklihood probabilstic model
 
-
+![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
 
 ## featureCounts Workflow
 ml Subread
@@ -95,6 +97,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5ODc0Mzk1Myw2MDQ2MDA0NTUsMTU3ND
-E4ODE1NCwtNjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MT
+g4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
