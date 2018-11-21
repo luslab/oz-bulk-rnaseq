@@ -7,8 +7,11 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 
 Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.
 
+Tools:
+Cuff
+
 ## FPKM
-Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (where individual reads are not 
+Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
 
 Transcript expression is proportional to the number of cDNA fragments that originate from it. However:
 - fragment number is biased towards larger genes
@@ -20,7 +23,7 @@ FPKM normalises for gene size & library depth using:
 
 C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
-L = number of base pairs in the gene/transcript/exon etc
+L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
 
 ## Gene-based read counting
@@ -87,6 +90,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NjE5ODAzLDYwNDYwMDQ1NSwxNTc0MT
+eyJoaXN0b3J5IjpbOTg1NTk3NjY4LDYwNDYwMDQ1NSwxNTc0MT
 g4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
