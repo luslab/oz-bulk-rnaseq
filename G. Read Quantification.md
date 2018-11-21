@@ -5,10 +5,10 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 1.  FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped.
 2.  Raw Counts: The number of reads overlapping with a transcript.
 
-Where as IGV is used as an initial glance at quantifying expression, these methods objectively quantify gene expression.
+Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.
 
 ## FPKM
-Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads
+Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (where individual reads are not 
 
 Transcript expression is proportional to the number of cDNA fragments that originate from it. However:
 - fragment number is biased towards larger genes
@@ -87,6 +87,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NzgxNzg1LDYwNDYwMDQ1NSwxNTc0MT
+eyJoaXN0b3J5IjpbMTQ4NjE5ODAzLDYwNDYwMDQ1NSwxNTc0MT
 g4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
