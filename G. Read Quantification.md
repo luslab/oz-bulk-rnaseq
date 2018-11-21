@@ -16,7 +16,11 @@ Transcript expression is proportional to the number of cDNA fragments that origi
 
 FPKM attempts to normalise for gene size & library depth
 
-FPKM = (10 ^ 9 * C ) / (N * L)
+**FPKM = (10^9^ * C ) / (N * L)**
+
+C = number of mappable reads (fragments) for gene/transcript/exon etc
+N = total number of mappable reads in the library
+L = number of base pairs in the gene/transcript/exon etc
 
 
 ## Gene-based read counting
@@ -83,6 +87,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4MjA5Nzc4NCw2MDQ2MDA0NTUsMTU3ND
+eyJoaXN0b3J5IjpbMTY3MDMyNDY2MCw2MDQ2MDA0NTUsMTU3ND
 E4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
