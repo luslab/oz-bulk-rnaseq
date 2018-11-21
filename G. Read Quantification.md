@@ -6,6 +6,8 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 2.  RPKM/FPKM: Reads/Fragments per kilobase of transcript per millions of read mapped.
 3.  TPM: Transcripts per million
 
+These methods formalise 
+
 ## Gene-based read counting
 - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
 - Essentially you are **counting the number of overlapping reads**
@@ -70,5 +72,6 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbMTc0OTU4MjUxOSwxNTc0MTg4MTU0LC02ND
+Y2OTQ0OTRdfQ==
 -->
