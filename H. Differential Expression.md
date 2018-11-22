@@ -135,11 +135,12 @@ cat diffgenes.txt | wc -l
 
 ## DSeq2 process
 
-1. load magrittr in R & DSeq2:
-`library(magrittr)`
-`library(DESeq2)`
-2. get table of read counts:
-`read.counts = read.table("featureCounts_results.txt", header = TRUE)` 
+```R
+# load magrittr in R & DSeq2
+library(magrittr)
+library(DESeq2)
+# get table of read counts
+read.counts = read.table("featureCounts_results.txt", header = TRUE) 
 3. store gene IDs as row.names:
 `row.names(read.counts) = readcounts$Geneid`
 4. exclude columns that dont have read counts:
@@ -173,6 +174,9 @@ calculate the size factor and add it to the data set:
 
 Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
 Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
+```
+
+
 
 
 
@@ -334,7 +338,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUxNDI1OTU5LC0xOTI3MDEwMzI4LC0zNT
+eyJoaXN0b3J5IjpbNDMzODAzNTU0LC0xOTI3MDEwMzI4LC0zNT
 k2MDU2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQy
 MzMsLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLD
 I0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4
