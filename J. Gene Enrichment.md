@@ -77,7 +77,9 @@ To search the function of a gene use the [GeneCards](http://www.genecards.org/) 
 The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
+
+# 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg4NDU3Nzc3LC05NDIwMTQzMCwxNTI4NT
-gxNTkzXX0=
+eyJoaXN0b3J5IjpbLTY1NDI2NTk2OCw0ODg0NTc3NzcsLTk0Mj
+AxNDMwLDE1Mjg1ODE1OTNdfQ==
 -->
