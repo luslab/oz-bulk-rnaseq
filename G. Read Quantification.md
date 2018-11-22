@@ -91,7 +91,7 @@ Create a tidy expression matrix file for StringTie results:
 wget https://raw.githubusercontent.com/griffithlab/rnaseq_tutorial/master/scripts/stringtie_expression_matrix.pl
 chmod +x stringtie_expression_matrix.pl
 
-./stringtie_expression_matrix.pl --expression_metric=TPM --result_dirs='HBR_Rep1,HBR_Rep2,HBR_Rep3,UHR_Rep1,UHR_Rep2,UHR_Rep3' --transcript_matrix_file=transcript_tpm_all_samples.tsv --gene_matrix_file=gene_tpm_all_samples.tsv
+./stringtie_expression_matrix.pl --expression_metric=TPM --result_dirs='SRR5483788,SRR5483789, SRR5483790,SRR5483794,SRR5483795,SRR5483796' --transcript_matrix_file=transcript_tpm_all_samples.tsv --gene_matrix_file=gene_tpm_all_samples.tsv
 
 ./stringtie_expression_matrix.pl --expression_metric=FPKM --result_dirs='HBR_Rep1,HBR_Rep2,HBR_Rep3,UHR_Rep1,UHR_Rep2,UHR_Rep3' --transcript_matrix_file=transcript_fpkm_all_samples.tsv --gene_matrix_file=gene_fpkm_all_samples.tsv
 
@@ -162,7 +162,7 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUxODgyMTA0LC0xODgyNjE3MDY5LDE5Mz
+eyJoaXN0b3J5IjpbMjQ2NDU4NDIzLC0xODgyNjE3MDY5LDE5Mz
 A2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0
 NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMwMDE0OS
 wxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYz
