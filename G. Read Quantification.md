@@ -52,7 +52,7 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 Process:
 Overlapping bundles of fragment are **assembled**
 Fragments are connected in an overlap graph
-Then tries to pin these fragments down to a gene locus in the reference genome. 
+Then tries to pin these fragments down to a gene locus in the reference genome (rather than . 
 Transcript isoforms are inferred from the minimum paths required to cover the graph
 abundance of each isoform is estimated with a maximum likelihood probabilstic model
 
@@ -100,7 +100,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzkxNTE4MzksNjMzOTMwNjA1LC02MT
+eyJoaXN0b3J5IjpbLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MT
 k1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0
 XX0=
 -->
