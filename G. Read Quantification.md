@@ -34,7 +34,7 @@ ml Subread
 mkdir -p featureCounts
 
 #set gene coordinates
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
@@ -153,12 +153,27 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 
 ```bash
 mkdir -p htseq
-BAM=
-GTF=
 OUT=
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+#set output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/
 
-htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $BAM $GTF > $OUT_${SAMPLE}
+for SAMPLE in $BAM
+do
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $BAM $GTF > $OUT_${SAMPLE}.tsv"
+done
+
+# merge results files into a single matrix for use in edgeR
+join SRR5483788_gene.tsv SRR5483789_gene.tsv | join - SRR5483790_gene.tsv | join - SRR5483794_gene.tsv | join - SRR5483795_gene.tsv | join - SRR5483796_gene.tsv > htseq_read_counts_table_all.tsv
+echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
+cat header.txt htseq_read_counts_table_all.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_read_counts_table_all_final.tsv
+rm -f htseq_read_counts_table_all.tsv header.txt
+head htseq_read_counts_table_all_final.tsv
 ```
+
+This output is then analysed using edgeR (see next chapter)
 
 
 
@@ -169,7 +184,7 @@ htseq-count --format bam --order pos --mode intersection-strict --stranded rever
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4ODQ2NTc5MCwtMjc5OTIxMzg1LDE0Mz
+eyJoaXN0b3J5IjpbLTY2MTA5MzEwMCwtMjc5OTIxMzg1LDE0Mz
 Q1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3
 MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LD
 E4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAw
