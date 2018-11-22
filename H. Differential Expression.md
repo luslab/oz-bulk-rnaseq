@@ -47,8 +47,6 @@ For raw expression counts: edgeR
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
-
-
 # DESeq2
 
 DESeq takes either `featureCounts` (raw read counts) or `Kallisto` counts --> read them into R --> normalise for sequencing depth differences
@@ -173,7 +171,13 @@ log.norm.counts = log2(counts.sf_normalized + 1)
 #use a pseudocount of 1
 ```
 
+# edgeR
 
+Input = raw counts from htseq-count
+
+```bash
+
+```
 
 
 
@@ -335,11 +339,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLT
-M1OTYwNTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4
-NDIzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMT
-AsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3
-NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OS
-wtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDcz
-MDMxODU5MV19
+eyJoaXN0b3J5IjpbMjE0NDgwODE2NywtMjAzNjQzMjcwNywtMT
+kyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIx
+NzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzND
+I1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1
+NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOT
+kyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0
+MDIzNTEzNzRdfQ==
 -->
