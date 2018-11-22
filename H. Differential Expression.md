@@ -35,6 +35,10 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DE analysis
 
+For FPKM expression counts:
+
+For raw expression c
+
 DESeq, DESeq2, edgeR, ballgown
 
 `edgeR` (better for false positives, less conservative, recommended if <12 replicates)
@@ -332,11 +336,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjcwMTAzMjgsLTM1OTYwNTYzNiwtMT
-E1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4NDIzMywtMjEyODIy
-MzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgwLD
-E3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5NjU0
-MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5My
-wxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2
-OTY5MDNdfQ==
+eyJoaXN0b3J5IjpbLTcxNDQwNTU4NSwtMTkyNzAxMDMyOCwtMz
+U5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0
+MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMC
+wyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3
+ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5LC
+0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNzMw
+MzE4NTkxXX0=
 -->
