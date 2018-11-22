@@ -236,30 +236,18 @@ detags <- rownames(y)[as.logical(de)]
 # Matrix of significantly DE genes
 mat <- cbind(
 	genes,gene_names,
-
-sprintf('%0.3f',log10(et$table$PValue)),
-
-sprintf('%0.3f',et$table$logFC)
-
+	sprintf('%0.3f',log10(et$table$PValue)),
+	sprintf('%0.3f',et$table$logFC)
 )[as.logical(de),]
-
 colnames(mat) <- c("Gene", "Gene_Name", "Log10_Pvalue", "Log_fold_change")
-
 # Order by log fold change
-
 o <- order(et$table$logFC[as.logical(de)],decreasing=TRUE)
-
 mat <- mat[o,]
-
 # Save table
-
 write.table(mat, file="DE_genes.txt", quote=FALSE, row.names=FALSE, sep="\t")
-
 #To exit R type the following
-
 quit(save="no")
 ```
-
 
 
 # Visualise Differential Expression
@@ -420,7 +408,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0MDU4NjY0MiwtMjAzNjQzMjcwNywtMT
+eyJoaXN0b3J5IjpbMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNywtMT
 kyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIx
 NzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzND
 I1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1
