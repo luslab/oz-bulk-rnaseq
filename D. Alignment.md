@@ -231,7 +231,7 @@ To generate the index in STAR, specify the location of:
 #Set the changable elements
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 
 #Send cmd to generate index as batch job to cluster:
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir $IDX --genomeFastaFiles $REF  --sjdbGTFfile $GTF --sjdbOverhang 59 --runThreadN 8"
@@ -579,10 +579,10 @@ samtools view -H all_bam_files.bam
 samtools index all_bam_files.bam
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MzU3MDEyMSwxODczNDc0Nzk0LDc3NT
-g0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3NjY5
-NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQzNjE4LD
-k5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0xNDc4
-NTYwNDk2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIyMT
-hdfQ==
+eyJoaXN0b3J5IjpbNTIyMTM0MDM4LDE4NzM0NzQ3OTQsNzc1OD
+QwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3
+MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOT
+k4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1
+NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF
+19
 -->
