@@ -178,6 +178,18 @@ Input = raw counts from htseq-count
 ```bash
 mkdir -p edgeR
 #create a mapping file to go from ENSG IDs to Symbols:
+perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($_ =~ /gene_name\s\"(\S+)"\;/) { $name = $1; }; }; if ($id && $name) {print "$id\t$name\n";} if ($_=~/gene_id\s\"(ERCC\S+)\"/){print "$1\t$1\n";}' $RNA_REF_GTF | sort | uniq > ENSG_ID2Name.txt
+head ENSG_ID2Name.txt
+#determine the number of unique Ensembl Gene IDs & symbols
+cut -f 1 ENSG_ID2Name.txt | sort | uniq | wc
+cut -f 2 ENSG_ID2Name.txt | sort | uniq | wc
+cut -f 2 ENSG_ID2Name.txt | sort | uniq -c | sort -r | head
+```
+R script:
+```r
+cut -f 1 ENSG_ID2Name.txt | sort | uniq | wc
+cut -f 2 ENSG_ID2Name.txt | sort | uniq | wc
+cut -f 2 ENSG_ID2Name.txt | sort | uniq -c | sort -r | head
 ```
 
 
@@ -340,7 +352,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NjczMjgxMiwtMjAzNjQzMjcwNywtMT
+eyJoaXN0b3J5IjpbMTAyODY3MTY4OCwtMjAzNjQzMjcwNywtMT
 kyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIx
 NzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzND
 I1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1
