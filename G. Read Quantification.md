@@ -88,7 +88,16 @@ Press 'q' to exit the 'less' display
 
 Create a tidy expression matrix file for StringTie results:
 ```bash
+wget https://raw.githubusercontent.com/griffithlab/rnaseq_tutorial/master/scripts/stringtie_expression_matrix.pl
+chmod +x stringtie_expression_matrix.pl
 
+./stringtie_expression_matrix.pl --expression_metric=TPM --result_dirs='HBR_Rep1,HBR_Rep2,HBR_Rep3,UHR_Rep1,UHR_Rep2,UHR_Rep3' --transcript_matrix_file=transcript_tpm_all_samples.tsv --gene_matrix_file=gene_tpm_all_samples.tsv
+
+./stringtie_expression_matrix.pl --expression_metric=FPKM --result_dirs='HBR_Rep1,HBR_Rep2,HBR_Rep3,UHR_Rep1,UHR_Rep2,UHR_Rep3' --transcript_matrix_file=transcript_fpkm_all_samples.tsv --gene_matrix_file=gene_fpkm_all_samples.tsv
+
+./stringtie_expression_matrix.pl --expression_metric=Coverage --result_dirs='HBR_Rep1,HBR_Rep2,HBR_Rep3,UHR_Rep1,UHR_Rep2,UHR_Rep3' --transcript_matrix_file=transcript_coverage_all_samples.tsv --gene_matrix_file=gene_coverage_all_samples.tsv
+
+head transcript_tpm_all_samples.tsv gene_tpm_all_samples.tsv
 ```
 
 # Raw Counts
@@ -153,10 +162,10 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTQ3MjI3MSwtMTg4MjYxNzA2OSwxOT
-MwNjc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNiwxODk2OTA0
-NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxND
-ksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2
-MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MT
-U0LC02NDY2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbMzUxODgyMTA0LC0xODgyNjE3MDY5LDE5Mz
+A2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0
+NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMwMDE0OS
+wxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYz
+MzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNT
+QsLTY0NjY5NDQ5NF19
 -->
