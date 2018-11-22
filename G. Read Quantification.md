@@ -59,7 +59,9 @@ Process:
 
 ## Cuffmerge
 
- Allows merger of several Cufflinks assemblies together which is required as even with replicaes cufflinks will not necessarily assemble the same numbers & structures of transcripts.
+Allows merger of several Cufflinks assemblies together which is required as even with replicates cufflinks will not necessarily assemble the same numbers & structures of transcripts.
+It filters out a number of transfrags that are likely artifacts.
+Optional to provide a reference GTF to merge novel isoforms & known isoforms to maximse overall assembly quality 
 
 
 ## featureCounts Workflow
@@ -104,7 +106,8 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMD
-cwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1
-ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbMjQ5MTExOTY5LDEwMDkzMDAxNDksMTE0MD
+M3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5MzA2
+MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02ND
+Y2OTQ0OTRdfQ==
 -->
