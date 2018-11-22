@@ -8,7 +8,7 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.  - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
 
 
-## FPKM
+# FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
 
 Transcript expression is proportional to the number of cDNA fragments that originate from it. However:
@@ -24,18 +24,6 @@ N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
 Tool = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/), Cuffmerge, Cuffdiff, Cuffquants, [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
-
-## Raw Counts
-
-Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
-Does not have a step to calculate assembly and different isoforms.
-
-Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
-
-Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR
-
-- `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
-- `QoRTs` also does counting - Nobby uses this.
 
 ## Cufflinks
 
@@ -67,6 +55,18 @@ Automatically generates many of the commonly used data visualisations including:
 - gene/transcript level plots showing transcript structures & expression levels 
 
 Input the output from Cufflinks, Cuffmerge & Cuffdiff
+
+# Raw Counts
+
+Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
+Does not have a step to calculate assembly and different isoforms.
+
+Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
+
+Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR
+
+- `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
+- `QoRTs` also does counting - Nobby uses this.
 
 ## featureCounts Workflow
 ml Subread
@@ -118,8 +118,9 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMT
-kyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAz
-NjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MTk1NzU4OC
-w2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbMTY5MzA0MzQyNiwxODk2OTA0NDY0LC0yMD
+AyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxNDksMTE0MDM3
+MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5MzA2MD
+UsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02NDY2
+OTQ0OTRdfQ==
 -->
