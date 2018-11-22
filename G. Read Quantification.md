@@ -145,7 +145,6 @@ COUNTS=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/
 #run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
 featureCounts -a $GTF -g gene_name -o counts.txt $COUNTS $BAM
 ```
-This script produces 1 txt file per BAM file.
 Using the * wildcard you can list all BAM files into 1 text file.
 
 `featureCounts -a $GTF -g gene_name -o counts.txt /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam`
@@ -172,11 +171,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDMyMzgyMTAsLTI3OTkyMTM4NSwxND
-M0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYx
-NzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNi
-wxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEw
-MDkzMDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NT
-QxNTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwx
-NTc0MTg4MTU0XX0=
+eyJoaXN0b3J5IjpbLTQ3NDA4MzU2LC0yNzk5MjEzODUsMTQzND
+U5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcw
+NjksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMT
+g5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5
+MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MT
+UzODIsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3
+NDE4ODE1NF19
 -->
