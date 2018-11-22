@@ -23,7 +23,7 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
-Tool = Cufflinks
+Tool = Cufflinks, Cuffmerge, Cuffdiff, Cuffquants
 
 ## Raw Counts
 
@@ -32,7 +32,7 @@ Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
-Tool = HTSeq count
+Tool = HTSeq count, DESeq, edgeR
 
 
 ## Gene-based read counting
@@ -132,8 +132,8 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyODA1ODE2MiwxMDA5MzAwMTQ5LDExND
-AzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMw
-NjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNj
-Q2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbLTE5MjY5MDYzOTIsMTAwOTMwMDE0OSwxMT
+QwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkz
+MDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLT
+Y0NjY5NDQ5NF19
 -->
