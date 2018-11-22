@@ -86,6 +86,11 @@ View transcript records & expression values (FPKM):
 ```
 Press 'q' to exit the 'less' display
 
+Create a tidy expression matrix file for StringTie results:
+```bash
+
+```
+
 # Raw Counts
 
 Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
@@ -148,10 +153,10 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxOD
-c3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4
-NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OT
-QsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02
-MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0ND
-k0XX0=
+eyJoaXN0b3J5IjpbLTIzMTQ3MjI3MSwtMTg4MjYxNzA2OSwxOT
+MwNjc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNiwxODk2OTA0
+NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxND
+ksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2
+MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MT
+U0LC02NDY2OTQ0OTRdfQ==
 -->
