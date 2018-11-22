@@ -5,7 +5,8 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 1.  FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped.
 2.  Raw Counts: The number of reads overlapping with a transcript.
 
-Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.
+Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.  - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
+
 
 ## FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
@@ -26,7 +27,7 @@ Tool = Cufflinks, Cuffmerge, Cuffdiff, Cuffquants
 
 ## Raw Counts
 
-Instead of calculating FPKM simply assigned fragments to a defined set of genes/transcripts & determine raw counts.
+Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
 Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
@@ -34,14 +35,7 @@ Use a BAM file & GTF file and assign each read as best as possible to a known ge
 Tool = HTSeq count, DESeq, edgeR
 
 
-## Gene-based read counting
-- To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
-- Essentially you are **counting the number of overlapping reads**
-- Need to clarify:
-	- Overlap size (full read vs partial overlap)
-	- Multi-mapping reads
-	- Reads overlapping multiple genomic features of the same kind
-	- Reads overlapping introns
+
 
 ## Spike-in control
 
@@ -131,8 +125,8 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1ODg4MjE0LC0xOTI2OTA2MzkyLDEwMD
-kzMDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQx
-NTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNT
-c0MTg4MTU0LC02NDY2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbLTQ3MzA2NTE3NCwtMTkyNjkwNjM5MiwxMD
+A5MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0
+MTUzODIsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMT
+U3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
