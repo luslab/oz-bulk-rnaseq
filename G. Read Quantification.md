@@ -58,10 +58,12 @@ Input the output from Cufflinks, Cuffmerge & Cuffdiff
 
 ## StringTie
 
+StringTie [manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+
 ```bash
 mkdir -p stringtie
 
-stringtie -p 8 -G $GTF -e -B -o $GTF -A 
+stringtie -p 8 -G $GTF -e -B -o $GTF -A $TSV $BAM
 ```
 
 # Raw Counts
@@ -126,9 +128,9 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MTYxODEwOSwxNjkzMDQzNDI2LDE4OT
-Y5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMw
-MDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1Mz
-gyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQx
-ODgxNTQsLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbNzIxMDcwNjgyLDE2OTMwNDM0MjYsMTg5Nj
+kwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAw
+MTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzOD
+IsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4
+ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
