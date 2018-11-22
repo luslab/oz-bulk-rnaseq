@@ -163,16 +163,14 @@ counts(DESeq.ds) %>% str
 DESeq.ds = DESeq.ds[rowSums(counts(DESeq.ds)) > 0, ]
 #remove genes without any counts
 colSums(counts(DESeq.ds))` # should be the same as `colSums(readcounts)
-
-DSeq default for normalising for differences in sequencing depths is `estimateSizeFactors`
-calculate the size factor and add it to the data set:
-`DESeq.ds = estimateSizeFactors(DESeq.ds)`
-`sizeFactors(DESeq.ds)`
-`counts ()` allows you to immediately retrieve the normalized read counts:
-`counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)`
-
-# Log Transformation of Sequencing Depth Normalised read counts. Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
-Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
+# DSeq default for normalising for differences in sequencing depths is `estimateSizeFactors` calculate the size factor and add it to the data set:
+DESeq.ds = estimateSizeFactors(DESeq.ds)
+sizeFactors(DESeq.ds)
+# counts ()` allows you to immediately retrieve the normalized read counts
+counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)
+# Log Transformation of Sequencing Depth Normalised read counts. Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*. Log2 transform read counts: 
+log.norm.counts = log2(counts.sf_normalized + 1)
+#use a pseudocount of 1
 ```
 
 
@@ -337,11 +335,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk0MjY4MDI5LC0xOTI3MDEwMzI4LC0zNT
-k2MDU2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQy
-MzMsLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLD
-I0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4
-MDI4NTcsOTY1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLT
-EyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAz
-MTg1OTFdfQ==
+eyJoaXN0b3J5IjpbLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLT
+M1OTYwNTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4
+NDIzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMT
+AsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3
+NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OS
+wtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDcz
+MDMxODU5MV19
 -->
