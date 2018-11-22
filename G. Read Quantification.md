@@ -23,7 +23,7 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
-Tool = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/), Cuffmerge, Cuffdiff, Cuffquants, [Str
+Tool = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/), Cuffmerge, Cuffdiff, Cuffquants, [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 ## Raw Counts
 
@@ -118,8 +118,8 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTcxMDc5MzUzLC0yMDAyOTg0NDQ1LC0xOT
-I2OTA2MzkyLDEwMDkzMDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2
-MDYwNywtMTc5NTQxNTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LD
-YwNDYwMDQ1NSwxNTc0MTg4MTU0LC02NDY2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMT
+kyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAz
+NjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MTk1NzU4OC
+w2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
