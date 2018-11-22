@@ -38,6 +38,8 @@ Process:
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
 
+
+
 ## Cuffmerge
 
 Allows merger of several Cufflinks assemblies together which is required as even with replicates cufflinks will not necessarily assemble the same numbers & structures of transcripts.
@@ -167,11 +169,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3Mj
-Q4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxODc3NDkz
-NDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NS
-wtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQsLTIw
-NzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MTk1Nz
-U4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
-
+eyJoaXN0b3J5IjpbNTM2NDkzMTczLDE0MzQ1OTA4MDEsLTIwND
+U0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQx
+NTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLT
+IwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMwMDE0OSwxMTQw
+MzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMD
+YwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0
+NjY5NDQ5NF19
 -->
