@@ -2,10 +2,6 @@
 
 This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis
 
-
-
-
-
 # Comparisons between conditions
 
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
@@ -469,11 +465,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NjY5NjY1OCwxNTUyMTcyNTU3LDkxMD
-E4NDIzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTky
-MTAsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLT
-g3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2
-OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LD
-czMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5
-MzJdfQ==
+eyJoaXN0b3J5IjpbLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MT
+AxODQyMzMsLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5
+MjEwLDI0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC
+04Nzc4MDI4NTcsOTY1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5
+NjksLTEyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NC
+w3MzAzMTg1OTEsNjYzNjk2OTAzLC0zMjIzODYzNTYsNjExNTky
+OTMyXX0=
 -->
