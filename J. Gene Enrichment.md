@@ -81,7 +81,9 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 # Trinity Platform
 
 https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysis
+
+Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjU5ODMxMjMzLDQ4ODQ1Nzc3NywtOTQyMD
+eyJoaXN0b3J5IjpbNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMD
 E0MzAsMTUyODU4MTU5M119
 -->
