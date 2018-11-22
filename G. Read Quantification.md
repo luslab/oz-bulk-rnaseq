@@ -23,7 +23,7 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
-Tool = Cufflinks, Cuffmerge, Cuffdiff, Cuffquants
+Tool = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/), Cuffmerge, Cuffdiff, Cuffquants
 
 ## Raw Counts
 
@@ -32,25 +32,10 @@ Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
-Tool = HTSeq count, DESeq, edgeR
+Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR
 
-
-
-
-## Spike-in control
-
-- Spike-ins provide a known concentrations of transcripts that we can compare to the experimental samples
-- A common spike in product is [ERCC ExFold RNA spike-in control mix](http://data.biostarhandbook.com/rnaseq/ERCC/ERCC-information.pdf) which is added to the experimental samples
-- Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
-- At lower transcript expression levels accuracy in determining fold change deteriorates. 
-
-## Tools to count reads
-
-- [cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/)
-- [htseq-count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) has 3 modes union, intersection strict, and intersection nonempty (image above). 
 - `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
 - `QoRTs` also does counting - Nobby uses this.
-
 
 ## Cufflinks
 
@@ -124,9 +109,17 @@ Output table is in columns as:
 ```
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
+
+
+## Spike-in control
+
+- Spike-ins provide a known concentrations of transcripts that we can compare to the experimental samples
+- A common spike in product is [ERCC ExFold RNA spike-in control mix](http://data.biostarhandbook.com/rnaseq/ERCC/ERCC-information.pdf) which is added to the experimental samples
+- Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
+- At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3MzA2NTE3NCwtMTkyNjkwNjM5MiwxMD
-A5MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0
-MTUzODIsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMT
-U3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMT
+AwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1
+NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LD
+E1NzQxODgxNTQsLTY0NjY5NDQ5NF19
 -->
