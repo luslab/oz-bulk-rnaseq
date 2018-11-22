@@ -49,7 +49,7 @@ For raw expression counts: edgeR
 
 
 
-# DESeq2 > Visualisation
+# DESeq2
 
 DESeq takes either `featureCounts` (raw read counts) or `Kallisto` counts --> read them into R --> normalise for sequencing depth differences
 
@@ -334,11 +334,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MzIwNTI3OCwtMTkyNzAxMDMyOCwtMz
-U5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0
-MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMC
-wyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3
-ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5LC
-0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNzMw
-MzE4NTkxXX0=
+eyJoaXN0b3J5IjpbMzUxNDI1OTU5LC0xOTI3MDEwMzI4LC0zNT
+k2MDU2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQy
+MzMsLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLD
+I0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4
+MDI4NTcsOTY1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLT
+EyMDc0MDkyOTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAz
+MTg1OTFdfQ==
 -->
