@@ -67,7 +67,14 @@ Optional to provide a reference GTF to merge novel isoforms & known isoforms to 
 
 ## cummeRbund
 
-Automatically generates 
+Automatically generates many of the commonly used data visualisations including:
+- distribution plots
+- correlation plots
+- MA plots
+- Volcano plots
+- Clustering, PCA & MDS plots (global relationships between conditions)
+- Heatmaps
+- 
 
 ## featureCounts Workflow
 ml Subread
@@ -111,7 +118,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMDk1MTcwOSwxMDA5MzAwMTQ5LDExND
+eyJoaXN0b3J5IjpbMTg0NTk5MTA2OSwxMDA5MzAwMTQ5LDExND
 AzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMw
 NjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNj
 Q2Njk0NDk0XX0=
