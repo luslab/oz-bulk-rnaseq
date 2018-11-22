@@ -25,6 +25,8 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 ## Raw Counts
 
+Instead of calculating FPKM simply assigned fragments to a defined set of genes/transcripts & determine raw counts.
+Doe
 
 
 ## Gene-based read counting
@@ -124,8 +126,8 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxNDc2NzExMywxMDA5MzAwMTQ5LDExND
-AzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMw
-NjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNj
-Q2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbLTEwMzMyMDc3NDEsMTAwOTMwMDE0OSwxMT
+QwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkz
+MDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLT
+Y0NjY5NDQ5NF19
 -->
