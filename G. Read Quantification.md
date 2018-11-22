@@ -57,6 +57,8 @@ Process:
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
 
+
+
 ## featureCounts Workflow
 ml Subread
 
@@ -99,7 +101,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMTI3NjE5LC0xNzk1NDE1MzgyLDYzMz
-kzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQs
-LTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNj
+MzOTMwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1
+NCwtNjQ2Njk0NDk0XX0=
 -->
