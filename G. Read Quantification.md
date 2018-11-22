@@ -26,6 +26,8 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 Tool = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/), Cuffmerge, Cuffdiff, Cuffquants, [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 ## Cufflinks
+ml Cufflinks
+
 https://github.com/cole-trapnell-lab/cufflinks
 
 Process:
@@ -165,10 +167,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc0OTc2NzEsLTIwNDU0NDA2NDUsNzI0OD
-g5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0
-OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLT
-E5MjY5MDYzOTIsMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcw
-MzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1OD
-gsNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3Mj
+Q4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxODc3NDkz
+NDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NS
+wtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQsLTIw
+NzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MTk1Nz
+U4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
+
 -->
