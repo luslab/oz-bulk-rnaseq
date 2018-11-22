@@ -59,7 +59,8 @@ Process:
 
 ## Cuffmerge
 
- Allows merger of several Cufflinks assemblies together 
+ Allows merger of several Cufflinks assemblies together which is required as even with replicaes cufflinks will not necessarily assemble the same numbers & structures of transcripts.
+
 
 ## featureCounts Workflow
 ml Subread
@@ -103,7 +104,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNTE3OTc5NiwxMTQwMzcwNzk0LC0yMD
+eyJoaXN0b3J5IjpbMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMD
 cwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1
 ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0NjY5NDQ5NF19
 -->
