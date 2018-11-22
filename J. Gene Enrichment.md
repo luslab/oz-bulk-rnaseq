@@ -3,11 +3,25 @@
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
 Now that you have identified the differentially expressed genes you need to identify their function.
 
-**[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
+Functional Inference:
+1. Homology-based:
+- compare sequence similarity with known database of sequence
+
+2. Sequence-composition:
+- Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
+
+# BLAST
+Basic Local Alignment Search Tool
+
+Use blastx for RNA
+
+Swiss-Prot database
+
+# **[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
 There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
 To search a defined sequence term use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
 
-**[Gene Ontology](http://geneontology.org/)**
+# **[Gene Ontology](http://geneontology.org/)**
 Connects each gene to one or more functions.
 3 sub-ontologies for each gene product:
 - Cellular Component (CC): cellular location where product exhibits its effect
@@ -54,5 +68,5 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbLTk0MjAxNDMwLDE1Mjg1ODE1OTNdfQ==
 -->
