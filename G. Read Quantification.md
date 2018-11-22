@@ -56,6 +56,12 @@ Automatically generates many of the commonly used data visualisations including:
 
 Input the output from Cufflinks, Cuffmerge & Cuffdiff
 
+## StringTie
+
+```bash
+mkdir -p 
+```
+
 # Raw Counts
 
 Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
@@ -118,9 +124,9 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MzA0MzQyNiwxODk2OTA0NDY0LC0yMD
-AyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxNDksMTE0MDM3
-MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5MzA2MD
-UsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02NDY2
-OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbLTkyODk0OTEzOSwxNjkzMDQzNDI2LDE4OT
+Y5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMw
+MDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1Mz
+gyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQx
+ODgxNTQsLTY0NjY5NDQ5NF19
 -->
