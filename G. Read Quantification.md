@@ -57,6 +57,7 @@ Automatically generates many of the commonly used data visualisations including:
 Input the output from Cufflinks, Cuffmerge & Cuffdiff
 
 ## StringTie
+ml StringTie
 
 StringTie [manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
@@ -65,7 +66,7 @@ mkdir -p stringtie
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
 GTF_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/transcripts.gtf
 TSV_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/gene_abundances.tsv
-BAM=
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
 
 stringtie -p 8 -G $GTF -e -B -o $GTF_OUT -A $TSV_OUT $BAM
 ```
@@ -132,9 +133,9 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzIxMTYyNjgsMTY5MzA0MzQyNiwxOD
-k2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkz
-MDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNT
-M4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0
-MTg4MTU0LC02NDY2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbMTUzODI4NzA5MywxNjkzMDQzNDI2LDE4OT
+Y5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMw
+MDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1Mz
+gyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQx
+ODgxNTQsLTY0NjY5NDQ5NF19
 -->
