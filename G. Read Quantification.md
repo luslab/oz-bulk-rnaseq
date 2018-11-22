@@ -138,16 +138,14 @@ mkdir -p featureCounts
 #set gene coordinates
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
-COUNTS=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts_SRR5483788.txt
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts.txt
 
 #run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
-featureCounts -a $GTF -g gene_name -o counts.txt $COUNTS $BAM
+featureCounts -a $GTF -g gene_name -o counts.txt $OUT $BAM
 ```
 Using the * wildcard you can list all BAM files into 1 text file.
-
-`featureCounts -a $GTF -g gene_name -o counts.txt /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam`
 
 The output file contains a column for each sample. 
 
@@ -171,7 +169,7 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3NDA4MzU2LC0yNzk5MjEzODUsMTQzND
+eyJoaXN0b3J5IjpbNzg3NTE2MjcxLC0yNzk5MjEzODUsMTQzND
 U5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcw
 NjksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMT
 g5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5
