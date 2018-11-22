@@ -17,6 +17,7 @@ Use blastx for RNA
 
 [Swiss-Prot database](https://www.uniprot.org/):
 -includes TrEMBL. Swiss-prot is a manually curated subset of this. 
+Gives information on Function & GO on Proteins & Genes.
 
 # **[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
 There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
@@ -69,6 +70,6 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjQ5ODM3MTMsLTk0MjAxNDMwLDE1Mj
-g1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbMzYxMzQ5MTI5LC05NDIwMTQzMCwxNTI4NT
+gxNTkzXX0=
 -->
