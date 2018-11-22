@@ -51,7 +51,7 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 Process:
 1. Overlapping bundles of fragment are **assembled**
-2. Fragments are connected in an **overlap graph**. This graph models variability in  (if the fragments are compatible then these are assumed to come from the same genetic locus - it excludes mutually incompatible fragments where splice sites are mid exon)
+2. Fragments are connected in an **overlap graph**. This graph models variability in fragment count for each gene across replicates (if the fragments are compatible then these are assumed to come from the same genetic locus - it calculates mutually incompatible fragments where splice sites are mid exon or intron)
 3. Transcript isoforms are inferred from the **minimum paths** required to cover the graph
 4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model
 
@@ -101,7 +101,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxMDg5OTcxNiwtMjA3MDM2MDYwNywtMT
+eyJoaXN0b3J5IjpbMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMT
 c5NTQxNTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1
 NSwxNTc0MTg4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
