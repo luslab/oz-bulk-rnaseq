@@ -63,6 +63,11 @@ Allows merger of several Cufflinks assemblies together which is required as even
 It filters out a number of transfrags that are likely artifacts.
 Optional to provide a reference GTF to merge novel isoforms & known isoforms to maximse overall assembly quality 
 
+## Cuffdiff
+
+## cummeRbund
+
+Automatically generates 
 
 ## featureCounts Workflow
 ml Subread
@@ -106,8 +111,8 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ5MTExOTY5LDEwMDkzMDAxNDksMTE0MD
-M3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5MzA2
-MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02ND
-Y2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbLTkyMDk1MTcwOSwxMDA5MzAwMTQ5LDExND
+AzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMw
+NjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNj
+Q2Njk0NDk0XX0=
 -->
