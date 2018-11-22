@@ -62,7 +62,7 @@ StringTie [manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 ```bash
 mkdir -p stringtie
-GTF=
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
 GTF_OUT=
 TSV_OUT=
 BAM=
@@ -132,7 +132,7 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjMyNDc0MzUsMTY5MzA0MzQyNiwxOD
+eyJoaXN0b3J5IjpbLTE4OTA1NTU1NDUsMTY5MzA0MzQyNiwxOD
 k2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkz
 MDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNT
 M4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0
