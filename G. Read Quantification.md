@@ -80,6 +80,11 @@ done
 #   '-o' output path/file name for the assembled transcripts GTF (default: stdout)
 #   '-A' output path/file name for gene abundance estimates
 ```
+View transcript records & expression values (FPKM):
+ ```bash 
+ awk '{if ($3=="transcript") print}' UHR_Rep1/transcripts.gtf | cut -f 1,4,9 | less
+```
+Press 'q' to exit the 'less' display
 
 # Raw Counts
 
@@ -143,9 +148,10 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OT
-MwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkw
-NjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MD
-csLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2
-MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbLTIwMTMyODA0NDksMTkzMDY3NDE1NiwxOD
+c3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4
+NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OT
+QsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02
+MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0ND
+k0XX0=
 -->
