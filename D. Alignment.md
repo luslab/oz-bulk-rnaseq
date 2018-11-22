@@ -567,7 +567,7 @@ Create SAM file with intron spanning reads:
 
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge the BAM files for downstream processing.  
 
-You should merge BAM files from each condition but not combine different conditions (wildtype & mutant). 
+You should merge BAM files from each condition but not combine different conditions (wildtype & mutant). Dont forget there maybe batch effects between samples in the sample condition which are difficult to anaylse after merging BAM files.
 ```bash
 #run samtools merge command listing all BAM files to read in
 samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
@@ -579,7 +579,7 @@ samtools view -H all_bam_files.bam
 samtools index all_bam_files.bam
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyODUyMDU2OCwxODczNDc0Nzk0LDc3NT
+eyJoaXN0b3J5IjpbMTE1MzU3MDEyMSwxODczNDc0Nzk0LDc3NT
 g0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3NjY5
 NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQzNjE4LD
 k5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0xNDc4
