@@ -37,7 +37,12 @@ Process:
 4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model. The variance estimates of fragment count for each transcript  are statistically tested to report DE genes.
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
-
+```bash
+OUT=
+BAM=
+GTF=
+cufflinks -o $OUT -G $GTF $BAM
+```
 
 
 ## Cuffmerge
@@ -169,11 +174,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM2NDkzMTczLDE0MzQ1OTA4MDEsLTIwND
-U0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQx
-NTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLT
-IwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMwMDE0OSwxMTQw
-MzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMD
-YwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0
-NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbNjc4ODA0MjEsMTQzNDU5MDgwMSwtMjA0NT
+Q0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1
+NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMj
+AwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAz
+NzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNj
+A1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2
+Njk0NDk0XX0=
 -->
