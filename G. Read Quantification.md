@@ -23,10 +23,16 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
+Tool = Cufflinks
+
 ## Raw Counts
 
 Instead of calculating FPKM simply assigned fragments to a defined set of genes/transcripts & determine raw counts.
-Doe
+Does not have a step to calculate assembly and different isoforms.
+
+Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. 
+
+Tool = HTSeq count
 
 
 ## Gene-based read counting
@@ -126,7 +132,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzMyMDc3NDEsMTAwOTMwMDE0OSwxMT
+eyJoaXN0b3J5IjpbLTE1ODkwNTIyNDQsMTAwOTMwMDE0OSwxMT
 QwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkz
 MDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLT
 Y0NjY5NDQ5NF19
