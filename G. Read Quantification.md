@@ -157,10 +157,9 @@ For each BAM file there are 2 output files:
 
 To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
 Output table is in columns as:
+```bash
+Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ```
-Geneid            Chr         Start     End  Strand   Length  Hits
-```
-
 
 ## Spike-in control
 
@@ -169,7 +168,7 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg3NTE2MjcxLC0yNzk5MjEzODUsMTQzND
+eyJoaXN0b3J5IjpbMzIwNTI4NDIxLC0yNzk5MjEzODUsMTQzND
 U5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcw
 NjksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMT
 g5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5
