@@ -38,11 +38,19 @@ Process:
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
 ```bash
-OUT=
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/cufflinks/
 BAM=
-GTF=
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 
 cufflinks -o $OUT -G $GTF $BAM
+
+TSV_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/gene_abundances.tsv
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+
+for SAMPLE in $BAM
+do
+	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_${SAMPLE} -A $TSV_OUT_${SAMPLE} $BAM"
+done
 ```
 
 
@@ -175,11 +183,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMDk3NjgzNjUsMTQzNDU5MDgwMSwtMj
-A0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3
-NDE1NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NC
-wtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDEx
-NDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOT
-MwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwt
-NjQ2Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbMTA4OTc2NTIwOCwxNDM0NTkwODAxLC0yMD
+Q1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0
+MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNiwxODk2OTA0NDY0LC
+0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxNDksMTE0
+MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5Mz
+A2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02
+NDY2OTQ0OTRdfQ==
 -->
