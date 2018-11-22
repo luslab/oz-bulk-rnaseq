@@ -41,7 +41,8 @@ Process:
 OUT=
 BAM=
 GTF=
-cufflinks -o $OUT -G $GTF $BAM
+
+cufflinks -o $OUT -G $GTF -g $BAM
 ```
 
 
@@ -174,11 +175,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc4ODA0MjEsMTQzNDU5MDgwMSwtMjA0NT
-Q0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1
-NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMj
-AwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAz
-NzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNj
-A1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNjQ2
-Njk0NDk0XX0=
+eyJoaXN0b3J5IjpbLTIxNDA5NTgyMSwxNDM0NTkwODAxLC0yMD
+Q1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0
+MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNiwxODk2OTA0NDY0LC
+0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxNDksMTE0
+MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5Mz
+A2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02
+NDY2OTQ0OTRdfQ==
 -->
