@@ -24,6 +24,41 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 Tool = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/), Cuffmerge, Cuffdiff, Cuffquants, [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
+## featureCounts Workflow
+ml Subread
+
+1. Count reads (estimate abundance) per sample:
+```bash
+
+# Create output folder
+mkdir -p featureCounts
+
+#set gene coordinates
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts.txt
+
+#run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
+featureCounts -a $GTF -g gene_name -o counts.txt $OUT $BAM
+```
+Using the * wildcard you can list all BAM files into 1 text file.
+
+The output file contains a column for each sample. 
+
+For each BAM file there are 2 output files:
+- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
+- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+
+2. Find sequences with highest abundance
+
+To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
+Output table is in columns as:
+```bash
+Geneid    Chr   Start   End	  Strand   Length 	 Hits
+```
+
 ## Cufflinks
 ml Cufflinks
 
@@ -47,13 +82,12 @@ do
 done
 ```
 
-## Cuffmerge
+### Cuffmerge & Cuffdiff
 
 Allows merger of several Cufflinks assemblies together which is required as even with replicates cufflinks will not necessarily assemble the same numbers & structures of transcripts.
 It filters out a number of transfrags that are likely artefacts.
 Optional to provide a reference GTF to merge novel isoforms & known isoforms to maximse overall assembly quality 
 
-## Cuffdiff
 
 ## cummeRbund
 
@@ -126,40 +160,7 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 - `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
 - `QoRTs` also does counting - Nobby uses this.
 
-## featureCounts Workflow
-ml Subread
 
-1. Count reads (estimate abundance) per sample:
-```bash
-
-# Create output folder
-mkdir -p featureCounts
-
-#set gene coordinates
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
-#set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts.txt
-
-#run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
-featureCounts -a $GTF -g gene_name -o counts.txt $OUT $BAM
-```
-Using the * wildcard you can list all BAM files into 1 text file.
-
-The output file contains a column for each sample. 
-
-For each BAM file there are 2 output files:
-- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
-- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
-
-2. Find sequences with highest abundance
-
-To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
-Output table is in columns as:
-```bash
-Geneid    Chr   Start   End	  Strand   Length 	 Hits
-```
 
 ## Spike-in control
 
@@ -168,11 +169,11 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzIwNTI4NDIxLC0yNzk5MjEzODUsMTQzND
-U5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcw
-NjksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMT
-g5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5
-MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MT
-UzODIsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3
-NDE4ODE1NF19
+eyJoaXN0b3J5IjpbLTY1NjI4NTU3MiwtMjc5OTIxMzg1LDE0Mz
+Q1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3
+MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LD
+E4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAw
+OTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1ND
+E1MzgyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1
+NzQxODgxNTRdfQ==
 -->
