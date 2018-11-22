@@ -68,7 +68,15 @@ GTF_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/st
 TSV_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/gene_abundances.tsv
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
 
-stringtie -p 8 -G $GTF -e -B -o $GTF_OUT -A $TSV_OUT $BAM
+for SAMPLE in $BAM
+do
+	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_${SAMPLE} -A $TSV_OUT_${SAMPLE} $BAM"
+done
+
+for SAMPLE in $BAM
+do
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $SAMPLE -o $OUT_${SAMPLE}"
+done
 ```
 
 # Raw Counts
@@ -133,9 +141,9 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzODI4NzA5MywxNjkzMDQzNDI2LDE4OT
-Y5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMw
-MDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1Mz
-gyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQx
-ODgxNTQsLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbLTEyMjMyOTc2NTEsMTY5MzA0MzQyNiwxOD
+k2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkz
+MDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNT
+M4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0
+MTg4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
