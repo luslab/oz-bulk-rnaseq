@@ -63,7 +63,7 @@ StringTie [manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 ```bash
 mkdir -p stringtie
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 GTF_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/transcripts.gtf
 TSV_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/gene_abundances.tsv
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
@@ -72,6 +72,13 @@ for SAMPLE in $BAM
 do
 	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_${SAMPLE} -A $TSV_OUT_${SAMPLE} $BAM"
 done
+
+#   '-p 8' tells Stringtie to use eight CPUs
+#   '-G <known transcripts file>' reference annotation to use for guiding the assembly process (GTF/GFF3)
+#   '-e' only estimate the abundance of given reference transcripts (requires -G)
+#   '-B' enable output of Ballgown table files which will be created in the same directory as the output GTF (requires -G, -o recommended)
+#   '-o' output path/file name for the assembled transcripts GTF (default: stdout)
+#   '-A' output path/file name for gene abundance estimates
 ```
 
 # Raw Counts
@@ -136,9 +143,9 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OT
-Y5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAwOTMw
-MDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1Mz
-gyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQx
-ODgxNTQsLTY0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OT
+MwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkw
+NjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MD
+csLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02MTk1NzU4OCw2MDQ2
+MDA0NTUsMTU3NDE4ODE1NCwtNjQ2Njk0NDk0XX0=
 -->
