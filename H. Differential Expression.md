@@ -14,6 +14,9 @@ Basic Local Alignment Search Tool
 
 Use blastx for RNA
 
+Swiss-Prot database
+
+
 # Comparisons between conditions
 
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
@@ -477,11 +480,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzEzNTEwMTg5LDkxMDE4NDIzMywtMjEyOD
-IyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgw
-LDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5Nj
-U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
-MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
-M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
-OF19
+eyJoaXN0b3J5IjpbMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMj
+gyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4
+MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOT
+Y1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDky
+OTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNj
+YzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4
+ODhdfQ==
 -->
