@@ -1,8 +1,6 @@
 > # Differential Gene Expression Analysis
 
-In this chapter we discuss:
-1. differential expression methods: count based method, transcript per million mapped genes
-2. downstream intepretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis
+This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis
 
 
 # Comparisons between conditions
@@ -468,11 +466,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0ODU0NTMwNiw5MTAxODQyMzMsLTIxMj
-gyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4
-MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOT
-Y1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDky
-OTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNj
-YzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4
-ODhdfQ==
+eyJoaXN0b3J5IjpbODEyNTc3ODIwLDkxMDE4NDIzMywtMjEyOD
+IyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgw
+LDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5Nj
+U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
+MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
+M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
+OF19
 -->
