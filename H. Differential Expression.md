@@ -2,19 +2,8 @@
 
 This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis
 
-Functional Inference:
-1. Homology-based:
-- compare sequence similarity with known database of sequence
 
-2. Sequence-composition:
-- Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
 
-# BLAST
-Basic Local Alignment Search Tool
-
-Use blastx for RNA
-
-Swiss-Prot database
 
 
 # Comparisons between conditions
@@ -480,11 +469,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMj
-gyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4
-MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOT
-Y1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDky
-OTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNj
-YzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4
-ODhdfQ==
+eyJoaXN0b3J5IjpbMTc4NjY5NjY1OCwxNTUyMTcyNTU3LDkxMD
+E4NDIzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTky
+MTAsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLT
+g3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2
+OSwtMTIwNzQwOTI5MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LD
+czMDMxODU5MSw2NjM2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5
+MzJdfQ==
 -->
