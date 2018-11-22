@@ -47,6 +47,14 @@ To search the function of a gene use the [GeneCards](http://www.genecards.org/) 
 	- summarises the GO annotations for each gene > 
 	- determines if any annotations are statistically over-represented.
 
+2 x 2 table
+
+|  | Differentially Expressed | Not Differentially Expressed
+|--|--|--|
+| Gene Ontology Term | 50 | 200
+| No Gene Ontology Term| 1950 | 
+
+
  **GO enrichment tools** 
  The best are:
 - [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
@@ -70,6 +78,6 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYxMzQ5MTI5LC05NDIwMTQzMCwxNTI4NT
+eyJoaXN0b3J5IjpbODk1NDk3NzI1LC05NDIwMTQzMCwxNTI4NT
 gxNTkzXX0=
 -->
