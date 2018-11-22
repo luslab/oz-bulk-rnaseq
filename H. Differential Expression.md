@@ -35,9 +35,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DE analysis
 
-There are 2 approaches:
-1. Rapid approach: [Kallisto](https://pachterlab.github.io/kallisto/)  which is a  user-friendly algo which extract both gene and transcript level gene expression directly from fastq files using the raw fastq files. Then use  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
-2. Detailed approach: DESeq, DESeq2, edgeR, ballgown
+DESeq, DESeq2, edgeR, ballgown
 
 `edgeR` (better for false positives, less conservative, recommended if <12 replicates)
 `DESeq`
@@ -477,7 +475,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDU1MzQwMTIsLTM1OTYwNTYzNiwtMT
+eyJoaXN0b3J5IjpbLTExMjQwMTY5OTIsLTM1OTYwNTYzNiwtMT
 E1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4NDIzMywtMjEyODIy
 MzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgwLD
 E3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5NjU0
