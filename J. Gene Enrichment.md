@@ -78,8 +78,12 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 
-# 
+# Trinity Platform
+
+https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysis
+
+ss
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NDI2NTk2OCw0ODg0NTc3NzcsLTk0Mj
-AxNDMwLDE1Mjg1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbLTE0Mzk4NTE3NzksNDg4NDU3Nzc3LC05ND
+IwMTQzMCwxNTI4NTgxNTkzXX0=
 -->
