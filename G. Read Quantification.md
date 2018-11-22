@@ -82,7 +82,7 @@ done
 ```
 View transcript records & expression values (FPKM):
  ```bash 
- awk '{if ($3=="transcript") print}' UHR_Rep1/transcripts.gtf | cut -f 1,4,9 | less
+ awk '{if ($3=="transcript") print}' $GTF_OUT_${SAMPLE} | cut -f 1,4,9 | less
 ```
 Press 'q' to exit the 'less' display
 
@@ -148,7 +148,7 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTMyODA0NDksMTkzMDY3NDE1NiwxOD
+eyJoaXN0b3J5IjpbLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxOD
 c3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4
 NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OT
 QsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1LC02
