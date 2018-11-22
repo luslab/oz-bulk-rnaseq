@@ -133,7 +133,7 @@ cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
 cat diffgenes.txt | wc -l
 ```
 
-## DSeq2 process
+## DSeq2 script
 
 ```R
 # load magrittr in R & DSeq2
@@ -141,27 +141,28 @@ library(magrittr)
 library(DESeq2)
 # get table of read counts
 read.counts = read.table("featureCounts_results.txt", header = TRUE) 
-3. store gene IDs as row.names:
-`row.names(read.counts) = readcounts$Geneid`
-4. exclude columns that dont have read counts:
-`readcounts = readcounts[ , -c(1:6)]`
-5. assign the sample names:
-`orig_names = names(readcounts)`
-`names(readcounts) = gsub(".*(WT|SNF2)(_[0-9]+).*", "\\1\\2 ", orig_names)`
-6. check data:
-`str(readcounts)`
-`head(readcounts)`
-7. make a data frame for rows (samples)
-`sample_info = data.frame(condition = gsub("_[0 -9]+", "", names(readcounts)), row.names = names(readcounts))`
-8. Generate the DSeqDataSet - run the DGE analysis
-`DESeq.ds = DESeqDataSetFromMatrix(countData = readcounts, colData = sample_info, design = ~ condition)`
-9. Check and test dataset
-`colData(DESeq.ds) %>% head`
-`assay(DESeq.ds) %>% head`
-`rowRanges(DESeq.ds) %>% head` 
-`counts(DESeq.ds) %>% str`
-`DESeq.ds = DESeq.ds[rowSums(counts(DESeq.ds)) > 0, ]` #remove genes without any counts
-`colSums(counts(DESeq.ds))` # should be the same as `colSums(readcounts)`
+# store gene IDs as row.names
+row.names(read.counts) = readcounts$Geneid
+# exclude columns that dont have read counts
+readcounts = readcounts[ , -c(1:6)]
+# assign the sample names
+orig_names = names(readcounts)
+names(readcounts) = gsub(".*(WT|SNF2)(_[0-9]+).*", "\\1\\2 ", orig_names)
+# check data
+str(readcounts)
+head(readcounts)
+# make a data frame for rows (samples)
+sample_info = data.frame(condition = gsub("_[0 -9]+", "", names(readcounts)), row.names = names(readcounts))
+# Generate the DSeqDataSet - run the DGE analysis
+DESeq.ds = DESeqDataSetFromMatrix(countData = readcounts, colData = sample_info, design = ~ condition)
+# Check and test dataset
+colData(DESeq.ds) %>% head
+assay(DESeq.ds) %>% head
+rowRanges(DESeq.ds) %>% head
+counts(DESeq.ds) %>% str
+DESeq.ds = DESeq.ds[rowSums(counts(DESeq.ds)) > 0, ]
+#remove genes without any counts
+colSums(counts(DESeq.ds))` # should be the same as `colSums(readcounts)
 
 DSeq default for normalising for differences in sequencing depths is `estimateSizeFactors`
 calculate the size factor and add it to the data set:
@@ -170,9 +171,7 @@ calculate the size factor and add it to the data set:
 `counts ()` allows you to immediately retrieve the normalized read counts:
 `counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)`
 
-10. Log Transformation of Sequencing Depth Normalised read counts
-
-Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
+# Log Transformation of Sequencing Depth Normalised read counts. Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*.
 Log2 transform read counts: `log.norm.counts = log2(counts.sf_normalized + 1)` #use a pseudocount of 1
 ```
 
@@ -338,7 +337,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMzODAzNTU0LC0xOTI3MDEwMzI4LC0zNT
+eyJoaXN0b3J5IjpbNDk0MjY4MDI5LC0xOTI3MDEwMzI4LC0zNT
 k2MDU2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQy
 MzMsLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLD
 I0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4
