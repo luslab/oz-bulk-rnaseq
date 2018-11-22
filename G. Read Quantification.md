@@ -23,6 +23,10 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
+## Raw Counts
+
+
+
 ## Gene-based read counting
 - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
 - Essentially you are **counting the number of overlapping reads**
@@ -74,7 +78,9 @@ Automatically generates many of the commonly used data visualisations including:
 - Volcano plots
 - Clustering, PCA & MDS plots (global relationships between conditions)
 - Heatmaps
-- 
+- gene/transcript level plots showing transcript structures & expression levels 
+
+Input the output from Cufflinks, Cuffmerge & Cuffdiff
 
 ## featureCounts Workflow
 ml Subread
@@ -118,7 +124,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NTk5MTA2OSwxMDA5MzAwMTQ5LDExND
+eyJoaXN0b3J5IjpbLTYxNDc2NzExMywxMDA5MzAwMTQ5LDExND
 AzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMw
 NjA1LC02MTk1NzU4OCw2MDQ2MDA0NTUsMTU3NDE4ODE1NCwtNj
 Q2Njk0NDk0XX0=
