@@ -7,7 +7,6 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 
 Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.  - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
 
-
 # FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
 
@@ -130,10 +129,6 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 ## featureCounts Workflow
 ml Subread
 
-Input:
-- Gene feature file
-- BAM file 
-
 1. Count reads (estimate abundance) per sample:
 ```bash
 
@@ -177,11 +172,11 @@ Geneid            Chr         Start     End  Strand   Length  Hits
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3OTkyMTM4NSwxNDM0NTkwODAxLC0yMD
-Q1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0
-MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNiwxODk2OTA0NDY0LC
-0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxNDksMTE0
-MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQxNTM4Miw2MzM5Mz
-A2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNTc0MTg4MTU0LC02
-NDY2OTQ0OTRdfQ==
+eyJoaXN0b3J5IjpbLTE0MDMyMzgyMTAsLTI3OTkyMTM4NSwxND
+M0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYx
+NzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNi
+wxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEw
+MDkzMDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NT
+QxNTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwx
+NTc0MTg4MTU0XX0=
 -->
