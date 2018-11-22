@@ -7,7 +7,6 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 
 Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.
 
-
 ## FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
 
@@ -132,8 +131,8 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjY5MDYzOTIsMTAwOTMwMDE0OSwxMT
-QwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkz
-MDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLT
-Y0NjY5NDQ5NF19
+eyJoaXN0b3J5IjpbMTk1ODg4MjE0LC0xOTI2OTA2MzkyLDEwMD
+kzMDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NTQx
+NTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwxNT
+c0MTg4MTU0LC02NDY2OTQ0OTRdfQ==
 -->
