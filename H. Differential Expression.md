@@ -176,7 +176,8 @@ log.norm.counts = log2(counts.sf_normalized + 1)
 Input = raw counts from htseq-count
 
 ```bash
-
+mkdir -p edgeR
+#create a mapping file to go from ENSG IDs to Symbols:
 ```
 
 
@@ -339,7 +340,7 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NDgwODE2NywtMjAzNjQzMjcwNywtMT
+eyJoaXN0b3J5IjpbMTI3NjczMjgxMiwtMjAzNjQzMjcwNywtMT
 kyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIx
 NzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzND
 I1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1
