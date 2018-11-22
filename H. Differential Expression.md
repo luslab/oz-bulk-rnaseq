@@ -9,6 +9,11 @@ Functional Inference:
 2. Sequence-composition:
 - Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
 
+# BLAST
+Basic Local Alignment Search Tool
+
+Use blastx for RNA
+
 # Comparisons between conditions
 
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
@@ -472,11 +477,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODgyNzQ5NDUsOTEwMTg0MjMzLC0yMT
-I4MjIzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1
-ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LD
-k2NTQzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5LC0xMjA3NDA5
-MjkzLDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNzMwMzE4NTkxLD
-Y2MzY5NjkwMywtMzIyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYw
-ODg4XX0=
+eyJoaXN0b3J5IjpbNzEzNTEwMTg5LDkxMDE4NDIzMywtMjEyOD
+IyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgw
+LDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5Nj
+U0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5
+MywxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2Nj
+M2OTY5MDMsLTMyMjM4NjM1Niw2MTE1OTI5MzIsMTIzODI2MDg4
+OF19
 -->
