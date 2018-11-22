@@ -2,6 +2,12 @@
 
 This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis
 
+Functional Inference:
+Homology-based
+
+Sequence-composition:
+- compare sequence with known database of sequence
+
 
 # Comparisons between conditions
 
@@ -9,7 +15,7 @@ To compare two conditions look at the fraction of transcripts assigned to a spec
 1. expression level
 2. read length
 3. sequencing depth
-6. expression of all other genes in the sample
+4. expression of all other genes in the sample
 
 Normalisation & Log Transforming Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. Methods of normalising:
 - total count
@@ -466,11 +472,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyOTAzMjg2Miw5MTAxODQyMzMsLTIxMj
-gyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4
-MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOT
-Y1NDM1MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDky
-OTMsMTA2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNj
-YzNjk2OTAzLC0zMjIzODYzNTYsNjExNTkyOTMyLDEyMzgyNjA4
-ODhdfQ==
+eyJoaXN0b3J5IjpbNzYxNzcxODUsOTEwMTg0MjMzLC0yMTI4Mj
+IzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAs
+MTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LDk2NT
+QzNTE3NywxMTE4NTYxOTkyLC00NjA2OTY5LC0xMjA3NDA5Mjkz
+LDEwNjA5OTgwNjYsLTE0MDIzNTEzNzQsNzMwMzE4NTkxLDY2Mz
+Y5NjkwMywtMzIyMzg2MzU2LDYxMTU5MjkzMiwxMjM4MjYwODg4
+XX0=
 -->
