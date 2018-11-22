@@ -89,19 +89,6 @@ It filters out a number of transfrags that are likely artefacts.
 Optional to provide a reference GTF to merge novel isoforms & known isoforms to maximse overall assembly quality 
 
 
-## cummeRbund
-
-Automatically generates many of the commonly used data visualisations including:
-- distribution plots
-- correlation plots
-- MA plots
-- Volcano plots
-- Clustering, PCA & MDS plots (global relationships between conditions)
-- Heatmaps
-- gene/transcript level plots showing transcript structures & expression levels 
-
-Input the output from Cufflinks, Cuffmerge & Cuffdiff
-
 ## StringTie
 ml StringTie
 
@@ -169,11 +156,11 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NjI4NTU3MiwtMjc5OTIxMzg1LDE0Mz
-Q1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3
-MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LD
-E4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAw
-OTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1ND
-E1MzgyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1
-NzQxODgxNTRdfQ==
+eyJoaXN0b3J5IjpbLTE2MTc1NzA2OTUsLTI3OTkyMTM4NSwxND
+M0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYx
+NzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNi
+wxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEw
+MDkzMDAxNDksMTE0MDM3MDc5NCwtMjA3MDM2MDYwNywtMTc5NT
+QxNTM4Miw2MzM5MzA2MDUsLTYxOTU3NTg4LDYwNDYwMDQ1NSwx
+NTc0MTg4MTU0XX0=
 -->
