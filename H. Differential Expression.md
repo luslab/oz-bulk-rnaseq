@@ -328,6 +328,18 @@ Firstly, visualise the most significantly DE genes in IGV
 2. Set reference genome to Human (hg38) top left box.
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
 
+## cummeRbund
+
+Automatically generates many of the commonly used data visualisations including:
+- distribution plots
+- correlation plots
+- MA plots
+- Volcano plots
+- Clustering, PCA & MDS plots (global relationships between conditions)
+- Heatmaps
+- gene/transcript level plots showing transcript structures & expression levels 
+
+Input the output from Cufflinks, Cuffmerge & Cuffdiff
 
 ## Explore Read Count Patterns
 
@@ -465,11 +477,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NDY0MTQ1LC0zNTk2MDU2MzYsLTExNT
-cwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMjgyMjM5
-MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4MCwxNz
-A5NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOTY1NDM1
-MTc3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDkyOTMsMT
-A2MDk5ODA2NiwtMTQwMjM1MTM3NCw3MzAzMTg1OTEsNjYzNjk2
-OTAzXX0=
+eyJoaXN0b3J5IjpbLTE5MDU1MzQwMTIsLTM1OTYwNTYzNiwtMT
+E1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4NDIzMywtMjEyODIy
+MzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgwLD
+E3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMjg1Nyw5NjU0
+MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIwNzQwOTI5My
+wxMDYwOTk4MDY2LC0xNDAyMzUxMzc0LDczMDMxODU5MSw2NjM2
+OTY5MDNdfQ==
 -->
