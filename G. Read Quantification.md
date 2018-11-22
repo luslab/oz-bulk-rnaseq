@@ -147,6 +147,8 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 - `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
 - `QoRTs` also does counting - Nobby uses this.
 
+## HTSeq-Cou
+
 
 
 ## Spike-in control
@@ -156,7 +158,7 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTc1NzA2OTUsLTI3OTkyMTM4NSwxND
+eyJoaXN0b3J5IjpbLTEwODg4ODY5MzgsLTI3OTkyMTM4NSwxND
 M0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYx
 NzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNi
 wxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEw
