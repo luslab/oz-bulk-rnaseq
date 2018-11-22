@@ -57,7 +57,9 @@ Process:
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
 
+## Cuffmerge
 
+ Allows merger of several Cufflinks assemblies together 
 
 ## featureCounts Workflow
 ml Subread
@@ -101,7 +103,7 @@ Output table is in columns as:
 Geneid            Chr         Start     End  Strand   Length  Hits
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxMzA0OTc3MCwxMTQwMzcwNzk0LC0yMD
+eyJoaXN0b3J5IjpbMTQzNTE3OTc5NiwxMTQwMzcwNzk0LC0yMD
 cwMzYwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1
 ODgsNjA0NjAwNDU1LDE1NzQxODgxNTQsLTY0NjY5NDQ5NF19
 -->
