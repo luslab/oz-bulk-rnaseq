@@ -90,7 +90,7 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
-Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) - outdated and superceded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 ## Process:
 1. Overlapping bundles of fragment are **assembled**
@@ -104,7 +104,8 @@ Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) - outd
 ml StringTie
 
 StringTie [manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
-StringTie is designed for Alignment by TopHat and HISAT2. In STAR you need to specify https://www.biostars.org/p/172393/
+StringTie is principally designed for Alignment by HISAT2. In STAR when mapping you need to [specify --outSAMstrandField parameter](https://www.biostars.org/p/172393/)
+
 ```bash
 mkdir -p stringtie
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
@@ -176,11 +177,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk5MjcwNzY1LC0xMzMxMzIyODAxLC0yND
-g5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAwNDUsMjExODI0NDM4
-MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2MTUxMjI3LC0xMj
-I5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOTMxMDAsLTI3OTky
-MTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNy
-wtMTg4MjYxNzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0NDksMTY5
-MzA0MzQyNl19
+eyJoaXN0b3J5IjpbLTY0OTM5NTk0NywtMTMzMTMyMjgwMSwtMj
+Q4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQz
+ODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMT
+IyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5
+MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1Mj
+csLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2
+OTMwNDM0MjZdfQ==
 -->
