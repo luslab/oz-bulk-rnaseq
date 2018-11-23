@@ -1,5 +1,5 @@
 > # Read Quantification
-We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
+Whilst IGV is used to initial glance at coverage, these methods normalise & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
 2 different ways to quantify mRNA abundances of known genes and transcripts:
 1.  Raw Counts - simply the number of reads overlapping with a transcript.
@@ -9,18 +9,15 @@ We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather
 
 https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
 
-Whilst IGV is used to initial glance at coverage, these methods normalise & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.
-
 # Raw Counts
 
-Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
-Does not have a step to calculate assembly and different isoforms.
+Instead of normalising simply assign fragments to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
-Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR
+Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR, featureCounts,
 
-- `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
+` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
 - `QoRTs` also does counting - Nobby uses this.
 
 ## HTSeq-Count
@@ -210,11 +207,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMjE0NzYxOSwyMDQ4MTkwMDQ1LDIxMT
-gyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIy
-NywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC
-0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4
-ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxODc3NDkzND
-Q5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4NDQ0NSwt
-MTkyNjkwNjM5Ml19
+eyJoaXN0b3J5IjpbLTE2MjcwMzEwMzIsMjA0ODE5MDA0NSwyMT
+E4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEy
+MjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMC
+wtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0
+ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5Mz
+Q0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUs
+LTE5MjY5MDYzOTJdfQ==
 -->
