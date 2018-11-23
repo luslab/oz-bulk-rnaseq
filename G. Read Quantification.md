@@ -15,10 +15,7 @@ Instead of normalising simply assign fragments to a defined set of genes/transcr
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
-Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR, featureCounts,
-
-` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
-- `QoRTs` also does counting - Nobby uses this.
+Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR, featureCounts, QoRTs (Nobby uses this)
 
 ## HTSeq-Count
 ml HTSeq
@@ -48,7 +45,10 @@ head htseq_read_counts_table_all_final.tsv
 
 This output is then analysed for differential expression using edgeR (see next chapter)
 
-# FPKM
+# Normalise for Gene Length & Sequencing Depth
+
+TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
+
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
 
 Transcript expression is proportional to the number of cDNA fragments that originate from it. However:
@@ -207,11 +207,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjcwMzEwMzIsMjA0ODE5MDA0NSwyMT
-E4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEy
-MjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMC
-wtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0
-ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5Mz
-Q0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUs
-LTE5MjY5MDYzOTJdfQ==
+eyJoaXN0b3J5IjpbNzcyNjAwNDQwLDIwNDgxOTAwNDUsMjExOD
+I0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2MTUxMjI3
+LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOTMxMDAsLT
+I3OTkyMTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4
+OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0ND
+ksMTY5MzA0MzQyNiwxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0x
+OTI2OTA2MzkyXX0=
 -->
