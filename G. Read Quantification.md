@@ -173,22 +173,44 @@ rm -f htseq_read_counts_table_all.tsv header.txt
 head htseq_read_counts_table_all_final.tsv
 ```
 
-This output is then analysed using edgeR (see next chapter)
+This output is then analysed for differential expression using edgeR (see next chapter)
 
-
-
-## Spike-in control
+# Spike-in control
 
 - Spike-ins provide a known concentrations of transcripts that we can compare to the experimental samples
 - A common spike in product is [ERCC ExFold RNA spike-in control mix](http://data.biostarhandbook.com/rnaseq/ERCC/ERCC-information.pdf) which is added to the experimental samples
 - Fold change in transcript expression between 2 samples tells you about the difference between the 2; not about whether they are highly or lowly expressed.
 - At lower transcript expression levels accuracy in determining fold change deteriorates. 
+
+## ERCC expression analysis
+
+Using read counts from FPKM or raw counts, plot the linearity of the ERCC spike-in reads counts versus the known concentration of the ERCC spike-in Mix.
+
+```bash
+# 1. Download file with concentrations & fold change differences for the ERCC spike-in reagent
+wget http://genomedata.org/rnaseq-tutorial/ERCC_Controls_Analysis.txt
+cat ERCC_Controls_Analysis.txt
+
+# 2. Use perl script to organise the ERCC expected values & our obersved counts
+wget https://raw.githubusercontent.com/griffithlab/rnaseq_tutorial/master/scripts/Tutorial_ERCC_expression.pl
+chmod +x Tutorial_ERCC_expression.pl
+./Tutorial_ERCC_expression.pl
+cat $RNA_HOME/expression/htseq_counts/ercc_read_counts.tsv
+
+# 3. Run R script to produce x-y scatter plot comparing expected and observed values
+wget https://raw.githubusercontent.com/griffithlab/rnaseq_tutorial/master/scripts/Tutorial_ERCC_expression.R
+chmod +x Tutorial_ERCC_expression.R
+./Tutorial_ERCC_expression.R ercc_read_counts.tsv
+```
+To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
+
+-   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MTA5MzEwMCwtMjc5OTIxMzg1LDE0Mz
-Q1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3
-MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LD
-E4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIsMTAw
-OTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3LC0xNzk1ND
-E1MzgyLDYzMzkzMDYwNSwtNjE5NTc1ODgsNjA0NjAwNDU1LDE1
-NzQxODgxNTRdfQ==
+eyJoaXN0b3J5IjpbLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMj
+c5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5
+NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OS
+wxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5
+MjY5MDYzOTIsMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMz
+YwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1ODgs
+NjA0NjAwNDU1XX0=
 -->
