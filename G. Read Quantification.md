@@ -63,17 +63,17 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #set Counts.txt output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/feature_counts.txt
 
-#run featureCount
-
-#run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
-featureCounts -a $GTF -g gene_name -o $OUT $BAM
-
-
+#run featureCounts on each BAM file separately
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT $BAM"
+
+htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
 done
+
+#run featureCounts on all BAM files together. By default it uses gene_id in the GTF file. Override this with gene_name attribute.
+featureCounts -a $GTF -g gene_name -o $OUT $BAM
 ```
 Using the * wildcard you can list all BAM files into 1 text file.
 
@@ -187,11 +187,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNDExOTE5MCwtMTk4MTcwNTAyMCwtMT
-YzMzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMx
-MzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAwND
-UsMjExODI0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2
-MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOT
-MxMDAsLTI3OTkyMTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1
-LDcyNDg4OTUyN119
+eyJoaXN0b3J5IjpbNjEwNTg5MzAwLC0xOTgxNzA1MDIwLC0xNj
+MzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEz
+MjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NS
+wyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYx
+NTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5Mz
+EwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUs
+NzI0ODg5NTI3XX0=
 -->
