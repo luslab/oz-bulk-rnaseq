@@ -61,13 +61,13 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 #set BAM input file
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/feature_counts.txt
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/feature_counts
 
 #run featureCounts on each BAM file separately
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT $BAM"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_$SRRID.txt $SAMPLE"
 
 htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
 done
@@ -187,7 +187,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEwNTg5MzAwLC0xOTgxNzA1MDIwLC0xNj
+eyJoaXN0b3J5IjpbNjA1NTcyODM3LC0xOTgxNzA1MDIwLC0xNj
 MzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEz
 MjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NS
 wyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYx
