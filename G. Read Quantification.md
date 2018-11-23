@@ -39,7 +39,7 @@ do
 done
 
 # merge results files into a single matrix for use in edgeR
-join SRR5483788_gene.tsv SRR5483789_gene.tsv | join - SRR5483790_gene.tsv | join - SRR5483794_gene.tsv | join - SRR5483795_gene.tsv | join - SRR5483796_gene.tsv > htseq_read_counts_table_all.tsv
+join SRR5483788.tsv SRR5483789.tsv | join - SRR5483790.tsv | join - SRR5483794.tsv | join - SRR5483795.tsv | join - SRR5483796.tsv > htseq_counts_table.tsv
 echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
 cat header.txt htseq_read_counts_table_all.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_read_counts_table_all_final.tsv
 rm -f htseq_read_counts_table_all.tsv header.txt
@@ -183,11 +183,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2ODEzOTA3MywtMTkwMTk1NjY2MCwtMT
-k4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4
-NTE3NjE2LC0xMzMxMzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OT
-AyLDIwNDgxOTAwNDUsMjExODI0NDM4MiwxMTI1ODUwODQ4LDEx
-NDg3MTU5MiwtNTM2MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0Mz
-czOTkxLC02NjEwOTMxMDAsLTI3OTkyMTM4NSwxNDM0NTkwODAx
-LC0yMDQ1NDQwNjQ1XX0=
+eyJoaXN0b3J5IjpbMTAyMDAyMzM2NiwxNjY4MTM5MDczLC0xOT
+AxOTU2NjYwLC0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05Mjkx
+NzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NT
+ExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDEx
+MjU4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MT
+UzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIxMzg1
+LDE0MzQ1OTA4MDFdfQ==
 -->
