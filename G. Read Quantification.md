@@ -104,8 +104,7 @@ Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) - outd
 ml StringTie
 
 StringTie [manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
-StringTie is designed for Alignment by TopHat and HISAT2. In STAR you need to specify a specific sort.
-
+StringTie is designed for Alignment by TopHat and HISAT2. In STAR you need to specify https://www.biostars.org/p/172393/
 ```bash
 mkdir -p stringtie
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
@@ -177,11 +176,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4Mz
-U3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4
-NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLT
-E0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1
-OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3MD
-Y5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4
-OTY5MDQ0NjRdfQ==
+eyJoaXN0b3J5IjpbNjk5MjcwNzY1LC0xMzMxMzIyODAxLC0yND
+g5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAwNDUsMjExODI0NDM4
+MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2MTUxMjI3LC0xMj
+I5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOTMxMDAsLTI3OTky
+MTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNy
+wtMTg4MjYxNzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0NDksMTY5
+MzA0MzQyNl19
 -->
