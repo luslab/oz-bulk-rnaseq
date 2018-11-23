@@ -156,7 +156,7 @@ ml HTSeq
 mkdir -p htseq
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq
 
@@ -206,11 +206,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNjE1MTIyNywtMTIyOTgxNTM3MiwtMT
-QwNDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5MjEzODUsMTQzNDU5
-MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNj
-ksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5
-NjkwNDQ2NCwtMjAwMjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5Mz
-AwMTQ5LDExNDAzNzA3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUz
-ODIsNjMzOTMwNjA1XX0=
+eyJoaXN0b3J5IjpbMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMj
+k4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIx
+Mzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC
+0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkz
+MDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MD
+YzOTIsMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3
+LC0xNzk1NDE1MzgyXX0=
 -->
