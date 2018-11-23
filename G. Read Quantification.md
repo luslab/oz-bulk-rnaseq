@@ -70,8 +70,8 @@ do
 	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_$SRRID $SAMPLE"
 done
 
-#run featureCounts on all BAM files together. By default it uses gene_id in the GTF file. Override this with gene_name attribute.
-# Using the * wildcard you can list all BAM files into 1 text file. The output file contains a column for each sample. 
+#run featureCounts on all BAM files together. By default it uses gene_id in the GTF - override with gene_name
+# Using * wildcard list all BAM files into 1 file. The output file contains a column for each sample. 
 featureCounts -a $GTF -g gene_name -o $OUT $BAM
 ```
 
@@ -183,7 +183,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzc3MzE1ODgsLTE5ODE3MDUwMjAsLT
+eyJoaXN0b3J5IjpbLTE5MDE5NTY2NjAsLTE5ODE3MDUwMjAsLT
 E2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMz
 MTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMD
 Q1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUz
