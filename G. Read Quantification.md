@@ -2,14 +2,54 @@
 We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
 2 different ways to quantify mRNA abundances of known genes and transcripts:
-1.  Simple: Raw Counts -The number of reads overlapping with a transcript.
+1.  Raw Counts - simply the number of reads overlapping with a transcript.
 2.  Normalise for gene length & sequencing depth:
 	- FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. (FLAWED MEASURE STATISTICALLY). This has been superseded by:
 	- TPM: Transcripts per Million: also normalises sequencing depth & gene length but in the reverse order. 
 
 https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
 
-Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.  - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
+Whilst IGV is used to initial glance at coverage, these methods normalise & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.
+
+# Raw Counts
+
+Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
+Does not have a step to calculate assembly and different isoforms.
+
+Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
+
+Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR
+
+- `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
+- `QoRTs` also does counting - Nobby uses this.
+
+## HTSeq-Count
+ml HTSeq
+
+-   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
+
+```bash
+mkdir -p htseq
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq
+
+for SAMPLE in $BAM
+do
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_${SAMPLE}.tsv"
+done
+
+# merge results files into a single matrix for use in edgeR
+join SRR5483788_gene.tsv SRR5483789_gene.tsv | join - SRR5483790_gene.tsv | join - SRR5483794_gene.tsv | join - SRR5483795_gene.tsv | join - SRR5483796_gene.tsv > htseq_read_counts_table_all.tsv
+echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
+cat header.txt htseq_read_counts_table_all.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_read_counts_table_all_final.tsv
+rm -f htseq_read_counts_table_all.tsv header.txt
+head htseq_read_counts_table_all_final.tsv
+```
+
+This output is then analysed for differential expression using edgeR (see next chapter)
 
 # FPKM
 Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
@@ -139,46 +179,6 @@ chmod +x stringtie_expression_matrix.pl
 head transcript_tpm_all_samples.tsv gene_tpm_all_samples.tsv
 ```
 
-# Raw Counts
-
-Instead of calculating FPKM simply assign fragments to a defined set of genes/transcripts & determine raw counts.
-Does not have a step to calculate assembly and different isoforms.
-
-Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
-
-Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR
-
-- `featureCounts` counts reads if any overlap is found with a gene. Can exclude multi-overlap reads or include then for each gene that is overlapped. This is a package of Subread so need to `ml Subread` - Biostars advise this.
-- `QoRTs` also does counting - Nobby uses this.
-
-## HTSeq-Count
-ml HTSeq
-
--   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
-
-```bash
-mkdir -p htseq
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-#set output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq
-
-for SAMPLE in $BAM
-do
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_${SAMPLE}.tsv"
-done
-
-# merge results files into a single matrix for use in edgeR
-join SRR5483788_gene.tsv SRR5483789_gene.tsv | join - SRR5483790_gene.tsv | join - SRR5483794_gene.tsv | join - SRR5483795_gene.tsv | join - SRR5483796_gene.tsv > htseq_read_counts_table_all.tsv
-echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
-cat header.txt htseq_read_counts_table_all.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_read_counts_table_all_final.tsv
-rm -f htseq_read_counts_table_all.tsv header.txt
-head htseq_read_counts_table_all_final.tsv
-```
-
-This output is then analysed for differential expression using edgeR (see next chapter)
-
 # Spike-in control
 
 - Spike-ins provide a known concentrations of transcripts that we can compare to the experimental samples
@@ -210,7 +210,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MDk3MjczNiwyMDQ4MTkwMDQ1LDIxMT
+eyJoaXN0b3J5IjpbLTgwMjE0NzYxOSwyMDQ4MTkwMDQ1LDIxMT
 gyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIy
 NywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC
 0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4
