@@ -162,7 +162,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq
 
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $BAM $GTF > $OUT_${SAMPLE}.tsv"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_${SAMPLE}.tsv"
 done
 
 # merge results files into a single matrix for use in edgeR
@@ -206,11 +206,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMj
-k4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIx
-Mzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC
-0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkz
-MDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MD
-YzOTIsMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMzYwNjA3
-LC0xNzk1NDE1MzgyXX0=
+eyJoaXN0b3J5IjpbMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNj
+E1MTIyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkz
+MTAwLC0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NS
+w3MjQ4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxODc3
+NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAwMjk4ND
+Q0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNzA3OTQs
+LTIwNzAzNjA2MDddfQ==
 -->
