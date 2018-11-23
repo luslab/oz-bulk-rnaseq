@@ -38,16 +38,6 @@ do
 	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
 done
 
-# SINGLE APPROACH:
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
-#set output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/raw_counts
-
-htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $BAM $GTF > $OUT_${BAM}.tsv
-
-
 # merge results files into a single matrix for use in edgeR
 join SRR5483788_gene.tsv SRR5483789_gene.tsv | join - SRR5483790_gene.tsv | join - SRR5483794_gene.tsv | join - SRR5483795_gene.tsv | join - SRR5483796_gene.tsv > htseq_read_counts_table_all.tsv
 echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
@@ -188,11 +178,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMT
-Y1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0
-OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQzODIsMTEyNTg1MDg0OC
-wxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMTIyOTgxNTM3MiwtMTQw
-NDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5MjEzODUsMTQzNDU5MD
-gwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjks
-MTkzMDY3NDE1Nl19
+eyJoaXN0b3J5IjpbLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLT
+kyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4
+OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQzOD
+IsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMTIy
+OTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5Mj
+EzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1Mjcs
+LTE4ODI2MTcwNjldfQ==
 -->
