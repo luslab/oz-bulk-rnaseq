@@ -5,6 +5,8 @@ Different ways to quantify mRNA abundances of known genes and transcripts:
 1.  FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. (FLAWED MEASURE STATISTICALLY)
 2.  Raw Counts: The number of reads overlapping with a transcript.
 
+https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
+
 Where as IGV is used as an initial glance at coverage, these methods normalise & objectively quantify gene expression.  - To compare the expression rates of individual genes between samples you need to **quantify the number of reads per gene.**
 
 # FPKM
@@ -206,11 +208,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExODI0NDM4MiwxMTI1ODUwODQ4LDExND
-g3MTU5MiwtNTM2MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0Mzcz
-OTkxLC02NjEwOTMxMDAsLTI3OTkyMTM4NSwxNDM0NTkwODAxLC
-0yMDQ1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYxNzA2OSwxOTMw
-Njc0MTU2LDE4Nzc0OTM0NDksMTY5MzA0MzQyNiwxODk2OTA0ND
-Y0LC0yMDAyOTg0NDQ1LC0xOTI2OTA2MzkyLDEwMDkzMDAxNDks
-MTE0MDM3MDc5NF19
+eyJoaXN0b3J5IjpbMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMj
+U4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MTUz
+NzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIxMzg1LD
+E0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgy
+NjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzND
+I2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5MjY5MDYzOTIs
+MTAwOTMwMDE0OV19
 -->
