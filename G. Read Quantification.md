@@ -30,12 +30,22 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 #set BAM input file
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/raw_count
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/raw_counts
 
 for SAMPLE in $BAM
 do
 	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_${SAMPLE}.tsv"
 done
+
+# SINGLE APPROACH:
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
+#set output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/raw_counts
+
+htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_${SAMPLE}.tsv
+
 
 # merge results files into a single matrix for use in edgeR
 join SRR5483788_gene.tsv SRR5483789_gene.tsv | join - SRR5483790_gene.tsv | join - SRR5483794_gene.tsv | join - SRR5483795_gene.tsv | join - SRR5483796_gene.tsv > htseq_read_counts_table_all.tsv
@@ -177,11 +187,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4OTU1NzA1LC0xNjU4NTE3NjE2LC0xMz
-MxMzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAw
-NDUsMjExODI0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNT
-M2MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEw
-OTMxMDAsLTI3OTkyMTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNj
-Q1LDcyNDg4OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0MTU2LDE4
-Nzc0OTM0NDldfQ==
+eyJoaXN0b3J5IjpbLTExNjI4NDk3MTYsLTE2NTg1MTc2MTYsLT
+EzMzEzMjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5
+MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC
+01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2
+MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0ND
+A2NDUsNzI0ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYs
+MTg3NzQ5MzQ0OV19
 -->
