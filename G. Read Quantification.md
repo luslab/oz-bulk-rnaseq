@@ -19,6 +19,7 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 
 ## HTSeq-Count
 ml HTSeq
+ml Pysam
 
 -   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
 
@@ -176,7 +177,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MDUzMTA1NSw4MzU3NDk5MDIsMjA0OD
+eyJoaXN0b3J5IjpbLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0OD
 E5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTky
 LC01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLT
 Y2MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0
