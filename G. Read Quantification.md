@@ -61,10 +61,12 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 #set BAM input file
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/feature_counts.txt
+
+#run featureCount
 
 #run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
-featureCounts -a $GTF -g gene_name -o counts.txt $OUT $BAM
+featureCounts -a $GTF -g gene_name -o $OUT $BAM
 
 
 for SAMPLE in $BAM
@@ -185,11 +187,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTQwMTc0MTgsLTE5ODE3MDUwMjAsLT
-E2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMz
-MTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMD
-Q1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUz
-NjE1MTIyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMD
-kzMTAwLC0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0
-NSw3MjQ4ODk1MjddfQ==
+eyJoaXN0b3J5IjpbMTkzNDExOTE5MCwtMTk4MTcwNTAyMCwtMT
+YzMzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMx
+MzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAwND
+UsMjExODI0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2
+MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOT
+MxMDAsLTI3OTkyMTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1
+LDcyNDg4OTUyN119
 -->
