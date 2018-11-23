@@ -25,6 +25,7 @@ ml Pysam
 
 ```bash
 mkdir -p htseq
+#set GTF annoation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
@@ -176,11 +177,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNzk1ODQzMywtMTMzMTMyMjgwMSwtMj
-Q4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQz
-ODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMT
-IyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5
-MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1Mj
-csLTE4ODI2MTcwNjksMTkzMDY3NDE1NiwxODc3NDkzNDQ5LDE2
-OTMwNDM0MjZdfQ==
+eyJoaXN0b3J5IjpbLTE2NTg1MTc2MTYsLTEzMzEzMjI4MDEsLT
+I0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0
+MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLT
+EyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5
+OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NT
+I3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwx
+NjkzMDQzNDI2XX0=
 -->
