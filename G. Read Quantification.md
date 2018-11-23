@@ -67,17 +67,13 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/fea
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_$SRRID.txt $SAMPLE"
-
-htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_$SRRID $SAMPLE"
 done
 
 #run featureCounts on all BAM files together. By default it uses gene_id in the GTF file. Override this with gene_name attribute.
+# Using the * wildcard you can list all BAM files into 1 text file. The output file contains a column for each sample. 
 featureCounts -a $GTF -g gene_name -o $OUT $BAM
 ```
-Using the * wildcard you can list all BAM files into 1 text file.
-
-The output file contains a column for each sample. 
 
 For each BAM file there are 2 output files:
 - featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
@@ -187,11 +183,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA1NTcyODM3LC0xOTgxNzA1MDIwLC0xNj
-MzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEz
-MjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NS
-wyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYx
-NTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5Mz
-EwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUs
-NzI0ODg5NTI3XX0=
+eyJoaXN0b3J5IjpbLTEwMzc3MzE1ODgsLTE5ODE3MDUwMjAsLT
+E2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMz
+MTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMD
+Q1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUz
+NjE1MTIyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMD
+kzMTAwLC0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0
+NSw3MjQ4ODk1MjddfQ==
 -->
