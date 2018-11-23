@@ -34,8 +34,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/
 
 for SAMPLE in $BAM
 do
-	srrid=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$srrid.tsv"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
 done
 
 # SINGLE APPROACH:
@@ -188,11 +188,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MTU3MzQ5OCwtOTI5MTczMjM4LC0xNj
-U4NTE3NjE2LC0xMzMxMzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5
-OTAyLDIwNDgxOTAwNDUsMjExODI0NDM4MiwxMTI1ODUwODQ4LD
-ExNDg3MTU5MiwtNTM2MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0
-MzczOTkxLC02NjEwOTMxMDAsLTI3OTkyMTM4NSwxNDM0NTkwOD
-AxLC0yMDQ1NDQwNjQ1LDcyNDg4OTUyNywtMTg4MjYxNzA2OSwx
-OTMwNjc0MTU2XX0=
+eyJoaXN0b3J5IjpbLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMT
+Y1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0
+OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQzODIsMTEyNTg1MDg0OC
+wxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMTIyOTgxNTM3MiwtMTQw
+NDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5MjEzODUsMTQzNDU5MD
+gwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjks
+MTkzMDY3NDE1Nl19
 -->
