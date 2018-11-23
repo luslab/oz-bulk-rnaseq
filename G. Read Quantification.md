@@ -83,8 +83,7 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 # Normalise for Gene Length & Sequencing Depth
 
 [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
-
-Reads per kilobase of transcript per million mapped reads = Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
+RPKM Reads per kilobase of transcript per million mapped reads & FPKM Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
 FPKM normalises for gene size & library depth using: **FPKM = (10^9^ * C ) / (N * L)**
 C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
@@ -92,35 +91,13 @@ L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene 
 
 Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) - no outdated and superceded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
-## Cufflinks
-ml Cufflinks
-
-https://github.com/cole-trapnell-lab/cufflinks
-
-Process:
+## Process:
 1. Overlapping bundles of fragment are **assembled**
 2. Fragments are connected in an **overlap graph**. This graph models variability in fragment count for each gene across replicates (if the fragments are compatible then these are assumed to come from the same genetic locus - it calculates mutually incompatible fragments where splice sites are mid exon or intron)
 3. Transcript isoforms are inferred from the **minimum paths** required to cover the graph
 4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model. The variance estimates of fragment count for each transcript  are statistically tested to report DE genes.
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
-```bash
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/cufflinks/
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-
-for SAMPLE in $BAM
-do
-	sbatch -N 1 -c 8 --mem=24GB --wrap="cufflinks -o $OUT_${SAMPLE} -G $GTF $BAM"
-done
-```
-
-### Cuffmerge & Cuffdiff
-
-Allows merger of several Cufflinks assemblies together which is required as even with replicates cufflinks will not necessarily assemble the same numbers & structures of transcripts.
-It filters out a number of transfrags that are likely artefacts.
-Optional to provide a reference GTF to merge novel isoforms & known isoforms to maximse overall assembly quality 
-
 
 ## StringTie
 ml StringTie
@@ -199,11 +176,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM1NzQ5OTAyLDIwNDgxOTAwNDUsMjExOD
-I0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2MTUxMjI3
-LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOTMxMDAsLT
-I3OTkyMTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4
-OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0ND
-ksMTY5MzA0MzQyNiwxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0x
-OTI2OTA2MzkyXX0=
+eyJoaXN0b3J5IjpbMTM1MDUzMTA1NSw4MzU3NDk5MDIsMjA0OD
+E5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTky
+LC01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLT
+Y2MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0
+NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNT
+YsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIw
+MDI5ODQ0NDVdfQ==
 -->
