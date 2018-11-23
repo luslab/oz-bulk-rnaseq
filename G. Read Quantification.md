@@ -44,7 +44,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #set output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/raw_counts
 
-htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_${SAMPLE}.tsv
+htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $BAM $GTF > $OUT_${BAM}.tsv
 
 
 # merge results files into a single matrix for use in edgeR
@@ -187,11 +187,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjI4NDk3MTYsLTE2NTg1MTc2MTYsLT
-EzMzEzMjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5
-MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC
-01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2
-MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0ND
-A2NDUsNzI0ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYs
-MTg3NzQ5MzQ0OV19
+eyJoaXN0b3J5IjpbLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMT
+MzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkw
+MDQ1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLT
+UzNjE1MTIyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYx
+MDkzMTAwLC0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MD
+Y0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1Niwx
+ODc3NDkzNDQ5XX0=
 -->
