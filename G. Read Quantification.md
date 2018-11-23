@@ -45,6 +45,41 @@ head htseq_read_counts_table_all_final.tsv
 
 This output is then analysed for differential expression using edgeR (see next chapter)
 
+## featureCounts
+ml Subread
+
+1. Count reads (estimate abundance) per sample:
+```bash
+
+# Create output folder
+mkdir -p featureCounts
+
+#set gene coordinates
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts.txt
+
+#run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
+featureCounts -a $GTF -g gene_name -o counts.txt $OUT $BAM
+```
+Using the * wildcard you can list all BAM files into 1 text file.
+
+The output file contains a column for each sample. 
+
+For each BAM file there are 2 output files:
+- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
+- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+
+2. Find sequences with highest abundance
+
+To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
+Output table is in columns as:
+```bash
+Geneid    Chr   Start   End	  Strand   Length 	 Hits
+```
+
 # Normalise for Gene Length & Sequencing Depth
 
 [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
@@ -164,11 +199,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDcwNjIzOTgsMjA0ODE5MDA0NSwyMT
-E4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEy
-MjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMC
-wtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0
-ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5Mz
-Q0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUs
-LTE5MjY5MDYzOTJdfQ==
+eyJoaXN0b3J5IjpbODM1NzQ5OTAyLDIwNDgxOTAwNDUsMjExOD
+I0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5MiwtNTM2MTUxMjI3
+LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkxLC02NjEwOTMxMDAsLT
+I3OTkyMTM4NSwxNDM0NTkwODAxLC0yMDQ1NDQwNjQ1LDcyNDg4
+OTUyNywtMTg4MjYxNzA2OSwxOTMwNjc0MTU2LDE4Nzc0OTM0ND
+ksMTY5MzA0MzQyNiwxODk2OTA0NDY0LC0yMDAyOTg0NDQ1LC0x
+OTI2OTA2MzkyXX0=
 -->
