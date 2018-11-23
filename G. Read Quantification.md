@@ -59,12 +59,19 @@ mkdir -p featureCounts
 #set gene coordinates
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/counts.txt
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
 
 #run featureCounts command - by default it uses gene_id in the GTF file. Override this with gene_name attribute.
 featureCounts -a $GTF -g gene_name -o counts.txt $OUT $BAM
+
+
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
+done
 ```
 Using the * wildcard you can list all BAM files into 1 text file.
 
@@ -178,11 +185,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLT
-kyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4
-OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQzOD
-IsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMTIy
-OTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5Mj
-EzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4ODk1Mjcs
-LTE4ODI2MTcwNjldfQ==
+eyJoaXN0b3J5IjpbLTEzNTQwMTc0MTgsLTE5ODE3MDUwMjAsLT
+E2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMz
+MTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMD
+Q1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUz
+NjE1MTIyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMD
+kzMTAwLC0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0
+NSw3MjQ4ODk1MjddfQ==
 -->
