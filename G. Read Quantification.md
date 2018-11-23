@@ -148,6 +148,7 @@ Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) ,
 - `QoRTs` also does counting - Nobby uses this.
 
 ## HTSeq-Count
+ml HTSeq
 
 -   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
 
@@ -206,11 +207,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMj
-c5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5
-NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OS
-wxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIwMDI5ODQ0NDUsLTE5
-MjY5MDYzOTIsMTAwOTMwMDE0OSwxMTQwMzcwNzk0LC0yMDcwMz
-YwNjA3LC0xNzk1NDE1MzgyLDYzMzkzMDYwNSwtNjE5NTc1ODgs
-NjA0NjAwNDU1XX0=
+eyJoaXN0b3J5IjpbMTI1NjM5MDEwMSwtMTQwNDM3Mzk5MSwtNj
+YxMDkzMTAwLC0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0
+MDY0NSw3MjQ4ODk1MjcsLTE4ODI2MTcwNjksMTkzMDY3NDE1Ni
+wxODc3NDkzNDQ5LDE2OTMwNDM0MjYsMTg5NjkwNDQ2NCwtMjAw
+Mjk4NDQ0NSwtMTkyNjkwNjM5MiwxMDA5MzAwMTQ5LDExNDAzNz
+A3OTQsLTIwNzAzNjA2MDcsLTE3OTU0MTUzODIsNjMzOTMwNjA1
+LC02MTk1NzU4OF19
 -->
