@@ -1,10 +1,11 @@
 > # Read Quantification
 We first use RNA seq to determine the abundance of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
-Different ways to quantify mRNA abundances of known genes and transcripts:
-1.  FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. (FLAWED MEASURE STATISTICALLY). This has been superseded by:
-2. TPM: Transcripts per Million: also normalises sequencing depth & gene length but in the reverse order. 
-3.  Raw Counts: The number of reads overlapping with a transcript.
+2 different ways to quantify mRNA abundances of known genes and transcripts:
+1.  Simple: Raw Counts -The number of reads overlapping with a transcript.
+2.  Normalise for gene length & sequencing depth:
+	- FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. (FLAWED MEASURE STATISTICALLY). This has been superseded by:
+	- TPM: Transcripts per Million: also normalises sequencing depth & gene length but in the reverse order. 
 
 https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
 
@@ -209,7 +210,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMjU4Nzc0NywyMDQ4MTkwMDQ1LDIxMT
+eyJoaXN0b3J5IjpbLTc5MDk3MjczNiwyMDQ4MTkwMDQ1LDIxMT
 gyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIy
 NywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC
 0yNzk5MjEzODUsMTQzNDU5MDgwMSwtMjA0NTQ0MDY0NSw3MjQ4
