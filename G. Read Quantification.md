@@ -50,11 +50,10 @@ This output is then analysed for differential expression using edgeR (see next c
 ml Subread
 
 1. Count reads (estimate abundance) per sample:
-```bash
 
+```bash
 # Create output folder
 mkdir -p featureCounts
-
 #set gene coordinates
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
@@ -177,7 +176,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0OTM5NTk0NywtMTMzMTMyMjgwMSwtMj
+eyJoaXN0b3J5IjpbLTczNzk1ODQzMywtMTMzMTMyMjgwMSwtMj
 Q4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQz
 ODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMT
 IyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAwLC0yNzk5
