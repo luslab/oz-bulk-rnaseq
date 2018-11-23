@@ -75,7 +75,7 @@ done
 featureCounts -a $GTF -g gene_name -o $OUT $BAM
 ```
 
-For each BAM file there are 2 output files:
+For each featureCounts command run there are 2 output files:
 - featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
 - featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
 
@@ -183,11 +183,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOT
-AxOTU2NjYwLC0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05Mjkx
-NzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NT
-ExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDEx
-MjU4NTA4NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MT
-UzNzIsLTE0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIxMzg1
-LDE0MzQ1OTA4MDFdfQ==
+eyJoaXN0b3J5IjpbMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2Nj
+gxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMjAsLTE2MzMz
+NDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMzMTMyMj
+gwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIx
+MTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MT
+IyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAw
+LC0yNzk5MjEzODVdfQ==
 -->
