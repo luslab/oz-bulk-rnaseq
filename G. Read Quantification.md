@@ -90,7 +90,7 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
-Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) - no outdated and superceded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) - outdated and superceded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 ## Process:
 1. Overlapping bundles of fragment are **assembled**
@@ -177,11 +177,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0OD
-E5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTky
-LC01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLTE0MDQzNzM5OTEsLT
-Y2MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1OTA4MDEsLTIwNDU0
-NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3MDY5LDE5MzA2NzQxNT
-YsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4OTY5MDQ0NjQsLTIw
-MDI5ODQ0NDVdfQ==
+eyJoaXN0b3J5IjpbLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4Mz
+U3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4
+NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MTUzNzIsLT
+E0MDQzNzM5OTEsLTY2MTA5MzEwMCwtMjc5OTIxMzg1LDE0MzQ1
+OTA4MDEsLTIwNDU0NDA2NDUsNzI0ODg5NTI3LC0xODgyNjE3MD
+Y5LDE5MzA2NzQxNTYsMTg3NzQ5MzQ0OSwxNjkzMDQzNDI2LDE4
+OTY5MDQ0NjRdfQ==
 -->
