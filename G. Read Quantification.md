@@ -181,14 +181,13 @@ chmod +x Tutorial_ERCC_expression.R
 ./Tutorial_ERCC_expression.R ercc_read_counts.tsv
 ```
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
-
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0NjYwMTIyMywtNzE5ODY1MTE5LDEzNj
-czNjI3MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2
-NjYwLC0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMz
-gsLTE2NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4
-MzU3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NT
-A4NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MTUzNzIs
-LTE0MDQzNzM5OTFdfQ==
+eyJoaXN0b3J5IjpbNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2Nz
+M2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2
+NjAsLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOC
+wtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgz
+NTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQzODIsMTEyNTg1MD
+g0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywtMTIyOTgxNTM3Miwt
+MTQwNDM3Mzk5MV19
 -->
