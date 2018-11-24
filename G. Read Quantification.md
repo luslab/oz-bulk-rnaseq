@@ -115,14 +115,14 @@ StringTie is principally designed for Alignment by HISAT2. In STAR when mapping 
 ```bash
 mkdir -p stringtie
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-GTF_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/transcripts.gtf
-TSV_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/gene_abundances.tsv
+GTF_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/
+TSV_OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/stringtie/
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_${SAMPLE} -A $TSV_OUT_gene_abundances_ $BAM"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_transcripts_$SRRID -A $TSV_OUT_gene_abundances_$SRRID $BAM"
 done
 
 #   '-p 8' tells Stringtie to use eight CPUs
@@ -184,7 +184,7 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzMTM5OTI2MiwtNzE5ODY1MTE5LDEzNj
+eyJoaXN0b3J5IjpbLTc0NjYwMTIyMywtNzE5ODY1MTE5LDEzNj
 czNjI3MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2
 NjYwLC0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMz
 gsLTE2NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4
