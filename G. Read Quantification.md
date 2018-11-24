@@ -121,7 +121,8 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_${SAMPLE} -A $TSV_OUT_${SAMPLE} $BAM"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_${SAMPLE} -A $TSV_OUT_gene_abundances_ $BAM"
 done
 
 #   '-p 8' tells Stringtie to use eight CPUs
@@ -183,11 +184,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxND
-QxMzQxNzEsMTY2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcw
-NTAyMCwtMTYzMzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3Nj
-E2LC0xMzMxMzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIw
-NDgxOTAwNDUsMjExODI0NDM4MiwxMTI1ODUwODQ4LDExNDg3MT
-U5MiwtNTM2MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkx
-LC02NjEwOTMxMDBdfQ==
+eyJoaXN0b3J5IjpbMjEzMTM5OTI2MiwtNzE5ODY1MTE5LDEzNj
+czNjI3MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2
+NjYwLC0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMz
+gsLTE2NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4
+MzU3NDk5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NT
+A4NDgsMTE0ODcxNTkyLC01MzYxNTEyMjcsLTEyMjk4MTUzNzIs
+LTE0MDQzNzM5OTFdfQ==
 -->
