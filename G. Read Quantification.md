@@ -61,13 +61,13 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 #set BAM input file
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/feature_counts
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
 
 #run featureCounts on each BAM file separately
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_$SRRID $SAMPLE"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_featureCounts_$SRRID $SAMPLE"
 done
 
 #run featureCounts on all BAM files together. By default it uses gene_id in the GTF - override with gene_name
@@ -183,11 +183,11 @@ To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADD
 
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2Nj
-gxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMjAsLTE2MzMz
-NDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMzMTMyMj
-gwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIx
-MTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MT
-IyNywtMTIyOTgxNTM3MiwtMTQwNDM3Mzk5MSwtNjYxMDkzMTAw
-LC0yNzk5MjEzODVdfQ==
+eyJoaXN0b3J5IjpbLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxND
+QxMzQxNzEsMTY2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcw
+NTAyMCwtMTYzMzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3Nj
+E2LC0xMzMxMzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIw
+NDgxOTAwNDUsMjExODI0NDM4MiwxMTI1ODUwODQ4LDExNDg3MT
+U5MiwtNTM2MTUxMjI3LC0xMjI5ODE1MzcyLC0xNDA0MzczOTkx
+LC02NjEwOTMxMDBdfQ==
 -->
