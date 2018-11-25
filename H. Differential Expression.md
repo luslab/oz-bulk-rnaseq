@@ -1,6 +1,6 @@
 > # Differential Gene Expression Analysis
 
-This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis
+This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis.
 
 # Comparisons between conditions
 
@@ -408,11 +408,11 @@ Regularise log-transformed values:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNywtMT
-kyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIx
-NzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzND
-I1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwtMTE1
-NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3NywxMTE4NTYxOT
-kyLC00NjA2OTY5LC0xMjA3NDA5MjkzLDEwNjA5OTgwNjYsLTE0
-MDIzNTEzNzRdfQ==
+eyJoaXN0b3J5IjpbMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMD
+M2NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTExNTcw
+MDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMjgyMjM5Mj
+UsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4MCwxNzA5
+NTA3NjU1LC0xMTU0MTI1NTI3LC04Nzc4MDI4NTcsOTY1NDM1MT
+c3LDExMTg1NjE5OTIsLTQ2MDY5NjksLTEyMDc0MDkyOTMsMTA2
+MDk5ODA2Nl19
 -->
