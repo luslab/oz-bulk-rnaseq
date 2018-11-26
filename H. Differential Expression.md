@@ -151,43 +151,6 @@ dt = data.frame("id"=rownames(nc),nc)
 
 # Save the normalize data matrix.
 write.table(dt, file="norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
-
-
-
-
-
-# get table of read counts
-read.counts = read.table("featureCounts_results.txt", header = TRUE) 
-# store gene IDs as row.names
-row.names(read.counts) = readcounts$Geneid
-# exclude columns that dont have read counts
-readcounts = readcounts[ , -c(1:6)]
-# assign the sample names
-orig_names = names(readcounts)
-names(readcounts) = gsub(".*(WT|SNF2)(_[0-9]+).*", "\\1\\2 ", orig_names)
-# check data
-str(readcounts)
-head(readcounts)
-# make a data frame for rows (samples)
-sample_info = data.frame(condition = gsub("_[0 -9]+", "", names(readcounts)), row.names = names(readcounts))
-# Generate the DSeqDataSet - run the DGE analysis
-DESeq.ds = DESeqDataSetFromMatrix(countData = readcounts, colData = sample_info, design = ~ condition)
-# Check and test dataset
-colData(DESeq.ds) %>% head
-assay(DESeq.ds) %>% head
-rowRanges(DESeq.ds) %>% head
-counts(DESeq.ds) %>% str
-DESeq.ds = DESeq.ds[rowSums(counts(DESeq.ds)) > 0, ]
-#remove genes without any counts
-colSums(counts(DESeq.ds))` # should be the same as `colSums(readcounts)
-# DSeq default for normalising for differences in sequencing depths is `estimateSizeFactors` calculate the size factor and add it to the data set:
-DESeq.ds = estimateSizeFactors(DESeq.ds)
-sizeFactors(DESeq.ds)
-# counts ()` allows you to immediately retrieve the normalized read counts
-counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)
-# Log Transformation of Sequencing Depth Normalised read counts. Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*. Log2 transform read counts: 
-log.norm.counts = log2(counts.sf_normalized + 1)
-#use a pseudocount of 1
 ```
 
 The results.txt file describes changes between the 2 conditions e.g.
@@ -236,7 +199,6 @@ cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
 
 edgeR is a bioconductor package designed for DE of raw counts
 Input = raw counts from htseq-count or featureCounts
-
 
 ```bash
 mkdir -p edgeR
@@ -332,6 +294,7 @@ cut -f 2 edgeR_DE_genes.txt | sort  > htseq_edgeR_DE_gene_symbols.txt
 # Ballgown
 
 https://www.bioconductor.org/packages/release/bioc/html/ballgown.html
+Designed to work with StringTie count analysis.
 
 First create a file that lists the expression files, then view that file, then start an R session to examine these results:
 
@@ -370,11 +333,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMz
-Q1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0
-MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMT
-Y0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcx
-Mzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2NDMyNz
-A3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTExNTcwMDEwNzgs
-MTU1MjE3MjU1N119
+eyJoaXN0b3J5IjpbMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMj
+EzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1
+NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMz
+k3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4
+NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNi
+wtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0x
+MTU3MDAxMDc4XX0=
 -->
