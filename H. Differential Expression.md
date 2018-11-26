@@ -181,7 +181,8 @@ Input = raw counts from htseq-count or featureCounts
 mkdir -p edgeR
 
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-#create a mapping file to go from ENSG IDs (which is htseq output) to Symbols:
+
+#go to htseq directory & create a mapping file to go from ENSG IDs (which is htseq output) to Symbols:
 perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($_ =~ /gene_name\s\"(\S+)"\;/) { $name = $1; }; }; if ($id && $name) {print "$id\t$name\n";} if ($_=~/gene_id\s\"(ERCC\S+)\"/){print "$1\t$1\n";}' $GTF | sort | uniq > ENSG_ID2Name.txt
 head ENSG_ID2Name.txt
 
@@ -295,11 +296,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTMzODYzNTUsMTUwNzEzODgwOCwxMj
-YzOTYxNTY0LDE4Njc3NTMyMDYsLTIwMzY0MzI3MDcsLTE5Mjcw
-MTAzMjgsLTM1OTYwNTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNT
-U3LDkxMDE4NDIzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5
-NjIxNTkyMTAsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMj
-U1MjcsLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5Miwt
-NDYwNjk2OV19
+eyJoaXN0b3J5IjpbMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNT
+A3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQz
+MjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMD
+c4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0y
+MDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNz
+Y1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3Nywx
+MTE4NTYxOTkyXX0=
 -->
