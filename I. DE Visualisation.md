@@ -29,28 +29,18 @@ Firstly, visualise the most significantly DE genes in IGV
 Use output from DE analysis
 
 ```R
-#Starting from the output of the RNA-seq Tutorial Part 1.
-
 #Load libraries
-
 library(ggplot2)
-
 library(gplots)
-
 library(GenomicRanges)
-
 library(ballgown)
 
 #If X11 not available, open a pdf device for output of all plots
+pdf(file="Supplementary_R_output.pdf")
 
-pdf(file="Tutorial_Part3_Supplementary_R_output.pdf")
-
-#### Import the gene expression data from the HISAT2/StringTie/Ballgown tutorial
-
+#### Import the gene expression data
 #Set working directory where results files exist
-
 working_dir = "~/workspace/rnaseq/de/ballgown/ref_only"
-
 setwd(working_dir)
 
 # List the current contents of this directory
@@ -601,6 +591,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNTA0NTg1NSwtODc2MDI1NTQ5LC0xMz
+eyJoaXN0b3J5IjpbMTI2MDk1ODIwOCwtODc2MDI1NTQ5LC0xMz
 k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
