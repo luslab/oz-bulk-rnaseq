@@ -33,12 +33,13 @@ ml BEDTools
 
 Convert BAM > BigWig file using BED tools & BED graph. Can then import the BigWig file into IGV. 
 STAR creates a wiggle track (raw bigwig file). 
-These are smaller files and stop IGV crashing. They only show the coverage and not the individual reads.
+They only show the coverage and not the individual reads. They are binary formatted and so a much smaller files - prevents IGV crashing.
 
 https://software.broadinstitute.org/software/igv/bigwig
 https://github.com/YangLab/bamTobw
 
-Create a text file of all BAM files to run- 1 per line. Save in relevant directory.
+1. Create a text file of all BAM files to run- 1 per line. Save in relevant directory.
+2. Then run bamTobw.sh command (installed in PATH)
 `bamTobw.sh -b bam_list.txt`
 
 ## Run IGV
@@ -81,8 +82,8 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2ODU3MTg3NSwtMTA5MjQ5MjAwNCwtMT
-MzMDk3MTM4OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQx
-NjgyMSwtMTYxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MT
-FdfQ==
+eyJoaXN0b3J5IjpbLTE4NTcxMTk1NTcsLTEwOTI0OTIwMDQsLT
+EzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0
+MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMjYwNTU3OT
+ExXX0=
 -->
