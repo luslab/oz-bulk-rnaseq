@@ -2,8 +2,6 @@
 
 This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis.
 
-# Comparisons between conditions
-
 To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
 1. expression level
 2. read length
@@ -309,11 +307,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTM3MDA1NzEsMTkxODE0MDY1NywtND
-k3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4
-NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NS
-wxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAz
-NjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MD
-AxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1
-LC0yMDU3NjIzNDI1XX0=
+eyJoaXN0b3J5IjpbLTE2NjAwNjE4MTIsLTE0OTM3MDA1NzEsMT
+kxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1
+NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMC
+wtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2
+Nzc1MzIwNiwtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5Nj
+A1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMz
+LC0yMTI4MjIzOTI1XX0=
 -->
