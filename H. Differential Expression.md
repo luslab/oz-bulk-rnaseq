@@ -199,10 +199,11 @@ R script:
 # Load Data into R #
 #######################
 
-#Set working directory inwhere output will go
+#Set working directory in R where output will go:
 working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
-setwd("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq")
 setwd(working_dir)
+#can also set the working directory in R manually: Session > Set Working Directory > Choose Folder in the Cluster to set as wd.
+
 #Read in gene mapping
 mapping=read.table("~/workspace/rnaseq/de/htseq_counts/ENSG_ID2Name.txt", header=FALSE, stringsAsFactors=FALSE, row.names=1)
 # Read in count matrix
@@ -299,7 +300,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDk0NTgyNzEsOTIwMzA1NDU0LDIwMz
+eyJoaXN0b3J5IjpbLTEyMTQ5MzQ2NTcsOTIwMzA1NDU0LDIwMz
 k3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4
 NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNi
 wtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0x
