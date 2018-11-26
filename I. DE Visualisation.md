@@ -30,6 +30,8 @@ Use output from DE analysis
 
 ```R
 #Load libraries
+library(edgeR)
+library("DESeq2")
 library(ggplot2)
 library(gplots)
 library(GenomicRanges)
@@ -435,6 +437,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTMwMDEwMDA1LC04NzYwMjU1NDksLTEzOT
-k3MzQ0MDQsLTExMTQ3Njc2MjBdfQ==
+eyJoaXN0b3J5IjpbLTIxNDY2ODQ4MzQsNTMwMDEwMDA1LC04Nz
+YwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ==
 -->
