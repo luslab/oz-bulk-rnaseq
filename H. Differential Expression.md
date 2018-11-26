@@ -75,14 +75,14 @@ cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 #pass simple_counts.txt through the script specifying the design of the experiment 
 ## in this case = 3 x 3 (3 cases, 3 controls)
 cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
-```
-```R
-# Load the library.
-library(DESeq2)
 
 #download the DESeq biostars script
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
+```
+```R
+# Load the library.
+library(DESeq2)
 
 # cat counts.txt | Rscript deseq2.r
 # Produces a table with differentially expressed genes. on the standard output.
@@ -99,8 +99,6 @@ if (first == 'install') {
     biocLite("DESeq2")
     stop("Installation completed", call.=FALSE)
 }
-
-
 
 # Extract the experimental design from the command line.
 design = unlist(strsplit(first, 'x'))
@@ -152,10 +150,6 @@ dt = data.frame("id"=rownames(nc),nc)
 
 # Save the normalize data matrix.
 write.table(dt, file="norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
-
-
-
-
 ```
 
 The results.txt file describes changes between the 2 conditions e.g.
@@ -183,7 +177,6 @@ cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
 #How many differentially expressed genes do we have?
 cat diffgenes.txt | wc -l
 ```
-
 
 ### Using Kallisto Output
 ```bash
@@ -381,11 +374,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTI0MjM1MzgsLTYxMjEzNjk2LDEzMz
-M0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1
-NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLT
-E2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3
-MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMj
-cwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4
-LDE1NTIxNzI1NTddfQ==
+eyJoaXN0b3J5IjpbMTQzOTI3MTQ2OCwtNjEyMTM2OTYsMTMzMz
+Q1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0
+MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMT
+Y0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcx
+Mzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2NDMyNz
+A3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTExNTcwMDEwNzgs
+MTU1MjE3MjU1N119
 -->
