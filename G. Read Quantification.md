@@ -15,41 +15,7 @@ Instead of normalising simply assign fragments to a defined set of genes/transcr
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
-Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , DESeq, edgeR, featureCounts, QoRTs (Nobby uses this)
-
-## HTSeq-Count
-ml HTSeq
-ml Pysam
-
--   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
-
-```bash
-mkdir -p htseq
-#set GTF annoation
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-#set output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts
-
-for SAMPLE in $BAM
-do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tsv"
-done
-
-# merge results files into a single matrix for use in edgeR
-join SRR5483788.tsv SRR5483789.tsv | join - SRR5483790.tsv | join - SRR5483794.tsv | join - SRR5483795.tsv | join - SRR5483796.tsv > htseq_counts_table_temp.tsv
-echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
-cat header.txt htseq_counts_table_temp.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_counts_table.tsv
-rm -f htseq_counts_table_temp.tsv header.txt
-head htseq_counts_table.tsv
-
-#remove the individual htseq.tsv files
-rm SRR*
-```
-
-This output is then analysed for differential expression using edgeR (see next chapter)
+Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , 
 
 ## featureCounts
 ml Subread
@@ -89,6 +55,42 @@ Output table is in columns as:
 ```bash
 Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ```
+
+## HTSeq-Count
+ml HTSeq
+ml Pysam
+
+HTSeq-Counts is slow as you cant multithread.
+
+-   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
+
+```bash
+mkdir -p htseq
+#set GTF annoation
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts
+
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tsv"
+done
+
+# merge results files into a single matrix for use in edgeR
+join SRR5483788.tsv SRR5483789.tsv | join - SRR5483790.tsv | join - SRR5483794.tsv | join - SRR5483795.tsv | join - SRR5483796.tsv > htseq_counts_table_temp.tsv
+echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
+cat header.txt htseq_counts_table_temp.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_counts_table.tsv
+rm -f htseq_counts_table_temp.tsv header.txt
+head htseq_counts_table.tsv
+
+#remove the individual htseq.tsv files
+rm SRR*
+```
+
+This output is then analysed for differential expression using edgeR (see next chapter)
 
 # Normalise for Gene Length & Sequencing Depth
 
@@ -186,11 +188,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTIwNzU4MTM0LC0xODk4NDg1MjU4LDU2MD
-E4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3
-MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC
-0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEz
-MzEzMjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MD
-A0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01
-MzYxNTEyMjddfQ==
+eyJoaXN0b3J5IjpbLTE2NDgxNjc5MzQsLTE4OTg0ODUyNTgsNT
+YwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0
+MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMj
+AsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwt
+MTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MT
+kwMDQ1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIs
+LTUzNjE1MTIyN119
 -->
