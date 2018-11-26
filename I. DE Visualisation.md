@@ -289,7 +289,7 @@ text(mds$points[,1], mds$points[,2], short_names, col=data_colors)
 results_genes = stattest(bg, feature="gene", covariate="type", getFC=TRUE, meas="FPKM")
 results_genes = merge(results_genes,bg_gene_names,by.x=c("id"),by.y=c("gene_id"))
 ```
-
+# DE Histogram
 ```r
 
 #### Plot #9 - View the distribution of differential expression values as a histogram
@@ -336,7 +336,9 @@ output[1:25,c(1,4,5)]
 #You can open the file "SigDE.txt" in Excel, Calc, etc.
 #It should have been written to the current working directory that you set at the beginning of the R tutorial
 dir()
-
+```
+# Heatmap DE
+```r
 #### Plot #11 - Create a heatmap to vizualize expression differences between the eight samples
 #Define custom dist and hclust functions for use with heatmaps
 mydist=function(c) {dist(c,method="euclidian")}
@@ -477,7 +479,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5MjUyNDE0MCwxMzMwNjE1NzA4LDUzMD
-AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
-NjIwXX0=
+eyJoaXN0b3J5IjpbNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMD
+EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
+MjBdfQ==
 -->
