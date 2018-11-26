@@ -126,7 +126,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run read_NVC command on each BAM file using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o $OUT_${SAMPLE}"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}_${SRRID}"
 done
 ```
 
@@ -145,7 +146,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into read_quality using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $SAMPLE -o $OUT_${SAMPLE}"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_quality.py -i $SAMPLE -o ${OUT}_${SRRID}"
 done
 ```
 Can trim bases with phred <30.
@@ -168,7 +170,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into read_duplication using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $SAMPLE -o $OUT_${SAMPLE}"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_duplication.py -i $SAMPLE -o ${OUT}_${SRRID}"
 done
 ```
 
@@ -189,7 +192,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into junction_saturation using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o $OUT_${SAMPLE}"
+
+	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o ${OUT}_${SAMPLE}"
 done
 ```
 
@@ -403,11 +407,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3Nzg3MjY5NSwtMjE0NDY3NDAwMSwxNj
-Y4NjMxOTczLC0xMTgxNjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQx
-NzgwLDE3MzI2ODYzMzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LD
-gxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0
-MzE3OTcsNjI2NzkxNDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5Ny
-wxOTI3NjUxNTk4LDI0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUz
-MDk0NjRdfQ==
+eyJoaXN0b3J5IjpbNTUwMjExNzIxLDEzNzc4NzI2OTUsLTIxND
+Q2NzQwMDEsMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3
+NzIsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LD
+c3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMx
+Nzk3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LD
+EyMDE4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMw
+OTQ2NF19
 -->
