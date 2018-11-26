@@ -69,7 +69,11 @@ IGV does not normalise for read number per sample in sashimi plots so dont overi
 Use BED tools to create BED graph. Then convert to BigWig file. Import the BigWig file into IGV. 
 STAR creates a wiggle track (raw bigwig file). 
 These are smaller files and stop IGV crashing. They only show the coverage and not the individual reads.
+
+https://software.broadinstitute.org/software/igv/bigwig
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMTcxODQ4OSwtMTA5MjQ5MjAwNCwxMj
+eyJoaXN0b3J5IjpbMTExNTA2MDgyMSwtMTA5MjQ5MjAwNCwxMj
 YwNTU3OTExXX0=
 -->
