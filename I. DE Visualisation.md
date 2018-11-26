@@ -16,7 +16,6 @@ Check that basic global patterns are met:
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Supplementary_R.R
 https://github.com/griffithlab/rnaseq_tutorial/tree/master/scripts
 
-
 # IGV
 
 Firstly, visualise the most significantly DE genes in IGV
@@ -162,6 +161,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
-ExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbMjA2NTI5MzcwMSwtODc2MDI1NTQ5LC0xMz
+k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
