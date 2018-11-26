@@ -38,13 +38,15 @@ in R use `prcomp` function"
 
 
 ```r
-`library(DESeq2)
-`library(ggplot2)
-`pc = prcomp(t(rlog.norm.counts))
-`plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"`
-`P = plotPCA(DESeq.rlog)` # PCA plot using DESeq2 based on ggplot2
-`P = P + theme_bw() + ggtitle("Rlog transformed counts")` #plot cosmetics
-`print(P)`
+library(DESeq2)
+library(ggplot2)
+pc = prcomp(t(rlog.norm.counts))
+plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
+# PCA plot using DESeq2 based on ggplot2
+P = plotPCA(DESeq.rlog) 
+#plot cosmetics
+P = P + theme_bw() + ggtitle("Rlog transformed counts") 
+print(P)
 
 data <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData=TRUE)
 percentVar <- round(100 * attr(data, "percentVar"))
@@ -450,6 +452,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3Mjg1NDA4OCw1MzAwMTAwMDUsLTg3Nj
+eyJoaXN0b3J5IjpbMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3Nj
 AyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
 -->
