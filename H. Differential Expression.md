@@ -223,7 +223,7 @@ dim(rawdata)
 # load edgeR
 library('edgeR')
 # make class labels
-class <- factor( c( rep("UHR",3), rep("HBR",3) ))
+class <- factor( c( rep("VCP",3), rep("CTRL",3) ))
 # Get common gene names
 genes=rownames(rawdata)
 gene_names=mapping[genes,1]
@@ -300,11 +300,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOT
-cwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2
-MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC
-0yMDM2NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTEx
-NTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMjgyMj
-M5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4MCwx
-NzA5NTA3NjU1XX0=
+eyJoaXN0b3J5IjpbLTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMD
+MwNTQ1NCwyMDM5NzAyODY2LC0xNjQxMTQ1MDEyLDExMjgzODI1
+MjAsLTE1MTMzODYzNTUsMTUwNzEzODgwOCwxMjYzOTYxNTY0LD
+E4Njc3NTMyMDYsLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLTM1
+OTYwNTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4ND
+IzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAs
+MjQyMDA4NTgwXX0=
 -->
