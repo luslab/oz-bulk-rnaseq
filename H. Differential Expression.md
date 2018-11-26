@@ -205,9 +205,9 @@ setwd(working_dir)
 #can also set the working directory in R manually: Session > Set Working Directory > Choose Folder in the Cluster to set as wd.
 
 #Read in gene mapping
-mapping=read.table("~/workspace/rnaseq/de/htseq_counts/ENSG_ID2Name.txt", header=FALSE, stringsAsFactors=FALSE, row.names=1)
+mapping=read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq/ENSG_ID2Name.txt", header=FALSE, stringsAsFactors=FALSE, row.names=1)
 # Read in count matrix
-rawdata=read.table("~/workspace/rnaseq/expression/htseq_counts/gene_read_counts_table_all_final.tsv", header=TRUE, stringsAsFactors=FALSE, row.names=1)
+rawdata=read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts_table.tsv", header=TRUE, stringsAsFactors=FALSE, row.names=1)
 # Check dimensions
 dim(rawdata)
 # Require at least 25% of samples to have count > 25
@@ -300,11 +300,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTQ5MzQ2NTcsOTIwMzA1NDU0LDIwMz
-k3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4
-NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNi
-wtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0x
-MTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4Mj
-IzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAs
-MTcwOTUwNzY1NV19
+eyJoaXN0b3J5IjpbMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOT
+cwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2
+MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC
+0yMDM2NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTEx
+NTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMjgyMj
+M5MjUsLTIwNTc2MjM0MjUsOTYyMTU5MjEwLDI0MjAwODU4MCwx
+NzA5NTA3NjU1XX0=
 -->
