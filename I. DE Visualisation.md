@@ -90,167 +90,101 @@ gene_expression[i,]
 
 #What if we want to view values for a list of genes of interest all at once?
 #genes_of_interest = c("TST", "MMP11", "LGALS2", "ISX")
-
 genes_of_interest = c("ENSG00000128311","ENSG00000099953","ENSG00000100079","ENSG00000175329")
-
 i = which(row.names(gene_expression) %in% genes_of_interest)
-
 gene_expression[i,]
 
 # Load the transcript to gene index from the ballgown object
-
 transcript_gene_table = indexes(bg)$t2g
-
 head(transcript_gene_table)
 
 #Each row of data represents a transcript. Many of these transcripts represent the same gene. Determine the numbers of transcripts and unique genes
-
 length(row.names(transcript_gene_table)) #Transcript count
-
 length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
 
 #### Plot #1 - the number of transcripts per gene.
-
 #Many genes will have only 1 transcript, some genes will have several transcripts
-
 #Use the 'table()' command to count the number of times each gene symbol occurs (i.e. the # of transcripts that have each gene symbol)
-
 #Then use the 'hist' command to create a histogram of these counts
-
 #How many genes have 1 transcript? More than one transcript? What is the maximum number of transcripts for a single gene?
-
 counts=table(transcript_gene_table[,"g_id"])
-
 c_one = length(which(counts == 1))
-
 c_more_than_one = length(which(counts > 1))
-
 c_max = max(counts)
-
 hist(counts, breaks=50, col="bisque4", xlab="Transcripts per gene", main="Distribution of transcript count per gene")
-
 legend_text = c(paste("Genes with one transcript =", c_one), paste("Genes with more than one transcript =", c_more_than_one), paste("Max transcripts for single gene = ", c_max))
-
 legend("topright", legend_text, lty=NULL)
 
 #### Plot #2 - the distribution of transcript sizes as a histogram
-
 #In this analysis we supplied StringTie with transcript models so the lengths will be those of known transcripts
-
 #However, if we had used a de novo transcript discovery mode, this step would give us some idea of how well transcripts were being assembled
-
 #If we had a low coverage library, or other problems, we might get short 'transcripts' that are actually only pieces of real transcripts
-
 full_table <- texpr(bg , 'all')
-
 hist(full_table$length, breaks=50, xlab="Transcript length (bp)", main="Distribution of transcript lengths", col="steelblue")
 
 #### Summarize FPKM values for all 6 replicates
-
 #What are the minimum and maximum FPKM values for a particular library?
-
 min(gene_expression[,"FPKM.UHR_Rep1"])
-
 max(gene_expression[,"FPKM.UHR_Rep1"])
-
 #Set the minimum non-zero FPKM values for use later.
-
 #Do this by grabbing a copy of all data values, coverting 0's to NA, and calculating the minimum or all non NA values
-
 #zz = fpkm_matrix[,data_columns]
-
 #zz[zz==0] = NA
-
 #min_nonzero = min(zz, na.rm=TRUE)
-
 #min_nonzero
-
 #Alternatively just set min value to 1
-
 min_nonzero=1
-
 # Set the columns for finding FPKM and create shorter names for figures
-
 data_columns=c(1:6)
-
 short_names=c("UHR_1","UHR_2","UHR_3","HBR_1","HBR_2","HBR_3")
 
 #### Plot #3 - View the range of values and general distribution of FPKM values for all 4 libraries
-
 #Create boxplots for this purpose
-
 #Display on a log2 scale and add the minimum non-zero value to avoid log2(0)
-
 boxplot(log2(gene_expression[,data_columns]+min_nonzero), col=data_colors, names=short_names, las=2, ylab="log2(FPKM)", main="Distribution of FPKMs for all 6 libraries")
-
 #Note that the bold horizontal line on each boxplot is the median
 
 #### Plot #4 - plot a pair of replicates to assess reproducibility of technical replicates
-
 #Tranform the data by converting to log2 scale after adding an arbitrary small value to avoid log2(0)
-
 x = gene_expression[,"FPKM.UHR_Rep1"]
-
 y = gene_expression[,"FPKM.UHR_Rep2"]
-
 plot(x=log2(x+min_nonzero), y=log2(y+min_nonzero), pch=16, col="blue", cex=0.25, xlab="FPKM (UHR, Replicate 1)", ylab="FPKM (UHR, Replicate 2)", main="Comparison of expression values for a pair of replicates")
 
 #Add a straight line of slope 1, and intercept 0
-
 abline(a=0,b=1)
 
 #Calculate the correlation coefficient and display in a legend
-
 rs=cor(x,y)^2
-
 legend("topleft", paste("R squared = ", round(rs, digits=3), sep=""), lwd=1, col="black")
 
 #### Plot #5 - Scatter plots with a large number of data points can be misleading ... regenerate this figure as a density scatter plot
-
 colors = colorRampPalette(c("white", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
-
 smoothScatter(x=log2(x+min_nonzero), y=log2(y+min_nonzero), xlab="FPKM (UHR, Replicate 1)", ylab="FPKM (UHR, Replicate 2)", main="Comparison of expression values for a pair of replicates", colramp=colors, nbin=200)
 
 #### Plot all sets of replicates on a single plot
-
 #Create an function that generates an R plot. This function will take as input the two libraries to be compared and a plot name and color
-
 plotCor = function(lib1, lib2, name, color){
-
 x=gene_expression[,lib1]
-
 y=gene_expression[,lib2]
-
 zero_count = length(which(x==0)) + length(which(y==0))
-
 plot(x=log2(x+min_nonzero), y=log2(y+min_nonzero), pch=16, col=color, cex=0.25, xlab=lib1, ylab=lib2, main=name)
-
 abline(a=0,b=1)
-
 rs=cor(x,y, method="pearson")^2
-
 legend_text = c(paste("R squared = ", round(rs, digits=3), sep=""), paste("Zero count = ", zero_count, sep=""))
-
 legend("topleft", legend_text, lwd=c(1,NA), col="black", bg="white", cex=0.8)
-
 }
 
 #Open a plotting page with room for two plots on one page
-
 par(mfrow=c(1,2))
 
 #Plot #6 - Now make a call to our custom function created above, once for each library comparison
-
 plotCor("FPKM.UHR_Rep1", "FPKM.HBR_Rep1", "UHR_1 vs HBR_1", "tomato2")
-
 plotCor("FPKM.UHR_Rep2", "FPKM.HBR_Rep2", "UHR_2 vs HBR_2", "royalblue2")
 
 ##### One problem with these plots is that there are so many data points on top of each other, that information is being lost
 
 #Regenerate these plots using a density scatter plot
-
 plotCor2 = function(lib1, lib2, name, color){
-
 x=gene_expression[,lib1]
 
 y=gene_expression[,lib2]
@@ -571,6 +505,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyOTc2MjA1MSwtODc2MDI1NTQ5LC0xMz
+eyJoaXN0b3J5IjpbLTg3OTAzOTUyMSwtODc2MDI1NTQ5LC0xMz
 k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
