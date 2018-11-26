@@ -259,9 +259,14 @@ write.table(mat, file="edgeR_DE_genes.txt", quote=FALSE, row.names=FALSE, sep="\
 quit(save="no")
 ```
 
-Look at sigDE genes:
+Examine the Differentially expressed genes:
 ```bash
+# Look at sigDE genes:
 cat edgeR_DE_genes.txt
+
+# pull out the gene IDs
+cut -f 1 edgeR_DE_genes.txt | sort  > ballgown_DE_gene_symbols.txt
+cut -f 2 $RNA_HOME/de/htseq_counts/DE_genes.txt | sort > htseq_counts_edgeR_DE_gene_symbols.txt
 ```
 
 # Ballgown
@@ -305,11 +310,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzM5MzkxMjEsMTkxODE0MDY1NywtND
-k3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4
-NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NS
-wxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAz
-NjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MD
-AxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1
-LC0yMDU3NjIzNDI1XX0=
+eyJoaXN0b3J5IjpbMTU0MjE5NzM4OSwxOTE4MTQwNjU3LC00OT
+cxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2
+NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LD
+E1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2
+NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTExNTcwMD
+EwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMjgyMjM5MjUs
+LTIwNTc2MjM0MjVdfQ==
 -->
