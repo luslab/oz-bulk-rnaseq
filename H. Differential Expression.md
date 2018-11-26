@@ -36,9 +36,11 @@ Ccuffdiff is slow, cant support multifactored experiments, can detect differenti
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
+DESeq2 and edgeR are similar. Stick to one.
+
 # DESeq2
 
-DESeq takes either `featureCounts` (raw read counts) or `Kallisto` counts --> read them into R --> normalise for sequencing depth differences
+DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 
 ```r
 # DESeq( ) function wraps around the following 3 functions:
@@ -298,7 +300,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MzYyMzk5MiwtMTQ5MzcwMDU3MSwxOT
+eyJoaXN0b3J5IjpbMTM5MjI0NjA3NCwtMTQ5MzcwMDU3MSwxOT
 E4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0
 NTQsMjAzOTcwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC
 0xNTEzMzg2MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3
