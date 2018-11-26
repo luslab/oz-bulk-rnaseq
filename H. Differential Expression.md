@@ -38,14 +38,15 @@ Ccuffdiff is slow, cant support multifactored experiments, can detect differenti
 
 DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
 
-# Load dataset into R
+# Load Counts dataset into R
 
+```r
 #######################
 # Load Data into R #
 #######################
 
 #Set working directory in R where output will go:
-working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
+working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/counts"
 setwd(working_dir)
 #can also set the working directory in R manually: Session > Set Working Directory > Choose Folder in the Cluster to set as wd.
 
@@ -340,11 +341,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Nzc4MzY5ODQsMTY3NzI1MTQ0MCwyOT
-Q5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0
-NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMsMj
-AyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMTY0MTE0
-NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4MD
-gsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2NDMyNzA3LC0x
-OTI3MDEwMzI4XX0=
+eyJoaXN0b3J5IjpbMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OT
+EwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcs
+LTE0OTM3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMj
+A4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUw
+MTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LD
+EyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNywtMTky
+NzAxMDMyOF19
 -->
