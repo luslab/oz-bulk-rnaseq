@@ -186,163 +186,101 @@ plotCor("FPKM.UHR_Rep2", "FPKM.HBR_Rep2", "UHR_2 vs HBR_2", "royalblue2")
 #Regenerate these plots using a density scatter plot
 plotCor2 = function(lib1, lib2, name, color){
 x=gene_expression[,lib1]
-
 y=gene_expression[,lib2]
-
 zero_count = length(which(x==0)) + length(which(y==0))
-
 colors = colorRampPalette(c("white", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
-
 smoothScatter(x=log2(x+min_nonzero), y=log2(y+min_nonzero), xlab=lib1, ylab=lib2, main=name, colramp=colors, nbin=275)
-
 abline(a=0,b=1)
-
 rs=cor(x,y, method="pearson")^2
-
 legend_text = c(paste("R squared = ", round(rs, digits=3), sep=""), paste("Zero count = ", zero_count, sep=""))
-
 legend("topleft", legend_text, lwd=c(1,NA), col="black", bg="white", cex=0.8)
-
 }
 
 #### Plot #7 - Now make a call to our custom function created above, once for each library comparison
-
 par(mfrow=c(1,2))
-
 plotCor2("FPKM.UHR_Rep1", "FPKM.HBR_Rep1", "UHR_1 vs HBR_1", "tomato2")
-
 plotCor2("FPKM.UHR_Rep2", "FPKM.HBR_Rep2", "UHR_2 vs HBR_2", "royalblue2")
 
 #### Compare the correlation 'distance' between all replicates
-
 #Do we see the expected pattern for all eight libraries (i.e. replicates most similar, then tumor vs. normal)?
 
 #Calculate the FPKM sum for all 6 libraries
-
 gene_expression[,"sum"]=apply(gene_expression[,data_columns], 1, sum)
 
 #Identify the genes with a grand sum FPKM of at least 5 - we will filter out the genes with very low expression across the board
-
 i = which(gene_expression[,"sum"] > 5)
 
 #Calculate the correlation between all pairs of data
-
 r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pearson")
 
 #Print out these correlation values
-
 r
 
 #### Plot #8 - Convert correlation to 'distance', and use 'multi-dimensional scaling' to display the relative differences between libraries
 
 #This step calculates 2-dimensional coordinates to plot points for each library
-
 #Libraries with similar expression patterns (highly correlated to each other) should group together
-
 #What pattern do we expect to see, given the types of libraries we have (technical replicates, biologal replicates, tumor/normal)?
-
 d=1-r
-
 mds=cmdscale(d, k=2, eig=TRUE)
-
 par(mfrow=c(1,1))
-
 plot(mds$points, type="n", xlab="", ylab="", main="MDS distance plot (all non-zero genes)", xlim=c(-0.12,0.12), ylim=c(-0.12,0.12))
-
 points(mds$points[,1], mds$points[,2], col="grey", cex=2, pch=16)
-
 text(mds$points[,1], mds$points[,2], short_names, col=data_colors)
 
 # Calculate the differential expression results including significance
-
 results_genes = stattest(bg, feature="gene", covariate="type", getFC=TRUE, meas="FPKM")
-
 results_genes = merge(results_genes,bg_gene_names,by.x=c("id"),by.y=c("gene_id"))
 
 #### Plot #9 - View the distribution of differential expression values as a histogram
-
 #Display only those that are significant according to Ballgown
-
 sig=which(results_genes$pval<0.05)
-
 results_genes[,"de"] = log2(results_genes[,"fc"])
-
 hist(results_genes[sig,"de"], breaks=50, col="seagreen", xlab="log2(Fold change) UHR vs HBR", main="Distribution of differential expression values")
-
 abline(v=-2, col="black", lwd=2, lty=2)
-
 abline(v=2, col="black", lwd=2, lty=2)
-
 legend("topleft", "Fold-change > 4", lwd=2, lty=2)
 
 #### Plot #10 - Display the grand expression values from UHR and HBR and mark those that are significantly differentially expressed
-
 gene_expression[,"UHR"]=apply(gene_expression[,c(1:3)], 1, mean)
-
 gene_expression[,"HBR"]=apply(gene_expression[,c(4:6)], 1, mean)
-
 x=log2(gene_expression[,"UHR"]+min_nonzero)
-
 y=log2(gene_expression[,"HBR"]+min_nonzero)
-
 plot(x=x, y=y, pch=16, cex=0.25, xlab="UHR FPKM (log2)", ylab="HBR FPKM (log2)", main="UHR vs HBR FPKMs")
-
 abline(a=0, b=1)
-
 xsig=x[sig]
-
 ysig=y[sig]
-
 points(x=xsig, y=ysig, col="magenta", pch=16, cex=0.5)
-
 legend("topleft", "Significant", col="magenta", pch=16)
 
 #Get the gene symbols for the top N (according to corrected p-value) and display them on the plot
-
 topn = order(abs(results_genes[sig,"fc"]), decreasing=TRUE)[1:25]
-
 topn = order(results_genes[sig,"qval"])[1:25]
-
 text(x[topn], y[topn], results_genes[topn,"gene_name"], col="black", cex=0.75, srt=45)
 
 #### Write a simple table of differentially expressed transcripts to an output file
-
 #Each should be significant with a log2 fold-change >= 2
-
 sigpi = which(results_genes[,"pval"]<0.05)
-
 sigp = results_genes[sigpi,]
-
 sigde = which(abs(sigp[,"de"]) >= 2)
-
 sig_tn_de = sigp[sigde,]
 
 #Order the output by or p-value and then break ties using fold-change
-
 o = order(sig_tn_de[,"qval"], -abs(sig_tn_de[,"de"]), decreasing=FALSE)
-
 output = sig_tn_de[o,c("gene_name","id","fc","pval","qval","de")]
-
 write.table(output, file="SigDE_supplementary_R.txt", sep="\t", row.names=FALSE, quote=FALSE)
 
 #View selected columns of the first 25 lines of output
-
 output[1:25,c(1,4,5)]
 
 #You can open the file "SigDE.txt" in Excel, Calc, etc.
-
 #It should have been written to the current working directory that you set at the beginning of the R tutorial
-
 dir()
 
 #### Plot #11 - Create a heatmap to vizualize expression differences between the eight samples
-
 #Define custom dist and hclust functions for use with heatmaps
-
 mydist=function(c) {dist(c,method="euclidian")}
-
 myclust=function(c) {hclust(c,method="average")}
-
 main_title="sig DE Transcripts"
 
 par(cex.main=0.8)
@@ -505,6 +443,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3OTAzOTUyMSwtODc2MDI1NTQ5LC0xMz
+eyJoaXN0b3J5IjpbMTk3NTczODk0NywtODc2MDI1NTQ5LC0xMz
 k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
