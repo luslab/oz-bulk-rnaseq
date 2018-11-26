@@ -57,8 +57,25 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ```
 
 ## QoRTs
+ml QoRTs
+
 http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
 
+```bash
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+#set GTF reference annotation
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set output directory
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/counts/QoRTs
+
+#run QoRTs command for each BAM file using a For Loop
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
+done
+```
 
 ## HTSeq-Count
 ml HTSeq
@@ -191,11 +208,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xOD
-k4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3
-MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC
-0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2
-NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4MzU3ND
-k5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgs
-MTE0ODcxNTkyXX0=
+eyJoaXN0b3J5IjpbMjcxMDMwNzA3LDE1OTMzMzA4MTYsMjAyNz
+gzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOTg2NTEx
+OSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3MywtMT
+kwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5
+MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMxMzIyODAxLC0yNDg5OT
+UxMTQsODM1NzQ5OTAyLDIwNDgxOTAwNDUsMjExODI0NDM4Miwx
+MTI1ODUwODQ4XX0=
 -->
