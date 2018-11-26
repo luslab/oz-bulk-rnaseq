@@ -40,6 +40,8 @@ DESeq2 and edgeR are similar. Stick to one.
 
 # DESeq2
 
+All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
+
 DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 
 ```r
@@ -75,34 +77,30 @@ cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
 ```
 ```R
+# Load the library.
+library(DESeq2)
+
 #download the DESeq biostars script
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
 curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 
 # cat counts.txt | Rscript deseq2.r
-#
 # Produces a table with differentially expressed genes. on the standard output.
-#
 # To install the requirements run the program with the 'install` parameter.
-
 
 # Read the command line arguments.
 args = commandArgs(trailingOnly=TRUE)
-
 if (length(args)!=1) {
   stop("Experimental design must be specified as: NxM at the command line", call.=FALSE)
 }
-
 first = args[1]
-
 if (first == 'install') {
     source("http://bioconductor.org/biocLite.R")
     biocLite("DESeq2")
     stop("Installation completed", call.=FALSE)
 }
 
-# Load the library.
-library(DESeq2)
+
 
 # Extract the experimental design from the command line.
 design = unlist(strsplit(first, 'x'))
@@ -383,11 +381,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OT
-M3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3
-NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMT
-EyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5
-NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNywtMTkyNzAxMD
-MyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcs
-OTEwMTg0MjMzXX0=
+eyJoaXN0b3J5IjpbLTE0OTI0MjM1MzgsLTYxMjEzNjk2LDEzMz
+M0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1
+NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLT
+E2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3
+MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMj
+cwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4
+LDE1NTIxNzI1NTddfQ==
 -->
