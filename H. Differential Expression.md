@@ -179,8 +179,11 @@ Input = raw counts from htseq-count or featureCounts
 
 ```bash
 mkdir -p edgeR
+
+
+
 #create a mapping file to go from ENSG IDs (which is htseq output) to Symbols:
-perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($_ =~ /gene_name\s\"(\S+)"\;/) { $name = $1; }; }; if ($id && $name) {print "$id\t$name\n";} if ($_=~/gene_id\s\"(ERCC\S+)\"/){print "$1\t$1\n";}' $RNA_REF_GTF | sort | uniq > ENSG_ID2Name.txt
+perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($_ =~ /gene_name\s\"(\S+)"\;/) { $name = $1; }; }; if ($id && $name) {print "$id\t$name\n";} if ($_=~/gene_id\s\"(ERCC\S+)\"/){print "$1\t$1\n";}' $GTF | sort | uniq > ENSG_ID2Name.txt
 head ENSG_ID2Name.txt
 
 #determine the number of unique Ensembl Gene IDs & symbols
@@ -293,11 +296,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwNzEzODgwOCwxMjYzOTYxNTY0LDE4Nj
-c3NTMyMDYsLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLTM1OTYw
-NTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4NDIzMy
-wtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQy
-MDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMjU1MjcsLTg3NzgwMj
-g1Nyw5NjU0MzUxNzcsMTExODU2MTk5MiwtNDYwNjk2OSwtMTIw
-NzQwOTI5M119
+eyJoaXN0b3J5IjpbLTE0OTI4MzEyNTYsMTUwNzEzODgwOCwxMj
+YzOTYxNTY0LDE4Njc3NTMyMDYsLTIwMzY0MzI3MDcsLTE5Mjcw
+MTAzMjgsLTM1OTYwNTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNT
+U3LDkxMDE4NDIzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5
+NjIxNTkyMTAsMjQyMDA4NTgwLDE3MDk1MDc2NTUsLTExNTQxMj
+U1MjcsLTg3NzgwMjg1Nyw5NjU0MzUxNzcsMTExODU2MTk5Miwt
+NDYwNjk2OV19
 -->
