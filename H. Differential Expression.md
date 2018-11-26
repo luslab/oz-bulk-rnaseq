@@ -187,9 +187,10 @@ perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($
 head ENSG_ID2Name.txt
 
 #determine the number of unique Ensembl Gene IDs & Symbols
-## Take the 1st field (column), sort into ASCII order, remove duplicates, print lines + word count
+## Take the 1st field (column), sort into ASCII order, remove duplicates, print lines + word + byte count
 cut -f 1 ENSG_ID2Name.txt | sort | uniq | wc
 cut -f 2 ENSG_ID2Name.txt | sort | uniq | wc
+## number of occurances of each gene
 cut -f 2 ENSG_ID2Name.txt | sort | uniq -c | sort -r | head
 ```
 R script:
@@ -297,11 +298,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk1NTE0NjMwLDIwMzk3MDI4NjYsLTE2ND
-ExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4
-ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNy
-wtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1
-NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3Nj
-IzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwt
-MTE1NDEyNTUyN119
+eyJoaXN0b3J5IjpbLTY5NzQ0ODg5OCwyMDM5NzAyODY2LC0xNj
+QxMTQ1MDEyLDExMjgzODI1MjAsLTE1MTMzODYzNTUsMTUwNzEz
+ODgwOCwxMjYzOTYxNTY0LDE4Njc3NTMyMDYsLTIwMzY0MzI3MD
+csLTE5MjcwMTAzMjgsLTM1OTYwNTYzNiwtMTE1NzAwMTA3OCwx
+NTUyMTcyNTU3LDkxMDE4NDIzMywtMjEyODIyMzkyNSwtMjA1Nz
+YyMzQyNSw5NjIxNTkyMTAsMjQyMDA4NTgwLDE3MDk1MDc2NTUs
+LTExNTQxMjU1MjddfQ==
 -->
