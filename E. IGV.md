@@ -38,7 +38,7 @@ They only show the coverage and not the individual reads. They are binary format
 https://software.broadinstitute.org/software/igv/bigwig
 https://github.com/YangLab/bamTobw
 
-1. Create a text file of all BAM files to run- 1 per line. Save in relevant directory.
+1. Create a text file in Atom listing all BAM files to convert. List each file name 1 per line. Save in relevant alignment directory.
 2. Then run bamTobw.sh command (installed in PATH)
 `bamTobw.sh -b bam_list.txt`
 
@@ -52,7 +52,7 @@ cd ~/bin/IGV_2.4.14/lib
 java -Xmx750m -jar igv.jar
 ```
 2. Set reference genome to Human (hg38) top left box.
-3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or Bedgraph/BigWig files (can load multiple at once).
+3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or BigWig files(can load multiple at once).
 
 To visualise on IGV its easier to generate TDF files which are much lighter. This is useful if want to add more data-sets later. To generate TDF files first generate Bedgraph coverage files, then sort and then create the tdf file. Create 3 different coverage files: positive, negative strands and total. As the data is stranded it is better to look at both strands separately. Run the code in file: PE_strandedBedGraph.sh
 
@@ -87,8 +87,8 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMD
-kyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3
-MTEzNCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4Mj
-EsMTI2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbMTg2NjU1MDYxMiw1NzQzNDcwODksLTE4NT
+cxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOTI0
+MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIyNz
+AsMTExNTA2MDgyMSwxMjYwNTU3OTExXX0=
 -->
