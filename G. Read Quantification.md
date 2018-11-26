@@ -85,9 +85,6 @@ echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" 
 cat header.txt htseq_counts_table_temp.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_counts_table.tsv
 rm -f htseq_counts_table_temp.tsv header.txt
 head htseq_counts_table.tsv
-
-#remove the individual htseq.tsv files
-rm SRR*
 ```
 
 This output is then analysed for differential expression using edgeR (see next chapter)
@@ -190,11 +187,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1Nj
-AxODIyODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQx
-NzEsMTY2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcwNTAyMC
-wtMTYzMzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0x
-MzMxMzIyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOT
-AwNDUsMjExODI0NDM4MiwxMTI1ODUwODQ4LDExNDg3MTU5Miwt
-NTM2MTUxMjI3XX0=
+eyJoaXN0b3J5IjpbLTIyNzY5MTk1NSwyMDI3ODM0OTgzLC0xOD
+k4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3
+MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC
+0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2
+NTg1MTc2MTYsLTEzMzEzMjI4MDEsLTI0ODk5NTExNCw4MzU3ND
+k5MDIsMjA0ODE5MDA0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgs
+MTE0ODcxNTkyXX0=
 -->
