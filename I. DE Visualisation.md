@@ -3,6 +3,8 @@
 
 > # Visualise Differential Expression
 
+Visualisation is performed mostly in R. There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, b
+
 # IGV
 
 Firstly, visualise the most significantly DE genes in IGV
@@ -151,5 +153,5 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY2MDI3Nzg2LC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbLTU2MTYyMTQ0NywtMTExNDc2NzYyMF19
 -->
