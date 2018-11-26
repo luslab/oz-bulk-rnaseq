@@ -72,8 +72,7 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/counts/QoRTs
 
 #run QoRTs command for each QC file
-sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles **LIST QC FILES** --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
-done
+java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles **LIST QC FILES** --noGzip --verbose $OUT
 ```
 
 ## HTSeq-Count
@@ -207,7 +206,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2ODYzOTU0NCwxNTkzMzMwODE2LDIwMj
+eyJoaXN0b3J5IjpbMTk2MDEyNjkwNSwxNTkzMzMwODE2LDIwMj
 c4MzQ5ODMsLTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUx
 MTksMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLT
 E5MDE5NTY2NjAsLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTky
