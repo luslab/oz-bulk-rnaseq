@@ -40,11 +40,10 @@ pdf(file="Supplementary_R_output.pdf")
 
 #### Import the gene expression data
 #Set working directory where results files exist
-working_dir = "~/workspace/rnaseq/de/ballgown/ref_only"
+working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
 setwd(working_dir)
 
 # List the current contents of this directory
-
 dir()
 
 #Import expression and differential expression results from the HISAT2/StringTie/Ballgown pipeline
@@ -591,6 +590,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MDk1ODIwOCwtODc2MDI1NTQ5LC0xMz
-k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbLTEwNjQ2MDk4NzEsLTg3NjAyNTU0OSwtMT
+M5OTczNDQwNCwtMTExNDc2NzYyMF19
 -->
