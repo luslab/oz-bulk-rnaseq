@@ -25,6 +25,14 @@ Firstly, visualise the most significantly DE genes in IGV
 4. Search most significantly DE genes reported from DE analysis output in IGV: `head edgeR_DE_genes.txt` > type Gene_Name directly in IGV search box
 
 # PCA plot
+#Load libraries
+library(edgeR)
+library(DESeq2)
+library(ggplot2)
+library(gplots)
+library(GenomicRanges)
+library(ballgown)
+
 Visualise sample-sample distances with the Prinicipal Components Analysis (PCA) 
 
  - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
@@ -38,8 +46,14 @@ in R use `prcomp` function"
 
 
 ```r
+#Load libraries
+library(edgeR)
 library(DESeq2)
 library(ggplot2)
+library(gplots)
+library(GenomicRanges)
+library(ballgown)
+
 pc = prcomp(t(rlog.norm.counts))
 plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
 # PCA plot using DESeq2 based on ggplot2
@@ -62,81 +76,6 @@ percentVar <- round(100 * attr(data, "percentVar"))
 Use output from DE analysis
 
 ```R
-#Load libraries
-library(edgeR)
-library(DESeq2)
-library(ggplot2)
-library(gplots)
-library(GenomicRanges)
-library(ballgown)
-
-#If X11 not available, open a pdf device for output of all plots
-pdf(file="Supplementary_R_output.pdf")
-
-#### Import the gene expression data
-#Set working directory where results files exist
-working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
-setwd(working_dir)
-
-# List the current contents of this directory
-dir()
-
-#Import expression and differential expression results from the HISAT2/StringTie/Ballgown pipeline
-load('bg.rda')
-
-# View a summary of the ballgown object
-bg
-
-# Load gene names for lookup later in the tutorial
-bg_table = texpr(bg, 'all')
-bg_gene_names = unique(bg_table[, 9:10])
-
-# Pull the gene_expression data frame from the ballgown object
-gene_expression = as.data.frame(gexpr(bg))
-
-#### Working with 'dataframes'
-#View the first five rows of data (all columns) in one of the dataframes created
-head(gene_expression)
-
-#View the column names
-colnames(gene_expression)
-#View the row names
-row.names(gene_expression)
-
-#Determine the dimensions of the dataframe. 'dim()' will return the number of rows and columns
-dim(gene_expression)
-
-#Get the first 3 rows of data and a selection of columns
-gene_expression[1:3,c(1:3,6)]
-
-#Do the same thing, but using the column names instead of numbers
-gene_expression[1:3, c("FPKM.UHR_Rep1","FPKM.UHR_Rep2","FPKM.UHR_Rep3","FPKM.HBR_Rep3")]
-
-#Assign colors to each. You can specify color by RGB, Hex code, or name
-
-#To get a list of color names:
-colours()
-data_colors=c("tomato1","tomato2","tomato3","royalblue1","royalblue2","royalblue3")
-
-#View expression values for the transcripts of a particular gene symbol of chromosome 22. e.g. 'TST'
-#First determine the rows in the data.frame that match 'TST', aka. ENSG00000128311, then display only those rows of the data.frame
-i = row.names(gene_expression) == "ENSG00000128311"
-gene_expression[i,]
-
-#What if we want to view values for a list of genes of interest all at once?
-#genes_of_interest = c("TST", "MMP11", "LGALS2", "ISX")
-genes_of_interest = c("ENSG00000128311","ENSG00000099953","ENSG00000100079","ENSG00000175329")
-i = which(row.names(gene_expression) %in% genes_of_interest)
-gene_expression[i,]
-
-# Load the transcript to gene index from the ballgown object
-transcript_gene_table = indexes(bg)$t2g
-head(transcript_gene_table)
-
-#Each row of data represents a transcript. Many of these transcripts represent the same gene. Determine the numbers of transcripts and unique genes
-length(row.names(transcript_gene_table)) #Transcript count
-length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
-
 #### Plot #1 - the number of transcripts per gene.
 #Many genes will have only 1 transcript, some genes will have several transcripts
 #Use the 'table()' command to count the number of times each gene symbol occurs (i.e. the # of transcripts that have each gene symbol)
@@ -452,6 +391,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3Nj
-AyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbODIyMzAyODU5LDEzMzA2MTU3MDgsNTMwMD
+EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
+MjBdfQ==
 -->
