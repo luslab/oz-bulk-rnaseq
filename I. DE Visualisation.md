@@ -24,6 +24,29 @@ Firstly, visualise the most significantly DE genes in IGV
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
 4. Search most significantly DE genes reported from DE analysis output in IGV: `head edgeR_DE_genes.txt` > type Gene_Name directly in IGV search box
 
+# PCA plot
+Visualise sample-sample distances with the Prinicipal Components Analysis (PCA) 
+
+ - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
+ - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
+ - Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points.
+ - Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample)/ Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
+	 - identify unexpected patterns - batch effects; outliers
+	 - does not identify unknown groupings
+
+in R use `prcomp` function"
+`library(DESeq2)`
+`library(ggplot2)`
+`pc = prcomp(t(rlog.norm.counts))`
+`plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"`
+`P = plotPCA(DESeq.rlog)` # PCA plot using DESeq2 based on ggplot2
+`P = P + theme_bw() + ggtitle("Rlog transformed counts")` #plot cosmetics
+`print(P)`
+
+![enter image description here](https://onlinecourses.science.psu.edu/stat857/sites/onlinecourses.science.psu.edu.stat857/files/lesson05/PCA_plot/index.gif)
+
+
+
 # R plots
 
 Use output from DE analysis
@@ -369,25 +392,7 @@ in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
 
 ![enter image description here](http://www.sthda.com/english/sthda-upload/figures/cluster-analysis/009c-divisive-hierarchical-clustering-compute-diana-1.png)
 
-## Principal Components Analysis (PCA)
 
- - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
- - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
- - Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points.
- - Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample)/ Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
-	 - identify unexpected patterns - batch effects; outliers
-	 - does not identify unknown groupings
-
-in R use `prcomp` function"
-`library(DESeq2)`
-`library(ggplot2)`
-`pc = prcomp(t(rlog.norm.counts))`
-`plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"`
-`P = plotPCA(DESeq.rlog)` # PCA plot using DESeq2 based on ggplot2
-`P = P + theme_bw() + ggtitle("Rlog transformed counts")` #plot cosmetics
-`print(P)`
-
-![enter image description here](https://onlinecourses.science.psu.edu/stat857/sites/onlinecourses.science.psu.edu.stat857/files/lesson05/PCA_plot/index.gif)
 
 # Explore normalised read counts
 `par(mfrow = c(2, 1))` #plot the 2 image on top of each other
@@ -437,6 +442,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNjc4NTA5OCw1MzAwMTAwMDUsLTg3Nj
-AyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbNDQwNjM2NjQwLDUzMDAxMDAwNSwtODc2MD
+I1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
