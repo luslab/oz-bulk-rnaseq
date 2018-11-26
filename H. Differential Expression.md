@@ -38,6 +38,30 @@ Ccuffdiff is slow, cant support multifactored experiments, can detect differenti
 
 DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
 
+# Load dataset into R
+
+#######################
+# Load Data into R #
+#######################
+
+#Set working directory in R where output will go:
+working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
+setwd(working_dir)
+#can also set the working directory in R manually: Session > Set Working Directory > Choose Folder in the Cluster to set as wd.
+
+#Read in gene mapping
+mapping=read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq/ENSG_ID2Name.txt", header=FALSE, stringsAsFactors=FALSE, row.names=1)
+# Read in count matrix
+rawdata=read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts_table.tsv", header=TRUE, stringsAsFactors=FALSE, row.names=1)
+# Check dimensions
+dim(rawdata)
+# Require at least 25% of samples to have count > 25
+quant <- apply(rawdata,1,quantile,0.75)
+keep <- which((quant >= 25) == 1)
+rawdata <- rawdata[keep,]
+dim(rawdata)
+```
+
 # DESeq2
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
@@ -45,6 +69,9 @@ All DESeq2 information is available at: http://bioconductor.org/packages/devel/b
 DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 
 ```r
+
+
+
 # DESeq( ) function wraps around the following 3 functions:
 DESeq.ds = estimateSizeFactors(DESeq.ds) #sequencing depth normalisation
 DESeq.ds = estimateDispersions(DESeq.ds) #gene wise dispersion estimates
@@ -218,27 +245,7 @@ cut -f 2 ENSG_ID2Name.txt | sort | uniq -c | sort -r | head
 ```
 R script:
 ```r
-#######################
-# Load Data into R #
-#######################
-
-#Set working directory in R where output will go:
-working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
-setwd(working_dir)
-#can also set the working directory in R manually: Session > Set Working Directory > Choose Folder in the Cluster to set as wd.
-
-#Read in gene mapping
-mapping=read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq/ENSG_ID2Name.txt", header=FALSE, stringsAsFactors=FALSE, row.names=1)
-# Read in count matrix
-rawdata=read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts_table.tsv", header=TRUE, stringsAsFactors=FALSE, row.names=1)
-# Check dimensions
-dim(rawdata)
-# Require at least 25% of samples to have count > 25
-quant <- apply(rawdata,1,quantile,0.75)
-keep <- which((quant >= 25) == 1)
-rawdata <- rawdata[keep,]
-dim(rawdata)
-
+Load dataset as above
 #################
 # Running edgeR #
 #################
@@ -333,11 +340,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OT
-cwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0NywtMTQ5MzcwMDU3
-MSwxOTE4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0OCw5Mj
-AzMDU0NTQsMjAzOTcwMjg2NiwtMTY0MTE0NTAxMiwxMTI4Mzgy
-NTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NC
-wxODY3NzUzMjA2LC0yMDM2NDMyNzA3LC0xOTI3MDEwMzI4LC0z
-NTk2MDU2MzZdfQ==
+eyJoaXN0b3J5IjpbLTE4Nzc4MzY5ODQsMTY3NzI1MTQ0MCwyOT
+Q5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0
+NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMsMj
+AyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMTY0MTE0
+NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4MD
+gsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2NDMyNzA3LC0x
+OTI3MDEwMzI4XX0=
 -->
