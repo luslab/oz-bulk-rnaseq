@@ -45,7 +45,12 @@ https://github.com/YangLab/bamTobw
 ## Run IGV
 
 1. Run IGV on local computer and mount CAMP. [Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
-On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
+```bash
+# On local terminal move to IGV in bin
+cd ~/bin/IGV_2.4.14/lib
+# run IGV via command line on local terminal
+java -Xmx750m -jar igv.jar
+```
 2. Set reference genome to Human (hg38) top left box.
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or BigWig files (can load multiple at once).
 
@@ -82,8 +87,8 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTcxMTk1NTcsLTEwOTI0OTIwMDQsLT
-EzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0
-MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMjYwNTU3OT
-ExXX0=
+eyJoaXN0b3J5IjpbLTExNjE1MjY5NTMsLTE4NTcxMTk1NTcsLT
+EwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgz
+NzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MD
+gyMSwxMjYwNTU3OTExXX0=
 -->
