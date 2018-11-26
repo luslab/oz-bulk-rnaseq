@@ -200,7 +200,7 @@ R script:
 #######################
 
 #Set working directory where output will go
-working_dir = "~/workspace/rnaseq/de/htseq_counts"
+working_dir = "/Users/ziffo/Desktop/htseq_counts"
 setwd(working_dir)
 #Read in gene mapping
 mapping=read.table("~/workspace/rnaseq/de/htseq_counts/ENSG_ID2Name.txt", header=FALSE, stringsAsFactors=FALSE, row.names=1)
@@ -298,11 +298,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2ND
-ExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4
-ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNy
-wtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1
-NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3Nj
-IzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNzY1NSwt
-MTE1NDEyNTUyN119
+eyJoaXN0b3J5IjpbLTExMTgzODg1MDQsOTIwMzA1NDU0LDIwMz
+k3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4
+NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNi
+wtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0x
+MTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4Mj
+IzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAs
+MTcwOTUwNzY1NV19
 -->
