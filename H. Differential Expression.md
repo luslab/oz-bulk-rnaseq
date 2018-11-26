@@ -254,7 +254,7 @@ colnames(mat) <- c("Gene", "Gene_Name", "Log10_Pvalue", "Log_fold_change")
 o <- order(et$table$logFC[as.logical(de)],decreasing=TRUE)
 mat <- mat[o,]
 # Save table
-write.table(mat, file="DE_genes.txt", quote=FALSE, row.names=FALSE, sep="\t")
+write.table(mat, file="edgeR_DE_genes.txt", quote=FALSE, row.names=FALSE, sep="\t")
 #To exit R type the following
 quit(save="no")
 ```
@@ -300,11 +300,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMD
-MwNTQ1NCwyMDM5NzAyODY2LC0xNjQxMTQ1MDEyLDExMjgzODI1
-MjAsLTE1MTMzODYzNTUsMTUwNzEzODgwOCwxMjYzOTYxNTY0LD
-E4Njc3NTMyMDYsLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLTM1
-OTYwNTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4ND
-IzMywtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAs
-MjQyMDA4NTgwXX0=
+eyJoaXN0b3J5IjpbMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMj
+A4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUw
+MTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LD
+EyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNywtMTky
+NzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNz
+I1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzNDI1
+LDk2MjE1OTIxMF19
 -->
