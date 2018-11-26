@@ -63,24 +63,9 @@ Bar graph height =  read coverage
 Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
-
-# Big Wig file coverage tracks
-ml SAMtools
-ml BEDTools
-
-Use BED tools to create BED graph. Then convert to BigWig file. Import the BigWig file into IGV. 
-STAR creates a wiggle track (raw bigwig file). 
-These are smaller files and stop IGV crashing. They only show the coverage and not the individual reads.
-
-https://software.broadinstitute.org/software/igv/bigwig
-https://github.com/YangLab/bamTobw
-
-Create a text file of all BAM files to run- 1 per line. Save in relevant directory.
-`bamTobw.sh -b bam_list.txt`
-
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMT
-gzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2
-MDgyMSwtMTA5MjQ5MjAwNCwxMjYwNTU3OTExXX0=
+eyJoaXN0b3J5IjpbLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLT
+EzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgw
+NjIyNzAsMTExNTA2MDgyMSwtMTA5MjQ5MjAwNCwxMjYwNTU3OT
+ExXX0=
 -->
