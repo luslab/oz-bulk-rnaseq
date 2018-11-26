@@ -186,7 +186,8 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($_ =~ /gene_name\s\"(\S+)"\;/) { $name = $1; }; }; if ($id && $name) {print "$id\t$name\n";} if ($_=~/gene_id\s\"(ERCC\S+)\"/){print "$1\t$1\n";}' $GTF | sort | uniq > ENSG_ID2Name.txt
 head ENSG_ID2Name.txt
 
-#determine the number of unique Ensembl Gene IDs & symbols
+#determine the number of unique Ensembl Gene IDs & Symbols
+## 
 cut -f 1 ENSG_ID2Name.txt | sort | uniq | wc
 cut -f 2 ENSG_ID2Name.txt | sort | uniq | wc
 cut -f 2 ENSG_ID2Name.txt | sort | uniq -c | sort -r | head
@@ -296,11 +297,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNT
-A3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQz
-MjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMD
-c4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0y
-MDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMDg1ODAsMTcwOTUwNz
-Y1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3LDk2NTQzNTE3Nywx
-MTE4NTYxOTkyXX0=
+eyJoaXN0b3J5IjpbLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMT
+UxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1
+MzIwNiwtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1Nj
+M2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0y
+MTI4MjIzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMD
+g1ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3
+LDk2NTQzNTE3N119
 -->
