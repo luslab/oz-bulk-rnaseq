@@ -63,6 +63,9 @@ Bar graph height =  read coverage
 Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
+
+# Big Wig file
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTI0OTIwMDQsMTI2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbMTk3MjcyMjc2LC0xMDkyNDkyMDA0LDEyNj
+A1NTc5MTFdfQ==
 -->
