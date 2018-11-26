@@ -1,8 +1,6 @@
 > # Differential Gene Expression Analysis
 
-This chapter covers downstream interpretation of expression & differential estimates: multiple testing, clustering, heatmaps, classification, pathway analysis.
-
-To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
+This chapter covers downstream interpretation of expression & differential estimates. To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
 1. expression level
 2. read length
 3. sequencing depth
@@ -21,7 +19,7 @@ Normalisation & Log Transforming Read Counts is performed to ensure that systema
 2.  _Between-sample_  comparisons: compare the expression of a gene between experimental conditions aka pairwise comparison e.g. has the gene expression for gene A  changed across different experimental conditions? if yes, then differentially expressed (DE).
 
 ## Goals of DE analysis
-The 2 tasks of DGE are to:
+The 2 tasks of DE are to:
 1. Estimate the magnitude **fold change** of differential expression in read counts between different conditions, accounting for differences in sequencing depth & variability
 2. Estimate the **significance** of the difference, accounting for multiple testing
 
@@ -307,11 +305,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjAwNjE4MTIsLTE0OTM3MDA1NzEsMT
-kxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1
-NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMC
-wtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2
-Nzc1MzIwNiwtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5Nj
-A1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMz
-LC0yMTI4MjIzOTI1XX0=
+eyJoaXN0b3J5IjpbLTYwMjE3OTk0NCwtMTQ5MzcwMDU3MSwxOT
+E4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0
+NTQsMjAzOTcwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC
+0xNTEzMzg2MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3
+NzUzMjA2LC0yMDM2NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MD
+U2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMs
+LTIxMjgyMjM5MjVdfQ==
 -->
