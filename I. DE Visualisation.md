@@ -7,6 +7,12 @@ Visualisation is performed mostly in R. There are many scripts available specifi
 - examine expression & DE estimates
 - visualise differences between replicates & CTRL/VCP
 
+Check that basic global patterns are met:
+- do replicates have similar expression patterns; 
+- do experimental conditions have differences
+- For gene which you have prior knowledge about, you should check to see if they behaved as expected - a knockout gene should be very strongly down-regulated in the DGE analysis.
+- Map the ORF identifiers from the read count matrix to the gene name --> retreive the rlog transformed read counts & log2 fold changes.
+
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Supplementary_R.R
 https://github.com/griffithlab/rnaseq_tutorial/tree/master/scripts
 
@@ -34,11 +40,8 @@ Input the output from Cufflinks, Cuffmerge & Cuffdiff
 
 # Explore Read Count Patterns
 
-Check that basic global patterns are met:
-- do replicates have similar expression patterns; 
-- do experimental conditions have differences
-- For gene which you have prior knowledge about, you should check to see if they behaved as expected - a knockout gene should be very strongly down-regulated in the DGE analysis.
-- Map the ORF identifiers from the read count matrix to the gene name --> retreive the rlog transformed read counts & log2 fold changes.
+
+
 
 Assess RNA-seq expression patterns with:
 1. Pairwise Correlation
@@ -159,6 +162,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNDEwMjg3MywtMTM5OTczNDQwNCwtMT
+eyJoaXN0b3J5IjpbLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
 ExNDc2NzYyMF19
 -->
