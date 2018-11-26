@@ -91,7 +91,7 @@ This output is then analysed for differential expression using edgeR (see next c
 
 # Normalise for Gene Length & Sequencing Depth
 
-There are also counting tools that normalise however DE analysis (DESeq & edgeR) normalise later so this isn't necessary at this point.
+There are also counting tools that normalise for sequencing depth at this point. However DE analysis (DESeq & edgeR) normalise later so this isn't necessary at this point. 
 
 [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
 RPKM Reads per kilobase of transcript per million mapped reads & FPKM Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
@@ -187,7 +187,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNzY5MTk1NSwyMDI3ODM0OTgzLC0xOD
+eyJoaXN0b3J5IjpbLTE3MTg4NDE0NiwyMDI3ODM0OTgzLC0xOD
 k4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3
 MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC
 0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2
