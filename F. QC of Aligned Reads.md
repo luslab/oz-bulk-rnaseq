@@ -276,7 +276,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into inner_distance using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="inner_distance.py -i $SAMPLE -o $OUT_${SAMPLE} -r $BED"
+	SRRID=
+	sbatch -N 1 -c 4 --mem=24GB --wrap="inner_distance.py -i $SAMPLE -o ${OUT}_${SAMPLE} -r $BED"
 done
 ```
 
@@ -401,11 +402,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMT
-E4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2
-MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMz
-c4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNzk3LDYyNjc5
-MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTkyNzY1MTU5OC
-wyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxNDA1MzA5NDY0LC0xMTAx
-MDE0NDY5XX0=
+eyJoaXN0b3J5IjpbLTE0ODI2NjQyNzAsLTIxNDQ2NzQwMDEsMT
+Y2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0
+MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NC
+w4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEw
+NDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OT
+csMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxNDA1
+MzA5NDY0XX0=
 -->
