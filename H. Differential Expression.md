@@ -37,7 +37,7 @@ DESeq2, edgeR (better for false positives, less conservative, recommended if <12
 
 DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
 
-All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integnumber of reads
+All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
 
 # Load Counts dataset into R
 
@@ -342,11 +342,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc2MzI0MjEwLDEwOTc4MDQxMSwxNjc3Mj
-UxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMzY5Niwx
-MzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MTgxNDA2NTcsLTQ5Nz
-E4NTQxMywyMDIwODg2NzQ4LDkyMDMwNTQ1NCwyMDM5NzAyODY2
-LC0xNjQxMTQ1MDEyLDExMjgzODI1MjAsLTE1MTMzODYzNTUsMT
-UwNzEzODgwOCwxMjYzOTYxNTY0LDE4Njc3NTMyMDYsLTIwMzY0
-MzI3MDddfQ==
+eyJoaXN0b3J5IjpbLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3Nz
+I1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYs
+MTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OT
+cxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2
+NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LD
+E1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2
+NDMyNzA3XX0=
 -->
