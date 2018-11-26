@@ -65,15 +65,17 @@ Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 
 # Big Wig file coverage tracks
+ml SAMtools
+ml BEDTools
 
 Use BED tools to create BED graph. Then convert to BigWig file. Import the BigWig file into IGV. 
 STAR creates a wiggle track (raw bigwig file). 
 These are smaller files and stop IGV crashing. They only show the coverage and not the individual reads.
 
 https://software.broadinstitute.org/software/igv/bigwig
-
+https://github.com/YangLab/bamTobw
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNTA2MDgyMSwtMTA5MjQ5MjAwNCwxMj
-YwNTU3OTExXX0=
+eyJoaXN0b3J5IjpbLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwtMT
+A5MjQ5MjAwNCwxMjYwNTU3OTExXX0=
 -->
