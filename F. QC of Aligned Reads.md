@@ -276,8 +276,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into inner_distance using a For Loop
 for SAMPLE in $BAM
 do
-	SRRID=
-	sbatch -N 1 -c 4 --mem=24GB --wrap="inner_distance.py -i $SAMPLE -o ${OUT}_${SAMPLE} -r $BED"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="inner_distance.py -i $SAMPLE -o ${OUT}_${SRRID} -r $BED"
 done
 ```
 
@@ -305,7 +305,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run QoRTs command for each BAM file using a For Loop
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF $OUT_${SAMPLE}"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
 done
 ```
 
@@ -402,11 +403,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODI2NjQyNzAsLTIxNDQ2NzQwMDEsMT
-Y2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0
-MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NC
-w4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEw
-NDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OT
-csMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMwOTQ2NCwxNDA1
-MzA5NDY0XX0=
+eyJoaXN0b3J5IjpbMTM3Nzg3MjY5NSwtMjE0NDY3NDAwMSwxNj
+Y4NjMxOTczLC0xMTgxNjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQx
+NzgwLDE3MzI2ODYzMzAsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LD
+gxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2MTA0
+MzE3OTcsNjI2NzkxNDE5LDE4MjQxMzc0MDUsMTIwMTg4MzU5Ny
+wxOTI3NjUxNTk4LDI0MDg3MjIxMywxNDA1MzA5NDY0LDE0MDUz
+MDk0NjRdfQ==
 -->
