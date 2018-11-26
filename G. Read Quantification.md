@@ -35,7 +35,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > $OUT_$SRRID.tsv"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tsv"
 done
 
 # merge results files into a single matrix for use in edgeR
@@ -186,11 +186,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MT
-k4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkw
-NzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMjAsLTE2MzMzNDU1OT
-QsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwt
-MjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyND
-QzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIsLTUzNjE1MTIyNywt
-MTIyOTgxNTM3Ml19
+eyJoaXN0b3J5IjpbLTE5MTkxMTMwOTgsLTE4OTg0ODUyNTgsNT
+YwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0
+MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMj
+AsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwt
+MTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MT
+kwMDQ1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIs
+LTUzNjE1MTIyN119
 -->
