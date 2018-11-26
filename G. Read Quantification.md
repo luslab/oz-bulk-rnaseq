@@ -56,6 +56,10 @@ Output table is in columns as:
 Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ```
 
+## QoRTs
+http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
+
+
 ## HTSeq-Count
 ml HTSeq
 ml Pysam
@@ -187,7 +191,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTg4NDE0NiwyMDI3ODM0OTgzLC0xOD
+eyJoaXN0b3J5IjpbMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xOD
 k4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3
 MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC
 0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2
