@@ -160,8 +160,9 @@ legend_text = c(paste("Genes with one transcript =", c_one), paste("Genes with m
 legend("topright", legend_text, lty=NULL)
 ```
 
-# Transcript sizes 
+# Transcript sizes as Histogram
 
+```r
 #### Plot #2 - the distribution of transcript sizes as a histogram
 #In this analysis we supplied StringTie with transcript models so the lengths will be those of known transcripts
 #However, if we had used a de novo transcript discovery mode, this step would give us some idea of how well transcripts were being assembled
@@ -184,13 +185,17 @@ min_nonzero=1
 # Set the columns for finding FPKM and create shorter names for figures
 data_columns=c(1:6)
 short_names=c("UHR_1","UHR_2","UHR_3","HBR_1","HBR_2","HBR_3")
-
+```
+# Range of FPKM
+```r
 #### Plot #3 - View the range of values and general distribution of FPKM values for all 4 libraries
 #Create boxplots for this purpose
 #Display on a log2 scale and add the minimum non-zero value to avoid log2(0)
 boxplot(log2(gene_expression[,data_columns]+min_nonzero), col=data_colors, names=short_names, las=2, ylab="log2(FPKM)", main="Distribution of FPKMs for all 6 libraries")
 #Note that the bold horizontal line on each boxplot is the median
-
+```
+# Replicates
+```r
 #### Plot #4 - plot a pair of replicates to assess reproducibility of technical replicates
 #Tranform the data by converting to log2 scale after adding an arbitrary small value to avoid log2(0)
 x = gene_expression[,"FPKM.UHR_Rep1"]
@@ -203,6 +208,9 @@ abline(a=0,b=1)
 #Calculate the correlation coefficient and display in a legend
 rs=cor(x,y)^2
 legend("topleft", paste("R squared = ", round(rs, digits=3), sep=""), lwd=1, col="black")
+```
+# Density scatter plot
+```r
 
 #### Plot #5 - Scatter plots with a large number of data points can be misleading ... regenerate this figure as a density scatter plot
 colors = colorRampPalette(c("white", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
@@ -223,6 +231,7 @@ legend("topleft", legend_text, lwd=c(1,NA), col="black", bg="white", cex=0.8)
 
 #Open a plotting page with room for two plots on one page
 par(mfrow=c(1,2))
+
 
 #Plot #6 - Now make a call to our custom function created above, once for each library comparison
 plotCor("FPKM.UHR_Rep1", "FPKM.HBR_Rep1", "UHR_1 vs HBR_1", "tomato2")
@@ -464,7 +473,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NDUwMjY3MiwxMzMwNjE1NzA4LDUzMD
+eyJoaXN0b3J5IjpbMTI2NjU3ODcwOCwxMzMwNjE1NzA4LDUzMD
 AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
 NjIwXX0=
 -->
