@@ -7,10 +7,10 @@
 	- Values over intervals = coverages, probabilities
 	- Attributes at locations = mutations, deletions, junctions
 
-#### `samtools tview`
+### `samtools tview`
 - simplest genome browser. can visualise any DAM file `samtools tview --reference reference_genome.fa filename.bam`
 
-#### Standalone Genome Browsers
+## Standalone Genome Browsers
 - [Integrative Genomics Viewer IGV](http://software.broadinstitute.org/software/igv/book/export/html/6)  by the Broad Institute
 - [Integrated Genome Browser IGB](https://bioviz.org/) by University of North Carolina
 - [Artemis](https://www.sanger.ac.uk/science/tools/artemis) by the Wellcome Sanger Institute
@@ -22,14 +22,31 @@
 - [Ensembl](http://useast.ensembl.org/index.html)
 - [UCSC](https://genome.ucsc.edu/)
 
-## [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
+# [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
 `ml IGVTools`
 
 Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
+
+## Big Wig file coverage tracks
+ml SAMtools
+ml BEDTools
+
+Convert BAM > BigWig file using BED tools & BED graph. Can then import the BigWig file into IGV. 
+STAR creates a wiggle track (raw bigwig file). 
+These are smaller files and stop IGV crashing. They only show the coverage and not the individual reads.
+
+https://software.broadinstitute.org/software/igv/bigwig
+https://github.com/YangLab/bamTobw
+
+Create a text file of all BAM files to run- 1 per line. Save in relevant directory.
+`bamTobw.sh -b bam_list.txt`
+
+## Run IGV
+
 1. Run IGV on local computer and mount CAMP. [Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
 On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
 2. Set reference genome to Human (hg38) top left box.
-3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
+3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or BigWig files (can load multiple at once).
 
 To visualise on IGV its easier to generate TDF files which are much lighter. This is useful if want to add more data-sets later. To generate TDF files first generate Bedgraph coverage files, then sort and then create the tdf file. Create 3 different coverage files: positive, negative strands and total. As the data is stranded it is better to look at both strands separately. Run the code in file: PE_strandedBedGraph.sh
 
@@ -64,8 +81,8 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLT
-EzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgw
-NjIyNzAsMTExNTA2MDgyMSwtMTA5MjQ5MjAwNCwxMjYwNTU3OT
-ExXX0=
+eyJoaXN0b3J5IjpbLTk2ODU3MTg3NSwtMTA5MjQ5MjAwNCwtMT
+MzMDk3MTM4OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQx
+NjgyMSwtMTYxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MT
+FdfQ==
 -->
