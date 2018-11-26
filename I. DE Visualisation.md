@@ -146,9 +146,9 @@ Regularise log-transformed values:
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
-# Ballgown
+# Ballgown Visualisation
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY4MjMyNzUxLC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbMTIwNzUzNDQwNCwtMTExNDc2NzYyMF19
 -->
