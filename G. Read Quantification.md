@@ -15,7 +15,7 @@ Instead of normalising simply assign fragments to a defined set of genes/transcr
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
-Tool = [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) , 
+Tool = featureCounts, QoRTs (Nobby uses this as it also does QC simultaneously), STAR (also does counts if you give it GTF file), [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html).
 
 ## featureCounts
 ml Subread
@@ -188,7 +188,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDgxNjc5MzQsLTE4OTg0ODUyNTgsNT
+eyJoaXN0b3J5IjpbLTE2NzEyMDMwNzMsLTE4OTg0ODUyNTgsNT
 YwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0
 MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMj
 AsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwt
