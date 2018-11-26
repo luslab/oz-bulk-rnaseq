@@ -73,7 +73,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
 done
 ```
 
@@ -208,7 +208,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjcxMDMwNzA3LDE1OTMzMzA4MTYsMjAyNz
+eyJoaXN0b3J5IjpbNzMxMjA5MTk1LDE1OTMzMzA4MTYsMjAyNz
 gzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOTg2NTEx
 OSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3MywtMT
 kwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5
