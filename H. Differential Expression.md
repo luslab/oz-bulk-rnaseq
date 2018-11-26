@@ -151,6 +151,43 @@ dt = data.frame("id"=rownames(nc),nc)
 
 # Save the normalize data matrix.
 write.table(dt, file="norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
+
+
+
+
+
+# get table of read counts
+read.counts = read.table("featureCounts_results.txt", header = TRUE) 
+# store gene IDs as row.names
+row.names(read.counts) = readcounts$Geneid
+# exclude columns that dont have read counts
+readcounts = readcounts[ , -c(1:6)]
+# assign the sample names
+orig_names = names(readcounts)
+names(readcounts) = gsub(".*(WT|SNF2)(_[0-9]+).*", "\\1\\2 ", orig_names)
+# check data
+str(readcounts)
+head(readcounts)
+# make a data frame for rows (samples)
+sample_info = data.frame(condition = gsub("_[0 -9]+", "", names(readcounts)), row.names = names(readcounts))
+# Generate the DSeqDataSet - run the DGE analysis
+DESeq.ds = DESeqDataSetFromMatrix(countData = readcounts, colData = sample_info, design = ~ condition)
+# Check and test dataset
+colData(DESeq.ds) %>% head
+assay(DESeq.ds) %>% head
+rowRanges(DESeq.ds) %>% head
+counts(DESeq.ds) %>% str
+DESeq.ds = DESeq.ds[rowSums(counts(DESeq.ds)) > 0, ]
+#remove genes without any counts
+colSums(counts(DESeq.ds))` # should be the same as `colSums(readcounts)
+# DSeq default for normalising for differences in sequencing depths is `estimateSizeFactors` calculate the size factor and add it to the data set:
+DESeq.ds = estimateSizeFactors(DESeq.ds)
+sizeFactors(DESeq.ds)
+# counts ()` allows you to immediately retrieve the normalized read counts
+counts.sf_normalized = counts(DESeq.ds, normalized = TRUE)
+# Log Transformation of Sequencing Depth Normalised read counts. Most downstream analyses work best on log scales of read counts. Usually *log2* but occasionally *log10*. Log2 transform read counts: 
+log.norm.counts = log2(counts.sf_normalized + 1)
+#use a pseudocount of 1
 ```
 
 The results.txt file describes changes between the 2 conditions e.g.
@@ -333,7 +370,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNzE4NTAxMCwtNjEyMTM2OTYsMTMzMz
+eyJoaXN0b3J5IjpbLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMz
 Q1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0
 MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMT
 Y0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcx
