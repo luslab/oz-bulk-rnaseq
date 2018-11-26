@@ -29,7 +29,6 @@ Best resources are the [IVG mannual](http://software.broadinstitute.org/software
 
 ## Big Wig file coverage tracks
 ml SAMtools
-ml BEDTools
 
 Convert BAM > BigWig file using BED tools & BED graph. Can then import the BigWig file into IGV. 
 STAR creates a wiggle track (raw bigwig file). 
@@ -50,11 +49,6 @@ do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SRRID.bw"
 done
 ```
-
-
-1. Create a text file in Atom listing all BAM files to convert. List each file name 1 per line. Save in relevant alignment directory.
-2. Then run bamTobw.sh command (installed in PATH)
-`bamTobw.sh -b bam_list.txt`
 
 ## Run IGV
 
@@ -101,8 +95,9 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwOTM2OTE3NywyODMwODcwNCw1NzQzND
-cwODksLTE4NTcxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEz
-ODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLT
-E2MTgwNjIyNzAsMTExNTA2MDgyMSwxMjYwNTU3OTExXX0=
+eyJoaXN0b3J5IjpbNjIwMDcwMDM4LDE4MDkzNjkxNzcsMjgzMD
+g3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0
+LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNCwtNz
+k5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMTI2MDU1
+NzkxMV19
 -->
