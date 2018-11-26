@@ -75,7 +75,8 @@ These are smaller files and stop IGV crashing. They only show the coverage and n
 https://software.broadinstitute.org/software/igv/bigwig
 https://github.com/YangLab/bamTobw
 
+bamTobw.sh -b SRR*_Aligned.sortedByCoord.out.bam
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwtMT
-A5MjQ5MjAwNCwxMjYwNTU3OTExXX0=
+eyJoaXN0b3J5IjpbLTMyMjQyNzQzOSwtMTYxODA2MjI3MCwxMT
+E1MDYwODIxLC0xMDkyNDkyMDA0LDEyNjA1NTc5MTFdfQ==
 -->
