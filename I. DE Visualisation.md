@@ -35,13 +35,21 @@ Visualise sample-sample distances with the Prinicipal Components Analysis (PCA)
 	 - does not identify unknown groupings
 
 in R use `prcomp` function"
-`library(DESeq2)`
-`library(ggplot2)`
-`pc = prcomp(t(rlog.norm.counts))`
+
+
+```r
+`library(DESeq2)
+`library(ggplot2)
+`pc = prcomp(t(rlog.norm.counts))
 `plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"`
 `P = plotPCA(DESeq.rlog)` # PCA plot using DESeq2 based on ggplot2
 `P = P + theme_bw() + ggtitle("Rlog transformed counts")` #plot cosmetics
 `print(P)`
+
+data <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData=TRUE)
+percentVar <- round(100 * attr(data, "percentVar"))
+```
+
 
 ![enter image description here](https://onlinecourses.science.psu.edu/stat857/sites/onlinecourses.science.psu.edu.stat857/files/lesson05/PCA_plot/index.gif)
 
@@ -442,6 +450,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQwNjM2NjQwLDUzMDAxMDAwNSwtODc2MD
-I1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbMTI3Mjg1NDA4OCw1MzAwMTAwMDUsLTg3Nj
+AyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
 -->
