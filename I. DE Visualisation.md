@@ -104,7 +104,7 @@ length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
 
 # PCA Plot
 
-Visualise sample-sample distances with the Prinicipal Components Analysis (PCA) 
+Visualise sample-sample distances with the Principal Components Analysis (PCA) 
 
  - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
  - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
@@ -479,7 +479,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMD
-EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
-MjBdfQ==
+eyJoaXN0b3J5IjpbMTM0MDU3NzEyMSw2ODAwMTYyMTgsMTMzMD
+YxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQw
+NCwtMTExNDc2NzYyMF19
 -->
