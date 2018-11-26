@@ -187,7 +187,7 @@ perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($
 head ENSG_ID2Name.txt
 
 #determine the number of unique Ensembl Gene IDs & Symbols
-## 
+## Take the 1st field (column), 
 cut -f 1 ENSG_ID2Name.txt | sort | uniq | wc
 cut -f 2 ENSG_ID2Name.txt | sort | uniq | wc
 cut -f 2 ENSG_ID2Name.txt | sort | uniq -c | sort -r | head
@@ -297,11 +297,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMT
-UxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1
-MzIwNiwtMjAzNjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1Nj
-M2LC0xMTU3MDAxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0y
-MTI4MjIzOTI1LC0yMDU3NjIzNDI1LDk2MjE1OTIxMCwyNDIwMD
-g1ODAsMTcwOTUwNzY1NSwtMTE1NDEyNTUyNywtODc3ODAyODU3
-LDk2NTQzNTE3N119
+eyJoaXN0b3J5IjpbLTMxMjgwMTE3MywtMTY0MTE0NTAxMiwxMT
+I4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4MDgsMTI2Mzk2
+MTU2NCwxODY3NzUzMjA2LC0yMDM2NDMyNzA3LC0xOTI3MDEwMz
+I4LC0zNTk2MDU2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5
+MTAxODQyMzMsLTIxMjgyMjM5MjUsLTIwNTc2MjM0MjUsOTYyMT
+U5MjEwLDI0MjAwODU4MCwxNzA5NTA3NjU1LC0xMTU0MTI1NTI3
+LC04Nzc4MDI4NTddfQ==
 -->
