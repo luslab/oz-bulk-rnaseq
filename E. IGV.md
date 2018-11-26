@@ -37,6 +37,7 @@ They only show the coverage and not the individual reads. They are binary format
 https://software.broadinstitute.org/software/igv/bigwig
 https://github.com/YangLab/bamTobw
 
+Use bamCoverage to convert BAM > BW files
 ```bash
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
@@ -95,7 +96,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIwMDcwMDM4LDE4MDkzNjkxNzcsMjgzMD
+eyJoaXN0b3J5IjpbMjExOTEwNDU1LDE4MDkzNjkxNzcsMjgzMD
 g3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0
 LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNCwtNz
 k5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMTI2MDU1
