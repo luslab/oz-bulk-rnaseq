@@ -31,15 +31,8 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DE analysis
 
-For FPKM expression counts: DESeq, DESeq2, ballgown
-
-For raw expression counts: edgeR
-
-`edgeR` (better for false positives, less conservative, recommended if <12 replicates)
-`DESeq`
-`DESeq2` sample wise size factor
-`limma-voom`
-`cuffdiff`slow, cant support multifactored experiments, can detect differential isoforms, high false positives
+DESeq2, edgeR (better for false positives, less conservative, recommended if <12 replicates), ballgown
+Ccuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives.
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
@@ -305,7 +298,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMjE3OTk0NCwtMTQ5MzcwMDU3MSwxOT
+eyJoaXN0b3J5IjpbLTg5MzYyMzk5MiwtMTQ5MzcwMDU3MSwxOT
 E4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0
 NTQsMjAzOTcwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC
 0xNTEzMzg2MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3
