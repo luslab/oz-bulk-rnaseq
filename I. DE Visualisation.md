@@ -24,7 +24,7 @@ Firstly, visualise the most significantly DE genes in IGV
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
 4. Search most significantly DE genes reported from DE analysis output in IGV: `head edgeR_DE_genes.txt` > type Gene_Name directly in IGV search box
 
-# R
+# R plots
 
 Use output from DE analysis
 
@@ -282,23 +282,15 @@ dir()
 mydist=function(c) {dist(c,method="euclidian")}
 myclust=function(c) {hclust(c,method="average")}
 main_title="sig DE Transcripts"
-
 par(cex.main=0.8)
-
 sig_genes=results_genes[sig,"id"]
-
 sig_gene_names=results_genes[sig,"gene_name"]
-
 data=log2(as.matrix(gene_expression[sig_genes,data_columns])+1)
-
 heatmap.2(data, hclustfun=myclust, distfun=mydist, na.rm = TRUE, scale="none", dendrogram="both", margins=c(6,7), Rowv=TRUE, Colv=TRUE, symbreaks=FALSE, key=TRUE, symkey=FALSE, density.info="none", trace="none", main=main_title, cexRow=0.3, cexCol=1, labRow=sig_gene_names,col=rev(heat.colors(75)))
-
 dev.off()
 
 #The output file can be viewed in your browser at the following url:
-
 #Note, you must replace __YOUR_IP_ADDRESS__ with your own amazon instance IP
-
 #http://__YOUR_IP_ADDRESS__/workspace/rnaseq/de/ballgown/ref_only/Tutorial_Part3_Supplementary_R_output.pdf
 
 #To exit R type:
@@ -443,6 +435,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NTczODk0NywtODc2MDI1NTQ5LC0xMz
-k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbNTMwMDEwMDA1LC04NzYwMjU1NDksLTEzOT
+k3MzQ0MDQsLTExMTQ3Njc2MjBdfQ==
 -->
