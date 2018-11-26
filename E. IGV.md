@@ -47,7 +47,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o ${OUT}_${SRRID}.bw"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SRRID.bw"
 done
 ```
 
@@ -101,8 +101,8 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQxNjI2MjAxLDI4MzA4NzA0LDU3NDM0Nz
-A4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNCwtMTMzMDk3MTM4
-OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQxNjgyMSwtMT
-YxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MTFdfQ==
+eyJoaXN0b3J5IjpbMTgwOTM2OTE3NywyODMwODcwNCw1NzQzND
+cwODksLTE4NTcxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEz
+ODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLT
+E2MTgwNjIyNzAsMTExNTA2MDgyMSwxMjYwNTU3OTExXX0=
 -->
