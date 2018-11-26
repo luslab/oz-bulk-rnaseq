@@ -63,29 +63,7 @@ colData( ) #columns = samples
 assay( ) #stores count data with genes and samples. similar to `countData`
 ```
 
-## Biostars DESeq Script
-
-```bash
-#download the DESeq biostars script
-curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
-curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
-```
-### Using Kallisto Output
-```bash
-ml R
-
-# Using kallisto output (counts.txt) first remove empty rows (represent transcripts that were not detected at all) by keeping rows only where the sum of all reads is > 25
-cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
-
-# Convert effective lengths to integers using ask & %3.0f formating operator (DESeq2 only accepts integers) - this is arranged for 3x3.
-cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7) } ' > valid.txt
-## for 4x4 samples
-cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9) } ' > valid.txt
-
-# Run the differential expression estimator
-cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
-```
-### Using featureCounts Output
+## Using featureCounts Output
 ```bash
 ml R
 
@@ -96,6 +74,9 @@ cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 ## in this case = 3 x 3 (3 cases, 3 controls)
 cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
 ```
+```R
+ZZ
+
 The results.txt file describes changes between the 2 conditions e.g.
 ```bash
 id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
@@ -121,6 +102,25 @@ cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
 #How many differentially expressed genes do we have?
 cat diffgenes.txt | wc -l
 ```
+
+
+### Using Kallisto Output
+```bash
+ml R
+
+# Using kallisto output (counts.txt) first remove empty rows (represent transcripts that were not detected at all) by keeping rows only where the sum of all reads is > 25
+cat counts.txt | awk ' ($2+$3+$4+$5+$6+$7+$8+$9) > 25 { print $0 } ' > temp.txt
+
+# Convert effective lengths to integers using ask & %3.0f formating operator (DESeq2 only accepts integers) - this is arranged for 3x3.
+cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7) } ' > valid.txt
+## for 4x4 samples
+cat temp.txt | awk ' { printf("%s\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\t%3.0f\n", $1, $2, $3, $4, $5, $6, $7, $8, $9) } ' > valid.txt
+
+# Run the differential expression estimator
+cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
+```
+
+
 
 ## DSeq2 script
 
@@ -300,11 +300,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5MjI0NjA3NCwtMTQ5MzcwMDU3MSwxOT
-E4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0
-NTQsMjAzOTcwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC
-0xNTEzMzg2MzU1LDE1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3
-NzUzMjA2LC0yMDM2NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MD
-U2MzYsLTExNTcwMDEwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMs
-LTIxMjgyMjM5MjVdfQ==
+eyJoaXN0b3J5IjpbNTAwODgyMzkwLC0xNDkzNzAwNTcxLDE5MT
+gxNDA2NTcsLTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMDMwNTQ1
+NCwyMDM5NzAyODY2LC0xNjQxMTQ1MDEyLDExMjgzODI1MjAsLT
+E1MTMzODYzNTUsMTUwNzEzODgwOCwxMjYzOTYxNTY0LDE4Njc3
+NTMyMDYsLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLTM1OTYwNT
+YzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4NDIzMywt
+MjEyODIyMzkyNV19
 -->
