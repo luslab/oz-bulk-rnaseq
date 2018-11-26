@@ -259,6 +259,11 @@ write.table(mat, file="edgeR_DE_genes.txt", quote=FALSE, row.names=FALSE, sep="\
 quit(save="no")
 ```
 
+Look at sigDE genes:
+```bash
+cat edgeR_DE_genes.txt
+```
+
 # Ballgown
 
 https://www.bioconductor.org/packages/release/bioc/html/ballgown.html
@@ -300,11 +305,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMj
-A4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUw
-MTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LD
-EyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQzMjcwNywtMTky
-NzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMDc4LDE1NTIxNz
-I1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0yMDU3NjIzNDI1
-LDk2MjE1OTIxMF19
+eyJoaXN0b3J5IjpbLTE2MzM5MzkxMjEsMTkxODE0MDY1NywtND
+k3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4
+NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NS
+wxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAz
+NjQzMjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MD
+AxMDc4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1
+LC0yMDU3NjIzNDI1XX0=
 -->
