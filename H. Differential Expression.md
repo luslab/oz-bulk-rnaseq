@@ -173,13 +173,16 @@ log.norm.counts = log2(counts.sf_normalized + 1)
 
 # edgeR
 
-Input = raw counts from htseq-count
+edgeR is a bioconductor package designed for DE of raw counts
+Input = raw counts from htseq-count or featureCounts
+
 
 ```bash
 mkdir -p edgeR
-#create a mapping file to go from ENSG IDs to Symbols:
+#create a mapping file to go from ENSG IDs (which is htseq output) to Symbols:
 perl -ne 'if ($_ =~ /gene_id\s\"(ENSG\S+)\"\;/) { $id = $1; $name = undef; if ($_ =~ /gene_name\s\"(\S+)"\;/) { $name = $1; }; }; if ($id && $name) {print "$id\t$name\n";} if ($_=~/gene_id\s\"(ERCC\S+)\"/){print "$1\t$1\n";}' $RNA_REF_GTF | sort | uniq > ENSG_ID2Name.txt
 head ENSG_ID2Name.txt
+
 #determine the number of unique Ensembl Gene IDs & symbols
 cut -f 1 ENSG_ID2Name.txt | sort | uniq | wc
 cut -f 2 ENSG_ID2Name.txt | sort | uniq | wc
@@ -255,11 +258,30 @@ https://www.bioconductor.org/packages/release/bioc/html/ballgown.html
 
 First create a file that lists the expression files, then view that file, then start an R session to examine these results:
 
+```bash
 printf "\"ids\",\"type\",\"path\"\n\"UHR_Rep1\",\"UHR\",\"$RNA_HOME/expression/stringtie/ref_only/UHR_Rep1\"\n\"UHR_Rep2\",\"UHR\",\"$RNA_HOME/expression/stringtie/ref_only/UHR_Rep2\"\n\"UHR_Rep3\",\"UHR\",\"$RNA_HOME/expression/stringtie/ref_only/UHR_Rep3\"\n\"HBR_Rep1\",\"HBR\",\"$RNA_HOME/expression/stringtie/ref_only/HBR_Rep1\"\n\"HBR_Rep2\",\"HBR\",\"$RNA_HOME/expression/stringtie/ref_only/HBR_Rep2\"\n\"HBR_Rep3\",\"HBR\",\"$RNA_HOME/expression/stringtie/ref_only/HBR_Rep3\"\n" > UHR_vs_HBR.csv
 cat UHR_vs_HBR.csv
 
 R
- 
+```
+Run the ballgown.R script https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part1_ballgown.R
+
+Output = TSV file. Examine the output:
+```bash
+# How many passed filter in UHR or HBR?
+grep -v feature UHR_vs_HBR_gene_results_filtered.tsv | wc -l
+
+# How many differentially expressed genes were found on this chromosome (p-value < 0.05)?
+grep -v feature UHR_vs_HBR_gene_results_sig.tsv | wc -l
+
+# Display the top 20 DE genes. Look at some of those genes in IGV - do they make sense?
+grep -v feature UHR_vs_HBR_gene_results_sig.tsv | sort -rnk 3 | head -n 20 #Higher abundance in UHR
+grep -v feature UHR_vs_HBR_gene_results_sig.tsv | sort -nk 3 | head -n 20 #Higher abundance in HBR
+
+# Save all genes with P<0.05 to a new file.
+grep -v feature UHR_vs_HBR_gene_results_sig.tsv | cut -f 6 | sed 's/\"//g' > DE_genes.txt
+head DE_genes.txt
+```
 
 
 
@@ -271,7 +293,7 @@ R
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNjE3OTM4NiwxMjYzOTYxNTY0LDE4Nj
+eyJoaXN0b3J5IjpbMTUwNzEzODgwOCwxMjYzOTYxNTY0LDE4Nj
 c3NTMyMDYsLTIwMzY0MzI3MDcsLTE5MjcwMTAzMjgsLTM1OTYw
 NTYzNiwtMTE1NzAwMTA3OCwxNTUyMTcyNTU3LDkxMDE4NDIzMy
 wtMjEyODIyMzkyNSwtMjA1NzYyMzQyNSw5NjIxNTkyMTAsMjQy
