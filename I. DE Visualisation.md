@@ -232,7 +232,6 @@ legend("topleft", legend_text, lwd=c(1,NA), col="black", bg="white", cex=0.8)
 #Open a plotting page with room for two plots on one page
 par(mfrow=c(1,2))
 
-
 #Plot #6 - Now make a call to our custom function created above, once for each library comparison
 plotCor("FPKM.UHR_Rep1", "FPKM.HBR_Rep1", "UHR_1 vs HBR_1", "tomato2")
 plotCor("FPKM.UHR_Rep2", "FPKM.HBR_Rep2", "UHR_2 vs HBR_2", "royalblue2")
@@ -271,7 +270,9 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 
 #Print out these correlation values
 r
-
+```
+# Mult-dimensional scaling
+```r
 #### Plot #8 - Convert correlation to 'distance', and use 'multi-dimensional scaling' to display the relative differences between libraries
 
 #This step calculates 2-dimensional coordinates to plot points for each library
@@ -287,6 +288,9 @@ text(mds$points[,1], mds$points[,2], short_names, col=data_colors)
 # Calculate the differential expression results including significance
 results_genes = stattest(bg, feature="gene", covariate="type", getFC=TRUE, meas="FPKM")
 results_genes = merge(results_genes,bg_gene_names,by.x=c("id"),by.y=c("gene_id"))
+```
+
+```r
 
 #### Plot #9 - View the distribution of differential expression values as a histogram
 #Display only those that are significant according to Ballgown
@@ -473,7 +477,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2NjU3ODcwOCwxMzMwNjE1NzA4LDUzMD
+eyJoaXN0b3J5IjpbMTE5MjUyNDE0MCwxMzMwNjE1NzA4LDUzMD
 AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
 NjIwXX0=
 -->
