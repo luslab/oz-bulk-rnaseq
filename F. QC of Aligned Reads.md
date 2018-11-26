@@ -192,8 +192,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into junction_saturation using a For Loop
 for SAMPLE in $BAM
 do
-
-	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o ${OUT}_${SAMPLE}"
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="junction_saturation.py -i $SAMPLE -r $BED -o ${OUT}_${SRRID}"
 done
 ```
 
@@ -407,11 +407,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTUwMjExNzIxLDEzNzc4NzI2OTUsLTIxND
-Q2NzQwMDEsMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3
-NzIsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LD
-c3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMx
-Nzk3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LD
-EyMDE4ODM1OTcsMTkyNzY1MTU5OCwyNDA4NzIyMTMsMTQwNTMw
-OTQ2NF19
+eyJoaXN0b3J5IjpbLTE5MDEyMjcyODksMTM3Nzg3MjY5NSwtMj
+E0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgxNjQ3NTYsLTk5NDgy
+MDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYzMzAsLTE2NTUwMjk5Nz
+csNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0
+MzE3OTcsLTE2MTA0MzE3OTcsNjI2NzkxNDE5LDE4MjQxMzc0MD
+UsMTIwMTg4MzU5NywxOTI3NjUxNTk4LDI0MDg3MjIxMywxNDA1
+MzA5NDY0XX0=
 -->
