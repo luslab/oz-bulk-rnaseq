@@ -382,7 +382,7 @@ ml SAMtools
 
 With a For Loop above you can automate this with the above phase as each BAM file is produced:
 ```bash
-for file in ~/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+for file in /home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 do
 	sbatch -N 1 -c 8 --mem 40 --wrap="samtools index $file";
 done
@@ -579,7 +579,7 @@ samtools view -H all_bam_files.bam
 samtools index all_bam_files.bam
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTIyMTM0MDM4LDE4NzM0NzQ3OTQsNzc1OD
+eyJoaXN0b3J5IjpbMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1OD
 QwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3
 MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOT
 k4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1
