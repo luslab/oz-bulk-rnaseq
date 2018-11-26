@@ -38,17 +38,16 @@ They only show the coverage and not the individual reads. They are binary format
 https://software.broadinstitute.org/software/igv/bigwig
 https://github.com/YangLab/bamTobw
 
-
-bamCoverage -b $SAMPLE -o $SR.bw
-
+```bash
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+#set OUT
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/
 
-```bash
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}_${SRRID}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o ${OUT}_${SRRID}.bw"
 done
 ```
 
@@ -102,7 +101,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM5NjA5Mzg0LDI4MzA4NzA0LDU3NDM0Nz
+eyJoaXN0b3J5IjpbMzQxNjI2MjAxLDI4MzA4NzA0LDU3NDM0Nz
 A4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNCwtMTMzMDk3MTM4
 OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQxNjgyMSwtMT
 YxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MTFdfQ==
