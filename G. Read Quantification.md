@@ -70,7 +70,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/fea
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o $OUT_$SRRID $SAMPLE"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
 done
 
 #run featureCounts on all BAM files together. By default it uses gene_id in the GTF - override with gene_name
@@ -186,11 +186,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTkxMTMwOTgsLTE4OTg0ODUyNTgsNT
-YwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0
-MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3MDUwMj
-AsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNzYxNiwt
-MTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwyMDQ4MT
-kwMDQ1LDIxMTgyNDQzODIsMTEyNTg1MDg0OCwxMTQ4NzE1OTIs
-LTUzNjE1MTIyN119
+eyJoaXN0b3J5IjpbOTIwNzU4MTM0LC0xODk4NDg1MjU4LDU2MD
+E4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3
+MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC
+0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEz
+MzEzMjI4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MD
+A0NSwyMTE4MjQ0MzgyLDExMjU4NTA4NDgsMTE0ODcxNTkyLC01
+MzYxNTEyMjddfQ==
 -->
