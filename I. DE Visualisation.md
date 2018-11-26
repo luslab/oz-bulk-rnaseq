@@ -47,67 +47,48 @@ setwd(working_dir)
 dir()
 
 #Import expression and differential expression results from the HISAT2/StringTie/Ballgown pipeline
-
 load('bg.rda')
 
 # View a summary of the ballgown object
-
 bg
 
 # Load gene names for lookup later in the tutorial
-
 bg_table = texpr(bg, 'all')
-
 bg_gene_names = unique(bg_table[, 9:10])
 
 # Pull the gene_expression data frame from the ballgown object
-
 gene_expression = as.data.frame(gexpr(bg))
 
 #### Working with 'dataframes'
-
 #View the first five rows of data (all columns) in one of the dataframes created
-
 head(gene_expression)
 
 #View the column names
-
 colnames(gene_expression)
-
 #View the row names
-
 row.names(gene_expression)
 
 #Determine the dimensions of the dataframe. 'dim()' will return the number of rows and columns
-
 dim(gene_expression)
 
 #Get the first 3 rows of data and a selection of columns
-
 gene_expression[1:3,c(1:3,6)]
 
 #Do the same thing, but using the column names instead of numbers
-
 gene_expression[1:3, c("FPKM.UHR_Rep1","FPKM.UHR_Rep2","FPKM.UHR_Rep3","FPKM.HBR_Rep3")]
 
 #Assign colors to each. You can specify color by RGB, Hex code, or name
 
 #To get a list of color names:
-
 colours()
-
 data_colors=c("tomato1","tomato2","tomato3","royalblue1","royalblue2","royalblue3")
 
 #View expression values for the transcripts of a particular gene symbol of chromosome 22. e.g. 'TST'
-
 #First determine the rows in the data.frame that match 'TST', aka. ENSG00000128311, then display only those rows of the data.frame
-
 i = row.names(gene_expression) == "ENSG00000128311"
-
 gene_expression[i,]
 
 #What if we want to view values for a list of genes of interest all at once?
-
 #genes_of_interest = c("TST", "MMP11", "LGALS2", "ISX")
 
 genes_of_interest = c("ENSG00000128311","ENSG00000099953","ENSG00000100079","ENSG00000175329")
@@ -590,6 +571,6 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjQ2MDk4NzEsLTg3NjAyNTU0OSwtMT
-M5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbMTYyOTc2MjA1MSwtODc2MDI1NTQ5LC0xMz
+k5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
