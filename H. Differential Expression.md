@@ -265,9 +265,9 @@ Examine the Differentially expressed genes:
 cat edgeR_DE_genes.txt
 
 # pull out the gene IDs
-cut -f 1 edgeR_DE_genes.txt | sort  > ballgown_DE_gene_symbols.txt
-cut -f 2 $RNA_HOME/de/htseq_counts/DE_genes.txt | sort > htseq_counts_edgeR_DE_gene_symbols.txt
+cut -f 2 edgeR_DE_genes.txt | sort  > htseq_edgeR_DE_gene_symbols.txt
 ```
+Visualise over
 
 # Ballgown
 
@@ -310,11 +310,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MjE5NzM4OSwxOTE4MTQwNjU3LC00OT
-cxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2
-NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LD
-E1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2
-NDMyNzA3LC0xOTI3MDEwMzI4LC0zNTk2MDU2MzYsLTExNTcwMD
-EwNzgsMTU1MjE3MjU1Nyw5MTAxODQyMzMsLTIxMjgyMjM5MjUs
-LTIwNTc2MjM0MjVdfQ==
+eyJoaXN0b3J5IjpbODIyMTI3ODQsMTkxODE0MDY1NywtNDk3MT
+g1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYs
+LTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNT
+A3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1MzIwNiwtMjAzNjQz
+MjcwNywtMTkyNzAxMDMyOCwtMzU5NjA1NjM2LC0xMTU3MDAxMD
+c4LDE1NTIxNzI1NTcsOTEwMTg0MjMzLC0yMTI4MjIzOTI1LC0y
+MDU3NjIzNDI1XX0=
 -->
