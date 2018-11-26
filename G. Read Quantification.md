@@ -65,7 +65,7 @@ java -jar $EBROOTQORTS/QoRTs.jar --man mergeCounts
 
 ```bash
 #set QoRTS QC input
-QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/
+QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
@@ -75,7 +75,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $QC
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
 done
 ```
 
@@ -210,7 +210,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Njk2ODg0MzIsMTU5MzMzMDgxNiwyMD
+eyJoaXN0b3J5IjpbLTIwMzA2ODg0MjQsMTU5MzMzMDgxNiwyMD
 I3ODM0OTgzLC0xODk4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1
 MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC
 0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC0xNjMzMzQ1NTk0LC05
