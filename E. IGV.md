@@ -64,8 +64,12 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 
-# Big Wig file
+# Big Wig file coverage tracks
+
+Use BED tools to create BED graph. Then convert to BigWig file. Import the BigWig file into IGV. 
+STAR creates a wiggle track (raw bigwig file). 
+These are smaller files and stop IGV crashing. They only show the coverage and not the individual reads.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MjcyMjc2LC0xMDkyNDkyMDA0LDEyNj
-A1NTc5MTFdfQ==
+eyJoaXN0b3J5IjpbMTYwMTcxODQ4OSwtMTA5MjQ5MjAwNCwxMj
+YwNTU3OTExXX0=
 -->
