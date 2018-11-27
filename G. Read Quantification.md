@@ -84,7 +84,7 @@ res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/aira
 # Once you have read in the QC data, you can build all sorts of plots.
 # EXAMPLE 1: The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures: 
 makeMultiPlot.all(res, 
-				outfile.dir = "outputData/qortsPlots/summaryPlots/", 
+				outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPlots/", 
 				plot.device.name = "png"); 
 
 #EXAMPLE 2: Some users may find the large png files difficult to read. QoRTs offers multi-page pdf reports as an alternative, simply by using the plot.device.name parameter: 
@@ -240,11 +240,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxOTMyMDM4NCw1ODk0NDU3MDgsMTU0Nj
-Q0MzcyMiwtNjMwMTE3MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4
-MywtNzM0NDE1NDg5LDM2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMD
-kxNTgxLC0zOTY3NzY4MjYsMTU5MzMzMDgxNiwyMDI3ODM0OTgz
-LC0xODk4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNj
-czNjI3MDMsMjE0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2
-NjYwXX0=
+eyJoaXN0b3J5IjpbLTI0MDI5OTk2NywxNzE5MzIwMzg0LDU4OT
+Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
+NSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzND
+AzNzA0LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2
+LDIwMjc4MzQ5ODMsLTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MT
+k4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkw
+NzNdfQ==
 -->
