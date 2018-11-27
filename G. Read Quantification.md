@@ -64,7 +64,7 @@ see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs
 
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
-Write the Decoder file: decoder.by.UID.txt
+Write the Decoder file: decoder.by.UID.txt (see QC of Aligned Reads chapter)
 • unique.ID: A unique identifier for the row. THIS IS THE ONLY MANDATORY FIELD. 
 • lane.ID: The ID of the lane or batch. By default this will be set to ”UNKNOWN”. 
 • group.ID: The ID of the ”group”. For example: ”Case” or ”Control”. By default this will be set to ”UNKNOWN”. 
@@ -242,7 +242,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDUzMTU3MDQsMTkxOTYwNjAxNSwxNz
+eyJoaXN0b3J5IjpbLTE3MDQ0MjA4MDMsMTkxOTYwNjAxNSwxNz
 E5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcx
 NjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMz
 Y3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Njc3Njgy
