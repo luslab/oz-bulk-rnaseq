@@ -50,18 +50,17 @@ finish(desReport)
 **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
 
 **pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
+
 # R setup
 ```R
 #Load libraries
+library(QoRTs)
 library(edgeR)
 library(DESeq2)
 library(ggplot2)
 library(gplots)
 library(GenomicRanges)
-library(ballgown)
-
-#If X11 not available, open a pdf device for output of all plots
-pdf(file="Supplementary_R_output.pdf")
+library("vsn")
 
 #### Import the gene expression data
 #Set working directory where results files exist
@@ -528,8 +527,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMDI5MDExOSw5NTkzMjc5ODksMTgxMD
-gyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1
-Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3Nj
-AyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbMTEzNDI4MDQxNiwtMzMwMjkwMTE5LDk1OT
+MyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4
+MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMD
+AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
+NjIwXX0=
 -->
