@@ -61,8 +61,6 @@ ml QoRTs
 
 see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
 
-
-
 ```bash
 #set QoRTS QC input
 QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
@@ -204,11 +202,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Nj
-c3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OTg0ODUy
-NTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMT
-Q0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3
-MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNz
-YxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwy
-MDQ4MTkwMDQ1XX0=
+eyJoaXN0b3J5IjpbLTc0OTEzODk4MCw0MjM0MDM3MDQsLTMwMz
+A5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYsMjAyNzgzNDk4
+MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOTg2NTExOSwxMz
+Y3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3MywtMTkwMTk1
+NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5MTczMj
+M4LC0xNjU4NTE3NjE2LC0xMzMxMzIyODAxLC0yNDg5OTUxMTQs
+ODM1NzQ5OTAyXX0=
 -->
