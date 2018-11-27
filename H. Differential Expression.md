@@ -128,31 +128,43 @@ library(gplots)
 library(GenomicRanges)
 library("vsn")
 
-# Use Decoder text file to define conditions and samples
+res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
+                            decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
+                            calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
+
+### Build the QoRTS QC plots.
+# The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures (as png): 
+makeMultiPlot.all(res, 
+                  outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPlots/", 
+                  plot.device.name = "png"); 
+# As PDF: QoRTs offers multi-page pdf reports as an alternative, simply by using the plot.device.name parameter: 
+makeMultiPlot.all(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPDFs/",
+                  plot.device.name = "pdf"); 
+# Print all the basic plots as seperate pngs: 
+makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/basicPlots/", 
+                    separatePlots = TRUE);
+
+# Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
+get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/sizeFactors.GEO.txt");
+
+### Run DESeq2 DE analysis
 decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
                                header=T,stringsAsFactors=F); 
-
-# set the directory where QoRTs counts files are located
 directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC"; 
 sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
-
-#set the sample groups & IDs
 sampleCondition <- decoder.bySample$group.ID; 
-sampleName <- decoder.bySample$sample.ID;
-#build the data frame from conditions 
+sampleName <- decoder.bySample$sample.ID; 
 sampleTable <- data.frame(sampleName = sampleName, 
                           fileName = sampleFiles, 
                           condition = sampleCondition); 
-# Create DESeq2 dataset
 dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
                                   directory = directory, 
                                   design = ~ condition); 
-# run deseq                                    
+# Run & Print DESeq2 results
 dds
 dds <- DESeq(dds);
-# format the results
 res <- results(dds);
-res
+res;
 
 # Sort the results data frame by the padj and foldChange columns. 
 sorted = res[with(res, order(padj,  -log2FoldChange)),  ]  
@@ -409,11 +421,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MDA5NjMzNCwtMTU5NTA3NDEzNiwyMD
-g3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYw
-NSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3Nz
-I1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYs
-MTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OT
-cxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2
-Nl19
+eyJoaXN0b3J5IjpbLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMj
+A4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2
+MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2Nz
+cyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2
+LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1NywtND
+k3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4
+NjZdfQ==
 -->
