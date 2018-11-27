@@ -64,7 +64,7 @@ see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs
 
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
-WritDecoder file:
+Write the Decoder file: decoder.by.UID.txt
 • unique.ID: A unique identifier for the row. THIS IS THE ONLY MANDATORY FIELD. 
 • lane.ID: The ID of the lane or batch. By default this will be set to ”UNKNOWN”. 
 • group.ID: The ID of the ”group”. For example: ”Case” or ”Control”. By default this will be set to ”UNKNOWN”. 
@@ -73,23 +73,12 @@ WritDecoder file:
 • input.read.pair.count: The number of reads in the original fastq file, prior to alignment. 
 • multi.mapped.read.pair.count: The number of reads that were multi-mapped by the aligner.
 
-```bash
-#set QoRTS QC input
-QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
-#set output directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_counts
-
-#run QoRTs command for each QC file
-java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
-```
-
-
 ```r
 library(QoRTs); 
 
 #Read in the QC data: 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
-			decoder.files = "inputData/annoFiles/decoder.byUID.txt", 
+			decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
 			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
 # Once you have read in the QC data, you can build all sorts of plots.
@@ -106,6 +95,19 @@ makeMultiPlot.all(res, outfile.dir = "outputData/qortsPlots/summaryPDFs/",
 makeMultiPlot.basic(res, outfile.dir = "outputData/qortsPlots/basicPlots/", 
 					separatePlots = TRUE);
 ```
+
+
+```bash
+#set QoRTS QC input
+QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
+#set output directory
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_counts
+
+#run QoRTs command for each QC file
+java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
+```
+
+
 
 ## HTSeq-Count
 ml HTSeq
@@ -238,11 +240,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxODg5ODc4MCwxNTQ2NDQzNzIyLC02Mz
-AxMTcxNjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0
-ODksMzY3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Nj
-c3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OTg0ODUy
-NTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMT
-Q0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3
-MDUwMjBdfQ==
+eyJoaXN0b3J5IjpbLTIxMzM5NTM4ODEsMTU0NjQ0MzcyMiwtNj
+MwMTE3MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1
+NDg5LDM2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOT
+Y3NzY4MjYsMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1
+MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMj
+E0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgx
+NzA1MDIwXX0=
 -->
