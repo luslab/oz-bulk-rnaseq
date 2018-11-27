@@ -65,11 +65,11 @@ see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/Qo
 
 ```bash
 #set QoRTS QC input
-QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/, ./QoRTs_SRR5483789
+QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/counts/QoRTs
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/counts/QoRTs_counts
 
 #run QoRTs command for each QC file
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles ****LIST QC FILES**** --noGzip --verbose $OUT
@@ -206,11 +206,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc1OTAzMTQxLC0zOTY3NzY4MjYsMTU5Mz
-MzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1MjU4LDU2MDE4MjI4
-MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3MSwxNj
-Y4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC0xNjMz
-MzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEzMj
-I4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NSwy
-MTE4MjQ0MzgyXX0=
+eyJoaXN0b3J5IjpbLTI0NjgxNDY0MiwtMzk2Nzc2ODI2LDE1OT
+MzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIy
+ODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMT
+Y2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYz
+MzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMxMz
+IyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAwNDUs
+MjExODI0NDM4Ml19
 -->
