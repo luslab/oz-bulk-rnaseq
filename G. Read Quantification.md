@@ -67,7 +67,7 @@ QoRTs package is composed of 2 parts: java jar-file (for data processing) & R pa
 QoRTs already produced the Counts files during the initial  processing QC run and individual files formatted for DESeq.
 
 Write the Decoder file: decoder.by.UID.txt & decoder.bySample.txt (identical to that used in QC of Aligned Reads chapter):
-```bash
+```
 sample.ID	group.ID  qc.data.dir
 SRR5483788	VCP  QoRTs_SRR5483788
 SRR5483789	VCP  QoRTs_SRR5483789
@@ -77,7 +77,7 @@ SRR5483795	CTRL QoRTs_SRR5483795
 SRR5483796	CTRL QoRTs_SRR5483796
 ```
 
-If there are technical replicates then merge at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
+If there are technical replicates then merge them at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
 If there are no technical replicates (as with Nat Comms paper) then skip this step.
 
 ```bash
@@ -257,11 +257,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNjQyMjI3LDk4NjMyMDY1OSwtNDIzOD
-M4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5
-LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
-Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
-NSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzND
-AzNzA0LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2
-XX0=
+eyJoaXN0b3J5IjpbLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMz
+gzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUy
+OSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4NCw1OD
+k0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3MTY4LC01Mzg2MjU4
+MjUsLTgzMDU4MTA4MywtNzM0NDE1NDg5LDM2Nzk2MjY4LDQyMz
+QwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4MjYsMTU5MzMzMDgx
+Nl19
 -->
