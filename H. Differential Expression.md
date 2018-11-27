@@ -152,7 +152,7 @@ dds
 dds <- DESeq(dds);
 # format the results
 res <- results(dds);
-res;
+res
 
 # Sort the results data frame by the padj and foldChange columns. 
 sorted = res[with(res, order(padj,  -log2FoldChange)),  ]  
@@ -402,11 +402,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMj
-UxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYs
-MTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MD
-cxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEs
-MTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMz
-A1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUy
-MF19
+eyJoaXN0b3J5IjpbLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMj
+U3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkz
+LC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OT
+EwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcs
+LTE0OTM3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMj
+A4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUw
+MTJdfQ==
 -->
