@@ -94,6 +94,8 @@ makeMultiPlot.all(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/proj
 #EXAMPLE 3: To print all the basic plots as seperate pngs, use the command: 
 makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/basicPlots/", 
 					separatePlots = TRUE);
+# Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
+get.size.factors(res, outfile = "outputData/sizeFactors.GEO.txt");
 ```
 
 
@@ -240,11 +242,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
-Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
-NSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzND
-AzNzA0LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2
-LDIwMjc4MzQ5ODMsLTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MT
-k4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkw
-NzNdfQ==
+eyJoaXN0b3J5IjpbMTQyNjc5MDkxNSwxOTE5NjA2MDE1LDE3MT
+kzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2
+OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNj
+c5NjI2OCw0MjM0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2
+LDE1OTMzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1Nj
+AxODIyODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQx
+NzFdfQ==
 -->
