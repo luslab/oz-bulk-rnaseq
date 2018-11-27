@@ -33,6 +33,8 @@ Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV searc
 
 # Results Visualisation Packages
 
+These all work with DESeq2:
+
 **ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
 
 ```r
@@ -54,6 +56,7 @@ finish(desReport)
 # DESeq2 Visualisation
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
+Continue in R from DE analysis using QoRTS > DESeq2:
 ```R
 #Load libraries
 library(QoRTs)
@@ -72,7 +75,7 @@ setwd(working_dir)
 dir()
 
 ```
-FROM BALLGOWN GRI
+FROM BALLGOWN GRIFFITH ANALYSIS: REMOVE AFTER USING
 ```r
 
 #Import expression and differential expression results from the HISAT2/StringTie/Ballgown pipeline
@@ -532,9 +535,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxOTYyNzMzMywtMzMwMjkwMTE5LDk1OT
-MyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4
-MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMD
-AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
-NjIwXX0=
+eyJoaXN0b3J5IjpbMzkyMDI4ODY3LC0zMzAyOTAxMTksOTU5Mz
+I3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgy
+Myw4NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMD
+EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
+MjBdfQ==
 -->
