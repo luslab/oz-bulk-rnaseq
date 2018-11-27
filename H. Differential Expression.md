@@ -154,8 +154,8 @@ res;
 sorted = res[with(res, order(padj,  -log2FoldChange)),  ]  
 # Turn it into a dataframe to have proper column names. 
 sorted.df = data.frame("id"=rownames(sorted),sorted)
-
-write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt");
+#write the table out:
+write.table(sorted.df, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt", sep="\t", col.names=NA, quote=FALSE);
 
 # Get normalized counts and write this to a file
 nc = counts(dds,normalized=TRUE)
@@ -164,7 +164,7 @@ nc = counts(dds,normalized=TRUE)
 dt = data.frame("id"=rownames(nc),nc)
 
 # Save the normalize data matrix.
-write.table(dt, file="norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
+write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
 ```
 
 ## Using featureCounts Output
@@ -415,11 +415,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODc0MDA3ODAsNzQ5NjUxNDkzLC0yMT
-kzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQz
-LC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OT
-M3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3
-NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMT
-EyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5
-NjE1NjRdfQ==
+eyJoaXN0b3J5IjpbODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNz
+I0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00
+NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MD
+A1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgs
+OTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyOD
+M4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1
+NjRdfQ==
 -->
