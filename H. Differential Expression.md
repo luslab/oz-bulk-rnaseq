@@ -166,6 +166,34 @@ dt = data.frame("id"=rownames(nc),nc)
 # Save the normalize data matrix.
 write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
 ```
+The results.txt file describes changes between the 2 conditions e.g.
+
+```bash
+id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
+ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
+ERCC-00108        808          264         1352        5.10        2.35         2.40e-62    9.39e-61
+ERCC-00136       1898          615         3180        5.16        2.36         2.80e-58    7.30e-57
+
+```
+
+-   `id`: Gene or transcript name that the differential expression is computed for
+-   `baseMean`: The average normalized value across all samples,
+-   `baseMeanA`,  `baseMeanB`: The average normalized gene expression for each condition,
+-   `foldChange`: The ratio  `baseMeanB/baseMeanA`,
+-   `log2FoldChange`: log2 transform of  `foldChange`. When we apply a 2-based logarithm the values become symmetrical around 0. A log2 fold change of 1 means a doubling of the expression level, a log2 fold change of -1 shows show a halving of the expression level.
+-   `pval`: The probability that this effect is observed by chance. Only use this value if you selected the target gene a priori.
+-   `padj`: The adjusted probability that this effect is observed by chance. Adjusted for multiple testing errors.
+
+```bash
+#Sort by gene ID select only columns foldchange and log2FoldChange. The results.txt file is already sorted according to padj
+cat results.txt | sort | cut -f 1,5,6 > table
+
+#How many genes are significantly differentially expressed (i.e. padj < 0.05 in column 8)?
+cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
+
+#How many differentially expressed genes do we have?
+cat diffgenes.txt | wc -l
+```
 
 ## Using featureCounts Output
 ```bash
@@ -415,11 +443,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNz
-I0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00
-NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MD
-A1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgs
-OTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyOD
-M4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1
-NjRdfQ==
+eyJoaXN0b3J5IjpbLTQwNDkxNjQ3Niw4MDQ0MzYwNSw3NDk2NT
+E0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwy
+OTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MT
+U0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMs
+MjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMTY0MT
+E0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4
+MDhdfQ==
 -->
