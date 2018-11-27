@@ -124,11 +124,14 @@ java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 library(QoRTs)
 suppressPackageStartupMessages(library(DESeq2))
 
+# Use Decoder text file to define conditions and samples
 decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
                                header=T,stringsAsFactors=F); 
 
+# set the directory where QoRTs counts files are located
 directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC"; 
 sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
+
 
 sampleCondition <- decoder.bySample$group.ID; 
 sampleName <- decoder.bySample$sample.ID; 
@@ -405,7 +408,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTgzODg4MDMsNzQ5NjUxNDkzLC0yMT
+eyJoaXN0b3J5IjpbLTEzNDAxMDY5OTQsNzQ5NjUxNDkzLC0yMT
 kzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQz
 LC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OT
 M3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3
