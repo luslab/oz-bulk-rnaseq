@@ -22,7 +22,9 @@ Firstly, visualise the most significantly DE genes in IGV
 1. On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
 2. Set reference genome to Human (hg38) top left box.
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
-4. Search most significantly DE genes reported from DE analysis output in IGV: `head edgeR_DE_genes.txt` > type Gene_Name directly in IGV search box
+4. Search most significantly DE genes reported from DE analysis output in IGV: type Gene_Name directly in IGV search box
+ `head edgeR_DE_genes.txt`
+ 
 
 # R setup
 ```R
@@ -479,7 +481,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0MDU3NzEyMSw2ODAwMTYyMTgsMTMzMD
-YxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQw
-NCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNj
+E1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0
+LC0xMTE0NzY3NjIwXX0=
 -->
