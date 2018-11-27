@@ -105,7 +105,6 @@ SRR5483794	CTRL QoRTs_SRR5483794
 SRR5483795	CTRL QoRTs_SRR5483795
 SRR5483796	CTRL QoRTs_SRR5483796
 ```
-
 If there are technical replicates then merge them at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
 If there are no technical replicates (as with Nat Comms paper) then skip this step.
 
@@ -118,11 +117,16 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_
 #run QoRTs command for each QC file
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
-
+Run QoRTS>DESeq2 analysis in R
 ```r
 # load library
 library(QoRTs)
-suppressPackageStartupMessages(library(DESeq2))
+library(edgeR)
+library(DESeq2)
+library(ggplot2)
+library(gplots)
+library(GenomicRanges)
+library("vsn")
 
 # Use Decoder text file to define conditions and samples
 decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
@@ -178,7 +182,6 @@ id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange  
 ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
 ERCC-00108        808          264         1352        5.10        2.35         2.40e-62    9.39e-61
 ERCC-00136       1898          615         3180        5.16        2.36         2.80e-58    7.30e-57
-
 ```
 -   `id`: Gene or transcript name that the differential expression is computed for
 -   `baseMean`: The average normalized value across all samples,
@@ -399,11 +402,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwND
-QzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwx
-Njc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMz
-Y5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MTgxNDA2NTcs
-LTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMDMwNTQ1NCwyMDM5Nz
-AyODY2LC0xNjQxMTQ1MDEyLDExMjgzODI1MjAsLTE1MTMzODYz
-NTVdfQ==
+eyJoaXN0b3J5IjpbMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMj
+UxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYs
+MTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MD
+cxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEs
+MTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMz
+A1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUy
+MF19
 -->
