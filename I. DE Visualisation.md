@@ -19,9 +19,15 @@ https://github.com/griffithlab/rnaseq_tutorial/tree/master/scripts
 # IGV
 
 Firstly, visualise the most significantly DE genes in IGV
-1. On local terminal `cd ~/bin/IGV_2.4.14/lib` & run IGV via command line on local terminal: `java -Xmx750m -jar igv.jar`
+1. Run IGV on local computer and mount CAMP. [Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
+```bash
+# On local terminal move to IGV in bin
+cd ~/bin/IGV_2.4.14/lib
+# run IGV via command line on local terminal
+java -Xmx750m -jar igv.jar
+```
 2. Set reference genome to Human (hg38) top left box.
-3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files (can load multiple at once).
+3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or BigWig (.bw) files (can load multiple at once).
 4. Search most significantly DE genes reported from DE analysis output in IGV: type Gene_Name directly in IGV search box
  `head edgeR_DE_genes.txt`
  
@@ -481,7 +487,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNj
-E1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0
-LC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbMTQ0NTQ3OTgyMyw4NTk2NzcyNTMsNjgwMD
+E2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1LC04NzYwMjU1NDks
+LTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ==
 -->
