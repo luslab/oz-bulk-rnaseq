@@ -73,8 +73,15 @@ working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/
 setwd(working_dir)
 # List the current contents of this directory
 dir()
-
 ```
+## Clustering
+
+Data quality testing is essential early in the analysis. Remove poor data that 
+
+
+
+
+
 FROM BALLGOWN GRIFFITH ANALYSIS: REMOVE AFTER USING
 ```r
 
@@ -535,9 +542,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkyMDI4ODY3LC0zMzAyOTAxMTksOTU5Mz
-I3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgy
-Myw4NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMD
-EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
-MjBdfQ==
+eyJoaXN0b3J5IjpbLTc1NDM0NjQ3OCwtMzMwMjkwMTE5LDk1OT
+MyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4
+MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMD
+AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
+NjIwXX0=
 -->
