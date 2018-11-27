@@ -78,7 +78,7 @@ dds <- DESeq(dds);
 res <- results(dds);
 res;
 
-write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq/DESeq.results.txt");
+write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt");
 
 ```
 ## featureCounts
@@ -251,11 +251,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzEwNjA5MTUsLTI0NTYxMDk4Nyw5OD
-YzMjA2NTksLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUx
-MjEsMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMT
-cxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3
-MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1NDg5LD
-M2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4
-MjZdfQ==
+eyJoaXN0b3J5IjpbLTEwODIyNjg2NSwtMjQ1NjEwOTg3LDk4Nj
+MyMDY1OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEy
+MSwxMzMyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNz
+E5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcx
+NjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMz
+Y3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Njc3Njgy
+Nl19
 -->
