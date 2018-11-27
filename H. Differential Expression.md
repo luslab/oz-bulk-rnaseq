@@ -132,21 +132,28 @@ decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/a
 directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC"; 
 sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
 
-
+#set the sample groups & IDs
 sampleCondition <- decoder.bySample$group.ID; 
-sampleName <- decoder.bySample$sample.ID; 
+sampleName <- decoder.bySample$sample.ID;
+#build the data frame from conditions 
 sampleTable <- data.frame(sampleName = sampleName, 
                           fileName = sampleFiles, 
                           condition = sampleCondition); 
-
+# Create DESeq2 dataset
 dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
                                   directory = directory, 
                                   design = ~ condition); 
+# run deseq                                    
 dds
-
 dds <- DESeq(dds);
+# format the results
 res <- results(dds);
 res;
+
+# Sort the results data frame by the padj and foldChange columns. 
+sorted = res[with(res, order(padj,  -log2FoldChange)),  ]  
+# Turn it into a dataframe to have proper column names. 
+sorted.df = data.frame("id"=rownames(sorted),sorted)
 
 write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt");
 
@@ -408,7 +415,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDAxMDY5OTQsNzQ5NjUxNDkzLC0yMT
+eyJoaXN0b3J5IjpbLTE0ODc0MDA3ODAsNzQ5NjUxNDkzLC0yMT
 kzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQz
 LC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OT
 M3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3
