@@ -17,10 +17,6 @@ Use a BAM file & GTF file and assign each read as best as possible to a known ge
 
 Tool = featureCounts, QoRTs (Nobby uses this as it also does QC simultaneously), STAR (also does counts if you give it GTF file), [HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html).
 
-
-
-```
-
 ## QoRTs
 ml QoRTs
 
@@ -82,14 +78,47 @@ dds <- DESeq(dds);
 res <- results(dds);
 res;
 
-write.table(res, file = "outputData/analyses/DESeq/DESeq.results.txt");
+write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq/DESeq.results.txt");
 
 ```
+## featureCounts
+ml Subread
 
+1. Count reads (estimate abundance) per sample:
 
+```bash
+# Create output folder
+mkdir -p featureCounts
+#set gene coordinates
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
 
+#run featureCounts on each BAM file separately
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+done
 
+#run featureCounts on all BAM files together. By default it uses gene_id in the GTF - override with gene_name
+# Using * wildcard list all BAM files into 1 file. The output file contains a column for each sample. 
+featureCounts -a $GTF -g gene_name -o $OUT $BAM
+```
 
+For each featureCounts command run there are 2 output files:
+- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
+- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+
+2. Find sequences with highest abundance
+
+To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
+Output table is in columns as:
+```bash
+Geneid    Chr   Start   End	  Strand   Length 	 Hits
+```
 
 ## HTSeq-Count
 ml HTSeq
@@ -222,11 +251,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzQ5MTM0LC0yNDU2MTA5ODcsOTg2Mz
-IwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIx
-LDEzMzIwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MT
-kzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2
-OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNj
-c5NjI2OCw0MjM0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2
-XX0=
+eyJoaXN0b3J5IjpbLTExMzEwNjA5MTUsLTI0NTYxMDk4Nyw5OD
+YzMjA2NTksLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUx
+MjEsMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMT
+cxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3
+MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1NDg5LD
+M2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4
+MjZdfQ==
 -->
