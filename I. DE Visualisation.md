@@ -109,6 +109,13 @@ length(row.names(transcript_gene_table)) #Transcript count
 length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
 ```
 
+# MA plot
+- provides global view of relationship between expression change in different conditions, average expression strength of genes and ability og algorithrm to detect differential expression
+	- red dots are significant adjusted p<0.05
+`plotMA(DGE.results, alpha = 0.05, main = "WT vs. SNF2 mutants", ylim = c(-4, 4))`
+
+![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
+
 # PCA Plot
 
 Visualise sample-sample distances with the Principal Components Analysis (PCA) 
@@ -457,12 +464,8 @@ y-axis shows variance of read counts. Any rise in the best fit line indicates an
 
 hist (DGE. results $ pvalue, col = " grey ", border = " white ", xlab = "", ylab = "", main = " frequencies of p- values ") # histogram of p-valus
 
-# MA plot
-- provides global view of relationship between expression change in different conditions, average expression strength of genes and ability og algorithrm to detect differential expression
-	- red dots are significant adjusted p<0.05
-`plotMA(DGE.results, alpha = 0.05, main = "WT vs. SNF2 mutants", ylim = c(-4, 4))`
 
-![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
+
 
 # Variance Shrinkage
 
@@ -486,8 +489,8 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NT
-k2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1
-LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ
-==
+eyJoaXN0b3J5IjpbODE3OTg2ODYzLC0xOTkwNjk3NDE1LDE0ND
+U0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4
+LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMT
+E0NzY3NjIwXX0=
 -->
