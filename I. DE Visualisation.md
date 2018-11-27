@@ -76,7 +76,17 @@ dir()
 ```
 ## Clustering
 
-Data quality testing is essential early in the analysis. Remove poor data that 
+Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality.
+
+Construct a heatmap to explore the count matrix
+```r
+library("pheatmap")
+select <- order(rowMeans(counts(dds,normalized=TRUE)),
+                decreasing=TRUE)[1:20]
+df <- as.data.frame(colData(dds)[,c("condition","type")])
+pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
+         cluster_cols=FALSE, annotation_col=df)
+```
 
 
 
@@ -542,9 +552,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NDM0NjQ3OCwtMzMwMjkwMTE5LDk1OT
-MyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4
-MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMD
-AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
-NjIwXX0=
+eyJoaXN0b3J5IjpbOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5Mz
+I3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgy
+Myw4NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMD
+EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
+MjBdfQ==
 -->
