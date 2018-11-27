@@ -85,10 +85,10 @@ library(QoRTs)
 suppressPackageStartupMessages(library(DESeq2))
 
 decoder.bySample <- read.table( 
-					"inputData/annoFiles/decoder.bySample.txt", 
+					"/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
 					header=T,stringsAsFactors=F); 
 
-directory <- "outputData/countTables/"; 
+directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/"; 
 sampleFiles <- paste0(
 					 decoder.bySample$sample.ID,
 					  "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
@@ -241,11 +241,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MT
-k2MDYwMTUsMTcxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0Mzcy
-MiwtNjMwMTE3MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNz
-M0NDE1NDg5LDM2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgx
-LC0zOTY3NzY4MjYsMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xOD
-k4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3
-MDNdfQ==
+eyJoaXN0b3J5IjpbMTI3OTM4NTEyMSwxMzMyMDYxNTI5LDE4OT
+c0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OTQ0NTcw
+OCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgyNSwtOD
+MwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzNDAzNzA0
+LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMj
+c4MzQ5ODMsLTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUx
+MTldfQ==
 -->
