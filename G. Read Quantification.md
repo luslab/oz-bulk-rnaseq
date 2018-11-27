@@ -62,7 +62,7 @@ ml QoRTs
 see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
 http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
 
-QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generat
+QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
 ```bash
 #set QoRTS QC input
@@ -205,7 +205,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMjQwNjYxMCwzNjc5NjI2OCw0MjM0MD
+eyJoaXN0b3J5IjpbLTczNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MD
 M3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYs
 MjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOT
 g2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3
