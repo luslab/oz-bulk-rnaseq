@@ -300,7 +300,7 @@ Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs
 http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
 Also see the [walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf).
 
-## QC command in QoRTs
+## QoRTs QC command 
 
 ```bash
 #set bam input
@@ -317,7 +317,6 @@ do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
 done
 ```
-
 - assumes data is paired unless include `--singleEnded`
 - Can run individual functions by specifying their names eg `--runFunctions writeGeneBody` runs only the genebody coverage function. To add further individual functions use a comma without space (comma-delimited list).
 - Can exclude individual functions eg `--skipFunctions JunctionCalcs` will run all functions except JunctionCalcs
@@ -335,12 +334,23 @@ Write the Decoder file: decoder.by.UID.txt
 • input.read.pair.count: The number of reads in the original fastq file, prior to alignment. Find this in the STAR output Log.final.out file.
 • multi.mapped.read.pair.count: The number of reads that were multi-mapped by the aligner.
 
+Example:
+```
+unique.ID group.ID	qc.data.dir  input.read.pair.count
+SRR5483788  VCP QoRTs_SRR5483788  12475620
+SRR5483789  VCP QoRTs_SRR5483789  16605828
+SRR5483790  VCP QoRTs_SRR5483790  13406845
+SRR5483794  CTRL  QoRTs_SRR5483794  8038427
+SRR5483795  CTRL  QoRTs_SRR5483795  7822813
+SRR5483796  CTRL  QoRTs_SRR5483796  9226252
+```
+
 ### Run QoRTs in Rstudio
 ```r
 library(QoRTs)
 
 #Read in the QC data: 
-res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_", 
+res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
 			decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
 			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
@@ -446,11 +456,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzI5OTIzNzYsMjA2MDQzNjMxOCwtMT
-kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
-MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3OD
-AsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1
-NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5NywtMTYxMDQzMT
-c5Nyw2MjY3OTE0MTksMTgyNDEzNzQwNSwxMjAxODgzNTk3LDE5
-Mjc2NTE1OThdfQ==
+eyJoaXN0b3J5IjpbMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOT
+AxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYz
+MTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MC
+wxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2
+MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNz
+k3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTky
+NzY1MTU5OF19
 -->
