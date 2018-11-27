@@ -62,6 +62,8 @@ ml QoRTs
 see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
 http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
 
+QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generat
+
 ```bash
 #set QoRTS QC input
 QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
@@ -203,11 +205,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOT
-E1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMs
-LTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2Nz
-M2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2
-NjAsLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOC
-wtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgz
-NTc0OTkwMl19
+eyJoaXN0b3J5IjpbMTMwMjQwNjYxMCwzNjc5NjI2OCw0MjM0MD
+M3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYs
+MjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOT
+g2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3
+MywtMTkwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NC
+wtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMxMzIyODAxLC0y
+NDg5OTUxMTRdfQ==
 -->
