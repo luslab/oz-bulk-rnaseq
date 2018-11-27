@@ -39,7 +39,7 @@ Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV searc
 
 **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
 
-**pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  _Launching the application section of the package vignette.
+**pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
 # R setup
 ```R
 #Load libraries
@@ -518,8 +518,8 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDE4NzQwNDAsMTgxMDgyNDU0NiwtMT
-k5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYy
-MTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMT
-M5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbOTU5MzI3OTg5LDE4MTA4MjQ1NDYsLTE5OT
+A2OTc0MTUsMTQ0NTQ3OTgyMyw4NTk2NzcyNTMsNjgwMDE2MjE4
+LDEzMzA2MTU3MDgsNTMwMDEwMDA1LC04NzYwMjU1NDksLTEzOT
+k3MzQ0MDQsLTExMTQ3Njc2MjBdfQ==
 -->
