@@ -165,6 +165,10 @@ dt = data.frame("id"=rownames(nc),nc)
 
 # Save the normalize data matrix.
 write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
+#sumarise results:
+summary(res)
+#how many padj were <0.05?
+sum(res$padj < 0.05, na.rm=TRUE)
 ```
 The DESeq2.results.txt file describes changes between the 2 conditions e.g.
 
@@ -394,11 +398,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NT
-E0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwy
-OTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MT
-U0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMs
-MjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMTY0MT
-E0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4
-MDhdfQ==
+eyJoaXN0b3J5IjpbLTEzNzQzMDgwOTQsLTIyNTExMjkwNCw4MD
+Q0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEs
+MTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMT
+M2OTYsMTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3
+LC00OTcxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOT
+cwMjg2NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2
+MzU1XX0=
 -->
