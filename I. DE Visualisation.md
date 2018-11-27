@@ -51,7 +51,10 @@ finish(desReport)
 
 **pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
 
-# R setup
+# DESeq2 Visualisation
+http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
+
+
 ```R
 #Load libraries
 library(QoRTs)
@@ -527,9 +530,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNDI4MDQxNiwtMzMwMjkwMTE5LDk1OT
-MyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4
-MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMD
-AxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3
-NjIwXX0=
+eyJoaXN0b3J5IjpbODk2MDA3MTY5LC0zMzAyOTAxMTksOTU5Mz
+I3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgy
+Myw4NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMD
+EwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2
+MjBdfQ==
 -->
