@@ -103,6 +103,13 @@ dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable,
 									directory = directory, 
 									design = ~ condition); 
 dds
+
+dds <- DESeq(dds);
+res <- results(dds);
+res;
+
+write.table(res, file = "outputData/analyses/DESeq/DESeq.results.txt");
+
 ```
 
 
@@ -241,11 +248,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
-IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
-ODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2OCwtNT
-M4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2
-OCw0MjM0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OT
-MzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIy
-ODNdfQ==
+eyJoaXN0b3J5IjpbLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNz
+kzODUxMjEsMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYw
+MTUsMTcxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNj
+MwMTE3MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1
+NDg5LDM2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOT
+Y3NzY4MjYsMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1
+MjU4XX0=
 -->
