@@ -33,7 +33,7 @@ Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV searc
 
 # Results Visualisation
 
-**ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools)  page, or the manual page for the  _publish_  method for the  _DESeqDataSet_  class.
+**ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
 
 **regionReport.**  An HTML and PDF summary of the results with plots can also be generated using the  [regionReport](http://bioconductor.org/packages/regionReport)  package. The  _DESeq2Report_  function should be run on a  _DESeqDataSet_  that has been processed by the  _DESeq_  function. For more details see the manual page for  _DESeq2Report_  and an example vignette in the  [regionReport](http://bioconductor.org/packages/regionReport)  package.
 
@@ -518,7 +518,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzMzk2MDMyNCwtMTk5MDY5NzQxNSwxND
+eyJoaXN0b3J5IjpbMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxND
 Q1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcw
 OCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
 ExNDc2NzYyMF19
