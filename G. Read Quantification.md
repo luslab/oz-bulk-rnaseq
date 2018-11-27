@@ -92,7 +92,8 @@ res <- read.qc.results.data("outputData/qortsData/",
 			decoder.files = "inputData/annoFiles/decoder.byUID.txt", 
 			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
-# Once you have read in the QC data, you can build all sorts of plots. See Figure 1 for one example5 . EXAMPLE 1: The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures: 
+# Once you have read in the QC data, you can build all sorts of plots.
+# EXAMPLE 1: The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures: 
 makeMultiPlot.all(res, 
 				outfile.dir = "outputData/qortsPlots/summaryPlots/", 
 				plot.device.name = "png"); 
@@ -237,11 +238,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzODYyNTgyNSwtODMwNTgxMDgzLC03Mz
-Q0MTU0ODksMzY3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEs
-LTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OT
-g0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2Mjcw
-MywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLT
-E5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1
-ODUxNzYxNl19
+eyJoaXN0b3J5IjpbLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04Mz
+A1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MDM3MDQs
+LTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYsMjAyNz
+gzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOTg2NTEx
+OSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3MywtMT
+kwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5
+MTczMjM4XX0=
 -->
