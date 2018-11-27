@@ -31,7 +31,7 @@ java -Xmx750m -jar igv.jar
 4. Search most significantly DE genes reported from DE analysis output in IGV: 
 Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV search box
 
-# Results Visualisation
+# Results Visualisation Packages
 
 **ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
 
@@ -39,7 +39,7 @@ Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV searc
 
 **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
 
-**pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  _Launching the application_section of the package vignette.
+**pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  _Launching the application section of the package vignette.
 # R setup
 ```R
 #Load libraries
@@ -518,8 +518,8 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxND
-Q1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcw
-OCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
-ExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbLTEwNDE4NzQwNDAsMTgxMDgyNDU0NiwtMT
+k5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYy
+MTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMT
+M5OTczNDQwNCwtMTExNDc2NzYyMF19
 -->
