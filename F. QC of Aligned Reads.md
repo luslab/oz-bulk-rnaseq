@@ -296,6 +296,8 @@ You will get a return from terminal like:
 Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs command. 
 [Helpfile](https://hartleys.github.io/QoRTs/jarHtml/index.html) here.
 
+http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
+
 ## QC command in QoRTs
 
 ```bash
@@ -407,11 +409,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMz
-c3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2
-NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3ODAsMTczMjY4NjMzMC
-wtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1NjI3MDcyLDM3ODgx
-NjkyMSwtMTYxMDQzMTc5NywtMTYxMDQzMTc5Nyw2MjY3OTE0MT
-ksMTgyNDEzNzQwNSwxMjAxODgzNTk3LDE5Mjc2NTE1OTgsMjQw
-ODcyMjEzXX0=
+eyJoaXN0b3J5IjpbMTM3ODQ2NjM3OCwyMDYwNDM2MzE4LC0xOT
+AxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYz
+MTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MC
+wxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2
+MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNz
+k3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEyMDE4ODM1OTcsMTky
+NzY1MTU5OF19
 -->
