@@ -28,9 +28,8 @@ java -Xmx750m -jar igv.jar
 ```
 2. Set reference genome to Human (hg38) top left box.
 3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or BigWig (.bw) files (can load multiple at once).
-4. Search most significantly DE genes reported from DE analysis output in IGV: type Gene_Name directly in IGV search box
- `head edgeR_DE_genes.txt`
- 
+4. Search most significantly DE genes reported from DE analysis output in IGV: 
+Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV search box
 
 # R setup
 ```R
@@ -487,7 +486,8 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0NTQ3OTgyMyw4NTk2NzcyNTMsNjgwMD
-E2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1LC04NzYwMjU1NDks
-LTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ==
+eyJoaXN0b3J5IjpbLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NT
+k2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1
+LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ
+==
 -->
