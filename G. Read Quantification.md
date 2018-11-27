@@ -66,13 +66,11 @@ see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/Qo
 ```bash
 #set QoRTS QC input
 QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
-#set GTF reference annotation
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
 OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_counts
 
 #run QoRTs command for each QC file
-java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --noGzip --verbose $OUT
+java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
 
 ## HTSeq-Count
@@ -206,7 +204,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI4OTcxNjEyLC0zMDMwOTE1ODEsLTM5Nj
+eyJoaXN0b3J5IjpbNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Nj
 c3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OTg0ODUy
 NTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMT
 Q0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3
