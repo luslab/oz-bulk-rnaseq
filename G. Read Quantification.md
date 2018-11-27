@@ -65,7 +65,7 @@ see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/Qo
 
 ```bash
 #set QoRTS QC input
-QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/
+QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/, ./QoRTs_SRR5483789
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
@@ -206,11 +206,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMj
-c4MzQ5ODMsLTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUx
-MTksMTM2NzM2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLT
-E5MDE5NTY2NjAsLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTky
-OTE3MzIzOCwtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4OT
-k1MTE0LDgzNTc0OTkwMiwyMDQ4MTkwMDQ1LDIxMTgyNDQzODIs
-MTEyNTg1MDg0OF19
+eyJoaXN0b3J5IjpbNDc1OTAzMTQxLC0zOTY3NzY4MjYsMTU5Mz
+MzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1MjU4LDU2MDE4MjI4
+MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3MSwxNj
+Y4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC0xNjMz
+MzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEzMzEzMj
+I4MDEsLTI0ODk5NTExNCw4MzU3NDk5MDIsMjA0ODE5MDA0NSwy
+MTE4MjQ0MzgyXX0=
 -->
