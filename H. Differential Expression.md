@@ -93,10 +93,9 @@ assay( ) #stores count data with genes and samples. similar to `countData`
 
 ## Using QoRTs Output
 
-### Use QoRTs for Counts
 Perform DE analysis with DESeq2 in R
 
-Write the Decoder file: decoder.by.UID.txt & decoder.bySample.txt (identical to that used in QC of Aligned Reads chapter):
+Write the Decoder text files: decoder.by.UID.txt & decoder.bySample.txt (identical to that used in QC of Aligned Reads chapter):
 ```
 sample.ID	group.ID  qc.data.dir
 SRR5483788	VCP  QoRTs_SRR5483788
@@ -281,7 +280,7 @@ cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
 # edgeR
 
 edgeR is a bioconductor package designed for DE of raw counts
-Input = raw counts from htseq-count or featureCounts
+Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [pa
 
 ```bash
 mkdir -p edgeR
@@ -396,7 +395,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNjU2MDU1NiwtMjE5MzcyNDM2LDEwOT
+eyJoaXN0b3J5IjpbMTkzMTE1Njg0OSwtMjE5MzcyNDM2LDEwOT
 c4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3
 LC02MTIxMzY5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MT
 gxNDA2NTcsLTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMDMwNTQ1
