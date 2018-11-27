@@ -74,7 +74,7 @@ Write the Decoder file: decoder.by.UID.txt
 • multi.mapped.read.pair.count: The number of reads that were multi-mapped by the aligner.
 
 ```r
-library(QoRTs); 
+library(QoRTs)
 
 #Read in the QC data: 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
@@ -240,11 +240,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM5NTM4ODEsMTU0NjQ0MzcyMiwtNj
-MwMTE3MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1
-NDg5LDM2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOT
-Y3NzY4MjYsMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1
-MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMj
-E0NDEzNDE3MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgx
-NzA1MDIwXX0=
+eyJoaXN0b3J5IjpbNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMD
+ExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4
+OSwzNjc5NjI2OCw0MjM0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nz
+c2ODI2LDE1OTMzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1
+OCw1NjAxODIyODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxND
+QxMzQxNzEsMTY2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcw
+NTAyMF19
 -->
