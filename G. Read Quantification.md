@@ -64,7 +64,7 @@ see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs
 
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots).
 
-QoRTs already produced the Counts files during the intial QC 
+QoRTs already produced the Counts files during the initial  processing QC run and individual files formatted for DESeq.
 
 Write the Decoder file: decoder.by.UID.txt (identical to that used in QC of Aligned Reads chapter)
 
@@ -248,11 +248,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY2MTA3NDIzLDk4NjMyMDY1OSwtNDIzOD
-M4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5
-LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
-Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
-NSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzND
-AzNzA0LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2
-XX0=
+eyJoaXN0b3J5IjpbLTExMTI3NjYwNTQsOTg2MzIwNjU5LC00Mj
+M4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1
+MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAzODQsNT
+g5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2OCwtNTM4NjI1
+ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2OCw0Mj
+M0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4
+MTZdfQ==
 -->
