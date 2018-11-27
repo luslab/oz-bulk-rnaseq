@@ -71,9 +71,6 @@ All DESeq2 information is available at: http://bioconductor.org/packages/devel/b
 DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 
 ```r
-
-
-
 # DESeq( ) function wraps around the following 3 functions:
 DESeq.ds = estimateSizeFactors(DESeq.ds) #sequencing depth normalisation
 DESeq.ds = estimateDispersions(DESeq.ds) #gene wise dispersion estimates
@@ -342,11 +339,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3Nz
-I1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYs
-MTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OT
-cxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2
-NiwtMTY0MTE0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LD
-E1MDcxMzg4MDgsMTI2Mzk2MTU2NCwxODY3NzUzMjA2LC0yMDM2
-NDMyNzA3XX0=
+eyJoaXN0b3J5IjpbMTIxOTQxMDc4NiwtMjE5MzcyNDM2LDEwOT
+c4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3
+LC02MTIxMzY5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MT
+gxNDA2NTcsLTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMDMwNTQ1
+NCwyMDM5NzAyODY2LC0xNjQxMTQ1MDEyLDExMjgzODI1MjAsLT
+E1MTMzODYzNTUsMTUwNzEzODgwOCwxMjYzOTYxNTY0LDE4Njc3
+NTMyMDZdfQ==
 -->
