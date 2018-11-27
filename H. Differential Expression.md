@@ -120,6 +120,7 @@ java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
 
 ```r
+# load library
 library(QoRTs)
 suppressPackageStartupMessages(library(DESeq2))
 
@@ -145,6 +146,15 @@ res <- results(dds);
 res;
 
 write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt");
+
+# Get normalized counts and write this to a file
+nc = counts(dds,normalized=TRUE)
+
+# Turn it into a dataframe to have proper column names.
+dt = data.frame("id"=rownames(nc),nc)
+
+# Save the normalize data matrix.
+write.table(dt, file="norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
 ```
 
 ## Using featureCounts Output
@@ -395,11 +405,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5Nz
-gwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcs
-LTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxOD
-E0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0
-LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMTEyODM4MjUyMCwtMT
-UxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5NjE1NjQsMTg2Nzc1
-MzIwNl19
+eyJoaXN0b3J5IjpbLTEyMTgzODg4MDMsNzQ5NjUxNDkzLC0yMT
+kzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQz
+LC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OT
+M3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3
+NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUwMTIsMT
+EyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4ODA4LDEyNjM5
+NjE1NjRdfQ==
 -->
