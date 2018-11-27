@@ -69,7 +69,7 @@ QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/counts/QoRTs_counts
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_counts
 
 #run QoRTs command for each QC file
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --noGzip --verbose $OUT
@@ -206,11 +206,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OT
-MzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIy
-ODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMT
-Y2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYz
-MzM0NTU5NCwtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMxMz
-IyODAxLC0yNDg5OTUxMTQsODM1NzQ5OTAyLDIwNDgxOTAwNDUs
-MjExODI0NDM4Ml19
+eyJoaXN0b3J5IjpbNzI4OTcxNjEyLC0zMDMwOTE1ODEsLTM5Nj
+c3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OTg0ODUy
+NTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMT
+Q0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLTE5ODE3
+MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1ODUxNz
+YxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgzNTc0OTkwMiwy
+MDQ4MTkwMDQ1XX0=
 -->
