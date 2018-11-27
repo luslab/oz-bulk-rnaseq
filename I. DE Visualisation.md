@@ -110,11 +110,31 @@ length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
 ```
 
 # MA plot
-- provides global view of relationship between expression change in different conditions, average expression strength of genes and ability og algorithrm to detect differential expression
-	- red dots are significant adjusted p<0.05
-`plotMA(DGE.results, alpha = 0.05, main = "WT vs. SNF2 mutants", ylim = c(-4, 4))`
+- provides global view of relationship between expression change in different conditions, average expression strength of genes and ability of algorithrm to detect differential expression
 
+```r
+# Plot log2 fold changes over the mean of normalised counts for all samples. red dots are significant adjusted p<0.05
+plotMA(res, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
+
+# Plot for shrunken log2 fold changes (removes noise from log2 fold changes from low count genes)
+plotMA(resLFC, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
+
+
+```
 ![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
+
+# Single gene Plot Counts
+It can be useful to examine the counts of reads for a single gene across the groups. The function for making this plot is  _plotCounts_, which normalizes counts by sequencing depth and adds a pseudocount of 1/2 to allow for log scale plotting. 
+
+The counts are grouped by the variables in  `intgroup`, where more than one variable can be specified. Here we specify the gene which had the smallest  _p_  value from the results table (res dataframe). You can select the gene to plot by rowname or by numeric index.
+
+```r
+d <- plotCounts(dds, gene=which.min(res$padj), intgroup="condition", 
+                returnData=TRUE)
+ggplot(d, aes(x=condition, y=count)) + 
+  geom_point(position=position_jitter(w=0.1,h=0)) + 
+  scale_y_log10(breaks=c(25,100,400))
+```
 
 # PCA Plot
 
@@ -489,8 +509,8 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE3OTg2ODYzLC0xOTkwNjk3NDE1LDE0ND
-U0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4
-LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMT
-E0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbLTEzMDkzMDY0OTEsLTE5OTA2OTc0MTUsMT
+Q0NTQ3OTgyMyw4NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3
+MDgsNTMwMDEwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLT
+ExMTQ3Njc2MjBdfQ==
 -->
