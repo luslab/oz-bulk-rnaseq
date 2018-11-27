@@ -92,8 +92,23 @@ suppressPackageStartupMessages(library(DESeq2));
 
 decoder.bySample <- read.table( 
 					"inputData/annoFiles/decoder.bySample.txt", 
-					header=T,stringsAsFactors=F); directory <- "outputData/countTables/"; sampleFiles <- paste0( decoder.bySample$sample.ID, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); sampleCondition <- decoder.bySample$group.ID; sampleName <- decoder.bySample$sample.ID; sampleTable <- data.frame(sampleName = sampleName, fileName = sampleFiles, condition = sampleCondition); dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, directory = directory, design = ~ condition); dds;
+					header=T,stringsAsFactors=F); 
 
+directory <- "outputData/countTables/"; 
+sampleFiles <- paste0(
+					 decoder.bySample$sample.ID,
+					  "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
+
+sampleCondition <- decoder.bySample$group.ID; 
+sampleName <- decoder.bySample$sample.ID; 
+sampleTable <- data.frame(sampleName = sampleName, 
+							fileName = sampleFiles, 
+							condition = sampleCondition); 
+
+dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
+									directory = directory, 
+									design = ~ condition); 
+dds;
 ```
 
 
@@ -232,11 +247,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg2NDY0MjIxLDE5MTk2MDYwMTUsMTcxOT
-MyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3MTY4
-LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1NDg5LDM2Nz
-k2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4MjYs
-MTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1MjU4LDU2MD
-E4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3
-MV19
+eyJoaXN0b3J5IjpbLTEwOTYxMzYyNzcsMTkxOTYwNjAxNSwxNz
+E5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcx
+NjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMz
+Y3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Njc3Njgy
+NiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OTg0ODUyNTgsNT
+YwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2MjcwMywyMTQ0MTM0
+MTcxXX0=
 -->
