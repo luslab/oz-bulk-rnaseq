@@ -91,6 +91,63 @@ colData( ) #columns = samples
 assay( ) #stores count data with genes and samples. similar to `countData`
 ```
 
+## Using QoRTs Output
+
+### Use QoRTs for Counts
+Perform DE analysis with DESeq2 in R
+
+Write the Decoder file: decoder.by.UID.txt & decoder.bySample.txt (identical to that used in QC of Aligned Reads chapter):
+```
+sample.ID	group.ID  qc.data.dir
+SRR5483788	VCP  QoRTs_SRR5483788
+SRR5483789	VCP  QoRTs_SRR5483789
+SRR5483790	VCP  QoRTs_SRR5483790
+SRR5483794	CTRL QoRTs_SRR5483794
+SRR5483795	CTRL QoRTs_SRR5483795
+SRR5483796	CTRL QoRTs_SRR5483796
+```
+
+If there are technical replicates then merge them at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
+If there are no technical replicates (as with Nat Comms paper) then skip this step.
+
+```bash
+#set QoRTS QC input
+QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
+#set output directory
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_counts
+
+#run QoRTs command for each QC file
+java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
+```
+
+```r
+library(QoRTs)
+suppressPackageStartupMessages(library(DESeq2))
+
+decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
+                               header=T,stringsAsFactors=F); 
+
+directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC"; 
+sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
+
+sampleCondition <- decoder.bySample$group.ID; 
+sampleName <- decoder.bySample$sample.ID; 
+sampleTable <- data.frame(sampleName = sampleName, 
+                          fileName = sampleFiles, 
+                          condition = sampleCondition); 
+
+dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
+                                  directory = directory, 
+                                  design = ~ condition); 
+dds
+
+dds <- DESeq(dds);
+res <- results(dds);
+res;
+
+write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt");
+```
+
 ## Using featureCounts Output
 ```bash
 ml R
@@ -339,7 +396,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxOTQxMDc4NiwtMjE5MzcyNDM2LDEwOT
+eyJoaXN0b3J5IjpbMTYyNjU2MDU1NiwtMjE5MzcyNDM2LDEwOT
 c4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3
 LC02MTIxMzY5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MT
 gxNDA2NTcsLTQ5NzE4NTQxMywyMDIwODg2NzQ4LDkyMDMwNTQ1
