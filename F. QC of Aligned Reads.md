@@ -371,7 +371,7 @@ makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/pr
 # Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
 get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/sizeFactors.GEO.txt");
 ```
-
+This also produces count files: QC.geneCounts.txt.gz. It also produces files formated for DESeq
 
 # MultiQC
 
@@ -459,11 +459,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMD
-YwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2
-NzQwMDEsMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3Nz
-IsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3
-NjM0NjQ2NCw4MTU2MjcwNzIsMzc4ODE2OTIxLC0xNjEwNDMxNz
-k3LC0xNjEwNDMxNzk3LDYyNjc5MTQxOSwxODI0MTM3NDA1LDEy
-MDE4ODM1OTddfQ==
+eyJoaXN0b3J5IjpbMTAyMTg5MjA2NCwtMTExMTkzMjU0OSwxNj
+U1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nzg3
+MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgxNjQ3NT
+YsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYzMzAsLTE2
+NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNzg4MTY5Mj
+EsLTE2MTA0MzE3OTcsLTE2MTA0MzE3OTcsNjI2NzkxNDE5LDE4
+MjQxMzc0MDVdfQ==
 -->
