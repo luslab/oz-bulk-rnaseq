@@ -161,19 +161,26 @@ sorted.df = data.frame("id"=rownames(sorted),sorted)
 #write the table out:
 write.table(sorted.df, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt", sep="\t", col.names=NA, quote=FALSE);
 
+### Normalise Counts
 # Get normalized counts and write this to a file
 nc = counts(dds,normalized=TRUE)
-
 # Turn it into a dataframe to have proper column names.
 dt = data.frame("id"=rownames(nc),nc)
-
 # Save the normalize data matrix.
 write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
-#sumarise results:
-res05 <-results(dds, alpha=0.05)
-summary(res05)
-#how many padj were <0.05?
-sum(res$padj < 0.05, na.rm=TRUE)
+
+### Data Transformation
+# extract transformed values using vst (rapid) or rlog (slower)
+vsd <- vst(dds, blind=FALSE)
+rld <- rlog(dds, blind=FALSE)
+# extract the matrix of normalised values
+head(assay(vsd), 3)
+head(assay(rld), 3)
+# Visually assess effect of transformation on variance. Plot SD of transformed data vs mean
+ntd <- normTransform(dds)
+meanSdPlot(assay(ntd))
+meanSdPlot(assay(vsd))
+meanSdPlot(assay(rld))
 ```
 The DESeq2.results.txt file describes changes between the 2 conditions e.g.
 
@@ -402,11 +409,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMj
-U3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkz
-LC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OT
-EwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcs
-LTE0OTM3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMj
-A4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2NDExNDUw
-MTJdfQ==
+eyJoaXN0b3J5IjpbMTY5MDA5NjMzNCwtMTU5NTA3NDEzNiwyMD
+g3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYw
+NSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3Nz
+I1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYs
+MTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OT
+cxODU0MTMsMjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2
+Nl19
 -->
