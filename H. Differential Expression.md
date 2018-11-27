@@ -185,13 +185,13 @@ ERCC-00136       1898          615         3180        5.16        2.36         
 
 ```bash
 #Sort by gene ID select only columns foldchange and log2FoldChange. The DESeq2.results.txt file is already sorted according to padj
-cat DESeq2.results.txt | sort | cut -f 1,5,6 > table
+cat DESeq2.results.txt | sort | cut -f 1,5,6 > DESeq2.table
 
 #How many genes are significantly differentially expressed (i.e. padj < 0.05 in column 8)?
 cat DESeq2.results.txt | awk ' $8 < 0.05 { print $0 }' > DESeq2.diffgenes.txt
 
 #How many differentially expressed genes do we have?
-cat diffgenes.txt | wc -l
+cat DESeq2.diffgenes.txt | wc -l
 ```
 
 ## Using featureCounts Output
@@ -394,11 +394,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTQ3NjM2MDIsODA0NDM2MDUsNzQ5Nj
-UxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAs
-Mjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NT
-E1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEz
-LDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4NjYsLTE2ND
-ExNDUwMTIsMTEyODM4MjUyMCwtMTUxMzM4NjM1NSwxNTA3MTM4
-ODA4XX0=
+eyJoaXN0b3J5IjpbLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NT
+E0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwy
+OTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MT
+U0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMs
+MjAyMDg4Njc0OCw5MjAzMDU0NTQsMjAzOTcwMjg2NiwtMTY0MT
+E0NTAxMiwxMTI4MzgyNTIwLC0xNTEzMzg2MzU1LDE1MDcxMzg4
+MDhdfQ==
 -->
