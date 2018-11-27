@@ -25,61 +25,7 @@ see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs
 
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots).
 
-QoRTs already produced the Counts files during the initial  processing QC run and individual files formatted for DESeq.
-
-Write the Decoder file: decoder.by.UID.txt & decoder.bySample.txt (identical to that used in QC of Aligned Reads chapter):
-```
-sample.ID	group.ID  qc.data.dir
-SRR5483788	VCP  QoRTs_SRR5483788
-SRR5483789	VCP  QoRTs_SRR5483789
-SRR5483790	VCP  QoRTs_SRR5483790
-SRR5483794	CTRL QoRTs_SRR5483794
-SRR5483795	CTRL QoRTs_SRR5483795
-SRR5483796	CTRL QoRTs_SRR5483796
-```
-
-If there are technical replicates then merge them at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
-If there are no technical replicates (as with Nat Comms paper) then skip this step.
-
-```bash
-#set QoRTS QC input
-QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
-#set output directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_counts
-
-#run QoRTs command for each QC file
-java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
-```
-
-### Use QoRTs for Counts
-Perform DE analysis with DESeq2 in R
-```r
-library(QoRTs)
-suppressPackageStartupMessages(library(DESeq2))
-
-decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
-                               header=T,stringsAsFactors=F); 
-
-directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC"; 
-sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
-
-sampleCondition <- decoder.bySample$group.ID; 
-sampleName <- decoder.bySample$sample.ID; 
-sampleTable <- data.frame(sampleName = sampleName, 
-                          fileName = sampleFiles, 
-                          condition = sampleCondition); 
-
-dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
-                                  directory = directory, 
-                                  design = ~ condition); 
-dds
-
-dds <- DESeq(dds);
-res <- results(dds);
-res;
-
-write.table(res, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt");
-```
+QoRTs already produced the Counts files during the initial processing QC run and individual files formatted for DESeq. So skip straight to next chapter for DE analysis.
 
 ## featureCounts
 ml Subread
@@ -251,11 +197,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4Nj
-MyMDY1OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEy
-MSwxMzMyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNz
-E5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcx
-NjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMz
-Y3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Njc3Njgy
-Nl19
+eyJoaXN0b3J5IjpbLTczODMxMzkzMywxMDc3NDY3NjI3LC0yND
+U2MTA5ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEw
+NiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4MCwxOT
+E5NjA2MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3
+MjIsLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLT
+czNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MDM3MDQsLTMwMzA5MTU4
+MV19
 -->
