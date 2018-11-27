@@ -288,8 +288,12 @@ done
 
 # Quality of RNA Seq Toolset (QoRTs)
 ml QoRTs
+http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
+[walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
-`QoRTs` is a `jar` software file that is an alternative to `RSeQC` that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq. It also performs read abundance counts (see Read Quantification chapter).
+`QoRTs` is a `jar` software file that is an alternative to `RSeQC` that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq. It also performs read abundance counts (see Read Quantification chapter). 
+
+QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
 You will get a return from terminal like:
 `To execute the QoRTs JAR run: java -jar $EBROOTQORTS/QoRTs.jar` 
@@ -320,6 +324,41 @@ done
 - Can exclude individual functions eg `--skipFunctions JunctionCalcs` will run all functions except JunctionCalcs
 
 This is an [example](http://chagall.med.cornell.edu/RNASEQcourse/QC.multiPlot.pdf) of QoRTs output.
+
+
+
+
+Write the Decoder file: decoder.by.UID.txt
+• unique.ID: A unique identifier for the row. THIS IS THE ONLY MANDATORY FIELD. 
+• lane.ID: The ID of the lane or batch. By default this will be set to ”UNKNOWN”. 
+• group.ID: The ID of the ”group”. For example: ”Case” or ”Control”. By default this will be set to ”UNKNOWN”. 
+• sample.ID: The ID of the biological sample from which the data originated. Each sample can have multiple rows, representing technical replicates (in which the same sample is sequenced on multiple lanes or runs). By default QoRTs will assume that every row comes from a separate sample, and will thus set the sample.ID to equal the unique.ID. 
+• qc.data.dir : The directory in which the java utility is to save all the QC data. If this column does not exist, by default it will be set to the unique.ID. 
+• input.read.pair.count: The number of reads in the original fastq file, prior to alignment. 
+• multi.mapped.read.pair.count: The number of reads that were multi-mapped by the aligner.
+
+```r
+library(QoRTs)
+
+#Read in the QC data: 
+res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_", 
+			decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
+			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
+
+# Once you have read in the QC data, you can build all sorts of plots.
+# EXAMPLE 1: The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures: 
+makeMultiPlot.all(res, 
+				outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPlots/", 
+				plot.device.name = "png"); 
+
+#EXAMPLE 2: Some users may find the large png files difficult to read. QoRTs offers multi-page pdf reports as an alternative, simply by using the plot.device.name parameter: 
+makeMultiPlot.all(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPDFs/",
+				 plot.device.name = "pdf"); 
+
+#EXAMPLE 3: To print all the basic plots as seperate pngs, use the command: 
+makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/basicPlots/", 
+					separatePlots = TRUE);
+```
 
 
 # MultiQC
@@ -408,7 +447,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NDA0OTM1NiwyMDYwNDM2MzE4LC0xOT
+eyJoaXN0b3J5IjpbMTE4MzI4MTI5NywyMDYwNDM2MzE4LC0xOT
 AxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYz
 MTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MC
 wxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2
