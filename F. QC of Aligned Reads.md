@@ -371,7 +371,7 @@ makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/pr
 # Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
 get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/sizeFactors.GEO.txt");
 ```
-This also produces count files: QC.geneCounts.txt.gz. It also produces files formated for DESeq
+This also produces count files: QC.geneCounts.txt.gz. It also produces files formatted for DESeq
 
 # MultiQC
 
@@ -459,7 +459,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMTg5MjA2NCwtMTExMTkzMjU0OSwxNj
+eyJoaXN0b3J5IjpbLTI5ODEzOTMzMCwtMTExMTkzMjU0OSwxNj
 U1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nzg3
 MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgxNjQ3NT
 YsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYzMzAsLTE2
