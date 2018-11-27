@@ -82,7 +82,7 @@ java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 
 ```r
 library(QoRTs)
-suppressPackageStartupMessages(library(DESeq2));
+suppressPackageStartupMessages(library(DESeq2))
 
 decoder.bySample <- read.table( 
 					"inputData/annoFiles/decoder.bySample.txt", 
@@ -241,11 +241,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MT
-kzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2
-OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNj
-c5NjI2OCw0MjM0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2
-LDE1OTMzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1Nj
-AxODIyODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQx
-NzFdfQ==
+eyJoaXN0b3J5IjpbMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MT
+k2MDYwMTUsMTcxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0Mzcy
+MiwtNjMwMTE3MTY4LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNz
+M0NDE1NDg5LDM2Nzk2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgx
+LC0zOTY3NzY4MjYsMTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xOD
+k4NDg1MjU4LDU2MDE4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3
+MDNdfQ==
 -->
