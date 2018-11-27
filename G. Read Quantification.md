@@ -60,6 +60,7 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ml QoRTs
 
 see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
+http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
 
 ```bash
 #set QoRTS QC input
@@ -202,11 +203,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0OTEzODk4MCw0MjM0MDM3MDQsLTMwMz
-A5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYsMjAyNzgzNDk4
-MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOTg2NTExOSwxMz
-Y3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3MywtMTkwMTk1
-NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5MTczMj
-M4LC0xNjU4NTE3NjE2LC0xMzMxMzIyODAxLC0yNDg5OTUxMTQs
-ODM1NzQ5OTAyXX0=
+eyJoaXN0b3J5IjpbMzY3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOT
+E1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMs
+LTE4OTg0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2Nz
+M2MjcwMywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2
+NjAsLTE5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOC
+wtMTY1ODUxNzYxNiwtMTMzMTMyMjgwMSwtMjQ4OTk1MTE0LDgz
+NTc0OTkwMl19
 -->
