@@ -166,7 +166,7 @@ dt = data.frame("id"=rownames(nc),nc)
 # Save the normalize data matrix.
 write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
 ```
-The results.txt file describes changes between the 2 conditions e.g.
+The DESeq2.results.txt file describes changes between the 2 conditions e.g.
 
 ```bash
 id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
@@ -205,10 +205,6 @@ cat counts.txt | cut -f 1,7-14 > sample_counts.txt
 #pass simple_counts.txt through the script specifying the design of the experiment 
 ## in this case = 3 x 3 (3 cases, 3 controls)
 cat sample_counts.txt | Rscript deseq1.r 3x3 > results_deseq1.txt
-
-#download the DESeq biostars script
-curl -O http://data.biostarhandbook.com/rnaseq/code/deseq1.r
-curl -O http://data.biostarhandbook.com/rnaseq/code/deseq2.r
 ```
 ```R
 # Load the library.
@@ -218,7 +214,6 @@ library(magrittr)
 # cat counts.txt | Rscript deseq2.r
 # Produces a table with differentially expressed genes. on the standard output.
 # To install the requirements run the program with the 'install` parameter.
-
 # Read the command line arguments.
 args = commandArgs(trailingOnly=TRUE)
 if (length(args)!=1) {
@@ -228,85 +223,42 @@ first = args[1]
 if (first == 'install') {
     source("http://bioconductor.org/biocLite.R")
     biocLite("DESeq2")
-    stop("Installation completed", call.=FALSE)
-}
-
+    stop("Installation completed", call.=FALSE)}
 # Extract the experimental design from the command line.
 design = unlist(strsplit(first, 'x'))
-
 # Find the desing counts.
 cond1_num = as.integer(design[1])
 cond2_num = as.integer(design[2])
-
 # Set up the conditions based on the experimental setup.
 cond_1 = rep("cond1", cond1_num)
 cond_2 = rep("cond2", cond2_num)
-
 # Read the data from the standard input.
 countData = read.table("stdin", header=TRUE, sep="\t", row.names=1 )
-
 # Build the dataframe from the conditions
 samples = names(countData)
 condition = factor(c(cond_1, cond_2))
 colData = data.frame(samples=samples, condition=condition)
-
 #coldata = read.table(coldata_file, header=TRUE, sep="\t", row.names=1 )
-
 # Create DESEq2 dataset.
 dds = DESeqDataSetFromMatrix(countData=countData, colData=colData, design = ~condition)
-
 #Set the reference to be compared
 dds$condition = relevel(dds$condition,"cond1")
-
 # Run deseq
 dds = DESeq(dds)
-
 # Format the results.
 res = results(dds)
-
 # Sort the results data frame by the padj and foldChange columns.
 sorted = res[with(res, order(padj, -log2FoldChange)), ]
-
 # Turn it into a dataframe to have proper column names.
 sorted.df = data.frame("id"=rownames(sorted),sorted)
-
 # Write the table out.
 write.table(sorted.df, file="", sep="\t", col.names=NA, quote=FALSE)
-
 # Get normalized counts and write this to a file
 nc = counts(dds,normalized=TRUE)
-
 # Turn it into a dataframe to have proper column names.
 dt = data.frame("id"=rownames(nc),nc)
-
 # Save the normalize data matrix.
 write.table(dt, file="norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE)
-```
-
-The results.txt file describes changes between the 2 conditions e.g.
-```bash
-id             baseMean   baseMeanA     baseMeanB   foldChange  log2FoldChange    pval       padj
-ERCC-00130      29681        10455        48907        4.67        2.22         1.16e-88    9.10e-87
-ERCC-00108        808          264         1352        5.10        2.35         2.40e-62    9.39e-61
-ERCC-00136       1898          615         3180        5.16        2.36         2.80e-58    7.30e-57
-```
--   `id`: Gene or transcript name that the differential expression is computed for
--   `baseMean`: The average normalized value across all samples,
--   `baseMeanA`,  `baseMeanB`: The average normalized gene expression for each condition,
--   `foldChange`: The ratio  `baseMeanB/baseMeanA`,
--   `log2FoldChange`: log2 transform of  `foldChange`. When we apply a 2-based logarithm the values become symmetrical around 0. A log2 fold change of 1 means a doubling of the expression level, a log2 fold change of -1 shows show a halving of the expression level.
--   `pval`: The probability that this effect is observed by chance. Only use this value if you selected the target gene a priori.
--   `padj`: The adjusted probability that this effect is observed by chance. Adjusted for multiple testing errors.
-
-```bash
-#Sort by gene ID select only columns foldchange and log2FoldChange. The results.txt file is already sorted according to padj
-cat results.txt | sort | cut -f 1,5,6 > table
-
-#How many genes are significantly differentially expressed (i.e. padj < 0.05 in column 8)?
-cat results.txt | awk ' $8 < 0.05 { print $0 }' > diffgenes.txt
-
-#How many differentially expressed genes do we have?
-cat diffgenes.txt | wc -l
 ```
 
 ### Using Kallisto Output
@@ -443,7 +395,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNDkxNjQ3Niw4MDQ0MzYwNSw3NDk2NT
+eyJoaXN0b3J5IjpbMTE4MDU5MTc3Miw4MDQ0MzYwNSw3NDk2NT
 E0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwy
 OTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MT
 U0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMs
