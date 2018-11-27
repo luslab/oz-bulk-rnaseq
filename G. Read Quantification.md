@@ -79,7 +79,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
 
-### Use QoRTs output to produce Count
+### Use QoRTs for Counts
+Perform DE analysis with DESeq2 in R
 ```r
 library(QoRTs)
 suppressPackageStartupMessages(library(DESeq2))
@@ -245,7 +246,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MTk0MzAyLDk4NjMyMDY1OSwtNDIzOD
+eyJoaXN0b3J5IjpbLTQyNTQyMTEzLDk4NjMyMDY1OSwtNDIzOD
 M4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5
 LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
 Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
