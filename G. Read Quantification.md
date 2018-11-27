@@ -83,6 +83,21 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
 
+
+```r
+library(QoRTs); 
+
+#Read in the QC data: 
+res <- read.qc.results.data("outputData/qortsData/", 
+			decoder.files = "inputData/annoFiles/decoder.byUID.txt", 
+			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
+
+# Once you have read in the QC data, you can build all sorts of plots. See Figure 1 for one example5 . EXAMPLE 1: The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures: 
+makeMultiPlot.all(res, 
+				outfile.dir = "outputData/qortsPlots/summaryPlots/", 
+				plot.device.name = "png"); EXAMPLE 2: Some users may find the large png files difficult to read. QoRTs offers multi-page pdf reports as an alternative, simply by using the plot.device.name parameter: makeMultiPlot.all(res, outfile.dir = "outputData/qortsPlots/summaryPDFs/", plot.device.name = "pdf"); EXAMPLE 3: To print all the basic plots as seperate pngs, use the command: makeMultiPlot.basic(res, outfile.dir = "outputData/qortsPlots/basicPlots/", separatePlots = TRUE);
+```
+
 ## HTSeq-Count
 ml HTSeq
 ml Pysam
@@ -214,7 +229,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMDYzOTI4OSwtODMwNTgxMDgzLC03Mz
+eyJoaXN0b3J5IjpbLTMyMjA4NTM0NywtODMwNTgxMDgzLC03Mz
 Q0MTU0ODksMzY3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEs
 LTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OT
 g0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2Mjcw
