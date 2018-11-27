@@ -88,11 +88,11 @@ makeMultiPlot.all(res,
 				plot.device.name = "png"); 
 
 #EXAMPLE 2: Some users may find the large png files difficult to read. QoRTs offers multi-page pdf reports as an alternative, simply by using the plot.device.name parameter: 
-makeMultiPlot.all(res, outfile.dir = "outputData/qortsPlots/summaryPDFs/",
+makeMultiPlot.all(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPDFs/",
 				 plot.device.name = "pdf"); 
 
 #EXAMPLE 3: To print all the basic plots as seperate pngs, use the command: 
-makeMultiPlot.basic(res, outfile.dir = "outputData/qortsPlots/basicPlots/", 
+makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/basicPlots/", 
 					separatePlots = TRUE);
 ```
 
@@ -240,7 +240,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MDI5OTk2NywxNzE5MzIwMzg0LDU4OT
+eyJoaXN0b3J5IjpbMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
 Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
 NSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzND
 AzNzA0LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2
