@@ -66,21 +66,8 @@ QoRTs package is composed of 2 parts: java jar-file (for data processing) & R pa
 
 Write the Decoder file: decoder.by.UID.txt (identical to that used in QC of Aligned Reads chapter)
 
-If there are technical replicates then merge at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
-
-
-
-```r
-library(QoRTs)
-
-#Read in the QC data: 
-res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_", 
-			decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
-			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
-
-
-```
-
+If there are technical replicates then merge at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
+If there are no technical replicates (as with Nat Comms paper) then skip this step.
 
 ```bash
 #set QoRTS QC input
@@ -91,6 +78,26 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_
 #run QoRTs command for each QC file
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
+
+
+```r
+library(QoRTs)
+
+#Read in the QC data: 
+res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_", 
+			decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
+			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
+
+suppressPackageStartupMessages(library(DESeq2));
+
+decoder.bySample <- read.table( 
+					"inputData/annoFiles/decoder.bySample.txt", 
+					header=T,stringsAsFactors=F); directory <- "outputData/countTables/"; sampleFiles <- paste0( decoder.bySample$sample.ID, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); sampleCondition <- decoder.bySample$group.ID; sampleName <- decoder.bySample$sample.ID; sampleTable <- data.frame(sampleName = sampleName, fileName = sampleFiles, condition = sampleCondition); dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, directory = directory, design = ~ condition); dds;
+
+```
+
+
+
 
 
 
@@ -225,7 +232,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg3NzQzODE5LDE5MTk2MDYwMTUsMTcxOT
+eyJoaXN0b3J5IjpbNjg2NDY0MjIxLDE5MTk2MDYwMTUsMTcxOT
 MyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3MTY4
 LC01Mzg2MjU4MjUsLTgzMDU4MTA4MywtNzM0NDE1NDg5LDM2Nz
 k2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4MjYs
