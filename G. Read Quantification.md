@@ -60,7 +60,7 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ml QoRTs
 
 see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
-http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
+see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
@@ -214,11 +214,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzMDU4MTA4MywtNzM0NDE1NDg5LDM2Nz
-k2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4MjYs
-MTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1MjU4LDU2MD
-E4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3
-MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC
-0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEz
-MzEzMjI4MDFdfQ==
+eyJoaXN0b3J5IjpbLTIzMDYzOTI4OSwtODMwNTgxMDgzLC03Mz
+Q0MTU0ODksMzY3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEs
+LTM5Njc3NjgyNiwxNTkzMzMwODE2LDIwMjc4MzQ5ODMsLTE4OT
+g0ODUyNTgsNTYwMTgyMjgzLC03MTk4NjUxMTksMTM2NzM2Mjcw
+MywyMTQ0MTM0MTcxLDE2NjgxMzkwNzMsLTE5MDE5NTY2NjAsLT
+E5ODE3MDUwMjAsLTE2MzMzNDU1OTQsLTkyOTE3MzIzOCwtMTY1
+ODUxNzYxNl19
 -->
