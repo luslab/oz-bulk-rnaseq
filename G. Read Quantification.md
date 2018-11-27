@@ -65,13 +65,6 @@ see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
 Write the Decoder file: decoder.by.UID.txt (see QC of Aligned Reads chapter)
-• unique.ID: A unique identifier for the row. THIS IS THE ONLY MANDATORY FIELD. 
-• lane.ID: The ID of the lane or batch. By default this will be set to ”UNKNOWN”. 
-• group.ID: The ID of the ”group”. For example: ”Case” or ”Control”. By default this will be set to ”UNKNOWN”. 
-• sample.ID: The ID of the biological sample from which the data originated. Each sample can have multiple rows, representing technical replicates (in which the same sample is sequenced on multiple lanes or runs). By default QoRTs will assume that every row comes from a separate sample, and will thus set the sample.ID to equal the unique.ID. 
-• qc.data.dir : The directory in which the java utility is to save all the QC data. If this column does not exist, by default it will be set to the unique.ID. 
-• input.read.pair.count: The number of reads in the original fastq file, prior to alignment. 
-• multi.mapped.read.pair.count: The number of reads that were multi-mapped by the aligner.
 
 ```r
 library(QoRTs)
@@ -81,21 +74,7 @@ res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/aira
 			decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
 			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
-# Once you have read in the QC data, you can build all sorts of plots.
-# EXAMPLE 1: The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures: 
-makeMultiPlot.all(res, 
-				outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPlots/", 
-				plot.device.name = "png"); 
 
-#EXAMPLE 2: Some users may find the large png files difficult to read. QoRTs offers multi-page pdf reports as an alternative, simply by using the plot.device.name parameter: 
-makeMultiPlot.all(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPDFs/",
-				 plot.device.name = "pdf"); 
-
-#EXAMPLE 3: To print all the basic plots as seperate pngs, use the command: 
-makeMultiPlot.basic(res, outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/basicPlots/", 
-					separatePlots = TRUE);
-# Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
-get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/sizeFactors.GEO.txt");
 ```
 
 
@@ -242,7 +221,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDQ0MjA4MDMsMTkxOTYwNjAxNSwxNz
+eyJoaXN0b3J5IjpbLTIxMTMwNjA5NjEsMTkxOTYwNjAxNSwxNz
 E5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcx
 NjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMz
 Y3OTYyNjgsNDIzNDAzNzA0LC0zMDMwOTE1ODEsLTM5Njc3Njgy
