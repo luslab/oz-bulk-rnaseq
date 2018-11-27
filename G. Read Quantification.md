@@ -62,7 +62,9 @@ ml QoRTs
 see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
 see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
-QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
+QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots).
+
+QoRTs already produced the Counts files during the intial QC 
 
 Write the Decoder file: decoder.by.UID.txt (identical to that used in QC of Aligned Reads chapter)
 
@@ -246,7 +248,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNTQyMTEzLDk4NjMyMDY1OSwtNDIzOD
+eyJoaXN0b3J5IjpbOTY2MTA3NDIzLDk4NjMyMDY1OSwtNDIzOD
 M4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5
 LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
 Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
