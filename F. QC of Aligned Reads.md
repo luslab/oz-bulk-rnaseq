@@ -332,9 +332,10 @@ Write the Decoder file: decoder.by.UID.txt
 • group.ID: The ID of the ”group”. For example: ”VCP” or ”CTRL”. By default this will be set to ”UNKNOWN”. 
 • sample.ID: The ID of the biological sample from which the data originated. Each sample can have multiple rows, representing technical replicates (in which the same sample is sequenced on multiple lanes or runs). By default QoRTs will assume that every row comes from a separate sample, and will thus set the sample.ID to equal the unique.ID. 
 • qc.data.dir : The directory in which the java utility is to save all the QC data. If this column does not exist, by default it will be set to the unique.ID. 
-• input.read.pair.count: The number of reads in the original fastq file, prior to alignment. 
+• input.read.pair.count: The number of reads in the original fastq file, prior to alignment. Find this in the STAR output Log.final.out file.
 • multi.mapped.read.pair.count: The number of reads that were multi-mapped by the aligner.
 
+### Run QoRTs in Rstudio
 ```r
 library(QoRTs)
 
@@ -445,7 +446,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjU4Nzc1NTYsMjA2MDQzNjMxOCwtMT
+eyJoaXN0b3J5IjpbLTExMzI5OTIzNzYsMjA2MDQzNjMxOCwtMT
 kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
 MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3OD
 AsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1
