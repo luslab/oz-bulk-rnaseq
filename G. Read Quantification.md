@@ -88,7 +88,7 @@ java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 library(QoRTs); 
 
 #Read in the QC data: 
-res <- read.qc.results.data("outputData/qortsData/", 
+res <- read.qc.results.data("/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
 			decoder.files = "inputData/annoFiles/decoder.byUID.txt", 
 			calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
@@ -238,11 +238,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04Mz
-A1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MDM3MDQs
-LTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYsMjAyNz
-gzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOTg2NTEx
-OSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3MywtMT
-kwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NCwtOTI5
-MTczMjM4XX0=
+eyJoaXN0b3J5IjpbLTE2NTcxMzY1OTQsLTYzMDExNzE2OCwtNT
+M4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2
+OCw0MjM0MDM3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OT
+MzMzA4MTYsMjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIy
+ODMsLTcxOTg2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMT
+Y2ODEzOTA3MywtMTkwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYz
+MzM0NTU5NF19
 -->
