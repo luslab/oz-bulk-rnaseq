@@ -79,29 +79,26 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/QoRTs_
 java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
 
-
+### Use QoRTs output to produce Count
 ```r
 library(QoRTs)
 suppressPackageStartupMessages(library(DESeq2))
 
-decoder.bySample <- read.table( 
-					"/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
-					header=T,stringsAsFactors=F); 
+decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
+                               header=T,stringsAsFactors=F); 
 
-directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs"; 
-sampleFiles <- paste0(
-					 decoder.bySample$sample.ID,
-					  "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
+directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC"; 
+sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
 
 sampleCondition <- decoder.bySample$group.ID; 
 sampleName <- decoder.bySample$sample.ID; 
 sampleTable <- data.frame(sampleName = sampleName, 
-							fileName = sampleFiles, 
-							condition = sampleCondition); 
+                          fileName = sampleFiles, 
+                          condition = sampleCondition); 
 
 dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
-									directory = directory, 
-									design = ~ condition); 
+                                  directory = directory, 
+                                  design = ~ condition); 
 dds
 
 dds <- DESeq(dds);
@@ -248,11 +245,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MT
-U3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4
-MCwxOTE5NjA2MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1ND
-Y0NDM3MjIsLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEw
-ODMsLTczNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MDM3MDQsLTMwMz
-A5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYsMjAyNzgzNDk4
-M119
+eyJoaXN0b3J5IjpbLTM2MTk0MzAyLDk4NjMyMDY1OSwtNDIzOD
+M4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5
+LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OT
+Q0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgy
+NSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzND
+AzNzA0LC0zMDMwOTE1ODEsLTM5Njc3NjgyNiwxNTkzMzMwODE2
+XX0=
 -->
