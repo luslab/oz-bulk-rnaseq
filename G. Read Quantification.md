@@ -64,6 +64,9 @@ http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
 
 QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots)
 
+Decoder file:
+
+
 ```bash
 #set QoRTS QC input
 QC=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs_SRR5483788/,./QoRTs_SRR5483789/,./QoRTs_SRR5483790/,./QoRTs_SRR5483794/,./QoRTs_SRR5483795/,./QoRTs_SRR5483796/
@@ -205,11 +208,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MD
-M3MDQsLTMwMzA5MTU4MSwtMzk2Nzc2ODI2LDE1OTMzMzA4MTYs
-MjAyNzgzNDk4MywtMTg5ODQ4NTI1OCw1NjAxODIyODMsLTcxOT
-g2NTExOSwxMzY3MzYyNzAzLDIxNDQxMzQxNzEsMTY2ODEzOTA3
-MywtMTkwMTk1NjY2MCwtMTk4MTcwNTAyMCwtMTYzMzM0NTU5NC
-wtOTI5MTczMjM4LC0xNjU4NTE3NjE2LC0xMzMxMzIyODAxLC0y
-NDg5OTUxMTRdfQ==
+eyJoaXN0b3J5IjpbLTI5NTMxNzQwMywtNzM0NDE1NDg5LDM2Nz
+k2MjY4LDQyMzQwMzcwNCwtMzAzMDkxNTgxLC0zOTY3NzY4MjYs
+MTU5MzMzMDgxNiwyMDI3ODM0OTgzLC0xODk4NDg1MjU4LDU2MD
+E4MjI4MywtNzE5ODY1MTE5LDEzNjczNjI3MDMsMjE0NDEzNDE3
+MSwxNjY4MTM5MDczLC0xOTAxOTU2NjYwLC0xOTgxNzA1MDIwLC
+0xNjMzMzQ1NTk0LC05MjkxNzMyMzgsLTE2NTg1MTc2MTYsLTEz
+MzEzMjI4MDFdfQ==
 -->
