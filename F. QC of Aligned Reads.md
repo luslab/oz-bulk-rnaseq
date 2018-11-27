@@ -295,8 +295,7 @@ You will get a return from terminal like:
 `To execute the QoRTs JAR run: java -jar $EBROOTQORTS/QoRTs.jar` 
 Copy and paste the `java -jar $EBROOTQORTS/QoRTs.jar` and place before the QoRTs command. 
 [Helpfile](https://hartleys.github.io/QoRTs/jarHtml/index.html) here.
-
-http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf
+Also see the [walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf).
 
 ## QC command in QoRTs
 
@@ -409,7 +408,7 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3ODQ2NjM3OCwyMDYwNDM2MzE4LC0xOT
+eyJoaXN0b3J5IjpbLTQ5NDA0OTM1NiwyMDYwNDM2MzE4LC0xOT
 AxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYz
 MTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MC
 wxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2
