@@ -206,7 +206,7 @@ library("AnnotationDbi")
 library("Homo.sapiens")
 columns(Homo.sapiens)
 
-# use mapIds to add columns to results table
+# use mapIds to add columns to results table. Use Ensebml nomenclature. 
 res$symbol <- mapIds(Homo.sapiens, keys=row.names(res), column="SYMBOL", keytype="ENSEMBL", multiVals="first")
 
 
@@ -520,11 +520,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzg0MTA3ODQsLTExNzM2NDczNSw1ND
-k2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0
-MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMT
-kwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4
-NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1Nz
-IsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nzkw
-NDkxMV19
+eyJoaXN0b3J5IjpbLTI1MTQ5NzE0LC0xMTczNjQ3MzUsNTQ5Nj
+Y1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQxLC0xNjY2MTAxNDAx
+LC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2MTgsLTE5MD
+gyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xNDQ2ODQz
+ODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0NTcyLD
+E0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5
+MTFdfQ==
 -->
