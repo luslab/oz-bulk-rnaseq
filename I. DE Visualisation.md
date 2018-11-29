@@ -187,47 +187,13 @@ Data quality testing is essential early in the analysis. Remove poor data that s
 Construct a heatmap to explore the count matrix
 ```r
 library(pheatmap)
+### Heatmap of most significantly DE genes
 mat <- assay(vsd)[ head(order(res$padj),30), ]
 mat <- mat - rowMeans(mat)
 df <- cbind(as.data.frame(colData(vsd), decoder.bySample$sample.ID))
-pheatmap(mat, annotation_col=df)
-
-df <- as.data.frame(colData(vsd)[,c("condition"), decoder.bySample])
-pheatmap(mat, annotation_col=df)
-
-
-select <- order(rowMeans(counts(dds,normalized=TRUE)), decreasing=TRUE)[1:20]
-df <- as.data.frame(colData(dds)[,c("condition","type")])
-pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
-         cluster_cols=FALSE, annotation_col=df)
+pheatmap(mat, annotation_col=df, main = "Heatmap: Most significantly DE genes")
 ```
 
-
-
-# Heatmap DE
-```r
-#### Plot #11 - Create a heatmap to vizualize expression differences between the eight samples
-#Define custom dist and hclust functions for use with heatmaps
-mydist=function(c) {dist(c,method="euclidian")}
-myclust=function(c) {hclust(c,method="average")}
-main_title="sig DE Transcripts"
-par(cex.main=0.8)
-sig_genes=results_genes[sig,"id"]
-sig_gene_names=results_genes[sig,"gene_name"]
-data=log2(as.matrix(gene_expression[sig_genes,data_columns])+1)
-heatmap.2(data, hclustfun=myclust, distfun=mydist, na.rm = TRUE, scale="none", dendrogram="both", margins=c(6,7), Rowv=TRUE, Colv=TRUE, symbreaks=FALSE, key=TRUE, symkey=FALSE, density.info="none", trace="none", main=main_title, cexRow=0.3, cexCol=1, labRow=sig_gene_names,col=rev(heat.colors(75)))
-dev.off()
-
-#The output file can be viewed in your browser at the following url:
-#Note, you must replace __YOUR_IP_ADDRESS__ with your own amazon instance IP
-#http://__YOUR_IP_ADDRESS__/workspace/rnaseq/de/ballgown/ref_only/Tutorial_Part3_Supplementary_R_output.pdf
-
-#To exit R type:
-
-quit(save="no")
-```
-## Clustered Heatmap
-Very popular method.
 
 - show expression values across individual samples
 many R functions to do this:
@@ -614,11 +580,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMz
-IxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5
-NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC
-0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxNDI5
-OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0OTExLC
-05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2ODUw
-ODkzXX0=
+eyJoaXN0b3J5IjpbMTM3NTE0NjQ2MiwxODk3NTY0NjQxLC0xNj
+Y2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2
+MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC
+0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3
+NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0Nj
+UsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0
+ODcxOV19
 -->
