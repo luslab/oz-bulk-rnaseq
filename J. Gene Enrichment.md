@@ -9,6 +9,8 @@ Functional Inference:
 
 2. Sequence-composition:
 - Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
+# GO analysis
+library(GOstats) > library(org.Mm.eg.db) > tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value') > selectedIDs <- rownames(tt$table) > universeIDs <- rownames(mockRnaSeqData) > goParams <- new("GOHyperGParams", + geneIds = selectedIDs, + universeGeneIds = universeIDs, + annotation ="org.Mm.eg" , + ontology = "MF", + pvalueCutoff = 0.01, + conditional = TRUE, + testDirection = "over") > goResults <- hyperGTest(goParams)
 
 # BLAST
 Basic Local Alignment Search Tool
@@ -84,6 +86,6 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMD
-E0MzAsMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbLTIxNDA1NTg2MzUsNzk3OTQ1MDE3LDQ4OD
+Q1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
 -->
