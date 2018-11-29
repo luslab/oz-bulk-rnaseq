@@ -197,6 +197,13 @@ mat <- mat - rowMeans(mat)
 df <- cbind(as.data.frame(colData(vsd), decoder.bySample$sample.ID))
 pheatmap(mat, annotation_col=df, main = "Heatmap: Most significantly DE genes")
 ```
+## Annotate & export results:
+```r
+library("AnnotationDbi")
+library("Homo.sapiens")
+columns(Homo.sapiens)
+
+```
 
 Biostars code to generate a clustered heatmap: 
 `curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
@@ -506,11 +513,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NT
-Y0NjQxLC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4
-LDE3ODYwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMD
-A3MDA4NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAz
-ODAxLC0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MS
-w5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYy
-MzJdfQ==
+eyJoaXN0b3J5IjpbMTEwNDczMjgwMyw1NDk2NjU0ODksNzk0Mz
+M0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0
+Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxOD
+I5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4
+Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NC
+wxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIy
+MzddfQ==
 -->
