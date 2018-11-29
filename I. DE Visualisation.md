@@ -84,9 +84,6 @@ res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/aira
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
                             calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
-# Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
-get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/sizeFactors.GEO.txt");
-
 ### Run DESeq2 DE analysis
 decoder.bySample <- read.table("/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.bySample.txt", 
                                header=T,stringsAsFactors=F); 
@@ -595,10 +592,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzA2NTc2OTAsMjEyMzc2NjIzMiwtND
-Y0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4
-OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsOD
-U5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMDAw
-NSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIwXX
-0=
+eyJoaXN0b3J5IjpbLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2ND
+k0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODks
+MTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OT
+Y3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUs
+LTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
 -->
