@@ -168,6 +168,21 @@ ggplot(d, aes(x=condition, y=count)) + geom_point(position=position_jitter(w=0.1
 ```
 
 # MA plot
+An MA plot provides a global overview of an experiment with a 2 group comparison. It shows the relationship between expression change in 2 different conditions.
+
+```r
+```
+DESeq2::plotMA(res, ylim=c(-5,5))
+```
+
+# Plot log2 fold changes over the mean of normalised counts for all samples. red dots are significant adjusted p<0.05
+plotMA(res, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
+
+# Plot for shrunken log2 fold changes (removes noise from log2 fold changes from low count genes)
+plotMA(resLFC, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
+
+
+```
 
 
 
@@ -249,19 +264,7 @@ length(row.names(transcript_gene_table)) #Transcript count
 length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
 ```
 
-# MA plot
-- provides global view of relationship between expression change in different conditions, average expression strength of genes and ability of algorithrm to detect differential expression
 
-```r
-# Plot log2 fold changes over the mean of normalised counts for all samples. red dots are significant adjusted p<0.05
-plotMA(res, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
-
-# Plot for shrunken log2 fold changes (removes noise from log2 fold changes from low count genes)
-plotMA(resLFC, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
-
-
-```
-![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
 
 
 
@@ -604,11 +607,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDcxNDA3NjIsMTAwNzAwODc5MCwtMT
-Q0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUy
-NDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LD
-k3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3
-MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4MT
-A4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NTk2Nzcy
-NTNdfQ==
+eyJoaXN0b3J5IjpbMjA0OTY0NDgzNywxMDA3MDA4NzkwLC0xND
+Q2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0
+NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOT
+c5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcx
+OSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODksMTgxMD
+gyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1
+M119
 -->
