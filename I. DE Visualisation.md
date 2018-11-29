@@ -131,22 +131,13 @@ plotPCA(vsd, "condition")
 plotPCA(rld, "condition")
 plotPCA(ntd, "condition")
 
-# using ggplot2
+# using ggplot2 transformed with VST
 data <- plotPCA(vsd, intgroup = c( "condition", "sizeFactor"), returnData=TRUE)
 percentVar <- round(100 * attr(data, "percentVar"))
-ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) + ggtitle("PCA Plot VST transformed counts") +
-  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
-  ylab(paste0("PC2: ",percentVar[2],"% variance"))
-
-pc = prcomp(t(rlog.norm.counts))
-plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
-
-# PCA plot using DESeq2 based on ggplot2
-P = plotPCA(DESeq.rlog) 
-
-#plot cosmetics
-plot = data + theme_bw() + ggtitle("PCA Plot VST transformed counts") 
-print(P)
+ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) + 
+	ggtitle("PCA Plot VST transformed counts") +
+	xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+	ylab(paste0("PC2: ",percentVar[2],"% variance"))
 ```
 
 
@@ -594,11 +585,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2MTY1NTI2LDE0Mjk5ODY3OTQsMTg2Mz
-YyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIx
-MjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MD
-ExOSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwx
-NDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNT
-cwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNF19
-
+eyJoaXN0b3J5IjpbLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxOD
+YzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcs
+MjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMj
+kwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1
+LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNj
+E1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0
+XX0=
 -->
