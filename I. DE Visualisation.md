@@ -157,10 +157,11 @@ ggplot(mds, aes(X1,X2,color=condition,shape=sample.ID)) + geom_point(size=3)+
 It can be useful to examine the counts of reads for a single gene across the groups. The function for making this plot is  _plotCounts_, which normalizes counts by sequencing depth and adds a pseudocount of 1/2 to allow for log scale plotting. 
 
 ```r
-d <- plotCounts(dds, gene=which.min(res$padj), intgroup="condition", 
-                returnData=TRUE)
-ggplot(d, aes(x=condition, y=count)) + 
-  geom_point(position=position_jitter(w=0.1,h=0)) + 
+topGene <- rownames(res)[which.min(res$padj)]
+d <- plotCounts(dds, topGene, "condition")
+
+d <- plotCounts(dds, gene=which.min(res$padj), intgroup="condition", returnData=TRUE)
+ggplot(d, aes(x=condition, y=count)) + geom_point(position=position_jitter(w=0.1,h=0)) + 
   scale_y_log10(breaks=c(25,100,400))
 ```
 
@@ -597,11 +598,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDY4OTk4MzYsMTAwNzAwODc5MCwtMT
-Q0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUy
-NDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LD
-k3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3
-MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4MT
-A4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NTk2Nzcy
-NTNdfQ==
+eyJoaXN0b3J5IjpbOTcyOTczMzE2LDEwMDcwMDg3OTAsLTE0ND
+Y4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1
+NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nz
+kwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5
+LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwOD
+I0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUz
+XX0=
 -->
