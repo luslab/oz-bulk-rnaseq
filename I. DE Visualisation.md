@@ -99,6 +99,7 @@ dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable,
                                   design = ~ condition); 
 dds <- DESeq(dds);
 res <- results(dds);
+resLFC <- lfcShrink(dds, coef="condition_VCP_vs_CTRL", type="apeglm")
 
 ### Data Transformation
 # extract transformed values using vst (rapid) or rlog (slower)
@@ -607,11 +608,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxOD
-I5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4
-Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NC
-wxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIy
-MzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMz
-MwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3
-NDE1XX0=
+eyJoaXN0b3J5IjpbLTEyNjAxNDg0MDAsMTc4NjA4ODYxOCwtMT
+kwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4
+NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1Nz
+IsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nzkw
+NDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LD
+k0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0
+NTQ2XX0=
 -->
