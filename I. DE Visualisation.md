@@ -196,6 +196,46 @@ pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
 
 
 
+# Heatmap DE
+```r
+#### Plot #11 - Create a heatmap to vizualize expression differences between the eight samples
+#Define custom dist and hclust functions for use with heatmaps
+mydist=function(c) {dist(c,method="euclidian")}
+myclust=function(c) {hclust(c,method="average")}
+main_title="sig DE Transcripts"
+par(cex.main=0.8)
+sig_genes=results_genes[sig,"id"]
+sig_gene_names=results_genes[sig,"gene_name"]
+data=log2(as.matrix(gene_expression[sig_genes,data_columns])+1)
+heatmap.2(data, hclustfun=myclust, distfun=mydist, na.rm = TRUE, scale="none", dendrogram="both", margins=c(6,7), Rowv=TRUE, Colv=TRUE, symbreaks=FALSE, key=TRUE, symkey=FALSE, density.info="none", trace="none", main=main_title, cexRow=0.3, cexCol=1, labRow=sig_gene_names,col=rev(heat.colors(75)))
+dev.off()
+
+#The output file can be viewed in your browser at the following url:
+#Note, you must replace __YOUR_IP_ADDRESS__ with your own amazon instance IP
+#http://__YOUR_IP_ADDRESS__/workspace/rnaseq/de/ballgown/ref_only/Tutorial_Part3_Supplementary_R_output.pdf
+
+#To exit R type:
+
+quit(save="no")
+```
+## Clustered Heatmap
+Very popular method.
+
+- show expression values across individual samples
+many R functions to do this:
+`aheartmap( )`
+`gplots::heatmap.2( )`
+`pheatmap::pheatmap( )`
+
+Biostars code to generate a clustered heatmap: 
+`curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
+This generates a PDF output using:
+`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > clustered-heatmap.pdf`
+Each column referrs to a sample. Red refers to upregulated genes & green downregulated.
+
+![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
+
+
 
 
 FROM BALLGOWN GRIFFITH ANALYSIS: REMOVE AFTER USING
@@ -463,28 +503,8 @@ output[1:25,c(1,4,5)]
 #It should have been written to the current working directory that you set at the beginning of the R tutorial
 dir()
 ```
-# Heatmap DE
-```r
-#### Plot #11 - Create a heatmap to vizualize expression differences between the eight samples
-#Define custom dist and hclust functions for use with heatmaps
-mydist=function(c) {dist(c,method="euclidian")}
-myclust=function(c) {hclust(c,method="average")}
-main_title="sig DE Transcripts"
-par(cex.main=0.8)
-sig_genes=results_genes[sig,"id"]
-sig_gene_names=results_genes[sig,"gene_name"]
-data=log2(as.matrix(gene_expression[sig_genes,data_columns])+1)
-heatmap.2(data, hclustfun=myclust, distfun=mydist, na.rm = TRUE, scale="none", dendrogram="both", margins=c(6,7), Rowv=TRUE, Colv=TRUE, symbreaks=FALSE, key=TRUE, symkey=FALSE, density.info="none", trace="none", main=main_title, cexRow=0.3, cexCol=1, labRow=sig_gene_names,col=rev(heat.colors(75)))
-dev.off()
 
-#The output file can be viewed in your browser at the following url:
-#Note, you must replace __YOUR_IP_ADDRESS__ with your own amazon instance IP
-#http://__YOUR_IP_ADDRESS__/workspace/rnaseq/de/ballgown/ref_only/Tutorial_Part3_Supplementary_R_output.pdf
 
-#To exit R type:
-
-quit(save="no")
-```
 
 # cummeRbund
 
@@ -526,22 +546,7 @@ Assess RNA-seq expression patterns with:
 
 Can visualise DE genes as a Dendogram or Heatmap
 
-## Clustered Heatmap
-Very popular method.
 
-- show expression values across individual samples
-many R functions to do this:
-`aheartmap( )`
-`gplots::heatmap.2( )`
-`pheatmap::pheatmap( )`
-
-Biostars code to generate a clustered heatmap: 
-`curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
-This generates a PDF output using:
-`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > clustered-heatmap.pdf`
-Each column referrs to a sample. Red refers to upregulated genes & green downregulated.
-
-![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 
 ## Dendogram
 Genes are sorted by adjusted p-value. Colours represent read counts.
@@ -601,11 +606,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODA0ODM0MDUsMTc4NjA4ODYxOCwtMT
-kwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4
-NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1Nz
-IsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nzkw
-NDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LD
-k0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0
-NTQ2XX0=
+eyJoaXN0b3J5IjpbLTQ0NjA4OTg4OSwxNzg2MDg4NjE4LC0xOT
+A4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0
+Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3Mi
+wxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0
+OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOT
+Q2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4MTA4MjQ1
+NDZdfQ==
 -->
