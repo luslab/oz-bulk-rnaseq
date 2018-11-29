@@ -181,6 +181,7 @@ DESeq2::plotMA(resLFC, alpha=0.05, main = "MA plot of VCP vs. CTRL expression VC
 ```
 
 # Heatmap
+https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#heatmap-of-the-most-significant-genes
 
 Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality. Show expression values across individual samples. many R functions to do this:
 `aheartmap( )`
@@ -505,11 +506,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2Nj
-YxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4NjA4ODYx
-OCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLT
-E0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1
-MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NS
-w5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4
-NzE5XX0=
+eyJoaXN0b3J5IjpbNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NT
+Y0NjQxLC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4
+LDE3ODYwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMD
+A3MDA4NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAz
+ODAxLC0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MS
+w5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYy
+MzJdfQ==
 -->
