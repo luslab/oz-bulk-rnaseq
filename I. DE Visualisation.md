@@ -105,8 +105,9 @@ res <- results(dds);
 vsd <- vst(dds, blind=FALSE)
 rld <- rlog(dds, blind=FALSE)
 # extract the matrix of normalised values
-head(assay(vsd), 3)
-head(assay(rld), 3)
+head(assay(vsd), 6)
+head(assay(rld), 6)
+# print column metadata in DESeq
 # Visually assess effect of transformation on variance. Plot SD of transformed data vs mean
 ntd <- normTransform(dds)
 meanSdPlot(assay(ntd))
@@ -592,9 +593,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2ND
-k0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODks
-MTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OT
-Y3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUs
-LTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbMTQ3Njg5NzIwNywtOTUwMDIyMzcsMjEyMz
+c2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5
+LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0ND
+U0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4
+LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMT
+E0NzY3NjIwXX0=
 -->
