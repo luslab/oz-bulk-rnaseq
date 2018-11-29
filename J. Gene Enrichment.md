@@ -9,6 +9,7 @@ Functional Inference:
 
 2. Sequence-composition:
 - Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
+- 
 # GO analysis
 
 Use reporting tools to write a table of GO analysis results to a HTML file. Select genes of interest > run hyperGTest > make GO report
@@ -100,6 +101,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ3NTIwNDg4LDc5Nzk0NTAxNyw0ODg0NT
-c3NzcsLTk0MjAxNDMwLDE1Mjg1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OT
+Q1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
+
 -->
