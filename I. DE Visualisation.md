@@ -132,7 +132,7 @@ plotPCA(ntd, "condition")
 # using ggplot2
 data <- plotPCA(vsd, intgroup = c( "condition", "name"), returnData=TRUE)
 percentVar <- round(100 * attr(data, "percentVar"))
-ggplot(data, aes(PC1, PC2, color=condition, shape=cell)) + geom_point(size=3) +
+ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance"))
 
@@ -595,11 +595,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTI4NTMyMjcsMTg2MzYyNTA1MSw5ND
-UwOTM0NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIs
-LTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMj
-c5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIz
-LDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMT
-AwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYy
-MF19
+eyJoaXN0b3J5IjpbNTI0NzMyOTI2LDE4NjM2MjUwNTEsOTQ1MD
+kzNDY1LDk3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00
+NjQ5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OT
+g5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4
+NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMD
+A1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBd
+fQ==
 -->
