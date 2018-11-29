@@ -79,6 +79,7 @@ library(gplots)
 library(GenomicRanges)
 library("vsn")
 library("pheatmap")
+library("apeglm")
 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
@@ -608,11 +609,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjAxNDg0MDAsMTc4NjA4ODYxOCwtMT
-kwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4
-NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1Nz
-IsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nzkw
-NDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LD
-k0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0
-NTQ2XX0=
+eyJoaXN0b3J5IjpbMzk4MzM2NiwxNzg2MDg4NjE4LC0xOTA4Mj
+Q5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5
+LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxND
+I5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0OTEx
+LC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2OD
+UwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4MTA4MjQ1NDZd
+fQ==
 -->
