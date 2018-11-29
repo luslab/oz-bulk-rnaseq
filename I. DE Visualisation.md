@@ -121,23 +121,12 @@ meanSdPlot(assay(rld))
 
 Visualise sample-sample distances with the Principal Components Analysis (PCA). Data points represents samples in 2D spread in 2 directions: x-axis = PC1; y-axis = PC2. % of total variance is printed in axis label. These dont add to 100% as there are more dimension containing remaining variance. 
 
- - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
- - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
- - Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points.
- - Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample)/ Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
-	 - identify unexpected patterns - batch effects; outliers
-	 - does not identify unknown groupings
+Assess if samples have greater variance between experimental and control conditions than between replicates. Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points. Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample). Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
 
 in R use `prcomp` function"
 
 ```r
-#Load libraries
-library(edgeR)
-library(DESeq2)
-library(ggplot2)
-library(gplots)
-library(GenomicRanges)
-library(ballgown)
+plotPCA(vsd, "condition")
 
 pc = prcomp(t(rlog.norm.counts))
 plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
@@ -598,10 +587,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDkyNzE5MzQsLTk1MDAyMjM3LDIxMj
-M3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDEx
-OSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxND
-Q1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcw
-OCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
-ExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3Nj
+YyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5
+NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1ND
+c5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1
+MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMTExND
+c2NzYyMF19
 -->
