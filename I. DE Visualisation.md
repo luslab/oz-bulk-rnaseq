@@ -206,6 +206,10 @@ library("AnnotationDbi")
 library("Homo.sapiens")
 columns(Homo.sapiens)
 
+# use mapIds to add columns to results table
+res$symbol <- mapIds(Homo.sapiens, keys=row.names(res), column="SYMBOL", keytype="ENSEMBL", multiVals="first")
+
+
 ```
 
 Biostars code to generate a clustered heatmap: 
@@ -516,11 +520,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzM2NDczNSw1NDk2NjU0ODksNzk0Mz
-M0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0
-Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxOD
-I5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4
-Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NC
-wxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIy
-MzddfQ==
+eyJoaXN0b3J5IjpbLTEwNzg0MTA3ODQsLTExNzM2NDczNSw1ND
+k2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0
+MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMT
+kwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4
+NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1Nz
+IsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nzkw
+NDkxMV19
 -->
