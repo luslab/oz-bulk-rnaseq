@@ -176,7 +176,7 @@ DESeq2::plotMA(res, ylim=c(-5,5))
 
 
 # Plot log2 fold changes over the mean of normalised counts for all samples. red dots are significant adjusted p<0.05
-plotMA(res, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
+DESeq2::plotMA(res, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
 
 # Plot for shrunken log2 fold changes (removes noise from log2 fold changes from low count genes)
 plotMA(resLFC, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
@@ -607,11 +607,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjA2NDQwMDEsLTE5MDgyNDk0MTcsMT
-gyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xNDQ2ODQzODksLTE0NTQ0
-ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0NTcyLDE0Mjk5ODY3OT
-QsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAy
-MjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLT
-MzMDI5MDExOSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5
-NzQxNV19
+eyJoaXN0b3J5IjpbLTIxMjc0MTUxNywtMTkwODI0OTQxNywxOD
+I5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4
+Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NC
+wxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIy
+MzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMz
+MwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3
+NDE1XX0=
 -->
