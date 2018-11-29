@@ -125,14 +125,15 @@ Assess if samples have greater variance between experimental and control conditi
 
 ```r
 plotPCA(vsd, "condition")
-
+plotPCA(rld, "condition")
+plotPCA(ntd, "condition")
 
 pc = prcomp(t(rlog.norm.counts))
 plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
 # PCA plot using DESeq2 based on ggplot2
 P = plotPCA(DESeq.rlog) 
 #plot cosmetics
-P = P + theme_bw() + ggtitle("Rlog transformed counts") 
+P = P + theme_bw() + ggtitle("PCA Plot Rlog transformed counts") 
 print(P)
 
 data <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData=TRUE)
@@ -586,10 +587,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcxNzg4NjkwLDk3OTA0OTExLC05NTAwMj
-IzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2ODUwODkzLC0z
-MzAyOTAxMTksOTU5MzI3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OT
-c0MTUsMTQ0NTQ3OTgyMyw4NTk2NzcyNTMsNjgwMDE2MjE4LDEz
-MzA2MTU3MDgsNTMwMDEwMDA1LC04NzYwMjU1NDksLTEzOTk3Mz
-Q0MDQsLTExMTQ3Njc2MjBdfQ==
+eyJoaXN0b3J5IjpbLTIwNTQ4MjkxNyw5NzkwNDkxMSwtOTUwMD
+IyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5Mywt
+MzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNj
+k3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwx
+MzMwNjE1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5Nz
+M0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
