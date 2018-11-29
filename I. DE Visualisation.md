@@ -140,7 +140,9 @@ ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
 	ylab(paste0("PC2: ",percentVar[2],"% variance"))
 ```
 
+# MDS Plot
 
+Multidimensional scaling (MDS) plot. Similar to PCA as reduces dimensions. Calculate pairwise distances between samples then crease a 2D reresentation of the 
 
 ## Clustering
 
@@ -585,11 +587,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzM3NjY3LDUyNzQwMzgwMSwtMTE0Nz
-UyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1
-LDk3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5ND
-g3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4
-MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NTk2Nz
-cyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1XX0=
+eyJoaXN0b3J5IjpbMTE5MzgzOTQ1NSw1Mjc0MDM4MDEsLTExND
+c1MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2
+NSw5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OT
+Q4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwx
+ODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Nj
+c3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMDAwNV19
 
 -->
