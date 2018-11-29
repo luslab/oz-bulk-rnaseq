@@ -119,7 +119,7 @@ meanSdPlot(assay(rld))
 ```
 # PCA Plot
 
-Visualise sample-sample distances with the Principal Components Analysis (PCA). Data points represents samples in 2D spread in 2 directions: x-axis = PC1;
+Visualise sample-sample distances with the Principal Components Analysis (PCA). Data points represents samples in 2D spread in 2 directions: x-axis = PC1; y-axis = PC2. % of total variance is printed in axis label. These dont add to 100% as there are more dimension containing remaining variance. 
 
  - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
  - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
@@ -598,10 +598,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzczMDIwMzgyLC05NTAwMjIzNywyMTIzNz
-Y2MjMyLC00NjQ5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTks
-OTU5MzI3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NT
-Q3OTgyMyw4NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgs
-NTMwMDEwMDA1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMT
-Q3Njc2MjBdfQ==
+eyJoaXN0b3J5IjpbLTE1MDkyNzE5MzQsLTk1MDAyMjM3LDIxMj
+M3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDEx
+OSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxND
+Q1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcw
+OCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
+ExNDc2NzYyMF19
 -->
