@@ -10,7 +10,21 @@ Functional Inference:
 2. Sequence-composition:
 - Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
 # GO analysis
-library(GOstats) > library(org.Mm.eg.db) > tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value') > selectedIDs <- rownames(tt$table) > universeIDs <- rownames(mockRnaSeqData) > goParams <- new("GOHyperGParams", + geneIds = selectedIDs, + universeGeneIds = universeIDs, + annotation ="org.Mm.eg" , + ontology = "MF", + pvalueCutoff = 0.01, + conditional = TRUE, + testDirection = "over") > goResults <- hyperGTest(goParams)
+
+Use reporting tools to write a table of GO analysis results to a HTML file.
+```r
+library(GOstats)
+library(org.Mm.eg.db)
+tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
+selectedIDs <- rownames(tt$table)
+universeIDs <- rownames(mockRnaSeqData)
+goParams <- new("GOHyperGParams", + geneIds = selectedIDs, + universeGeneIds = universeIDs, + annotation ="org.Mm.eg" , + ontology = "MF", + pvalueCutoff = 0.01, + conditional = TRUE, + testDirection = "over")
+goResults <- hyperGTest(goParams)
+
+goReport <- HTMLReport(shortName = 'go_analysis_rnaseq', + title = "GO analysis of mockRnaSeqData", + reportDirectory = "./reports")
+publish(goResults, goReport, selectedIDs=selectedIDs, annotation.db="org.Mm.eg", + pvalueCutoff= 0.05)
+finish(goReport)
+```
 
 # BLAST
 Basic Local Alignment Search Tool
@@ -86,6 +100,6 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDA1NTg2MzUsNzk3OTQ1MDE3LDQ4OD
-Q1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbMTU5Mjc2NTk4Myw3OTc5NDUwMTcsNDg4ND
+U3Nzc3LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
 -->
