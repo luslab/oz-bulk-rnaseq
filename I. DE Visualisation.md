@@ -142,7 +142,9 @@ ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
 
 # MDS Plot
 
-Multidimensional scaling (MDS) plot. Similar to PCA as reduces dimensions. Calculate pairwise distances between samples then crease a 2D reresentation of the 
+Multidimensional scaling (MDS) plot. Similar to PCA as reduces dimensions. Calculate pairwise distances between samples then crease a 2D reresentation of these distances.
+
+
 
 ## Clustering
 
@@ -587,11 +589,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5MzgzOTQ1NSw1Mjc0MDM4MDEsLTExND
-c1MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2
-NSw5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OT
-Q4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwx
-ODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Nj
-c3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMDAwNV19
-
+eyJoaXN0b3J5IjpbLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMT
+Q3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0
+NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2ND
+k0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODks
+MTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OT
+Y3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDVd
+fQ==
 -->
