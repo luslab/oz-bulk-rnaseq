@@ -174,21 +174,13 @@ An MA plot provides a global overview of an experiment with a 2 group comparison
 
 ![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
 ```r
-DESeq2::plotMA(res, ylim=c(-5,5))
-
-
-# Plot log2 fold changes over the mean of normalised counts for all samples. red dots are significant adjusted p<0.05
 DESeq2::plotMA(res, alpha=0.05, main = "MA plot of VCP vs. CTRL expression", ylim=c(-6,6))
 
 # Plot for shrunken log2 fold changes (removes noise from log2 fold changes from low count genes)
-plotMA(resLFC, alpha=0.05, main = "MA plot of VCP vs. CTRL expression VCP vs. CTRL", ylim=c(-6,6))
-
-
+DESeq2::plotMA(resLFC, alpha=0.05, main = "MA plot of VCP vs. CTRL expression VCP vs. CTRL", ylim=c(-6,6))
 ```
 
-
-
-## Clustering
+# Heatmap
 
 Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality.
 
@@ -609,11 +601,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk4MzM2NiwxNzg2MDg4NjE4LC0xOTA4Mj
-Q5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5
-LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxND
-I5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0OTEx
-LC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2OD
-UwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4MTA4MjQ1NDZd
-fQ==
+eyJoaXN0b3J5IjpbLTEzODA0ODM0MDUsMTc4NjA4ODYxOCwtMT
+kwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4
+NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1Nz
+IsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nzkw
+NDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LD
+k0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0
+NTQ2XX0=
 -->
