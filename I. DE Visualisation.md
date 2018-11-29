@@ -186,14 +186,12 @@ Data quality testing is essential early in the analysis. Remove poor data that s
 
 Construct a heatmap to explore the count matrix
 ```r
+library(pheatmap)
 mat <- assay(vsd)[ head(order(res$padj),30), ]
 mat <- mat - rowMeans(mat)
-df <- cbind(as.data.frame(colData(vsd), head(decoder.bySample$sample.ID)))
+df <- cbind(as.data.frame(colData(vsd), decoder.bySample$sample.ID))
 pheatmap(mat, annotation_col=df)
 
-
-mat <- assay(vsd)[ head(order(res$padj),30), ]
-mat <- mat - rowMeans(mat)
 df <- as.data.frame(colData(vsd)[,c("condition"), decoder.bySample])
 pheatmap(mat, annotation_col=df)
 
@@ -616,11 +614,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NjQ3NDc1LC0xNjY2MTAxNDAxLC0zMj
-E0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2MTgsLTE5MDgyNDk0
-MTcsMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xNDQ2ODQzODksLT
-E0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0NTcyLDE0Mjk5
-ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEsLT
-k1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4
-OTNdfQ==
+eyJoaXN0b3J5IjpbMTg5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMz
+IxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5
+NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC
+0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxNDI5
+OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0OTExLC
+05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2ODUw
+ODkzXX0=
 -->
