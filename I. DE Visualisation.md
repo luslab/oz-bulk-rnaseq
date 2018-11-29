@@ -124,9 +124,13 @@ Visualise sample-sample distances with the Principal Components Analysis (PCA). 
 Assess if samples have greater variance between experimental and control conditions than between replicates. Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points. Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample). Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
 
 ```r
+#quick PCA
 plotPCA(vsd, "condition")
 plotPCA(rld, "condition")
 plotPCA(ntd, "condition")
+
+# using ggplot2
+
 
 pc = prcomp(t(rlog.norm.counts))
 plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
@@ -136,7 +140,7 @@ P = plotPCA(DESeq.rlog)
 P = P + theme_bw() + ggtitle("PCA Plot Rlog transformed counts") 
 print(P)
 
-data <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData=TRUE)
+data <- plotPCA(vsd, intgroup = c( "VCP", "CTRL"), returnData=TRUE)
 percentVar <- round(100 * attr(data, "percentVar"))
 ```
 
@@ -587,7 +591,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTQ4MjkxNyw5NzkwNDkxMSwtOTUwMD
+eyJoaXN0b3J5IjpbMTc3MzgxMzk3NCw5NzkwNDkxMSwtOTUwMD
 IyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5Mywt
 MzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNj
 k3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwx
