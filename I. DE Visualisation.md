@@ -172,9 +172,8 @@ An MA plot provides a global overview of an experiment with a 2 group comparison
 
 ![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
 ```r
-```
 DESeq2::plotMA(res, ylim=c(-5,5))
-```
+
 
 # Plot log2 fold changes over the mean of normalised counts for all samples. red dots are significant adjusted p<0.05
 plotMA(res, alpha=0.05, main = "VCP vs. CTRL", ylim=c(-4,4))
@@ -608,11 +607,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xND
-Q2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0
-NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOT
-c5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcx
-OSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODksMTgxMD
-gyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1
-M119
+eyJoaXN0b3J5IjpbLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMD
+A3MDA4NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAz
+ODAxLC0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MS
+w5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYy
+MzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NT
+kzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5
+ODIzXX0=
 -->
