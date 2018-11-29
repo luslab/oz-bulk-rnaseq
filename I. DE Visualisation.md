@@ -80,6 +80,8 @@ library(GenomicRanges)
 library("vsn")
 library("pheatmap")
 library("apeglm")
+library("AnnotationDbi")
+library("Homo.sapiens")
 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
@@ -198,6 +200,7 @@ df <- cbind(as.data.frame(colData(vsd), decoder.bySample$sample.ID))
 pheatmap(mat, annotation_col=df, main = "Heatmap: Most significantly DE genes")
 ```
 ## Annotate & export results:
+https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#annotating-and-exporting-results
 ```r
 library("AnnotationDbi")
 library("Homo.sapiens")
@@ -513,7 +516,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwNDczMjgwMyw1NDk2NjU0ODksNzk0Mz
+eyJoaXN0b3J5IjpbLTExNzM2NDczNSw1NDk2NjU0ODksNzk0Mz
 M0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0
 Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxOD
 I5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4
