@@ -3,8 +3,11 @@
 
 > # Visualise Differential Expression
 
-There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown etc).  Outputs can be viewed as PDF. You should reformat the output manually in R to:
-- examine expression & DE estimates
+There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown etc). 
+
+There are 2 parts to DE visualisation:
+1. Relationships between Samples: Transformations of counts for making plots.
+2. Statistical testing for differences attrib examine expression & DE estimates
 - visualise differences between replicates & CTRL/VCP
 
 Check that basic global patterns are met:
@@ -555,9 +558,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMD
-I5MDExOSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQx
-NSwxNDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMD
-YxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQw
-NCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbLTg2MjA1Njk4MSwtNDY0OTQ4NzE5LDk0Nj
+g1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2
+LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MD
+AxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5
+LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
 -->
