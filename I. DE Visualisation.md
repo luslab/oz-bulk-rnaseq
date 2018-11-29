@@ -168,7 +168,7 @@ ggplot(d, aes(x=condition, y=count)) + geom_point(position=position_jitter(w=0.1
 ```
 
 # MA plot
-An MA plot provides a global overview of an experiment with a 2 group comparison. It shows the relationship between expression change in 2 different conditions.
+An MA plot provides a global overview of an experiment with a 2 group comparison. It shows the relationship between expression change in 2 different conditions.  y-axis = log2 fold change for comparison. x-axis = average counts normalised by size factor.
 
 ![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
 ```r
@@ -607,11 +607,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMD
-A3MDA4NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAz
-ODAxLC0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MS
-w5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYy
-MzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NT
-kzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5
-ODIzXX0=
+eyJoaXN0b3J5IjpbLTc5OTYxNDMyNSwtMTkwODI0OTQxNywxOD
+I5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4
+Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NC
+wxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIy
+MzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMz
+MwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3
+NDE1XX0=
 -->
