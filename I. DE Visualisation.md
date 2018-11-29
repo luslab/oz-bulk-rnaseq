@@ -206,77 +206,6 @@ Each column referrs to a sample. Red refers to upregulated genes & green downreg
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 
 
-
-
-FROM BALLGOWN GRIFFITH ANALYSIS: REMOVE AFTER USING
-```r
-
-#Import expression and differential expression results from the HISAT2/StringTie/Ballgown pipeline
-load('bg.rda')
-
-# View a summary of the ballgown object
-bg
-
-# Load gene names for lookup later in the tutorial
-bg_table = texpr(bg, 'all')
-bg_gene_names = unique(bg_table[, 9:10])
-
-# Pull the gene_expression data frame from the ballgown object
-gene_expression = as.data.frame(gexpr(bg))
-
-#### Working with 'dataframes'
-#View the first five rows of data (all columns) in one of the dataframes created
-head(gene_expression)
-
-#View the column names
-colnames(gene_expression)
-#View the row names
-row.names(gene_expression)
-
-#Determine the dimensions of the dataframe. 'dim()' will return the number of rows and columns
-dim(gene_expression)
-
-#Get the first 3 rows of data and a selection of columns
-gene_expression[1:3,c(1:3,6)]
-
-#Do the same thing, but using the column names instead of numbers
-gene_expression[1:3, c("FPKM.UHR_Rep1","FPKM.UHR_Rep2","FPKM.UHR_Rep3","FPKM.HBR_Rep3")]
-
-#Assign colors to each. You can specify color by RGB, Hex code, or name
-
-#To get a list of color names:
-colours()
-data_colors=c("tomato1","tomato2","tomato3","royalblue1","royalblue2","royalblue3")
-
-#View expression values for the transcripts of a particular gene symbol of chromosome 22. e.g. 'TST'
-#First determine the rows in the data.frame that match 'TST', aka. ENSG00000128311, then display only those rows of the data.frame
-i = row.names(gene_expression) == "ENSG00000128311"
-gene_expression[i,]
-
-#What if we want to view values for a list of genes of interest all at once?
-#genes_of_interest = c("TST", "MMP11", "LGALS2", "ISX")
-genes_of_interest = c("ENSG00000128311","ENSG00000099953","ENSG00000100079","ENSG00000175329")
-i = which(row.names(gene_expression) %in% genes_of_interest)
-gene_expression[i,]
-
-# Load the transcript to gene index from the ballgown object
-transcript_gene_table = indexes(bg)$t2g
-head(transcript_gene_table)
-
-#Each row of data represents a transcript. Many of these transcripts represent the same gene. Determine the numbers of transcripts and unique genes
-length(row.names(transcript_gene_table)) #Transcript count
-length(unique(transcript_gene_table[,"g_id"])) #Unique Gene count
-```
-
-
-
-
-
-
-
-
-
-
 # Number of transcripts per gene
 
 Use output from DE analysis
@@ -576,11 +505,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDY2MTUxNjksMTg5NzU2NDY0MSwtMT
-Y2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4
-NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MC
-wtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0
-NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzND
-Y1LDk3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5
-NDg3MTldfQ==
+eyJoaXN0b3J5IjpbNzk0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2Nj
+YxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4NjA4ODYx
+OCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OTAsLT
+E0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1
+MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NS
+w5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4
+NzE5XX0=
 -->
