@@ -33,6 +33,13 @@ java -Xmx750m -jar igv.jar
 4. Search most significantly DE genes reported from DE analysis output in IGV: 
 Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV search box
 
+# DESeq2 Visualisation
+http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
+https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exploratory-analysis-and-visualization
+https://github.com/griffithlab/rnaseq_tutorial/wiki/DE-Visualization
+http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/rnaseqAnalysis.pdf
+
+
 # Results Visualisation Packages
 
 These all work with DESeq2:
@@ -58,17 +65,14 @@ finish(desReport)
 # Transformations
 Statistical exploration of multidimension data eg clustering & PCA, work best when data has the same range of variance across the range of means (homoskedastic). With RNA-seq raw counts the variance grows with the mean. DESeq2 uses **rlog** (regularise logarithm) & **vst** (variance stabilising transformation) to transform count data stabilising variance across the mean. 
 
-
-
-# DESeq2 Visualisation
-http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
-https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exploratory-analysis-and-visualization
-https://github.com/griffithlab/rnaseq_tutorial/wiki/DE-Visualization
-http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/rnaseqAnalysis.pdf
-
 Continue in R from DE analysis using QoRTS > DESeq2:
 ```R
-#Load libraries
+#Set working directory where counts expression files exist
+working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DE"
+setwd(working_dir)
+# List the current contents of this directory
+dir()
+
 library(QoRTs)
 library(edgeR)
 library(DESeq2)
@@ -76,13 +80,13 @@ library(ggplot2)
 library(gplots)
 library(GenomicRanges)
 library("vsn")
+library("pheatmap")
 
-#### Import the gene expression data
-#Set working directory where results files exist
-working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/htseq"
-setwd(working_dir)
-# List the current contents of this directory
-dir()
+res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
+                            decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
+                            calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
+
+
 ```
 ## Clustering
 
@@ -562,10 +566,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTI4NTkwNDEsMjEyMzc2NjIzMiwtND
-Y0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4
-OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsOD
-U5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMDAw
-NSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIwXX
-0=
+eyJoaXN0b3J5IjpbMjA4NTYwMjg2MCwyMTIzNzY2MjMyLC00Nj
+Q5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5
+LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NT
+k2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1
+LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ
+==
 -->
