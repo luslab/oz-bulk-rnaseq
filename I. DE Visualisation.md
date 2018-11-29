@@ -85,7 +85,6 @@ res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/aira
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
                             calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
-
 # Extract size factors. QoRTs generates these to normalise all samples to a comparable scale allowing downstream comparison with DESeq2 or edgeR
 get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/sizeFactors.GEO.txt");
 
@@ -102,31 +101,9 @@ sampleTable <- data.frame(sampleName = sampleName,
 dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
                                   directory = directory, 
                                   design = ~ condition); 
-# Run & Print DESeq2 results
-dds
 dds <- DESeq(dds);
 res <- results(dds);
-res;
 
-# Sort the results data frame by the padj and foldChange columns. 
-sorted = res[with(res, order(padj,  -log2FoldChange)),  ]  
-# Turn it into a dataframe to have proper column names. 
-sorted.df = data.frame("id"=rownames(sorted),sorted)
-#write the table out:
-write.table(sorted.df, file = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/DESeq2.results.txt", sep="\t", col.names=NA, quote=FALSE);
-
-### Multiple Testing
-sum(res$pvalue < 0.05, na.rm=TRUE)
-sum(!is.na(res$pvalue))
-
-
-### Normalise Counts
-# Get normalized counts and write this to a file
-nc = counts(dds,normalized=TRUE)
-# Turn it into a dataframe to have proper column names.
-dt = data.frame("id"=rownames(nc),nc)
-# Save the normalize data matrix.
-write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/norm-matrix-deseq2.txt", sep="\t",  row.name=FALSE, col.names=TRUE,quote=FALSE
 ### Data Transformation
 # extract transformed values using vst (rapid) or rlog (slower)
 vsd <- vst(dds, blind=FALSE)
@@ -619,10 +596,9 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMjk2OTI5NiwyMTIzNzY2MjMyLC00Nj
-Q5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5
-LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NT
-k2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1
-LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ
-==
+eyJoaXN0b3J5IjpbMTAzMDk0NDE5LDIxMjM3NjYyMzIsLTQ2ND
+k0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODks
+MTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OT
+Y3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUs
+LTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
 -->
