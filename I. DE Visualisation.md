@@ -142,12 +142,13 @@ ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
 
 
 pc = prcomp(t(rlog.norm.counts))
-
 plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
+
 # PCA plot using DESeq2 based on ggplot2
 P = plotPCA(DESeq.rlog) 
+
 #plot cosmetics
-P = P + theme_bw() + ggtitle("PCA Plot Rlog transformed counts") 
+plot = data + theme_bw() + ggtitle("PCA Plot Rlog transformed counts") 
 print(P)
 ```
 
@@ -596,11 +597,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODEyNzYwNDI4LDE4NjM2MjUwNTEsOTQ1MD
-kzNDY1LDk3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00
-NjQ5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OT
-g5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4
-NTk2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMD
-A1LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBd
-fQ==
+eyJoaXN0b3J5IjpbLTY2OTA3NDEwMSwxODYzNjI1MDUxLDk0NT
+A5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwt
+NDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNz
+k4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMs
+ODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMD
+AwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIw
+XX0=
 -->
