@@ -182,9 +182,12 @@ DESeq2::plotMA(resLFC, alpha=0.05, main = "MA plot of VCP vs. CTRL expression VC
 
 # Heatmap
 
-Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality.
+Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality. Show expression values across individual samples. many R functions to do this:
+`aheartmap( )`
+`gplots::heatmap.2( )`
+`pheatmap::pheatmap( )`
 
-Construct a heatmap to explore the count matrix
+Construct a heatmap to explore the count matrix:
 ```r
 library(pheatmap)
 ### Heatmap of most significantly DE genes
@@ -193,13 +196,6 @@ mat <- mat - rowMeans(mat)
 df <- cbind(as.data.frame(colData(vsd), decoder.bySample$sample.ID))
 pheatmap(mat, annotation_col=df, main = "Heatmap: Most significantly DE genes")
 ```
-
-
-- show expression values across individual samples
-many R functions to do this:
-`aheartmap( )`
-`gplots::heatmap.2( )`
-`pheatmap::pheatmap( )`
 
 Biostars code to generate a clustered heatmap: 
 `curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
@@ -580,11 +576,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NTE0NjQ2MiwxODk3NTY0NjQxLC0xNj
-Y2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2
-MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC
-0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3
-NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0Nj
-UsOTc5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0
-ODcxOV19
+eyJoaXN0b3J5IjpbLTE5NDY2MTUxNjksMTg5NzU2NDY0MSwtMT
+Y2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4
+NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MC
+wtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0
+NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzND
+Y1LDk3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5
+NDg3MTldfQ==
 -->
