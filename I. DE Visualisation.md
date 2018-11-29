@@ -143,7 +143,15 @@ ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
 # MDS Plot
 
 Multidimensional scaling (MDS) plot. Similar to PCA as reduces dimensions. Calculate pairwise distances between samples then crease a 2D representation of these distances.
-
+```r
+sampleDists <- dist(t(assay(vsd)))
+sampleDistMatrix <- as.matrix( sampleDists )
+mdsData <- data.frame(cmdscale(sampleDistMatrix))
+mds <- cbind(mdsData, as.data.frame(colData(vsd)), decoder.bySample)
+head(mds)
+ggplot(mds, aes(X1,X2,color=condition,shape=sample.ID)) + geom_point(size=3)+ 
+  ggtitle("MDS Plot VST transformed counts")
+  z
 
 
 ## Clustering
@@ -589,11 +597,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mj
-c0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1
-MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMz
-c2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5
-LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0ND
-U0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4
-XX0=
+eyJoaXN0b3J5IjpbLTEzNzQ5MjQ2MjQsLTE0NDY4NDM4OSwtMT
+Q1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4
+Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOT
+UwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5
+MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOT
+kwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIx
+OF19
 -->
