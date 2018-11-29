@@ -191,9 +191,8 @@ mat <- mat - rowMeans(mat)
 df <- as.data.frame(colData(vsd)[,c("condition"), decoder.bySample])
 pheatmap(mat, annotation_col=df)
 
-library("pheatmap")
-select <- order(rowMeans(counts(dds,normalized=TRUE)),
-                decreasing=TRUE)[1:20]
+
+select <- order(rowMeans(counts(dds,normalized=TRUE)), decreasing=TRUE)[1:20]
 df <- as.data.frame(colData(dds)[,c("condition","type")])
 pheatmap(assay(ntd)[select,], cluster_rows=FALSE, show_rownames=FALSE,
          cluster_cols=FALSE, annotation_col=df)
@@ -611,11 +610,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4Nj
-A4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3
-OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLT
-ExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5
-MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtND
-Y0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4
-OV19
+eyJoaXN0b3J5IjpbLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0Nz
+YyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0
+NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0My
+w1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYz
+NjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcsMj
+EyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkw
+MTE5XX0=
 -->
