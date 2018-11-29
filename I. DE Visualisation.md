@@ -188,6 +188,12 @@ Construct a heatmap to explore the count matrix
 ```r
 mat <- assay(vsd)[ head(order(res$padj),30), ]
 mat <- mat - rowMeans(mat)
+df <- cbind(as.data.frame(colData(vsd), head(decoder.bySample$sample.ID)))
+pheatmap(mat, annotation_col=df)
+
+
+mat <- assay(vsd)[ head(order(res$padj),30), ]
+mat <- mat - rowMeans(mat)
 df <- as.data.frame(colData(vsd)[,c("condition"), decoder.bySample])
 pheatmap(mat, annotation_col=df)
 
@@ -610,11 +616,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0Nz
-YyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0
-NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0My
-w1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYz
-NjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcsMj
-EyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkw
-MTE5XX0=
+eyJoaXN0b3J5IjpbMTA0NjQ3NDc1LC0xNjY2MTAxNDAxLC0zMj
+E0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2MTgsLTE5MDgyNDk0
+MTcsMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xNDQ2ODQzODksLT
+E0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0NTcyLDE0Mjk5
+ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEsLT
+k1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4
+OTNdfQ==
 -->
