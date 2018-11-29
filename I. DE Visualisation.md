@@ -107,7 +107,9 @@ rld <- rlog(dds, blind=FALSE)
 # extract the matrix of normalised values
 head(assay(vsd), 6)
 head(assay(rld), 6)
-# print column metadata in DESeq
+# print column metadata in DESeqDataSet
+colData(vsd)
+colData(rld)
 # Visually assess effect of transformation on variance. Plot SD of transformed data vs mean
 ntd <- normTransform(dds)
 meanSdPlot(assay(ntd))
@@ -115,6 +117,44 @@ meanSdPlot(assay(vsd))
 meanSdPlot(assay(rld))
 
 ```
+# PCA Plot
+
+Visualise sample-sample distances with the Principal Components Analysis (PCA). 
+
+ - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
+ - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
+ - Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points.
+ - Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample)/ Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
+	 - identify unexpected patterns - batch effects; outliers
+	 - does not identify unknown groupings
+
+in R use `prcomp` function"
+
+```r
+#Load libraries
+library(edgeR)
+library(DESeq2)
+library(ggplot2)
+library(gplots)
+library(GenomicRanges)
+library(ballgown)
+
+pc = prcomp(t(rlog.norm.counts))
+plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
+# PCA plot using DESeq2 based on ggplot2
+P = plotPCA(DESeq.rlog) 
+#plot cosmetics
+P = P + theme_bw() + ggtitle("Rlog transformed counts") 
+print(P)
+
+data <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData=TRUE)
+percentVar <- round(100 * attr(data, "percentVar"))
+```
+
+
+![enter image description here](https://onlinecourses.science.psu.edu/stat857/sites/onlinecourses.science.psu.edu.stat857/files/lesson05/PCA_plot/index.gif)
+
+
 ## Clustering
 
 Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality.
@@ -220,42 +260,7 @@ ggplot(d, aes(x=condition, y=count)) +
   scale_y_log10(breaks=c(25,100,400))
 ```
 
-# PCA Plot
 
-Visualise sample-sample distances with the Principal Components Analysis (PCA) 
-
- - Complementary approach to assess if samples have greater variance between experimental and control conditions than between replicates.
- - Aim is to **identify groups of features** (eg genes) that have something in common, such as expression patterns across different samples.
- - Result is principal components representing directions along which the variation in the originial multi-dimensional data is maximal, so that a few components (dimensions) can be used to represent thousands of mRNA data points.
- - Can visually represent variation of gene expression for different samples in a simple xy plot (instead of plotting thousands of genes per sample)/ Usually only the top 2 principal components (explaining the majority of the data variability) are displayed.
-	 - identify unexpected patterns - batch effects; outliers
-	 - does not identify unknown groupings
-
-in R use `prcomp` function"
-
-```r
-#Load libraries
-library(edgeR)
-library(DESeq2)
-library(ggplot2)
-library(gplots)
-library(GenomicRanges)
-library(ballgown)
-
-pc = prcomp(t(rlog.norm.counts))
-plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.depth normlised\n and rlog-transformed read counts"
-# PCA plot using DESeq2 based on ggplot2
-P = plotPCA(DESeq.rlog) 
-#plot cosmetics
-P = P + theme_bw() + ggtitle("Rlog transformed counts") 
-print(P)
-
-data <- plotPCA(vsd, intgroup = c( "dex", "cell"), returnData=TRUE)
-percentVar <- round(100 * attr(data, "percentVar"))
-```
-
-
-![enter image description here](https://onlinecourses.science.psu.edu/stat857/sites/onlinecourses.science.psu.edu.stat857/files/lesson05/PCA_plot/index.gif)
 
 
 
@@ -593,10 +598,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3Njg5NzIwNywtOTUwMDIyMzcsMjEyMz
-c2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5
-LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0ND
-U0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNjE1NzA4
-LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0LC0xMT
-E0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbLTEzODc1NjUzNTAsLTk1MDAyMjM3LDIxMj
+M3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDEx
+OSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxND
+Q1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcw
+OCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMT
+ExNDc2NzYyMF19
 -->
