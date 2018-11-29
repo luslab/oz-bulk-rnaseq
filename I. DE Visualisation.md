@@ -209,6 +209,14 @@ columns(Homo.sapiens)
 # use mapIds to add columns to results table. Use Ensebml nomenclature. 
 res$symbol <- mapIds(Homo.sapiens, keys=row.names(res), column="SYMBOL", keytype="ENSEMBL", multiVals="first")
 
+y$genes$symbol <- res$symbol
+
+res$entrez <- mapIds(Homo.sapiens,
+                     keys=row.names(res),
+                     column="ENTREZID",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+
 
 ```
 
@@ -520,11 +528,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MTQ5NzE0LC0xMTczNjQ3MzUsNTQ5Nj
-Y1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQxLC0xNjY2MTAxNDAx
-LC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2MTgsLTE5MD
-gyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xNDQ2ODQz
-ODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0NTcyLD
-E0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5
-MTFdfQ==
+eyJoaXN0b3J5IjpbLTgyNjg2MTMzMCwtMTE3MzY0NzM1LDU0OT
+Y2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MSwtMTY2NjEwMTQw
+MSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOT
+A4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0
+Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3Mi
+wxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0
+OTExXX0=
 -->
