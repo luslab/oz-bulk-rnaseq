@@ -56,7 +56,8 @@ finish(desReport)
 # DESeq2 Visualisation
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exploratory-analysis-and-visualization
-
+https://github.com/griffithlab/rnaseq_tutorial/wiki/DE-Visualization
+http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/rnaseqAnalysis.pdf
 
 Continue in R from DE analysis using QoRTS > DESeq2:
 ```R
@@ -554,7 +555,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTQyMjU2Myw5NDY4NTA4OTMsLTMzMD
+eyJoaXN0b3J5IjpbLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLTMzMD
 I5MDExOSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5NzQx
 NSwxNDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMTYyMTgsMTMzMD
 YxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OSwtMTM5OTczNDQw
