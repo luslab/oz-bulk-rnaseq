@@ -7,8 +7,7 @@ There are many scripts available specific to the tool you used for DE analysis (
 
 There are 2 parts to DE visualisation:
 1. Relationships between Samples: Transformations of counts for making plots.
-2. Statistical testing for differences attributable to disease & control. examine expression & DE estimates
-- visualise differences between replicates & CTRL/VCP
+2. Statistical testing for differences attributable to disease & control. 
 
 Check that basic global patterns are met:
 - do replicates have similar expression patterns; 
@@ -558,9 +557,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Nj
-g1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2
-LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MD
-AxNjIxOCwxMzMwNjE1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5
-LC0xMzk5NzM0NDA0LC0xMTE0NzY3NjIwXX0=
+eyJoaXN0b3J5IjpbLTU2MDU2MTU4OCwyMTIzNzY2MjMyLC00Nj
+Q5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5
+LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NT
+k2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1
+LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ
+==
 -->
