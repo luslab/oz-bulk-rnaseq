@@ -131,7 +131,7 @@ plotPCA(vsd, "condition")
 plotPCA(rld, "condition")
 plotPCA(ntd, "condition")
 
-# using ggplot2 transformed with VST
+# using ggplot2 transformed with VST (can change to rlog or ntd)
 data <- plotPCA(vsd, intgroup = c( "condition", "sizeFactor"), returnData=TRUE)
 percentVar <- round(100 * attr(data, "percentVar"))
 ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) + 
@@ -139,8 +139,6 @@ ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
 	xlab(paste0("PC1: ",percentVar[1],"% variance")) +
 	ylab(paste0("PC2: ",percentVar[2],"% variance"))
 ```
-
-
 
 ## Clustering
 
@@ -585,11 +583,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxOD
-YzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcs
-MjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMj
-kwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1
-LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIxOCwxMzMwNj
-E1NzA4LDUzMDAxMDAwNSwtODc2MDI1NTQ5LC0xMzk5NzM0NDA0
-XX0=
+eyJoaXN0b3J5IjpbNTI3NDAzODAxLC0xMTQ3NTI0NTcyLDE0Mj
+k5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEs
+LTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NT
+A4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODksMTgxMDgyNDU0Niwt
+MTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMT
+YyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OV19
+
 -->
