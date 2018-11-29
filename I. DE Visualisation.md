@@ -168,7 +168,7 @@ ggplot(d, aes(x=condition, y=count)) + geom_point(position=position_jitter(w=0.1
 ```
 
 # MA plot
-An MA plot provides a global overview of an experiment with a 2 group comparison. It shows the relationship between expression change in 2 different conditions.  y-axis = log2 fold change for comparison. x-axis = average counts normalised by size factor. 
+An MA plot provides a global overview of an experiment with a 2 group comparison. It shows the relationship between expression change in 2 different conditions.  y-axis = log2 fold change for comparison. x-axis = average counts normalised by size factor. Each gene is a dot. Genes with p-adj <0.05 are shown in red.
 
 ![enter image description here](https://lh3.googleusercontent.com/PdRsM9aHl3MTvEMKCYjYKQysVZ9MKxk943_XZ_JLLtAH0jTgZXKP2XotWhetjvghPqGDdwn0ULGRBw "Histogram & MA plot")
 ```r
@@ -607,11 +607,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkwMTQ3MDA3LC0xOTA4MjQ5NDE3LDE4Mj
-kzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3
-NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LD
-E4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0OTExLC05NTAwMjIz
-NywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2ODUwODkzLC0zMz
-AyOTAxMTksOTU5MzI3OTg5LDE4MTA4MjQ1NDYsLTE5OTA2OTc0
-MTVdfQ==
+eyJoaXN0b3J5IjpbLTEyNjA2NDQwMDEsLTE5MDgyNDk0MTcsMT
+gyOTMzNDQ1NSwxMDA3MDA4NzkwLC0xNDQ2ODQzODksLTE0NTQ0
+ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0NTcyLDE0Mjk5ODY3OT
+QsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEsLTk1MDAy
+MjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NTA4OTMsLT
+MzMDI5MDExOSw5NTkzMjc5ODksMTgxMDgyNDU0NiwtMTk5MDY5
+NzQxNV19
 -->
