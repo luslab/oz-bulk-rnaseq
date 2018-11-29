@@ -160,7 +160,7 @@ It can be useful to examine the counts of reads for a single gene across the gro
 topGene <- rownames(res)[which.min(res$padj)]
 d <- plotCounts(dds, topGene, "condition")
 
-d <- plotCounts(dds, topgrownames(res)[which.min(res$padj)], intgroup="condition", returnData=TRUE)
+d <- plotCounts(dds, gene=rownames(res)[which.min(res$padj)], intgroup="condition", returnData=TRUE)
 ggplot(d, aes(x=condition, y=count)) + geom_point(position=position_jitter(w=0.1,h=0)) + 
   scale_y_log10(breaks=c(25,100,400))
 ```
@@ -598,11 +598,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3Mjc1MzY1LDEwMDcwMDg3OTAsLTE0ND
-Y4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1
-NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5Nz
-kwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5
-LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwOD
-I0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUz
-XX0=
+eyJoaXN0b3J5IjpbMTM0ODU5MTI2MywxMDA3MDA4NzkwLC0xND
+Q2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0xMTQ3NTI0
+NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOT
+c5MDQ5MTEsLTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcx
+OSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODksMTgxMD
+gyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1
+M119
 -->
