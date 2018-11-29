@@ -137,7 +137,8 @@ percentVar <- round(100 * attr(data, "percentVar"))
 ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance"))
-
+plot = data + theme_bw() + ggtitle("PCA Plot VST transformed counts") 
+print(P)
 
 
 
@@ -148,7 +149,7 @@ plot(pc$x[ ,1], pc$x[ ,2], col = colData(DESeq.ds)[ ,1], main = "PCA of seq.dept
 P = plotPCA(DESeq.rlog) 
 
 #plot cosmetics
-plot = data + theme_bw() + ggtitle("PCA Plot Rlog transformed counts") 
+plot = data + theme_bw() + ggtitle("PCA Plot VST transformed counts") 
 print(P)
 ```
 
@@ -597,7 +598,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2OTA3NDEwMSwxODYzNjI1MDUxLDk0NT
+eyJoaXN0b3J5IjpbMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NT
 A5MzQ2NSw5NzkwNDkxMSwtOTUwMDIyMzcsMjEyMzc2NjIzMiwt
 NDY0OTQ4NzE5LDk0Njg1MDg5MywtMzMwMjkwMTE5LDk1OTMyNz
 k4OSwxODEwODI0NTQ2LC0xOTkwNjk3NDE1LDE0NDU0Nzk4MjMs
