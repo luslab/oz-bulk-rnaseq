@@ -151,7 +151,7 @@ mds <- cbind(mdsData, as.data.frame(colData(vsd)), decoder.bySample)
 head(mds)
 ggplot(mds, aes(X1,X2,color=condition,shape=sample.ID)) + geom_point(size=3)+ 
   ggtitle("MDS Plot VST transformed counts")
-  z
+```
 
 
 ## Clustering
@@ -597,11 +597,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzQ5MjQ2MjQsLTE0NDY4NDM4OSwtMT
-Q1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4
-Njc5NCwxODYzNjI1MDUxLDk0NTA5MzQ2NSw5NzkwNDkxMSwtOT
-UwMDIyMzcsMjEyMzc2NjIzMiwtNDY0OTQ4NzE5LDk0Njg1MDg5
-MywtMzMwMjkwMTE5LDk1OTMyNzk4OSwxODEwODI0NTQ2LC0xOT
-kwNjk3NDE1LDE0NDU0Nzk4MjMsODU5Njc3MjUzLDY4MDAxNjIx
-OF19
+eyJoaXN0b3J5IjpbMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC0xND
+U0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxNDI5OTg2
+Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0OTExLC05NT
+AwMjIzNywyMTIzNzY2MjMyLC00NjQ5NDg3MTksOTQ2ODUwODkz
+LC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4MTA4MjQ1NDYsLTE5OT
+A2OTc0MTUsMTQ0NTQ3OTgyMyw4NTk2NzcyNTMsNjgwMDE2MjE4
+XX0=
 -->
