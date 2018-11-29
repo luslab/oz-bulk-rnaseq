@@ -56,7 +56,7 @@ finish(desReport)
 **pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
 
 # Transformations
-Stastical exploration of multidimension data eg clustering & PCA works best when data has the same range of variance (homoskedastic). W
+Statistical exploration of multidimension data eg clustering & PCA, work best when data has the same range of variance across the range of means (homoskedastic). With RNA-seq raw counts the variance grows with the mean. DESe
 
 # DESeq2 Visualisation
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
@@ -560,9 +560,10 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc1MjY0MjUyLDIxMjM3NjYyMzIsLTQ2ND
-k0ODcxOSw5NDY4NTA4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODks
-MTgxMDgyNDU0NiwtMTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OT
-Y3NzI1Myw2ODAwMTYyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUs
-LTg3NjAyNTU0OSwtMTM5OTczNDQwNCwtMTExNDc2NzYyMF19
+eyJoaXN0b3J5IjpbMjAwMTIzMTEyNSwyMTIzNzY2MjMyLC00Nj
+Q5NDg3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5
+LDE4MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NT
+k2NzcyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1
+LC04NzYwMjU1NDksLTEzOTk3MzQ0MDQsLTExMTQ3Njc2MjBdfQ
+==
 -->
