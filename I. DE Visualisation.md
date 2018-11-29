@@ -140,6 +140,8 @@ ggplot(data, aes(PC1, PC2, color=condition, shape=name)) + geom_point(size=3) +
 	ylab(paste0("PC2: ",percentVar[2],"% variance"))
 ```
 
+
+
 ## Clustering
 
 Data quality testing is essential early in the analysis. Remove poor data that suffers from anormality.
@@ -583,11 +585,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI3NDAzODAxLC0xMTQ3NTI0NTcyLDE0Mj
-k5ODY3OTQsMTg2MzYyNTA1MSw5NDUwOTM0NjUsOTc5MDQ5MTEs
-LTk1MDAyMjM3LDIxMjM3NjYyMzIsLTQ2NDk0ODcxOSw5NDY4NT
-A4OTMsLTMzMDI5MDExOSw5NTkzMjc5ODksMTgxMDgyNDU0Niwt
-MTk5MDY5NzQxNSwxNDQ1NDc5ODIzLDg1OTY3NzI1Myw2ODAwMT
-YyMTgsMTMzMDYxNTcwOCw1MzAwMTAwMDUsLTg3NjAyNTU0OV19
+eyJoaXN0b3J5IjpbLTE3NzM3NjY3LDUyNzQwMzgwMSwtMTE0Nz
+UyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1
+LDk3OTA0OTExLC05NTAwMjIzNywyMTIzNzY2MjMyLC00NjQ5ND
+g3MTksOTQ2ODUwODkzLC0zMzAyOTAxMTksOTU5MzI3OTg5LDE4
+MTA4MjQ1NDYsLTE5OTA2OTc0MTUsMTQ0NTQ3OTgyMyw4NTk2Nz
+cyNTMsNjgwMDE2MjE4LDEzMzA2MTU3MDgsNTMwMDEwMDA1XX0=
 
 -->
