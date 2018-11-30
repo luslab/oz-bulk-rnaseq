@@ -246,8 +246,9 @@ http://leekgroup.github.io/regionReportSupp/DESeq2.html
 ```r
 library('ggplot2')
 library('regionReport')
-
-report <- DESeq2Report(dds, project = 'DESeq2 HTML report', intgroup = c('condition'), outdir = 'working_dir', output = 'index', theme = theme_bw())
+report <- DESeq2Report(dds, project = 'DESeq2 HTML report', 
+	intgroup = c('condition'), outdir = 'regionReport', 
+	output = 'index', theme = theme_bw())
 ```
 
 ## Glimma
@@ -599,11 +600,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg2MzIyNDcwLDg1MDQ4MjM1MCwtOTcyND
-IyMjIyLC0xMTQ0NzkzNjExLC0xMTQyNTU1NDkzLC0yMDYxMjY2
-OTA4LC02MjI4NTYxNTEsLTExNzM2NDczNSw1NDk2NjU0ODksNz
-k0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQx
-NzY0Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNy
-wxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1
-NDQ4Nzc0M119
+eyJoaXN0b3J5IjpbLTQyNzA2NzY4Nyw3ODYzMjI0NzAsODUwND
+gyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2MTEsLTExNDI1NTU0
+OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LD
+U0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MSwtMTY2NjEw
+MTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC
+0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0
+Njg0Mzg5XX0=
 -->
