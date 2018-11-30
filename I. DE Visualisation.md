@@ -243,6 +243,8 @@ These all work with DESeq2
 ## Glimma
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exporting-results-to-glimma
 
+http://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/Glimma.pdf
+
 Build interactive HTML pages summarising DE analysis (works with edgeR, DESeq2 & limma)
 
 ```r
@@ -578,11 +580,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMT
-E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
-MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
-g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
-ODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMS
-wtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1
-MDkzNDY1XX0=
+eyJoaXN0b3J5IjpbLTQ1ODUyNTk5LC0yMDYxMjY2OTA4LC02Mj
+I4NTYxNTEsLTExNzM2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5
+LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0Nz
+YyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0
+NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0My
+w1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYz
+NjI1MDUxXX0=
 -->
