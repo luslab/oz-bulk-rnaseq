@@ -228,8 +228,8 @@ res$symbol <- mapIds(Homo.sapiens,
 resOrdered <- res[order(res$padj),]
 head(resOrdered)
 
-#view the dataframe with ENSEMBL symbol 
-resData <- as.data.frame(res)
+#view the dataframe with ENSEMBL symbol external gene IDs
+resOrderedDF <- as.data.frame(resOrdered)
 col_symbol <- grep("symbol", names(resData))
 resData <- resData[, c(col_symbol, (1:ncol(resData))[-col_symbol])]
 names(resData)
@@ -545,11 +545,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxOTMxMDg1NCwtNjIyODU2MTUxLC0xMT
-czNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQx
-LC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3OD
-YwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4
-NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC
-0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUw
-OTM0NjVdfQ==
+eyJoaXN0b3J5IjpbLTYxODgwNDAyLC02MjI4NTYxNTEsLTExNz
+M2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2NDEs
+LTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4Nj
+A4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3
+OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLT
+ExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5
+MzQ2NV19
 -->
