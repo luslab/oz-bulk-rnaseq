@@ -33,34 +33,12 @@ java -Xmx750m -jar igv.jar
 4. Search most significantly DE genes reported from DE analysis output in IGV: 
 Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV search box
 
-# DESeq2 Visualisation
+# DESeq2 Visualisation Resources
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exploratory-analysis-and-visualization
 https://github.com/griffithlab/rnaseq_tutorial/wiki/DE-Visualization
 http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/rnaseqAnalysis.pdf
 
-
-# Results Visualisation Packages
-
-These all work with DESeq2:
-
-**ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
-
-```r
-desReport <- HTMLReport(shortName = 'RNAseq_analysis_with_DESeq2', 
-		title = 'RNA-seq analysis of differential expression using DESeq2',
-		reportDirectory = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/reports") 
-publish(res,desReport,name="df",countTable=mockRnaSeqData, pvalueCutoff=0.05,
-		conditions=conditions,annotation.db="org.Mm.eg.db", 
-		expName="deseq",reportDir="./reports", .modifyDF=makeDESeqDF)
-finish(desReport)
-```
-
-**regionReport.**  An HTML and PDF summary of the results with plots can also be generated using the  [regionReport](http://bioconductor.org/packages/regionReport)  package. The  _DESeq2Report_  function should be run on a  _DESeqDataSet_  that has been processed by the  _DESeq_  function. For more details see the manual page for  _DESeq2Report_  and an example vignette in the  [regionReport](http://bioconductor.org/packages/regionReport)  package.
-
-**Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
-
-**pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
 
 # Transformations
 Statistical exploration of multidimension data eg clustering & PCA, work best when data has the same range of variance across the range of means (homoskedastic). With RNA-seq raw counts the variance grows with the mean. DESeq2 uses **rlog** (regularise logarithm) & **vst** (variance stabilising transformation) to transform count data stabilising variance across the mean. 
@@ -235,18 +213,39 @@ resOrderedDF <- resOrderedDF[, c(col_symbol, (1:ncol(resOrderedDF))[-col_symbol]
 names(resOrderedDF)
 head(resOrderedDF)
 View(resOrderedDF)
-#can export to CSV file
+# can export top 100 DE genes to CSV file
 resOrderedDF_top100 <- as.data.frame(resOrdered)[seq_len(100),]
-write.csv(resOrderedDF, file="DESeq2_results.csv")
+write.csv(resOrderedDF_top100, file="DESeq2_results.csv")
 ```
 
-Biostars code to generate a clustered heatmap: 
-`curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
-This generates a PDF output using:
-`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > clustered-heatmap.pdf`
-Each column referrs to a sample. Red refers to upregulated genes & green downregulated.
+# Results Visualisation Packages
 
-![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
+These all work with DESeq2:
+
+**ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
+
+```r
+desReport <- HTMLReport(shortName = 'RNAseq_analysis_with_DESeq2', 
+		title = 'RNA-seq analysis of differential expression using DESeq2',
+		reportDirectory = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2/reports") 
+publish(res,desReport,name="df",countTable=mockRnaSeqData, pvalueCutoff=0.05,
+		conditions=conditions,annotation.db="org.Mm.eg.db", 
+		expName="deseq",reportDir="./reports", .modifyDF=makeDESeqDF)
+finish(desReport)
+```
+
+**regionReport.**  An HTML and PDF summary of the results with plots can also be generated using the  [regionReport](http://bioconductor.org/packages/regionReport)  package. The  _DESeq2Report_  function should be run on a  _DESeqDataSet_  that has been processed by the  _DESeq_  function. For more details see the manual page for  _DESeq2Report_  and an example vignette in the  [regionReport](http://bioconductor.org/packages/regionReport)  package.
+
+**Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
+
+**pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
+
+
+
+
+
+
+
 
 
 # Number of transcripts per gene
@@ -548,7 +547,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTM5OTY5ODksLTYyMjg1NjE1MSwtMT
+eyJoaXN0b3J5IjpbLTE5MDk4Mjg3NDYsLTYyMjg1NjE1MSwtMT
 E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
 MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
 g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
