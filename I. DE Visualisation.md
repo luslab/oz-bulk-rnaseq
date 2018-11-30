@@ -250,7 +250,7 @@ library('regionReport')
 report <- DESeq2Report(dds, project = 'DESeq2 HTML report', intgroup = c('condition'), outdir = 'working_dir', output = 'index', theme = theme_bw())
 ```
 
-Glimma
+##Glimma
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exporting-results-to-glimma
 
 http://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/Glimma.pdf
@@ -599,11 +599,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUwNDgyMzUwLC05NzI0MjIyMjIsLTExND
-Q3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1
-NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMT
-g5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4
-MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NT
-UsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUy
-NzQwMzgwMV19
+eyJoaXN0b3J5IjpbNDc2OTcxODU0LDg1MDQ4MjM1MCwtOTcyND
+IyMjIyLC0xMTQ0NzkzNjExLC0xMTQyNTU1NDkzLC0yMDYxMjY2
+OTA4LC02MjI4NTYxNTEsLTExNzM2NDczNSw1NDk2NjU0ODksNz
+k0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQx
+NzY0Nyw0NzYyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNy
+wxODI5MzM0NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1
+NDQ4Nzc0M119
 -->
