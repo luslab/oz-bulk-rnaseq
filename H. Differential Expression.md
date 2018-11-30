@@ -119,7 +119,11 @@ java -jar $EBROOTQORTS/QoRTs.jar mergeCounts --mergeFiles $QC --verbose $OUT
 ```
 Run QoRTS>DESeq2 analysis in R
 ```r
-# load library
+#Set working directory where counts expression files exist
+working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2"
+setwd(working_dir)
+
+# Load libraries
 library(QoRTs)
 library(edgeR)
 library(DESeq2)
@@ -127,12 +131,25 @@ library(ggplot2)
 library(gplots)
 library(GenomicRanges)
 library("vsn")
+library("pheatmap")
+library("ggrepel")
+library("apeglm")
+library("AnnotationDbi")
+library("Homo.sapiens")
+library("Glimma")
+library("ReportingTools")
+library("regionReport")
+library(topGO)
+library(GOstats)
+library(org.Mm.eg.db)
+
+
 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
                             calc.DESeq2 = TRUE, calc.edgeR = TRUE); 
 
-### Build the QoRTS QC plots.
+### Build the QC plots.
 # The makeMultiPlot.all can be used to automatically generate a full battery of multi-plot figures (as png): 
 makeMultiPlot.all(res, 
                   outfile.dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/summaryPlots/", 
@@ -154,17 +171,20 @@ directory <- "/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7
 sampleFiles <- paste0(decoder.bySample$qc.data.dir, "/QC.geneCounts.formatted.for.DESeq.txt.gz" ); 
 sampleCondition <- decoder.bySample$group.ID; 
 sampleName <- decoder.bySample$sample.ID; 
-sampleTable <- data.frame(sampleName = sampleName, 
-                          fileName = sampleFiles, 
-                          condition = sampleCondition); 
-dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, 
-                                  directory = directory, 
-                                  design = ~ condition); 
+sampleTable <- data.frame(sampleName = sampleName, fileName = sampleFiles, condition = sampleCondition); 
+dds <- DESeqDataSetFromHTSeqCount(sampleTable = sampleTable, directory = directory, design = ~ condition); 
+
 # Run & Print DESeq2 results
 dds
 dds <- DESeq(dds);
 res <- results(dds);
-res;
+res
+summary(res)
+resLFC <- lfcShrink(dds, coef="condition_VCP_vs_CTRL", type="apeglm")
+resLFC1 <- results(dds, lfcThreshold=1)
+table(resLFC1$padj < 0.1)
+
+
 
 # Sort the results data frame by the padj and foldChange columns. 
 sorted = res[with(res, order(padj,  -log2FoldChange)),  ]  
@@ -186,8 +206,9 @@ write.table(dt, file="/Volumes/lab-luscomben/working/oliver/projects/airals/expr
 vsd <- vst(dds, blind=FALSE)
 rld <- rlog(dds, blind=FALSE)
 # extract the matrix of normalised values
-head(assay(vsd), 3)
-head(assay(rld), 3)
+head(assay(vsd), 6)
+colData(vsd)
+head(assay(rld), 6)
 # Visually assess effect of transformation on variance. Plot SD of transformed data vs mean
 ntd <- normTransform(dds)
 meanSdPlot(assay(ntd))
@@ -421,11 +442,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMj
-A4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2
-MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2Nz
-cyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2
-LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1NywtND
-k3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0LDIwMzk3MDI4
-NjZdfQ==
+eyJoaXN0b3J5IjpbNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
+UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
+MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5Nz
+gwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcs
+LTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxOD
+E0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0
+XX0=
 -->
