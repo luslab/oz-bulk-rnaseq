@@ -260,6 +260,12 @@ glMDPlot(res.df, xval="log10MeanNormCount", yval="log2FoldChange", counts=counts
          samples=colnames(dds),
          status=res.df$padj < 0.1,
          display.columns=c("symbol", "entrez"))
+
+rnaseq.deseq2 <- DESeqDataSetFromMatrix( rnaseq$counts, colData=rnaseq$samples, design=~group) mcols(rnaseq.deseq2) <- DataFrame(mcols(rnaseq.deseq2), rnaseq$genes) 
+rnaseq.deseq2 <- DESeq(rnaseq.deseq2) 
+fit.deseq2 <- results(rnaseq.deseq2, contrast=c("group", "Smchd1-null", "WT")) 
+dt.deseq2 <- as.numeric(fit.deseq2$padj<0.05) 
+glMDPlot(fit.deseq2, status=dt.deseq2, counts=rnaseq, groups=groups, transform=FALSE, samples=colnames(rnaseq), anno=rnaseq$genes)
 ```
 
 ## Reporting Tools
@@ -577,11 +583,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLT
-YyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQw
-MzksMTg5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LD
-Q3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4Mjkz
-MzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3Nz
-QzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4
-NjM2MjUwNTFdfQ==
+eyJoaXN0b3J5IjpbLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLT
+IwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2
+NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MSwtMTY2NjEwMTQwMS
+wtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4
+MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mz
+g5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3Miwx
+NDI5OTg2Nzk0XX0=
 -->
