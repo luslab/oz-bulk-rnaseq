@@ -177,6 +177,16 @@ mat <- mat - rowMeans(mat)
 df <- cbind(as.data.frame(colData(vsd), decoder.bySample$sample.ID))
 pheatmap(mat, annotation_col=df, main = "Heatmap: Most significantly DE genes")
 ```
+
+Biostars code to generate a clustered heatmap: 
+`curl -O http://data.biostarhandbook.com/rnaseq/code/draw-heatmap.r`
+This generates a PDF output using:
+`cat normalise-matrix-deseq.txt | Rscript draw-heatmap.r > clustered-heatmap.pdf`
+Each column referrs to a sample. Red refers to upregulated genes & green downregulated.
+
+![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
+
+
 ## Annotate & export results:
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#annotating-and-exporting-results
 ```r
@@ -219,10 +229,21 @@ write.csv(resOrderedDF_top100, file="DESeq2_results.csv")
 ```
 
 # Results Visualisation Packages
+https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exporting-results-to-glimma
 
-These all work with DESeq2:
+ - **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
+ - **ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
 
-**ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
+
+These all work with DESeq2
+
+## Glimma
+
+
+#
+
+
+
 
 ```r
 desReport <- HTMLReport(shortName = 'RNAseq_analysis_with_DESeq2', 
@@ -236,7 +257,7 @@ finish(desReport)
 
 **regionReport.**  An HTML and PDF summary of the results with plots can also be generated using the  [regionReport](http://bioconductor.org/packages/regionReport)  package. The  _DESeq2Report_  function should be run on a  _DESeqDataSet_  that has been processed by the  _DESeq_  function. For more details see the manual page for  _DESeq2Report_  and an example vignette in the  [regionReport](http://bioconductor.org/packages/regionReport)  package.
 
-**Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
+
 
 **pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
 
@@ -547,11 +568,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDk4Mjg3NDYsLTYyMjg1NjE1MSwtMT
-E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
-MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
-g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
-ODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMS
-wtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1
-MDkzNDY1XX0=
+eyJoaXN0b3J5IjpbMTkzMTI0NjI5OCwtNjIyODU2MTUxLC0xMT
+czNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQx
+LC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3OD
+YwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4
+NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC
+0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUw
+OTM0NjVdfQ==
 -->
