@@ -230,11 +230,14 @@ head(resOrdered)
 
 #view the dataframe with ENSEMBL symbol external gene IDs
 resOrderedDF <- as.data.frame(resOrdered)
-col_symbol <- grep("symbol", names(resData))
-resData <- resData[, c(col_symbol, (1:ncol(resData))[-col_symbol])]
-names(resData)
-head(resData)
-View(resData)
+col_symbol <- grep("symbol", names(resOrderedDF))
+resOrderedDF <- resOrderedDF[, c(col_symbol, (1:ncol(resOrderedDF))[-col_symbol])]
+names(resOrderedDF)
+head(resOrderedDF)
+View(resOrderedDF)
+#can export to CSV file
+resOrderedDF_top100 <- as.data.frame(resOrdered)[seq_len(100),]
+write.csv(resOrderedDF, file="DESeq2_results.csv")
 ```
 
 Biostars code to generate a clustered heatmap: 
@@ -545,11 +548,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxODgwNDAyLC02MjI4NTYxNTEsLTExNz
-M2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2NDEs
-LTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4Nj
-A4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3
-OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLT
-ExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYzNjI1MDUxLDk0NTA5
-MzQ2NV19
+eyJoaXN0b3J5IjpbLTE0NTM5OTY5ODksLTYyMjg1NjE1MSwtMT
+E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
+MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
+g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
+ODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMS
+wtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1
+MDkzNDY1XX0=
 -->
