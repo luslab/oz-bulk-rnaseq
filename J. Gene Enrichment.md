@@ -1,7 +1,7 @@
 > # Gene Enrichment
 
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
-Now that you have identified the differentially expressed genes you need to identify their function.
+Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. We look to
 
 Functional Inference:
 1. Homology-based:
@@ -101,7 +101,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OT
-Q1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
-
+eyJoaXN0b3J5IjpbMTQ5NjkyNDEzMSwxMzIxMjE1OTA3LDk0Nz
+UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
+NTI4NTgxNTkzXX0=
 -->
