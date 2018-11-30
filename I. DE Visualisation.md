@@ -227,6 +227,14 @@ res$symbol <- mapIds(Homo.sapiens,
                      multiVals="first")
 resOrdered <- res[order(res$padj),]
 head(resOrdered)
+
+#view the dataframe with ENSEMBL symbol
+resData <- as.data.frame(res)
+col_symbol <- grep("symbol", names(resData))
+resData <- resData[, c(col_symbol, (1:ncol(resData))[-col_symbol])]
+names(resData)
+head(resData)
+View(resData)
 ```
 
 Biostars code to generate a clustered heatmap: 
@@ -537,11 +545,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDY0MDgwMTIsLTYyMjg1NjE1MSwtMT
-E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
-MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
-g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
-ODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMS
-wtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1
-MDkzNDY1XX0=
+eyJoaXN0b3J5IjpbLTc4NzMxODMwMiwtNjIyODU2MTUxLC0xMT
+czNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQx
+LC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3OD
+YwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4
+NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC
+0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUw
+OTM0NjVdfQ==
 -->
