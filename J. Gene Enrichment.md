@@ -13,10 +13,15 @@ Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
 
 # GO analysis
 
-Use reporting tools to write a table of GO analysis results to a HTML file. Select genes of interest > run hyperGTest > make GO report
+Use reporting tools to write a table of GO analysis results to a HTML file. 
+Select genes of interest > run hyperGTest > make GO report
 ```r
 library(GOstats)
+library(topGO)
 library(org.Mm.eg.db)
+
+# subset results table to only genes with suggicient
+
 tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
 selectedIDs <- rownames(tt$table)
 universeIDs <- rownames(mockRnaSeqData)
@@ -98,7 +103,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjcyMjM3NzUsMTMyMTIxNTkwNyw5ND
-c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
-MTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbMjA2MjM5MzA2MCwxMzIxMjE1OTA3LDk0Nz
+UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
+NTI4NTgxNTkzXX0=
 -->
