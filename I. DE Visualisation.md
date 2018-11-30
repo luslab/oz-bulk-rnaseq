@@ -240,7 +240,17 @@ http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.htm
 
 These all work with DESeq2
 
-## Glimma
+## regionReport
+http://leekgroup.github.io/regionReportSupp/DESeq2.html
+
+```r
+library('ggplot2')
+library('regionReport')
+
+report <- DESeq2Report(dds, project = 'DESeq2 HTML report', intgroup = c('condition'), outdir = 'working_dir', output = 'index', theme = theme_bw())
+```
+
+Glimma
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exporting-results-to-glimma
 
 http://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/Glimma.pdf
@@ -274,11 +284,7 @@ http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/
 
 library("ReportingTools")
 
-library('ggplot2')
-library('regionReport')
-report <- DESeq2Report(dds, project = 'DESeq2 HTML report',
-                       intgroup = c('condition'), outdir = 'working_dir',
-                       output = 'index', theme = theme_bw())
+
 
 ```r
 desReport <- HTMLReport(shortName = 'RNAseq_analysis_with_DESeq2', 
@@ -593,7 +599,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTEwNzczODgyLC05NzI0MjIyMjIsLTExND
+eyJoaXN0b3J5IjpbODUwNDgyMzUwLC05NzI0MjIyMjIsLTExND
 Q3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1
 NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMT
 g5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4
