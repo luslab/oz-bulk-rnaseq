@@ -56,18 +56,22 @@ myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize =
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
 
-
-
-
-tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
-selectedIDs <- rownames(tt$table)
-universeIDs <- rownames(mockRnaSeqData)
-goParams <- new("GOHyperGParams", + geneIds = selectedIDs, + universeGeneIds = universeIDs, + annotation ="org.Mm.eg" , + ontology = "MF", + pvalueCutoff = 0.01, + conditional = TRUE, + testDirection = "over")
-goResults <- hyperGTest(goParams)
-
-goReport <- HTMLReport(shortName = 'go_analysis_rnaseq', + title = "GO analysis of mockRnaSeqData", + reportDirectory = "./reports")
-publish(goResults, goReport, selectedIDs=selectedIDs, annotation.db="org.Mm.eg", + pvalueCutoff= 0.05)
-finish(goReport)
+### TEST DOWNREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
 ```
 
 # BLAST
@@ -140,8 +144,8 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1NjE0MjE3MSwtMTE1MjQwNjMsMTc0ND
-Q3NjUxOCwtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0NzUyMDQ4
-OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwxNTI4NT
-gxNTkzXX0=
+eyJoaXN0b3J5IjpbODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNT
+I0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkw
+Nyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMD
+E0MzAsMTUyODU4MTU5M119
 -->
