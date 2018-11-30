@@ -25,6 +25,8 @@ resTested <- resLFC1[ !is.na(resLFC1$padj), ]
 # construct binary variable for UP or DOWN regulated
 genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
 names(genelistUp) <- rownames(resTested)
+
+### Test UPREGULATED GENES
 #Test Biological Processes BP sub-ontology
 myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
    annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
@@ -40,6 +42,11 @@ myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize =
    annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
+
+
+### Test DOWNREGULATED GENES
+
+
 
 
 
@@ -124,7 +131,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ2MzU5MjgxLC0xNzEzNDgyMjY4LDEzMj
-EyMTU5MDcsOTQ3NTIwNDg4LDc5Nzk0NTAxNyw0ODg0NTc3Nzcs
-LTk0MjAxNDMwLDE1Mjg1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbMTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMz
+IxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3
+LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
 -->
