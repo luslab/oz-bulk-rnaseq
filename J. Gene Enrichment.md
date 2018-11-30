@@ -17,36 +17,44 @@ https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topG
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
 ```r
-library(GOstats)
+### GO analysis
 library(topGO)
+library(GOstats)
+library(goseq)
 library(org.Mm.eg.db)
-
 # subset results table to only genes with sufficient read coverage
 resTested <- resLFC1[ !is.na(resLFC1$padj), ]
-# construct binary variable for UP or DOWN regulated
+# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
+temp=gsub("\\..*","",row.names(resTested))
+#set the temp as the new rownames
+rownames(resTested) <- temp
+# construct binary variable for UP and DOWN regulated
 genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
 names(genelistUp) <- rownames(resTested)
+genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
+names(genelistDown) <- rownames(resTested)
+
+genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
+names(genelistUp) <- rownames(resTested)
+genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
+names(genelistDown) <- rownames(resTested)
 
 ### Test UPREGULATED GENES
 #Test Biological Processes BP sub-ontology
 myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
-   annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
 #Test Cellular Compartment (CC) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
-   annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
 #Test Molecular function (MF) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
-   annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
-
-
-### Test DOWNREGULATED GENES
-
 
 
 
@@ -132,7 +140,8 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MT
-M0ODIyNjgsMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3
-LDQ4ODQ1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbMTg1NjE0MjE3MSwtMTE1MjQwNjMsMTc0ND
+Q3NjUxOCwtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0NzUyMDQ4
+OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwxNTI4NT
+gxNTkzXX0=
 -->
