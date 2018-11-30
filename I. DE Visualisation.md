@@ -229,6 +229,7 @@ write.csv(resOrderedDF_top100, file="DESeq2_results.csv")
 ```
 
 # Results Visualisation Packages
+http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#rich-visualization-and-reporting-of-results
 
  - **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
  - **ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
@@ -240,6 +241,8 @@ These all work with DESeq2
 
 ## Glimma
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exporting-results-to-glimma
+
+Build interactive HTML pages summarising DE analysis (works with edgeR, DESeq2 & limma)
 
 
 
@@ -558,7 +561,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4MjkzOTY2OCwtNjIyODU2MTUxLC0xMT
+eyJoaXN0b3J5IjpbLTY3MDYyNTc1MiwtNjIyODU2MTUxLC0xMT
 czNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQx
 LC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3OD
 YwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4
