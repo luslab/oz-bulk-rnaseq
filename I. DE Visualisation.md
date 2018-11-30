@@ -269,6 +269,8 @@ glMDPlot(fit.deseq2, status=dt.deseq2, counts=rnaseq, groups=groups, transform=F
 ```
 
 ## Reporting Tools
+http://bioconductor.org/packages/release/bioc/html/ReportingTools.html
+
 
 ```r
 desReport <- HTMLReport(shortName = 'RNAseq_analysis_with_DESeq2', 
@@ -583,11 +585,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLT
-IwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2
-NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MSwtMTY2NjEwMTQwMS
-wtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4
-MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mz
-g5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3Miwx
-NDI5OTg2Nzk0XX0=
+eyJoaXN0b3J5IjpbMzQ2NTU2NTMxLC0xMTQ0NzkzNjExLC0xMT
+QyNTU1NDkzLC0yMDYxMjY2OTA4LC02MjI4NTYxNTEsLTExNzM2
+NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2NDEsLT
+E2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMTc4NjA4
+ODYxOCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcwMDg3OT
+AsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0Myw1Mjc0MDM4MDEsLTEx
+NDc1MjQ1NzJdfQ==
 -->
