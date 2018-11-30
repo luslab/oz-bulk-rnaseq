@@ -22,10 +22,13 @@ library(org.Mm.eg.db)
 
 # subset results table to only genes with sufficient read coverage
 resTested <- resLFC1[ !is.na(resLFC1$padj), ]
-# construct 
+# construct binary variable for UP or DOWN regulated
 genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
 names(genelistUp) <- rownames(resTested)
-```
+#prepare data structure to test
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
+   annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+# 
 
 
 tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
@@ -109,7 +112,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMTk4NjAxNSwtMTcxMzQ4MjI2OCwxMz
-IxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3
-LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbODIzMDY1NDcyLC0xNzEzNDgyMjY4LDEzMj
+EyMTU5MDcsOTQ3NTIwNDg4LDc5Nzk0NTAxNyw0ODg0NTc3Nzcs
+LTk0MjAxNDMwLDE1Mjg1ODE1OTNdfQ==
 -->
