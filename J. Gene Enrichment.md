@@ -22,6 +22,10 @@ library(org.Mm.eg.db)
 
 # subset results table to only genes with sufficient read coverage
 resTested <- resLFC1[ !is.na(resLFC1$padj), ]
+# construct 
+genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
+names(genelistUp) <- rownames(resTested)
+```
 
 
 tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
@@ -105,7 +109,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5ND
-c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
-MTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbMTMwMTk4NjAxNSwtMTcxMzQ4MjI2OCwxMz
+IxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3
+LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
 -->
