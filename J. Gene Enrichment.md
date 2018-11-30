@@ -12,6 +12,7 @@ Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
 
 
 # GO analysis
+https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
@@ -131,7 +132,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMz
-IxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3
-LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MT
+M0ODIyNjgsMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3
+LDQ4ODQ1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
 -->
