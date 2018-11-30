@@ -228,7 +228,7 @@ res$symbol <- mapIds(Homo.sapiens,
 resOrdered <- res[order(res$padj),]
 head(resOrdered)
 
-#view the dataframe with ENSEMBL symbol
+#view the dataframe with ENSEMBL symbol 
 resData <- as.data.frame(res)
 col_symbol <- grep("symbol", names(resData))
 resData <- resData[, c(col_symbol, (1:ncol(resData))[-col_symbol])]
@@ -545,7 +545,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4NzMxODMwMiwtNjIyODU2MTUxLC0xMT
+eyJoaXN0b3J5IjpbMTgxOTMxMDg1NCwtNjIyODU2MTUxLC0xMT
 czNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQx
 LC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3OD
 YwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4
