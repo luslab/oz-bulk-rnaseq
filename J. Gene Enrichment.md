@@ -25,10 +25,15 @@ resTested <- resLFC1[ !is.na(resLFC1$padj), ]
 # construct binary variable for UP or DOWN regulated
 genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
 names(genelistUp) <- rownames(resTested)
-#prepare data structure to test
+#T
 myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
    annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
-# 
+# run topGO
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+
+
+
 
 
 tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
@@ -112,7 +117,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIzMDY1NDcyLC0xNzEzNDgyMjY4LDEzMj
-EyMTU5MDcsOTQ3NTIwNDg4LDc5Nzk0NTAxNyw0ODg0NTc3Nzcs
-LTk0MjAxNDMwLDE1Mjg1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbLTE0NjY4MDM4NTYsLTE3MTM0ODIyNjgsMT
+MyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3
+NywtOTQyMDE0MzAsMTUyODU4MTU5M119
 -->
