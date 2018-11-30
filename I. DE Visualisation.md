@@ -2,6 +2,21 @@
 
 
 > # Visualise Differential Expression
+library(QoRTs)
+library(edgeR)
+library(DESeq2)
+library(ggplot2)
+library(gplots)
+library(GenomicRanges)
+library("vsn")
+library("pheatmap")
+library("ggrepel")
+library("apeglm")
+library("AnnotationDbi")
+library("Homo.sapiens")
+library("Glimma")
+library("ReportingTools")
+library("regionReport")
 
 There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown etc). 
 
@@ -49,9 +64,6 @@ Start with using an automated visualisation package as it autocreates key plots 
  - **regionReport.**  An HTML and PDF summary of the results with plots can also be generated using the  [regionReport](http://bioconductor.org/packages/regionReport)  package. The  _DESeq2Report_  function should be run on a  _DESeqDataSet_  that has been processed by the  _DESeq_  function. For more details see the manual page for  _DESeq2Report_  and an example vignette in the  [regionReport](http://bioconductor.org/packages/regionReport)  package.
  - **pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
 
-
-
-
 ## regionReport
 http://leekgroup.github.io/regionReportSupp/DESeq2.html
 
@@ -63,6 +75,8 @@ report <- DESeq2Report(dds, project = 'DESeq2 HTML report',
 	output = 'index', theme = theme_bw())
 ```
 
+Now create plots manually
+
 
 # Transformations
 Statistical exploration of multidimension data eg clustering & PCA, work best when data has the same range of variance across the range of means (homoskedastic). With RNA-seq raw counts the variance grows with the mean. DESeq2 uses **rlog** (regularise logarithm) & **vst** (variance stabilising transformation) to transform count data stabilising variance across the mean. 
@@ -72,19 +86,6 @@ Continue in R from DE analysis using QoRTS > DESeq2:
 #Set working directory where counts expression files exist
 working_dir = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/DESeq2"
 setwd(working_dir)
-
-# Load libraries
-library(QoRTs)
-library(DESeq2)
-library(ggplot2)
-library(gplots)
-library(GenomicRanges)
-library("vsn")
-library("pheatmap")
-library("apeglm")
-library("AnnotationDbi")
-library("Homo.sapiens")
-library("Glimma")
 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
@@ -252,6 +253,11 @@ View(resOrderedDF)
 resOrderedDF_top100 <- as.data.frame(resOrdered)[seq_len(100),]
 write.csv(resOrderedDF_top100, file="DESeq2_results.csv")
 ```
+
+
+
+
+
 
 
 # Number of transcripts per gene
@@ -553,11 +559,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjE2NzY2MTksLTQyNzA2NzY4Nyw3OD
-YzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2
-MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MS
-wtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2
-NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOC
-wxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAw
-NzAwODc5MF19
+eyJoaXN0b3J5IjpbLTU5MzYzMTUzMCwtNDI3MDY3Njg3LDc4Nj
+MyMjQ3MCw4NTA0ODIzNTAsLTk3MjQyMjIyMiwtMTE0NDc5MzYx
+MSwtMTE0MjU1NTQ5MywtMjA2MTI2NjkwOCwtNjIyODU2MTUxLC
+0xMTczNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0
+NjQxLC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LD
+E3ODYwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3
+MDA4NzkwXX0=
 -->
