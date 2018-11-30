@@ -458,30 +458,6 @@ dir()
 ```
 
 
-
-# cummeRbund
-
-Automatically generates many of the commonly used data visualisations including:
-- distribution plots
-- correlation plots
-- MA plots
-- Volcano plots
-- Clustering, PCA & MDS plots (global relationships between conditions)
-- Heatmaps
-- gene/transcript level plots showing transcript structures & expression levels 
-
-Input the output from Cufflinks, Cuffmerge & Cuffdiff
-
-# Explore Read Count Patterns
-
-
-
-
-Assess RNA-seq expression patterns with:
-1. Pairwise Correlation
-2. Hierarchical Clustering
-3. Principal Component Analysis
-
 # Pairwise correlation
 
 - Pearson correlation coefficient, r is used to assess similarity between RNA-seq samples in a pair wise fashion.
@@ -530,40 +506,22 @@ Check data to ensure variable have similar variance (homoskedastic behaviour):
 `msd_plot$gg + ggtitle ("sequencing depth normalized log2 (read counts)") + ylab("standard deviation")`
 y-axis shows variance of read counts. Any rise in the best fit line indicates an increase in variance at that read count length (x axis) - if to left = shorter count lengths; to right = long count lengths.
 
-# Histogram
-
-hist (DGE. results $ pvalue, col = " grey ", border = " white ", xlab = "", ylab = "", main = " frequencies of p- values ") # histogram of p-valus
 
 
 
 
-# Variance Shrinkage
-
-`DSeq2` and `edgeR` both offer means to reduce the variance using the dispersion mean trend using the entire dataset as a reference.
-
-Low read counts that are highly variable will be assigned more homogenous read estimates --> variance resembles the majority of the genes and hopefully has a more stable variance
-
-Regularise log-transformed values:
-`DSeq.rlog = rlog(DESeq.ds, blind = TRUE)` #can set rlog to FALSE if there are large differences in a large proportion of the genes to avoid overestimating the dispersion
-`rlog.norm.counts = assay(DESeq.rlog)`
-
-`msd_plot = meanSdPlot(rlog.norm.counts, ranks = FALSE, plot = FALSE)` #show data on original scale and dont print plot
-`msd_plot$gg + ggtitle("rlog-transformed read counts") + ylab("standard deviation)`
 
 
-**SVD (singular value decomposition) analysis**
-
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 # Ballgown Visualisation
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5MzYzMTUzMCwtNDI3MDY3Njg3LDc4Nj
-MyMjQ3MCw4NTA0ODIzNTAsLTk3MjQyMjIyMiwtMTE0NDc5MzYx
-MSwtMTE0MjU1NTQ5MywtMjA2MTI2NjkwOCwtNjIyODU2MTUxLC
-0xMTczNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0
-NjQxLC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LD
-E3ODYwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3
-MDA4NzkwXX0=
+eyJoaXN0b3J5IjpbLTE5MTY3MjEwMjYsLTQyNzA2NzY4Nyw3OD
+YzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2
+MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MS
+wtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2
+NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOC
+wxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAw
+NzAwODc5MF19
 -->
