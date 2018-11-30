@@ -20,7 +20,9 @@ library(GOstats)
 library(topGO)
 library(org.Mm.eg.db)
 
-# subset results table to only genes with suggicient
+# subset results table to only genes with sufficient read coverage
+resTested <- resLFC1[ !is.na(resLFC1$padj), ]
+
 
 tt <- topTags(edgeR.de, n = 1000, adjust.method = 'BH', sort.by = 'p.value')
 selectedIDs <- rownames(tt$table)
@@ -103,7 +105,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MjM5MzA2MCwxMzIxMjE1OTA3LDk0Nz
-UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
-NTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5ND
+c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
+MTUyODU4MTU5M119
 -->
