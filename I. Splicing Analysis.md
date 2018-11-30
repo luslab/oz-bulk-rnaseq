@@ -46,7 +46,11 @@ To **assess differential expression of exons**, create an annotation file where 
 
   **3' UTR isoforms analysis**
 -   I have written an entire pipeline for this which I can explain and share with you scripts when needed. But basically I extract genome-wide coverage using bedtools, then extract regions of continuous coverage along genome, then intersect these with Ensembl annotated regions, extend 3' UTR. Finally to annotate all alternative 3' UTR isoforms I then run an algo which identifies shifts in coverage along 3' UTR which are expected to occur at PAS sites.
+
+**SVD (singular value decomposition) analysis**
+
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNT
-QyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMT
+Q2MTg3MTcsLTU0MjMwODM2OV19
 -->
