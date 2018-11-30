@@ -254,10 +254,7 @@ res.df$log10MeanNormCount <- log10(res.df$baseMean)
 idx <- rowSums(counts(dds)) > 0
 res.df <- res.df[idx,]
 res.df$padj[is.na(res.df$padj)] <- 1
-glMDPlot(res.df,
-         xval="log10MeanNormCount",
-         yval="log2FoldChange",
-         counts=counts(dds)[idx,],
+glMDPlot(res.df, xval="log10MeanNormCount", yval="log2FoldChange", counts=counts(dds)[idx,],
          anno=data.frame(GeneID=rownames(dds)[idx]),
          groups=dds$dex,
          samples=colnames(dds),
@@ -580,11 +577,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1ODUyNTk5LC0yMDYxMjY2OTA4LC02Mj
-I4NTYxNTEsLTExNzM2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5
-LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0Nz
-YyODMyMTgsMTc4NjA4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0
-NDU1LDEwMDcwMDg3OTAsLTE0NDY4NDM4OSwtMTQ1NDQ4Nzc0My
-w1Mjc0MDM4MDEsLTExNDc1MjQ1NzIsMTQyOTk4Njc5NCwxODYz
-NjI1MDUxXX0=
+eyJoaXN0b3J5IjpbLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLT
+YyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQw
+MzksMTg5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LD
+Q3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4Mjkz
+MzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3Nz
+QzLDUyNzQwMzgwMSwtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4
+NjM2MjUwNTFdfQ==
 -->
