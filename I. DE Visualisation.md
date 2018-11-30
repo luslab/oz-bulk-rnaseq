@@ -250,7 +250,7 @@ library('regionReport')
 report <- DESeq2Report(dds, project = 'DESeq2 HTML report', intgroup = c('condition'), outdir = 'working_dir', output = 'index', theme = theme_bw())
 ```
 
-##Glimma
+## Glimma
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exporting-results-to-glimma
 
 http://bioconductor.org/packages/release/bioc/vignettes/Glimma/inst/doc/Glimma.pdf
@@ -599,7 +599,7 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc2OTcxODU0LDg1MDQ4MjM1MCwtOTcyND
+eyJoaXN0b3J5IjpbNzg2MzIyNDcwLDg1MDQ4MjM1MCwtOTcyND
 IyMjIyLC0xMTQ0NzkzNjExLC0xMTQyNTU1NDkzLC0yMDYxMjY2
 OTA4LC02MjI4NTYxNTEsLTExNzM2NDczNSw1NDk2NjU0ODksNz
 k0MzM0MDM5LDE4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQx
