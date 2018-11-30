@@ -213,6 +213,26 @@ Each column referrs to a sample. Red refers to upregulated genes & green downreg
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 
 
+# Hierarchical clustering
+- separate samples in an **unsupervised** fashion to see if samples of different conditions differ more than replicates within the same condition.
+- pairwise compairsons of individual samples, grouped into "neighbourhoods" of similar samples.
+- hierachical clustering analyses require decisions on:
+	- how the disimilarity between pairs should be calculated?
+	- how the disimilarity be used for clustering?
+		- Pearson correlation coefficient
+		- Euclidean distance (distance between two vectors) - calculate the distance using `linkage` function (complete, average, or single intercluster distance - complete intercluster distance is best and single IC distance is worst).
+
+Can visualise DE genes as a Dendogram or Heatmap
+
+## Dendogram
+Genes are sorted by adjusted p-value. Colours represent read counts.
+- clustures obtained by cutting dendoram at a level where the jump between two nodes is large
+- connected components form individual clusters
+- clustering algorithms differ and there is no concensus on which is optimal
+in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
+
+
+
 ## Annotate & export results:
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#annotating-and-exporting-results
 ```r
@@ -463,65 +483,12 @@ dir()
 - Pearson correlation coefficient, r is used to assess similarity between RNA-seq samples in a pair wise fashion.
 - ENCODE guideline advises **>0.9** correlation should achieved for mRNA transcripts.
 - in R use `cor( )` function
-
-# Hierarchical clustering
-- separate samples in an **unsupervised** fashion to see if samples of different conditions differ more than replicates within the same condition.
-- pairwise compairsons of individual samples, grouped into "neighbourhoods" of similar samples.
-- hierachical clustering analyses require decisions on:
-	- how the disimilarity between pairs should be calculated?
-	- how the disimilarity be used for clustering?
-		- Pearson correlation coefficient
-		- Euclidean distance (distance between two vectors) - calculate the distance using `linkage` function (complete, average, or single intercluster distance - complete intercluster distance is best and single IC distance is worst).
-
-Can visualise DE genes as a Dendogram or Heatmap
-
-
-
-## Dendogram
-Genes are sorted by adjusted p-value. Colours represent read counts.
-- clustures obtained by cutting dendoram at a level where the jump between two nodes is large
-- connected components form individual clusters
-- clustering algorithms differ and there is no concensus on which is optimal
-in R use `cor( )` `as.dist( )` and `hclust( )` to generate a dendogram
-
-
-
-
-![enter image description here](http://www.sthda.com/english/sthda-upload/figures/cluster-analysis/009c-divisive-hierarchical-clustering-compute-diana-1.png)
-
-
-
-# Explore normalised read counts
-`par(mfrow = c(2, 1))` #plot the 2 image on top of each other
-`boxplot(counts.sf_normalized, notch = TRUE, main = "untransformed read counts", ylab = "read counts")` #plots the non-logged boxplots
-`boxplot(log.norm.counts, notch = TRUE, main = "log2 - transformed read counts", ylab = "log2(read counts)")` #plots the logged boxplots
-
-Plot replicate results in a pairwise manner
-`plot(log.norm.counts[ ,1:2], cex =.1, main = "Normalized log2 (read counts)")`
-
-Check data to ensure variable have similar variance (homoskedastic behaviour):
-`library(vsn)`
-`library(ggplot2)`
-`msd_plot = meanSdPlot(log.norm.counts, ranks =FALSE , plot = FALSE)` #plot mean against SD
-`msd_plot$gg + ggtitle ("sequencing depth normalized log2 (read counts)") + ylab("standard deviation")`
-y-axis shows variance of read counts. Any rise in the best fit line indicates an increase in variance at that read count length (x axis) - if to left = shorter count lengths; to right = long count lengths.
-
-
-
-
-
-
-
-
-# Ballgown Visualisation
-
-https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTY3MjEwMjYsLTQyNzA2NzY4Nyw3OD
-YzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2
-MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MS
-wtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2
-NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOC
-wxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAw
-NzAwODc5MF19
+eyJoaXN0b3J5IjpbNDA5MDQ1MDI1LC00MjcwNjc2ODcsNzg2Mz
+IyNDcwLDg1MDQ4MjM1MCwtOTcyNDIyMjIyLC0xMTQ0NzkzNjEx
+LC0xMTQyNTU1NDkzLC0yMDYxMjY2OTA4LC02MjI4NTYxNTEsLT
+ExNzM2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2
+NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMT
+c4NjA4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcw
+MDg3OTBdfQ==
 -->
