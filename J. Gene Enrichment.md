@@ -1,15 +1,8 @@
 > # Gene Enrichment
 
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
-Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. We look to
+Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
 
-Functional Inference:
-1. Homology-based:
-- compare sequence similarity with known database of sequence
-
-2. Sequence-composition:
-- Predict function of sequence using machine learning for pattern recognition (neural networks & markov models)
-- 
 # GO analysis
 
 Use reporting tools to write a table of GO analysis results to a HTML file. Select genes of interest > run hyperGTest > make GO report
@@ -101,7 +94,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NjkyNDEzMSwxMzIxMjE1OTA3LDk0Nz
+eyJoaXN0b3J5IjpbLTgyMDY0Nzg1MywxMzIxMjE1OTA3LDk0Nz
 UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
 NTI4NTgxNTkzXX0=
 -->
