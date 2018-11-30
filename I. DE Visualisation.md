@@ -274,6 +274,11 @@ http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/
 
 library("ReportingTools")
 
+library('ggplot2')
+library('regionReport')
+report <- DESeq2Report(dds, project = 'DESeq2 HTML report',
+                       intgroup = c('condition'), outdir = 'working_dir',
+                       output = 'index', theme = theme_bw())
 
 ```r
 desReport <- HTMLReport(shortName = 'RNAseq_analysis_with_DESeq2', 
@@ -588,11 +593,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MjQyMjIyMiwtMTE0NDc5MzYxMSwtMT
-E0MjU1NTQ5MywtMjA2MTI2NjkwOCwtNjIyODU2MTUxLC0xMTcz
-NjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQxLC
-0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYw
-ODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4Nz
-kwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC0x
-MTQ3NTI0NTcyXX0=
+eyJoaXN0b3J5IjpbNTEwNzczODgyLC05NzI0MjIyMjIsLTExND
+Q3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1
+NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMT
+g5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4
+MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NT
+UsMTAwNzAwODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUy
+NzQwMzgwMV19
 -->
