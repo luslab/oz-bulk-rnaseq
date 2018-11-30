@@ -3,6 +3,14 @@
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
 Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
 
+Gene Ontology (GO) is a vocabulary used to describe genes functions with respect to 3 aspects:
+- Cellular Component (CC): cellular location where product exhibits its effect
+- Molecular function (MF): How does gene work?
+- Biological Process (BP): What is the gene product purpose?
+
+Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
+
+
 # GO analysis
 
 Use reporting tools to write a table of GO analysis results to a HTML file. Select genes of interest > run hyperGTest > make GO report
@@ -33,13 +41,9 @@ Gives information on Function & GO on Proteins & Genes.
 There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
 To search a defined sequence term use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
 
-# **[Gene Ontology](http://geneontology.org/)**
-Connects each gene to one or more functions.
-3 sub-ontologies for each gene product:
-- Cellular Component (CC): cellular location where product exhibits its effect
-- Molecular function (MF): How does gene work?
-- Biological Process (BP): What is the gene product purpose?
-Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
+**[Gene Ontology](http://geneontology.org/)**
+
+
 
 GO Download page: http://geneontology.org/page/download-annotations
 
@@ -94,7 +98,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyMDY0Nzg1MywxMzIxMjE1OTA3LDk0Nz
-UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
-NTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbLTE1NjcyMjM3NzUsMTMyMTIxNTkwNyw5ND
+c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
+MTUyODU4MTU5M119
 -->
