@@ -204,20 +204,29 @@ https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnase
 ```r
 library("AnnotationDbi")
 library("Homo.sapiens")
+### Annotation
 columns(Homo.sapiens)
-
+# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/
+tmp=gsub("\\..*","",row.names(res))
 # use mapIds to add columns to results table. Use Ensebml nomenclature. 
-res$symbol <- mapIds(Homo.sapiens, keys=row.names(res), column="SYMBOL", keytype="ENSEMBL", multiVals="first")
-
-y$genes$entrez <- res$entrez
-
 res$symbol <- mapIds(Homo.sapiens,
-                     keys=row.names(res),
+                     keys=tmp,
+                     column="SYMBOL",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+# ignore the error: 'select()' returned 1:many mapping between keys and columns
+res$entrez <- mapIds(Homo.sapiens,
+                     keys=tmp,
+                     column="ENTREZID",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+res$symbol <- mapIds(Homo.sapiens,
+                     keys=tmp,
                      column="GENENAME",
                      keytype="ENSEMBL",
                      multiVals="first")
-
-
+resOrdered <- res[order(res$padj),]
+head(resOrdered)
 ```
 
 Biostars code to generate a clustered heatmap: 
@@ -528,11 +537,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OT
-Y2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MSwtMTY2NjEwMTQw
-MSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOT
-A4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAwODc5MCwtMTQ0Njg0
-Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMSwtMTE0NzUyNDU3Mi
-wxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1MDkzNDY1LDk3OTA0
-OTExXX0=
+eyJoaXN0b3J5IjpbLTEzMDY0MDgwMTIsLTYyMjg1NjE1MSwtMT
+E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
+MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
+g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
+ODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMS
+wtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1
+MDkzNDY1XX0=
 -->
