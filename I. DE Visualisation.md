@@ -60,6 +60,7 @@ library("pheatmap")
 library("apeglm")
 library("AnnotationDbi")
 library("Homo.sapiens")
+library("Glimma")
 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
@@ -244,7 +245,23 @@ https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnase
 
 Build interactive HTML pages summarising DE analysis (works with edgeR, DESeq2 & limma)
 
-
+```r
+library("Glimma")
+res.df <- as.data.frame(res)
+res.df$log10MeanNormCount <- log10(res.df$baseMean)
+idx <- rowSums(counts(dds)) > 0
+res.df <- res.df[idx,]
+res.df$padj[is.na(res.df$padj)] <- 1
+glMDPlot(res.df,
+         xval="log10MeanNormCount",
+         yval="log2FoldChange",
+         counts=counts(dds)[idx,],
+         anno=data.frame(GeneID=rownames(dds)[idx]),
+         groups=dds$dex,
+         samples=colnames(dds),
+         status=res.df$padj < 0.1,
+         display.columns=c("symbol", "entrez"))
+```
 
 ## Reporting Tools
 
@@ -561,11 +578,11 @@ Regularise log-transformed values:
 
 https://github.com/griffithlab/rnaseq_tutorial/blob/master/scripts/Tutorial_Part2_ballgown.R
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MDYyNTc1MiwtNjIyODU2MTUxLC0xMT
-czNjQ3MzUsNTQ5NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQx
-LC0xNjY2MTAxNDAxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3OD
-YwODg2MTgsLTE5MDgyNDk0MTcsMTgyOTMzNDQ1NSwxMDA3MDA4
-NzkwLC0xNDQ2ODQzODksLTE0NTQ0ODc3NDMsNTI3NDAzODAxLC
-0xMTQ3NTI0NTcyLDE0Mjk5ODY3OTQsMTg2MzYyNTA1MSw5NDUw
-OTM0NjVdfQ==
+eyJoaXN0b3J5IjpbLTIwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMT
+E3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0
+MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNz
+g2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAwNzAw
+ODc5MCwtMTQ0Njg0Mzg5LC0xNDU0NDg3NzQzLDUyNzQwMzgwMS
+wtMTE0NzUyNDU3MiwxNDI5OTg2Nzk0LDE4NjM2MjUwNTEsOTQ1
+MDkzNDY1XX0=
 -->
