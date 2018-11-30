@@ -213,7 +213,7 @@ Each column referrs to a sample. Red refers to upregulated genes & green downreg
 ![enter image description here](http://bioinfo.cipf.es/babelomicstutorial/_media/images:differential_expression_example:heatmap.png)
 
 
-# Hierarchical clustering
+## Hierarchical clustering
 - separate samples in an **unsupervised** fashion to see if samples of different conditions differ more than replicates within the same condition.
 - pairwise compairsons of individual samples, grouped into "neighbourhoods" of similar samples.
 - hierachical clustering analyses require decisions on:
@@ -325,6 +325,56 @@ min_nonzero=1
 data_columns=c(1:6)
 short_names=c("UHR_1","UHR_2","UHR_3","HBR_1","HBR_2","HBR_3")
 ```
+
+# DE Histogram
+```r
+
+#### Plot #9 - View the distribution of differential expression values as a histogram
+#Display only those that are significant according to Ballgown
+sig=which(results_genes$pval<0.05)
+results_genes[,"de"] = log2(results_genes[,"fc"])
+hist(results_genes[sig,"de"], breaks=50, col="seagreen", xlab="log2(Fold change) UHR vs HBR", main="Distribution of differential expression values")
+abline(v=-2, col="black", lwd=2, lty=2)
+abline(v=2, col="black", lwd=2, lty=2)
+legend("topleft", "Fold-change > 4", lwd=2, lty=2)
+
+#### Plot #10 - Display the grand expression values from UHR and HBR and mark those that are significantly differentially expressed
+gene_expression[,"UHR"]=apply(gene_expression[,c(1:3)], 1, mean)
+gene_expression[,"HBR"]=apply(gene_expression[,c(4:6)], 1, mean)
+x=log2(gene_expression[,"UHR"]+min_nonzero)
+y=log2(gene_expression[,"HBR"]+min_nonzero)
+plot(x=x, y=y, pch=16, cex=0.25, xlab="UHR FPKM (log2)", ylab="HBR FPKM (log2)", main="UHR vs HBR FPKMs")
+abline(a=0, b=1)
+xsig=x[sig]
+ysig=y[sig]
+points(x=xsig, y=ysig, col="magenta", pch=16, cex=0.5)
+legend("topleft", "Significant", col="magenta", pch=16)
+
+#Get the gene symbols for the top N (according to corrected p-value) and display them on the plot
+topn = order(abs(results_genes[sig,"fc"]), decreasing=TRUE)[1:25]
+topn = order(results_genes[sig,"qval"])[1:25]
+text(x[topn], y[topn], results_genes[topn,"gene_name"], col="black", cex=0.75, srt=45)
+
+#### Write a simple table of differentially expressed transcripts to an output file
+#Each should be significant with a log2 fold-change >= 2
+sigpi = which(results_genes[,"pval"]<0.05)
+sigp = results_genes[sigpi,]
+sigde = which(abs(sigp[,"de"]) >= 2)
+sig_tn_de = sigp[sigde,]
+
+#Order the output by or p-value and then break ties using fold-change
+o = order(sig_tn_de[,"qval"], -abs(sig_tn_de[,"de"]), decreasing=FALSE)
+output = sig_tn_de[o,c("gene_name","id","fc","pval","qval","de")]
+write.table(output, file="SigDE_supplementary_R.txt", sep="\t", row.names=FALSE, quote=FALSE)
+
+#View selected columns of the first 25 lines of output
+output[1:25,c(1,4,5)]
+
+#You can open the file "SigDE.txt" in Excel, Calc, etc.
+#It should have been written to the current working directory that you set at the beginning of the R tutorial
+dir()
+```
+
 # Range of FPKM
 ```r
 #### Plot #3 - View the range of values and general distribution of FPKM values for all 4 libraries
@@ -410,85 +460,12 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 #Print out these correlation values
 r
 ```
-# Mult-dimensional scaling
-```r
-#### Plot #8 - Convert correlation to 'distance', and use 'multi-dimensional scaling' to display the relative differences between libraries
-
-#This step calculates 2-dimensional coordinates to plot points for each library
-#Libraries with similar expression patterns (highly correlated to each other) should group together
-#What pattern do we expect to see, given the types of libraries we have (technical replicates, biologal replicates, tumor/normal)?
-d=1-r
-mds=cmdscale(d, k=2, eig=TRUE)
-par(mfrow=c(1,1))
-plot(mds$points, type="n", xlab="", ylab="", main="MDS distance plot (all non-zero genes)", xlim=c(-0.12,0.12), ylim=c(-0.12,0.12))
-points(mds$points[,1], mds$points[,2], col="grey", cex=2, pch=16)
-text(mds$points[,1], mds$points[,2], short_names, col=data_colors)
-
-# Calculate the differential expression results including significance
-results_genes = stattest(bg, feature="gene", covariate="type", getFC=TRUE, meas="FPKM")
-results_genes = merge(results_genes,bg_gene_names,by.x=c("id"),by.y=c("gene_id"))
-```
-# DE Histogram
-```r
-
-#### Plot #9 - View the distribution of differential expression values as a histogram
-#Display only those that are significant according to Ballgown
-sig=which(results_genes$pval<0.05)
-results_genes[,"de"] = log2(results_genes[,"fc"])
-hist(results_genes[sig,"de"], breaks=50, col="seagreen", xlab="log2(Fold change) UHR vs HBR", main="Distribution of differential expression values")
-abline(v=-2, col="black", lwd=2, lty=2)
-abline(v=2, col="black", lwd=2, lty=2)
-legend("topleft", "Fold-change > 4", lwd=2, lty=2)
-
-#### Plot #10 - Display the grand expression values from UHR and HBR and mark those that are significantly differentially expressed
-gene_expression[,"UHR"]=apply(gene_expression[,c(1:3)], 1, mean)
-gene_expression[,"HBR"]=apply(gene_expression[,c(4:6)], 1, mean)
-x=log2(gene_expression[,"UHR"]+min_nonzero)
-y=log2(gene_expression[,"HBR"]+min_nonzero)
-plot(x=x, y=y, pch=16, cex=0.25, xlab="UHR FPKM (log2)", ylab="HBR FPKM (log2)", main="UHR vs HBR FPKMs")
-abline(a=0, b=1)
-xsig=x[sig]
-ysig=y[sig]
-points(x=xsig, y=ysig, col="magenta", pch=16, cex=0.5)
-legend("topleft", "Significant", col="magenta", pch=16)
-
-#Get the gene symbols for the top N (according to corrected p-value) and display them on the plot
-topn = order(abs(results_genes[sig,"fc"]), decreasing=TRUE)[1:25]
-topn = order(results_genes[sig,"qval"])[1:25]
-text(x[topn], y[topn], results_genes[topn,"gene_name"], col="black", cex=0.75, srt=45)
-
-#### Write a simple table of differentially expressed transcripts to an output file
-#Each should be significant with a log2 fold-change >= 2
-sigpi = which(results_genes[,"pval"]<0.05)
-sigp = results_genes[sigpi,]
-sigde = which(abs(sigp[,"de"]) >= 2)
-sig_tn_de = sigp[sigde,]
-
-#Order the output by or p-value and then break ties using fold-change
-o = order(sig_tn_de[,"qval"], -abs(sig_tn_de[,"de"]), decreasing=FALSE)
-output = sig_tn_de[o,c("gene_name","id","fc","pval","qval","de")]
-write.table(output, file="SigDE_supplementary_R.txt", sep="\t", row.names=FALSE, quote=FALSE)
-
-#View selected columns of the first 25 lines of output
-output[1:25,c(1,4,5)]
-
-#You can open the file "SigDE.txt" in Excel, Calc, etc.
-#It should have been written to the current working directory that you set at the beginning of the R tutorial
-dir()
-```
-
-
-# Pairwise correlation
-
-- Pearson correlation coefficient, r is used to assess similarity between RNA-seq samples in a pair wise fashion.
-- ENCODE guideline advises **>0.9** correlation should achieved for mRNA transcripts.
-- in R use `cor( )` function
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA5MDQ1MDI1LC00MjcwNjc2ODcsNzg2Mz
-IyNDcwLDg1MDQ4MjM1MCwtOTcyNDIyMjIyLC0xMTQ0NzkzNjEx
-LC0xMTQyNTU1NDkzLC0yMDYxMjY2OTA4LC02MjI4NTYxNTEsLT
-ExNzM2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5LDE4OTc1NjQ2
-NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0NzYyODMyMTgsMT
-c4NjA4ODYxOCwtMTkwODI0OTQxNywxODI5MzM0NDU1LDEwMDcw
-MDg3OTBdfQ==
+eyJoaXN0b3J5IjpbLTE3ODMyNjc4NDUsLTQyNzA2NzY4Nyw3OD
+YzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2
+MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MS
+wtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2
+NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOC
+wxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAw
+NzAwODc5MF19
 -->
