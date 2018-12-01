@@ -46,6 +46,9 @@ Gene isoforms are mRNA produced from the same locus but with diferent protein co
 
 # VAST-TOOLS
 
+There are 5 steps:
+1. Alignment (this is redone in VAST-T
+
 ## Alignment
 https://github.com/vastgroup/vast-tools#alignment
 ```bash
@@ -54,6 +57,10 @@ https://github.com/vastgroup/vast-tools#alignment
 ```
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
+
+
+## Differential Splicing Analysis
+https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 
 
 
@@ -74,7 +81,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0MDM0OTk0MywtMTA1Njk1MTI3Niw3Mz
-E5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3
-MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbMjY1NDQxMzMsLTEwNTY5NTEyNzYsNzMxOT
+gzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3
+LC01NDIzMDgzNjldfQ==
 -->
