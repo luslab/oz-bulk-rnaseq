@@ -56,7 +56,9 @@ There are 4 steps:
 https://github.com/vastgroup/vast-tools#alignment
 ```bash
 FASTQ=
-vast-tools align $FASTQ 
+OUT=
+
+vast-tools align $FASTQ --ouput $OUT -sp HSa
 
 ```
 ## Merging Output
@@ -85,7 +87,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0OTcyMDgzMCwtMTA1Njk1MTI3Niw3Mz
-E5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3
-MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNz
+MxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4
+NzE3LC01NDIzMDgzNjldfQ==
 -->
