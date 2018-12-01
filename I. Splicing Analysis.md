@@ -93,7 +93,9 @@ vast-tools combine -o $OUT -sp Hsa
 ```
 
 ## Compare Groups
+Output file is created in directory of input file
 
+PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
 ```bash
 
 vast-tools compare INCLUSION_TABLE.tab -a sampleA1,sampleA2 -b sampleB1,sampleB2 --min_dPSI 25 --min_range 5
@@ -121,8 +123,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkwNzk5MDQwLDI0MTk4MzM4NiwtMTgxMT
-gzMjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1
-MTI3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC
-0xMTQ2MTg3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbMjExNjI3NjU4NSwyNDE5ODMzODYsLTE4MT
+E4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5
+NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMC
+wtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
