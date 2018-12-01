@@ -90,26 +90,13 @@ Ideally have >150 million reads per sample for VAST-TOOLS AS analysis.
 Combines aligned files to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
 #set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR5483788/
-vast-tools combine -o $OUT -sp Hsa
-
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR54837*/
+# run vast-tools combine for each sub-folder SRRID
 for SAMPLE in $OUT
 do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $SAMPLE -sp Hsa"
 done
 ```
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-#set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
-
-#run featureCounts on each BAM file separately
-for SAMPLE in $BAM
-do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
-done
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -149,10 +136,10 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTI4NjYxODAsLTExMzAzOTY1MjcsLT
-E2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3
-NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMS
-wtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3
-MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MT
-g3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbMTI4MDI1MzgwNiwtMTEzMDM5NjUyNywtMT
+Y5NTcxOTc2NiwxNzM4ODU1ODEyLDE5NjI5MDQ5OTMsMjA1ODc0
+MTcwNyw2MjI0Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODExLC
+0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDcz
+MTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTExNDYxOD
+cxNywtNTQyMzA4MzY5XX0=
 -->
