@@ -109,12 +109,12 @@ Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_ex
 
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
-Test for differential alternative splicing between 2 groups
+Test for differential alternative splicing between 2 groups of samples.
 
 ```bash
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
 
-vast-tools diff -a $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -b $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -o $OUT -d outbase
+vast-tools diff -a $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -b $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d outbase
 ```
 
 ## Plotting
@@ -132,9 +132,9 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwNTIxNzEwLDE5NjI5MDQ5OTMsMjA1OD
-c0MTcwNyw2MjI0Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODEx
-LC0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LD
-czMTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTExNDYx
-ODcxNywtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbMTkxMzY3NjY4NywxOTYyOTA0OTkzLDIwNT
+g3NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgx
+MSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Ni
+w3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2
+MTg3MTcsLTU0MjMwODM2OV19
 -->
