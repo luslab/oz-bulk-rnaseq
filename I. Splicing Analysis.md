@@ -53,6 +53,8 @@ There are 4 steps:
 4. Plot the output
 
 ## Alignment
+ml R
+
 https://github.com/vastgroup/vast-tools#alignment
 
 Use untrimmed fastq files - use raw reads. Define reference genome species (Hsa = human). 
@@ -106,8 +108,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTE4MzI4MTEsLTE3MjkwNTExOTIsLT
-E2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMw
-NTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNj
-ldfQ==
+eyJoaXN0b3J5IjpbLTI1NTYyOTQzMCwtMTgxMTgzMjgxMSwtMT
+cyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5
+ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MT
+csLTU0MjMwODM2OV19
 -->
