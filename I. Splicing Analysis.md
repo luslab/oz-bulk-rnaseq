@@ -32,11 +32,6 @@ And you can effectively run a DEXSeq analysis alongside to see the difference
 
 # Gene Isoform counting
 
-Programmes to quantify isoforms:
-`Cufflinks`
-`RSEM`
-`eXpress`
-
 Gene isoforms are mRNA produced from the same locus but with diferent protein codeing sequences:
 
 5 modes of alternative splicing are recognized:
@@ -48,6 +43,9 @@ Gene isoforms are mRNA produced from the same locus but with diferent protein co
 5.  Intron retention.
 
 ![Alternative Splicing](https://en.wikipedia.org/wiki/Protein_isoform#/media/File:Alternative_splicing.jpg)
+
+# VAST-TOOLS
+
 
 **Preparing an annotation:**
 To **assess differential expression of exons**, create an annotation file where overlapping exons of different isoforms are split before running featureCounts. Use `dexseq_prepare_annotation.py` script of DEXSeq package or `QoRTs`.
@@ -65,7 +63,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMzU5MzcyMywtMTA1Njk1MTI3Niw3Mz
-E5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3
-MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbLTEzNzEzODM4MDMsLTEwNTY5NTEyNzYsNz
+MxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4
+NzE3LC01NDIzMDgzNjldfQ==
 -->
