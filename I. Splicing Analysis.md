@@ -103,6 +103,7 @@ PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
 vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789, $PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795, $PATH/SRR5483796 --min_dPSI 25 --min_range 5 -sp Hsa --GO
 ```
+Can use VAST-TOOLS here to calcuate differentially expressed genes: `compare_expr`
 
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
@@ -126,8 +127,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc5MjEyNjEzLDYyMjQ2ODkxNCwyNDE5OD
-MzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYx
-MzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMT
-A1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
+eyJoaXN0b3J5IjpbLTUyOTc1NDY4OSw2MjI0Njg5MTQsMjQxOT
+gzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2
+MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLT
+EwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
 -->
