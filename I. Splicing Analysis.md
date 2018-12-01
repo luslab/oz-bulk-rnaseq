@@ -67,7 +67,7 @@ mkdir -p vast_tools
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
 
 #set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
 
 #run vast-tools on each FASTQ file separately
 for SAMPLE in $FASTQ
@@ -76,16 +76,6 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -o ${OUT}/${SRRID}"
 done
 ```
-
-#set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
-
-#run featureCounts on each BAM file separately
-for SAMPLE in $BAM
-do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
-done
 
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
@@ -103,13 +93,23 @@ Combines aligned files to form one single summary table. This is the file that y
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR5483788/
 vast-tools combine -o $OUT -sp Hsa
 
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR54837*/
 for SAMPLE in $OUT
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o ${OUT}/${SRRID}/ -sp Hsa"
 done
 ```
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
+
+#run featureCounts on each BAM file separately
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+done
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -149,10 +149,10 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzkwMDIwMDEsLTExMzAzOTY1MjcsLT
-E2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3
-NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMS
-wtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3
-MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MT
-g3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbODk1MDk1NTE0LC0xMTMwMzk2NTI3LC0xNj
+k1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5MywyMDU4NzQx
+NzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLT
+E3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMx
+OTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4Nz
+E3LC01NDIzMDgzNjldfQ==
 -->
