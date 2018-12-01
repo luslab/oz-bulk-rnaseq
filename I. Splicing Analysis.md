@@ -98,7 +98,7 @@ Output file is created in directory of input file
 PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 ```bash
 
-vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789, $PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795, $PATH/SRR5483796 --min_dPSI 25 --min_range 5
+vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789, $PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795, $PATH/SRR5483796 --min_dPSI 25 --min_range 5 --GO
 ```
 
 ## Differential Splicing Analysis
@@ -123,8 +123,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMT
-gzMjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1
-MTI3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC
-0xMTQ2MTg3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbMjg1Njk0MTM4LDYyMjQ2ODkxNCwyNDE5OD
+MzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYx
+MzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMT
+A1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
