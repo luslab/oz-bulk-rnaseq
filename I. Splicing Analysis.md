@@ -103,7 +103,7 @@ PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
 vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789, $PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795, $PATH/SRR5483796 --min_dPSI 25 --min_range 5 -sp Hsa --GO
 ```
-Can use VAST-TOOLS here to calcuate differentially expressed genes: `compare_expr`
+Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
@@ -116,8 +116,6 @@ vast-tools diff -a sampA_r1,sampA_r2,sampA_r3 -b sampB_r1,sampB_r2 -o outputdir 
 
 
 
-**Preparing an annotation:**
-To **assess differential expression of exons**, create an annotation file where overlapping exons of different isoforms are split before running featureCounts. Use `dexseq_prepare_annotation.py` script of DEXSeq package or `QoRTs`.
 
 @Raphaelle used: 
  **Splicing analysis**  
@@ -132,8 +130,9 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1ODc0MTcwNyw2MjI0Njg5MTQsMjQxOT
-gzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2
-MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLT
-EwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbLTExNjc1NDU5MDIsMjA1ODc0MTcwNyw2Mj
+I0Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUx
+MTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Ni
+w1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNTQy
+MzA4MzY5XX0=
 -->
