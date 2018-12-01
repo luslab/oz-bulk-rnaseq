@@ -54,6 +54,8 @@ There are 4 steps:
 
 ## Alignment
 https://github.com/vastgroup/vast-tools#alignment
+
+Use untrimmed fastq files.
 ```bash
 FASTQ=
 OUT=
@@ -87,7 +89,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNz
-MxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4
-NzE3LC01NDIzMDgzNjldfQ==
+eyJoaXN0b3J5IjpbLTIwMjU0NDM1NjAsLTE2ODg0NDYxMzQsLT
+EwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMz
+OTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
