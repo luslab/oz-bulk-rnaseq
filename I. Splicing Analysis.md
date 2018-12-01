@@ -54,6 +54,7 @@ There are 4 steps:
 
 ## Alignment
 ml R
+ml Bowtie2
 
 https://github.com/vastgroup/vast-tools#alignment
 
@@ -102,8 +103,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQxOTgzMzg2LC0xODExODMyODExLC0xNz
-I5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4
-Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTExNDYxODcxNy
-wtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbOTI1NDc5MTU5LDI0MTk4MzM4NiwtMTgxMT
+gzMjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1
+MTI3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC
+0xMTQ2MTg3MTcsLTU0MjMwODM2OV19
 -->
