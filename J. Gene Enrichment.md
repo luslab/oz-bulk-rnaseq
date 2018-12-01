@@ -74,6 +74,10 @@ goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
 ```
 
+# Plot p-values as Barplot
+https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
+
+
 # BLAST
 Basic Local Alignment Search Tool
 
@@ -144,8 +148,8 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNT
-I0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkw
-Nyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMD
-E0MzAsMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NT
+YxNDIxNzEsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIy
+NjgsMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4OD
+Q1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
 -->
