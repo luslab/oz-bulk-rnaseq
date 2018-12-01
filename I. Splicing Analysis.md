@@ -80,7 +80,9 @@ done
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
 
-Merge the Align output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.
+If no technical replicates then skip this.
+
+Merge the Aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.
 Ideally have >150 million reads per sample for VAST-TOOLS AS analysis. 
 
 ## Combing results
@@ -124,9 +126,9 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5NTUwOTcwMCwyMDU4NzQxNzA3LDYyMj
-Q2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTEx
-OTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LD
-UzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIz
-MDgzNjldfQ==
+eyJoaXN0b3J5IjpbOTMyNjE0NDY4LDIwNTg3NDE3MDcsNjIyND
+Y4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1MTE5
+MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3NDYsNT
+M0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0MjMw
+ODM2OV19
 -->
