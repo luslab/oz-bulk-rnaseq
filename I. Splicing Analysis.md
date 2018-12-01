@@ -80,7 +80,8 @@ done
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
 
-Merge the Align output files for technical replicates when read coverage for independent replicates is not deep enough for
+Merge the Align output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.
+Ideally have >150 million reads per sample for VAST-TOOLS AS analysis. 
 
 ```bash
 
@@ -111,8 +112,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxOTI5NTg2LDI0MTk4MzM4NiwtMTgxMT
-gzMjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1
-MTI3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC
-0xMTQ2MTg3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbMTE4Mzk5MjU3NSwyNDE5ODMzODYsLTE4MT
+E4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5
+NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMC
+wtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
