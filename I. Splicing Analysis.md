@@ -93,11 +93,11 @@ Combines aligned files to form one single summary table. This is the file that y
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR5483788/
 vast-tools combine -o $OUT -sp Hsa
 
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 for SAMPLE in $OUT
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o ${SAMPLE}${SRRID} -sp Hsa"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o ${OUT}/${SRRID}/ -sp Hsa"
 done
 ```
 
@@ -139,10 +139,10 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNzAyMzU5NCwtMTY5NTcxOTc2NiwxNz
-M4ODU1ODEyLDE5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0Njg5
-MTQsMjQxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC
-0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQz
-MDU2ODQsLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4Mz
-Y5XX0=
+eyJoaXN0b3J5IjpbLTExMzAzOTY1MjcsLTE2OTU3MTk3NjYsMT
+czODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNjIyNDY4
+OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1MTE5Mi
+wtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3NDYsNTM0
+MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0MjMwOD
+M2OV19
 -->
