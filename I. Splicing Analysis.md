@@ -90,7 +90,7 @@ Ideally have >150 million reads per sample for VAST-TOOLS AS analysis.
 Combines aligned files to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
 #set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 vast-tools combine -o $OUT -sp Hsa
 ```
 
@@ -132,9 +132,9 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNT
-g3NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgx
-MSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Ni
-w3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2
-MTg3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbLTg3MTIyOTI3MSwxNzM4ODU1ODEyLDE5Nj
+I5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0Njg5MTQsMjQxOTgzMzg2
+LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC
+0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEz
+Mzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
 -->
