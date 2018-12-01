@@ -5,6 +5,10 @@
 
 [Kallisto](https://pachterlab.github.io/kallisto/)   is a user-friendly algo which extract both gene and transcript level gene expression directly from fastq files using the raw fastq files. Then use  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
 
+**SVD (singular value decomposition) analysis**
+
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
+
 # Rapid Approach: Kallisto - Sleuth pipeline
 Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
 
@@ -151,5 +155,5 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjMxNjYyMl19
+eyJoaXN0b3J5IjpbMTUzMzQxMDQxOCw2MzE2NjIyXX0=
 -->
