@@ -100,10 +100,10 @@ https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 PSI = percent spliced in
 Output file is created in directory of input file. 
 
-PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 ```bash
+PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
-vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789, $PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795, $PATH/SRR5483796 --min_dPSI 25 --min_range 5 -sp Hsa --GO
+vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795,$PATH/SRR5483796 --min_dPSI 25 --min_range 5 -sp Hsa --GO
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -126,7 +126,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMyNjE0NDY4LDIwNTg3NDE3MDcsNjIyND
+eyJoaXN0b3J5IjpbNTY0NDQ2ODUwLDIwNTg3NDE3MDcsNjIyND
 Y4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1MTE5
 MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3NDYsNT
 M0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0MjMw
