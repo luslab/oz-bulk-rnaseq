@@ -116,6 +116,9 @@ Test for differential alternative splicing between replicates
 vast-tools diff -a sampA_r1,sampA_r2,sampA_r3 -b sampB_r1,sampB_r2 -o outputdir -d outbase
 ```
 
+## Plotting
+
+
 
 # Coverage for introns
 To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
@@ -126,9 +129,9 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2MjkwNDk5MywyMDU4NzQxNzA3LDYyMj
-Q2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTEx
-OTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LD
-UzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIz
-MDgzNjldfQ==
+eyJoaXN0b3J5IjpbLTIyNTY0MDI5MCwxOTYyOTA0OTkzLDIwNT
+g3NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgx
+MSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Ni
+w3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2
+MTg3MTcsLTU0MjMwODM2OV19
 -->
