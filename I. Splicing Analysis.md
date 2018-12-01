@@ -107,7 +107,12 @@ Can use VAST-TOOLS here to calcuate differentially expressed genes: `compare_exp
 
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
+Test for differential alternative splicing between replicates
 
+```bash
+
+vast-tools diff -a sampA_r1,sampA_r2,sampA_r3 -b sampB_r1,sampB_r2 -o outputdir -d outbase
+```
 
 
 
@@ -127,7 +132,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyOTc1NDY4OSw2MjI0Njg5MTQsMjQxOT
+eyJoaXN0b3J5IjpbMjA1ODc0MTcwNyw2MjI0Njg5MTQsMjQxOT
 gzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2
 MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLT
 EwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
