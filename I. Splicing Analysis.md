@@ -62,6 +62,23 @@ OUT=
 
 vast-tools align $FASTQ --ouput $OUT -sp HSa
 
+
+# Create output folder
+mkdir -p vast_tools
+#set gene coordinates
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
+
+#run featureCounts on each BAM file separately
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+done
+
 ```
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
@@ -89,7 +106,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNDQyNDYyMywtMTcyOTA1MTE5MiwtMT
+eyJoaXN0b3J5IjpbMTQxNzg3NjY2MCwtMTcyOTA1MTE5MiwtMT
 Y4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3NDYsNTM0MzA1
 Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0MjMwODM2OV
 19
