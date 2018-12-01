@@ -85,12 +85,11 @@ Ideally have >150 million reads per sample for VAST-TOOLS AS analysis.
 
 ## Combing results
 
-Combines aligned files to form one final table. This is the file that you send to differential splicing command. Can specify hg38.
+Combines aligned files to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
 #set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
-
-vast-tools combine -o ${OUT}/${SRRID} -sp Hsa
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
+vast-tools combine -o $OUT -sp Hsa
 
 ```
 
@@ -116,8 +115,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ4NzcxMjk1LDI0MTk4MzM4NiwtMTgxMT
-gzMjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1
-MTI3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC
-0xMTQ2MTg3MTcsLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbLTExMTE5MTM4MDgsMjQxOTgzMzg2LC0xOD
+ExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2
+OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5Mj
+AsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
 -->
