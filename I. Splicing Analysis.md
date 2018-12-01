@@ -67,8 +67,8 @@ vast-tools align $FASTQ --ouput $OUT -sp HSa
 mkdir -p vast_tools
 
 #set FASTQ input file
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR54837*.fq
 
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set Counts.txt output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
 
@@ -106,8 +106,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYzNTM4MzI1LC0xNzI5MDUxMTkyLC0xNj
-g4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2
-ODQsLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX
-0=
+eyJoaXN0b3J5IjpbLTk4NjE3NjM5MCwtMTcyOTA1MTE5MiwtMT
+Y4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3NDYsNTM0MzA1
+Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0MjMwODM2OV
+19
 -->
