@@ -47,9 +47,9 @@ Gene isoforms are mRNA produced from the same locus but with diferent protein co
 # VAST-TOOLS
 
 There are 4 steps:
-1. Alignment (this is redone in VAST-TOOLS)
-2. Combine outputs
-3. Differential Expression
+1. Alignment (this is redone in VAST-TOOLS using bowtie - needs loading)
+2. Combine outputs into 1 summary table
+3. Differential Splicing analysis
 4. Plot the output
 
 ## Alignment
@@ -90,8 +90,9 @@ Combines aligned files to form one single summary table. This is the file that y
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
 vast-tools combine -o $OUT -sp Hsa
-
 ```
+
+
 
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
@@ -115,8 +116,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTE5MTM4MDgsMjQxOTgzMzg2LC0xOD
-ExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2
-OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5Mj
-AsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbLTQ2NjcxODA5MCwyNDE5ODMzODYsLTE4MT
+E4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5
+NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMC
+wtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
