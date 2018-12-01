@@ -18,6 +18,7 @@ Few exon-exon spanning genes.
 # Tools
 https://github.com/vastgroup/vast-tools
 
+
 Cuffdiff [14], DEXSeq [192], ALEXA-seq [3], IUTA [193], FineSplice [194], PennSeq [195], FlipFlop [196], SNPlice [197], spliceR [198], GESS [102], RNASeq-MATS [199], SplicingCompass [200], DiffSplice [201], SigFuge [202], SUPPA [bioRXiv], CLASS [bioRXiv], SplAdder [bioRXiv], SplicePie [203].
 
 # Gene Isoform counting
@@ -55,6 +56,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MT
-MzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
+eyJoaXN0b3J5IjpbLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzND
+MwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgz
+NjldfQ==
 -->
