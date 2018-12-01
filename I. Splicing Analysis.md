@@ -103,7 +103,7 @@ Output file is created in directory of input file.
 ```bash
 PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
-vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795,$PATH/SRR5483796 -sp Hsa --GO
+vast-tools compare INCLUSION_TABLE.tab -a $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -b $PATH/SRR5483794,$PATH/SRR5483795,$PATH/SRR5483796 --plot_PSI -sp Hsa --GO
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -126,7 +126,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5NjgxMTc1MywyMDU4NzQxNzA3LDYyMj
+eyJoaXN0b3J5IjpbMTk2MjkwNDk5MywyMDU4NzQxNzA3LDYyMj
 Q2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTEx
 OTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LD
 UzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIz
