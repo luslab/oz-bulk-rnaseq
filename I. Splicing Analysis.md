@@ -66,13 +66,13 @@ mkdir -p vast_tools
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
 
 #set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
 #run vast-tools on each FASTQ file separately
 for SAMPLE in $FASTQ
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE --ouput ${OUT}_${SRRID} -sp HSa"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -o ${OUT}/${SRRID} -sp HSa"
 done
 ```
 
@@ -102,8 +102,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5ODcwODc1NiwtMTgxMTgzMjgxMSwtMT
-cyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5
-ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MT
-csLTU0MjMwODM2OV19
+eyJoaXN0b3J5IjpbLTIxMTE3NzYyOTQsLTE4MTE4MzI4MTEsLT
+E3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMx
+OTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4Nz
+E3LC01NDIzMDgzNjldfQ==
 -->
