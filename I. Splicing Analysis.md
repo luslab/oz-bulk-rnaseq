@@ -16,10 +16,19 @@ brown & green genes = coding genes
 Few exon-exon spanning genes.
 
 # Tools
-https://github.com/vastgroup/vast-tools
-
-
-Cuffdiff [14], DEXSeq [192], ALEXA-seq [3], IUTA [193], FineSplice [194], PennSeq [195], FlipFlop [196], SNPlice [197], spliceR [198], GESS [102], RNASeq-MATS [199], SplicingCompass [200], DiffSplice [201], SigFuge [202], SUPPA [bioRXiv], CLASS [bioRXiv], SplAdder [bioRXiv], SplicePie [203].
+[VAST-TOOLS](https://github.com/vastgroup/vast-tools)
+ENCODE use rMATS
+MAJIQ is also good and interesting but parsing the output used to be a bit annoying (but the default was the best looking one of the lot!) (edited)
+JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team)
+Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
+There is also MISO.
+Most recently I've been using rMATS as I have been comparing stuff with other ENCODE datasets
+But previously I used DEXSeq and JunctionSeq as it sort of follows on methodologically from DEseq
+But I have tried MAJIQ and Whippet too... but they get more complex in terms of splice graphs
+Whippet is in Julia, I think MAJIQ is python
+JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
+And they improve on some of the flaws/limitations of DEXSeq
+And you can effectively run a DEXSeq analysis alongside to see the difference
 
 # Gene Isoform counting
 
@@ -56,7 +65,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzND
-MwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgz
-NjldfQ==
+eyJoaXN0b3J5IjpbMTYwMzU5MzcyMywtMTA1Njk1MTI3Niw3Mz
+E5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3
+MTcsLTU0MjMwODM2OV19
 -->
