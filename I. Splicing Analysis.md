@@ -93,8 +93,9 @@ vast-tools combine -o $OUT -sp Hsa
 ```
 
 ## Compare Groups
-https://github.com/vastgroup/vast-tools#comparing-expression-between-samples
+https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
+PSI = percent spliced in
 Output file is created in directory of input file. 
 
 PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
@@ -125,8 +126,8 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5OTYwNzE1OSw2MjI0Njg5MTQsMjQxOT
-gzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2
-MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLT
-EwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbOTc5MjEyNjEzLDYyMjQ2ODkxNCwyNDE5OD
+MzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYx
+MzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMT
+A1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
