@@ -115,24 +115,19 @@ vast-tools diff -a sampA_r1,sampA_r2,sampA_r3 -b sampB_r1,sampB_r2 -o outputdir 
 ```
 
 
+# Coverage for introns
+To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
 
 
-@Raphaelle used: 
- **Splicing analysis**  
-   
--   I first used  [VAST-tools](https://github.com/vastgroup/vast-tools) which performs alignment for you. So basically you submit your fastq files directly. Have a look at the GitHub vignette as it is rather complete however please do not hesitate to contact me if you want help with shell scripting as you will need to run this as a loop. Or Nobby will certainly be happy to help on CAMP (I am working from UCL cluster and have never logged onto CAMP).
--   Then to perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
 
-  **3' UTR isoforms analysis**
--   I have written an entire pipeline for this which I can explain and share with you scripts when needed. But basically I extract genome-wide coverage using bedtools, then extract regions of continuous coverage along genome, then intersect these with Ensembl annotated regions, extend 3' UTR. Finally to annotate all alternative 3' UTR isoforms I then run an algo which identifies shifts in coverage along 3' UTR which are expected to occur at PAS sites.
 
 **SVD (singular value decomposition) analysis**
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjc1NDU5MDIsMjA1ODc0MTcwNyw2Mj
-I0Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUx
-MTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Ni
-w1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNTQy
-MzA4MzY5XX0=
+eyJoaXN0b3J5IjpbLTkyNjU2OTEyMiwyMDU4NzQxNzA3LDYyMj
+Q2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTEx
+OTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LD
+UzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIz
+MDgzNjldfQ==
 -->
