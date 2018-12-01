@@ -77,6 +77,16 @@ do
 done
 ```
 
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
+
+#run featureCounts on each BAM file separately
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+done
+
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
 
@@ -139,10 +149,10 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzAzOTY1MjcsLTE2OTU3MTk3NjYsMT
-czODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNjIyNDY4
-OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1MTE5Mi
-wtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3NDYsNTM0
-MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0MjMwOD
-M2OV19
+eyJoaXN0b3J5IjpbLTIxMzkwMDIwMDEsLTExMzAzOTY1MjcsLT
+E2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3
+NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMS
+wtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3
+MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MT
+g3MTcsLTU0MjMwODM2OV19
 -->
