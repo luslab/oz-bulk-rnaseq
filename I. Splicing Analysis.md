@@ -98,6 +98,10 @@ do
 done
 ```
 
+vast-tools combine -o /home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR54837*/ -sp Hsa
+
+vast-tools combine -o /home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/ -sp Hsa
+
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
@@ -136,10 +140,10 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNDAxNTU5MSwtMTEzMDM5NjUyNywtMT
-Y5NTcxOTc2NiwxNzM4ODU1ODEyLDE5NjI5MDQ5OTMsMjA1ODc0
-MTcwNyw2MjI0Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODExLC
-0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDcz
-MTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTExNDYxOD
-cxNywtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMT
+MwMzk2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2Mjkw
+NDk5MywyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLT
+E4MTE4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEw
+NTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOT
+kyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 -->
