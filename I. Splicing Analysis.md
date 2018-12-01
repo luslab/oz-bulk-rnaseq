@@ -90,7 +90,7 @@ Combines aligned files to form one final table. This is the file that you send t
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
-vast-tools combine -o ${OUT}/${SRRID} -sp Hsa --IR_version
+vast-tools combine -o ${OUT}/${SRRID} -sp Hsa
 
 ```
 
@@ -116,7 +116,7 @@ To **assess differential expression of exons**, create an annotation file where 
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQ5MzQ3ODg3LDI0MTk4MzM4NiwtMTgxMT
+eyJoaXN0b3J5IjpbMjQ4NzcxMjk1LDI0MTk4MzM4NiwtMTgxMT
 gzMjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1
 MTI3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC
 0xMTQ2MTg3MTcsLTU0MjMwODM2OV19
