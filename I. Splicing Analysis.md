@@ -121,11 +121,10 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 
-**SVD (singular value decomposition) analysis**
 
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNjU2OTEyMiwyMDU4NzQxNzA3LDYyMj
+eyJoaXN0b3J5IjpbMTM5NTUwOTcwMCwyMDU4NzQxNzA3LDYyMj
 Q2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTEx
 OTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LD
 UzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIz
