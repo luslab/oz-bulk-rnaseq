@@ -122,7 +122,7 @@ Test for differential alternative splicing between 2 groups of samples.
 ```bash
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
 
-vast-tools diff -a $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 -b $PATH/SRR5483788,$PATH/SRR5483789,$PATH/SRR5483790 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8
+vast-tools diff -a $OUT/SRR5483788,$OUT/SRR5483789,$OUT/SRR5483790 -b $OUT/SRR5483788,$OUT/SRR5483789,$OUT/SRR5483790 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8
 ```
 
 ## Plotting
@@ -140,11 +140,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MDkwNjMxOSwxMzIzMTM5Mzc3LDc4ND
-c3MTU5LDEyODk3MzE5NjYsLTYzNDAxNTU5MSwtMTEzMDM5NjUy
-NywtMTY5NTcxOTc2NiwxNzM4ODU1ODEyLDE5NjI5MDQ5OTMsMj
-A1ODc0MTcwNyw2MjI0Njg5MTQsMjQxOTgzMzg2LC0xODExODMy
-ODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMj
-c2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLTEwNTEzMzk5MjAsLTEx
-NDYxODcxN119
+eyJoaXN0b3J5IjpbLTE3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3OD
+Q3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1
+MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLD
+IwNTg3NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgz
+MjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MT
+I3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0x
+MTQ2MTg3MTddfQ==
 -->
