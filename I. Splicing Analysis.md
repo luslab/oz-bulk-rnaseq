@@ -66,14 +66,10 @@ mkdir -p vast_tools
 #set FASTQ input file
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
 
-#set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
-
 #run vast-tools on each FASTQ file separately
 for SAMPLE in $FASTQ
 do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -o ${OUT}/${SRRID}"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE"
 done
 ```
 
@@ -140,11 +136,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3OD
-Q3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1
-MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLD
-IwNTg3NDE3MDcsNjIyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgz
-MjgxMSwtMTcyOTA1MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MT
-I3Niw3MzE5ODM3NDYsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0x
-MTQ2MTg3MTddfQ==
+eyJoaXN0b3J5IjpbMTIwMTkwNDc3NiwtMTc0MTgxMDczNywxMz
+IzMTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5NjYsLTYzNDAxNTU5
+MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2NiwxNzM4ODU1ODEyLD
+E5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0Njg5MTQsMjQxOTgz
+Mzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2MT
+M0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLTEw
+NTEzMzk5MjBdfQ==
 -->
