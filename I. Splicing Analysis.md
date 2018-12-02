@@ -121,12 +121,14 @@ Test for differential alternative splicing between 2 groups of samples.
 ```bash
 ml R
 R
-library(ggplot2)
-library(optparse)
-library(MASS)
+library("ggplot2")
+library("optparse")
+library("MASS")
 library("RColorBrewer")
 library("reshape2")
 library("grid")
+#quit R in cluster
+q()
 
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
@@ -148,11 +150,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzOTgyMjIwLDE3MDUyNTAxMTAsLTk0ND
-czODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYs
-LTE3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5Nz
-MxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3
-NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNj
-IyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1
-MTE5Ml19
+eyJoaXN0b3J5IjpbMTc1ODk1NTU0MSwxNzA1MjUwMTEwLC05ND
+Q3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMzOSwxMjAxOTA0Nzc2
+LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNzg0NzcxNTksMTI4OT
+czMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3LC0xNjk1NzE5
+NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5MywyMDU4NzQxNzA3LD
+YyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3Mjkw
+NTExOTJdfQ==
 -->
