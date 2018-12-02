@@ -92,6 +92,11 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ```
 
+This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
+ANNOT = identifies & profiles annotated exons
+COMBI = splice site based module
+EXSK = 
+
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
@@ -130,11 +135,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAwNDY3OTQ1LDEwNTA4NDMzOSwxMjAxOT
-A0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNzg0NzcxNTks
-MTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3LC0xNj
-k1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5MywyMDU4NzQx
-NzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLT
-E3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMx
-OTgzNzQ2XX0=
+eyJoaXN0b3J5IjpbNzEyMTkwMDEsNDAwNDY3OTQ1LDEwNTA4ND
+MzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcs
+Nzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMz
+k2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5
+MywyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MT
+E4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5
+NTEyNzZdfQ==
 -->
