@@ -109,7 +109,7 @@ PSI = percent spliced in
 Output file is created in directory of input file. 
 
 ```bash
-PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
+PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $PATH/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788,SRR5483789,SRR5483790 -b SRR5483794,SRR5483795,SRR5483796 --plot_PSI -sp Hsa --GO"
 ```
@@ -140,11 +140,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5Nz
-MxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3
-NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNj
-IyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1
-MTE5MiwtMTY4ODQ0NjEzNCwtMTA1Njk1MTI3Niw3MzE5ODM3ND
-YsNTM0MzA1Njg0LC0xMDUxMzM5OTIwLC0xMTQ2MTg3MTcsLTU0
-MjMwODM2OV19
+eyJoaXN0b3J5IjpbNzAzOTU3NjcwLDEzMjMxMzkzNzcsNzg0Nz
+cxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3
+LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5MywyMD
+U4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4
+MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNz
+YsNzMxOTgzNzQ2LDUzNDMwNTY4NCwtMTA1MTMzOTkyMCwtMTE0
+NjE4NzE3XX0=
 -->
