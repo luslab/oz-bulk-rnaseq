@@ -119,6 +119,15 @@ https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 Test for differential alternative splicing between 2 groups of samples.
 
 ```bash
+ml R
+R
+library(ggplot2)
+library(optparse)
+library(MASS)
+library("RColorBrewer")
+library("reshape2")
+library("grid")
+
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8"
@@ -139,11 +148,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNTI1MDExMCwtOTQ0NzM4NTQ4LDQwMD
-Q2Nzk0NSwxMDUwODQzMzksMTIwMTkwNDc3NiwtMTc0MTgxMDcz
-NywxMzIzMTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5NjYsLTYzND
-AxNTU5MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2NiwxNzM4ODU1
-ODEyLDE5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0Njg5MTQsMj
-QxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4
-NDQ2MTM0XX0=
+eyJoaXN0b3J5IjpbMTEzOTgyMjIwLDE3MDUyNTAxMTAsLTk0ND
+czODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYs
+LTE3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5Nz
+MxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3
+NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNj
+IyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1
+MTE5Ml19
 -->
