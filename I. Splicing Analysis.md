@@ -66,7 +66,7 @@ mkdir -p vast_tools
 #set FASTQ input file
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
 
-#run vast-tools on each FASTQ file separately
+#run vast-tools on each FASTQ file separately. 
 for SAMPLE in $FASTQ
 do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE"
@@ -136,11 +136,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMTkwNDc3NiwtMTc0MTgxMDczNywxMz
-IzMTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5NjYsLTYzNDAxNTU5
-MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2NiwxNzM4ODU1ODEyLD
-E5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0Njg5MTQsMjQxOTgz
-Mzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4NDQ2MT
-M0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2ODQsLTEw
-NTEzMzk5MjBdfQ==
+eyJoaXN0b3J5IjpbLTEyMjI5OTE1NTgsMTIwMTkwNDc3NiwtMT
+c0MTgxMDczNywxMzIzMTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5
+NjYsLTYzNDAxNTU5MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2Ni
+wxNzM4ODU1ODEyLDE5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0
+Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUxMT
+kyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1
+MzQzMDU2ODRdfQ==
 -->
