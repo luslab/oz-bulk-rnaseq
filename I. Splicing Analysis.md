@@ -111,7 +111,7 @@ Output file is created in directory of input file.
 ```bash
 PATH=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools
 
-vast-tools compare $PATH/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788,SRR5483789,SRR5483790 -b SRR5483794,SRR5483795,SRR5483796 --plot_PSI -sp Hsa --GO
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $PATH/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788,SRR5483789,SRR5483790 -b SRR5483794,SRR5483795,SRR5483796 --plot_PSI -sp Hsa --GO"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -140,7 +140,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyMzMwNzQ1OCw3ODQ3NzE1OSwxMjg5Nz
+eyJoaXN0b3J5IjpbMTMyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5Nz
 MxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3
 NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNj
 IyNDY4OTE0LDI0MTk4MzM4NiwtMTgxMTgzMjgxMSwtMTcyOTA1
