@@ -92,26 +92,15 @@ Combines aligned files to form one single summary table. This is the file that y
 
 # make a new directory in vast-tools directory
 mkdir -p to_combine
-#rename 
+#rename Coverage_key with label of SRRID
+mv Coverage_key_v2-Hsa1.IRQ SRR5483796_Coverage_key_v2-Hsa1.IRQ
 # copy all sub-folder to_combine contects into this above directory
 cp ~/working/oliver/projects/airals/splicing/vast_tools/SRR54837*/to_combine/* ~/working/oliver/projects/airals/splicing/vast_tools/to_combine/
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
+# run vast-tools combine
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
-
-# run vast-tools combine for each sub-folder SRRID
-for SAMPLE in $OUT
-do
-	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $SAMPLE -sp Hsa"
-done
-
-
-
 ```
-
-vast-tools combine -o /home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/SRR54837*/ -sp Hsa
-
-vast-tools combine -o /home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/ -sp Hsa
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -151,11 +140,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjYwMDgxNTIwLDEyODk3MzE5NjYsLTYzND
-AxNTU5MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2NiwxNzM4ODU1
-ODEyLDE5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0Njg5MTQsMj
-QxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUxMTkyLC0xNjg4
-NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1MzQzMDU2OD
-QsLTEwNTEzMzk5MjAsLTExNDYxODcxNywtNTQyMzA4MzY5XX0=
+eyJoaXN0b3J5IjpbNzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MD
+E1NTkxLC0xMTMwMzk2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4
+MTIsMTk2MjkwNDk5MywyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyND
+E5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0
+NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUzNDMwNTY4NC
+wtMTA1MTMzOTkyMCwtMTE0NjE4NzE3LC01NDIzMDgzNjldfQ==
 
 -->
