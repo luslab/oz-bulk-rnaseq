@@ -96,6 +96,8 @@ This produces 5 INCLUSION_TABLE files in the raw_incl folder.
 ANNOT = identifies & profiles annotated exons
 COMBI = splice site based module
 EXSK = 
+MIC = 
+MULTI - 
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -135,11 +137,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzEyMTkwMDEsNDAwNDY3OTQ1LDEwNTA4ND
-MzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcs
-Nzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMz
-k2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5
-MywyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MT
-E4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEwNTY5
-NTEyNzZdfQ==
+eyJoaXN0b3J5IjpbLTE3MTg1NDEzMjUsNDAwNDY3OTQ1LDEwNT
+A4NDMzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkz
+NzcsNzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMT
+MwMzk2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2Mjkw
+NDk5MywyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLT
+E4MTE4MzI4MTEsLTE3MjkwNTExOTIsLTE2ODg0NDYxMzQsLTEw
+NTY5NTEyNzZdfQ==
 -->
