@@ -66,7 +66,7 @@ mkdir -p vast_tools
 #set FASTQ input file
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
 
-#run vast-tools on each FASTQ file separately. 
+#run vast-tools on each FASTQ file separately. Dont specify output as all files need to be in same subfolder. Run from the vast-tools directory
 for SAMPLE in $FASTQ
 do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE"
@@ -85,15 +85,9 @@ Ideally have >150 million reads per sample for VAST-TOOLS AS analysis.
 
 Combines aligned files to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
-
-# make a new directory in vast-tools directory
-mkdir -p to_combine
-#rename Coverage_key with label of SRRID
-mv Coverage_key_v2-Hsa1.IRQ SRR5483796_Coverage_key_v2-Hsa1.IRQ
-# copy all sub-folder to_combine contects into this above directory
-cp ~/working/oliver/projects/airals/splicing/vast_tools/SRR54837*/to_combine/* ~/working/oliver/projects/airals/splicing/vast_tools/to_combine/
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/
+
 # run vast-tools combine
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ```
@@ -136,11 +130,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjI5OTE1NTgsMTIwMTkwNDc3NiwtMT
-c0MTgxMDczNywxMzIzMTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5
-NjYsLTYzNDAxNTU5MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2Ni
-wxNzM4ODU1ODEyLDE5NjI5MDQ5OTMsMjA1ODc0MTcwNyw2MjI0
-Njg5MTQsMjQxOTgzMzg2LC0xODExODMyODExLC0xNzI5MDUxMT
-kyLC0xNjg4NDQ2MTM0LC0xMDU2OTUxMjc2LDczMTk4Mzc0Niw1
-MzQzMDU2ODRdfQ==
+eyJoaXN0b3J5IjpbMTE0MzM3NDkyNCwxMjAxOTA0Nzc2LC0xNz
+QxODEwNzM3LDEzMjMxMzkzNzcsNzg0NzcxNTksMTI4OTczMTk2
+NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3LC0xNjk1NzE5NzY2LD
+E3Mzg4NTU4MTIsMTk2MjkwNDk5MywyMDU4NzQxNzA3LDYyMjQ2
+ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3MjkwNTExOT
+IsLTE2ODg0NDYxMzQsLTEwNTY5NTEyNzYsNzMxOTgzNzQ2LDUz
+NDMwNTY4NF19
 -->
