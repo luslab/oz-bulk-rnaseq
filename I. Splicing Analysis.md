@@ -97,7 +97,9 @@ ANNOT = identifies & profiles annotated exons
 COMBI = splice site based module
 EXSK = 
 MIC = 
-MULTI - 
+MULTI =
+
+To create the old version INCLUSION_TABLE.tab single output then specify `--noANNOT`
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -108,7 +110,7 @@ Output file is created in directory of input file.
 ```bash
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/raw_incl
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_ANNOT-Hsa6-n.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795,SRR5483796 --plot_PSI -sp Hsa --GO"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_ANNOT-Hsa6-n.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -137,7 +139,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODU2NzA0MSw0MDA0Njc5NDUsMTA1MD
+eyJoaXN0b3J5IjpbLTk0NDczODU0OCw0MDA0Njc5NDUsMTA1MD
 g0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMTMyMzEzOTM3
 Nyw3ODQ3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1OTEsLTExMz
 AzOTY1MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0
