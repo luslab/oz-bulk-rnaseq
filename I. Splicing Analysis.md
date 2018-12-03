@@ -100,6 +100,13 @@ MIC =
 MULTI =
 
 To create the old version INCLUSION_TABLE.tab single output then specify `--noANNOT`
+```bash
+#set aligned output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/
+
+# run vast-tools combine
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --noANNOT"
+```
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -150,11 +157,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1ODk1NTU0MSwxNzA1MjUwMTEwLC05ND
-Q3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMzOSwxMjAxOTA0Nzc2
-LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNzg0NzcxNTksMTI4OT
-czMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3LC0xNjk1NzE5
-NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5MywyMDU4NzQxNzA3LD
-YyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4MzI4MTEsLTE3Mjkw
-NTExOTJdfQ==
+eyJoaXN0b3J5IjpbLTE5Njg0NjQ5OTksMTc1ODk1NTU0MSwxNz
+A1MjUwMTEwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMz
+OSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNz
+g0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2
+NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5My
+wyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4
+MzI4MTFdfQ==
 -->
