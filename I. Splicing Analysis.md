@@ -81,7 +81,7 @@ If no technical replicates then skip this.
 Merge the Aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.
 Ideally have >150 million reads per sample for VAST-TOOLS AS analysis. 
 
-## Combing results
+## Combining results
 
 Combines aligned files to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
@@ -157,11 +157,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Njg0NjQ5OTksMTc1ODk1NTU0MSwxNz
-A1MjUwMTEwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMz
-OSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNz
-g0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2
-NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2MjkwNDk5My
-wyMDU4NzQxNzA3LDYyMjQ2ODkxNCwyNDE5ODMzODYsLTE4MTE4
-MzI4MTFdfQ==
+eyJoaXN0b3J5IjpbMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwxNz
+U4OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Njc5
+NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMT
+MyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1
+OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMi
+wxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNjIyNDY4OTE0LDI0MTk4
+MzM4Nl19
 -->
