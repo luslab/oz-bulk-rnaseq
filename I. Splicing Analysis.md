@@ -129,7 +129,7 @@ q()
 
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788,SRR5483789,SRR5483790 -b SRR5483794,SRR5483795,SRR5483796 --plot_PSI -sp Hsa --GO"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -170,11 +170,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NjQzMjIxLC0xMzQ5ODAzMjY5LC0xNj
-Q3MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1
-NTU0MSwxNzA1MjUwMTEwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LD
-EwNTA4NDMzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMx
-MzkzNzcsNzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC
-0xMTMwMzk2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2
-MjkwNDk5M119
+eyJoaXN0b3J5IjpbLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMT
+Y0NzM5MjQ4NCwxMTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5
+NTU1NDEsMTcwNTI1MDExMCwtOTQ0NzM4NTQ4LDQwMDQ2Nzk0NS
+wxMDUwODQzMzksMTIwMTkwNDc3NiwtMTc0MTgxMDczNywxMzIz
+MTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5NjYsLTYzNDAxNTU5MS
+wtMTEzMDM5NjUyNywtMTY5NTcxOTc2NiwxNzM4ODU1ODEyLDE5
+NjI5MDQ5OTNdfQ==
 -->
