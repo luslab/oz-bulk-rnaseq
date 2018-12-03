@@ -140,7 +140,7 @@ q()
 
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8"
 ```
 
 ## Plotting
@@ -158,11 +158,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDk4MDMyNjksLTE2NDczOTI0ODQsMT
-EzMDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUy
-NTAxMTAsLTk0NDczODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LD
-EyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3ODQ3
-NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1OTEsLTExMzAzOTY1Mj
-csLTE2OTU3MTk3NjYsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIw
-NTg3NDE3MDddfQ==
+eyJoaXN0b3J5IjpbLTE5MzM3NzkzMTksLTEzNDk4MDMyNjksLT
+E2NDczOTI0ODQsMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4
+OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Njc5ND
+UsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMTMy
+MzEzOTM3Nyw3ODQ3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1OT
+EsLTExMzAzOTY1MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMiwx
+OTYyOTA0OTkzXX0=
 -->
