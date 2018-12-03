@@ -115,9 +115,9 @@ PSI = percent spliced in
 Output file is created in directory of input file. 
 
 ```bash
-IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/raw_incl
+IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_ANNOT-Hsa6-n.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -157,11 +157,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwxNz
-U4OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Njc5
-NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMT
-MyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1
-OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMi
-wxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNjIyNDY4OTE0LDI0MTk4
-MzM4Nl19
+eyJoaXN0b3J5IjpbLTE2NDczOTI0ODQsMTEzMDYwNDYwNiwtMT
+k2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDcz
+ODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLT
+E3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5NzMx
+OTY2LC02MzQwMTU1OTEsLTExMzAzOTY1MjcsLTE2OTU3MTk3Nj
+YsMTczODg1NTgxMiwxOTYyOTA0OTkzLDIwNTg3NDE3MDcsNjIy
+NDY4OTE0XX0=
 -->
