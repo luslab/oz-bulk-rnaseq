@@ -115,6 +115,18 @@ PSI = percent spliced in
 Output file is created in directory of input file. 
 
 ```bash
+ml R
+R
+library("ggplot2")
+library("optparse")
+library("MASS")
+library("RColorBrewer")
+library("reshape2")
+library("grid")
+library("psiplot")
+#quit R in cluster
+q()
+
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
@@ -140,7 +152,7 @@ q()
 
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788,SRR5483789,SRR5483790 -b SRR5483794,SRR5483795,SRR5483796 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8"
 ```
 
 ## Plotting
@@ -158,11 +170,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzM3NzkzMTksLTEzNDk4MDMyNjksLT
-E2NDczOTI0ODQsMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4
-OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Njc5ND
-UsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMTMy
-MzEzOTM3Nyw3ODQ3NzE1OSwxMjg5NzMxOTY2LC02MzQwMTU1OT
-EsLTExMzAzOTY1MjcsLTE2OTU3MTk3NjYsMTczODg1NTgxMiwx
-OTYyOTA0OTkzXX0=
+eyJoaXN0b3J5IjpbLTM5NjQzMjIxLC0xMzQ5ODAzMjY5LC0xNj
+Q3MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1
+NTU0MSwxNzA1MjUwMTEwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LD
+EwNTA4NDMzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMx
+MzkzNzcsNzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC
+0xMTMwMzk2NTI3LC0xNjk1NzE5NzY2LDE3Mzg4NTU4MTIsMTk2
+MjkwNDk5M119
 -->
