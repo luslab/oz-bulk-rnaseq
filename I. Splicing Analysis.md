@@ -114,9 +114,13 @@ library("psiplot")
 #quit R in cluster
 q()
 
-IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
+IN=/Users/ziffo/bioinformatics
+vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO
 
+#run on cluster
+IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
+
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -157,11 +161,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzE5NDQzMzEsLTg3NjcwNzY0OCwtMT
-QyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQw
-MzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1OD
-UsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwx
-MTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNT
-I1MDExMCwtOTQ0NzM4NTQ4LDQwMDQ2Nzk0NSwxMDUwODQzMzks
-MTIwMTkwNDc3Nl19
+eyJoaXN0b3J5IjpbMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0Mj
+gzMDA3NjAsNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1NDE0MDMz
+NzMsMTcwNDYwOTU1MCwxNzUyMjcwNDY2LC0xMTY0MTY5NTg1LC
+04NzU5NTMwODEsLTEzNDk4MDMyNjksLTE2NDczOTI0ODQsMTEz
+MDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUyNT
+AxMTAsLTk0NDczODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LDEy
+MDE5MDQ3NzZdfQ==
 -->
