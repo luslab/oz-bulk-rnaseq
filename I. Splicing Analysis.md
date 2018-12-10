@@ -106,8 +106,10 @@ source activate rtest
 R
 install command
 load package
-```
 
+#to deactivate environment
+> source deactivate
+```
 
 PSI = percent spliced in
 Output file is created in directory of input file. 
@@ -173,11 +175,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxNzAxMTMwMiwtNDM5MTYxNzU4LDEzNz
-Q4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3NjcwNzY0
-OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIwOSwtMT
-U0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQx
-Njk1ODUsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5Mj
-Q4NCwxMTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEs
-MTcwNTI1MDExMF19
+eyJoaXN0b3J5IjpbMTczMzA0MTU5MiwyMDE3MDExMzAyLC00Mz
+kxNjE3NTgsMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMzkxMjE4
+MCwtODc2NzA3NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5NCwtNT
+M4MTMyMjA5LC0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMTc1MjI3
+MDQ2NiwtMTE2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5ODAzMj
+Y5LC0xNjQ3MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0NjQ5OTks
+MTc1ODk1NTU0MV19
 -->
