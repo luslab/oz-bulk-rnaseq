@@ -144,7 +144,12 @@ https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 Test for differential alternative splicing between 2 groups of samples.
 
 ```bash
+ml Anaconda2
 ml R
+
+#create conda environment
+source activate rtest
+
 R
 library("ggplot2")
 library("optparse")
@@ -177,11 +182,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDQ1MjAwNCw4NTAzMTAwMDAsLTExNj
-IwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC0yMTMzNjky
-MDQ2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3MzMwNDE1OTIsMj
-AxNzAxMTMwMiwtNDM5MTYxNzU4LDEzNzQ4ODE2MTYsMTE3MjY0
-NDI4NSwxMjM5MTIxODAsLTg3NjcwNzY0OCwtMTQyODMwMDc2MC
-w2MDM3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNzA0
-NjA5NTUwXX0=
+eyJoaXN0b3J5IjpbLTE3NDEwMjczODksODUwMzEwMDAwLC0xMT
+YyMDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEzMzY5
+MjA0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQxNTkyLD
+IwMTcwMTEzMDIsLTQzOTE2MTc1OCwxMzc0ODgxNjE2LDExNzI2
+NDQyODUsMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0MjgzMDA3Nj
+AsNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1NDE0MDMzNzMsMTcw
+NDYwOTU1MF19
 -->
