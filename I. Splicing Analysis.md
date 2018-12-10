@@ -124,6 +124,7 @@ library("MASS")
 library("RColorBrewer")
 library("reshape2")
 library("grid")
+library("devtools")
 library("psiplot")
 #quit R in cluster
 q()
@@ -175,7 +176,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4ODgyNzU2MSwzOTYzMjExMjksMTczMz
+eyJoaXN0b3J5IjpbMTU3MTI3MzM2NywzOTYzMjExMjksMTczMz
 A0MTU5MiwyMDE3MDExMzAyLC00MzkxNjE3NTgsMTM3NDg4MTYx
 NiwxMTcyNjQ0Mjg1LDEyMzkxMjE4MCwtODc2NzA3NjQ4LC0xND
 I4MzAwNzYwLDYwMzc2NTQ5NCwtNTM4MTMyMjA5LC0xNTQxNDAz
