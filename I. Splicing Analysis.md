@@ -164,7 +164,7 @@ Output = diff.splicing.pdf
 ## Plotting
 
 ```bash
-vast-tools plot /home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/significant_events.tab
+vast-tools plot /home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/diff.splicing.tab
 ```
 
 # Coverage for introns
@@ -176,11 +176,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc5ODU2MzgwLC0xNTgzOTk0OTY0LC00Mz
-k5MDg1NTQsLTIxMzM2OTIwNDYsMTU3MTI3MzM2NywzOTYzMjEx
-MjksMTczMzA0MTU5MiwyMDE3MDExMzAyLC00MzkxNjE3NTgsMT
-M3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMzkxMjE4MCwtODc2NzA3
-NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5NCwtNTM4MTMyMjA5LC
-0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMTc1MjI3MDQ2NiwtMTE2
-NDE2OTU4NV19
+eyJoaXN0b3J5IjpbLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtND
+M5OTA4NTU0LC0yMTMzNjkyMDQ2LDE1NzEyNzMzNjcsMzk2MzIx
+MTI5LDE3MzMwNDE1OTIsMjAxNzAxMTMwMiwtNDM5MTYxNzU4LD
+EzNzQ4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3Njcw
+NzY0OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIwOS
+wtMTU0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLTEx
+NjQxNjk1ODVdfQ==
 -->
