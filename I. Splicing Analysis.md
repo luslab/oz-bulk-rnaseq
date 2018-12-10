@@ -184,9 +184,83 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 # Perform GO analysis of gene list of differentially spliced genes
 
+```r
+### GO analysis
+library(topGO)
+library(GOstats)
+library(goseq)
+library(org.Mm.eg.db)
+# subset results table to only genes with sufficient read coverage
+resTested <- resLFC1[ !is.na(resLFC1$padj), ]
+# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
+temp=gsub("\\..*","",row.names(resTested))
+#set the temp as the new rownames
+rownames(resTested) <- temp
+# construct binary variable for UP and DOWN regulated
+genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
+names(genelistUp) <- rownames(resTested)
+genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
+names(genelistDown) <- rownames(resTested)
 
+### Test UPREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+
+### TEST DOWNREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+UR_BP_table <- GenTable( myGOdata, goTestResults )
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+
+### Plot GO p-values as as bar plot
+library("GOplot")
+
+barplot(UR_BP_table, drop=TRUE, font.size = 10,showCategory=10000, title="Up Regulated Biological Process")
+
+
+UR_BP_table$result1
+table(UR_BP_table$Term)
+
+UR_BP_table$value <- (UR_BP_table$result1)+1
+
+pvalue <- UR_BP_table$result1
+na.omit(pvalue)
+log10(pvalue)
+
+barplot(table(UR_BP_table$result1), names.arg=Term, main="Up Regulated Biological Process")  
+
+
+height <- log10(result1)
+
+
+circ <- circle_dat(UR_BP_table, sorted.df)
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1NzQxOTI0NCwyMTQ1MDc2ODE4LC0zMz
+eyJoaXN0b3J5IjpbMTQxMjY5NTAxNywyMTQ1MDc2ODE4LC0zMz
 Y4NDIyNjgsMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4
 Mjc4LC0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OS
 w4NTAzMTAwMDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5
