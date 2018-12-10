@@ -162,7 +162,7 @@ library("psiplot")
 q()
 
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -m 0.2 -d diff.splicing_mv0.2 -c 8"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -r 0.99 -m 0.2 -d diff.splicing_r0.99_mv0.2 -c 8"
 # use the -m argument to set threshold for differential splicing events (default is 0.1)
 ```
 Output file = diff.splicing.pdf & diff.splicing.tab
@@ -189,11 +189,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDU2ODI3OCwtMTc0MTAyNzM4OSw0Mj
-UwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0xMTYyMDcz
-OTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEzMzY5MjA0Ni
-wxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQxNTkyLDIwMTcw
-MTEzMDIsLTQzOTE2MTc1OCwxMzc0ODgxNjE2LDExNzI2NDQyOD
-UsMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0MjgzMDA3NjAsNjAz
-NzY1NDk0XX0=
+eyJoaXN0b3J5IjpbLTEzMzM3MzI3ODAsLTExMDU2ODI3OCwtMT
+c0MTAyNzM4OSw0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEw
+MDAwLC0xMTYyMDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NC
+wtMjEzMzY5MjA0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMz
+MDQxNTkyLDIwMTcwMTEzMDIsLTQzOTE2MTc1OCwxMzc0ODgxNj
+E2LDExNzI2NDQyODUsMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0
+MjgzMDA3NjBdfQ==
 -->
