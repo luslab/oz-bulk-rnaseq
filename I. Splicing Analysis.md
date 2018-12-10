@@ -172,7 +172,10 @@ order tab file by MV value:
 more diff.splicing_mv0.2.tab | sort -k6 -r | head
 
 count number of genes with MV > 0.2
-more diff.splicing_mv0.2.tab | grep SFPQ
+
+more diff.splicing_mv0.2.tab | wc -l
+
+grep SFPQ
 ```
 
 ## Plotting
@@ -190,7 +193,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTEyNzI3NzIxLC0xMTA1NjgyNzgsLTE3ND
+eyJoaXN0b3J5IjpbNzk0MDQ5Nzk2LC0xMTA1NjgyNzgsLTE3ND
 EwMjczODksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAw
 MCwtMTE2MjA3Mzk1LC0xNTgzOTk0OTY0LC00Mzk5MDg1NTQsLT
 IxMzM2OTIwNDYsMTU3MTI3MzM2NywzOTYzMjExMjksMTczMzA0
