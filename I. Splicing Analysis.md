@@ -4,7 +4,7 @@
 > # Alternative Expression Analysis
 https://www.nature.com/articles/nmeth.1503.pdf
 
-By infer structural infromation about the transcript 
+Infer structural infromation about the transcript 
 Infer the strand by examining splice site spanning reads
 Each transcript isoform has very few exons & exon-exon junctions that are unique to that isoform.
 
@@ -170,11 +170,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjQxNjk1ODUsLTg3NTk1MzA4MSwtMT
-M0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0NjA2LC0xOTY4
-NDY0OTk5LDE3NTg5NTU1NDEsMTcwNTI1MDExMCwtOTQ0NzM4NT
-Q4LDQwMDQ2Nzk0NSwxMDUwODQzMzksMTIwMTkwNDc3NiwtMTc0
-MTgxMDczNywxMzIzMTM5Mzc3LDc4NDc3MTU5LDEyODk3MzE5Nj
-YsLTYzNDAxNTU5MSwtMTEzMDM5NjUyNywtMTY5NTcxOTc2Niwx
-NzM4ODU1ODEyXX0=
+eyJoaXN0b3J5IjpbLTQyMjI2Mzc5MCwtMTE2NDE2OTU4NSwtOD
+c1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3MzkyNDg0LDExMzA2
+MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1NTU0MSwxNzA1MjUwMT
+EwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMzOSwxMjAx
+OTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNzg0NzcxNT
+ksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3LC0x
+Njk1NzE5NzY2XX0=
 -->
