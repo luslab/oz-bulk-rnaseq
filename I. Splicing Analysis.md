@@ -110,10 +110,9 @@ devtools::install_github("kcha/psiplot")
 ```
 
 PSI = percent spliced in
-Output file is created in directory of input file. 
+
 
 ```bash
-
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
 ml R/3.5.1-foss-2016b-bare
 R
@@ -127,14 +126,12 @@ library("devtools")
 library("psiplot")
 #quit R in cluster
 q()
+```
 
-IN=/Users/ziffo/bioinformatics
-vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO
-
+```bash
 #run on cluster
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
-
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 
@@ -175,11 +172,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc5NjMwMjkxLDE1NzEyNzMzNjcsMzk2Mz
-IxMTI5LDE3MzMwNDE1OTIsMjAxNzAxMTMwMiwtNDM5MTYxNzU4
-LDEzNzQ4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3Nj
-cwNzY0OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIw
-OSwtMTU0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLT
-ExNjQxNjk1ODUsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0
-NzM5MjQ4NF19
+eyJoaXN0b3J5IjpbMTI3MTQ2MTI4MywxNTcxMjczMzY3LDM5Nj
+MyMTEyOSwxNzMzMDQxNTkyLDIwMTcwMTEzMDIsLTQzOTE2MTc1
+OCwxMzc0ODgxNjE2LDExNzI2NDQyODUsMTIzOTEyMTgwLC04Nz
+Y3MDc2NDgsLTE0MjgzMDA3NjAsNjAzNzY1NDk0LC01MzgxMzIy
+MDksLTE1NDE0MDMzNzMsMTcwNDYwOTU1MCwxNzUyMjcwNDY2LC
+0xMTY0MTY5NTg1LC04NzU5NTMwODEsLTEzNDk4MDMyNjksLTE2
+NDczOTI0ODRdfQ==
 -->
