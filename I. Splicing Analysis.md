@@ -102,10 +102,6 @@ PSI = percent spliced in
 Output file is created in directory of input file. 
 
 ```bash
-ml Anaconda2
-conda create -n rtest r-essentials
-source activate rtest
-# and then install the package normally by calling R
 
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
 R
@@ -166,11 +162,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMz
-kxMjE4MCwtODc2NzA3NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5
-NCwtNTM4MTMyMjA5LC0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMT
-c1MjI3MDQ2NiwtMTE2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5
-ODAzMjY5LC0xNjQ3MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0Nj
-Q5OTksMTc1ODk1NTU0MSwxNzA1MjUwMTEwLC05NDQ3Mzg1NDgs
-NDAwNDY3OTQ1XX0=
+eyJoaXN0b3J5IjpbLTQzOTE2MTc1OCwxMzc0ODgxNjE2LDExNz
+I2NDQyODUsMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0MjgzMDA3
+NjAsNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1NDE0MDMzNzMsMT
+cwNDYwOTU1MCwxNzUyMjcwNDY2LC0xMTY0MTY5NTg1LC04NzU5
+NTMwODEsLTEzNDk4MDMyNjksLTE2NDczOTI0ODQsMTEzMDYwND
+YwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUyNTAxMTAs
+LTk0NDczODU0OF19
 -->
