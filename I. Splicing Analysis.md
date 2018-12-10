@@ -27,7 +27,7 @@ Few exon-exon spanning genes.
 
 Gene isoforms are mRNA produced from the same locus but with different protein coding sequences:
 
-5 modes of alternative splicing are recognized:
+5 modes of alternative splicing are recognisedd:
 
 1.  Exon skipping or cassette exon.
 2.  Mutually exclusive exons.
@@ -163,11 +163,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjQxNjExODksMTc1MjI3MDQ2NiwtMT
-E2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3
-MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1NT
-U0MSwxNzA1MjUwMTEwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEw
-NTA4NDMzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMz
-kzNzcsNzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0x
-MTMwMzk2NTI3XX0=
+eyJoaXN0b3J5IjpbMTg5MDk4NDY4LDE3NTIyNzA0NjYsLTExNj
+QxNjk1ODUsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5
+MjQ4NCwxMTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5NTU1ND
+EsMTcwNTI1MDExMCwtOTQ0NzM4NTQ4LDQwMDQ2Nzk0NSwxMDUw
+ODQzMzksMTIwMTkwNDc3NiwtMTc0MTgxMDczNywxMzIzMTM5Mz
+c3LDc4NDc3MTU5LDEyODk3MzE5NjYsLTYzNDAxNTU5MSwtMTEz
+MDM5NjUyN119
 -->
