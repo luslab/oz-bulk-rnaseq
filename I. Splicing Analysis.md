@@ -183,9 +183,7 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 #create table of m >= 0.24 genes for plotting
 awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab > diff.splicing_mv0.2_filtered.tab
 
-IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/diff.splicing_mv0.2_filtered.tab
-
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
+IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/DiffAS-Hsa6-hg19-dPSI15-range5_SRR5483788-vs-SRR5483794.tab
 
 vast-tools plot $IN
 ```
@@ -199,11 +197,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk3MTA5NDk4LC0zMzY4NDIyNjgsMjAwMz
-UwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC0xNzQxMDI3
-Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAzMTAwMDAsLT
-ExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC0yMTMz
-NjkyMDQ2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3MzMwNDE1OT
-IsMjAxNzAxMTMwMiwtNDM5MTYxNzU4LDEzNzQ4ODE2MTYsMTE3
-MjY0NDI4NV19
+eyJoaXN0b3J5IjpbMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMD
+M1MDY0MDEsLTE1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAy
+NzM4OSw0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC
+0xMTYyMDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEz
+MzY5MjA0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQxNT
+kyLDIwMTcwMTEzMDIsLTQzOTE2MTc1OCwxMzc0ODgxNjE2LDEx
+NzI2NDQyODVdfQ==
 -->
