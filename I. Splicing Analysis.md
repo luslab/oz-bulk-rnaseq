@@ -105,6 +105,7 @@ source activate rtest
 # install the package normally by calling R
 R
 devtools::install_github("kcha/psiplot")
+install.packages("optparse")
 #to deactivate environment
 > source deactivate
 ```
@@ -124,6 +125,7 @@ library("reshape2")
 library("grid")
 library("devtools")
 library("psiplot")
+library("optparse")
 #quit R in cluster
 q()
 ```
@@ -174,11 +176,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NDg0NDcwMSwxNTcxMjczMzY3LDM5Nj
-MyMTEyOSwxNzMzMDQxNTkyLDIwMTcwMTEzMDIsLTQzOTE2MTc1
-OCwxMzc0ODgxNjE2LDExNzI2NDQyODUsMTIzOTEyMTgwLC04Nz
-Y3MDc2NDgsLTE0MjgzMDA3NjAsNjAzNzY1NDk0LC01MzgxMzIy
-MDksLTE1NDE0MDMzNzMsMTcwNDYwOTU1MCwxNzUyMjcwNDY2LC
-0xMTY0MTY5NTg1LC04NzU5NTMwODEsLTEzNDk4MDMyNjksLTE2
-NDczOTI0ODRdfQ==
+eyJoaXN0b3J5IjpbLTIxMzM2OTIwNDYsMTU3MTI3MzM2NywzOT
+YzMjExMjksMTczMzA0MTU5MiwyMDE3MDExMzAyLC00MzkxNjE3
+NTgsMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMzkxMjE4MCwtOD
+c2NzA3NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5NCwtNTM4MTMy
+MjA5LC0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMTc1MjI3MDQ2Ni
+wtMTE2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5ODAzMjY5LC0x
+NjQ3MzkyNDg0XX0=
 -->
