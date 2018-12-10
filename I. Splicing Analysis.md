@@ -25,7 +25,7 @@ Few exon-exon spanning genes.
 
 # Gene Isoform counting
 
-Gene isoforms are mRNA produced from the same locus but with diferent protein codeing sequences:
+Gene isoforms are mRNA produced from the same locus but with different protein coding sequences:
 
 5 modes of alternative splicing are recognized:
 
@@ -163,11 +163,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1MjI3MDQ2NiwtMTE2NDE2OTU4NSwtOD
-c1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3MzkyNDg0LDExMzA2
-MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1NTU0MSwxNzA1MjUwMT
-EwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMzOSwxMjAx
-OTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMzkzNzcsNzg0NzcxNT
-ksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0xMTMwMzk2NTI3LC0x
-Njk1NzE5NzY2XX0=
+eyJoaXN0b3J5IjpbLTEyMjQxNjExODksMTc1MjI3MDQ2NiwtMT
+E2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3
+MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1NT
+U0MSwxNzA1MjUwMTEwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEw
+NTA4NDMzOSwxMjAxOTA0Nzc2LC0xNzQxODEwNzM3LDEzMjMxMz
+kzNzcsNzg0NzcxNTksMTI4OTczMTk2NiwtNjM0MDE1NTkxLC0x
+MTMwMzk2NTI3XX0=
 -->
