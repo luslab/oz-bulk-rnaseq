@@ -97,7 +97,16 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
 As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
-
+```bash
+ml Anaconda2
+#create conda environment
+conda create -n rtest r-essentials r-devtools
+source activate rtest
+# install the package normally by calling R
+R
+install command
+load package
+```
 
 
 PSI = percent spliced in
@@ -164,7 +173,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNjYwNjUxNiwtNDM5MTYxNzU4LDEzNz
+eyJoaXN0b3J5IjpbMjAxNzAxMTMwMiwtNDM5MTYxNzU4LDEzNz
 Q4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3NjcwNzY0
 OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIwOSwtMT
 U0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQx
