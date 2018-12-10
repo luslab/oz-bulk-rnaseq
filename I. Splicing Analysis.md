@@ -72,13 +72,16 @@ Merge the Aligned output files for technical replicates when read coverage for i
 
 ## Combining results
 
-Combines aligned files that are stored in the folder `to_combine` to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
+Combines aligned files that are stored in the folder `to_combine` to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/
 
 # run vast-tools combine
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
+
+#check output
+head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 ```
 
 This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
@@ -161,7 +164,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxMTMyOTc3NiwtMTU0MTQwMzM3MywxNz
+eyJoaXN0b3J5IjpbLTc3MjE1ODA1OSwtMTU0MTQwMzM3MywxNz
 A0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1
 MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0Nj
 A2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNTI1MDExMCwt
