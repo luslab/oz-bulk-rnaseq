@@ -169,7 +169,7 @@ Output file = diff.splicing.pdf & diff.splicing.tab
 
 ```bash
 order tab file by MV value:
-more diff.splicing_mv0.2.tab | sort -k2
+more diff.splicing_mv0.2.tab | sort -n6 | tail
 
 
 more diff.splicing_mv0.2.tab | grep SFPQ
@@ -190,11 +190,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3MjQ2MzI2NiwtMTEwNTY4Mjc4LC0xNz
-QxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAzMTAw
-MDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC
-0yMTMzNjkyMDQ2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3MzMw
-NDE1OTIsMjAxNzAxMTMwMiwtNDM5MTYxNzU4LDEzNzQ4ODE2MT
-YsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3NjcwNzY0OCwtMTQy
-ODMwMDc2MF19
+eyJoaXN0b3J5IjpbLTQxNDgzMjUsLTExMDU2ODI3OCwtMTc0MT
+AyNzM4OSw0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAw
+LC0xMTYyMDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMj
+EzMzY5MjA0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQx
+NTkyLDIwMTcwMTEzMDIsLTQzOTE2MTc1OCwxMzc0ODgxNjE2LD
+ExNzI2NDQyODUsMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0Mjgz
+MDA3NjBdfQ==
 -->
