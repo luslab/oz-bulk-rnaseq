@@ -104,11 +104,7 @@ conda create -n rtest r-essentials r-devtools
 source activate rtest
 # install the package normally by calling R
 R
-install command
-
 install.packages("psiplot", lib="/home/camp/ziffo/working/oliver/bin")
-
-load package
 
 #to deactivate environment
 > source deactivate
@@ -121,7 +117,7 @@ Output file is created in directory of input file.
 
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
 ml R/3.5.1-foss-2016b-bare
-
+R
 library("ggplot2")
 library("optparse")
 library("MASS")
@@ -179,11 +175,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk2MzIxMTI5LDE3MzMwNDE1OTIsMjAxNz
-AxMTMwMiwtNDM5MTYxNzU4LDEzNzQ4ODE2MTYsMTE3MjY0NDI4
-NSwxMjM5MTIxODAsLTg3NjcwNzY0OCwtMTQyODMwMDc2MCw2MD
-M3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNzA0NjA5
-NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1MzA4MS
-wtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0NjA2LC0x
-OTY4NDY0OTk5XX0=
+eyJoaXN0b3J5IjpbMTI4ODgyNzU2MSwzOTYzMjExMjksMTczMz
+A0MTU5MiwyMDE3MDExMzAyLC00MzkxNjE3NTgsMTM3NDg4MTYx
+NiwxMTcyNjQ0Mjg1LDEyMzkxMjE4MCwtODc2NzA3NjQ4LC0xND
+I4MzAwNzYwLDYwMzc2NTQ5NCwtNTM4MTMyMjA5LC0xNTQxNDAz
+MzczLDE3MDQ2MDk1NTAsMTc1MjI3MDQ2NiwtMTE2NDE2OTU4NS
+wtODc1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3MzkyNDg0LDEx
+MzA2MDQ2MDZdfQ==
 -->
