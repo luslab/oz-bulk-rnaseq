@@ -77,13 +77,13 @@ Combines aligned files that are stored in the folder `to_combine` to form one fi
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/
 
-# To create the old version INCLUSION_TABLE.tab single output then specify `--noANNOT`
+#  create the old legacy version INCLUSION_TABLE.tab single output then specify `--noANNOT`
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --noANNOT"
 
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 
-# run vast-tools combine
+# run vast-tools combine using ANNOT tool 
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons
@@ -158,11 +158,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1ND
-E0MDMzNzMsMTcwNDYwOTU1MCwxNzUyMjcwNDY2LC0xMTY0MTY5
-NTg1LC04NzU5NTMwODEsLTEzNDk4MDMyNjksLTE2NDczOTI0OD
-QsMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3
-MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Njc5NDUsMTA1MDg0Mz
-M5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3MzcsMTMyMzEzOTM3Nyw3
-ODQ3NzE1OV19
+eyJoaXN0b3J5IjpbLTE0MjgzMDA3NjAsNjAzNzY1NDk0LC01Mz
+gxMzIyMDksLTE1NDE0MDMzNzMsMTcwNDYwOTU1MCwxNzUyMjcw
+NDY2LC0xMTY0MTY5NTg1LC04NzU5NTMwODEsLTEzNDk4MDMyNj
+ksLTE2NDczOTI0ODQsMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwx
+NzU4OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Nj
+c5NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3Mzcs
+MTMyMzEzOTM3N119
 -->
