@@ -16,16 +16,13 @@ brown & green genes = coding genes
 Few exon-exon spanning genes.
 
 # Tools
-[VAST-TOOLS](https://github.com/vastgroup/vast-tools)
-ENCODE use rMATS
-MAJIQ is also good and interesting but parsing the output used to be a bit annoying (but the default was the best looking one of the lot!) (edited)
-JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team)
-Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
-There is also MISO.
-Most recently I've been using rMATS as I have been comparing stuff with other ENCODE datasets
-But previously I used DEXSeq and JunctionSeq as it sort of follows on methodologically from DEseq
-But I have tried MAJIQ and Whippet too... but they get more complex in terms of splice graphs
-Whippet is in Julia, I think MAJIQ is python
+- [VAST-TOOLS](https://github.com/vastgroup/vast-tools)
+- rMATS- useful for comparing with other ENCODE datasets
+- MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
+- JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team)
+- Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
+- MISO
+
 JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
 And they improve on some of the flaws/limitations of DEXSeq
 And you can effectively run a DEXSeq analysis alongside to see the difference
@@ -170,7 +167,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyMjI2Mzc5MCwtMTE2NDE2OTU4NSwtOD
+eyJoaXN0b3J5IjpbMTUwNjQ3ODE4MCwtMTE2NDE2OTU4NSwtOD
 c1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3MzkyNDg0LDExMzA2
 MDQ2MDYsLTE5Njg0NjQ5OTksMTc1ODk1NTU0MSwxNzA1MjUwMT
 EwLC05NDQ3Mzg1NDgsNDAwNDY3OTQ1LDEwNTA4NDMzOSwxMjAx
