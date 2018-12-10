@@ -104,8 +104,7 @@ conda create -n rtest r-essentials r-devtools
 source activate rtest
 # install the package normally by calling R
 R
-install.packages("psiplot", lib="/home/camp/ziffo/working/oliver/bin")
-
+devtools::install_github("kcha/psiplot")
 #to deactivate environment
 > source deactivate
 ```
@@ -176,11 +175,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3MTI3MzM2NywzOTYzMjExMjksMTczMz
-A0MTU5MiwyMDE3MDExMzAyLC00MzkxNjE3NTgsMTM3NDg4MTYx
-NiwxMTcyNjQ0Mjg1LDEyMzkxMjE4MCwtODc2NzA3NjQ4LC0xND
-I4MzAwNzYwLDYwMzc2NTQ5NCwtNTM4MTMyMjA5LC0xNTQxNDAz
-MzczLDE3MDQ2MDk1NTAsMTc1MjI3MDQ2NiwtMTE2NDE2OTU4NS
-wtODc1OTUzMDgxLC0xMzQ5ODAzMjY5LC0xNjQ3MzkyNDg0LDEx
-MzA2MDQ2MDZdfQ==
+eyJoaXN0b3J5IjpbNTc5NjMwMjkxLDE1NzEyNzMzNjcsMzk2Mz
+IxMTI5LDE3MzMwNDE1OTIsMjAxNzAxMTMwMiwtNDM5MTYxNzU4
+LDEzNzQ4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3Nj
+cwNzY0OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIw
+OSwtMTU0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLT
+ExNjQxNjk1ODUsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0
+NzM5MjQ4NF19
 -->
