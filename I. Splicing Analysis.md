@@ -80,6 +80,9 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 # run vast-tools combine
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 
+# To create the old version INCLUSION_TABLE.tab single output then specify `--noANNOT`
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --noANNOT"
+
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 ```
@@ -90,15 +93,6 @@ COMBI = splice site based module
 EXSK = 
 MIC = 
 MULTI =
-
-To create the old version INCLUSION_TABLE.tab single output then specify `--noANNOT`
-```bash
-#set aligned output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/
-
-# run vast-tools combine
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --noANNOT"
-```
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -164,7 +158,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3MjE1ODA1OSwtMTU0MTQwMzM3MywxNz
+eyJoaXN0b3J5IjpbLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNz
 A0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1
 MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0Nj
 A2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNTI1MDExMCwt
