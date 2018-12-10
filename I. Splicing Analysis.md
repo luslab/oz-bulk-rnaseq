@@ -182,11 +182,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 
-
+# Perform GO analysis of gene list of differentially spliced genes
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5Mzg0NDIwNSwyMTQ1MDc2ODE4LC0zMz
+eyJoaXN0b3J5IjpbLTI1NzQxOTI0NCwyMTQ1MDc2ODE4LC0zMz
 Y4NDIyNjgsMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4
 Mjc4LC0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OS
 w4NTAzMTAwMDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5
