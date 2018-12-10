@@ -111,7 +111,7 @@ devtools::install_github("kcha/psiplot")
 
 PSI = percent spliced in
 
-
+Set up R with modules loaded in conda environment
 ```bash
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
 ml R/3.5.1-foss-2016b-bare
@@ -127,13 +127,15 @@ library("psiplot")
 #quit R in cluster
 q()
 ```
-
+run vastools compare in conda environment outside of R
 ```bash
 #run on cluster
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
+Output file is created in directory of input file
+
 
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
@@ -172,7 +174,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3MTQ2MTI4MywxNTcxMjczMzY3LDM5Nj
+eyJoaXN0b3J5IjpbMTU3NDg0NDcwMSwxNTcxMjczMzY3LDM5Nj
 MyMTEyOSwxNzMzMDQxNTkyLDIwMTcwMTEzMDIsLTQzOTE2MTc1
 OCwxMzc0ODgxNjE2LDExNzI2NDQyODUsMTIzOTEyMTgwLC04Nz
 Y3MDc2NDgsLTE0MjgzMDA3NjAsNjAzNzY1NDk0LC01MzgxMzIy
