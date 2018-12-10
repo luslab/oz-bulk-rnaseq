@@ -136,7 +136,7 @@ IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
-Output file is created in directory of input file
+Output file is created in directory of input file. This reports the differentially spliced AS events between the 2 groups (based on difference in average inclusion levels - delta PSI)
 
 
 ## Differential Splicing Analysis
@@ -157,7 +157,6 @@ library("psiplot")
 q()
 
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
-
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -d diff.splicing -c 8"
 ```
 
@@ -176,11 +175,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM2OTIwNDYsMTU3MTI3MzM2NywzOT
-YzMjExMjksMTczMzA0MTU5MiwyMDE3MDExMzAyLC00MzkxNjE3
-NTgsMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMzkxMjE4MCwtOD
-c2NzA3NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5NCwtNTM4MTMy
-MjA5LC0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMTc1MjI3MDQ2Ni
-wtMTE2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5ODAzMjY5LC0x
-NjQ3MzkyNDg0XX0=
+eyJoaXN0b3J5IjpbLTQzOTkwODU1NCwtMjEzMzY5MjA0NiwxNT
+cxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQxNTkyLDIwMTcwMTEz
+MDIsLTQzOTE2MTc1OCwxMzc0ODgxNjE2LDExNzI2NDQyODUsMT
+IzOTEyMTgwLC04NzY3MDc2NDgsLTE0MjgzMDA3NjAsNjAzNzY1
+NDk0LC01MzgxMzIyMDksLTE1NDE0MDMzNzMsMTcwNDYwOTU1MC
+wxNzUyMjcwNDY2LC0xMTY0MTY5NTg1LC04NzU5NTMwODEsLTEz
+NDk4MDMyNjldfQ==
 -->
