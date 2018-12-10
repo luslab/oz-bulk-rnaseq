@@ -173,7 +173,9 @@ more diff.splicing_mv0.2.tab | sort -k6 -r | head
 
 # count number of genes with MV > X:
 awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | wc -l
-# count number of genes 
+# count number of genes with +ve intron retention (VCP vs CTRL):
+awk '{ if ($5 >=0 $6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | wc -l
+
 grep SFPQ
 ```
 
@@ -192,7 +194,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Njk3OTg5MDUsLTExMDU2ODI3OCwtMT
+eyJoaXN0b3J5IjpbLTE1MzM2MjU5MDQsLTExMDU2ODI3OCwtMT
 c0MTAyNzM4OSw0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEw
 MDAwLC0xMTYyMDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NC
 wtMjEzMzY5MjA0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMz
