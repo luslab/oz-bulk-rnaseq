@@ -96,10 +96,14 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
+As CAMP R module doesnt have psiplots R package run this step locally:
+
 PSI = percent spliced in
 Output file is created in directory of input file. 
 
 ```bash
+# move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal
+
 ml R
 R
 library("ggplot2")
@@ -157,11 +161,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3NjcwNzY0OCwtMTQyODMwMDc2MCw2MD
-M3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNzA0NjA5
-NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1MzA4MS
-wtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0NjA2LC0x
-OTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNTI1MDExMCwtOTQ0Nz
-M4NTQ4LDQwMDQ2Nzk0NSwxMDUwODQzMzksMTIwMTkwNDc3Niwt
-MTc0MTgxMDczN119
+eyJoaXN0b3J5IjpbMzk0NDk1NjY1LC04NzY3MDc2NDgsLTE0Mj
+gzMDA3NjAsNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1NDE0MDMz
+NzMsMTcwNDYwOTU1MCwxNzUyMjcwNDY2LC0xMTY0MTY5NTg1LC
+04NzU5NTMwODEsLTEzNDk4MDMyNjksLTE2NDczOTI0ODQsMTEz
+MDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUyNT
+AxMTAsLTk0NDczODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LDEy
+MDE5MDQ3NzZdfQ==
 -->
