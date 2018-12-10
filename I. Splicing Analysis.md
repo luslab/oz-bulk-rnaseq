@@ -105,7 +105,7 @@ Output file is created in directory of input file.
 ml Anaconda2
 conda create -n rtest r-essentials
 source activate rtest
-# and then install the package normally
+# and then install the package normally by calling R
 
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
 R
@@ -166,11 +166,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3Nj
-cwNzY0OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIw
-OSwtMTU0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLT
-ExNjQxNjk1ODUsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0
-NzM5MjQ4NCwxMTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5NT
-U1NDEsMTcwNTI1MDExMCwtOTQ0NzM4NTQ4LDQwMDQ2Nzk0NSwx
-MDUwODQzMzldfQ==
+eyJoaXN0b3J5IjpbMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMz
+kxMjE4MCwtODc2NzA3NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5
+NCwtNTM4MTMyMjA5LC0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMT
+c1MjI3MDQ2NiwtMTE2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5
+ODAzMjY5LC0xNjQ3MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0Nj
+Q5OTksMTc1ODk1NTU0MSwxNzA1MjUwMTEwLC05NDQ3Mzg1NDgs
+NDAwNDY3OTQ1XX0=
 -->
