@@ -102,9 +102,7 @@ PSI = percent spliced in
 Output file is created in directory of input file. 
 
 ```bash
-# move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal
-
-ml R
+# move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
 R
 library("ggplot2")
 library("optparse")
@@ -112,8 +110,6 @@ library("MASS")
 library("RColorBrewer")
 library("reshape2")
 library("grid")
-if (!require("devtools")) install.packages("devtools")
-devtools::install_github("kcha/psiplot")
 library("psiplot")
 #quit R in cluster
 q()
@@ -161,11 +157,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk0NDk1NjY1LC04NzY3MDc2NDgsLTE0Mj
-gzMDA3NjAsNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1NDE0MDMz
-NzMsMTcwNDYwOTU1MCwxNzUyMjcwNDY2LC0xMTY0MTY5NTg1LC
-04NzU5NTMwODEsLTEzNDk4MDMyNjksLTE2NDczOTI0ODQsMTEz
-MDYwNDYwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUyNT
-AxMTAsLTk0NDczODU0OCw0MDA0Njc5NDUsMTA1MDg0MzM5LDEy
-MDE5MDQ3NzZdfQ==
+eyJoaXN0b3J5IjpbLTEwNzE5NDQzMzEsLTg3NjcwNzY0OCwtMT
+QyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQw
+MzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1OD
+UsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwx
+MTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNT
+I1MDExMCwtOTQ0NzM4NTQ4LDQwMDQ2Nzk0NSwxMDUwODQzMzks
+MTIwMTkwNDc3Nl19
 -->
