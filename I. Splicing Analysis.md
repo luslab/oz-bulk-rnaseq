@@ -72,7 +72,7 @@ Merge the Aligned output files for technical replicates when read coverage for i
 
 ## Combining results
 
-Combines aligned files to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
+Combines aligned files that are stored in the folder `to_combine` to form one single summary table. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/
@@ -161,11 +161,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDE0MDMzNzMsMTcwNDYwOTU1MCwxNz
-UyMjcwNDY2LC0xMTY0MTY5NTg1LC04NzU5NTMwODEsLTEzNDk4
-MDMyNjksLTE2NDczOTI0ODQsMTEzMDYwNDYwNiwtMTk2ODQ2ND
-k5OSwxNzU4OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0
-MDA0Njc5NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MT
-A3MzcsMTMyMzEzOTM3Nyw3ODQ3NzE1OSwxMjg5NzMxOTY2LC02
-MzQwMTU1OTFdfQ==
+eyJoaXN0b3J5IjpbMjAxMTMyOTc3NiwtMTU0MTQwMzM3MywxNz
+A0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1
+MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0Nj
+A2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNTI1MDExMCwt
+OTQ0NzM4NTQ4LDQwMDQ2Nzk0NSwxMDUwODQzMzksMTIwMTkwND
+c3NiwtMTc0MTgxMDczNywxMzIzMTM5Mzc3LDc4NDc3MTU5LDEy
+ODk3MzE5NjZdfQ==
 -->
