@@ -96,7 +96,9 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
-As CAMP R module doesnt have psiplots R package run this step locally:
+As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
+
+
 
 PSI = percent spliced in
 Output file is created in directory of input file. 
@@ -162,11 +164,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzOTE2MTc1OCwxMzc0ODgxNjE2LDExNz
-I2NDQyODUsMTIzOTEyMTgwLC04NzY3MDc2NDgsLTE0MjgzMDA3
-NjAsNjAzNzY1NDk0LC01MzgxMzIyMDksLTE1NDE0MDMzNzMsMT
-cwNDYwOTU1MCwxNzUyMjcwNDY2LC0xMTY0MTY5NTg1LC04NzU5
-NTMwODEsLTEzNDk4MDMyNjksLTE2NDczOTI0ODQsMTEzMDYwND
-YwNiwtMTk2ODQ2NDk5OSwxNzU4OTU1NTQxLDE3MDUyNTAxMTAs
-LTk0NDczODU0OF19
+eyJoaXN0b3J5IjpbLTUwNjYwNjUxNiwtNDM5MTYxNzU4LDEzNz
+Q4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3NjcwNzY0
+OCwtMTQyODMwMDc2MCw2MDM3NjU0OTQsLTUzODEzMjIwOSwtMT
+U0MTQwMzM3MywxNzA0NjA5NTUwLDE3NTIyNzA0NjYsLTExNjQx
+Njk1ODUsLTg3NTk1MzA4MSwtMTM0OTgwMzI2OSwtMTY0NzM5Mj
+Q4NCwxMTMwNjA0NjA2LC0xOTY4NDY0OTk5LDE3NTg5NTU1NDEs
+MTcwNTI1MDExMF19
 -->
