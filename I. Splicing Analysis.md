@@ -105,6 +105,9 @@ source activate rtest
 # install the package normally by calling R
 R
 install command
+
+install.packages("psiplot", lib="/home/camp/ziffo/working/oliver/bin")
+
 load package
 
 #to deactivate environment
@@ -117,6 +120,7 @@ Output file is created in directory of input file.
 ```bash
 
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
+ml R/3.5.1-foss-2016b-bare
 
 library("ggplot2")
 library("optparse")
@@ -175,7 +179,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjcwMzc4NDE2LDE3MzMwNDE1OTIsMjAxNz
+eyJoaXN0b3J5IjpbMzk2MzIxMTI5LDE3MzMwNDE1OTIsMjAxNz
 AxMTMwMiwtNDM5MTYxNzU4LDEzNzQ4ODE2MTYsMTE3MjY0NDI4
 NSwxMjM5MTIxODAsLTg3NjcwNzY0OCwtMTQyODMwMDc2MCw2MD
 M3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNzA0NjA5
