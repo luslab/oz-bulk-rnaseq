@@ -83,7 +83,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --noANNOT
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 
-# run vast-tools combine using ANNOT tool 
+# run vast-tools combine using new v2.0.0 ANNOT tool 
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons
@@ -92,7 +92,6 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ##MIC = 
 ##MULTI =
 ```
-
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -158,11 +157,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjgzMDA3NjAsNjAzNzY1NDk0LC01Mz
-gxMzIyMDksLTE1NDE0MDMzNzMsMTcwNDYwOTU1MCwxNzUyMjcw
-NDY2LC0xMTY0MTY5NTg1LC04NzU5NTMwODEsLTEzNDk4MDMyNj
-ksLTE2NDczOTI0ODQsMTEzMDYwNDYwNiwtMTk2ODQ2NDk5OSwx
-NzU4OTU1NTQxLDE3MDUyNTAxMTAsLTk0NDczODU0OCw0MDA0Nj
-c5NDUsMTA1MDg0MzM5LDEyMDE5MDQ3NzYsLTE3NDE4MTA3Mzcs
-MTMyMzEzOTM3N119
+eyJoaXN0b3J5IjpbLTg3NjcwNzY0OCwtMTQyODMwMDc2MCw2MD
+M3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNzA0NjA5
+NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1MzA4MS
+wtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0NjA2LC0x
+OTY4NDY0OTk5LDE3NTg5NTU1NDEsMTcwNTI1MDExMCwtOTQ0Nz
+M4NTQ4LDQwMDQ2Nzk0NSwxMDUwODQzMzksMTIwMTkwNDc3Niwt
+MTc0MTgxMDczN119
 -->
