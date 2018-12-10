@@ -180,11 +180,11 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 ## Plotting
 
 ```bash
-#create table of top 200 genes for plotting
-more diff.splicing_mv0.2.tab | sort -k6 -r | 
+#create table of m >= 0.24 genes for plotting
+awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab > diff.splicing_mv0.2_filtered.tab
 
 
-IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/diff.splicing_mv0.2.tab
+IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/diff.splicing_mv0.2_filtered.tab
 
 vast-tools plot $IN
 ```
@@ -198,7 +198,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA3NjUyMjc3OCwtMTUzMzYyNTkwNCwtMT
+eyJoaXN0b3J5IjpbMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMT
 EwNTY4Mjc4LC0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAy
 NzM4OSw4NTAzMTAwMDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NC
 wtNDM5OTA4NTU0LC0yMTMzNjkyMDQ2LDE1NzEyNzMzNjcsMzk2
