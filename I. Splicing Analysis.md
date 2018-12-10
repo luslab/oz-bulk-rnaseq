@@ -117,7 +117,7 @@ Output file is created in directory of input file.
 ```bash
 
 # move INCLUSION_LEVELS_FULL-Hsa6-hg19.tab to local terminal (in bioinformatics/)
-R
+
 library("ggplot2")
 library("optparse")
 library("MASS")
@@ -175,11 +175,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMzA0MTU5MiwyMDE3MDExMzAyLC00Mz
-kxNjE3NTgsMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEyMzkxMjE4
-MCwtODc2NzA3NjQ4LC0xNDI4MzAwNzYwLDYwMzc2NTQ5NCwtNT
-M4MTMyMjA5LC0xNTQxNDAzMzczLDE3MDQ2MDk1NTAsMTc1MjI3
-MDQ2NiwtMTE2NDE2OTU4NSwtODc1OTUzMDgxLC0xMzQ5ODAzMj
-Y5LC0xNjQ3MzkyNDg0LDExMzA2MDQ2MDYsLTE5Njg0NjQ5OTks
-MTc1ODk1NTU0MV19
+eyJoaXN0b3J5IjpbNjcwMzc4NDE2LDE3MzMwNDE1OTIsMjAxNz
+AxMTMwMiwtNDM5MTYxNzU4LDEzNzQ4ODE2MTYsMTE3MjY0NDI4
+NSwxMjM5MTIxODAsLTg3NjcwNzY0OCwtMTQyODMwMDc2MCw2MD
+M3NjU0OTQsLTUzODEzMjIwOSwtMTU0MTQwMzM3MywxNzA0NjA5
+NTUwLDE3NTIyNzA0NjYsLTExNjQxNjk1ODUsLTg3NTk1MzA4MS
+wtMTM0OTgwMzI2OSwtMTY0NzM5MjQ4NCwxMTMwNjA0NjA2LC0x
+OTY4NDY0OTk5XX0=
 -->
