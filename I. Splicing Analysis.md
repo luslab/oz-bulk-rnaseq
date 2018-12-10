@@ -186,7 +186,9 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab > diff.splicing_mv0.2
 
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/diff.splicing_mv0.2_filtered.tab
 
-vast-tools plot $IN
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
+
+vast-tools plot $IN  -o $OUT -sp Hsa
 ```
 
 # Coverage for introns
@@ -198,11 +200,11 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMT
-EwNTY4Mjc4LC0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAy
-NzM4OSw4NTAzMTAwMDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NC
-wtNDM5OTA4NTU0LC0yMTMzNjkyMDQ2LDE1NzEyNzMzNjcsMzk2
-MzIxMTI5LDE3MzMwNDE1OTIsMjAxNzAxMTMwMiwtNDM5MTYxNz
-U4LDEzNzQ4ODE2MTYsMTE3MjY0NDI4NSwxMjM5MTIxODAsLTg3
-NjcwNzY0OF19
+eyJoaXN0b3J5IjpbLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNT
+MzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0
+NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mzk1LC
+0xNTgzOTk0OTY0LC00Mzk5MDg1NTQsLTIxMzM2OTIwNDYsMTU3
+MTI3MzM2NywzOTYzMjExMjksMTczMzA0MTU5MiwyMDE3MDExMz
+AyLC00MzkxNjE3NTgsMTM3NDg4MTYxNiwxMTcyNjQ0Mjg1LDEy
+MzkxMjE4MF19
 -->
