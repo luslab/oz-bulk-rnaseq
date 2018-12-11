@@ -123,13 +123,13 @@ ml RSeQC
 #set BAM input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/nucleotide_content
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/
 
 #run read_NVC command on each BAM file using a For Loop
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}_${SRRID}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}_${SRRID}_nucleotide_content"
 done
 ```
 
@@ -476,11 +476,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NT
-AzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQy
-LC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMD
-YwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2
-NzQwMDEsMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3Nz
-IsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3
-NjM0NjQ2NF19
+eyJoaXN0b3J5IjpbLTEwNDM0ODU0MjUsLTkyMjY3NjYyNiwxMT
+Q2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3
+MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMT
+Y1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4
+NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4MTY0Nz
+U2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0x
+NjU1MDI5OTc3XX0=
 -->
