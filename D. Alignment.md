@@ -582,29 +582,17 @@ samtools index all_bam_files.bam
 # MultiQC
 ml MultiQC
 
- Generate a comprehensive & interactive report of STAR alignment Log.final.out files using MultiQC from different Quality Control tools eg RSeqQC, QoRTs. [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
+Generate a comprehensive & interactive report of STAR alignment Log.final.out files using MultiQC 
  
- MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
-
-General post-alignment QC:
-- STAR log files
-- samtools flagstat
-- RSeQCs bam_stat.py
-
-RNA specific QC:
-- read distribution (RSeQC or QoRTs)
-- gene body coverage (RSeQC or QoRTs)
-- splice junction info obtained with QoRTs
-
-Go to the `alignment_QC` folder with the aligned QC files in and run: `multiqc .`
+Go to the `alignment` folder with the STAR Log.final.out files in and run: `multiqc .`
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
  Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDM4MjgwMywxNTMxNTA3MzIsMTg3Mz
-Q3NDc5NCw3NzU4NDA1OTQsMTkzMTE5MzA0MiwtMTU4MDc4MzM3
-NiwtMzg3NzY2OTcyLDEzNDM5MjgzMTcsLTE0MjM4MjcxNjcsLT
-M3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5Mjg4OTYsLTQ4Njg4
-NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMzgyNiw2MzAyNDc5MD
-UsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4Nz
+M0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMz
+NzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC
+0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4
+ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OT
+A1LDY1NzU0MjIxOF19
 -->
