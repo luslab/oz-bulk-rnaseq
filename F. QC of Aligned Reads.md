@@ -55,7 +55,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $SAMPLE -r $BED -o ${OUT}/${SRRID}_coverage -f pdf"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="geneBody_coverage.py -i $SAMPLE -r $BED -o ${OUT}/${SRRID} -f pdf"
 done
 
 ALTERNATIVE RUN AS 1 single command listing each BAM file (takes very long & multiqc will combine the above anyway)
@@ -492,11 +492,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzgyMjY5MTEsNTYxOTA0ODc2LC05Mj
-I2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTEx
-MywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMT
-ExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIy
-NzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5Nz
-MsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3ODAsMTcz
-MjY4NjMzMF19
+eyJoaXN0b3J5IjpbMTU0NjM0Mjk2NCw1NjE5MDQ4NzYsLTkyMj
+Y3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEz
+LDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMT
+E5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3
+Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3My
+wtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMy
+Njg2MzMwXX0=
 -->
