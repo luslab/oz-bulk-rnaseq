@@ -38,6 +38,7 @@ genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChan
 names(genelistDown) <- rownames(resTested)
 
 # filter out redundant terms  https://www.biostars.org/p/47672/
+Only GO terms containing at least 10 annotated genes were considered. A P-value of 0.05 was used as the level of significance. On the figures, top significant GO terms were manually selected by removing redundant GO terms and terms which contain < 5 significant genes.
 UNKNOWN HOW TO DO THIS?
 
 ### Test UPREGULATED GENES
@@ -255,10 +256,10 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE0ODY3NTE1LC0xNzEwNTU3NTA1LDE5NT
-M0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NTg2
-ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYzLDE3ND
-Q0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5NDc1MjA0
-ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAsMTUyOD
-U4MTU5M119
+eyJoaXN0b3J5IjpbLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOT
+UzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1NzU4
+Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNz
+Q0NDc2NTE4LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3NTIw
+NDg4LDc5Nzk0NTAxNyw0ODg0NTc3NzcsLTk0MjAxNDMwLDE1Mj
+g1ODE1OTNdfQ==
 -->
