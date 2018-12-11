@@ -18,11 +18,13 @@ Use reporting tools to write a table of GO analysis results to a HTML file.
 Select genes of interest > run hyperGTest > make GO report
 
 ```r
+
 ### GO analysis
 library(topGO)
 library(GOstats)
 library(goseq)
 library(org.Mm.eg.db)
+library(GO-lite)
 # subset results table to only genes with sufficient read coverage
 resTested <- resLFC1[ !is.na(resLFC1$padj), ]
 # remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
@@ -35,44 +37,89 @@ names(genelistUp) <- rownames(resTested)
 genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
 names(genelistDown) <- rownames(resTested)
 
-genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
-names(genelistUp) <- rownames(resTested)
-genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
-names(genelistDown) <- rownames(resTested)
+# filter out redundant terms  https://www.biostars.org/p/47672/
+UNKNOWN HOW TO DO THIS?
 
 ### Test UPREGULATED GENES
 #Test Biological Processes BP sub-ontology
 myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
                  annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+UR_BP_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.bp <- transform(UR_BP_table,result1 = as.numeric(result1))
+enrich.ur.bp$value <- -log10(enrich$result1) # add column with -log10 of P-value
+### Plot GO p-values as as bar plot
+dat        <- enrich.ur.bp$value # the -log10(P-value)
+names(dat) <- enrich.ur.bp$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
+
 #Test Cellular Compartment (CC) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
                  annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+UR_CC_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.cc <- transform(UR_CC_table,result1 = as.numeric(result1))
+enrich.ur.cc$value <- -log10(enrich$result1)
+### Plot GO p-values as as bar plot
+dat        <- enrich.ur.cc$value # the -log10(P-value)
+names(dat) <- enrich.ur.cc$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
+
 #Test Molecular function (MF) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
                  annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+UR_MF_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.mf <- transform(UR_MF_table,result1 = as.numeric(result1))
+enrich.ur.mf$value <- -log10(enrich$result1)
+### Plot GO p-values as as bar plot
+dat        <- enrich.ur.mf$value # the -log10(P-value)
+names(dat) <- enrich.ur.mf$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
+
 
 ### TEST DOWNREGULATED GENES
 #Test Biological Processes BP sub-ontology
 myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
                  annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+DR_BP_table <- GenTable( myGOdata, goTestResults )
+enrich.dr.bp <- transform(DR_BP_table,result1 = as.numeric(result1))
+enrich.dr.bp$value <- -log10(enrich$result1)
+### Plot GO p-values as as bar plot
+dat        <- enrich.dr.bp$value # the -log10(P-value)
+names(dat) <- enrich.dr.bp$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
+
 #Test Cellular Compartment (CC) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
                  annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+DR_CC_table <- GenTable( myGOdata, goTestResults )
+enrich.dr.cc <- transform(DR_CC_table,result1 = as.numeric(result1))
+enrich.dr.cc$value <- -log10(enrich$result1)
+### Plot GO p-values as as bar plot
+dat        <- enrich.dr.cc$value # the -log10(P-value)
+names(dat) <- enrich.dr.cc$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
+
 #Test Molecular function (MF) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
                  annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+DR_MF_table <-GenTable( myGOdata, goTestResults )
+enrich.dr.mf <- transform(DR_MF_table,result1 = as.numeric(result1))
+enrich.dr.mf$value <- -log10(enrich$result1)
+### Plot GO p-values as as bar plot
+dat        <- enrich.dr.mf$value # the -log10(P-value)
+names(dat) <- enrich.dr.mf$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
 ```
 
 # Plot GO p-values as Barplot
@@ -208,9 +255,10 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTA1NTc1MDUsMTk1MzQwNzA5NiwxMj
-Y5ODI3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIzNzA4
-MzQsMTg1NjE0MjE3MSwtMTE1MjQwNjMsMTc0NDQ3NjUxOCwtMT
-cxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUw
-MTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbNzE0ODY3NTE1LC0xNzEwNTU3NTA1LDE5NT
+M0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NTg2
+ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYzLDE3ND
+Q0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5NDc1MjA0
+ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAsMTUyOD
+U4MTU5M119
 -->
