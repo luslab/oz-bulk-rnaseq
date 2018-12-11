@@ -186,6 +186,8 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 ### Data Preparation
 
+topGOdata <- 
+
 
 
 ### Enrichment Tests
@@ -268,11 +270,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTI2NTc0OTYsMTQ5ODIyNTM0OSwxND
-EyNjk1MDE3LDIxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2
-NDAxLC0xNTMzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczOD
-ksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2
-MjA3Mzk1LC0xNTgzOTk0OTY0LC00Mzk5MDg1NTQsLTIxMzM2OT
-IwNDYsMTU3MTI3MzM2NywzOTYzMjExMjksMTczMzA0MTU5Miwy
-MDE3MDExMzAyXX0=
+eyJoaXN0b3J5IjpbODcwMDQyMjkwLDE0OTgyMjUzNDksMTQxMj
+Y5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIyNjgsMjAwMzUwNjQw
+MSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC0xNzQxMDI3Mzg5LD
+QyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAzMTAwMDAsLTExNjIw
+NzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC0yMTMzNjkyMD
+Q2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3MzMwNDE1OTIsMjAx
+NzAxMTMwMl19
 -->
