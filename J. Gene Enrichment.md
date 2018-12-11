@@ -16,6 +16,7 @@ https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topG
 
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
+
 ```r
 ### GO analysis
 library(topGO)
@@ -148,8 +149,9 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NT
-YxNDIxNzEsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIy
-NjgsMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4OD
-Q1Nzc3NywtOTQyMDE0MzAsMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0Mj
+M3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4
+LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3NTIwNDg4LDc5Nz
+k0NTAxNyw0ODg0NTc3NzcsLTk0MjAxNDMwLDE1Mjg1ODE1OTNd
+fQ==
 -->
