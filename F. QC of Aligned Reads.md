@@ -306,6 +306,7 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools flagstat $SAMPLE > ${OUT}/${SRRID}_flagstat.txt"
 done
 ```
+These files will then be incorporated into MultiQC report.
 
 # QoRTs (Quality of RNA Seq Toolset)
 ml QoRTs
@@ -414,11 +415,8 @@ Go to the `alignment_QC` folder with the aligned QC files in and run: `multiqc .
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
  Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
-Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
 
 Alternatively to visualise the output of multiple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
-
-
 
 # Alignment Assessments
  
@@ -476,7 +474,7 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg3MzU5ODc0LDIwNTUwMzkxNjUsMTg3NT
+eyJoaXN0b3J5IjpbMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NT
 c2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMw
 LC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMT
 kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
