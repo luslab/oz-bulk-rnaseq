@@ -161,11 +161,15 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 
-# Mu
+# MultiQC
+
+Re run MultiQC on these processed reads
+
 run `multiqc` within the `trimmed_fastqc_results` folder
 Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
-Compare this new Trimmed MultiQC HTML report with the report on the Raw FastQC prior to trimming.
+
+Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxODc3MDg0NSwtMTg2ODc2NzIxOCwtMT
-g5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xOD
+k5ODIwMjJdfQ==
 -->
