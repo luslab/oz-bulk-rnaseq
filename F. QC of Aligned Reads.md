@@ -309,13 +309,13 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #set GTF reference annotation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set output directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/QoRTs
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC
 
 #run QoRTs command for each BAM file using a For Loop
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}/${SRRID}_QoRTs"
 done
 ```
 - assumes data is paired unless include `--singleEnded`
@@ -475,7 +475,7 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzMzc4MTIxMSwxODc1NzY5MTEzLDE2MD
+eyJoaXN0b3J5IjpbMjA1NTAzOTE2NSwxODc1NzY5MTEzLDE2MD
 Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
 NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
 EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
