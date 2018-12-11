@@ -390,9 +390,9 @@ RNA specific QC:
 - gene body coverage (RSeQC or QoRTs)
 - splice junction info obtained with QoRTs
 
-run `MultiQC` within the `alignment_QC` folder
-Go to the folder with the aligned QC files in and simply run: `multiqc .`
-Compare this new MultiQC HTML report with the report on the trimmed, filtered & depleted alignment_QC.
+Go to the `alignment_QC` folder with the aligned QC files in and run: `multiqc .`
+
+Compare the post alignment MultiQC HTML reports (1 using the raw unprocessed read with the report on the trimmed, filtered & depleted alignment_QC.
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
@@ -460,11 +460,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2MjAwOTk3NSwxNTM5NDE0NDIsLTI5OD
-EzOTMzMCwtMTExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNjA0MzYz
-MTgsLTE5MDEyMjcyODksMTM3Nzg3MjY5NSwtMjE0NDY3NDAwMS
-wxNjY4NjMxOTczLC0xMTgxNjQ3NTYsLTk5NDgyMDc3MiwxNjMz
-MjQxNzgwLDE3MzI2ODYzMzAsLTE2NTUwMjk5NzcsNzc2MzQ2ND
-Y0LDgxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2
-MTA0MzE3OTddfQ==
+eyJoaXN0b3J5IjpbNzU4NzAyNTYxLDE1Mzk0MTQ0MiwtMjk4MT
+M5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMx
+OCwtMTkwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLD
+E2Njg2MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMy
+NDE3ODAsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0Nj
+QsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYxMDQzMTc5NywtMTYx
+MDQzMTc5N119
 -->
