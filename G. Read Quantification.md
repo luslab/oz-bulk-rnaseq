@@ -99,6 +99,17 @@ head htseq_counts_table.tsv
 
 This output is then analysed for differential expression using edgeR (see next chapter)
 
+# MultiQC
+
+Run MultiQC in the counts directory to generate a report of expression using MultiQC from different Quality Control tools eg featureCounts, QoRTs. [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
+ 
+ MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
+
+Go to the `counts` folder with the aligned QC files in and run: `multiqc .`
+
+Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
+
+
 # Normalise for Gene Length & Sequencing Depth
 
 There are also counting tools that normalise for sequencing depth at this point. However DE analysis (DESeq & edgeR) normalise later so this isn't necessary at this point. 
@@ -197,11 +208,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczODMxMzkzMywxMDc3NDY3NjI3LC0yND
-U2MTA5ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEw
-NiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4MCwxOT
-E5NjA2MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3
-MjIsLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLT
-czNDQxNTQ4OSwzNjc5NjI2OCw0MjM0MDM3MDQsLTMwMzA5MTU4
-MV19
+eyJoaXN0b3J5IjpbNTI3Mzc2NzE0LC03MzgzMTM5MzMsMTA3Nz
+Q2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1OSwtNDIzODM4NjQ0
+LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5LDE4OT
+c0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OTQ0NTcw
+OCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLTUzODYyNTgyNSwtOD
+MwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYyNjgsNDIzNDAzNzA0
+XX0=
 -->
