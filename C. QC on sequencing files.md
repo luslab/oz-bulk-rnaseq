@@ -21,9 +21,9 @@ FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformat
 
 Each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
-## FastQC Workflow
-`ml FastQC`
-`ml MultiQC`
+##  Workflow
+ml FastQC
+ml MultiQC
 
 make a folder to store the results: `mkdir fastqc_results`
 run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results/`
@@ -39,7 +39,15 @@ general stats
 quality scores (Phred score)
 Over-represented sequences: these indicate how much % the adapter sequences compose
 
-### Filter low quality bases & Trim adapters (Essential Step)
+# Filter low quality bases & Trim adapters (Essential Step)
+
+ml Trim_Galore
+ml cutadapt
+ml trimomatic
+ml FASTX-Toolkit
+ml Bowtie2
+
+
 There are many QC tools available (most in bash but some in R - bioconductor) each with basic QC methods plus unique functionality. Best ones include:
 `Trimmomatic`  application note in Nucleic Acid Research, 2012, web server issue
 `BBDuk` part of the BBMap package
@@ -47,11 +55,7 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 `CutAdapt`  application note in Embnet Journal, 2011 - advised by Nobby
 `Trim Galore` is a wrapper around `Cutadapt` - this performs quality trimming then adaptor trimming all in 1. It can also run FastQC.
 
-`ml Trim_Galore`
-`ml cutadapt`
-`ml trimomatic`
-`ml FASTX-Toolkit`
-`ml Bowtie2`
+
 
 1. `mkdir trimmed_results`
 
@@ -80,10 +84,9 @@ run `multiqc` within the `trimmed_fastqc_results` folder
 Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 Compare this new Trimmed MultiQC HTML report with the report on the Raw FastQC prior to trimming.
 
-### Remove rRNA & tRNA (Optional step)
+# Remove rRNA & tRNA (Optional step)
 Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads. 
-There are disadvantages to removing these sequences:
-Generally for most RNA-seq remove rRNA at this point pre-processing.
+There are disadvantages to removing these sequences. Generally for most RNA-seq remove rRNA at this point pre-alignment.
 
 1. Create rRNA&tRNA reference genome
 `ml BEDOPS`
@@ -161,6 +164,6 @@ FastQC error correction programs correct or remove reads that appear to have err
 Use the FASTQC analysis modules to help explain each graph
 https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MzUwNjMyMywtMTg2ODc2NzIxOCwtMT
+eyJoaXN0b3J5IjpbLTE4MjQ0ODgyNywtMTg2ODc2NzIxOCwtMT
 g5OTgyMDIyXX0=
 -->
