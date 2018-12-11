@@ -287,7 +287,7 @@ done
 ```
 
 
-# Quality of RNA Seq Toolset (QoRTs)
+# QoRTs (Quality of RNA Seq Toolset)
 ml QoRTs
 
 `QoRTs` is a `jar` software file that is an alternative to `RSeQC` that provides a comprehensive & multifunctional toolset assess quality control & data processing of high throughput RNA-seq. It also performs read abundance counts (see Read Quantification chapter). 
@@ -460,11 +460,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mz
-k0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1
-ODYsMjA2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMzc3ODcyNjk1LC
-0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2NDc1NiwtOTk0
-ODIwNzcyLDE2MzMyNDE3ODAsMTczMjY4NjMzMCwtMTY1NTAyOT
-k3Nyw3NzYzNDY0NjQsODE1NjI3MDcyLDM3ODgxNjkyMSwtMTYx
-MDQzMTc5N119
+eyJoaXN0b3J5IjpbMTUxODY1NTk4OSwxODc1NzY5MTEzLDE2MD
+Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
+NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
+EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
+MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2Mz
+MwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4
+ODE2OTIxXX0=
 -->
