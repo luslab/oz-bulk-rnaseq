@@ -394,6 +394,14 @@ Go to the `alignment_QC` folder with the aligned QC files in and run: `multiqc .
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
  Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
+Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
+
+To add results of samtools flagstat & RSeQC to a MultiQC report capture the output as a txt file:
+
+
+
+`bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam > bam_stat_WT_1.txt`
+`samtools flagstat WT_1_Aligned.sortedByCoord.out.bam > flagstat_WT_1.txt`
 
 Alternatively to visualise the output of multiple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
 
@@ -449,12 +457,6 @@ Compare the results of STAR alignment across samples:
 - define the variables that we want to include
 - generate bar chart
 
-### Visualise the output of  `RSeQC` quality controls
-Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
-
-To add results of samtools flagstat & RSeQC to a MultiQC report capture the output as a txt file.
-`bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam > bam_stat_WT_1.txt`
-`samtools flagstat WT_1_Aligned.sortedByCoord.out.bam > flagstat_WT_1.txt`
 
 
 
@@ -462,11 +464,11 @@ To add results of samtools flagstat & RSeQC to a MultiQC report capture the outp
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzEzODM5OTQsMTg3NTc2OTExMywxNj
-A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
-NTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIyNzI4OS
-wxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTEx
-ODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3ODAsMTczMjY4Nj
-MzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1NjI3MDcyLDM3
-ODgxNjkyMV19
+eyJoaXN0b3J5IjpbNjA3NDM0NTIyLDE4NzU3NjkxMTMsMTYwNj
+gwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0
+OSwxNjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMT
+M3Nzg3MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgx
+NjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYzMz
+AsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNzg4
+MTY5MjFdfQ==
 -->
