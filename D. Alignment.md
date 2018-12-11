@@ -587,12 +587,13 @@ Generate a comprehensive & interactive report of STAR alignment Log.final.out fi
 Go to the `alignment` folder with the STAR Log.final.out files in and run: `multiqc .`
 
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
- Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
+
+Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4Nz
-M0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMz
-NzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC
-0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00ODY4
-ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYsNjMwMjQ3OT
-A1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbLTE4NTk0NzY1ODMsLTIwOTQzMTc5NTEsMT
+UzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMw
+NDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC
+0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcw
+OTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MT
+M4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
 -->
