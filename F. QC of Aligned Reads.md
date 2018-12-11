@@ -45,17 +45,6 @@ Assess each BAM file separately:
 ml RSeQC
 ml R
 
-#set changable elements
-## set BAM files to read in. list multiple separated by ","
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483796_Aligned.sortedByCoord.out.bam
-#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
-#set designed output path & prefix
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/coverage
-#run each BAM file into geneBody coverage package
-sbatch -N 1 -c 8 --mem=40GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
-```
-```bash
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
 #set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
@@ -66,9 +55,22 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $SAMPLE -r $BED -o ${OUT}/${SRRID}_nucleotide_content -f pdf  ${OUT}/${SRRID}_nucleotide_content"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $SAMPLE -r $BED -o ${OUT}/${SRRID}_coverage -f pdf"
 done
+
+ALTERNATIVE RUN AS 1 single command listing each BAM file (takes very long & multiqc will combine the above anyway)
+
+#set changable elements
+## set BAM files to read in. list multiple separated by ","
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483789_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483790_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483794_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483795_Aligned.sortedByCoord.out.bam,/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483796_Aligned.sortedByCoord.out.bam
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
+#set designed output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/coverage
+#run each BAM file into geneBody coverage package
+sbatch -N 1 -c 8 --mem=40GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
 ```
+
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
 ## Estimate RIN/TIN
@@ -490,11 +492,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NjU1OTQzNCw1NjE5MDQ4NzYsLTkyMj
-Y3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEz
-LDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMT
-E5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3
-Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3My
-wtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMy
-Njg2MzMwXX0=
+eyJoaXN0b3J5IjpbLTE3MzgyMjY5MTEsNTYxOTA0ODc2LC05Mj
+I2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTEx
+MywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMT
+ExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIy
+NzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5Nz
+MsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3ODAsMTcz
+MjY4NjMzMF19
 -->
