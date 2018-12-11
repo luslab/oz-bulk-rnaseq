@@ -78,6 +78,28 @@ GenTable( myGOdata, goTestResults )
 # Plot p-values as Barplot
 https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
 
+#If you want only to plot the GO terms in one condition
+dat        <- enrich$value # the -log10(P-value)
+names(dat) <- enrich$Terms #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1)
+#If you want to plot side by side the same GO term but for 2 different conditions
+dat               <- -cbind(enrich.bp$p.value.norm.ngf,enrich.bp$p.value.norm.nt3)[match(least.transported,enrich.bp$names.goterms.),]
+rownames(dat)    <- enrich.bp$Term[match(least.transported,enrich.bp$names.goterms.)]
+dat              <- dat[order(dat[,1],-dat[,2]),]
+mycols           <- c("#81A4D6","#AF71AF")
+L                <- nrow(dat)
+val1             <- -as.vector(dat[,1])
+val2             <-  as.vector(dat[,2])
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+plot(c(L+3,0),xlim=c(min(val1)-10,max(val2)),type = "n",frame=F,yaxt="n",ylab="")
+mp=barplot(height = val2,add = TRUE,axes = FALSE,horiz=T,col=mycols[2])
+barplot(height = val1,add = TRUE,axes = FALSE,horiz=T,col=mycols[1])
+text(x=(min(val1)-5),y=mp,lab=rownames(dat),cex=0.6)
+mtext(side=1,line=2,text="Z-score",cex=0.6)
+abline(v=c(-2.5,2.5),col="grey",lty=2)
+`
+
 
 # BLAST
 Basic Local Alignment Search Tool
@@ -149,9 +171,9 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0Mj
-M3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4
-LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3NTIwNDg4LDc5Nz
-k0NTAxNyw0ODg0NTc3NzcsLTk0MjAxNDMwLDE1Mjg1ODE1OTNd
-fQ==
+eyJoaXN0b3J5IjpbMTQyNzI4ODM3NCw5MjYzMjkxNDEsLTE5ND
+U3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYz
+LDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5ND
+c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
+MTUyODU4MTU5M119
 -->
