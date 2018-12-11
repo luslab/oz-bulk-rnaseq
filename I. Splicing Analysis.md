@@ -186,7 +186,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 ### Data Preparation
 
-topGOdata <- new("
+topGOdata <- new("topGOdata", description = "Alternative_Splicing")
 
 
 
@@ -270,7 +270,7 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNTE4MjIwOCwxNDk4MjI1MzQ5LDE0MT
+eyJoaXN0b3J5IjpbLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MT
 I2OTUwMTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0
 MDEsLTE1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OS
 w0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0xMTYy
