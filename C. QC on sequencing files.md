@@ -39,6 +39,21 @@ if there are many fastq files needing FastQC then speed up by running as `sbatch
 
 Look at the results: `ls fastqc_results/ERR458493_fastqc/`
 
+Run MultQC on these raw unprocessed reads
+
+# MultiQC
+
+Summarise multiple FastQC outputs using the [MultiQC tool](http://multiqc.info/):
+[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder
+Go to the folder with the fastqc files in and simply run: `multiqc .`
+Open the MultiQC html report: `open multiqc_report.html` or [open in the browser](https://multiqc.info/docs/#using-multiqc-reports)
+
+### Interpret report
+
+Use the FASTQC analysis modules to help explain each graph
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
+https://www.youtube.com/watch?v=qPbIlO_KWN0
+
 # Filter low quality bases & Trim adapters (Essential Step)
 
 
@@ -70,11 +85,6 @@ You can specify the precise adapter sequence you want removed e.g. `-a AGCGCTAG`
 
 @Raphaelle used:
 adapter removal: `fastx_clipper -Q 33 -l 24 -a $adapt -i ${paths}${file} > ${paths}${data}-clipped.fastq`
-
-3. Re-run MultiQC
-run `multiqc` within the `trimmed_fastqc_results` folder
-Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
-Compare this new Trimmed MultiQC HTML report with the report on the Raw FastQC prior to trimming.
 
 # Remove rRNA & tRNA (Optional step)
 Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads. 
@@ -151,19 +161,11 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 
-# MultiQC
-
-Summarise multiple FastQC outputs using the [MultiQC tool](http://multiqc.info/):
-[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder
-Go to the folder with the fastqc files in and simply run: `multiqc .`
-Open the MultiQC html report: `open multiqc_report.html` or [open in the browser](https://multiqc.info/docs/#using-multiqc-reports)
-
-## Interpret report
-
-Use the FASTQC analysis modules to help explain each graph
-https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
-https://www.youtube.com/watch?v=qPbIlO_KWN0
+# Mu
+run `multiqc` within the `trimmed_fastqc_results` folder
+Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
+Compare this new Trimmed MultiQC HTML report with the report on the Raw FastQC prior to trimming.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NzkxNzQ4MywtMTg2ODc2NzIxOCwtMT
+eyJoaXN0b3J5IjpbMTgxODc3MDg0NSwtMTg2ODc2NzIxOCwtMT
 g5OTgyMDIyXX0=
 -->
