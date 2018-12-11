@@ -396,6 +396,7 @@ get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/
 This also produces count files: QC.geneCounts.txt.gz. It also produces files formatted for DESeq
 
 # MultiQC
+ml Multiqc
 
  Generate a comprehensive & interactive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs. [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
  
@@ -474,11 +475,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NT
-c2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMw
-LC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMT
-kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
-MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3OD
-AsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1
-NjI3MDcyXX0=
+eyJoaXN0b3J5IjpbLTE2NjkzMTEyNTQsMTE0NjgyNzM0LDIwNT
+UwMzkxNjUsMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0
+MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMj
+A2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0
+Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNz
+cyLDE2MzMyNDE3ODAsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3
+NzYzNDY0NjRdfQ==
 -->
