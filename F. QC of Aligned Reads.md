@@ -55,16 +55,18 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into geneBody coverage package
 sbatch -N 1 -c 8 --mem=40GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
 ```
-```
+```bash
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+#set the reference annotation genome - RSeQC requires BED format (convert GTF > BED)
+BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC
 
-#run read_NVC command on each BAM file using a For Loop
+#run each BAM file into geneBody coverage package using For Loop
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}/${SRRID}_nucleotide_content"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $SAMPLE -r $BED -o ${OUT}/${SRRID}_nucleotide_content -f pdf  ${OUT}/${SRRID}_nucleotide_content"
 done
 ```
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
@@ -488,7 +490,7 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4Njc0MDE3MCw1NjE5MDQ4NzYsLTkyMj
+eyJoaXN0b3J5IjpbLTg0NjU1OTQzNCw1NjE5MDQ4NzYsLTkyMj
 Y3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEz
 LDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMT
 E5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3
