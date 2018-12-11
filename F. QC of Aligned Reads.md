@@ -55,6 +55,18 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #run each BAM file into geneBody coverage package
 sbatch -N 1 -c 8 --mem=40GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
 ```
+```
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/*_Aligned.sortedByCoord.out.bam
+#set designed output path & prefix
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC
+
+#run read_NVC command on each BAM file using a For Loop
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}/${SRRID}_nucleotide_content"
+done
+```
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
 
 ## Estimate RIN/TIN
@@ -476,11 +488,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYxOTA0ODc2LC05MjI2NzY2MjYsMTE0Nj
-gyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNjA2ODA0NzA3
-LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NT
-U4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMzc3ODcy
-Njk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2NDc1Ni
-wtOTk0ODIwNzcyLDE2MzMyNDE3ODAsMTczMjY4NjMzMCwtMTY1
-NTAyOTk3N119
+eyJoaXN0b3J5IjpbLTM4Njc0MDE3MCw1NjE5MDQ4NzYsLTkyMj
+Y3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEz
+LDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMT
+E5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3
+Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3My
+wtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMy
+Njg2MzMwXX0=
 -->
