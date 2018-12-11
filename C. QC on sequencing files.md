@@ -1,4 +1,13 @@
 > # Quality Control (QC) on Raw Reads
+
+ml FastQC
+ml MultiQC
+ml Trim_Galore
+ml cutadapt
+ml trimomatic
+ml FASTX-Toolkit
+ml Bowtie2
+
 Quality control (abbreviated as QC) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
 - Pre-alignment: “raw data” - the protocols are the same regardless of what analysis will follow
 	- **FastQC** on raw sequenced reads
@@ -20,9 +29,6 @@ Quality control (abbreviated as QC) is the process of improving data by removing
 
 # FastQC
 
-ml FastQC
-ml MultiQC
-
 FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - need to install. FastQC generates its reports by evaluating a small subset of the data and extrapolating those findings to the entirety of the dataset. Many of the metrics are only computed on the first 200,000 measurements then are being tracked through the rest of the data.
 
 Each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
@@ -43,12 +49,6 @@ quality scores (Phred score)
 Over-represented sequences: these indicate how much % the adapter sequences compose
 
 # Filter low quality bases & Trim adapters (Essential Step)
-
-ml Trim_Galore
-ml cutadapt
-ml trimomatic
-ml FASTX-Toolkit
-ml Bowtie2
 
 
 There are many QC tools available (most in bash but some in R - bioconductor) each with basic QC methods plus unique functionality. Best ones include:
@@ -167,6 +167,6 @@ FastQC error correction programs correct or remove reads that appear to have err
 Use the FASTQC analysis modules to help explain each graph
 https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMjA0NDEyLC0xODY4NzY3MjE4LC0xOD
-k5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTEzMjI0OTc1NTgsLTE4Njg3NjcyMTgsLT
+E4OTk4MjAyMl19
 -->
