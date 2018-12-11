@@ -396,9 +396,9 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
  Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
 
-To add results of samtools flagstat & RSeQC to a MultiQC report capture the output as a txt file:
-
-
+###  Add results of samtools flagstat to  MultiQC report capture the output as a txt file:
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/
 
 `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam > bam_stat_WT_1.txt`
 `samtools flagstat WT_1_Aligned.sortedByCoord.out.bam > flagstat_WT_1.txt`
@@ -464,11 +464,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA3NDM0NTIyLDE4NzU3NjkxMTMsMTYwNj
-gwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0
-OSwxNjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMT
-M3Nzg3MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgx
-NjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2ODYzMz
-AsLTE2NTUwMjk5NzcsNzc2MzQ2NDY0LDgxNTYyNzA3MiwzNzg4
-MTY5MjFdfQ==
+eyJoaXN0b3J5IjpbLTU5ODc4ODU4MCwxODc1NzY5MTEzLDE2MD
+Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
+NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
+EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
+MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2Mz
+MwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4
+ODE2OTIxXX0=
 -->
