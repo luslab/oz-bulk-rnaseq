@@ -184,7 +184,13 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 # Perform GO analysis of gene list of differentially spliced genes
 
+### Data Preparation
 
+
+
+### Enrichment Tests
+
+### Analysis of results
 
 ```r
 ### GO analysis
@@ -262,11 +268,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxND
-UwNzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1
-OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC
-0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mzk1LC0xNTgz
-OTk0OTY0LC00Mzk5MDg1NTQsLTIxMzM2OTIwNDYsMTU3MTI3Mz
-M2NywzOTYzMjExMjksMTczMzA0MTU5MiwyMDE3MDExMzAyLC00
-MzkxNjE3NThdfQ==
+eyJoaXN0b3J5IjpbLTExNTI2NTc0OTYsMTQ5ODIyNTM0OSwxND
+EyNjk1MDE3LDIxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2
+NDAxLC0xNTMzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczOD
+ksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2
+MjA3Mzk1LC0xNTgzOTk0OTY0LC00Mzk5MDg1NTQsLTIxMzM2OT
+IwNDYsMTU3MTI3MzM2NywzOTYzMjExMjksMTczMzA0MTU5Miwy
+MDE3MDExMzAyXX0=
 -->
