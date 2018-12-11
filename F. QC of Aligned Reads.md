@@ -286,6 +286,26 @@ do
 done
 ```
 
+###  Basic Alignment stats bam_stat.py
+
+ml SAMtools
+ml RSeQC
+
+Convert RSeQC Bam_stat.py & samtools flagstat reports into txt file:
+```bash
+#set bam input
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set output directory as alignment QC folder where MultiQC will be run
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC
+
+# run RSeQC bam_stat.py & samtools flagstat commands on each BAM file using a For Loop
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bam_stat.py -i $SAMPLE > ${OUT}/${SRRID}_bam_stat.txt"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools flagstat $SAMPLE > ${OUT}/${SRRID}_flagstat.txt"
+done
+```
 
 # QoRTs (Quality of RNA Seq Toolset)
 ml QoRTs
@@ -396,25 +416,6 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
  Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
 
-###  Add results of samtools flagstat to the MultiQC report
-ml SAMtools
-ml RSeQC
-
-Convert RSeQC Bam_stat.py & samtools flagstat reports into txt file:
-```bash
-#set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-#set output directory as alignment QC folder where MultiQC will be run
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC
-
-# run RSeQC bam_stat.py & samtools flagstat commands on each BAM file using a For Loop
-for SAMPLE in $BAM
-do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="bam_stat.py -i $SAMPLE > ${OUT}/${SRRID}_bam_stat.txt"
-	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools flagstat $SAMPLE > ${OUT}/${SRRID}_flagstat.txt"
-done
-```
 Alternatively to visualise the output of multiple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
 
 
@@ -475,11 +476,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NTAzOTE2NSwxODc1NzY5MTEzLDE2MD
-Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
-NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
-EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
-MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2Mz
-MwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4
-ODE2OTIxXX0=
+eyJoaXN0b3J5IjpbNTg3MzU5ODc0LDIwNTUwMzkxNjUsMTg3NT
+c2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMw
+LC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMT
+kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
+MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3OD
+AsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1
+NjI3MDcyXX0=
 -->
