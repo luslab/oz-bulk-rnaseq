@@ -15,15 +15,18 @@ Quality control (abbreviated as QC) is the process of improving data by removing
 **Strategies to improve quality at this point include:**
 - Quality trimming
 - Adapter trimming
+- Remove rRNA & tRNA
+- Error correction
 
 # FastQC
+
+ml FastQC
+ml MultiQC
+
 FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) - need to install. FastQC generates its reports by evaluating a small subset of the data and extrapolating those findings to the entirety of the dataset. Many of the metrics are only computed on the first 200,000 measurements then are being tracked through the rest of the data.
 
 Each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
-##  Workflow
-ml FastQC
-ml MultiQC
 
 make a folder to store the results: `mkdir fastqc_results`
 run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results/`
@@ -164,6 +167,6 @@ FastQC error correction programs correct or remove reads that appear to have err
 Use the FASTQC analysis modules to help explain each graph
 https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjQ0ODgyNywtMTg2ODc2NzIxOCwtMT
-g5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbLTIzMjA0NDEyLC0xODY4NzY3MjE4LC0xOD
+k5ODIwMjJdfQ==
 -->
