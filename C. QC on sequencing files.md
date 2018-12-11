@@ -141,7 +141,7 @@ done
 run multiqc within the rRNA_depleted_fastqc_results/ folder: multiqc -f .
 ```
  
-### Error Correction (Optional step)
+# Error Correction (Optional step)
 Nobby doesn't routinely do this. 
 Sequencing instruments occasionally make random errors. Can recognise errors by computing k-mer density. K-mers are all possible short subsequences of length `k` contained in a string (sequence) that occur many times. They can be 2-5 bases long. K-mers that contain errors will be rare so can be used in error correction but also genome identification/classification & alignement.
 
@@ -155,6 +155,12 @@ FastQC error correction programs correct or remove reads that appear to have err
 `ml BBMap`
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
+
+# Interpret MultiQC report
+
+Use the FASTQC analysis modules to help explain each graph
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Njg3NjcyMTgsLTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbMTg1MzUwNjMyMywtMTg2ODc2NzIxOCwtMT
+g5OTgyMDIyXX0=
 -->
