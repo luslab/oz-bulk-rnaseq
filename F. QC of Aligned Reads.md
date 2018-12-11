@@ -397,8 +397,10 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 Basic alignment stats: `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam`
 
 ###  Add results of samtools flagstat to the MultiQC report
+ml SAMtools
+ml RSeQC
 
-Convert samtools flagstat report into txt file:
+Convert RSeQC Bam_stat.py & samtools flagstat reports into txt file:
 ```bash
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
@@ -410,7 +412,7 @@ for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="bam_stat.py -i $SAMPLE > ${OUT}/bam_stat_${SRRID}.txt"
-	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools flagstat $SAMPLE > flagstat_${OUT}_${SRRID}.txt"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools flagstat $SAMPLE > ${OUT}/flagstat_${SRRID}.txt"
 done
 ```
 Alternatively to visualise the output of multiple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
@@ -473,7 +475,7 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NDYyODU0NCwxODc1NzY5MTEzLDE2MD
+eyJoaXN0b3J5IjpbLTIwNzg0OTU4NSwxODc1NzY5MTEzLDE2MD
 Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
 NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
 EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
