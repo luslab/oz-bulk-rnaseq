@@ -145,7 +145,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}/${SRRID}_nucleotide_content"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="read_NVC.py -i $SAMPLE -o ${OUT}/${SRRID}_nucleotide_content"
 done
 ```
 
@@ -492,11 +492,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0NjM0Mjk2NCw1NjE5MDQ4NzYsLTkyMj
-Y3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEz
-LDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMT
-E5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3
-Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3My
-wtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMy
-Njg2MzMwXX0=
+eyJoaXN0b3J5IjpbODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNj
+c2NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMs
+MTYwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMT
+kzMjU0OSwxNjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcy
+ODksMTM3Nzg3MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC
+0xMTgxNjQ3NTYsLTk5NDgyMDc3MiwxNjMzMjQxNzgwLDE3MzI2
+ODYzMzBdfQ==
 -->
