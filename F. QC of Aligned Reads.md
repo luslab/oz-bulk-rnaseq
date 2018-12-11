@@ -395,6 +395,10 @@ Go to the `alignment_QC` folder with the aligned QC files in and run: `multiqc .
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
  Compare the post alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 
+Alternatively to visualise the output of multiple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
+
+
+
 
 # Alignment Assessments
  
@@ -452,19 +456,17 @@ To add results of samtools flagstat & RSeQC to a MultiQC report capture the outp
 `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam > bam_stat_WT_1.txt`
 `samtools flagstat WT_1_Aligned.sortedByCoord.out.bam > flagstat_WT_1.txt`
 
-To visualise the output of mulple RSeQC reads download the relevant txt files and follow this [R script](https://github.com/friedue/course_RNA-seq2015/blob/master/02_Alignment_QC_visualizeReadDistributionsAsBarChart.R).
-
 
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxODY1NTk4OSwxODc1NzY5MTEzLDE2MD
-Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
-NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
-EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
-MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMyNjg2Mz
-MwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNzIsMzc4
-ODE2OTIxXX0=
+eyJoaXN0b3J5IjpbLTE1NzEzODM5OTQsMTg3NTc2OTExMywxNj
+A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
+NTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIyNzI4OS
+wxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTEx
+ODE2NDc1NiwtOTk0ODIwNzcyLDE2MzMyNDE3ODAsMTczMjY4Nj
+MzMCwtMTY1NTAyOTk3Nyw3NzYzNDY0NjQsODE1NjI3MDcyLDM3
+ODgxNjkyMV19
 -->
