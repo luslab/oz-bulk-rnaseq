@@ -186,7 +186,7 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 ### Data Preparation
 
-topGOdata <- 
+topGOdata <- new("
 
 
 
@@ -270,11 +270,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcwMDQyMjkwLDE0OTgyMjUzNDksMTQxMj
-Y5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIyNjgsMjAwMzUwNjQw
-MSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC0xNzQxMDI3Mzg5LD
-QyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAzMTAwMDAsLTExNjIw
-NzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC0yMTMzNjkyMD
-Q2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3MzMwNDE1OTIsMjAx
-NzAxMTMwMl19
+eyJoaXN0b3J5IjpbMTYyNTE4MjIwOCwxNDk4MjI1MzQ5LDE0MT
+I2OTUwMTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0
+MDEsLTE1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OS
+w0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0xMTYy
+MDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEzMzY5Mj
+A0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQxNTkyLDIw
+MTcwMTEzMDJdfQ==
 -->
