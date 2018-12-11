@@ -25,6 +25,7 @@ Typical Biases of RNA-seq alignment:
 # RSeQC
 ml RSeQC
 ml QoRTs
+ml MultiQC
 ml R
 
 ## Assess gene body coverage for 3' & 5' Bias
@@ -396,7 +397,7 @@ get.size.factors(res, outfile = "/Volumes/lab-luscomben/working/oliver/projects/
 This also produces count files: QC.geneCounts.txt.gz. It also produces files formatted for DESeq
 
 # MultiQC
-ml Multiqc
+ml MultiQC
 
  Generate a comprehensive & interactive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs. [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
  
@@ -475,11 +476,11 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjkzMTEyNTQsMTE0NjgyNzM0LDIwNT
-UwMzkxNjUsMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0
-MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMj
-A2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0
-Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2NDc1NiwtOTk0ODIwNz
-cyLDE2MzMyNDE3ODAsMTczMjY4NjMzMCwtMTY1NTAyOTk3Nyw3
-NzYzNDY0NjRdfQ==
+eyJoaXN0b3J5IjpbLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NT
+AzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQy
+LC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMD
+YwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2
+NzQwMDEsMTY2ODYzMTk3MywtMTE4MTY0NzU2LC05OTQ4MjA3Nz
+IsMTYzMzI0MTc4MCwxNzMyNjg2MzMwLC0xNjU1MDI5OTc3LDc3
+NjM0NjQ2NF19
 -->
