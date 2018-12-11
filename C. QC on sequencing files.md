@@ -33,20 +33,11 @@ FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformat
 
 Each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
-
 make a folder to store the results: `mkdir fastqc_results`
 run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results/`
 if there are many fastq files needing FastQC then speed up by running as `sbatch`: `sbatch -N 1 -c 8 --mem 32 --wrap="fastqc SRR5* -o fastqc_results/"`
 
 Look at the results: `ls fastqc_results/ERR458493_fastqc/`
-Summarise multiple FastQC outputs using the [MultiQC tool](http://multiqc.info/):
-[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder
-Go to the folder with the fastqc files in and simply run: `multiqc .`
-Open the MultiQC html report: `open multiqc_report.html` or [open in the browser](https://multiqc.info/docs/#using-multiqc-reports)
-[Interpret](https://www.youtube.com/watch?v=qPbIlO_KWN0) the MultiQC report: 
-general stats
-quality scores (Phred score)
-Over-represented sequences: these indicate how much % the adapter sequences compose
 
 # Filter low quality bases & Trim adapters (Essential Step)
 
@@ -57,8 +48,6 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 `FlexBar` Flexible barcode and adapter removal  published in Biology, 2012
 `CutAdapt`  application note in Embnet Journal, 2011 - advised by Nobby
 `Trim Galore` is a wrapper around `Cutadapt` - this performs quality trimming then adaptor trimming all in 1. It can also run FastQC.
-
-
 
 1. `mkdir trimmed_results`
 
@@ -162,11 +151,19 @@ FastQC error correction programs correct or remove reads that appear to have err
 `bbmap` package using `tadpole.sh` error corrector
 `tadpole.sh in=SRR5*_1.fastq out=tadpole.fq mode=correct`
 
-# Interpret MultiQC report
+# MultiQC
+
+Summarise multiple FastQC outputs using the [MultiQC tool](http://multiqc.info/):
+[run `multiqc`](http://multiqc.info/docs/#running-multiqc) within the `fastqc_results` folder
+Go to the folder with the fastqc files in and simply run: `multiqc .`
+Open the MultiQC html report: `open multiqc_report.html` or [open in the browser](https://multiqc.info/docs/#using-multiqc-reports)
+
+## Interpret report
 
 Use the FASTQC analysis modules to help explain each graph
 https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/
+https://www.youtube.com/watch?v=qPbIlO_KWN0
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjI0OTc1NTgsLTE4Njg3NjcyMTgsLT
-E4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbMTk1NzkxNzQ4MywtMTg2ODc2NzIxOCwtMT
+g5OTgyMDIyXX0=
 -->
