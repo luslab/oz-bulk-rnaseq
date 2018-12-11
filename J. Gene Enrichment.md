@@ -78,6 +78,8 @@ GenTable( myGOdata, goTestResults )
 # Plot GO p-values as Barplot
 https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
 
+Always filter out redundant term and select the 10 most significant otherwise with barplot you can't read anything
+I guess the purpose of the above package GOplot is to plot many more terms than 10.
 ```r
 #If you want only to plot the GO terms in one condition
 dat        <- enrich$value # the -log10(P-value)
@@ -198,9 +200,9 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQzNjMzMTkxLDkyNjMyOTE0MSwtMTk0NT
-c1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3MSwtMTE1MjQwNjMs
-MTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0Nz
-UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
-NTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5ND
+U3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYz
+LDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5ND
+c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
+MTUyODU4MTU5M119
 -->
