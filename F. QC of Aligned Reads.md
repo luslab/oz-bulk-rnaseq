@@ -405,7 +405,9 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 #set output directory
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC
 
-# run RSeQC bam_stat.py & samtools flag
+# run RSeQC bam_stat.py & samtools flagstat commands on each BAM file using a For Loop
+
+
 `bam_stat.py -i WT_1_Aligned.sortedByCoord.out.bam > bam_stat_WT_1.txt`
 `samtools flagstat WT_1_Aligned.sortedByCoord.out.bam > flagstat_WT_1.txt`
 
@@ -420,7 +422,8 @@ Alternatively to visualise the output of multiple RSeQC reads download the relev
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="java -jar $EBROOTQORTS/QoRTs.jar QC --generatePlots --singleEnded $SAMPLE $GTF ${OUT}_${SRRID}"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bam_stat.py -i $SAMPLE > ${OUT}_${SRRID}.txt"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools flagstat "
 done
 ```
 
@@ -481,7 +484,7 @@ Compare the results of STAR alignment across samples:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDQxNzY3MCwxODc1NzY5MTEzLDE2MD
+eyJoaXN0b3J5IjpbLTYyMjE0Njg3OCwxODc1NzY5MTEzLDE2MD
 Y4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1
 NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LD
 EzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3MywtMTE4
