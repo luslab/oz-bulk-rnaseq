@@ -81,11 +81,18 @@ https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
 Always filter out redundant term and select the 10 most significant otherwise with barplot you can't read anything
 I guess the purpose of the above package GOplot is to plot many more terms than 10.
 ```r
+### Plot GO p-values as as bar plot
+# add column with -log10 of P-value
+sapply(UR_BP_table, class)
+enrich <- transform(UR_BP_table,result1 = as.numeric(result1))
+enrich$value <- -log10(enrich$result1)
+
 #If you want only to plot the GO terms in one condition
 dat        <- enrich$value # the -log10(P-value)
-names(dat) <- enrich$Terms #the description of your GO term
+names(dat) <- enrich$Term #the description of your GO term
 par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1)
+barplot(height = dat,horiz=T,las=1, font.size = 20)
+
 
 #If you want to plot side by side the same GO term but for 2 different conditions
 dat               <- -cbind(enrich.bp$p.value.norm.ngf,enrich.bp$p.value.norm.nt3)[match(least.transported,enrich.bp$names.goterms.),]
@@ -201,9 +208,9 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1MzQwNzA5NiwxMjY5ODI3MDE4LDkyNj
-MyOTE0MSwtMTk0NTc1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3
-MSwtMTE1MjQwNjMsMTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMz
-IxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3
-LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
+eyJoaXN0b3J5IjpbLTE3MTA1NTc1MDUsMTk1MzQwNzA5NiwxMj
+Y5ODI3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIzNzA4
+MzQsMTg1NjE0MjE3MSwtMTE1MjQwNjMsMTc0NDQ3NjUxOCwtMT
+cxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUw
+MTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
 -->
