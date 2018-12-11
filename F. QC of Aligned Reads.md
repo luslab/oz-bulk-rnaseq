@@ -51,7 +51,7 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Human.GRCh38.GENCODEv24.bed
 #set designed output path & prefix
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/coverage
-#run each BAM file into geneBody coverage
+#run each BAM file into geneBody coverage package
 sbatch -N 1 -c 4 --mem=24GB --wrap="geneBody_coverage.py -i $BAM -r $BED -o $OUT -f pdf"
 ```
 This ouptut is 2 figures (line graph & heatmap) to visualise 3' or 5' bias. Each BAM file is represented by a different line. If you detect 3' bias at this stage you can either re-sequence (costly) or adjust for this bias in downstream analysis.
@@ -376,9 +376,9 @@ This also produces count files: QC.geneCounts.txt.gz. It also produces files for
 
 # MultiQC
 
- - Generate a comprehensive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs.
- - [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
- - MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
+ Generate a comprehensive & interactive report of post-alignment QC using MultiQC from different Quality Control tools eg RSeqQC, QoRTs. [MultiQC](http://multiqc.info) aggregates results from bioinformatic analyses across samples into a single report
+ 
+ MultiQC searches a folder for analyses & compiles a HTLM report that summarises the output from multiple bioinformatic tools
 
 General post-alignment QC:
 - STAR log files
@@ -460,11 +460,11 @@ To visualise the output of mulple RSeQC reads download the relevant txt files an
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMT
-E5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3
-Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYzMTk3My
-wtMTE4MTY0NzU2LC05OTQ4MjA3NzIsMTYzMzI0MTc4MCwxNzMy
-Njg2MzMwLC0xNjU1MDI5OTc3LDc3NjM0NjQ2NCw4MTU2MjcwNz
-IsMzc4ODE2OTIxLC0xNjEwNDMxNzk3LC0xNjEwNDMxNzk3LDYy
-Njc5MTQxOV19
+eyJoaXN0b3J5IjpbLTI2MjAwOTk3NSwxNTM5NDE0NDIsLTI5OD
+EzOTMzMCwtMTExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNjA0MzYz
+MTgsLTE5MDEyMjcyODksMTM3Nzg3MjY5NSwtMjE0NDY3NDAwMS
+wxNjY4NjMxOTczLC0xMTgxNjQ3NTYsLTk5NDgyMDc3MiwxNjMz
+MjQxNzgwLDE3MzI2ODYzMzAsLTE2NTUwMjk5NzcsNzc2MzQ2ND
+Y0LDgxNTYyNzA3MiwzNzg4MTY5MjEsLTE2MTA0MzE3OTcsLTE2
+MTA0MzE3OTddfQ==
 -->
