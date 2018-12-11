@@ -86,6 +86,7 @@ dat        <- enrich$value # the -log10(P-value)
 names(dat) <- enrich$Terms #the description of your GO term
 par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
 barplot(height = dat,horiz=T,las=1)
+
 #If you want to plot side by side the same GO term but for 2 different conditions
 dat               <- -cbind(enrich.bp$p.value.norm.ngf,enrich.bp$p.value.norm.nt3)[match(least.transported,enrich.bp$names.goterms.),]
 rownames(dat)    <- enrich.bp$Term[match(least.transported,enrich.bp$names.goterms.)]
@@ -200,9 +201,9 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5ND
-U3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYz
-LDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIxNTkwNyw5ND
-c1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOTQyMDE0MzAs
-MTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbMTk1MzQwNzA5NiwxMjY5ODI3MDE4LDkyNj
+MyOTE0MSwtMTk0NTc1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3
+MSwtMTE1MjQwNjMsMTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMz
+IxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3
+LC05NDIwMTQzMCwxNTI4NTgxNTkzXX0=
 -->
