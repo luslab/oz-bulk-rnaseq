@@ -75,7 +75,7 @@ goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 GenTable( myGOdata, goTestResults )
 ```
 
-# Plot p-values as Barplot
+# Plot GO p-values as Barplot
 https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
 
 ```r
@@ -100,8 +100,6 @@ text(x=(min(val1)-5),y=mp,lab=rownames(dat),cex=0.6)
 mtext(side=1,line=2,text="Z-score",cex=0.6)
 abline(v=c(-2.5,2.5),col="grey",lty=2)
 ```
-
-
 
 ```r
 #If you want only to plot the GO terms in one condition
@@ -200,9 +198,9 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDY3MTMxMDUsOTI2MzI5MTQxLC0xOT
-Q1NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2
-MywxNzQ0NDc2NTE4LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOT
-Q3NTIwNDg4LDc5Nzk0NTAxNyw0ODg0NTc3NzcsLTk0MjAxNDMw
-LDE1Mjg1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbNDQzNjMzMTkxLDkyNjMyOTE0MSwtMTk0NT
+c1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3MSwtMTE1MjQwNjMs
+MTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0Nz
+UyMDQ4OCw3OTc5NDUwMTcsNDg4NDU3Nzc3LC05NDIwMTQzMCwx
+NTI4NTgxNTkzXX0=
 -->
