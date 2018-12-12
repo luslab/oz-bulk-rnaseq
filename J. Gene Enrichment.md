@@ -40,12 +40,39 @@ names(genelistDown) <- rownames(resTested)
 
 ## Filter out redundant terms 
 
+
 To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
 
-Then manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
+anually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
 
-Only GO terms containing at least 10 annotated genes were considered. A P-value of 0.05 was used as the level of significance. On the figures, top significant GO terms were manually selected by removing redundant GO terms and terms which contain < 5 significant genes.
-UNKNOWN HOW TO DO THIS?
+```r
+require("GO.db")
+require("topGO")
+require("biomaRt")
+require("org.Hs.eg.db")
+
+#How to get GeneSymbols
+x                  <- org.Hs.eg.db
+mapped_genes       <- mappedkeys(x)
+GO2geneID          <- as.list(x[mapped_genes])
+geneID2GO          <- as.list(org.Hs.eg.db)
+goterms            <- Term(GOTERM)
+geneNames          <- names(GO2geneID)
+mart              <- biomaRt::useMart(biomart = "ENSEMBL_MART_ENSEMBL",dataset = "hsapiens_gene_ensembl",host = 'ensembl.org')
+anno              <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id","external_gene_name","entrezgene"), mart = mart)
+myGS              <- anno$external_gene_name
+eid               <- anno$entrezgene
+eid               <- eid[!is.na(eid)]
+geneList          <- factor(as.numeric(geneNames%in%as.character(eid)))
+names(geneList)   <- geneNames
+mysampleGO        <- new("topGOdata",description = "Simple session", ontology = "BP",allGenes = geneList, geneSel = as.character(eid),nodeSize = 10,annot = annFUN.GO2genes,GO2gene=geneID2GO)
+
+
+goID              <-"GO:0008088"
+go.entrez         <- genesInTerm(mysampleGO, goID)
+go.entrez         <- go.entrez[[1]]#To extract all genes related to this term
+go.gs             <- unique(as.character(anno$external_gene_name)[which(anno$entrezgene%in%go.entrez)])
+```
 
 ### Test UPREGULATED GENES
 #Test Biological Processes BP sub-ontology
@@ -262,10 +289,10 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNz
-EwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkx
-NDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLT
-ExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIx
-NTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOT
-QyMDE0MzAsMTUyODU4MTU5M119
+eyJoaXN0b3J5IjpbMjY5NjUyMTQ1LDEzOTQxNTU0MzEsLTUxMj
+I1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4Mjcw
+MTgsOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3MDgzNCwxOD
+U2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC0xNzEzNDgy
+MjY4LDEzMjEyMTU5MDcsOTQ3NTIwNDg4LDc5Nzk0NTAxNyw0OD
+g0NTc3NzcsLTk0MjAxNDMwLDE1Mjg1ODE1OTNdfQ==
 -->
