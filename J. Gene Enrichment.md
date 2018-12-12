@@ -36,8 +36,11 @@ genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange
 names(genelistUp) <- rownames(resTested)
 genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
 names(genelistDown) <- rownames(resTested)
+```
 
-# filter out redundant terms  https://www.biostars.org/p/47672/
+## Filter out redundant terms 
+
+To filter out redundant terms first run [Revigo](http://revigo.irb.hr/) and then you can manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
 Only GO terms containing at least 10 annotated genes were considered. A P-value of 0.05 was used as the level of significance. On the figures, top significant GO terms were manually selected by removing redundant GO terms and terms which contain < 5 significant genes.
 UNKNOWN HOW TO DO THIS?
 
@@ -256,10 +259,10 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOT
-UzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1NzU4
-Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNz
-Q0NDc2NTE4LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3NTIw
-NDg4LDc5Nzk0NTAxNyw0ODg0NTc3NzcsLTk0MjAxNDMwLDE1Mj
-g1ODE1OTNdfQ==
+eyJoaXN0b3J5IjpbMTQ3NDcwMDk5OSwtNTEyMjU0MDUyLC0xNz
+EwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkx
+NDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLT
+ExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIx
+NTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1Nzc3NywtOT
+QyMDE0MzAsMTUyODU4MTU5M119
 -->
