@@ -40,7 +40,10 @@ names(genelistDown) <- rownames(resTested)
 
 ## Filter out redundant terms 
 
-To filter out redundant terms first run [Revigo](http://revigo.irb.hr/) and then you can manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
+To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
+
+Then manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
+
 Only GO terms containing at least 10 annotated genes were considered. A P-value of 0.05 was used as the level of significance. On the figures, top significant GO terms were manually selected by removing redundant GO terms and terms which contain < 5 significant genes.
 UNKNOWN HOW TO DO THIS?
 
@@ -259,7 +262,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3NDcwMDk5OSwtNTEyMjU0MDUyLC0xNz
+eyJoaXN0b3J5IjpbMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNz
 EwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkx
 NDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLT
 ExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMyMTIx
