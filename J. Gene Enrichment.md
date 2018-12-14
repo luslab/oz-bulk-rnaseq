@@ -94,7 +94,7 @@ Submit > Select input species (Homo sapiens)
 Explore details through the Functional Annotation Tools:  table, chart & clustering reports
 
 ![enter image description here](https://www.biostarhandbook.com/ontology/images/summary.png)
-
+Click Pathways > Chart in KEGG_PATHWAY row > note the Terms (these are the enriched GO terms) > click Genes bar to see individual genes
 
 Export & save results
 
@@ -311,11 +311,11 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwMjI0MTgxOCwxMzU4Nzk5Mjk0LDE0MD
-c4MDExODgsNzUxMzI4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3
-NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC
-04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYw
-NTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MD
-UyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5
-MjYzMjkxNDFdfQ==
+eyJoaXN0b3J5IjpbLTE0MjkwNTYyNzEsMTM1ODc5OTI5NCwxND
+A3ODAxMTg4LDc1MTMyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4
+NzY4LDIwOTkxOTc4MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5Ny
+wtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2
+MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1ND
+A1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgs
+OTI2MzI5MTQxXX0=
 -->
