@@ -128,6 +128,18 @@ genelistDown <- factor( as.integer( resTestedDT$padj < .1 & resTestedDT$log2Fold
 names(genelistDown) <- rownames(resTestedDT)
 ```
 
+## Revigo: Filter out redundant terms 
+
+Take resTestedDT datatable
+Filter out the non-significant say padj<0.05
+if there are more than 150 then select only the top 100.
+Extract columns GO term & padj
+Paste into Revigo box via Excel
+To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
+
+Manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant.
+
+
 ## TopGO
 Use the output of DSeq2: genelistUp & genelistDown
 ```r
@@ -218,17 +230,8 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 
-## Filter out redundant terms 
-
-Take resTestedDT datatable
-Filter out the non-significant say padj<0.05
-if there are more than 150 then select only the top 100.
-Extract columns GO term & padj
-Paste into Revigo box via Excel
-To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
 
 
-Manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
 
 ```r
 require("GO.db")
@@ -431,11 +434,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjMzOTIzODA4LDExMzMzMTgzNTksNTgzMj
-E0NjEzLDE2MTA1OTM1MTEsLTE1OTQ5ODczMjcsLTE0MjkwNTYy
-NzEsMTM1ODc5OTI5NCwxNDA3ODAxMTg4LDc1MTMyODA0OCwxMD
-g4MTUyMDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4MjYsMTI1MTk3
-MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1ND
-gsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEz
-OTQxNTU0MzFdfQ==
+eyJoaXN0b3J5IjpbLTExNjM1MzU3NTYsMTEzMzMxODM1OSw1OD
+MyMTQ2MTMsMTYxMDU5MzUxMSwtMTU5NDk4NzMyNywtMTQyOTA1
+NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNzUxMzI4MDQ4LD
+EwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUx
+OTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MT
+U0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQs
+MTM5NDE1NTQzMV19
 -->
