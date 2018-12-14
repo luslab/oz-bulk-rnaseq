@@ -19,10 +19,10 @@ https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topG
 Look at collection of genes (rather than individual genes) 
 Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
 
-Fisher Exact test = 2 categorical 
+Fisher Exact test = is there a relationship between 2 categorical variables? 
+2x2 contingency table: present in gene set vs member of gene set
 
 2. Enrichment sets
-
 
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
@@ -304,7 +304,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NzM3ODcxMCwxMjI1NTYxNTQ4LDExMT
+eyJoaXN0b3J5IjpbLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMT
 M1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0MTU1
 NDMxLC01MTIyNTQwNTIsLTE3MTA1NTc1MDUsMTk1MzQwNzA5Ni
 wxMjY5ODI3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIz
