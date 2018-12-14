@@ -79,9 +79,13 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 https://www.biostarhandbook.com/ontology/david-analysis.html
 https://david.ncifcrf.gov/home.jsp
 
-Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp):
+Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp)
+Using the output of DESeq2 resOrderedDT datatable can extract the Entrez terms
 
 Step 2: Select Gene identifier
+Entrez (or Ensembl depending on which column from the DT you extract)
+
+Step 3: Clarify List Type
 
 Explore details through the annotation table, chart or clustering reports
 Export & save results
@@ -299,11 +303,11 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNzgwMTE4OCw3NTEzMjgwNDgsMTA4OD
-E1MjA3NSwtMTIyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2
-MTksLTIwMDUyODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNTQ4LD
-ExMTM1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0
-MTU1NDMxLC01MTIyNTQwNTIsLTE3MTA1NTc1MDUsMTk1MzQwNz
-A5NiwxMjY5ODI3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4
-NDIzNzA4MzRdfQ==
+eyJoaXN0b3J5IjpbMTQ0NzEzMDQ5LDE0MDc4MDExODgsNzUxMz
+I4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5Nzgy
+NiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMT
+IyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1
+MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NT
+A1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5
+NDU3NTg2ODVdfQ==
 -->
