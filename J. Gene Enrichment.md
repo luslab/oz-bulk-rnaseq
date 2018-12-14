@@ -62,7 +62,7 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 - GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
 - ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
 
-
+# Workflow
 
 
 
@@ -309,7 +309,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NzkwMjIyMywtMTIyOTM1ODc2OCwyMD
+eyJoaXN0b3J5IjpbMTA4ODE1MjA3NSwtMTIyOTM1ODc2OCwyMD
 k5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUyODg3OTcsLTg4ODI4
 NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNjIsLTE5NjA1MjI5MD
 csMjA2NzUzNzAyNCwxMzk0MTU1NDMxLC01MTIyNTQwNTIsLTE3
