@@ -30,9 +30,8 @@ Gene Ontology (GO) is a vocabulary used to describe genes functions with respect
 GO terms are orgnised in directed acyclic graphs where relationships and heirachy are represented. View GO relationships at http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
 
 
-
-
 # GO functional analysis
+https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375
 https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
 
@@ -314,11 +313,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY4ODQxMjgzLC0yMDA1Mjg4Nzk3LC04OD
-gyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIy
-OTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC
-0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYz
-MjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NTYxNDIxNz
-EsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNjgsMTMy
-MTIxNTkwN119
+eyJoaXN0b3J5IjpbMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtOD
+g4Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUy
+MjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1Mi
+wtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2
+MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMT
+cxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC0xNzEzNDgyMjY4LDEz
+MjEyMTU5MDddfQ==
 -->
