@@ -212,12 +212,7 @@ genelistDown <- factor( diff_splicing$MV > 0.2 & diff_splicing$pval < 0 )
 names(genelistDown) <- rownames(diff_splicing)
 ```
 
-
-
-
-### Enrichment Tests
-
-### Analysis of results
+### Run the topGO commands & make bar plots for BP, CC & MF (up & downregulated)
 
 ```r
 ### GO analysis
@@ -225,81 +220,93 @@ library(topGO)
 library(GOstats)
 library(goseq)
 library(org.Mm.eg.db)
-# subset results table to only genes with sufficient read coverage
-resTested <- resLFC1[ !is.na(resLFC1$padj), ]
-# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
-temp=gsub("\\..*","",row.names(resTested))
-#set the temp as the new rownames
-rownames(resTested) <- temp
-# construct binary variable for UP and DOWN regulated
-genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
-names(genelistUp) <- rownames(resTested)
-genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
-names(genelistDown) <- rownames(resTested)
+library(ggplot2)
 
 ### Test UPREGULATED GENES
 #Test Biological Processes BP sub-ontology
-myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+myGOdata      <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+UR_BP_table   <- GenTable( myGOdata, goTestResults )
+enrich.ur.bp  <- transform(UR_BP_table,result1 = as.numeric(result1))
+enrich.ur.bp$value <- -log10(enrich.ur.bp$result1)
+# Plot GO p-values as as bar plot
+dat.ur.bp        <- enrich.ur.bp$value # the -log10(P-value)
+names(dat.ur.bp) <- enrich.ur.bp$Term #the description of your GO term
+barplot(height = dat.ur.bp, space = 0.5, horiz=T,las=1,font.size = 10)
+
 #Test Cellular Compartment (CC) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+UR_CC_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.cc <- transform(UR_CC_table,result1 = as.numeric(result1))
+enrich.ur.cc$value <- -log10(enrich.ur.cc$result1)
+# Plot GO p-values as as bar plot
+dat.ur.cc        <- enrich.ur.cc$value # the -log10(P-value)
+names(dat.ur.cc) <- enrich.ur.cc$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.ur.cc,horiz=T,las=1, font.size = 20)
+
 #Test Molecular function (MF) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+UR_MF_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.mf <- transform(UR_MF_table,result1 = as.numeric(result1))
+enrich.ur.mf$value <- -log10(enrich.ur.mf$result1)
+### Plot GO p-values as as bar plot
+dat.ur.mf        <- enrich.ur.mf$value # the -log10(P-value)
+names(dat.ur.mf) <- enrich.ur.mf$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.ur.mf,horiz=T,las=1, font.size = 20)
 
 ### TEST DOWNREGULATED GENES
 #Test Biological Processes BP sub-ontology
 myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-UR_BP_table <- GenTable( myGOdata, goTestResults )
+DR_BP_table <- GenTable( myGOdata, goTestResults )
+enrich.dr.bp <- transform(DR_BP_table,result1 = as.numeric(result1))
+enrich.dr.bp$value <- -log10(enrich.dr.bp$result1)
+### Plot GO p-values as as bar plot
+dat.dr.bp        <- enrich.dr.bp$value # the -log10(P-value)
+names(dat.dr.bp) <- enrich.dr.bp$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.dr.bp,horiz=T,las=1, font.size = 20)
+
 #Test Cellular Compartment (CC) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
+DR_CC_table <- GenTable( myGOdata, goTestResults )
+enrich.dr.cc <- transform(DR_CC_table,result1 = as.numeric(result1))
+enrich.dr.cc$value <- -log10(enrich.dr.cc$result1)
+### Plot GO p-values as as bar plot
+dat.dr.cc        <- enrich.dr.cc$value # the -log10(P-value)
+names(dat.dr.cc) <- enrich.dr.cc$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.dr.cc,horiz=T,las=1, font.size = 20)
+
 #Test Molecular function (MF) sub-ontology
 myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
 goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-GenTable( myGOdata, goTestResults )
-
+DR_MF_table <-GenTable( myGOdata, goTestResults )
+enrich.dr.mf <- transform(DR_MF_table,result1 = as.numeric(result1))
+enrich.dr.mf$value <- -log10(enrich.dr.mf$result1)
 ### Plot GO p-values as as bar plot
-library("GOplot")
-
-barplot(UR_BP_table, drop=TRUE, font.size = 10,showCategory=10000, title="Up Regulated Biological Process")
-
-
-UR_BP_table$result1
-table(UR_BP_table$Term)
-
-UR_BP_table$value <- (UR_BP_table$result1)+1
-
-pvalue <- UR_BP_table$result1
-na.omit(pvalue)
-log10(pvalue)
-
-barplot(table(UR_BP_table$result1), names.arg=Term, main="Up Regulated Biological Process")  
-
-
-height <- log10(result1)
-
-
-circ <- circle_dat(UR_BP_table, sorted.df)
+dat.dr.mf        <- enrich.dr.mf$value # the -log10(P-value)
+names(dat.dr.mf) <- enrich.dr.mf$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNj
-cwMTUzNDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1
-MDE3LDIxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC
-0xNTMzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1
-MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mz
-k1LC0xNTgzOTk0OTY0LC00Mzk5MDg1NTQsLTIxMzM2OTIwNDYs
-MTU3MTI3MzM2N119
+eyJoaXN0b3J5IjpbNzY1OTI3ODU1LC0xNDcwMzcyODE2LC04Mz
+IzMTI2MDYsLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0OTgyMjUz
+NDksMTQxMjY5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIyNjgsMj
+AwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC0xNzQx
+MDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAzMTAwMD
+AsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC0y
+MTMzNjkyMDQ2XX0=
 -->
