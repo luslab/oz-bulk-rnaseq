@@ -1,23 +1,7 @@
 > # Gene Enrichment
 
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
-Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  There is 2 steps to this:
-
-
-1. Overrepresentation analysis (Fisher test)
-
-Look at collection of genes (rather than individual genes) 
-Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
-
-Fisher Exact test = is there a relationship between 2 categorical variables? 
-2x2 contingency table: present in gene set vs member of gene set
-
-2. Enrichment sets
-
-Use reporting tools to write a table of GO analysis results to a HTML file. 
-Select genes of interest > run hyperGTest > make GO report
-
-The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
+Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  
 
 # Gene Ontology
 https://www.biostarhandbook.com/ontology/gene-ontology.html
@@ -34,6 +18,21 @@ GO terms are orgnised in directed acyclic graphs where relationships and heirach
 https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375
 https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
+There is 2 steps to this:
+1. Overrepresentation analysis (Fisher test)
+
+Look at collection of genes (rather than individual genes) 
+Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
+
+Fisher Exact test = is there a relationship between 2 categorical variables? 
+2x2 contingency table: present in gene set vs member of gene set
+
+2. Enrichment sets
+
+Use reporting tools to write a table of GO analysis results to a HTML file. 
+Select genes of interest > run hyperGTest > make GO report
+
+The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
 
 
 ```r
@@ -313,11 +312,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtOD
-g4Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUy
-MjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1Mi
-wtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2
-MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMT
-cxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC0xNzEzNDgyMjY4LDEz
-MjEyMTU5MDddfQ==
+eyJoaXN0b3J5IjpbLTE4MjkzODUzODMsMTI1MTk3MjYxOSwtMj
+AwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4
+MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0Mz
+EsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEy
+Njk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3MD
+gzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC0x
+NzEzNDgyMjY4XX0=
 -->
