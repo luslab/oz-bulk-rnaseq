@@ -26,8 +26,9 @@ Gene Ontology (GO) is a vocabulary used to describe genes functions with respect
 - Cellular Component (CC): cellular location **where** product exhibits its effect
 - Molecular function (MF): **How** does gene work?
 - Biological Process (BP): **What** is the gene product purpose?
+- 
+GO terms are orgnised in directed acyclic graphs where relationships and heirachy are represented. View GO relationships at http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
 
-Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
 
 
 # GO analysis
@@ -312,11 +313,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNTIyMTE5NSwtODg4Mjg2MTE4LDEyMj
-U1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3
-MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNS
-wxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1
-NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2My
-wxNzQ0NDc2NTE4LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3
-NTIwNDg4XX0=
+eyJoaXN0b3J5IjpbLTIwMDUyODg3OTcsLTg4ODI4NjExOCwxMj
+I1NTYxNTQ4LDExMTM1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUz
+NzAyNCwxMzk0MTU1NDMxLC01MTIyNTQwNTIsLTE3MTA1NTc1MD
+UsMTk1MzQwNzA5NiwxMjY5ODI3MDE4LDkyNjMyOTE0MSwtMTk0
+NTc1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3MSwtMTE1MjQwNj
+MsMTc0NDQ3NjUxOCwtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0
+NzUyMDQ4OF19
 -->
