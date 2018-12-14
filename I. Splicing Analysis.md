@@ -186,6 +186,12 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 
 ### Data Preparation
 
+```bash
+# convert splicing_diff.tab > .csv
+perl -lpe 's/"/""/g; s/^|$/"/g; s/\t/","/g' < input.tab > output.csv
+```
+Open CSV in Excel
+
 topGOdata <- new("topGOdata", description = "Alternative_Splicing")
 
 
@@ -270,11 +276,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MT
-I2OTUwMTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0
-MDEsLTE1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OS
-w0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0xMTYy
-MDczOTUsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEzMzY5Mj
-A0NiwxNTcxMjczMzY3LDM5NjMyMTEyOSwxNzMzMDQxNTkyLDIw
-MTcwMTEzMDJdfQ==
+eyJoaXN0b3J5IjpbLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0OT
+gyMjUzNDksMTQxMjY5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIy
+NjgsMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC
+0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAz
+MTAwMDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NT
+U0LC0yMTMzNjkyMDQ2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3
+MzMwNDE1OTJdfQ==
 -->
