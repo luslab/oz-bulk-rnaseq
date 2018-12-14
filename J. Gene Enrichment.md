@@ -1,18 +1,8 @@
 > # Gene Enrichment
 
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
-Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
+Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  There is 2 steps to this:
 
-Gene Ontology (GO) is a vocabulary used to describe genes functions with respect to 3 aspects:
-- Cellular Component (CC): cellular location where product exhibits its effect
-- Molecular function (MF): How does gene work?
-- Biological Process (BP): What is the gene product purpose?
-
-Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
-
-
-# GO analysis
-https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
 1. Overrepresentation analysis (Fisher test)
 
@@ -26,6 +16,24 @@ Fisher Exact test = is there a relationship between 2 categorical variables?
 
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
+
+The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
+
+# Gene Ontology
+https://www.biostarhandbook.com/ontology/gene-ontology.html
+
+Gene Ontology (GO) is a vocabulary used to describe genes functions with respect to 3 aspects:
+- Cellular Component (CC): cellular location **where** product exhibits its effect
+- Molecular function (MF): **How** does gene work?
+- Biological Process (BP): **What** is the gene product purpose?
+
+Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
+
+
+# GO analysis
+https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
+
+
 
 ```r
 
@@ -304,11 +312,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMT
-M1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0MTU1
-NDMxLC01MTIyNTQwNTIsLTE3MTA1NTc1MDUsMTk1MzQwNzA5Ni
-wxMjY5ODI3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIz
-NzA4MzQsMTg1NjE0MjE3MSwtMTE1MjQwNjMsMTc0NDQ3NjUxOC
-wtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5
-NDUwMTddfQ==
+eyJoaXN0b3J5IjpbLTMyNTIyMTE5NSwtODg4Mjg2MTE4LDEyMj
+U1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3
+MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNS
+wxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1
+NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2My
+wxNzQ0NDc2NTE4LC0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3
+NTIwNDg4XX0=
 -->
