@@ -64,6 +64,17 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 
 # Workflow
 
+#### Gene Set Enrichment Analysis Methodology
+1. Enter gene names to be studies
+2. Enter background gene names (usually all genes for the organism)
+3. Perform statistical comparison
+
+[g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
+[g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
+
+The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
+
+Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 
 
 ```r
@@ -190,6 +201,7 @@ goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 DR_CC_table <- GenTable( myGOdata, goTestResults )
 enrich.dr.cc <- transform(DR_CC_table,result1 = as.numeric(result1))
 enrich.dr.cc$value <- -log10(enrich$result1)
+
 ### Plot GO p-values as as bar plot
 dat        <- enrich.dr.cc$value # the -log10(P-value)
 names(dat) <- enrich.dr.cc$Term #the description of your GO term
@@ -203,6 +215,7 @@ goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
 DR_MF_table <-GenTable( myGOdata, goTestResults )
 enrich.dr.mf <- transform(DR_MF_table,result1 = as.numeric(result1))
 enrich.dr.mf$value <- -log10(enrich$result1)
+
 ### Plot GO p-values as as bar plot
 dat        <- enrich.dr.mf$value # the -log10(P-value)
 names(dat) <- enrich.dr.mf$Term #the description of your GO term
@@ -273,47 +286,13 @@ mtext(side=1,line=2,text="Z-score",cex=0.6)
 abline(v=c(-2.5,2.5),col="grey",lty=2)
 ```
 
-# BLAST
-Basic Local Alignment Search Tool
 
-Use blastx for RNA
-
-[Swiss-Prot database](https://www.uniprot.org/):
--includes TrEMBL. Swiss-prot is a manually curated subset of this. 
-Gives information on Function & GO on Proteins & Genes.
-
-# **[Sequence Ontology](http://www.sequenceontology.org/browser/obob.cgi)**
-There are >2,400 terms associated with sequences in the genome. Sequence Ontology defines sequence features used in biological annotations.
-To search a defined sequence term use the [Sequence Ontology Browser](http://www.sequenceontology.org/browser/obob.cgi)
-
-**[Gene Ontology](http://geneontology.org/)**
-
-
-
-
-#### Gene Set Enrichment Analysis Methodology
-1. Enter gene names to be studies
-2. Enter background gene names (usually all genes for the organism)
-3. Perform statistical comparison
-
-[g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
-[g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
-
-The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
-
-Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
-
-# Trinity Platform
-
-https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysis
-
-Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4ODE1MjA3NSwtMTIyOTM1ODc2OCwyMD
-k5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUyODg3OTcsLTg4ODI4
-NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNjIsLTE5NjA1MjI5MD
-csMjA2NzUzNzAyNCwxMzk0MTU1NDMxLC01MTIyNTQwNTIsLTE3
-MTA1NTc1MDUsMTk1MzQwNzA5NiwxMjY5ODI3MDE4LDkyNjMyOT
-E0MSwtMTk0NTc1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3MSwt
-MTE1MjQwNjNdfQ==
+eyJoaXN0b3J5IjpbLTEyMTE1MzkxMzgsMTA4ODE1MjA3NSwtMT
+IyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUy
+ODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNj
+IsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0MTU1NDMxLC01
+MTIyNTQwNTIsLTE3MTA1NTc1MDUsMTk1MzQwNzA5NiwxMjY5OD
+I3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIzNzA4MzQs
+MTg1NjE0MjE3MV19
 -->
