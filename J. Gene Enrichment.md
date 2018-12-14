@@ -75,31 +75,6 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 
-## DAVID
-https://www.biostarhandbook.com/ontology/david-analysis.html
-https://david.ncifcrf.gov/home.jsp
-
-Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp)
-Using the output of DESeq2 resOrderedDT datatable can extract the Entrez terms.
-Paste in only the significant events (padj < 0.05) or top 100 events
-
-Step 2: Select Gene identifier
-Entrez (or Ensembl depending on which column from the DT you extract)
-
-Step 3: Clarify List Type
-Specify Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
-
-Submit > Select input species (Homo sapiens)
-
-Explore details through the Functional Annotation Tools:  table, chart & clustering reports
-
-![enter image description here](https://www.biostarhandbook.com/ontology/images/summary.png)
-Click Pathways > Chart in KEGG_PATHWAY row > note the Terms (these are the enriched GO terms) > click Genes bar to see individual genes
-
-Export & save results
-
-
-
 ```r
 
 ### GO analysis
@@ -309,13 +284,36 @@ mtext(side=1,line=2,text="Z-score",cex=0.6)
 abline(v=c(-2.5,2.5),col="grey",lty=2)
 ```
 
+## DAVID
+https://www.biostarhandbook.com/ontology/david-analysis.html
+https://david.ncifcrf.gov/home.jsp
 
+Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp)
+Using the output of DESeq2 resOrderedDT datatable can extract the Entrez terms.
+Paste in only the significant events (padj < 0.05) or top 100 events
+
+Step 2: Select Gene identifier
+Entrez (or Ensembl depending on which column from the DT you extract)
+
+Step 3: Clarify List Type
+Specify Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
+
+Submit > Select input species (Homo sapiens)
+
+Explore details through the Functional Annotation Tools:  table, chart & clustering reports
+
+![enter image description here](https://www.biostarhandbook.com/ontology/images/summary.png)
+Click Pathways > Chart in KEGG_PATHWAY row > note the Terms (these are the enriched GO terms) > click Genes bar to see individual genes
+
+Download table as txt file > open in excel > copy the gene term & P-value columns > paste in to [revigo](http://revigo.irb.hr/) to further intepret 
+
+Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjkwNTYyNzEsMTM1ODc5OTI5NCwxND
-A3ODAxMTg4LDc1MTMyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4
-NzY4LDIwOTkxOTc4MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5Ny
-wtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2
-MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1ND
-A1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgs
-OTI2MzI5MTQxXX0=
+eyJoaXN0b3J5IjpbLTE1OTQ5ODczMjcsLTE0MjkwNTYyNzEsMT
+M1ODc5OTI5NCwxNDA3ODAxMTg4LDc1MTMyODA0OCwxMDg4MTUy
+MDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4MjYsMTI1MTk3MjYxOS
+wtMjAwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTEx
+MzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNT
+U0MzEsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2
+LDEyNjk4MjcwMThdfQ==
 -->
