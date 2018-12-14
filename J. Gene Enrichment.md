@@ -14,6 +14,12 @@ Searching GO: use http://geneontology.org/ or https://www.ebi.ac.uk/QuickGO/
 # GO analysis
 https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
+1. Overrepresentation analysis (Fisher test)
+
+Look at collection of genes (rather than individual genes) 
+Is the 
+2. Enrichment sets
+
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
 
@@ -294,11 +300,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzAyODUzNTgyLDEyMjU1NjE1NDgsMTExMz
-U4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0
-MzEsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LD
-EyNjk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3
-MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC
-0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3NTIwNDg4LDc5Nzk0
-NTAxN119
+eyJoaXN0b3J5IjpbMTA0MDkwMDIwOSwxMjI1NTYxNTQ4LDExMT
+M1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0MTU1
+NDMxLC01MTIyNTQwNTIsLTE3MTA1NTc1MDUsMTk1MzQwNzA5Ni
+wxMjY5ODI3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIz
+NzA4MzQsMTg1NjE0MjE3MSwtMTE1MjQwNjMsMTc0NDQ3NjUxOC
+wtMTcxMzQ4MjI2OCwxMzIxMjE1OTA3LDk0NzUyMDQ4OCw3OTc5
+NDUwMTddfQ==
 -->
