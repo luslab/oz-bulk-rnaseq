@@ -75,8 +75,10 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 
-```r
+## TopGO
+Use the output of DSeq2
 
+```r
 ### GO analysis
 library(topGO)
 library(GOstats)
@@ -309,11 +311,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTQ5ODczMjcsLTE0MjkwNTYyNzEsMT
-M1ODc5OTI5NCwxNDA3ODAxMTg4LDc1MTMyODA0OCwxMDg4MTUy
-MDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4MjYsMTI1MTk3MjYxOS
-wtMjAwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTEx
-MzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNT
-U0MzEsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2
-LDEyNjk4MjcwMThdfQ==
+eyJoaXN0b3J5IjpbMTYxMDU5MzUxMSwtMTU5NDk4NzMyNywtMT
+QyOTA1NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNzUxMzI4
+MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNi
+wxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIy
+NTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1Mz
+cwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NTA1
+LDE5NTM0MDcwOTZdfQ==
 -->
