@@ -23,8 +23,20 @@ There is 2 steps to this:
 
 Look at collection of genes within a pathway found in a gene set (rather than individual genes) 
 Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
+
+### 2. Enrichment sets
+
+Use reporting tools to write a table of GO analysis results to a HTML file. 
+Select genes of interest > run hyperGTest > make GO report
+
+The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
 Fisher Exact test = is there a relationship between 2 categorical variables? 
-2x2 contingency table: present in gene set vs member of gene set
+2x2 contingency table: present in gene set vs member of gene set:
+
+|  | Differentially Expressed | Not Differentially Expressed
+|--|--|--|
+| Gene Ontology Term | 50 | 200
+| No Gene Ontology Term| 1950 | 17800
 
 GO Download page: http://geneontology.org/page/download-annotations
 2 files to download: 
@@ -39,10 +51,6 @@ To search the function of a gene use the [GeneCards](http://www.genecards.org/) 
 
 Examine genes in a list > summarises the GO annotations for each gene > determines if annotations are statistically over-represented.
 
-
-
-
-
  **GO enrichment tools** 
 
 - [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
@@ -54,12 +62,8 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 - GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
 - ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
 
-### 2. Enrichment sets
 
-Use reporting tools to write a table of GO analysis results to a HTML file. 
-Select genes of interest > run hyperGTest > make GO report
 
-The hypergeometric test (Fisher's test) is used to test whether genes enriched in the list of up or down regulated genes occur more often than expected by chance.
 
 
 ```r
@@ -305,7 +309,7 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3Mjc4MTY4NSwtMTIyOTM1ODc2OCwyMD
+eyJoaXN0b3J5IjpbMTM0NzkwMjIyMywtMTIyOTM1ODc2OCwyMD
 k5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUyODg3OTcsLTg4ODI4
 NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNjIsLTE5NjA1MjI5MD
 csMjA2NzUzNzAyNCwxMzk0MTU1NDMxLC01MTIyNTQwNTIsLTE3
