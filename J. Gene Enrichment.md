@@ -76,7 +76,53 @@ The **Functional Annotation Tool** maps the genes to annotation content providin
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
 
 ## TopGO
-Use the output of DSeq2
+Use the output of DSeq2 resTestedDT data table
+
+```r
+### Gene Enrichment Functional Annotation
+columns(Homo.sapiens)
+# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
+tmp=gsub("\\..*","",row.names(res))
+# use mapIds to add columns to results table. Use Ensebml nomenclature. 
+res$symbol <- mapIds(Homo.sapiens,
+                     keys=tmp,
+                     column="SYMBOL",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+# ignore the error: 'select()' returned 1:many mapping between keys and columns
+res$entrez <- mapIds(Homo.sapiens,
+                     keys=tmp,
+                     column="ENTREZID",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+res$symbol <- mapIds(Homo.sapiens,
+                     keys=tmp,
+                     column="GENENAME",
+                     keytype="ENSEMBL",
+                     multiVals="first")
+resOrdered <- res[order(res$padj),] #order by padj
+head(resOrdered)
+
+### Prepare table for gene enrichment
+resTested <- resLFC1[ !is.na(resLFC1$padj), ] # use DESeq2 resLFC1 command to subset results table to only genes with sufficient read coverage
+resTested <- res[order(res$padj),] #order by padj
+temp=gsub("\\..*","",row.names(resTested)) # remove decimal string & everything that follows from row.names (ENSEMBL)
+rownames(resTested) <- temp #set the temp as the new rownames
+
+#view the dataframe with ENSEMBL symbol external gene IDs & associated padj value
+resTestedDF <- as.data.frame(resTested) # convert to dataframe
+col_symbol <- grep("symbol", names(resTestedDF)) # select only ENSEMBL symbols column
+resTestedDF <- resTestedDF[, c(col_symbol, (1:ncol(resTestedDF))[-col_symbol])] # move symbol column within DF to first column
+head(resTestedDF) #check symbol is now first
+resTestedDT <- data.table(resTestedDF) # Convert data frame to data table
+head(resTestedDT)
+revigo <- resTestedDT[, .(entrez, padj)] # Select only columns entrez & padj
+write.csv(revigo, file="revigo.csv") # make table file of entrez & padj
+
+# export top 100 DE genes to CSV file
+resTestedDT_top100 <- resTestedDT[seq_len(100),]
+write.csv(resTestedDT_top100, file="DESeq2_results.csv") #this table can be opened in Excel & pasted into DAVID or REVIGO
+```
 
 ```r
 ### GO analysis
@@ -311,11 +357,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMDU5MzUxMSwtMTU5NDk4NzMyNywtMT
-QyOTA1NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNzUxMzI4
-MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNi
-wxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIy
-NTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1Mz
-cwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NTA1
-LDE5NTM0MDcwOTZdfQ==
+eyJoaXN0b3J5IjpbMTE5NjIyLDE2MTA1OTM1MTEsLTE1OTQ5OD
+czMjcsLTE0MjkwNTYyNzEsMTM1ODc5OTI5NCwxNDA3ODAxMTg4
+LDc1MTMyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4NzY4LDIwOT
+kxOTc4MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2
+MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNy
+wyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcx
+MDU1NzUwNV19
 -->
