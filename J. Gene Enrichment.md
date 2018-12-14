@@ -55,7 +55,7 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 
 - [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
 - AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
-- DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
+- DAVID This is the GO tool biologists love - produces copious amounts of output. 
 - Panther is offered directly from the GO website. It produces very limited information and no visualization.
 - goatools a command line Python scripts.
 - ermineJ Standalone tool with easy to use interface. It has detailed documentation.
@@ -71,11 +71,15 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 2. Enter background gene names (usually all genes for the organism)
 3. Perform statistical comparison
 
-
-
 The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
 
 Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. The EASE score is a slightly modified Fisher's Exact p-value. The smaller to p-value, the more enriched the term.
+
+## DAVID
+https://www.biostarhandbook.com/ontology/david-analysis.html
+
+
+
 
 
 ```r
@@ -289,11 +293,11 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUxMzI4MDQ4LDEwODgxNTIwNzUsLTEyMj
-kzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1Mjg4
-Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC
-0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEy
-MjU0MDUyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNz
-AxOCw5MjYzMjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4
-NTYxNDIxNzFdfQ==
+eyJoaXN0b3J5IjpbLTExMDczMTYzNTksNzUxMzI4MDQ4LDEwOD
+gxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcy
+NjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OC
+wxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5
+NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NTA1LDE5NTM0MD
+cwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NTg2ODUs
+ODQyMzcwODM0XX0=
 -->
