@@ -230,7 +230,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 
-
+## Getting Gene Symbols
 
 
 ```r
@@ -262,125 +262,9 @@ go.entrez         <- go.entrez[[1]]#To extract all genes related to this term
 go.gs             <- unique(as.character(anno$external_gene_name)[which(anno$entrezgene%in%go.entrez)])
 ```
 
-### Test UPREGULATED GENES
-#Test Biological Processes BP sub-ontology
-myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
-goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-UR_BP_table <- GenTable( myGOdata, goTestResults )
-enrich.ur.bp <- transform(UR_BP_table,result1 = as.numeric(result1))
-enrich.ur.bp$value <- -log10(enrich$result1) # add column with -log10 of P-value
-### Plot GO p-values as as bar plot
-dat        <- enrich.ur.bp$value # the -log10(P-value)
-names(dat) <- enrich.ur.bp$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
 
-#Test Cellular Compartment (CC) sub-ontology
-myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
-goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-UR_CC_table <- GenTable( myGOdata, goTestResults )
-enrich.ur.cc <- transform(UR_CC_table,result1 = as.numeric(result1))
-enrich.ur.cc$value <- -log10(enrich$result1)
-### Plot GO p-values as as bar plot
-dat        <- enrich.ur.cc$value # the -log10(P-value)
-names(dat) <- enrich.ur.cc$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
-
-#Test Molecular function (MF) sub-ontology
-myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
-goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-UR_MF_table <- GenTable( myGOdata, goTestResults )
-enrich.ur.mf <- transform(UR_MF_table,result1 = as.numeric(result1))
-enrich.ur.mf$value <- -log10(enrich$result1)
-### Plot GO p-values as as bar plot
-dat        <- enrich.ur.mf$value # the -log10(P-value)
-names(dat) <- enrich.ur.mf$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
-
-
-### TEST DOWNREGULATED GENES
-#Test Biological Processes BP sub-ontology
-myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
-goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-DR_BP_table <- GenTable( myGOdata, goTestResults )
-enrich.dr.bp <- transform(DR_BP_table,result1 = as.numeric(result1))
-enrich.dr.bp$value <- -log10(enrich$result1)
-### Plot GO p-values as as bar plot
-dat        <- enrich.dr.bp$value # the -log10(P-value)
-names(dat) <- enrich.dr.bp$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
-
-#Test Cellular Compartment (CC) sub-ontology
-myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
-goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-DR_CC_table <- GenTable( myGOdata, goTestResults )
-enrich.dr.cc <- transform(DR_CC_table,result1 = as.numeric(result1))
-enrich.dr.cc$value <- -log10(enrich$result1)
-
-### Plot GO p-values as as bar plot
-dat        <- enrich.dr.cc$value # the -log10(P-value)
-names(dat) <- enrich.dr.cc$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
-
-#Test Molecular function (MF) sub-ontology
-myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
-                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
-goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
-DR_MF_table <-GenTable( myGOdata, goTestResults )
-enrich.dr.mf <- transform(DR_MF_table,result1 = as.numeric(result1))
-enrich.dr.mf$value <- -log10(enrich$result1)
-
-### Plot GO p-values as as bar plot
-dat        <- enrich.dr.mf$value # the -log10(P-value)
-names(dat) <- enrich.dr.mf$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
-```
-
-# Plot GO p-values as Barplot
+# Plotting GO p-values as Barplot
 https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
-
-Always filter out redundant term and select the 10 most significant otherwise with barplot you can't read anything
-I guess the purpose of the above package GOplot is to plot many more terms than 10.
-```r
-### Plot GO p-values as as bar plot
-# add column with -log10 of P-value
-sapply(UR_BP_table, class)
-enrich <- transform(UR_BP_table,result1 = as.numeric(result1))
-enrich$value <- -log10(enrich$result1)
-
-#If you want only to plot the GO terms in one condition
-dat        <- enrich$value # the -log10(P-value)
-names(dat) <- enrich$Term #the description of your GO term
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-barplot(height = dat,horiz=T,las=1, font.size = 20)
-
-
-#If you want to plot side by side the same GO term but for 2 different conditions
-dat               <- -cbind(enrich.bp$p.value.norm.ngf,enrich.bp$p.value.norm.nt3)[match(least.transported,enrich.bp$names.goterms.),]
-rownames(dat)    <- enrich.bp$Term[match(least.transported,enrich.bp$names.goterms.)]
-dat              <- dat[order(dat[,1],-dat[,2]),]
-mycols           <- c("#81A4D6","#AF71AF")
-L                <- nrow(dat)
-val1             <- -as.vector(dat[,1])
-val2             <-  as.vector(dat[,2])
-par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
-plot(c(L+3,0),xlim=c(min(val1)-10,max(val2)),type = "n",frame=F,yaxt="n",ylab="")
-mp=barplot(height = val2,add = TRUE,axes = FALSE,horiz=T,col=mycols[2])
-barplot(height = val1,add = TRUE,axes = FALSE,horiz=T,col=mycols[1])
-text(x=(min(val1)-5),y=mp,lab=rownames(dat),cex=0.6)
-mtext(side=1,line=2,text="Z-score",cex=0.6)
-abline(v=c(-2.5,2.5),col="grey",lty=2)
-```
 
 ```r
 #If you want only to plot the GO terms in one condition
@@ -388,8 +272,6 @@ dat        <- enrich$value # the -log10(P-value)
 names(dat) <- enrich$Terms #the description of your GO term
 par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
 barplot(height = dat,horiz=T,las=1)
-
-
 
 #If you want to plot side by side the same GO term but for 2 different conditions
 dat               <- -cbind(enrich.bp$p.value.norm.ngf,enrich.bp$p.value.norm.nt3)[match(least.transported,enrich.bp$names.goterms.),]
@@ -434,7 +316,7 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjM1MzU3NTYsMTEzMzMxODM1OSw1OD
+eyJoaXN0b3J5IjpbLTE0ODI3OTkwNDYsMTEzMzMxODM1OSw1OD
 MyMTQ2MTMsMTYxMDU5MzUxMSwtMTU5NDk4NzMyNywtMTQyOTA1
 NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNzUxMzI4MDQ4LD
 EwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUx
