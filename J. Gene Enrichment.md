@@ -19,15 +19,51 @@ https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375
 https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
 There is 2 steps to this:
-1. Overrepresentation analysis ORA (using Fisher test)
+### 1. Overrepresentation analysis ORA (using Fisher test)
 
 Look at collection of genes within a pathway found in a gene set (rather than individual genes) 
 Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
 Fisher Exact test = is there a relationship between 2 categorical variables? 
 2x2 contingency table: present in gene set vs member of gene set
-N.B.  that [DAVID tool](https://david.ncifcrf.gov/home.jsp) for the ORA has not been updated since 2010
+N.B.  that [DAVID tool](https://david.ncifcrf.gov/home.jsp) 
 
-2. Enrichment sets
+
+GO Download page: http://geneontology.org/page/download-annotations
+
+2 files to download: 
+1. definition (term) file `wget http://purl.obolibrary.org/obo/go.obo`
+2. association file `wget http://geneontology.org/gene-associations/goa_human.gaf.gz`. In GAF compressed format defined at http://geneontology.org/page/go-annotation-file-gaf-format-21
+Contains both gene and protein IDs.
+
+To search the function of a gene use the [GeneCards](http://www.genecards.org/) database to easily locate the gene by name.
+
+### Gene Set Enrichment Analysis
+- Identify common characteristics within a list of genes. When using GO terms, this is called "functional enrichment"
+- Most common variant is the ORA (over-representation analysis): 
+	- examines genes in a list > 
+	- summarises the GO annotations for each gene > 
+	- determines if any annotations are statistically over-represented.
+
+2 x 2 table:
+
+|  | Differentially Expressed | Not Differentially Expressed
+|--|--|--|
+| Gene Ontology Term | 50 | 200
+| No Gene Ontology Term| 1950 | 17800
+
+
+ **GO enrichment tools** 
+ The best are:
+- [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
+- AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
+- DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
+- Panther is offered directly from the GO website. It produces very limited information and no visualization.
+- goatools a command line Python scripts.
+- ermineJ Standalone tool with easy to use interface. It has detailed documentation.
+- GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
+- ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
+
+### 2. Enrichment sets
 
 Use reporting tools to write a table of GO analysis results to a HTML file. 
 Select genes of interest > run hyperGTest > make GO report
@@ -259,40 +295,6 @@ To search a defined sequence term use the [Sequence Ontology Browser](http://www
 
 
 
-GO Download page: http://geneontology.org/page/download-annotations
-
-2 files to download: 
-1. definition (term) file `wget http://purl.obolibrary.org/obo/go.obo`
-2. association file `wget http://geneontology.org/gene-associations/goa_human.gaf.gz`. In GAF compressed format defined at http://geneontology.org/page/go-annotation-file-gaf-format-21
-Contains both gene and protein IDs.
-
-To search the function of a gene use the [GeneCards](http://www.genecards.org/) database to easily locate the gene by name.
-
-### Gene Set Enrichment Analysis
-- Identify common characteristics within a list of genes. When using GO terms, this is called "functional enrichment"
-- Most common variant is the ORA (over-representation analysis): 
-	- examines genes in a list > 
-	- summarises the GO annotations for each gene > 
-	- determines if any annotations are statistically over-represented.
-
-2 x 2 table:
-
-|  | Differentially Expressed | Not Differentially Expressed
-|--|--|--|
-| Gene Ontology Term | 50 | 200
-| No Gene Ontology Term| 1950 | 17800
-
-
- **GO enrichment tools** 
- The best are:
-- [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
-- AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
-- DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
-- Panther is offered directly from the GO website. It produces very limited information and no visualization.
-- goatools a command line Python scripts.
-- ermineJ Standalone tool with easy to use interface. It has detailed documentation.
-- GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
-- ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
 
 #### Gene Set Enrichment Analysis Methodology
 1. Enter gene names to be studies
@@ -312,11 +314,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMj
-UxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2
-MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMj
-QsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NTA1LDE5
-NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NT
-g2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYzLDE3
-NDQ0NzY1MThdfQ==
+eyJoaXN0b3J5IjpbODU0NzAzMzg1LC0xMjI5MzU4NzY4LDIwOT
+kxOTc4MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2
+MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNy
+wyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcx
+MDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MT
+QxLC0xOTQ1NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0x
+MTUyNDA2M119
 -->
