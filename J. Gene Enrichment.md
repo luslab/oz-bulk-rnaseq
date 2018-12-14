@@ -25,35 +25,26 @@ Look at collection of genes within a pathway found in a gene set (rather than in
 Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
 Fisher Exact test = is there a relationship between 2 categorical variables? 
 2x2 contingency table: present in gene set vs member of gene set
-N.B.  that [DAVID tool](https://david.ncifcrf.gov/home.jsp) 
-
 
 GO Download page: http://geneontology.org/page/download-annotations
-
 2 files to download: 
 1. definition (term) file `wget http://purl.obolibrary.org/obo/go.obo`
 2. association file `wget http://geneontology.org/gene-associations/goa_human.gaf.gz`. In GAF compressed format defined at http://geneontology.org/page/go-annotation-file-gaf-format-21
 Contains both gene and protein IDs.
-
 To search the function of a gene use the [GeneCards](http://www.genecards.org/) database to easily locate the gene by name.
 
 ### Gene Set Enrichment Analysis
 - Identify common characteristics within a list of genes. When using GO terms, this is called "functional enrichment"
 - Most common variant is the ORA (over-representation analysis): 
-	- examines genes in a list > 
-	- summarises the GO annotations for each gene > 
-	- determines if any annotations are statistically over-represented.
 
-2 x 2 table:
+Examine genes in a list > summarises the GO annotations for each gene > determines if annotations are statistically over-represented.
 
-|  | Differentially Expressed | Not Differentially Expressed
-|--|--|--|
-| Gene Ontology Term | 50 | 200
-| No Gene Ontology Term| 1950 | 17800
+
+
 
 
  **GO enrichment tools** 
- The best are:
+
 - [topGO](https://bioconductor.org/packages/release/bioc/html/topGO.html) Bioconductor package (used by Luisier et al 2018)
 - AgriGO Web-based GO Analysis Toolkit and Database for Agricultural Community.
 - DAVID This is the GO tool biologists love. It is the "most generous" of them all, as it produces copious amounts of output. 
@@ -314,11 +305,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU0NzAzMzg1LC0xMjI5MzU4NzY4LDIwOT
-kxOTc4MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2
-MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNy
-wyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcx
-MDU1NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MT
-QxLC0xOTQ1NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0x
-MTUyNDA2M119
+eyJoaXN0b3J5IjpbMTI3Mjc4MTY4NSwtMTIyOTM1ODc2OCwyMD
+k5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUyODg3OTcsLTg4ODI4
+NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNjIsLTE5NjA1MjI5MD
+csMjA2NzUzNzAyNCwxMzk0MTU1NDMxLC01MTIyNTQwNTIsLTE3
+MTA1NTc1MDUsMTk1MzQwNzA5NiwxMjY5ODI3MDE4LDkyNjMyOT
+E0MSwtMTk0NTc1ODY4NSw4NDIzNzA4MzQsMTg1NjE0MjE3MSwt
+MTE1MjQwNjNdfQ==
 -->
