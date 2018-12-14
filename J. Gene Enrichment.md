@@ -128,6 +128,40 @@ genelistDown <- factor( as.integer( resTestedDT$padj < .1 & resTestedDT$log2Fold
 names(genelistDown) <- rownames(resTestedDT)
 ```
 
+## Getting Gene Symbols
+Section needs adapting
+
+```r
+require("GO.db")
+require("topGO")
+require("biomaRt")
+require("org.Hs.eg.db")
+
+#How to get GeneSymbols
+x                  <- org.Hs.eg.db
+mapped_genes       <- mappedkeys(x)
+GO2geneID          <- as.list(x[mapped_genes])
+geneID2GO          <- as.list(org.Hs.eg.db)
+goterms            <- Term(GOTERM)
+geneNames          <- names(GO2geneID)
+mart              <- biomaRt::useMart(biomart = "ENSEMBL_MART_ENSEMBL",dataset = "hsapiens_gene_ensembl",host = 'ensembl.org')
+anno              <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id","external_gene_name","entrezgene"), mart = mart)
+myGS              <- anno$external_gene_name
+eid               <- anno$entrezgene
+eid               <- eid[!is.na(eid)]
+geneList          <- factor(as.numeric(geneNames%in%as.character(eid)))
+names(geneList)   <- geneNames
+mysampleGO        <- new("topGOdata",description = "Simple session", ontology = "BP",allGenes = geneList, geneSel = as.character(eid),nodeSize = 10,annot = annFUN.GO2genes,GO2gene=geneID2GO)
+
+
+goID              <-"GO:0008088"
+go.entrez         <- genesInTerm(mysampleGO, goID)
+go.entrez         <- go.entrez[[1]]#To extract all genes related to this term
+go.gs             <- unique(as.character(anno$external_gene_name)[which(anno$entrezgene%in%go.entrez)])
+```
+
+
+
 ## Revigo: Filter out redundant terms 
 
 Take resTestedDT datatable
@@ -230,39 +264,6 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 
-## Getting Gene Symbols
-
-
-```r
-require("GO.db")
-require("topGO")
-require("biomaRt")
-require("org.Hs.eg.db")
-
-#How to get GeneSymbols
-x                  <- org.Hs.eg.db
-mapped_genes       <- mappedkeys(x)
-GO2geneID          <- as.list(x[mapped_genes])
-geneID2GO          <- as.list(org.Hs.eg.db)
-goterms            <- Term(GOTERM)
-geneNames          <- names(GO2geneID)
-mart              <- biomaRt::useMart(biomart = "ENSEMBL_MART_ENSEMBL",dataset = "hsapiens_gene_ensembl",host = 'ensembl.org')
-anno              <- biomaRt::getBM(attributes = c("ensembl_transcript_id", "ensembl_gene_id","external_gene_name","entrezgene"), mart = mart)
-myGS              <- anno$external_gene_name
-eid               <- anno$entrezgene
-eid               <- eid[!is.na(eid)]
-geneList          <- factor(as.numeric(geneNames%in%as.character(eid)))
-names(geneList)   <- geneNames
-mysampleGO        <- new("topGOdata",description = "Simple session", ontology = "BP",allGenes = geneList, geneSel = as.character(eid),nodeSize = 10,annot = annFUN.GO2genes,GO2gene=geneID2GO)
-
-
-goID              <-"GO:0008088"
-go.entrez         <- genesInTerm(mysampleGO, goID)
-go.entrez         <- go.entrez[[1]]#To extract all genes related to this term
-go.gs             <- unique(as.character(anno$external_gene_name)[which(anno$entrezgene%in%go.entrez)])
-```
-
-
 # Plotting GO p-values as Barplot
 https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
 
@@ -316,11 +317,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODI3OTkwNDYsMTEzMzMxODM1OSw1OD
-MyMTQ2MTMsMTYxMDU5MzUxMSwtMTU5NDk4NzMyNywtMTQyOTA1
-NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNzUxMzI4MDQ4LD
-EwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUx
-OTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MT
-U0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQs
-MTM5NDE1NTQzMV19
+eyJoaXN0b3J5IjpbMjAxMTEyMDY4NiwxMTMzMzE4MzU5LDU4Mz
+IxNDYxMywxNjEwNTkzNTExLC0xNTk0OTg3MzI3LC0xNDI5MDU2
+MjcxLDEzNTg3OTkyOTQsMTQwNzgwMTE4OCw3NTEzMjgwNDgsMT
+A4ODE1MjA3NSwtMTIyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5
+NzI2MTksLTIwMDUyODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNT
+Q4LDExMTM1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwx
+Mzk0MTU1NDMxXX0=
 -->
