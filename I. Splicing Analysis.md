@@ -194,6 +194,8 @@ Open CSV in Excel
 Copy the significant Gene Symbols into DAVID (see Gene Enrichment Chapter)
 
 ### topGO
+
+
 topGOdata <- new("topGOdata", description = "Alternative_Splicing")
 
 
@@ -278,11 +280,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Nj
-k2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4
-MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC
-0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0xNzQx
-MDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mzk1LC0xNTgzOTk0OT
-Y0LC00Mzk5MDg1NTQsLTIxMzM2OTIwNDYsMTU3MTI3MzM2Nywz
-OTYzMjExMjldfQ==
+eyJoaXN0b3J5IjpbLTIxODQxMTA3NCwtODMyMzEyNjA2LC02Nz
+AxNTM0MzgsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OTUw
+MTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0MDEsLT
+E1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OSw0MjUw
+NTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0xMTYyMDczOT
+UsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEzMzY5MjA0Niwx
+NTcxMjczMzY3XX0=
 -->
