@@ -61,6 +61,8 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 - ermineJ Standalone tool with easy to use interface. It has detailed documentation.
 - GOrilla Web-based; good visualization; downloadable results (as Excel files); easily see which genes contribute to which enriched terms; results pages indicate date of last update GO database (often within the last week).
 - ToppFun - a suite of tools for human genomes that integrates a surprising array of data sources.
+- [g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
+- [g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
 
 # Workflow
 
@@ -69,8 +71,7 @@ Examine genes in a list > summarises the GO annotations for each gene > determin
 2. Enter background gene names (usually all genes for the organism)
 3. Perform statistical comparison
 
-[g:Profiler](https://biit.cs.ut.ee/gprofiler/) performs functional enrichment analysis and analyses gene lists for enriched features.  Very good visualiser of GO terms. 
-[g:sorter](https://biit.cs.ut.ee/gprofiler/gsorter.cgi) finds similar genes in public  transcroptomic data. Input = single gene & dataset of interest. Result = sorted gene list similarly expressed with gene of interest. For global gene expression analyses, across different species use [Multi Experiment Matrix](https://biit.cs.ut.ee/mem/) tool.
+
 
 The **Functional Annotation Tool** maps the genes to annotation content providing a summary of the biological interpretation of the data.
 
@@ -288,11 +289,11 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTE1MzkxMzgsMTA4ODE1MjA3NSwtMT
-IyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUy
-ODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNj
-IsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0MTU1NDMxLC01
-MTIyNTQwNTIsLTE3MTA1NTc1MDUsMTk1MzQwNzA5NiwxMjY5OD
-I3MDE4LDkyNjMyOTE0MSwtMTk0NTc1ODY4NSw4NDIzNzA4MzQs
-MTg1NjE0MjE3MV19
+eyJoaXN0b3J5IjpbNzUxMzI4MDQ4LDEwODgxNTIwNzUsLTEyMj
+kzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1Mjg4
+Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC
+0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEy
+MjU0MDUyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNz
+AxOCw5MjYzMjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4
+NTYxNDIxNzFdfQ==
 -->
