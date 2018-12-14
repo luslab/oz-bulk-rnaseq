@@ -136,7 +136,7 @@ library(topGO)
 library(GOstats)
 library(goseq)
 library(org.Mm.eg.db)
-library(GO-lite)
+
 # subset results table to only genes with sufficient read coverage
 resTested <- resLFC1[ !is.na(resLFC1$padj), ]
 # remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
@@ -363,7 +363,7 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4Njc1MDM0Miw1ODMyMTQ2MTMsMTYxMD
+eyJoaXN0b3J5IjpbMTEzMzMxODM1OSw1ODMyMTQ2MTMsMTYxMD
 U5MzUxMSwtMTU5NDk4NzMyNywtMTQyOTA1NjI3MSwxMzU4Nzk5
 Mjk0LDE0MDc4MDExODgsNzUxMzI4MDQ4LDEwODgxNTIwNzUsLT
 EyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1
