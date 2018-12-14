@@ -193,10 +193,25 @@ perl -lpe 's/"/""/g; s/^|$/"/g; s/\t/","/g' < input.tab > output.csv
 Open CSV in Excel
 Copy the significant Gene Symbols into DAVID (see Gene Enrichment Chapter)
 
-### topGO
+## topGO
 
+### Prepare data from VAST tools splicing output
 
-topGOdata <- new("topGOdata", description = "Alternative_Splicing")
+```r
+library(tidyverse)
+setwd("/Volumes/lab-luscomben/working/oliver/projects/airals/splicing/vast_tools/vast_out") #set working directory where splicing files are stored on cluster
+diff_splicing <- read_tsv("diff.splicing_mv0.2.tab") #import differential splicing table .tab file
+diff_splicing <- data.table(diff_splicing)
+
+diff_splicing$pval <- as.numeric(diff_splicing$`E[dPsi]`)
+diff_splicing$MV   <- as.numeric(diff_splicing$`MV[dPsi]_at_0.95`)
+
+genelistUp <- factor( as.integer( diff_splicing$MV > .2 & diff_splicing$pval > 0) )
+names(genelistUp) <- rownames(diff_splicing)
+genelistDown <- factor( diff_splicing$MV > 0.2 & diff_splicing$pval < 0 )
+names(genelistDown) <- rownames(diff_splicing)
+```
+
 
 
 
@@ -280,11 +295,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxODQxMTA3NCwtODMyMzEyNjA2LC02Nz
-AxNTM0MzgsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OTUw
-MTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0MDEsLT
-E1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OSw0MjUw
-NTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0xMTYyMDczOT
-UsLTE1ODM5OTQ5NjQsLTQzOTkwODU1NCwtMjEzMzY5MjA0Niwx
-NTcxMjczMzY3XX0=
+eyJoaXN0b3J5IjpbLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNj
+cwMTUzNDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1
+MDE3LDIxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC
+0xNTMzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1
+MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mz
+k1LC0xNTgzOTk0OTY0LC00Mzk5MDg1NTQsLTIxMzM2OTIwNDYs
+MTU3MTI3MzM2N119
 -->
