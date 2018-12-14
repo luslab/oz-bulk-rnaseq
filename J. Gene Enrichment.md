@@ -19,12 +19,13 @@ https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002375
 https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf
 
 There is 2 steps to this:
-1. Overrepresentation analysis (Fisher test)
+1. Overrepresentation analysis ORA (using Fisher test)
 
 Look at collection of genes within a pathway found in a gene set (rather than individual genes) 
 Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
 Fisher Exact test = is there a relationship between 2 categorical variables? 
 2x2 contingency table: present in gene set vs member of gene set
+N.B.  that [DAVID tool](https://david.ncifcrf.gov/home.jsp) for the ORA has not been updated since 2010
 
 2. Enrichment sets
 
@@ -311,11 +312,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMD
-A1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgw
-MTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMS
-wtNTEyMjU0MDUyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2
-OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwOD
-M0LDE4NTYxNDIxNzEsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3
-MTM0ODIyNjhdfQ==
+eyJoaXN0b3J5IjpbLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMj
+UxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2
+MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMj
+QsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NTA1LDE5
+NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NT
+g2ODUsODQyMzcwODM0LDE4NTYxNDIxNzEsLTExNTI0MDYzLDE3
+NDQ0NzY1MThdfQ==
 -->
