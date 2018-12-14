@@ -129,25 +129,93 @@ names(genelistDown) <- rownames(resTestedDT)
 ```
 
 ## TopGO
-Use the output of DSeq2 resTestedDT data table
+Use the output of DSeq2: genelistUp & genelistDown
 ```r
 ### GO analysis
 library(topGO)
 library(GOstats)
 library(goseq)
 library(org.Mm.eg.db)
+library(ggplot2)
 
-# subset results table to only genes with sufficient read coverage
-resTested <- resLFC1[ !is.na(resLFC1$padj), ]
-# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
-temp=gsub("\\..*","",row.names(resTested))
-#set the temp as the new rownames
-rownames(resTested) <- temp
-# construct binary variable for UP and DOWN regulated
-genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
-names(genelistUp) <- rownames(resTested)
-genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
-names(genelistDown) <- rownames(resTested)
+### Test UPREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata      <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+UR_BP_table   <- GenTable( myGOdata, goTestResults )
+enrich.ur.bp  <- transform(UR_BP_table,result1 = as.numeric(result1))
+enrich.ur.bp$value <- -log10(enrich.ur.bp$result1)
+# Plot GO p-values as as bar plot
+dat.ur.bp        <- enrich.ur.bp$value # the -log10(P-value)
+names(dat.ur.bp) <- enrich.ur.bp$Term #the description of your GO term
+barplot(height = dat.ur.bp, space = 0.5, horiz=T,las=1,font.size = 10)
+
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+UR_CC_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.cc <- transform(UR_CC_table,result1 = as.numeric(result1))
+enrich.ur.cc$value <- -log10(enrich.ur.cc$result1)
+# Plot GO p-values as as bar plot
+dat.ur.cc        <- enrich.ur.cc$value # the -log10(P-value)
+names(dat.ur.cc) <- enrich.ur.cc$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.ur.cc,horiz=T,las=1, font.size = 20)
+
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+UR_MF_table <- GenTable( myGOdata, goTestResults )
+enrich.ur.mf <- transform(UR_MF_table,result1 = as.numeric(result1))
+enrich.ur.mf$value <- -log10(enrich.ur.mf$result1)
+### Plot GO p-values as as bar plot
+dat.ur.mf        <- enrich.ur.mf$value # the -log10(P-value)
+names(dat.ur.mf) <- enrich.ur.mf$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.ur.mf,horiz=T,las=1, font.size = 20)
+
+### TEST DOWNREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+DR_BP_table <- GenTable( myGOdata, goTestResults )
+enrich.dr.bp <- transform(DR_BP_table,result1 = as.numeric(result1))
+enrich.dr.bp$value <- -log10(enrich.dr.bp$result1)
+### Plot GO p-values as as bar plot
+dat.dr.bp        <- enrich.dr.bp$value # the -log10(P-value)
+names(dat.dr.bp) <- enrich.dr.bp$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.dr.bp,horiz=T,las=1, font.size = 20)
+
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+DR_CC_table <- GenTable( myGOdata, goTestResults )
+enrich.dr.cc <- transform(DR_CC_table,result1 = as.numeric(result1))
+enrich.dr.cc$value <- -log10(enrich.dr.cc$result1)
+### Plot GO p-values as as bar plot
+dat.dr.cc        <- enrich.dr.cc$value # the -log10(P-value)
+names(dat.dr.cc) <- enrich.dr.cc$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.dr.cc,horiz=T,las=1, font.size = 20)
+
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Entrez" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+DR_MF_table <-GenTable( myGOdata, goTestResults )
+enrich.dr.mf <- transform(DR_MF_table,result1 = as.numeric(result1))
+enrich.dr.mf$value <- -log10(enrich.dr.mf$result1)
+### Plot GO p-values as as bar plot
+dat.dr.mf        <- enrich.dr.mf$value # the -log10(P-value)
+names(dat.dr.mf) <- enrich.dr.mf$Term #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplot to follow (need large left hand margin for names)
+barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 
 ## Filter out redundant terms 
@@ -363,11 +431,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMzMxODM1OSw1ODMyMTQ2MTMsMTYxMD
-U5MzUxMSwtMTU5NDk4NzMyNywtMTQyOTA1NjI3MSwxMzU4Nzk5
-Mjk0LDE0MDc4MDExODgsNzUxMzI4MDQ4LDEwODgxNTIwNzUsLT
-EyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1
-Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMT
-YyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwt
-NTEyMjU0MDUyXX0=
+eyJoaXN0b3J5IjpbMjMzOTIzODA4LDExMzMzMTgzNTksNTgzMj
+E0NjEzLDE2MTA1OTM1MTEsLTE1OTQ5ODczMjcsLTE0MjkwNTYy
+NzEsMTM1ODc5OTI5NCwxNDA3ODAxMTg4LDc1MTMyODA0OCwxMD
+g4MTUyMDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4MjYsMTI1MTk3
+MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1ND
+gsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEz
+OTQxNTU0MzFdfQ==
 -->
