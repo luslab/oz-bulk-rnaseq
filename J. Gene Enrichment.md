@@ -79,7 +79,9 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 https://www.biostarhandbook.com/ontology/david-analysis.html
 https://david.ncifcrf.gov/home.jsp
 
-Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp):
+Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp):
+
+Step 2: Select Gene identifier
 
 Explore details through the annotation table, chart or clustering reports
 Export & save results
@@ -297,7 +299,7 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNDg2MjA3MSw3NTEzMjgwNDgsMTA4OD
+eyJoaXN0b3J5IjpbMTQwNzgwMTE4OCw3NTEzMjgwNDgsMTA4OD
 E1MjA3NSwtMTIyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2
 MTksLTIwMDUyODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNTQ4LD
 ExMTM1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwxMzk0
