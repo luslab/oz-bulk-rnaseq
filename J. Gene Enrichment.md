@@ -78,7 +78,8 @@ Perform **Fisher's Exact Test** to measure gene enrichment in annotation terms. 
 ## DAVID
 https://www.biostarhandbook.com/ontology/david-analysis.html
 
-
+Load a gene list into the site
+Explore details through the annotation table,
 
 
 
@@ -293,7 +294,7 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDczMTYzNTksNzUxMzI4MDQ4LDEwOD
+eyJoaXN0b3J5IjpbLTEyMjgxNDA3MDcsNzUxMzI4MDQ4LDEwOD
 gxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcy
 NjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OC
 wxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5
