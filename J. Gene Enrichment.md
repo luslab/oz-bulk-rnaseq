@@ -89,6 +89,8 @@ Entrez (or Ensembl depending on which column from the DT you extract)
 Step 3: Clarify List Type
 Specify Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
 
+Submit > Select input species (Homo sapiens)
+
 Explore details through the annotation table, chart or clustering reports
 Export & save results
 
@@ -305,11 +307,11 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg2NTgwNTU1LDE0MDc4MDExODgsNzUxMz
-I4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5Nzgy
-NiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMT
-IyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1
-MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MDUyLC0xNzEwNTU3NT
-A1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5MjYzMjkxNDEsLTE5
-NDU3NTg2ODVdfQ==
+eyJoaXN0b3J5IjpbMTM2ODgwMzM4NCwxNDA3ODAxMTg4LDc1MT
+MyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4
+MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2MTE4LD
+EyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3
+NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcxMDU1Nz
+UwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC0x
+OTQ1NzU4Njg1XX0=
 -->
