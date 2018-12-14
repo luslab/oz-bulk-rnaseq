@@ -21,9 +21,8 @@ https://www.bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topG
 There is 2 steps to this:
 1. Overrepresentation analysis (Fisher test)
 
-Look at collection of genes (rather than individual genes) 
+Look at collection of genes within a pathway found in a gene set (rather than individual genes) 
 Is the more differentially expressed genes within a gene collection (e.g. RNA metabolism) than we would expect if genes were expressed randomly.
-
 Fisher Exact test = is there a relationship between 2 categorical variables? 
 2x2 contingency table: present in gene set vs member of gene set
 
@@ -312,11 +311,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjkzODUzODMsMTI1MTk3MjYxOSwtMj
-AwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4
-MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0Mz
-EsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LDEy
-Njk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3MD
-gzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC0x
-NzEzNDgyMjY4XX0=
+eyJoaXN0b3J5IjpbMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMD
+A1Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgw
+MTYyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMS
+wtNTEyMjU0MDUyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2
+OTgyNzAxOCw5MjYzMjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwOD
+M0LDE4NTYxNDIxNzEsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3
+MTM0ODIyNjhdfQ==
 -->
