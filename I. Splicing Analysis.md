@@ -191,7 +191,9 @@ To perform the more focussed analysis on the 167 retained introns, which I ident
 perl -lpe 's/"/""/g; s/^|$/"/g; s/\t/","/g' < input.tab > output.csv
 ```
 Open CSV in Excel
+Copy the significant Gene Symbols into DAVID (see Gene Enrichment Chapter)
 
+### topGO
 topGOdata <- new("topGOdata", description = "Alternative_Splicing")
 
 
@@ -276,11 +278,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0OT
-gyMjUzNDksMTQxMjY5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIy
-NjgsMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC
-0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAz
-MTAwMDAsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NT
-U0LC0yMTMzNjkyMDQ2LDE1NzEyNzMzNjcsMzk2MzIxMTI5LDE3
-MzMwNDE1OTJdfQ==
+eyJoaXN0b3J5IjpbLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Nj
+k2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4
+MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC
+0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0xNzQx
+MDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mzk1LC0xNTgzOTk0OT
+Y0LC00Mzk5MDg1NTQsLTIxMzM2OTIwNDYsMTU3MTI3MzM2Nywz
+OTYzMjExMjldfQ==
 -->
