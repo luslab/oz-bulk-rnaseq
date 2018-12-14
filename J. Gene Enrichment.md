@@ -41,8 +41,8 @@ names(genelistDown) <- rownames(resTested)
 ## Filter out redundant terms 
 
 To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
-Take resOrderedDF dataframe
-Remove all columns except GO term & padj
+Take resTestedDT datatable
+Extract columns GO term & padj
 Paste into Revigo box via Excel
 
 
@@ -292,11 +292,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMD
-Y3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcxMDU1
-NzUwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC
-0xOTQ1NzU4Njg1LDg0MjM3MDgzNCwxODU2MTQyMTcxLC0xMTUy
-NDA2MywxNzQ0NDc2NTE4LC0xNzEzNDgyMjY4LDEzMjEyMTU5MD
-csOTQ3NTIwNDg4LDc5Nzk0NTAxNyw0ODg0NTc3NzcsLTk0MjAx
-NDMwXX0=
+eyJoaXN0b3J5IjpbMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOT
+YwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0
+MDUyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOC
+w5MjYzMjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NTYx
+NDIxNzEsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNj
+gsMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1
+Nzc3N119
 -->
