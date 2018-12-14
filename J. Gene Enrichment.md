@@ -80,12 +80,14 @@ https://www.biostarhandbook.com/ontology/david-analysis.html
 https://david.ncifcrf.gov/home.jsp
 
 Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp)
-Using the output of DESeq2 resOrderedDT datatable can extract the Entrez terms
+Using the output of DESeq2 resOrderedDT datatable can extract the Entrez terms.
+Paste in only the significant events (padj < 0.05) or top 100 events
 
 Step 2: Select Gene identifier
 Entrez (or Ensembl depending on which column from the DT you extract)
 
 Step 3: Clarify List Type
+Specify Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
 
 Explore details through the annotation table, chart or clustering reports
 Export & save results
@@ -303,7 +305,7 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0NzEzMDQ5LDE0MDc4MDExODgsNzUxMz
+eyJoaXN0b3J5IjpbMjg2NTgwNTU1LDE0MDc4MDExODgsNzUxMz
 I4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5Nzgy
 NiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMTgsMT
 IyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIwNjc1
