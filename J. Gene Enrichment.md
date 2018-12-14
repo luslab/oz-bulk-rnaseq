@@ -120,7 +120,14 @@ write.csv(revigo, file="revigo.csv") # make table file of entrez & padj
 # export top 100 DE genes to CSV file
 resTestedDT_top100 <- resTestedDT[seq_len(100),]
 write.csv(resTestedDT_top100, file="DESeq2_results.csv") #this table can be opened in Excel & pasted into DAVID or REVIGO
+
+# construct binary variable for UP and DOWN regulated
+genelistUp <- factor( as.integer( resTestedDT$padj < .1 & resTestedDT$log2FoldChange > 0 ) )
+names(genelistUp) <- rownames(resTestedDT)
+genelistDown <- factor( as.integer( resTestedDT$padj < .1 & resTestedDT$log2FoldChange < 0 ) )
+names(genelistDown) <- rownames(resTestedDT)
 ```
+
 ## TopGO
 Use the output of DSeq2 resTestedDT data table
 ```r
@@ -356,11 +363,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgzMjE0NjEzLDE2MTA1OTM1MTEsLTE1OT
-Q5ODczMjcsLTE0MjkwNTYyNzEsMTM1ODc5OTI5NCwxNDA3ODAx
-MTg4LDc1MTMyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4NzY4LD
-IwOTkxOTc4MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4
-Mjg2MTE4LDEyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMj
-kwNywyMDY3NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1Miwt
-MTcxMDU1NzUwNV19
+eyJoaXN0b3J5IjpbLTc4Njc1MDM0Miw1ODMyMTQ2MTMsMTYxMD
+U5MzUxMSwtMTU5NDk4NzMyNywtMTQyOTA1NjI3MSwxMzU4Nzk5
+Mjk0LDE0MDc4MDExODgsNzUxMzI4MDQ4LDEwODgxNTIwNzUsLT
+EyMjkzNTg3NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1
+Mjg4Nzk3LC04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMT
+YyLC0xOTYwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwt
+NTEyMjU0MDUyXX0=
 -->
