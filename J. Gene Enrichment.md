@@ -91,7 +91,7 @@ Specify Gene List as you only pasted in significant events (Background is if you
 
 Submit > Select input species (Homo sapiens)
 
-Explore details through the annotation table, chart or clustering reports
+Explore details through the Functional Annotation Tools:  table, chart & clustering reports
 Export & save results
 
 
@@ -307,7 +307,7 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2ODgwMzM4NCwxNDA3ODAxMTg4LDc1MT
+eyJoaXN0b3J5IjpbMTM4MTUyNjc3NSwxNDA3ODAxMTg4LDc1MT
 MyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4
 MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2MTE4LD
 EyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3
