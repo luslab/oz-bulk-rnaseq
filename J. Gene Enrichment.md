@@ -40,10 +40,12 @@ names(genelistDown) <- rownames(resTested)
 
 ## Filter out redundant terms 
 
-To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
 Take resTestedDT datatable
+Filter out the non-significant say padj<0.05
+if there are more than 150 then select only the top 100.
 Extract columns GO term & padj
 Paste into Revigo box via Excel
+To filter out redundant terms first run [Revigo](http://revigo.irb.hr/). 
 
 
 Manually curate the list by looking at genes content in the GO as even with Revigo they can be very redundant. In case you don't know how to get the list, please let me know and I will send you an R little command.
@@ -292,11 +294,11 @@ https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinity-Assembly-And-Analysi
 
 Trinotate web
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOT
-YwNTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0
-MDUyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOC
-w5MjYzMjkxNDEsLTE5NDU3NTg2ODUsODQyMzcwODM0LDE4NTYx
-NDIxNzEsLTExNTI0MDYzLDE3NDQ0NzY1MTgsLTE3MTM0ODIyNj
-gsMTMyMTIxNTkwNyw5NDc1MjA0ODgsNzk3OTQ1MDE3LDQ4ODQ1
-Nzc3N119
+eyJoaXN0b3J5IjpbNzAyODUzNTgyLDEyMjU1NjE1NDgsMTExMz
+U4MDE2MiwtMTk2MDUyMjkwNywyMDY3NTM3MDI0LDEzOTQxNTU0
+MzEsLTUxMjI1NDA1MiwtMTcxMDU1NzUwNSwxOTUzNDA3MDk2LD
+EyNjk4MjcwMTgsOTI2MzI5MTQxLC0xOTQ1NzU4Njg1LDg0MjM3
+MDgzNCwxODU2MTQyMTcxLC0xMTUyNDA2MywxNzQ0NDc2NTE4LC
+0xNzEzNDgyMjY4LDEzMjEyMTU5MDcsOTQ3NTIwNDg4LDc5Nzk0
+NTAxN119
 -->
