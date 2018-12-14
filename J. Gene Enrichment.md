@@ -94,6 +94,8 @@ Submit > Select input species (Homo sapiens)
 Explore details through the Functional Annotation Tools:  table, chart & clustering reports
 
 ![enter image description here](https://www.biostarhandbook.com/ontology/images/summary.png)
+
+
 Export & save results
 
 
@@ -309,11 +311,11 @@ abline(v=c(-2.5,2.5),col="grey",lty=2)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1ODc5OTI5NCwxNDA3ODAxMTg4LDc1MT
-MyODA0OCwxMDg4MTUyMDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4
-MjYsMTI1MTk3MjYxOSwtMjAwNTI4ODc5NywtODg4Mjg2MTE4LD
-EyMjU1NjE1NDgsMTExMzU4MDE2MiwtMTk2MDUyMjkwNywyMDY3
-NTM3MDI0LDEzOTQxNTU0MzEsLTUxMjI1NDA1MiwtMTcxMDU1Nz
-UwNSwxOTUzNDA3MDk2LDEyNjk4MjcwMTgsOTI2MzI5MTQxLC0x
-OTQ1NzU4Njg1XX0=
+eyJoaXN0b3J5IjpbMTIwMjI0MTgxOCwxMzU4Nzk5Mjk0LDE0MD
+c4MDExODgsNzUxMzI4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3
+NjgsMjA5OTE5NzgyNiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC
+04ODgyODYxMTgsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYw
+NTIyOTA3LDIwNjc1MzcwMjQsMTM5NDE1NTQzMSwtNTEyMjU0MD
+UyLC0xNzEwNTU3NTA1LDE5NTM0MDcwOTYsMTI2OTgyNzAxOCw5
+MjYzMjkxNDFdfQ==
 -->
