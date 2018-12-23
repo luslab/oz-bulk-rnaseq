@@ -205,6 +205,11 @@ library("DEXSeq")
 #exit R
 q()
 
+
+ml HTSeq
+ml Python/2.7.15-GCCcore-7.3.0-bare
+ml R
+
 # Create output folder
 mkdir -p DEXSeq
 
@@ -360,11 +365,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjQxMDY3MTAsLTM0NzM2MzI5NCwtMT
-g0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC03ODU0NTMw
-NTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4NDk2NzMsLT
-EzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4NDU4OSwtNTA3
-OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NCwtNzUzNjkzMz
-IwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0xMjY1ODgxNjU4
-LC0zMDk2MTMxNTNdfQ==
+eyJoaXN0b3J5IjpbNjcyNjUzMjgzLC0zNDczNjMyOTQsLTE4ND
+Y5ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4OCwtNzg1NDUzMDUx
+LDE1NTA3OTE4ODYsMTI4MTcxNzIyNywxNjUyODQ5NjczLC0xMz
+czMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkxODQ1ODksLTUwNzkw
+MDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNzQsLTc1MzY5MzMyMC
+wtMTUwMzcwNTE5OSwtMTI2OTg3NzE2MSwtMTI2NTg4MTY1OCwt
+MzA5NjEzMTUzXX0=
 -->
