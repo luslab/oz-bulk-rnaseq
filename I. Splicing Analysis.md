@@ -219,10 +219,12 @@ python $SCRIPT $GTF $OUT
 GFF=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
 SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/dexseq_count.py
 #set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483788_Aligned.sortedByCoord.out.bam
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/SRR5483788.txt
 
 #run dexseq_count.py
+python $SCRIPT $GFF $BAM $OUT
+
 
 
 for SAMPLE in $BAM
@@ -231,8 +233,6 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="python $SCRIPT $GFF $SAMPLE ${OUT}_${SRRID}.txt"
 done
 
-
-python $SCRIPT $GFF $BAM $OUT
 
 #to deactivate environment
 source deactivate
@@ -364,7 +364,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NjcyOTgwMCwxMjgxNzE3MjI3LDE2NT
+eyJoaXN0b3J5IjpbMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NT
 I4NDk2NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4
 NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NC
 wtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0x
