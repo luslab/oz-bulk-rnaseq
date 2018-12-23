@@ -17,7 +17,7 @@ Few exon-exon spanning genes.
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle.
-- [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage
+- [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
 - rMATS: useful for comparing with other ENCODE datasets
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
@@ -303,11 +303,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjU4ODE2NTgsLTMwOTYxMzE1Myw3Nj
-U5Mjc4NTUsLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUz
-NDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LD
-IxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMz
-NjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NT
-Q4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwtMTE2MjA3Mzk1LC0x
-NTgzOTk0OTY0XX0=
+eyJoaXN0b3J5IjpbLTE0MzA1NDE2MzQsLTEyNjU4ODE2NTgsLT
+MwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAzNzI4MTYsLTgzMjMx
+MjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OS
+wxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAz
+NTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMj
+czODksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwt
+MTE2MjA3Mzk1XX0=
 -->
