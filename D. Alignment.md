@@ -485,6 +485,13 @@ Scoring is based on the value you associate with a match, mismatch or a space. A
 
 You can convert BAM > SAM if needed. 
 `samtools sort filename_Aligned.sortedByCoord.out.bam > filename_Aligned.sortedByCoord.out.sam`
+
+```bash
+for SAMPLE in BAM
+
+
+```
+
 or alternatively: 
 `samtools view -h FILENAME_Aligned.sortedByCoord.out.bam > FILENAME_Aligned.sortedByCoord.out.sam`
 Convert a BAM file into a SAM file (including the header): `samtools view -h FILENAME.bam > FILENAME.sam`
@@ -590,7 +597,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTk0NzY1ODMsLTIwOTQzMTc5NTEsMT
+eyJoaXN0b3J5IjpbLTE4MjQ2ODExNzMsLTIwOTQzMTc5NTEsMT
 UzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMw
 NDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC
 0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcw
