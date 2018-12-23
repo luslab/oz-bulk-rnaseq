@@ -222,13 +222,11 @@ SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/
 SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR548379*.sam
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/
 
-#run dexseq_count.py
-python $SCRIPT $GFF $SAM $OUT
-
+#run dexseq_count.py at For Loop (wont work with sbatch as using R environment)
 for SAMPLE in $SAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	srun -N 1 --mem=40GB ="python $SCRIPT $GFF $SAMPLE ${SRRID}.txt"
+	python $SCRIPT $GFF $SAMPLE ${SRRID}.txt"
 done
 
 
@@ -362,11 +360,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NT
-Q1MzA1MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMTY1Mjg0OTY3
-MywtMTM3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5MTg0NTg5LC
-01MDc5MDA4NjMsLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03NTM2
-OTMzMjAsLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLTEyNjU4OD
-E2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAzNzI4MTYs
-LTgzMjMxMjYwNl19
+eyJoaXN0b3J5IjpbLTE4NDY5ODUyMiwyMTIwMTEwMzMsMTY1ND
+k5NTk4OCwtNzg1NDUzMDUxLDE1NTA3OTE4ODYsMTI4MTcxNzIy
+NywxNjUyODQ5NjczLC0xMzczMTkyMjM3LC02NDY5Njg0MTUsLT
+EyMzkxODQ1ODksLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOTc5
+NzYwNzQsLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3Nz
+E2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NSwt
+MTQ3MDM3MjgxNl19
 -->
