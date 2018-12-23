@@ -198,8 +198,10 @@ ml HTSeq
 # use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
 # set GTF - Ensembl (gencode)
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-SCRIPT = DEXSeq/python_scripts/dexseq
-python SCRIPT
+GFF=
+SCRIPT=DEXSeq/python_scripts/dexseq_prepare_annotation.py
+
+python $SCRIPT $GTF $GFF
 ```
 
 
@@ -328,7 +330,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTU0NTg2NzIsMTA5Nzk3NjA3NCwtNz
+eyJoaXN0b3J5IjpbLTExODY5MjMyOTksMTA5Nzk3NjA3NCwtNz
 UzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0xMjY1
 ODgxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC0xNDcwMzcyOD
 E2LC04MzIzMTI2MDYsLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0
