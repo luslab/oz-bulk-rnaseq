@@ -194,7 +194,7 @@ Steps:
 ```bash
 ml HTSeq
 
-# use 2 Python scrips
+# use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
 ```
 
 
@@ -323,11 +323,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA0ODA1MzcsLTE1MDM3MDUxOTksLTEyNj
-k4NzcxNjEsLTEyNjU4ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4
-NTUsLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC
-04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUw
-NzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OT
-A0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0x
-NzQxMDI3Mzg5XX0=
+eyJoaXN0b3J5IjpbLTMyNDc2OTY4OCwtMTUwMzcwNTE5OSwtMT
+I2OTg3NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTky
+Nzg1NSwtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0Mz
+gsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OTUwMTcsMjE0
+NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0MDEsLTE1MzM2Mj
+U5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OSw0MjUwNTQ1NDgs
+LTE3NDEwMjczODldfQ==
 -->
