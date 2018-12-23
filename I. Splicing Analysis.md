@@ -216,6 +216,13 @@ OUT=SRR548376.txt
 #run dexseq_count.py
 python $SCRIPT $OUT
 
+for SAMPLE in $SAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_transcripts_$SRRID -A $TSV_OUT_gene_abundances_$SRRID $BAM"
+done
+
+
 #to deactivate environment
 source deactivate
 ```
@@ -346,11 +353,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOT
-c5NzYwNzQsLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3
-NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NS
-wtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0MzgsLTg2
-OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OTUwMTcsMjE0NTA3Nj
-gxOCwtMzM2ODQyMjY4LDIwMDM1MDY0MDEsLTE1MzM2MjU5MDQs
-LTExMDU2ODI3OF19
+eyJoaXN0b3J5IjpbLTExMTEwNjU5MDksLTUwNzkwMDg2MywtNj
+cwNjY3NDY1LDEwOTc5NzYwNzQsLTc1MzY5MzMyMCwtMTUwMzcw
+NTE5OSwtMTI2OTg3NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMT
+UzLDc2NTkyNzg1NSwtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02
+NzAxNTM0MzgsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OT
+UwMTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0MDEs
+LTE1MzM2MjU5MDRdfQ==
 -->
