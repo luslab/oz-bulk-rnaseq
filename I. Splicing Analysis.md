@@ -16,10 +16,10 @@ brown & green genes = coding genes
 Few exon-exon spanning genes.
 
 # Tools
-- [VAST-TOOLS](https://github.com/vastgroup/vast-tools)
-- rMATS- useful for comparing with other ENCODE datasets
-- MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
+- [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle.
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
+- rMATS: useful for comparing with other ENCODE datasets
+- MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - MISO
 
@@ -302,11 +302,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY1OTI3ODU1LC0xNDcwMzcyODE2LC04Mz
-IzMTI2MDYsLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0OTgyMjUz
-NDksMTQxMjY5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIyNjgsMj
-AwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC0xNzQx
-MDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4NTAzMTAwMD
-AsLTExNjIwNzM5NSwtMTU4Mzk5NDk2NCwtNDM5OTA4NTU0LC0y
-MTMzNjkyMDQ2XX0=
+eyJoaXN0b3J5IjpbMTA5NDU5MzEwNiw3NjU5Mjc4NTUsLTE0Nz
+AzNzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Njk2MzEw
+NjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLT
+MzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1
+NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0xNzQxMDI3Mz
+g5LDg1MDMxMDAwMCwtMTE2MjA3Mzk1LC0xNTgzOTk0OTY0LC00
+Mzk5MDg1NTRdfQ==
 -->
