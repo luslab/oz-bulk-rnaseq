@@ -243,7 +243,7 @@ Now switch to R.
 ```r
 # read in txt output files from the count script
 
-flattenedFile = list.files(inDir, pattern="gff$", full.names=TRUE) basename(flattenedFile)
+flattenedFile = list.files(/Volumes/lab-luscomben/working/oliver/genomes/annotation/, pattern="gff$", full.names=TRUE) basename(flattenedFile)
 
 # create sample table: 1 row for each library. columns for file name & read counts, sample
 sampleTable = data.frame(
@@ -379,11 +379,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODQ0MDkxODUsLTEyODIxODAzNjMsLT
-gwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1MzI4MywtMzQ3MzYz
-Mjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLDE2NTQ5OTU5ODgsLT
-c4NTQ1MzA1MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMTY1Mjg0
-OTY3MywtMTM3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5MTg0NT
-g5LC01MDc5MDA4NjMsLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03
-NTM2OTMzMjBdfQ==
+eyJoaXN0b3J5IjpbMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtOD
+A5NzEzNTg3LC02NDEwOTM0OTEsNjcyNjUzMjgzLC0zNDczNjMy
+OTQsLTE4NDY5ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4OCwtNz
+g1NDUzMDUxLDE1NTA3OTE4ODYsMTI4MTcxNzIyNywxNjUyODQ5
+NjczLC0xMzczMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkxODQ1OD
+ksLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNzQsLTc1
+MzY5MzMyMF19
 -->
