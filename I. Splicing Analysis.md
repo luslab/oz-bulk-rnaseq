@@ -139,7 +139,6 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN/INCLUSION_LEVELS_FULL
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 Output file is created in directory of input file. This reports the differentially spliced AS events between the 2 groups (based on difference in average inclusion levels - delta PSI)
 
-
 ## Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 Test for differential alternative splicing between 2 groups of samples.
@@ -177,8 +176,11 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | wc -l
 # count number of genes with +ve intron retention (VCP vs CTRL):
 awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
+# DEXSeq
 
-# Coverage for introns
+
+
+# Coverage for introns of interest
 To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
 
 
@@ -303,11 +305,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzA1NDE2MzQsLTEyNjU4ODE2NTgsLT
-MwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAzNzI4MTYsLTgzMjMx
-MjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OS
-wxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMzNjg0MjI2OCwyMDAz
-NTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1NjgyNzgsLTE3NDEwMj
-czODksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5LDg1MDMxMDAwMCwt
-MTE2MjA3Mzk1XX0=
+eyJoaXN0b3J5IjpbMTYzNTQzMTcwNiwtMTI2NTg4MTY1OCwtMz
+A5NjEzMTUzLDc2NTkyNzg1NSwtMTQ3MDM3MjgxNiwtODMyMzEy
+NjA2LC02NzAxNTM0MzgsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LD
+E0MTI2OTUwMTcsMjE0NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1
+MDY0MDEsLTE1MzM2MjU5MDQsLTExMDU2ODI3OCwtMTc0MTAyNz
+M4OSw0MjUwNTQ1NDgsLTE3NDEwMjczODksODUwMzEwMDAwLC0x
+MTYyMDczOTVdfQ==
 -->
