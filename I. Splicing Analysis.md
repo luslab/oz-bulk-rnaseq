@@ -201,6 +201,8 @@ ml Python/2.7.15-GCCcore-7.3.0-bare
 source activate rtest
 R
 library("DEXSeq")
+#exit R
+q()
 
 # Create output folder
 mkdir -p DEXSeq
@@ -219,8 +221,8 @@ python $SCRIPT $GTF $OUT
 GFF=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
 SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/dexseq_count.py
 #set BAM input file
-SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483794.sam
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/SRR5483794.txt
+SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483795.sam
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/SRR5483795.txt
 
 #run dexseq_count.py
 python $SCRIPT $GFF $SAM $OUT
@@ -362,11 +364,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0NzM2MzI5NCwtMTg0Njk4NTIyLDIxMj
-AxMTAzMywxNjU0OTk1OTg4LC03ODU0NTMwNTEsMTU1MDc5MTg4
-NiwxMjgxNzE3MjI3LDE2NTI4NDk2NzMsLTEzNzMxOTIyMzcsLT
-Y0Njk2ODQxNSwtMTIzOTE4NDU4OSwtNTA3OTAwODYzLC02NzA2
-Njc0NjUsMTA5Nzk3NjA3NCwtNzUzNjkzMzIwLC0xNTAzNzA1MT
-k5LC0xMjY5ODc3MTYxLC0xMjY1ODgxNjU4LC0zMDk2MTMxNTMs
-NzY1OTI3ODU1XX0=
+eyJoaXN0b3J5IjpbMTQxNjU1OTc0NywtMzQ3MzYzMjk0LC0xOD
+Q2OTg1MjIsMjEyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NTQ1MzA1
+MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMTY1Mjg0OTY3MywtMT
+M3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5MTg0NTg5LC01MDc5
+MDA4NjMsLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03NTM2OTMzMj
+AsLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLTEyNjU4ODE2NTgs
+LTMwOTYxMzE1M119
 -->
