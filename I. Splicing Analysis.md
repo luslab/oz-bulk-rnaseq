@@ -201,6 +201,9 @@ source activate rtest
 R
 library("DEXSeq")
 
+# Create output folder
+mkdir -p DEXSeq
+
 # set GTF - Ensembl (gencode)
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 OUT=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
@@ -216,6 +219,13 @@ OUT=SRR548376.txt
 #run dexseq_count.py
 python $SCRIPT $OUT
 
+
+
+
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
 for SAMPLE in $SAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
@@ -353,7 +363,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTEwNjU5MDksLTUwNzkwMDg2MywtNj
+eyJoaXN0b3J5IjpbLTEyMzkxODQ1ODksLTUwNzkwMDg2MywtNj
 cwNjY3NDY1LDEwOTc5NzYwNzQsLTc1MzY5MzMyMCwtMTUwMzcw
 NTE5OSwtMTI2OTg3NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMT
 UzLDc2NTkyNzg1NSwtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02
