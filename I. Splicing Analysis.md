@@ -191,6 +191,12 @@ Steps:
 2. Counts using DEX Seq Python scripts (utilises HTSeq)
 
 
+```bash
+ml HTSeq
+
+# use 2 Python scrips
+```
+
 
 # Coverage for introns of interest
 To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
@@ -317,11 +323,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLT
-EyNjU4ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAz
-NzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNj
-IsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMz
-Njg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1Nj
-gyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5
-LDg1MDMxMDAwMF19
+eyJoaXN0b3J5IjpbODA0ODA1MzcsLTE1MDM3MDUxOTksLTEyNj
+k4NzcxNjEsLTEyNjU4ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4
+NTUsLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC
+04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUw
+NzY4MTgsLTMzNjg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OT
+A0LC0xMTA1NjgyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0x
+NzQxMDI3Mzg5XX0=
 -->
