@@ -238,7 +238,14 @@ python $SCRIPT $GFF $SAM $OUT
 #to deactivate environment
 source deactivate
 ```
-The remain
+Now switch to R. 
+
+```r
+# read in txt output files from the count script
+
+
+
+```
 
 
 # Coverage for introns of interest
@@ -366,11 +373,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTg5MzQyNTYsNjcyNjUzMjgzLC0zND
-czNjMyOTQsLTE4NDY5ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4
-OCwtNzg1NDUzMDUxLDE1NTA3OTE4ODYsMTI4MTcxNzIyNywxNj
-UyODQ5NjczLC0xMzczMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkx
-ODQ1ODksLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNz
-QsLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3NzE2MSwt
-MTI2NTg4MTY1OF19
+eyJoaXN0b3J5IjpbLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0Nz
+M2MzI5NCwtMTg0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4
+LC03ODU0NTMwNTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NT
+I4NDk2NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4
+NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NC
+wtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0x
+MjY1ODgxNjU4XX0=
 -->
