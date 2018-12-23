@@ -228,7 +228,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="python $SCRIPT $GFF $SAMPLE ${OUT}_${SSRID}.txt"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="python $SCRIPT $GFF $SAMPLE ${OUT}_${SRRID}.txt"
 done
 
 
@@ -364,11 +364,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTIzMTQwMjUsMTI4MTcxNzIyNywxNj
-UyODQ5NjczLC0xMzczMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkx
-ODQ1ODksLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNz
-QsLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3NzE2MSwt
-MTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NSwtMTQ3MD
-M3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0MzgsLTg2OTYzMTA2
-MiwxNDk4MjI1MzQ5XX0=
+eyJoaXN0b3J5IjpbLTk5NjcyOTgwMCwxMjgxNzE3MjI3LDE2NT
+I4NDk2NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4
+NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NC
+wtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0x
+MjY1ODgxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC0xNDcwMz
+cyODE2LC04MzIzMTI2MDYsLTY3MDE1MzQzOCwtODY5NjMxMDYy
+LDE0OTgyMjUzNDldfQ==
 -->
