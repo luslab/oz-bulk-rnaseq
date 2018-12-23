@@ -241,19 +241,74 @@ source deactivate
 Now switch to R. 
 
 ```r
-# read in txt output files from the count script
+suppressPackageStartupMessages( library( "DEXSeq" ) )
+
+# read in files
 countFiles = list.files("/Volumes/lab-luscomben/working/oliver/projects/airals/splicing/DEXSeq/", pattern=".txt", full.names=TRUE) 
 basename(countFiles)
 
 flattenedFile = list.files("/Volumes/lab-luscomben/working/oliver/genomes/annotation/", pattern="gff", full.names=TRUE) 
 basename(flattenedFile)
 
+
 # create sample table: 1 row for each library. columns for file name & read counts, sample
 sampleTable = data.frame(
-	row.names = c( "SRR5483788", "SRR5483789", "SRR5483790", "SRR5483794", "SRR5483795", "SRR5483796" ), 
-	condition = c("VCP", "VCP", "VCP", "CTRL", "CTRL", "CTRL" ) )
+  row.names = c( "SRR5483788", "SRR5483789", "SRR5483790", "SRR5483794", "SRR5483795", "SRR5483796" ), 
+  condition = c("VCP", "VCP", "VCP", "CTRL", "CTRL", "CTRL" ) )
+# check table
+sampleTable
 
+# create DEXSeqDataSet 
+dxd = DEXSeqDataSetFromHTSeq(
+  countFiles,
+  sampleData=sampleTable,
+  design= ~ sample + exon + condition:exon,
+  flattenedfile=flattenedFile )
+# see structure of dxd
+sampleAnnotation( dxd )
+colData(dxd)
+# see first 5 rows from count data - 12 columns (first 6 = reads mapping to exons, last 6 = counts mapping to rest of exons from same gene)
+head( counts(dxd), 5 )
+#show details of exon bins annotation
+head( rowRanges(dxd), 3 )
+#normalise for different sequencing depths between samples
+dxd = estimateSizeFactors( dxd )
+# dispersion estimation 
+dxd = estimateDispersions( dxd )
+# plot the per-exon dispersion estimates vs mean normalised count
+plotDispEsts( dxd )
+# test for differential exon usage (DEU) between conditions
+dxd = testForDEU( dxd )
+# estimate relative exon usage fold changes
+dxd = estimateExonFoldChanges( dxd, fitExpToVar="condition")
+# summarise the resuls
+dxr1 = DEXSeqResults( dxd )
+# description of each column in DEXSeqResults
+mcols(dxr1)$description
+# how many exons are significant (with false discovery rate 10% - can change this threshold to more stringent)
+table ( dxr1$padj < 0.1 )
+# how many genes are affected
+table ( tapply( dxr1$padj < 0.1, dxr1$groupID, any ) )
+# MA plot: log fold change vs avg normalised count per exon. Significant exons in red
+plotMA( dxr1, cex=0.8 )
 
+### Visualisation
+# visualise results for individual genes
+plotDEXSeq( dxr1, "ENSG00000116560", legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
+
+# visualise transcript models to see isoform regulation
+plotDEXSeq( dxr1, "ENSG00000116560", displayTranscripts=TRUE, legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
+
+# visualise individual samples rather than model effect estimates.
+plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, norCounts=TRUE,
+            legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
+
+# remove overall changes from the plots
+plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, splicing=TRUE,
+            legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
+
+### Detailed overview of analysis results in HTML
+DEXSeqHTML( dxr1, FDR=0.1, color=c("#FF000080", "#0000FF80") )
 ```
 
 
@@ -382,11 +437,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MD
-Q1NDE1NDYsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQxMDkz
-NDkxLDY3MjY1MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMj
-EyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUwNzkx
-ODg2LDEyODE3MTcyMjcsMTY1Mjg0OTY3MywtMTM3MzE5MjIzNy
-wtNjQ2OTY4NDE1LC0xMjM5MTg0NTg5LC01MDc5MDA4NjMsLTY3
-MDY2NzQ2NV19
+eyJoaXN0b3J5IjpbODMyNDY4NzAzLDE5ODAxNjI3MDIsMTI4Nj
+k1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC04MDk3MTM1
+ODcsLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0NzM2MzI5NCwtMT
+g0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC03ODU0NTMw
+NTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4NDk2NzMsLT
+EzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4NDU4OSwtNTA3
+OTAwODYzXX0=
 -->
