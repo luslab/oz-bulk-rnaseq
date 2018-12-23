@@ -230,7 +230,7 @@ python $SCRIPT $GFF $SAM $OUT
 for SAMPLE in $SAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	srun -N 1 -c 8 --mem=40GB --wrap="python $SCRIPT $GFF $SAMPLE ${SRRID}.txt"
+	srun -N 1 -c 8 --mem=40GB ="python $SCRIPT $GFF $SAMPLE ${SRRID}.txt"
 done
 
 
@@ -364,11 +364,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU2NTI2MTg4LDE2NTQ5OTU5ODgsLTc4NT
-Q1MzA1MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMTY1Mjg0OTY3
-MywtMTM3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5MTg0NTg5LC
-01MDc5MDA4NjMsLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03NTM2
-OTMzMjAsLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLTEyNjU4OD
-E2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAzNzI4MTYs
-LTgzMjMxMjYwNl19
+eyJoaXN0b3J5IjpbLTE0MDQ5MTIxMDYsMTY1NDk5NTk4OCwtNz
+g1NDUzMDUxLDE1NTA3OTE4ODYsMTI4MTcxNzIyNywxNjUyODQ5
+NjczLC0xMzczMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkxODQ1OD
+ksLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNzQsLTc1
+MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3NzE2MSwtMTI2NT
+g4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NSwtMTQ3MDM3Mjgx
+NiwtODMyMzEyNjA2XX0=
 -->
