@@ -195,6 +195,7 @@ Steps:
 ml HTSeq
 
 # use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
+GTF= 
 ```
 
 
@@ -323,7 +324,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNDc2OTY4OCwtMTUwMzcwNTE5OSwtMT
+eyJoaXN0b3J5IjpbLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMT
 I2OTg3NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTky
 Nzg1NSwtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0Mz
 gsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OTUwMTcsMjE0
