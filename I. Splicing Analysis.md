@@ -186,6 +186,8 @@ Measures differential exon usage (DEU) which indicates alternative splicing. DEU
 Calculates ratio = number of transcripts from the gene containing this exon / total number of transcripts from the gene.
 Then compares this ratio between conditions assessing the strength of the fluctuations (dispersion). 
 
+Ste
+
 
 
 # Coverage for introns of interest
@@ -313,7 +315,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDQ5ODQzODAsLTEyNjk4NzcxNjEsLT
+eyJoaXN0b3J5IjpbLTEzNzc3NjgwMTgsLTEyNjk4NzcxNjEsLT
 EyNjU4ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAz
 NzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNj
 IsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMz
