@@ -243,6 +243,9 @@ Now switch to R.
 ```r
 # read in txt output files from the count script
 
+# create sample table: 1 row for each library. columns for file name & read counts, sample
+sampleTable = data.frame(
+	row.names = c( "treated1", "treated2", "treated3", "untreated1", "untreated2", "untreated3", "untreated4" ), condition = c("knockdown", "knockdown", "knockdown", "control", "control", "control", "control" ), libType = c( "single-end", "paired-end", "paired-end", "single-end", "single-end", "paired-end", "paired-end" ) )
 
 
 ```
@@ -373,11 +376,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0Nz
-M2MzI5NCwtMTg0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4
-LC03ODU0NTMwNTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NT
-I4NDk2NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4
-NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NC
-wtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0x
-MjY1ODgxNjU4XX0=
+eyJoaXN0b3J5IjpbMTYzMzg3MTU0MCwtNjQxMDkzNDkxLDY3Mj
+Y1MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMz
+LDE2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUwNzkxODg2LDEyOD
+E3MTcyMjcsMTY1Mjg0OTY3MywtMTM3MzE5MjIzNywtNjQ2OTY4
+NDE1LC0xMjM5MTg0NTg5LC01MDc5MDA4NjMsLTY3MDY2NzQ2NS
+wxMDk3OTc2MDc0LC03NTM2OTMzMjAsLTE1MDM3MDUxOTksLTEy
+Njk4NzcxNjFdfQ==
 -->
