@@ -483,8 +483,7 @@ Scoring is based on the value you associate with a match, mismatch or a space. A
 - Bigger than gzipped SAM files as they are optimised for rapid access (not just size reduction). SAM files are human readable, BAM are compressed. BAM are much smaller. 
 - for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
 
-You can convert BAM > SAM if needed. 
-`samtools sort filename_Aligned.sortedByCoord.out.bam > filename_Aligned.sortedByCoord.out.sam`
+## Convert BAM > SAM
 
 ```bash
 #set BAM input files
@@ -605,7 +604,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjI0NTc1MzcsLTE4MTIwMTA1OTQsNj
+eyJoaXN0b3J5IjpbLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNj
 EwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUw
 NzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLT
 E1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIz
