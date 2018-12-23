@@ -195,7 +195,9 @@ Steps:
 ml HTSeq
 
 # use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
-GTF= 
+# set GTF
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+
 ```
 
 
@@ -324,11 +326,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMT
-I2OTg3NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTky
-Nzg1NSwtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0Mz
-gsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5LDE0MTI2OTUwMTcsMjE0
-NTA3NjgxOCwtMzM2ODQyMjY4LDIwMDM1MDY0MDEsLTE1MzM2Mj
-U5MDQsLTExMDU2ODI3OCwtMTc0MTAyNzM4OSw0MjUwNTQ1NDgs
-LTE3NDEwMjczODldfQ==
+eyJoaXN0b3J5IjpbLTg1NjA5Mzc2NSwtNzUzNjkzMzIwLC0xNT
+AzNzA1MTk5LC0xMjY5ODc3MTYxLC0xMjY1ODgxNjU4LC0zMDk2
+MTMxNTMsNzY1OTI3ODU1LC0xNDcwMzcyODE2LC04MzIzMTI2MD
+YsLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0OTgyMjUzNDksMTQx
+MjY5NTAxNywyMTQ1MDc2ODE4LC0zMzY4NDIyNjgsMjAwMzUwNj
+QwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mjc4LC0xNzQxMDI3Mzg5
+LDQyNTA1NDU0OF19
 -->
