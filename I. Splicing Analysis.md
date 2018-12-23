@@ -186,7 +186,9 @@ Measures differential exon usage (DEU) which indicates alternative splicing. DEU
 Calculates ratio = number of transcripts from the gene containing this exon / total number of transcripts from the gene.
 Then compares this ratio between conditions assessing the strength of the fluctuations (dispersion). 
 
-Ste
+Steps:
+1. Alignment to genome using splice aware aligner eg STAR
+2. Counts using DEX Seq Python scripts
 
 
 
@@ -315,11 +317,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzc3NjgwMTgsLTEyNjk4NzcxNjEsLT
-EyNjU4ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAz
-NzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNj
-IsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMz
-Njg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1Nj
-gyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5
-LDg1MDMxMDAwMF19
+eyJoaXN0b3J5IjpbNTQ5NTI3MDkzLC0xMjY5ODc3MTYxLC0xMj
+Y1ODgxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC0xNDcwMzcy
+ODE2LC04MzIzMTI2MDYsLTY3MDE1MzQzOCwtODY5NjMxMDYyLD
+E0OTgyMjUzNDksMTQxMjY5NTAxNywyMTQ1MDc2ODE4LC0zMzY4
+NDIyNjgsMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwtMTEwNTY4Mj
+c4LC0xNzQxMDI3Mzg5LDQyNTA1NDU0OCwtMTc0MTAyNzM4OSw4
+NTAzMTAwMDBdfQ==
 -->
