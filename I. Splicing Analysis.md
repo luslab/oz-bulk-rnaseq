@@ -228,9 +228,7 @@ python $SCRIPT $GFF $BAM $OUT
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="python $SCRIPT $GFF $OUT
-
- $GTF_OUT_transcripts_$SRRID -A $TSV_OUT_gene_abundances_$SRRID $BAM"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="python $SCRIPT $GFF $SAMPLE $OUT_${SSRID}"
 done
 
 
@@ -364,7 +362,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0MTc4OTU5NiwxMjgxNzE3MjI3LDE2NT
+eyJoaXN0b3J5IjpbMTA5NTU3NjMxNywxMjgxNzE3MjI3LDE2NT
 I4NDk2NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4
 NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NC
 wtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0x
