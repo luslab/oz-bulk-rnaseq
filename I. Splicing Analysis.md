@@ -215,22 +215,17 @@ SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/
 python $SCRIPT $GTF $OUT
 
 #run count script
-
+# set GFF input made in script 1
 GFF=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
-SCRIPT=DEXSeq/python_scripts/dexseq_count.py
-SAM=
-OUT=SRR548376.txt
+SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/dexseq_count.py
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/
+
 #run dexseq_count.py
 python $SCRIPT $OUT
 
-
-
-
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-#set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
-for SAMPLE in $SAM
+for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=24GB --wrap="stringtie -p 8 -G $GTF -e -B -o $GTF_OUT_transcripts_$SRRID -A $TSV_OUT_gene_abundances_$SRRID $BAM"
@@ -367,11 +362,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzI3NDQ2NjgsMTI4MTcxNzIyNywxNj
-UyODQ5NjczLC0xMzczMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkx
-ODQ1ODksLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNz
-QsLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3NzE2MSwt
-MTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NSwtMTQ3MD
-M3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0MzgsLTg2OTYzMTA2
-MiwxNDk4MjI1MzQ5XX0=
+eyJoaXN0b3J5IjpbMTY4ODg4NTU5MSwxMjgxNzE3MjI3LDE2NT
+I4NDk2NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4
+NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NC
+wtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0x
+MjY1ODgxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC0xNDcwMz
+cyODE2LC04MzIzMTI2MDYsLTY3MDE1MzQzOCwtODY5NjMxMDYy
+LDE0OTgyMjUzNDldfQ==
 -->
