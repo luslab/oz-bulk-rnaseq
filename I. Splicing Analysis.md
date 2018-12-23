@@ -245,7 +245,9 @@ Now switch to R.
 
 # create sample table: 1 row for each library. columns for file name & read counts, sample
 sampleTable = data.frame(
-	row.names = c( "treated1", "treated2", "treated3", "untreated1", "untreated2", "untreated3", "untreated4" ), condition = c("knockdown", "knockdown", "knockdown", "control", "control", "control", "control" ), libType = c( "single-end", "paired-end", "paired-end", "single-end", "single-end", "paired-end", "paired-end" ) )
+	row.names = c( "SRR5483788", "SRR5483789", "SRR5483790", "SRR5483794", "SRR5483795", "SRR5483796", "untreated4" ), 
+	condition = c("knockdown", "knockdown", "knockdown", "control", "control", "control", "control" ), 
+	libType = c( "single-end", "paired-end", "paired-end", "single-end", "single-end", "paired-end", "paired-end" ) )
 
 
 ```
@@ -376,7 +378,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMzg3MTU0MCwtNjQxMDkzNDkxLDY3Mj
+eyJoaXN0b3J5IjpbLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3Mj
 Y1MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMz
 LDE2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUwNzkxODg2LDEyOD
 E3MTcyMjcsMTY1Mjg0OTY3MywtMTM3MzE5MjIzNywtNjQ2OTY4
