@@ -487,8 +487,17 @@ You can convert BAM > SAM if needed.
 `samtools sort filename_Aligned.sortedByCoord.out.bam > filename_Aligned.sortedByCoord.out.sam`
 
 ```bash
-for SAMPLE in BAM
+#set BAM input files
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set output file directory
+OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/
 
+#run samtools on each BAM file separately
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+done
 
 ```
 
@@ -597,10 +606,10 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjQ2ODExNzMsLTIwOTQzMTc5NTEsMT
-UzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMw
-NDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC
-0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcw
-OTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MT
-M4MjYsNjMwMjQ3OTA1LDY1NzU0MjIxOF19
+eyJoaXN0b3J5IjpbMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNT
+MxNTA3MzIsMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkzMTE5MzA0
+MiwtMTU4MDc4MzM3NiwtMzg3NzY2OTcyLDEzNDM5MjgzMTcsLT
+E0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5
+Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMz
+gyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
 -->
