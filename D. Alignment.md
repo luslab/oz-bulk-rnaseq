@@ -496,9 +496,8 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools sort $BAM ${OUT}_${SRRID}.sam"
 done
-
 ```
 
 or alternatively: 
@@ -606,10 +605,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNT
-MxNTA3MzIsMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkzMTE5MzA0
-MiwtMTU4MDc4MzM3NiwtMzg3NzY2OTcyLDEzNDM5MjgzMTcsLT
-E0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0NzA5
-Mjg4OTYsLTQ4Njg4NDg0NCwtMTQ3ODU2MDQ5NiwtMTU4NjQxMz
-gyNiw2MzAyNDc5MDUsNjU3NTQyMjE4XX0=
+eyJoaXN0b3J5IjpbLTE2OTQ0MTcwOCwxNzM4NDYzMjQzLC0yMD
+k0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0Nzk0LDc3NTg0MDU5
+NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3NjY5NzIsMT
+M0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQzNjE4LDk5ODk4
+ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0xNDc4NTYwND
+k2LC0xNTg2NDEzODI2LDYzMDI0NzkwNSw2NTc1NDIyMThdfQ==
+
 -->
