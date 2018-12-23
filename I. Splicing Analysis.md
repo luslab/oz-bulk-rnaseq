@@ -206,7 +206,11 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assem
 OUT=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
 SCRIPT=DEXSeq/python_scripts/dexseq_prepare_annotation.py
 
-python $SCRIPT $GTF $OUT
+#run dexseq_prepare_annotation.py script
+python $ANNOTSCRIPT $GTF $OUT
+
+#run dexseq_count.py
+python $COUNT_SCRIPT
 
 #to deactivate environment
 source deactivate
@@ -338,11 +342,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03NT
-M2OTMzMjAsLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLTEyNjU4
-ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAzNzI4MT
-YsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNjIsMTQ5
-ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMzNjg0Mj
-I2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1NjgyNzgs
-LTE3NDEwMjczODldfQ==
+eyJoaXN0b3J5IjpbNjE5MDA0NjI1LC02NzA2Njc0NjUsMTA5Nz
+k3NjA3NCwtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3
+MTYxLC0xMjY1ODgxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC
+0xNDcwMzcyODE2LC04MzIzMTI2MDYsLTY3MDE1MzQzOCwtODY5
+NjMxMDYyLDE0OTgyMjUzNDksMTQxMjY5NTAxNywyMTQ1MDc2OD
+E4LC0zMzY4NDIyNjgsMjAwMzUwNjQwMSwtMTUzMzYyNTkwNCwt
+MTEwNTY4Mjc4XX0=
 -->
