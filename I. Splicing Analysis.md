@@ -207,7 +207,7 @@ mkdir -p DEXSeq
 # set GTF - Ensembl (gencode)
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 OUT=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
-SCRIPT=/camp/lab/luscomben/working/oliver/projects/airals/splicing/DEXSeq/dexseq_prepare_annotation.py
+SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/dexseq_prepare_annotation.py
 
 #run dexseq_prepare_annotation.py script
 python $SCRIPT $GTF $OUT
@@ -363,11 +363,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMT
-IzOTE4NDU4OSwtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3
-NjA3NCwtNzUzNjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MT
-YxLC0xMjY1ODgxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC0x
-NDcwMzcyODE2LC04MzIzMTI2MDYsLTY3MDE1MzQzOCwtODY5Nj
-MxMDYyLDE0OTgyMjUzNDksMTQxMjY5NTAxNywyMTQ1MDc2ODE4
-LC0zMzY4NDIyNjhdfQ==
+eyJoaXN0b3J5IjpbMTY1Mjg0OTY3MywtMTM3MzE5MjIzNywtNj
+Q2OTY4NDE1LC0xMjM5MTg0NTg5LC01MDc5MDA4NjMsLTY3MDY2
+NzQ2NSwxMDk3OTc2MDc0LC03NTM2OTMzMjAsLTE1MDM3MDUxOT
+ksLTEyNjk4NzcxNjEsLTEyNjU4ODE2NTgsLTMwOTYxMzE1Myw3
+NjU5Mjc4NTUsLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNjcwMT
+UzNDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3
+LDIxNDUwNzY4MThdfQ==
 -->
