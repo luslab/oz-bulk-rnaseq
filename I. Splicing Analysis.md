@@ -184,7 +184,7 @@ http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf
 Measures differential exon usage (DEU) which indicates alternative splicing. DEU also measures alternative transcript start sites & polyadenylation sites (differential usage of exons at 5' and 3' boundary of transcripts). 
 
 Calculates ratio = number of transcripts from the gene containing this exon / total number of transcripts from the gene.
-Then compares this 
+Then compares this ratio between conditions assessing the strength of the fluctuations (dispersion). 
 
 
 
@@ -313,11 +313,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1OTg4MTMyNSwtMTI2OTg3NzE2MSwtMT
-I2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NSwtMTQ3MDM3
-MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0MzgsLTg2OTYzMTA2Mi
-wxNDk4MjI1MzQ5LDE0MTI2OTUwMTcsMjE0NTA3NjgxOCwtMzM2
-ODQyMjY4LDIwMDM1MDY0MDEsLTE1MzM2MjU5MDQsLTExMDU2OD
-I3OCwtMTc0MTAyNzM4OSw0MjUwNTQ1NDgsLTE3NDEwMjczODks
-ODUwMzEwMDAwXX0=
+eyJoaXN0b3J5IjpbLTE2MDQ5ODQzODAsLTEyNjk4NzcxNjEsLT
+EyNjU4ODE2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAz
+NzI4MTYsLTgzMjMxMjYwNiwtNjcwMTUzNDM4LC04Njk2MzEwNj
+IsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3LDIxNDUwNzY4MTgsLTMz
+Njg0MjI2OCwyMDAzNTA2NDAxLC0xNTMzNjI1OTA0LC0xMTA1Nj
+gyNzgsLTE3NDEwMjczODksNDI1MDU0NTQ4LC0xNzQxMDI3Mzg5
+LDg1MDMxMDAwMF19
 -->
