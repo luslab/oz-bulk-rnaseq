@@ -180,6 +180,7 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 
 https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
 http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf
+https://genome.cshlp.org/content/22/10/2008
 
 Measures differential exon usage (DEU) which indicates alternative splicing. DEU also measures alternative transcript start sites & polyadenylation sites (differential usage of exons at 5' and 3' boundary of transcripts). 
 
@@ -195,7 +196,7 @@ Steps:
 ml HTSeq
 
 # use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
-# set GTF
+# set GTF - Ensembl (gencode)
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 
 ```
@@ -326,7 +327,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1NjA5Mzc2NSwtNzUzNjkzMzIwLC0xNT
+eyJoaXN0b3J5IjpbMTA5Nzk3NjA3NCwtNzUzNjkzMzIwLC0xNT
 AzNzA1MTk5LC0xMjY5ODc3MTYxLC0xMjY1ODgxNjU4LC0zMDk2
 MTMxNTMsNzY1OTI3ODU1LC0xNDcwMzcyODE2LC04MzIzMTI2MD
 YsLTY3MDE1MzQzOCwtODY5NjMxMDYyLDE0OTgyMjUzNDksMTQx
