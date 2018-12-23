@@ -219,13 +219,11 @@ python $SCRIPT $GTF $OUT
 GFF=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
 SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/dexseq_count.py
 #set BAM input file
-SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*.sam
+SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR548379*.sam
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/
 
 #run dexseq_count.py
 python $SCRIPT $GFF $SAM $OUT
-
-
 
 for SAMPLE in $SAM
 do
@@ -364,11 +362,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0MDg1NDg0NiwxNjU0OTk1OTg4LC03OD
-U0NTMwNTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4NDk2
-NzMsLTEzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4NDU4OS
-wtNTA3OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NCwtNzUz
-NjkzMzIwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0xMjY1OD
-gxNjU4LC0zMDk2MTMxNTMsNzY1OTI3ODU1LC0xNDcwMzcyODE2
-LC04MzIzMTI2MDZdfQ==
+eyJoaXN0b3J5IjpbMjEyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NT
+Q1MzA1MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMTY1Mjg0OTY3
+MywtMTM3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5MTg0NTg5LC
+01MDc5MDA4NjMsLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03NTM2
+OTMzMjAsLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLTEyNjU4OD
+E2NTgsLTMwOTYxMzE1Myw3NjU5Mjc4NTUsLTE0NzAzNzI4MTYs
+LTgzMjMxMjYwNl19
 -->
