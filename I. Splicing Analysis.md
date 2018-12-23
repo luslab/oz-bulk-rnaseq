@@ -194,6 +194,7 @@ Steps:
 
 ```bash
 ml HTSeq
+ml Python/2.7.15-GCCcore-7.3.0-bare
 
 # use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
 # load R environment with DEXSeq in
@@ -363,11 +364,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1Mjg0OTY3MywtMTM3MzE5MjIzNywtNj
-Q2OTY4NDE1LC0xMjM5MTg0NTg5LC01MDc5MDA4NjMsLTY3MDY2
-NzQ2NSwxMDk3OTc2MDc0LC03NTM2OTMzMjAsLTE1MDM3MDUxOT
-ksLTEyNjk4NzcxNjEsLTEyNjU4ODE2NTgsLTMwOTYxMzE1Myw3
-NjU5Mjc4NTUsLTE0NzAzNzI4MTYsLTgzMjMxMjYwNiwtNjcwMT
-UzNDM4LC04Njk2MzEwNjIsMTQ5ODIyNTM0OSwxNDEyNjk1MDE3
-LDIxNDUwNzY4MThdfQ==
+eyJoaXN0b3J5IjpbMTI4MTcxNzIyNywxNjUyODQ5NjczLC0xMz
+czMTkyMjM3LC02NDY5Njg0MTUsLTEyMzkxODQ1ODksLTUwNzkw
+MDg2MywtNjcwNjY3NDY1LDEwOTc5NzYwNzQsLTc1MzY5MzMyMC
+wtMTUwMzcwNTE5OSwtMTI2OTg3NzE2MSwtMTI2NTg4MTY1OCwt
+MzA5NjEzMTUzLDc2NTkyNzg1NSwtMTQ3MDM3MjgxNiwtODMyMz
+EyNjA2LC02NzAxNTM0MzgsLTg2OTYzMTA2MiwxNDk4MjI1MzQ5
+LDE0MTI2OTUwMTddfQ==
 -->
