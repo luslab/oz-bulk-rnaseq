@@ -195,6 +195,7 @@ Steps:
 ```bash
 ml HTSeq
 ml Python/2.7.15-GCCcore-7.3.0-bare
+ml R
 
 # use 2 Python scripts (dexseq_prepare_annotation.py & dexseq_count.py)
 # load R environment with DEXSeq in
@@ -207,6 +208,7 @@ q()
 # Create output folder
 mkdir -p DEXSeq
 
+### RUN ANNOTATION SCRIPT
 # set GTF - Ensembl (gencode)
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 # set GFF output
@@ -216,23 +218,17 @@ SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/
 #run dexseq_prepare_annotation.py script
 python $SCRIPT $GTF $OUT
 
-#run count script
-# set GFF input made in script 1
+
+### RUN COUNT SCRIPT
+# set GFF input made in annotation script
 GFF=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
 SCRIPT=/camp/home/ziffo/R/x86_64-pc-linux-gnu-library/3.5/DEXSeq/python_scripts/dexseq_count.py
 #set BAM input file
-SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483795.sam
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/SRR5483795.txt
+SAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5483796.sam
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/DEXSeq/SRR5483796.txt
 
 #run dexseq_count.py
 python $SCRIPT $GFF $SAM $OUT
-
-for SAMPLE in $SAM
-do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	python $SCRIPT $GFF $SAMPLE ${SRRID}.txt"
-done
-
 
 #to deactivate environment
 source deactivate
@@ -364,11 +360,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxNjU1OTc0NywtMzQ3MzYzMjk0LC0xOD
-Q2OTg1MjIsMjEyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NTQ1MzA1
-MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMTY1Mjg0OTY3MywtMT
-M3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5MTg0NTg5LC01MDc5
-MDA4NjMsLTY3MDY2NzQ2NSwxMDk3OTc2MDc0LC03NTM2OTMzMj
-AsLTE1MDM3MDUxOTksLTEyNjk4NzcxNjEsLTEyNjU4ODE2NTgs
-LTMwOTYxMzE1M119
+eyJoaXN0b3J5IjpbLTIxMjQxMDY3MTAsLTM0NzM2MzI5NCwtMT
+g0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC03ODU0NTMw
+NTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4NDk2NzMsLT
+EzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4NDU4OSwtNTA3
+OTAwODYzLC02NzA2Njc0NjUsMTA5Nzk3NjA3NCwtNzUzNjkzMz
+IwLC0xNTAzNzA1MTk5LC0xMjY5ODc3MTYxLC0xMjY1ODgxNjU4
+LC0zMDk2MTMxNTNdfQ==
 -->
