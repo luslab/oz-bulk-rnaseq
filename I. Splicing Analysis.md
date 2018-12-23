@@ -211,7 +211,8 @@ python $SCRIPT $GTF $OUT
 
 GFF=/home/camp/ziffo/working/oliver/genomes/annotation/DEXSeq.homo_sapiens.GRCh38.gencode.v28.gff
 SCRIPT=DEXSeq/python_scripts/dexseq_count.py
-
+SAM=
+OUT=SRR548376.txt
 #run dexseq_count.py
 python $SCRIPT $OUT
 
@@ -345,7 +346,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDIzNTE1NCwtNjcwNjY3NDY1LDEwOT
+eyJoaXN0b3J5IjpbLTUwNzkwMDg2MywtNjcwNjY3NDY1LDEwOT
 c5NzYwNzQsLTc1MzY5MzMyMCwtMTUwMzcwNTE5OSwtMTI2OTg3
 NzE2MSwtMTI2NTg4MTY1OCwtMzA5NjEzMTUzLDc2NTkyNzg1NS
 wtMTQ3MDM3MjgxNiwtODMyMzEyNjA2LC02NzAxNTM0MzgsLTg2
