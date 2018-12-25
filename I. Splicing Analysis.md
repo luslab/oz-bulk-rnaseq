@@ -273,7 +273,7 @@ head( counts(dxd), 5 )
 head( rowRanges(dxd), 3 )
 #normalise for different sequencing depths between samples
 dxd = estimateSizeFactors( dxd )
-# dispersion estimation  (takes 10 mins)
+# dispersion estimation  (takes 20 mins)
 dxd = estimateDispersions( dxd )
 # plot the per-exon dispersion estimates vs mean normalised count
 plotDispEsts( dxd )
@@ -439,11 +439,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOT
-QzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLDEyODY5NTcy
-MTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5NzEzNTg3LC
-02NDEwOTM0OTEsNjcyNjUzMjgzLC0zNDczNjMyOTQsLTE4NDY5
-ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4OCwtNzg1NDUzMDUxLD
-E1NTA3OTE4ODYsMTI4MTcxNzIyNywxNjUyODQ5NjczLC0xMzcz
-MTkyMjM3XX0=
+eyJoaXN0b3J5IjpbMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MCwtNT
+UwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAxNjI3
+MDIsMTI4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC
+04MDk3MTM1ODcsLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0NzM2
+MzI5NCwtMTg0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC
+03ODU0NTMwNTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4
+NDk2NzNdfQ==
 -->
