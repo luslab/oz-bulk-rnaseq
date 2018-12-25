@@ -238,9 +238,10 @@ python $SCRIPT $GFF $SAM $OUT
 #to deactivate environment
 source deactivate
 ```
-Now switch to R to run the DEXSeq analysis
+Now switch to R to run the DEXSeq analysis.
 
 ```r
+# make new Rproject & save it in the Cluster splicing folder.
 suppressPackageStartupMessages( library( "DEXSeq" ) )
 
 # read in files
@@ -437,11 +438,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0MzEyMzYyNiw4MzI0Njg3MDMsMTk4MD
-E2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLTEyODIxODAz
-NjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1MzI4MywtMz
-Q3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLDE2NTQ5OTU5
-ODgsLTc4NTQ1MzA1MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMT
-Y1Mjg0OTY3MywtMTM3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5
-MTg0NTg5XX0=
+eyJoaXN0b3J5IjpbMTQ1OTExOTc3OSwtOTQzMTIzNjI2LDgzMj
+Q2ODcwMywxOTgwMTYyNzAyLDEyODY5NTcyMTQsMTUwNDU0MTU0
+NiwtMTI4MjE4MDM2MywtODA5NzEzNTg3LC02NDEwOTM0OTEsNj
+cyNjUzMjgzLC0zNDczNjMyOTQsLTE4NDY5ODUyMiwyMTIwMTEw
+MzMsMTY1NDk5NTk4OCwtNzg1NDUzMDUxLDE1NTA3OTE4ODYsMT
+I4MTcxNzIyNywxNjUyODQ5NjczLC0xMzczMTkyMjM3LC02NDY5
+Njg0MTVdfQ==
 -->
