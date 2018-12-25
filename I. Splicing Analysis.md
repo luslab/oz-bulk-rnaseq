@@ -243,6 +243,7 @@ Now switch to R to run the DEXSeq analysis.
 
 ```r
 # make new Rproject & save it in the relevant CAMP Cluster splicing folder.
+setwd("/Volumes/lab-luscomben/working/oliver/projects/airals/splicing/DEXSeq")
 suppressPackageStartupMessages( library( "DEXSeq" ) )
 
 ### PREPARE DATA ###
@@ -448,11 +449,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOT
-E4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUz
-NDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLD
-EyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5
-NzEzNTg3LC02NDEwOTM0OTEsNjcyNjUzMjgzLC0zNDczNjMyOT
-QsLTE4NDY5ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4OCwtNzg1
-NDUzMDUxXX0=
+eyJoaXN0b3J5IjpbNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0Mz
+I1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0MjEz
+NDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3MDMsMT
+k4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLTEyODIx
+ODAzNjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1MzI4My
+wtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLDE2NTQ5
+OTU5ODhdfQ==
 -->
