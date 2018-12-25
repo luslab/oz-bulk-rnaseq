@@ -289,6 +289,8 @@ mcols(dxr1)$description
 table ( dxr1$padj < 0.1 )
 # how many genes are affected
 table ( tapply( dxr1$padj < 0.1, dxr1$groupID, any ) )
+# list the names of genes that are affected
+
 # MA plot: log fold change vs avg normalised count per exon. Significant exons in red
 plotMA( dxr1, cex=0.8 )
 
@@ -437,11 +439,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MjM5NzczNiwtNTUwNTM0MzMzLC05ND
-MxMjM2MjYsODMyNDY4NzAzLDE5ODAxNjI3MDIsMTI4Njk1NzIx
-NCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC04MDk3MTM1ODcsLT
-Y0MTA5MzQ5MSw2NzI2NTMyODMsLTM0NzM2MzI5NCwtMTg0Njk4
-NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC03ODU0NTMwNTEsMT
-U1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4NDk2NzMsLTEzNzMx
-OTIyMzddfQ==
+eyJoaXN0b3J5IjpbLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOT
+QzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLDEyODY5NTcy
+MTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5NzEzNTg3LC
+02NDEwOTM0OTEsNjcyNjUzMjgzLC0zNDczNjMyOTQsLTE4NDY5
+ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4OCwtNzg1NDUzMDUxLD
+E1NTA3OTE4ODYsMTI4MTcxNzIyNywxNjUyODQ5NjczLC0xMzcz
+MTkyMjM3XX0=
 -->
