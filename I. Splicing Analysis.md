@@ -287,7 +287,7 @@ dxr1 = DEXSeqResults( dxd )
 mcols(dxr1)$description
 # how many exons are significant (with false discovery rate 10% - can change this threshold to more stringent)
 table ( dxr1$padj < 0.1 )
-# how many genes are affected
+# count how many genes are affected
 table ( tapply( dxr1$padj < 0.1, dxr1$groupID, any ) )
 # list the names of genes that are affected
 
@@ -439,11 +439,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MCwtNT
-UwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAxNjI3
-MDIsMTI4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC
-04MDk3MTM1ODcsLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0NzM2
-MzI5NCwtMTg0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC
-03ODU0NTMwNTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4
-NDk2NzNdfQ==
+eyJoaXN0b3J5IjpbLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNj
+A0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3
+MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLT
+EyODIxODAzNjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1
+MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLD
+E2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUwNzkxODg2LDEyODE3
+MTcyMjddfQ==
 -->
