@@ -245,10 +245,10 @@ Now switch to R to run the DEXSeq analysis.
 # make new Rproject & save it in the relevant CAMP Cluster splicing folder.
 suppressPackageStartupMessages( library( "DEXSeq" ) )
 
+### PREPARE DATA ###
 # read in files
 countFiles = list.files("/Volumes/lab-luscomben/working/oliver/projects/airals/splicing/DEXSeq/", pattern=".txt", full.names=TRUE) 
 basename(countFiles)
-
 flattenedFile = list.files("/Volumes/lab-luscomben/working/oliver/genomes/annotation/", pattern="gff", full.names=TRUE) 
 basename(flattenedFile)
 
@@ -258,8 +258,7 @@ sampleTable = data.frame(
   condition = c("VCP", "VCP", "VCP", "CTRL", "CTRL", "CTRL" ) )
 # check table
 sampleTable
-
-# create DEXSeqDataSet (takes 2 mins)
+# create DEXSeqDataSet 
 dxd = DEXSeqDataSetFromHTSeq(
   countFiles,
   sampleData=sampleTable,
@@ -272,30 +271,42 @@ colData(dxd)
 head( counts(dxd), 5 )
 #show details of exon bins annotation
 head( rowRanges(dxd), 3 )
+
+### DEXSeq ANALYSIS ###
 #normalise for different sequencing depths between samples
 dxd = estimateSizeFactors( dxd )
-# dispersion estimation  (takes 20 mins)
+# Perform differential exon usage test in a single command (this by passes the steps below - takes 10 mins)
+dxd = DEXSeq(dxd,
+       fullModel=design(dxd),
+       reducedModel = ~ sample + exon,
+       BPPARAM=MulticoreParam(workers=1),
+       fitExpToVar="condition")
+
+# OPTIONAL: dispersion estimation - takes 30 mins!
 dxd = estimateDispersions( dxd )
 # plot the per-exon dispersion estimates vs mean normalised count
 plotDispEsts( dxd )
+
 # test for differential exon usage (DEU) between conditions
 dxd = testForDEU( dxd )
 # estimate relative exon usage fold changes
 dxd = estimateExonFoldChanges( dxd, fitExpToVar="condition")
+
+### RESULTS ###
 # summarise the resuls
 dxr1 = DEXSeqResults( dxd )
 # description of each column in DEXSeqResults
 mcols(dxr1)$description
 # how many exons are significant (with false discovery rate 10% - can change this threshold to more stringent)
 table ( dxr1$padj < 0.1 )
-# count how many genes are affected
+# how many genes are affected
 table ( tapply( dxr1$padj < 0.1, dxr1$groupID, any ) )
-# list the names of genes that are affected
-
 # MA plot: log fold change vs avg normalised count per exon. Significant exons in red
 plotMA( dxr1, cex=0.8 )
+### Detailed overview of analysis results in HTML - see the geneIDs of differentially spliced genes
+DEXSeqHTML( dxr1, FDR=0.1, color=c("#FF000080", "#0000FF80") )
 
-### Visualisation
+### VISUALISATION ###
 # visualise results for individual genes
 plotDEXSeq( dxr1, "ENSG00000116560", legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
 
@@ -309,9 +320,6 @@ plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, norCounts=TRUE,
 # remove overall changes from the plots
 plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, splicing=TRUE,
             legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
-
-### Detailed overview of analysis results in HTML
-DEXSeqHTML( dxr1, FDR=0.1, color=c("#FF000080", "#0000FF80") )
 ```
 
 
@@ -440,11 +448,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNT
-k5NDAyMzA1LC0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEy
-MzYyNiw4MzI0Njg3MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LD
-E1MDQ1NDE1NDYsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQx
-MDkzNDkxLDY3MjY1MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1Mj
-IsMjEyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUw
-NzkxODg2XX0=
+eyJoaXN0b3J5IjpbLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOT
+E4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUz
+NDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLD
+EyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5
+NzEzNTg3LC02NDEwOTM0OTEsNjcyNjUzMjgzLC0zNDczNjMyOT
+QsLTE4NDY5ODUyMiwyMTIwMTEwMzMsMTY1NDk5NTk4OCwtNzg1
+NDUzMDUxXX0=
 -->
