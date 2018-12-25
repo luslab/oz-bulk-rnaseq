@@ -179,6 +179,7 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 # DEXSeq
 
 https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
+https://bioconductor.org/packages/release/bioc/manuals/DEXSeq/man/DEXSeq.pdf
 http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf
 https://genome.cshlp.org/content/22/10/2008
 
@@ -439,11 +440,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNj
-A0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3
-MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLT
-EyODIxODAzNjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1
-MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLD
-E2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUwNzkxODg2LDEyODE3
-MTcyMjddfQ==
+eyJoaXN0b3J5IjpbLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNT
+k5NDAyMzA1LC0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEy
+MzYyNiw4MzI0Njg3MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LD
+E1MDQ1NDE1NDYsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQx
+MDkzNDkxLDY3MjY1MzI4MywtMzQ3MzYzMjk0LC0xODQ2OTg1Mj
+IsMjEyMDExMDMzLDE2NTQ5OTU5ODgsLTc4NTQ1MzA1MSwxNTUw
+NzkxODg2XX0=
 -->
