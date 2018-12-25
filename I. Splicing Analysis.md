@@ -238,7 +238,7 @@ python $SCRIPT $GFF $SAM $OUT
 #to deactivate environment
 source deactivate
 ```
-Now switch to R. 
+Now switch to R to run the DEXSeq analysis
 
 ```r
 suppressPackageStartupMessages( library( "DEXSeq" ) )
@@ -437,11 +437,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODMyNDY4NzAzLDE5ODAxNjI3MDIsMTI4Nj
-k1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC04MDk3MTM1
-ODcsLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0NzM2MzI5NCwtMT
-g0Njk4NTIyLDIxMjAxMTAzMywxNjU0OTk1OTg4LC03ODU0NTMw
-NTEsMTU1MDc5MTg4NiwxMjgxNzE3MjI3LDE2NTI4NDk2NzMsLT
-EzNzMxOTIyMzcsLTY0Njk2ODQxNSwtMTIzOTE4NDU4OSwtNTA3
-OTAwODYzXX0=
+eyJoaXN0b3J5IjpbLTk0MzEyMzYyNiw4MzI0Njg3MDMsMTk4MD
+E2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLTEyODIxODAz
+NjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1MzI4MywtMz
+Q3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLDE2NTQ5OTU5
+ODgsLTc4NTQ1MzA1MSwxNTUwNzkxODg2LDEyODE3MTcyMjcsMT
+Y1Mjg0OTY3MywtMTM3MzE5MjIzNywtNjQ2OTY4NDE1LC0xMjM5
+MTg0NTg5XX0=
 -->
