@@ -179,8 +179,8 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 # DEXSeq
 
 https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
+https://bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.pdf
 https://bioconductor.org/packages/release/bioc/manuals/DEXSeq/man/DEXSeq.pdf
-http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf
 https://genome.cshlp.org/content/22/10/2008
 
 Measures differential exon usage (DEU) which indicates alternative splicing. DEU also measures alternative transcript start sites & polyadenylation sites (differential usage of exons at 5' and 3' boundary of transcripts). 
@@ -449,11 +449,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0Mz
-I1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0MjEz
-NDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3MDMsMT
-k4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLTEyODIx
-ODAzNjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1MzI4My
-wtMzQ3MzYzMjk0LC0xODQ2OTg1MjIsMjEyMDExMDMzLDE2NTQ5
-OTU5ODhdfQ==
+eyJoaXN0b3J5IjpbLTU3NzQxODY2Niw0ODk0OTM4MTcsLTUyOD
+UwNDYzNSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LDE1OTk0MDIz
+MDUsLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQzMTIzNjI2LD
+gzMjQ2ODcwMywxOTgwMTYyNzAyLDEyODY5NTcyMTQsMTUwNDU0
+MTU0NiwtMTI4MjE4MDM2MywtODA5NzEzNTg3LC02NDEwOTM0OT
+EsNjcyNjUzMjgzLC0zNDczNjMyOTQsLTE4NDY5ODUyMiwyMTIw
+MTEwMzNdfQ==
 -->
