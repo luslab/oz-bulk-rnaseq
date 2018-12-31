@@ -23,6 +23,7 @@ Few exon-exon spanning genes.
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - MISO
+- LeafCutter
 
 # Gene Isoform counting
 
@@ -449,11 +450,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NzQxODY2Niw0ODk0OTM4MTcsLTUyOD
-UwNDYzNSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LDE1OTk0MDIz
-MDUsLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQzMTIzNjI2LD
-gzMjQ2ODcwMywxOTgwMTYyNzAyLDEyODY5NTcyMTQsMTUwNDU0
-MTU0NiwtMTI4MjE4MDM2MywtODA5NzEzNTg3LC02NDEwOTM0OT
-EsNjcyNjUzMjgzLC0zNDczNjMyOTQsLTE4NDY5ODUyMiwyMTIw
-MTEwMzNdfQ==
+eyJoaXN0b3J5IjpbLTg5NTA5MDE4OCwtNTc3NDE4NjY2LDQ4OT
+Q5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0MzM5LC05MTgwOTcx
+NjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MCwtNTUwNTM0MzMzLC
+05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAxNjI3MDIsMTI4Njk1
+NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC04MDk3MTM1OD
+csLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0NzM2MzI5NCwtMTg0
+Njk4NTIyXX0=
 -->
