@@ -23,7 +23,7 @@ Few exon-exon spanning genes.
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - MISO
-- [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9)
+- [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://rajlab.shinyapps.io/sQTLviz_ROSMAP/
 
 # Gene Isoform counting
 
@@ -450,11 +450,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzE3NTkwNTcsLTg5NTA5MDE4OCwtNT
-c3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0
-MzM5LC05MTgwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MC
-wtNTUwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAx
-NjI3MDIsMTI4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMz
-YzLC04MDk3MTM1ODcsLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0
-NzM2MzI5NF19
+eyJoaXN0b3J5IjpbMTQwODA3OTA1OSwtODk1MDkwMTg4LC01Nz
+c0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0MzI1NjQz
+MzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0MjEzNDcwLC
+01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3MDMsMTk4MDE2
+MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLTEyODIxODAzNj
+MsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3MjY1MzI4MywtMzQ3
+MzYzMjk0XX0=
 -->
