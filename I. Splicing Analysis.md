@@ -24,6 +24,7 @@ Few exon-exon spanning genes.
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - [MISO](http://genes.mit.edu/burgelab/miso/)
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter
+- [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 
 # Gene Isoform counting
 
@@ -450,11 +451,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNT
-c3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0
-MzM5LC05MTgwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MC
-wtNTUwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAx
-NjI3MDIsMTI4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMz
-YzLC04MDk3MTM1ODcsLTY0MTA5MzQ5MSw2NzI2NTMyODMsLTM0
-NzM2MzI5NF19
+eyJoaXN0b3J5IjpbLTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtOD
+k1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2
+MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC
+0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0
+Njg3MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1ND
+YsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3
+MjY1MzI4M119
 -->
