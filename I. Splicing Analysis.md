@@ -165,7 +165,7 @@ run vastools compare in conda environment outside of R
 ```bash
 #run on cluster
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --plot_PSI -sp Hsa --GO"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
 ```
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 Output file is created in directory of input file. This reports the differentially spliced AS events between the 2 groups (based on difference in average inclusion levels - delta PSI)
@@ -502,11 +502,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3OTc0MTAyNCwtMTA0NDM3MTg1MCwxNT
-A3NDg5NDI5LC01NjAwNjk5MTQsLTEyMjA4Mjg0MTMsLTIwNDkz
-MjI0NiwtNzk3NzgyODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NS
-wtMTY0OTMwNDQwMSwtMTQzNDEyNDQyMiwyNTk3NTQ3MzAsMTAy
-ODYyNzAwNywtNjk4NjM2OTQ0LDEyOTM3MTU4MzQsLTkwNDcwOD
-U2NCwxMTU3NTU2OTQsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2NCw3
-NjQxODIyMF19
+eyJoaXN0b3J5IjpbLTk3MzMxODQsLTEwNDQzNzE4NTAsMTUwNz
+Q4OTQyOSwtNTYwMDY5OTE0LC0xMjIwODI4NDEzLC0yMDQ5MzIy
+NDYsLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LDE5NDQxMjk4NzUsLT
+E2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5NzU0NzMwLDEwMjg2
+MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1ODM0LC05MDQ3MDg1Nj
+QsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNzY0
+MTgyMjBdfQ==
 -->
