@@ -198,7 +198,9 @@ Finally I inspected visually all selected IR events occurring at Day 7 NPC stage
 
 To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons.
 
-Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) and select the events of interest.
+Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
+
+Select the events of interest.
 
 
 
@@ -484,7 +486,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1ODkyNTc5MywtOTA0NzA4NTY0LDExNT
+eyJoaXN0b3J5IjpbMTI5MzcxNTgzNCwtOTA0NzA4NTY0LDExNT
 c1NTY5NCwtMTcxNTQ4NjI2MywtOTgzOTgyNTY0LDc2NDE4MjIw
 LC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNT
 c3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0
