@@ -19,7 +19,7 @@ Few exon-exon spanning genes.
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle.
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
-- rMATS: useful for comparing with other ENCODE datasets
+- [rMATS](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/): useful for comparing with other ENCODE datasets
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - [MISO](http://genes.mit.edu/burgelab/miso/)
@@ -451,11 +451,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtOD
-k1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2
-MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC
-0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0
-Njg3MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LDE1MDQ1NDE1ND
-YsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQxMDkzNDkxLDY3
-MjY1MzI4M119
+eyJoaXN0b3J5IjpbNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OT
+A5Mzc2MywtODk1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3
+LC01Mjg1MDQ2MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNT
+k5NDAyMzA1LC0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEy
+MzYyNiw4MzI0Njg3MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LD
+E1MDQ1NDE1NDYsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQx
+MDkzNDkxXX0=
 -->
