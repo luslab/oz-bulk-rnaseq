@@ -86,10 +86,11 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 #Prepare config_file
 awk '{print $3"\t"$2}' /home/rluisier/data/UleLab/VCP_neurones/myinfo.txt | tail -31 > /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/config_file
 
-#Run it -- takes about 10 minutes on the 31 samples
 CONFILE=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/config_file
-OUTDIR=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS
-vast-tools merge --groups ${CONFILE} --outDir ${OUTDIR} --sp Hsa --move_to_PARTS PARTS
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
+
+#Run it -- takes about 10 minutes on the 31 samples
+vast-tools merge --groups ${CONFILE} --outDir ${OUT} --sp Hsa --move_to_PARTS PARTS
 ```
 
 ## Combining results
@@ -502,11 +503,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODU2NDAzODUsLTk3MzMxODQsLTEwND
-QzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIwODI4
-NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LD
-E5NDQxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5
-NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1OD
-M0LC05MDQ3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05
-ODM5ODI1NjRdfQ==
+eyJoaXN0b3J5IjpbLTI3MTMyNDM0OSwtOTczMzE4NCwtMTA0ND
+M3MTg1MCwxNTA3NDg5NDI5LC01NjAwNjk5MTQsLTEyMjA4Mjg0
+MTMsLTIwNDkzMjI0NiwtNzk3NzgyODE4LC05MzY5NjM2MzYsMT
+k0NDEyOTg3NSwtMTY0OTMwNDQwMSwtMTQzNDEyNDQyMiwyNTk3
+NTQ3MzAsMTAyODYyNzAwNywtNjk4NjM2OTQ0LDEyOTM3MTU4Mz
+QsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3MTU0ODYyNjMsLTk4
+Mzk4MjU2NF19
 -->
