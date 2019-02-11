@@ -78,9 +78,8 @@ done
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
 
+Merge the aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.  Ideally have >150 million reads per sample for VAST-TOOLS AS analysis. 
 If no technical replicates then skip this.
-
-Merge the Aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.  Ideally have >150 million reads per sample for VAST-TOOLS AS analysis. 
 
 ```bash
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
@@ -502,11 +501,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MzMxODQsLTEwNDQzNzE4NTAsMTUwNz
-Q4OTQyOSwtNTYwMDY5OTE0LC0xMjIwODI4NDEzLC0yMDQ5MzIy
-NDYsLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LDE5NDQxMjk4NzUsLT
-E2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5NzU0NzMwLDEwMjg2
-MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1ODM0LC05MDQ3MDg1Nj
-QsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNzY0
-MTgyMjBdfQ==
+eyJoaXN0b3J5IjpbMTU5MDcyNTI2OCwtOTczMzE4NCwtMTA0ND
+M3MTg1MCwxNTA3NDg5NDI5LC01NjAwNjk5MTQsLTEyMjA4Mjg0
+MTMsLTIwNDkzMjI0NiwtNzk3NzgyODE4LC05MzY5NjM2MzYsMT
+k0NDEyOTg3NSwtMTY0OTMwNDQwMSwtMTQzNDEyNDQyMiwyNTk3
+NTQ3MzAsMTAyODYyNzAwNywtNjk4NjM2OTQ0LDEyOTM3MTU4Mz
+QsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3MTU0ODYyNjMsLTk4
+Mzk4MjU2NF19
 -->
