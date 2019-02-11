@@ -82,6 +82,16 @@ If no technical replicates then skip this.
 
 Merge the Aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.  Ideally have >150 million reads per sample for VAST-TOOLS AS analysis. 
 
+```bash
+cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
+#Prepare config_file
+awk '{print $3"\t"$2}' /home/rluisier/data/UleLab/VCP_neurones/myinfo.txt | tail -31 > /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/config_file
+#Run it -- takes about 10 minutes on the 31 samples
+CONFILE=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/config_file
+OUTDIR=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS
+vast-tools merge --groups ${CONFILE} --outDir ${OUTDIR} --sp Hsa --move_to_PARTS PARTS
+```
+
 ## Combining results
 
 Combines aligned files that are stored in the folder `to_combine` to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
@@ -482,11 +492,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNz
-k3NzgyODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMw
-NDQwMSwtMTQzNDEyNDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNy
-wtNjk4NjM2OTQ0LDEyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3
-NTU2OTQsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2NCw3NjQxODIyMC
-wtNTEzMTkxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3
-NzQxODY2Nl19
+eyJoaXN0b3J5IjpbLTU2MDA2OTkxNCwtMTIyMDgyODQxMywtMj
+A0OTMyMjQ2LC03OTc3ODI4MTgsLTkzNjk2MzYzNiwxOTQ0MTI5
+ODc1LC0xNjQ5MzA0NDAxLC0xNDM0MTI0NDIyLDI1OTc1NDczMC
+wxMDI4NjI3MDA3LC02OTg2MzY5NDQsMTI5MzcxNTgzNCwtOTA0
+NzA4NTY0LDExNTc1NTY5NCwtMTcxNTQ4NjI2MywtOTgzOTgyNT
+Y0LDc2NDE4MjIwLC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5
+NTA5MDE4OF19
 -->
