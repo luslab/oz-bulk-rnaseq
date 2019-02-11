@@ -197,7 +197,7 @@ Finally inspect visually all selected IR events occurring at Day 7 NPC stage in 
 To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons.
 
 Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
-
+The script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
 Select the events of interest.
 
@@ -485,11 +485,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk1MDAzOTUwLDEyOTM3MTU4MzQsLTkwND
-cwODU2NCwxMTU3NTU2OTQsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2
-NCw3NjQxODIyMCwtNTEzMTkxMjk3LC0xMjk5MDkzNzYzLC04OT
-UwOTAxODgsLTU3NzQxODY2Niw0ODk0OTM4MTcsLTUyODUwNDYz
-NSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LDE1OTk0MDIzMDUsLT
-E2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQzMTIzNjI2LDgzMjQ2
-ODcwM119
+eyJoaXN0b3J5IjpbLTc1NzE2MjU4NSwxMjkzNzE1ODM0LC05MD
+Q3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1
+NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtOD
+k1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2
+MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC
+0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0
+Njg3MDNdfQ==
 -->
