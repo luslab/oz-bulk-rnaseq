@@ -120,7 +120,13 @@ https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
 There are 2 approaches to comparing: 
 1. Time effect (delta change in differential splicing between different time points of iPSC differentiation)
-2.  Mutant effect (VCP vs 
+2.  Mutant effect (VCP vs CTRL at specified time points)
+
+### Time Effect
+
+
+
+### Mutant Effect
 
 As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
 ```bash
@@ -496,11 +502,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4MTEyMjczMywxNTA3NDg5NDI5LC01Nj
-AwNjk5MTQsLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNzk3Nzgy
-ODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMwNDQwMS
-wtMTQzNDEyNDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNywtNjk4
-NjM2OTQ0LDEyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OT
-QsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEz
-MTkxMjk3XX0=
+eyJoaXN0b3J5IjpbLTEwNDQzNzE4NTAsMTUwNzQ4OTQyOSwtNT
+YwMDY5OTE0LC0xMjIwODI4NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4
+MjgxOCwtOTM2OTYzNjM2LDE5NDQxMjk4NzUsLTE2NDkzMDQ0MD
+EsLTE0MzQxMjQ0MjIsMjU5NzU0NzMwLDEwMjg2MjcwMDcsLTY5
+ODYzNjk0NCwxMjkzNzE1ODM0LC05MDQ3MDg1NjQsMTE1NzU1Nj
+k0LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNzY0MTgyMjAsLTUx
+MzE5MTI5N119
 -->
