@@ -63,6 +63,7 @@ Use untrimmed fastq files - use raw reads. Define reference genome species (Hsa 
 ```bash
 # Create output folder
 mkdir -p vast_tools
+cd vast_tools
 
 #set FASTQ input file
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
@@ -481,11 +482,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyODYyNzAwNywtNjk4NjM2OTQ0LDEyOT
-M3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3MTU0ODYy
-NjMsLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEzMTkxMjk3LC0xMj
-k5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2Niw0ODk0OTM4
-MTcsLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LD
-E1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQz
-MTIzNjI2XX0=
+eyJoaXN0b3J5IjpbMjU5NzU0NzMwLDEwMjg2MjcwMDcsLTY5OD
+YzNjk0NCwxMjkzNzE1ODM0LC05MDQ3MDg1NjQsMTE1NzU1Njk0
+LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNzY0MTgyMjAsLTUxMz
+E5MTI5NywtMTI5OTA5Mzc2MywtODk1MDkwMTg4LC01Nzc0MTg2
+NjYsNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0MzI1NjQzMzksLT
+kxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0MjEzNDcwLC01NTA1
+MzQzMzNdfQ==
 -->
