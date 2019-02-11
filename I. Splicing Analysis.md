@@ -328,13 +328,13 @@ plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, splicing=TRUE,
 ml Python/2.7.15-GCCcore-7.3.0-bare
 
 [User Tutorial](http://rnaseq-mats.sourceforge.net/user_guide.htm)
+http://rnaseq-mats.sourceforge.net/
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/
 
 MATS is a computational tool to detect differential alternative splicing events from RNA-Seq data. The statistical model of MATS calculates the P-value and false discovery rate that the difference in the isoform ratio of a gene between 2 conditions exceeds a given user-defined threshold. From the RNA-Seq data, MATS can automatically detect and analyze alternative splicing events corresponding to all major types of alternative splicing patterns. MATS handles replicate RNA-Seq data from both paired and unpaired study design.
 
 ![enter image description here](http://rnaseq-mats.sourceforge.net/splicing.jpg)
 
-http://rnaseq-mats.sourceforge.net/
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/
 
 
 
@@ -459,11 +459,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMjAzMjMyOSwtOTgzOTgyNTY0LDc2ND
-E4MjIwLC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4
-OCwtNTc3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xND
-MyNTY0MzM5LC05MTgwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIx
-MzQ3MCwtNTUwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLD
-E5ODAxNjI3MDIsMTI4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgy
-MTgwMzYzXX0=
+eyJoaXN0b3J5IjpbLTE3MTU0ODYyNjMsLTk4Mzk4MjU2NCw3Nj
+QxODIyMCwtNTEzMTkxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAx
+ODgsLTU3NzQxODY2Niw0ODk0OTM4MTcsLTUyODUwNDYzNSwtMT
+QzMjU2NDMzOSwtOTE4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQy
+MTM0NzAsLTU1MDUzNDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMy
+wxOTgwMTYyNzAyLDEyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4
+MjE4MDM2M119
 -->
