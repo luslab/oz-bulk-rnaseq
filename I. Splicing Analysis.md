@@ -82,8 +82,7 @@ FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 cat /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/SAMPLES.txt  | while read SAMPLE
 do
-     printf "echo \" vast-tools align "${FASTQ}"/"${SAMPLE}".fastq -c 8 -sp Hsa --output "${OUT}" > "${OUT}"/log."${SAMPLE}" \"| qsub -l h_vmem=2G,tmem=2G,h_rt=00:30:00 -pe smp 8 -R y -S /bin/bash -wd $PWD -o ${OUT}/logp.$SAMPLE -j y "
- | sh     echo " "
+     printf "echo \" vast-tools align "${FASTQ}"/"${SAMPLE}".fastq -c 8 -sp Hsa --output "${OUT}" > "${OUT}"/log."${SAMPLE}" \"| qsub -l h_vmem=2G,tmem=2G,h_rt=00:30:00 -pe smp 8 -R y -S /bin/bash -wd $PWD -o ${OUT}/logp.$SAMPLE -j y " | sh     echo " "
      echo " "
 done
 
@@ -498,11 +497,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNjk2MzYzNiwxOTQ0MTI5ODc1LC0xNj
-Q5MzA0NDAxLC0xNDM0MTI0NDIyLDI1OTc1NDczMCwxMDI4NjI3
-MDA3LC02OTg2MzY5NDQsMTI5MzcxNTgzNCwtOTA0NzA4NTY0LD
-ExNTc1NTY5NCwtMTcxNTQ4NjI2MywtOTgzOTgyNTY0LDc2NDE4
-MjIwLC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4OC
-wtNTc3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMy
-NTY0MzM5XX0=
+eyJoaXN0b3J5IjpbLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LDE5ND
+QxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5NzU0
+NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1ODM0LC
+05MDQ3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5
+ODI1NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OTA5Mzc2My
+wtODk1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1
+MDQ2MzVdfQ==
 -->
