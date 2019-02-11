@@ -115,9 +115,6 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ##MULTI =
 ```
 
-OUTDIR=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS
-vast-tools combine -o ${OUTDIR} --sp Hsa -v
-
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
@@ -495,11 +492,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjExMDM5ODQsLTU2MDA2OTkxNCwtMT
-IyMDgyODQxMywtMjA0OTMyMjQ2LC03OTc3ODI4MTgsLTkzNjk2
-MzYzNiwxOTQ0MTI5ODc1LC0xNjQ5MzA0NDAxLC0xNDM0MTI0ND
-IyLDI1OTc1NDczMCwxMDI4NjI3MDA3LC02OTg2MzY5NDQsMTI5
-MzcxNTgzNCwtOTA0NzA4NTY0LDExNTc1NTY5NCwtMTcxNTQ4Nj
-I2MywtOTgzOTgyNTY0LDc2NDE4MjIwLC01MTMxOTEyOTcsLTEy
-OTkwOTM3NjNdfQ==
+eyJoaXN0b3J5IjpbMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMj
+IwODI4NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2OTYz
+NjM2LDE5NDQxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0Mj
+IsMjU5NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkz
+NzE1ODM0LC05MDQ3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2Mj
+YzLC05ODM5ODI1NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5
+OTA5Mzc2M119
 -->
