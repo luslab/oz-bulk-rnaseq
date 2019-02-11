@@ -45,6 +45,8 @@ VAST-tools output = any splicing changes OVER TIME. i.e not just retained intron
 Focus is how splicing patterns changed over time (Day 0; Day 7; Day 14 & Day 21) in the CTRL & VCP groups. Rather than directly compare splicing differences at each stage between CTRL & VCP, I compared the groups of genes at each stage which were exhibiting changes in splicing over time in control group versus VCP group. 
 Most changes in IR in CTRL occurred at day 14 whilst in VCP the same events were occurring at day 7, premature IR/splicing in VCP mutants.
 
+The `Splicing_VASTOOLS.sh` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
+
 There are 4 steps:
 1. Alignment (this is redone in VAST-TOOLS using bowtie - needs loading)
 2. Combine outputs into 1 summary table
@@ -479,11 +481,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5ODYzNjk0NCwxMjkzNzE1ODM0LC05MD
-Q3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1
-NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtOD
-k1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2
-MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC
-0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0
-Njg3MDNdfQ==
+eyJoaXN0b3J5IjpbMTAyODYyNzAwNywtNjk4NjM2OTQ0LDEyOT
+M3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3MTU0ODYy
+NjMsLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEzMTkxMjk3LC0xMj
+k5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2Niw0ODk0OTM4
+MTcsLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LD
+E1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQz
+MTIzNjI2XX0=
 -->
