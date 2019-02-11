@@ -179,8 +179,8 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | wc -l
 awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
 
-# Coverage for introns of interest
-To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
+## Coverage for introns of interest
+To perform the more focussed analysis on the 167 retained introns, which I identified using VAST-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
 
 
 # DEXSeq
@@ -451,11 +451,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NzM2OTA1OCw3NjQxODIyMCwtNTEzMT
-kxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2
-Niw0ODk0OTM4MTcsLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOT
-E4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUz
-NDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLD
-EyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5
-NzEzNTg3XX0=
+eyJoaXN0b3J5IjpbNzM0OTM5NTY3LDc2NDE4MjIwLC01MTMxOT
+EyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNTc3NDE4NjY2
+LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0MzM5LC05MT
+gwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MCwtNTUwNTM0
+MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAxNjI3MDIsMT
+I4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC04MDk3
+MTM1ODddfQ==
 -->
