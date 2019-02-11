@@ -184,7 +184,9 @@ To perform the more focussed analysis on the 167 retained introns identified usi
 
 input = BAM files.
 
-So the splicing analysis of the nature comm paper started with VAST-tools. For this I did not select specifically the retained introns, I was interested in any splicing changes OVER TIME. this means my focus was how the splicing patterns changed over time in the control group and in the VCP mutated group, and rather than directly comparing the splicing differences at each stage between cvp and mutants I compared the groups of genes at each stage which were exhibiting changes in splicing over time in control group versus VCP group. And what I realised doing this was that most changes in IR in control groups occurred at day 14 whilst in VCP groups the same events were occurring at day 7, premature IR/splicing in VCP mutants. DO you understand the mindset of the analysis?
+VAST-tools output = any splicing changes OVER TIME. i.e not just retained introns
+
+ this means my focus was how the splicing patterns changed over time in the control group and in the VCP mutated group, and rather than directly comparing the splicing differences at each stage between cvp and mutants I compared the groups of genes at each stage which were exhibiting changes in splicing over time in control group versus VCP group. And what I realised doing this was that most changes in IR in control groups occurred at day 14 whilst in VCP groups the same events were occurring at day 7, premature IR/splicing in VCP mutants. DO you understand the mindset of the analysis?
 Now regarding the selection of the events, first I required that the gene where the event is occurring is expressed. The I required that this event exhibit a change (again over time) of at least 10%. Finally I inspected visually all selected IR events occurring at NPC stage in VCP mutant and at pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
 
 In order to then get a simple value of IR across diverse data-sets I then wrote the custom code that computed the ration between coverage of the intron versus average coverage of the neighbouring exons.
@@ -474,11 +476,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAzNDg0MDc3LC05MDQ3MDg1NjQsMTE1Nz
-U1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNzY0MTgyMjAs
-LTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtODk1MDkwMTg4LC01Nz
-c0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0MzI1NjQz
-MzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0MjEzNDcwLC
-01NTA1MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3MDMsMTk4MDE2
-MjcwMl19
+eyJoaXN0b3J5IjpbLTIyMjMzNjExNSwtOTA0NzA4NTY0LDExNT
+c1NTY5NCwtMTcxNTQ4NjI2MywtOTgzOTgyNTY0LDc2NDE4MjIw
+LC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNT
+c3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0
+MzM5LC05MTgwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MC
+wtNTUwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAx
+NjI3MDJdfQ==
 -->
