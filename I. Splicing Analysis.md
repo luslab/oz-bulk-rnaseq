@@ -72,7 +72,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tool
 #run vast-tools on each FASTQ file separately. Dont specify output as all files need to be in same subfolder > output auto goes into a folder called vast_out. Run from the vast-tools directory
 for SAMPLE in $FASTQ
 do
-	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -sp Hsa --output "${OUT}" > "${OUT}"/log."${SAMPLE}"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE "${FASTQ}"/"${SAMPLE}".fastq -sp Hsa --output "${OUT}" > "${OUT}"/log."${SAMPLE}""
 done
 ```
 
@@ -498,11 +498,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAwMjU5MjA3LC03OTc3ODI4MTgsLTkzNj
-k2MzYzNiwxOTQ0MTI5ODc1LC0xNjQ5MzA0NDAxLC0xNDM0MTI0
-NDIyLDI1OTc1NDczMCwxMDI4NjI3MDA3LC02OTg2MzY5NDQsMT
-I5MzcxNTgzNCwtOTA0NzA4NTY0LDExNTc1NTY5NCwtMTcxNTQ4
-NjI2MywtOTgzOTgyNTY0LDc2NDE4MjIwLC01MTMxOTEyOTcsLT
-EyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNTc3NDE4NjY2LDQ4OTQ5
-MzgxN119
+eyJoaXN0b3J5IjpbLTIwNDkzMjI0NiwtNzk3NzgyODE4LC05Mz
+Y5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMwNDQwMSwtMTQzNDEy
+NDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNywtNjk4NjM2OTQ0LD
+EyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3MTU0
+ODYyNjMsLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEzMTkxMjk3LC
+0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2Niw0ODk0
+OTM4MTddfQ==
 -->
