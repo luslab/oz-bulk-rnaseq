@@ -118,6 +118,10 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
+There are 2 approaches to comparing: 
+1. Time effect (delta change in differential splicing between different time points of iPSC differentiation)
+2.  Mutant effect (VCP vs 
+
 As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
 ```bash
 ml Anaconda2
@@ -492,11 +496,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMj
-IwODI4NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2OTYz
-NjM2LDE5NDQxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0Mj
-IsMjU5NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkz
-NzE1ODM0LC05MDQ3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2Mj
-YzLC05ODM5ODI1NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5
-OTA5Mzc2M119
+eyJoaXN0b3J5IjpbMTc4MTEyMjczMywxNTA3NDg5NDI5LC01Nj
+AwNjk5MTQsLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNzk3Nzgy
+ODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMwNDQwMS
+wtMTQzNDEyNDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNywtNjk4
+NjM2OTQ0LDEyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OT
+QsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEz
+MTkxMjk3XX0=
 -->
