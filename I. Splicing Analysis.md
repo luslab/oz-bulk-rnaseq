@@ -67,28 +67,12 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 
 #set shortcuts
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 
 #run vast-tools on each FASTQ file separately. Dont specify output as all files need to be in same subfolder > output auto goes into a folder called vast_out. Run from the vast-tools directory
 for SAMPLE in $FASTQ
 do
-	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE "${FASTQ}"/"${SAMPLE}".fastq -sp Hsa --output "${OUT}" > "${OUT}"/log."${SAMPLE}""
+	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -sp Hsa"
 done
-```
-
-
-```bash
-cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
-cat /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/SAMPLES.txt  | while read SAMPLE
-do
-     printf "echo \" vast-tools align "${FASTQ}"/"${SAMPLE}".fastq -c 8 -sp Hsa --output "${OUT}" > "${OUT}"/log."${SAMPLE}" \"| qsub -l h_vmem=2G,tmem=2G,h_rt=00:30:00 -pe smp 8 -R y -S /bin/bash -wd $PWD -o ${OUT}/logp.$SAMPLE -j y " | sh     echo " "
-     echo " "
-done
-
-test:
-vast-tools align /cluster/project8/Complex_RNAseq/Bulk_Data/NDpluripotent2_ACTTGA_L002_R1_001.fastq.gz -c 8 -sp Hsa --output /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/Aligment/NDpluripotent2_ACTTGA_L002_R1_001
 ```
 
 ## Merging Output
@@ -498,11 +482,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDkzMjI0NiwtNzk3NzgyODE4LC05Mz
-Y5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMwNDQwMSwtMTQzNDEy
-NDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNywtNjk4NjM2OTQ0LD
-EyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3MTU0
-ODYyNjMsLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEzMTkxMjk3LC
-0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2Niw0ODk0
-OTM4MTddfQ==
+eyJoaXN0b3J5IjpbLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNz
+k3NzgyODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMw
+NDQwMSwtMTQzNDEyNDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNy
+wtNjk4NjM2OTQ0LDEyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3
+NTU2OTQsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2NCw3NjQxODIyMC
+wtNTEzMTkxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3
+NzQxODY2Nl19
 -->
