@@ -199,7 +199,6 @@ Steps:
 1. Alignment to genome using splice aware aligner eg STAR
 2. Counts using DEX Seq Python scripts (utilises HTSeq)
 
-
 ```bash
 ml HTSeq
 ml Python/2.7.15-GCCcore-7.3.0-bare
@@ -212,7 +211,6 @@ R
 library("DEXSeq")
 #exit R
 q()
-
 
 ml HTSeq
 ml Python/2.7.15-GCCcore-7.3.0-bare
@@ -451,11 +449,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM0OTM5NTY3LDc2NDE4MjIwLC01MTMxOT
-EyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNTc3NDE4NjY2
-LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0MzM5LC05MT
-gwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MCwtNTUwNTM0
-MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAxNjI3MDIsMT
-I4Njk1NzIxNCwxNTA0NTQxNTQ2LC0xMjgyMTgwMzYzLC04MDk3
-MTM1ODddfQ==
+eyJoaXN0b3J5IjpbLTYzOTc5NjQ5Nyw3NjQxODIyMCwtNTEzMT
+kxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2
+Niw0ODk0OTM4MTcsLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOT
+E4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUz
+NDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLD
+EyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5
+NzEzNTg3XX0=
 -->
