@@ -77,7 +77,7 @@ done
 
 
 ```bash
-FASTQ=home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 cat /home/rluisier/data/UleLab/VCP_neurones/SAMPLES.txt  | while read SAMPLE
 do
@@ -497,11 +497,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzQxMjQ0MjIsMjU5NzU0NzMwLDEwMj
-g2MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1ODM0LC05MDQ3MDg1
-NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNz
-Y0MTgyMjAsLTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtODk1MDkw
-MTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2MzUsLT
-E0MzI1NjQzMzksLTkxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0
-MjEzNDcwXX0=
+eyJoaXN0b3J5IjpbLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMj
+U5NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1
+ODM0LC05MDQ3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC
+05ODM5ODI1NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OTA5
+Mzc2MywtODk1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC
+01Mjg1MDQ2MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNTk5
+NDAyMzA1XX0=
 -->
