@@ -188,18 +188,14 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 ## Coverage for introns of interest
 To perform the more focussed analysis on the 167 retained introns identified using VAST-tools, use this script in R which  calculates a ratio of intron sequence coverage and surrounding exons. 
 
-First check that the gene where the event is occurring is expressed. 
-
-Then check the event exhibits a change over time of at least 10%. 
-
-Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
-
-To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons.
+1. First check that the gene where the event is occurring is expressed. 
+2. Then check the event exhibits a change over time of at least 10%. 
+3. Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
 
 Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
-The script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
+The `import_VARTOOLS.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
-Select the events of interest.
+To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons. Then select the events of interest. The `get_relative_coverage_interactive.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
 
 
@@ -485,7 +481,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1NzE2MjU4NSwxMjkzNzE1ODM0LC05MD
+eyJoaXN0b3J5IjpbMTU1MDUwMDM3MiwxMjkzNzE1ODM0LC05MD
 Q3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1
 NjQsNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtOD
 k1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2
