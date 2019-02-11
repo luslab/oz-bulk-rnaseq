@@ -190,7 +190,11 @@ To perform the more focussed analysis on the 167 retained introns identified usi
 
 input = BAM files.
 
-First I required that the gene where the event is occurring is expressed. Then I required that this event exhibit a change (again over time) of at least 10%. Finally I inspected visually all selected IR events occurring at NPC stage in VCP mutant and at pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
+First I required that the gene where the event is occurring is expressed. 
+
+Then I required that this event exhibits a change over time of at least 10%. 
+
+Finally I inspected visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
 
 In order to then get a simple value of IR across diverse data-sets I then wrote the custom code that computed the ration between coverage of the intron versus average coverage of the neighbouring exons.
 I am going to send you the codes of interest but I would suggest that we skype to make sure everything is clear for you.
@@ -479,7 +483,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc2MzcwMjE4LC05MDQ3MDg1NjQsMTE1Nz
+eyJoaXN0b3J5IjpbLTk2OTQ2ODIwLC05MDQ3MDg1NjQsMTE1Nz
 U1Njk0LC0xNzE1NDg2MjYzLC05ODM5ODI1NjQsNzY0MTgyMjAs
 LTUxMzE5MTI5NywtMTI5OTA5Mzc2MywtODk1MDkwMTg4LC01Nz
 c0MTg2NjYsNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0MzI1NjQz
