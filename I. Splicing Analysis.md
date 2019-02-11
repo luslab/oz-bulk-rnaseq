@@ -19,7 +19,7 @@ Few exon-exon spanning genes.
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle.
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
-- [rMATS](http://rnaseq-mats.sourceforge.net/)https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/): useful for comparing with other ENCODE datasets
+- [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets
 - [MISO](http://genes.mit.edu/burgelab/miso/)
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
@@ -324,7 +324,11 @@ plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, splicing=TRUE,
             legend=TRUE, cex.axis=1.2, cex=1.3, lwd=2 )
 ```
 
-# 
+# rMATS
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/
+
+
 
 # Perform GO analysis of gene list of differentially spliced genes
 
@@ -446,11 +450,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTc3MTM4MDAsNzY0MTgyMjAsLTUxMz
-E5MTI5NywtMTI5OTA5Mzc2MywtODk1MDkwMTg4LC01Nzc0MTg2
-NjYsNDg5NDkzODE3LC01Mjg1MDQ2MzUsLTE0MzI1NjQzMzksLT
-kxODA5NzE2OCwxNTk5NDAyMzA1LC0xNjA0MjEzNDcwLC01NTA1
-MzQzMzMsLTk0MzEyMzYyNiw4MzI0Njg3MDMsMTk4MDE2MjcwMi
-wxMjg2OTU3MjE0LDE1MDQ1NDE1NDYsLTEyODIxODAzNjMsLTgw
-OTcxMzU4N119
+eyJoaXN0b3J5IjpbLTk4Mzk4MjU2NCw3NjQxODIyMCwtNTEzMT
+kxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2
+Niw0ODk0OTM4MTcsLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOT
+E4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUz
+NDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLD
+EyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5
+NzEzNTg3XX0=
 -->
