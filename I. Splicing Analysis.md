@@ -327,6 +327,7 @@ plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, splicing=TRUE,
 # rMATS
 ml Python/2.7.15-GCCcore-7.3.0-bare
 ml numpy
+ml STAR
 
 
 [User Tutorial](http://rnaseq-mats.sourceforge.net/user_guide.htm)
@@ -461,11 +462,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg0Mjc3MDcsLTE3MTU0ODYyNjMsLTk4Mz
-k4MjU2NCw3NjQxODIyMCwtNTEzMTkxMjk3LC0xMjk5MDkzNzYz
-LC04OTUwOTAxODgsLTU3NzQxODY2Niw0ODk0OTM4MTcsLTUyOD
-UwNDYzNSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LDE1OTk0MDIz
-MDUsLTE2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQzMTIzNjI2LD
-gzMjQ2ODcwMywxOTgwMTYyNzAyLDEyODY5NTcyMTQsMTUwNDU0
-MTU0Nl19
+eyJoaXN0b3J5IjpbLTEyMjQ4MTA0MCwtMTcxNTQ4NjI2MywtOT
+gzOTgyNTY0LDc2NDE4MjIwLC01MTMxOTEyOTcsLTEyOTkwOTM3
+NjMsLTg5NTA5MDE4OCwtNTc3NDE4NjY2LDQ4OTQ5MzgxNywtNT
+I4NTA0NjM1LC0xNDMyNTY0MzM5LC05MTgwOTcxNjgsMTU5OTQw
+MjMwNSwtMTYwNDIxMzQ3MCwtNTUwNTM0MzMzLC05NDMxMjM2Mj
+YsODMyNDY4NzAzLDE5ODAxNjI3MDIsMTI4Njk1NzIxNCwxNTA0
+NTQxNTQ2XX0=
 -->
