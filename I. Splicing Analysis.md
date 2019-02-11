@@ -125,7 +125,15 @@ There are 2 approaches to comparing:
 
 ### Time Effect
 
+INFILE=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/INCLUSION_LEVELS_FULL-Hsa10.tab
 
+SAMPLE_A=WT.d0
+SAMPLE_B=WT.d35
+mkdir /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/time_effect/wt_d35
+cd /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/time_effect/wt_d35
+cp $INFILE .
+vast-tools diff -i ${INFILE} -c 8 -a ${SAMPLE_A} -b ${SAMPLE_B} > INCLUSION-FILTERED.tab
+vast-tools compare INCLUSION_LEVELS_FULL-Hsa10.tab -a ${SAMPLE_A} -b ${SAMPLE_B} --min_dPSI 15 --min_range 5 --GO -sp Hsa
 
 ### Mutant Effect
 
@@ -503,11 +511,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODk5NzQ5MjUsLTk3MzMxODQsLTEwND
-QzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIwODI4
-NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LD
-E5NDQxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5
-NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1OD
-M0LC05MDQ3MDg1NjQsMTE1NzU1Njk0LC0xNzE1NDg2MjYzLC05
-ODM5ODI1NjRdfQ==
+eyJoaXN0b3J5IjpbMTgxNDM2NTk2MCwtMTg4OTk3NDkyNSwtOT
+czMzE4NCwtMTA0NDM3MTg1MCwxNTA3NDg5NDI5LC01NjAwNjk5
+MTQsLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNzk3NzgyODE4LC
+05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMwNDQwMSwtMTQz
+NDEyNDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNywtNjk4NjM2OT
+Q0LDEyOTM3MTU4MzQsLTkwNDcwODU2NCwxMTU3NTU2OTQsLTE3
+MTU0ODYyNjNdfQ==
 -->
