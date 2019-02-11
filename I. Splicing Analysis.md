@@ -178,6 +178,11 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | wc -l
 # count number of genes with +ve intron retention (VCP vs CTRL):
 awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
+
+# Coverage for introns of interest
+To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
+
+
 # DEXSeq
 
 https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
@@ -326,11 +331,6 @@ plotDEXSeq( dxr1, "ENSG00000116560", expression=FALSE, splicing=TRUE,
 ```
 
 
-# Coverage for introns of interest
-To perform the more focussed analysis on the 167 retained introns, which I identified using VASt-tools, I wrote a script in R which basically obtain the coverage for intronic sequences of interest and surrounding exons and then compute the ratio. As input I use the BAM files.
-
-
-
 # Perform GO analysis of gene list of differentially spliced genes
 
 ### Data Preparation
@@ -451,11 +451,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY0MTgyMjAsLTUxMzE5MTI5NywtMTI5OT
-A5Mzc2MywtODk1MDkwMTg4LC01Nzc0MTg2NjYsNDg5NDkzODE3
-LC01Mjg1MDQ2MzUsLTE0MzI1NjQzMzksLTkxODA5NzE2OCwxNT
-k5NDAyMzA1LC0xNjA0MjEzNDcwLC01NTA1MzQzMzMsLTk0MzEy
-MzYyNiw4MzI0Njg3MDMsMTk4MDE2MjcwMiwxMjg2OTU3MjE0LD
-E1MDQ1NDE1NDYsLTEyODIxODAzNjMsLTgwOTcxMzU4NywtNjQx
-MDkzNDkxXX0=
+eyJoaXN0b3J5IjpbMTY1NzM2OTA1OCw3NjQxODIyMCwtNTEzMT
+kxMjk3LC0xMjk5MDkzNzYzLC04OTUwOTAxODgsLTU3NzQxODY2
+Niw0ODk0OTM4MTcsLTUyODUwNDYzNSwtMTQzMjU2NDMzOSwtOT
+E4MDk3MTY4LDE1OTk0MDIzMDUsLTE2MDQyMTM0NzAsLTU1MDUz
+NDMzMywtOTQzMTIzNjI2LDgzMjQ2ODcwMywxOTgwMTYyNzAyLD
+EyODY5NTcyMTQsMTUwNDU0MTU0NiwtMTI4MjE4MDM2MywtODA5
+NzEzNTg3XX0=
 -->
