@@ -188,17 +188,16 @@ awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0)
 ## Coverage for introns of interest
 To perform the more focussed analysis on the 167 retained introns identified using VAST-tools, use this script in R which  calculates a ratio of intron sequence coverage and surrounding exons. 
 
-input = BAM files.
+First check that the gene where the event is occurring is expressed. 
 
-First I required that the gene where the event is occurring is expressed. 
+Then check the event exhibits a change over time of at least 10%. 
 
-Then I required that this event exhibits a change over time of at least 10%. 
-
-Finally I inspected visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
+Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
 
 To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons.
 
 Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
+
 
 Select the events of interest.
 
@@ -486,11 +485,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5MzcxNTgzNCwtOTA0NzA4NTY0LDExNT
-c1NTY5NCwtMTcxNTQ4NjI2MywtOTgzOTgyNTY0LDc2NDE4MjIw
-LC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5NTA5MDE4OCwtNT
-c3NDE4NjY2LDQ4OTQ5MzgxNywtNTI4NTA0NjM1LC0xNDMyNTY0
-MzM5LC05MTgwOTcxNjgsMTU5OTQwMjMwNSwtMTYwNDIxMzQ3MC
-wtNTUwNTM0MzMzLC05NDMxMjM2MjYsODMyNDY4NzAzLDE5ODAx
-NjI3MDJdfQ==
+eyJoaXN0b3J5IjpbMjk1MDAzOTUwLDEyOTM3MTU4MzQsLTkwND
+cwODU2NCwxMTU3NTU2OTQsLTE3MTU0ODYyNjMsLTk4Mzk4MjU2
+NCw3NjQxODIyMCwtNTEzMTkxMjk3LC0xMjk5MDkzNzYzLC04OT
+UwOTAxODgsLTU3NzQxODY2Niw0ODk0OTM4MTcsLTUyODUwNDYz
+NSwtMTQzMjU2NDMzOSwtOTE4MDk3MTY4LDE1OTk0MDIzMDUsLT
+E2MDQyMTM0NzAsLTU1MDUzNDMzMywtOTQzMTIzNjI2LDgzMjQ2
+ODcwM119
 -->
