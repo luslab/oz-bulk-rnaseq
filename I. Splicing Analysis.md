@@ -94,13 +94,13 @@ vast-tools merge --groups ${CONFILE} --outDir ${OUTDIR} --sp Hsa --move_to_PARTS
 
 ## Combining results
 
-Combines aligned files that are stored in the folder `to_combine` to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
+Combine aligned files that are stored in the folder `to_combine` to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
 ```bash
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/
 
 #  create the old legacy version INCLUSION_TABLE.tab single output then specify `--noANNOT`
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --noANNOT"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v"
 
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
@@ -114,6 +114,9 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ##MIC = 
 ##MULTI =
 ```
+
+OUTDIR=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS
+vast-tools combine -o ${OUTDIR} --sp Hsa -v
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -492,11 +495,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2MDA2OTkxNCwtMTIyMDgyODQxMywtMj
-A0OTMyMjQ2LC03OTc3ODI4MTgsLTkzNjk2MzYzNiwxOTQ0MTI5
-ODc1LC0xNjQ5MzA0NDAxLC0xNDM0MTI0NDIyLDI1OTc1NDczMC
-wxMDI4NjI3MDA3LC02OTg2MzY5NDQsMTI5MzcxNTgzNCwtOTA0
-NzA4NTY0LDExNTc1NTY5NCwtMTcxNTQ4NjI2MywtOTgzOTgyNT
-Y0LDc2NDE4MjIwLC01MTMxOTEyOTcsLTEyOTkwOTM3NjMsLTg5
-NTA5MDE4OF19
+eyJoaXN0b3J5IjpbLTIwMjExMDM5ODQsLTU2MDA2OTkxNCwtMT
+IyMDgyODQxMywtMjA0OTMyMjQ2LC03OTc3ODI4MTgsLTkzNjk2
+MzYzNiwxOTQ0MTI5ODc1LC0xNjQ5MzA0NDAxLC0xNDM0MTI0ND
+IyLDI1OTc1NDczMCwxMDI4NjI3MDA3LC02OTg2MzY5NDQsMTI5
+MzcxNTgzNCwtOTA0NzA4NTY0LDExNTc1NTY5NCwtMTcxNTQ4Nj
+I2MywtOTgzOTgyNTY0LDc2NDE4MjIwLC01MTMxOTEyOTcsLTEy
+OTkwOTM3NjNdfQ==
 -->
