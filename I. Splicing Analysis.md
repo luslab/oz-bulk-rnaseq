@@ -115,10 +115,10 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v --noAN
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons
-##COMBI = splice site based module
-##EXSK = only alternative Exons are considered
+##COMBI = splice site based pipeline
+##EXSK = only alternative Exons are considered. Transcript based pipeline, single.
 ##MIC = microexon pipeline
-##MULTI = transcript based pipeline, multiexonic genes
+##MULTI = transcript based pipeline, multiexon
 
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
@@ -521,11 +521,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNzQxODEwOSw3MDc5MzM0NjAsMTM3Mj
-kxNzM4OCwtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3
-MiwtMTYyMzU1NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02Mj
-YyNTI5NjcsLTEzMTgwMzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2
-NzUsMTkzNTE2MTk3OSwxODE0MzY1OTYwLC0xODg5OTc0OTI1LC
-05NzMzMTg0LC0xMDQ0MzcxODUwLDE1MDc0ODk0MjksLTU2MDA2
-OTkxNF19
+eyJoaXN0b3J5IjpbLTIwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNz
+I5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1
+NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNj
+I2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2NDYwMCwxOTg0NTQx
+Njc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMTg4OTk3NDkyNS
+wtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3NDg5NDI5LC01NjAw
+Njk5MTRdfQ==
 -->
