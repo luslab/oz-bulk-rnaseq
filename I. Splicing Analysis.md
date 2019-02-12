@@ -118,8 +118,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ##COMBI = splice site based module
 ##EXSK = only alternative Exons are considered
 ##MIC = exon skipping events quantified by the microexon pipeline
-##MULTI =
-
+##MULTI = multiexonic genes
 
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
@@ -522,7 +521,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA2MTE3ODkxLDEzNzI5MTczODgsLTEyNT
+eyJoaXN0b3J5IjpbNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNT
 c0MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcw
 OCwzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMz
 E4MDMwNjQ3LDk0NDg2NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5
