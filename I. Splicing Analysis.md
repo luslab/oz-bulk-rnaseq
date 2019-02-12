@@ -123,7 +123,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 ```
-Formate of the combine output is as follows: 
+Format of the combine output is as follows: 
 https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-format
 
 ## Compare Groups
@@ -521,11 +521,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNz
-I5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1
-NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNj
-I2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2NDYwMCwxOTg0NTQx
-Njc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMTg4OTk3NDkyNS
-wtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3NDg5NDI5LC01NjAw
-Njk5MTRdfQ==
+eyJoaXN0b3J5IjpbLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNz
+A3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0
+MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLT
+Q4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2
+NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MC
+wtMTg4OTk3NDkyNSwtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3
+NDg5NDI5XX0=
 -->
