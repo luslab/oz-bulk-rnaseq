@@ -94,7 +94,7 @@ CONFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out
 
 #Run it -- takes about 10 minutes on the 31 samples
-vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa --move_to_PARTS PARTS
+vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa --move_to_PARTS
 ```
 
 ## Combining results
@@ -515,11 +515,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NT
-g3MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2NDYw
-MCwxOTg0NTQxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMT
-g4OTk3NDkyNSwtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3NDg5
-NDI5LC01NjAwNjk5MTQsLTEyMjA4Mjg0MTMsLTIwNDkzMjI0Ni
-wtNzk3NzgyODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0
-OTMwNDQwMV19
+eyJoaXN0b3J5IjpbLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5Nz
+YyODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2
+NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OSwxOD
+E0MzY1OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0LC0xMDQ0Mzcx
+ODUwLDE1MDc0ODk0MjksLTU2MDA2OTkxNCwtMTIyMDgyODQxMy
+wtMjA0OTMyMjQ2LC03OTc3ODI4MTgsLTkzNjk2MzYzNiwxOTQ0
+MTI5ODc1XX0=
 -->
