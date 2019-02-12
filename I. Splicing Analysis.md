@@ -119,7 +119,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons
 ##COMBI = splice site based module
-##EXSK = 
+##EXSK = only alternative Exons are considered
 ##MIC = 
 ##MULTI =
 ```
@@ -519,11 +519,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDQ4NzQ2MTYsMTM3MjkxNzM4OCwtMT
-I1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1
-NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLT
-EzMTgwMzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2
-MTk3OSwxODE0MzY1OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0LC
-0xMDQ0MzcxODUwLDE1MDc0ODk0MjksLTU2MDA2OTkxNCwtMTIy
-MDgyODQxM119
+eyJoaXN0b3J5IjpbLTY2NDM0MjUzNiwxMzcyOTE3Mzg4LC0xMj
+U3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC0xNjIzNTU3
+MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1Mjk2NywtMT
+MxODAzMDY0Nyw5NDQ4NjQ2MDAsMTk4NDU0MTY3NSwxOTM1MTYx
+OTc5LDE4MTQzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3MzMxODQsLT
+EwNDQzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIw
+ODI4NDEzXX0=
 -->
