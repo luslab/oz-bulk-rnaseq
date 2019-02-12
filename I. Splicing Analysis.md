@@ -61,9 +61,8 @@ https://github.com/vastgroup/vast-tools#alignment
 
 Use untrimmed fastq files - use raw reads. Define reference genome species (Hsa = human). 
 ```bash
-# Create output folder
-mkdir -p vast_tools
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
+# Not necessary to create output folder as VAST-tools auto creates an output folder within your current working directory named "vast_out"
 
 #set shortcuts
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/SRR*_1.fastq
@@ -79,7 +78,7 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -sp Hsa"
 done
 ```
-![enter image description here](https://lh3.googleusercontent.com/MtirNCqJgzENksukOhrIZnqNwDpcXbbx_LTHMz17FZpe-p3Mn3iN0bsRAxsKgVbHJn3PjIOmyOOe5Q)
+
 ## Merging Output
 https://github.com/vastgroup/vast-tools#merging-outputs
 
@@ -516,11 +515,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTgwMzA2NDcsOTQ0ODY0NjAwLDE5OD
-Q1NDE2NzUsMTkzNTE2MTk3OSwxODE0MzY1OTYwLC0xODg5OTc0
-OTI1LC05NzMzMTg0LC0xMDQ0MzcxODUwLDE1MDc0ODk0MjksLT
-U2MDA2OTkxNCwtMTIyMDgyODQxMywtMjA0OTMyMjQ2LC03OTc3
-ODI4MTgsLTkzNjk2MzYzNiwxOTQ0MTI5ODc1LC0xNjQ5MzA0ND
-AxLC0xNDM0MTI0NDIyLDI1OTc1NDczMCwxMDI4NjI3MDA3LC02
-OTg2MzY5NDRdfQ==
+eyJoaXN0b3J5IjpbLTYyNjI1Mjk2NywtMTMxODAzMDY0Nyw5ND
+Q4NjQ2MDAsMTk4NDU0MTY3NSwxOTM1MTYxOTc5LDE4MTQzNjU5
+NjAsLTE4ODk5NzQ5MjUsLTk3MzMxODQsLTEwNDQzNzE4NTAsMT
+UwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIwODI4NDEzLC0yMDQ5
+MzIyNDYsLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LDE5NDQxMjk4Nz
+UsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5NzU0NzMwLDEw
+Mjg2MjcwMDddfQ==
 -->
