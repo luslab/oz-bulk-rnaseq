@@ -86,7 +86,7 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 #Prepare config_file from sample group txt file (include 3rd column fastq.ID & 2nd column Name separated by a tab)
 awk '{print $3"\t"$2}' /home/camp/ziffo/working/oliver/scripts/intron_retention/VASTOOLS_merge_groups.txt | tail -31 > /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/config_file
 
-CONFILE=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/config_file
+CONFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/config_file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 
 #Run it -- takes about 10 minutes on the 31 samples
@@ -511,11 +511,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Nzk5MDMzNTIsMTk4NDU0MTY3NSwxOT
-M1MTYxOTc5LDE4MTQzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3MzMx
-ODQsLTEwNDQzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC
-0xMjIwODI4NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2
-OTYzNjM2LDE5NDQxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMj
-Q0MjIsMjU5NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwx
-MjkzNzE1ODM0XX0=
+eyJoaXN0b3J5IjpbOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNT
+E2MTk3OSwxODE0MzY1OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0
+LC0xMDQ0MzcxODUwLDE1MDc0ODk0MjksLTU2MDA2OTkxNCwtMT
+IyMDgyODQxMywtMjA0OTMyMjQ2LC03OTc3ODI4MTgsLTkzNjk2
+MzYzNiwxOTQ0MTI5ODc1LC0xNjQ5MzA0NDAxLC0xNDM0MTI0ND
+IyLDI1OTc1NDczMCwxMDI4NjI3MDA3LC02OTg2MzY5NDQsMTI5
+MzcxNTgzNF19
 -->
