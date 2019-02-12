@@ -163,6 +163,8 @@ ml seqtk
 	- SRA run IDs start with  `SRR****` and `ERR****`. Data file linked to the sequencing library.
 6. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_2827488_130.14.18.97_5555_1539957447_3051893689_0MetA0_S_HStore&query_key=3) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
 
+![enter image description here](https://lh3.googleusercontent.com/MtirNCqJgzENksukOhrIZnqNwDpcXbbx_LTHMz17FZpe-p3Mn3iN0bsRAxsKgVbHJn3PjIOmyOOe5Q)
+
 ### fastq-dump
 
 Now that we have the accessions, we can get the sequence files in fastq format using fastq-dump from the SRA toolkit
@@ -275,6 +277,6 @@ Remove duplicated sequences: `seqkit rmdup --by-seq --ignore-case *.fq.gz > uniq
 Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-case --pattern-file *.gz` use the degenerate flag to identify pattern of interest
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMz
-M0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNj
+Y2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
 -->
