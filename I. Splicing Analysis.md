@@ -73,7 +73,6 @@ FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D21_samples/SRR*_1.f
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D35_samples/SRR*_1.fastq
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/SRR*_1.fastq
 
-
 #run vast-tools on each FASTQ file separately. Dont specify output as all files need to be in same subfolder > output auto goes into a folder called vast_out. Run from the vast-tools directory
 for SAMPLE in $FASTQ
 do
@@ -517,11 +516,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEzMjU2MDAyLDk0NDg2NDYwMCwxOTg0NT
-QxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMTg4OTk3NDky
-NSwtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3NDg5NDI5LC01Nj
-AwNjk5MTQsLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNzk3Nzgy
-ODE4LC05MzY5NjM2MzYsMTk0NDEyOTg3NSwtMTY0OTMwNDQwMS
-wtMTQzNDEyNDQyMiwyNTk3NTQ3MzAsMTAyODYyNzAwNywtNjk4
-NjM2OTQ0XX0=
+eyJoaXN0b3J5IjpbLTE0MzY5MDgyNDAsOTQ0ODY0NjAwLDE5OD
+Q1NDE2NzUsMTkzNTE2MTk3OSwxODE0MzY1OTYwLC0xODg5OTc0
+OTI1LC05NzMzMTg0LC0xMDQ0MzcxODUwLDE1MDc0ODk0MjksLT
+U2MDA2OTkxNCwtMTIyMDgyODQxMywtMjA0OTMyMjQ2LC03OTc3
+ODI4MTgsLTkzNjk2MzYzNiwxOTQ0MTI5ODc1LC0xNjQ5MzA0ND
+AxLC0xNDM0MTI0NDIyLDI1OTc1NDczMCwxMDI4NjI3MDA3LC02
+OTg2MzY5NDRdfQ==
 -->
