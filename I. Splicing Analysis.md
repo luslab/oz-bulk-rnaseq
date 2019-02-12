@@ -98,6 +98,8 @@ vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa --move_to_PARTS
 ```
 
 ## Combining results
+https://github.com/vastgroup/vast-tools#combining-results
+
 About 2G of memory required; completed in about 10 min
 Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine. 
 ```bash
@@ -517,7 +519,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5OTI0MzQzNiwtMTI1NzQyMzQwMiw4Nj
+eyJoaXN0b3J5IjpbMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4Nj
 EzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYyODM4
 MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2NDcsOT
 Q0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OSwxODE0MzY1
