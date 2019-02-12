@@ -66,10 +66,12 @@ mkdir -p vast_tools
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 
 #set shortcuts
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/SRR54837*_1.fastq
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR54837*_1.fastq
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/SRR*_1.fastq
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/SRR*_1.fastq
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D14_samples/SRR*_1.fastq
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D21_samples/SRR*_1.fastq
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D35_samples/SRR*_1.fastq
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/SRR*_1.fastq
 
 
 #run vast-tools on each FASTQ file separately. Dont specify output as all files need to be in same subfolder > output auto goes into a folder called vast_out. Run from the vast-tools directory
@@ -515,7 +517,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI4MTU5NTYyLDk0NDg2NDYwMCwxOTg0NT
+eyJoaXN0b3J5IjpbNjEzMjU2MDAyLDk0NDg2NDYwMCwxOTg0NT
 QxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMTg4OTk3NDky
 NSwtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3NDg5NDI5LC01Nj
 AwNjk5MTQsLTEyMjA4Mjg0MTMsLTIwNDkzMjI0NiwtNzk3Nzgy
