@@ -98,8 +98,8 @@ vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa --move_to_PARTS
 ```
 
 ## Combining results
-
-Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine..
+About 2G of memory required; completed in about 10 min
+Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz`. This is the file that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine. 
 ```bash
 #move to to_combine directory with merged aligned files
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/to_combine
@@ -517,11 +517,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTI0MjA4NzgsLTEyNTc0MjM0MDIsOD
-YxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2Mjgz
-ODAsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LD
-k0NDg2NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5NzksMTgxNDM2
-NTk2MCwtMTg4OTk3NDkyNSwtOTczMzE4NCwtMTA0NDM3MTg1MC
-wxNTA3NDg5NDI5LC01NjAwNjk5MTQsLTEyMjA4Mjg0MTMsLTIw
-NDkzMjI0Nl19
+eyJoaXN0b3J5IjpbMTg5OTI0MzQzNiwtMTI1NzQyMzQwMiw4Nj
+EzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYyODM4
+MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2NDcsOT
+Q0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OSwxODE0MzY1
+OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0LC0xMDQ0MzcxODUwLD
+E1MDc0ODk0MjksLTU2MDA2OTkxNCwtMTIyMDgyODQxMywtMjA0
+OTMyMjQ2XX0=
 -->
