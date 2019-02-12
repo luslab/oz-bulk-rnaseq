@@ -83,7 +83,7 @@ If no technical replicates then skip this.
 
 ```bash
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
-#Prepare config_file from sample group txt file
+#Prepare config_file from sample group txt file (includes 3rd column fastq.ID & 2nd column Name)
 awk '{print $3"\t"$2}' /home/camp/ziffo/working/oliver/scripts/intron_retention/VASTOOLS_merge_groups.txt | tail -31 > /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/config_file
 
 CONFILE=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/config_file
@@ -511,11 +511,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NDU0MTY3NSwxOTM1MTYxOTc5LDE4MT
-QzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3MzMxODQsLTEwNDQzNzE4
-NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIwODI4NDEzLC
-0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2OTYzNjM2LDE5NDQx
-Mjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMjQ0MjIsMjU5NzU0Nz
-MwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwxMjkzNzE1ODM0LC05
-MDQ3MDg1NjRdfQ==
+eyJoaXN0b3J5IjpbLTEyMDA0OTQwOTEsMTk4NDU0MTY3NSwxOT
+M1MTYxOTc5LDE4MTQzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3MzMx
+ODQsLTEwNDQzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC
+0xMjIwODI4NDEzLC0yMDQ5MzIyNDYsLTc5Nzc4MjgxOCwtOTM2
+OTYzNjM2LDE5NDQxMjk4NzUsLTE2NDkzMDQ0MDEsLTE0MzQxMj
+Q0MjIsMjU5NzU0NzMwLDEwMjg2MjcwMDcsLTY5ODYzNjk0NCwx
+MjkzNzE1ODM0XX0=
 -->
