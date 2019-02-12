@@ -111,18 +111,21 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tool
 #  create the old legacy version INCLUSION_TABLE.tab single output then specify `--noANNOT`
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v --noANNOT"
 
-#check output
-head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
-
 # run vast-tools combine using new v2.0.0 ANNOT tool - identifies annotated exon-exon reads
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons
 ##COMBI = splice site based module
 ##EXSK = only alternative Exons are considered
-##MIC = 
+##MIC = exon skipping events quantified by the microexon pipeline
 ##MULTI =
+
+
+#check output
+head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 ```
+Formate of the combine output is as follows: 
+https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-format
 
 ## Compare Groups
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
@@ -519,11 +522,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NDM0MjUzNiwxMzcyOTE3Mzg4LC0xMj
-U3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC0xNjIzNTU3
-MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1Mjk2NywtMT
-MxODAzMDY0Nyw5NDQ4NjQ2MDAsMTk4NDU0MTY3NSwxOTM1MTYx
-OTc5LDE4MTQzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3MzMxODQsLT
-EwNDQzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIw
-ODI4NDEzXX0=
+eyJoaXN0b3J5IjpbNDA2MTE3ODkxLDEzNzI5MTczODgsLTEyNT
+c0MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcw
+OCwzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMz
+E4MDMwNjQ3LDk0NDg2NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5
+NzksMTgxNDM2NTk2MCwtMTg4OTk3NDkyNSwtOTczMzE4NCwtMT
+A0NDM3MTg1MCwxNTA3NDg5NDI5LC01NjAwNjk5MTQsLTEyMjA4
+Mjg0MTNdfQ==
 -->
