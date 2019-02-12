@@ -109,12 +109,12 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out
 
 #  create the old legacy version INCLUSION_TABLE.tab single output then specify `--noANNOT`
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v --noANNOT"
 
 #check output
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 
-# run vast-tools combine using new v2.0.0 ANNOT tool 
+# run vast-tools combine using new v2.0.0 ANNOT tool - identifies annotated exons
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons
@@ -519,11 +519,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4Nj
-EzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYyODM4
-MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2NDcsOT
-Q0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OSwxODE0MzY1
-OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0LC0xMDQ0MzcxODUwLD
-E1MDc0ODk0MjksLTU2MDA2OTkxNCwtMTIyMDgyODQxMywtMjA0
-OTMyMjQ2XX0=
+eyJoaXN0b3J5IjpbLTgwOTE2NzU2NywxMzcyOTE3Mzg4LC0xMj
+U3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC0xNjIzNTU3
+MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1Mjk2NywtMT
+MxODAzMDY0Nyw5NDQ4NjQ2MDAsMTk4NDU0MTY3NSwxOTM1MTYx
+OTc5LDE4MTQzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3MzMxODQsLT
+EwNDQzNzE4NTAsMTUwNzQ4OTQyOSwtNTYwMDY5OTE0LC0xMjIw
+ODI4NDEzXX0=
 -->
