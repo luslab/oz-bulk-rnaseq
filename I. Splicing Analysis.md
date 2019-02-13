@@ -179,7 +179,7 @@ install.packages("psiplot")
 devtools::install_github("kcha/psiplot")
 
 #to deactivate environment
-> source deactivate
+conda deactivate
 ```
 run `vast-tools compare` and `vast-tools diff` in this rtest conda environment outside of R
 
@@ -510,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMD
-c5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMzE0MTg1
-MiwtMjEzMzQyNDY4MywtNjQ2OTQwMDUyLDU3NzgyMjQ3Myw1OD
-k0NTY4NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQx
-NTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMT
-ExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNCw3MDc5
-MzM0NjBdfQ==
+eyJoaXN0b3J5IjpbMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC0xNj
+kyNDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2MDk1MjMz
+MCwtNjIzMTQxODUyLC0yMTMzNDI0NjgzLC02NDY5NDAwNTIsNT
+c3ODIyNDczLDU4OTQ1Njg2NSwxNTU2NTgzODY0LC00MTYyMDA1
+NTAsLTE0MDY3NDE1MywxNzczOTQyMjk3LDM2MjYzOTUxNCwxMz
+k1OTI5OTIyLC0xMTE5MzIwMzc1LC0xODQ1MjEyNDQ3LC0yMDky
+MDAzODM0XX0=
 -->
