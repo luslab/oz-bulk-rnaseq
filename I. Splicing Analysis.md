@@ -156,7 +156,6 @@ library("reshape2")
 library("grid")
 library("devtools")
 library("psiplot")
-library("optparse")
 #quit R in cluster
 q()
 #save workspace image
@@ -502,11 +501,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1Nz
-c4MjI0NzMsNTg5NDU2ODY1LDE1NTY1ODM4NjQsLTQxNjIwMDU1
-MCwtMTQwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0LDEzOT
-U5Mjk5MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIw
-MDM4MzQsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MD
-IsODYxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2
-MjgzODBdfQ==
+eyJoaXN0b3J5IjpbLTc0ODE2NjA5MywtMjEzMzQyNDY4MywtNj
+Q2OTQwMDUyLDU3NzgyMjQ3Myw1ODk0NTY4NjUsMTU1NjU4Mzg2
+NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMTc3Mzk0MjI5NywzNj
+I2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIx
+MjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OC
+wtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYy
+MzU1NzA4XX0=
 -->
