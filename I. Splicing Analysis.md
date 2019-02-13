@@ -136,7 +136,7 @@ head INCLUSION_LEVELS_MULTI-Hsa14-n.tab
 Format of the combine output is as follows: 
 https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-format
 
-## Compare Groups
+## Compare Groups & Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
 There are 2 approaches to comparing: 
@@ -529,11 +529,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxNjIwMDU1MCwtMTQwNjc0MTUzLDE3Nz
-M5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMTkzMjAz
-NzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMzNDYwLD
-EzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC0xOTA2
-Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NTg3MDE0NC
-wtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2NDYwMCwxOTg0
-NTQxNjc1XX0=
+eyJoaXN0b3J5IjpbLTE4ODM5NzA5MTQsLTQxNjIwMDU1MCwtMT
+QwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5
+MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4Mz
+QsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYx
+Mzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzOD
+AsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0
+NDg2NDYwMF19
 -->
