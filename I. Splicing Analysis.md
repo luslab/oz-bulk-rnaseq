@@ -144,7 +144,23 @@ As CAMP R module doesn't have psiplots R package need to create a conda environm
 ml Anaconda2
 source activate rtest
 
-# To create a conda environment from scratch
+ml R/3.5.1-foss-2016b-bare
+R
+library("ggplot2")
+library("optparse")
+library("MASS")
+library("RColorBrewer")
+library("reshape2")
+library("grid")
+library("devtools")
+library("psiplot")
+library("optparse")
+#quit R in cluster
+q()
+#save workspace image
+```
+To create a conda environment from scratch
+```bash
 conda create -n rtest r-essentials r-devtools
 source activate rtest
 # install the package normally by calling R
@@ -154,8 +170,6 @@ install.packages("optparse")
 #to deactivate environment
 > source deactivate
 ```
-
-PSI = percent spliced in
 
 Set up R with modules loaded in conda environment
 ```bash
@@ -173,6 +187,7 @@ library("psiplot")
 library("optparse")
 #quit R in cluster
 q()
+#save workspace image
 ```
 run vastools compare in conda environment outside of R
 
@@ -534,7 +549,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MDk4NTMyMywtNDE2MjAwNTUwLC0xND
+eyJoaXN0b3J5IjpbMTg0Njc4MDA3NCwtNDE2MjAwNTUwLC0xND
 A2NzQxNTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTky
 MiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNC
 w3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4NjEz
