@@ -188,8 +188,6 @@ This performs the VAST-tools Compare & Diff commands on each of the WT & VCP tim
 
 ### Mutant Effect
 
-
-
 ```bash
 #run on cluster
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
@@ -530,11 +528,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg5NDU2ODY1LDE1NTY1ODM4NjQsLTQxNj
-IwMDU1MCwtMTQwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0
-LDEzOTU5Mjk5MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLT
-IwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0
-MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOC
-wzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4
-MDMwNjQ3XX0=
+eyJoaXN0b3J5IjpbLTU4Mzc1ODU4Nyw1ODk0NTY4NjUsMTU1Nj
+U4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMTc3Mzk0MjI5
+NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMT
+g0NTIxMjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3Mjkx
+NzM4OCwtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3Mi
+wtMTYyMzU1NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYy
+NTI5NjddfQ==
 -->
