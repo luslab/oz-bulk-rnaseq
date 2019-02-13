@@ -217,7 +217,7 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 ```
 
 ## Coverage for introns of interest
-To perform the more focussed analysis on the 167 retained introns identified using VAST-tools, use this script in R which  calculates a ratio of intron sequence coverage and surrounding exons. 
+To perform the more focussed analysis on the 167 retained introns identified using VAST-tools, use `import_VARTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention` to be run in R which calculates a ratio of intron sequence coverage and surrounding exons. 
 
 1. First check that the gene where the event is occurring is expressed. 
 2. Then check the event exhibits a change over time of at least 10%. 
@@ -510,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzI3MjM4NTksMTU2MDk1MjMzMCwtNj
-IzMTQxODUyLC0yMTMzNDI0NjgzLC02NDY5NDAwNTIsNTc3ODIy
-NDczLDU4OTQ1Njg2NSwxNTU2NTgzODY0LC00MTYyMDA1NTAsLT
-E0MDY3NDE1MywxNzczOTQyMjk3LDM2MjYzOTUxNCwxMzk1OTI5
-OTIyLC0xMTE5MzIwMzc1LC0xODQ1MjEyNDQ3LC0yMDkyMDAzOD
-M0LDcwNzkzMzQ2MCwxMzcyOTE3Mzg4LC0xMjU3NDIzNDAyLDg2
-MTM5NDI2MV19
+eyJoaXN0b3J5IjpbLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMz
+E0MTg1MiwtMjEzMzQyNDY4MywtNjQ2OTQwMDUyLDU3NzgyMjQ3
+Myw1ODk0NTY4NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC0xND
+A2NzQxNTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTky
+MiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNC
+w3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4NjEz
+OTQyNjFdfQ==
 -->
