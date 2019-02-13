@@ -140,8 +140,8 @@ https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-for
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 
--   `compare`: pre-filters the events based on read coverage, imbalance and other features, and simply compares average and individual dPSIs. That is, it looks for non-overlapping PSI distributions based on fixed dPSI cut-offs. For more than 3 replicates, it is likely to be too stringent.
--   `diff`: performs a statistical test to assess whether the PSI distributions of the two compared groups are signficantly different. It is possible to pre-filter the events based on the minimum number of reads per sample, but subsequent filtering is highly recommended (e.g. overlapping the results with the output of  `tidy`). For more than 5 samples per group it may also be over stringent.
+-   `compare`: pre-filters the events based on read coverage, imbalance and other features, and simply compares average and individual dPSIs. It looks for non-overlapping PSI distributions based on fixed dPSI cut-offs. For more than 3 replicates, it is likely to be too stringent.
+-   `diff`: performs a statistical test to assess whether the PSI distributions of the two compared groups are significantly different. It is possible to pre-filter the events based on the minimum number of reads per sample, but subsequent filtering is highly recommended (e.g. overlapping the results with the output of  `tidy`). For more than 5 samples per group it may also be over stringent.
 
 
 As CAMP R module doesn't have psiplots R package need to create a conda environment to install packages. Once this environment has been made it is saved for future and can be activated using `source activate`. Then load relevant R module tools within the conda environment.
@@ -510,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NjYxNzY4MCwtNjIzMTQxODUyLC0yMT
-MzNDI0NjgzLC02NDY5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2
-NSwxNTU2NTgzODY0LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNz
-czOTQyMjk3LDM2MjYzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIw
-Mzc1LC0xODQ1MjEyNDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MC
-wxMzcyOTE3Mzg4LC0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkw
-NjY4NTcyXX0=
+eyJoaXN0b3J5IjpbNjA4MDc4ODM2LC02MjMxNDE4NTIsLTIxMz
+M0MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5NDU2ODY1
+LDE1NTY1ODM4NjQsLTQxNjIwMDU1MCwtMTQwNjc0MTUzLDE3Nz
+M5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMTkzMjAz
+NzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMzNDYwLD
+EzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC0xOTA2
+Njg1NzJdfQ==
 -->
