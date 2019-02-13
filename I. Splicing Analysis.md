@@ -115,7 +115,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v --noAN
 # run vast-tools combine using new v2.0.0 ANNOT tool - identifies annotated exon-exon reads
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
-##ANNOT = identifies & profiles annotated exons
+##ANNOT = identifies & profiles annotated exons. This is the novel feature of v.2.0.0
 ##COMBI = splice site based pipeline
 ##EXSK = only alternative Exons are considered. Transcript based pipeline, single.
 ##MIC = microexon pipeline
@@ -530,11 +530,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMT
-g0NTIxMjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3Mjkx
-NzM4OCwtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3Mi
-wtMTYyMzU1NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYy
-NTI5NjcsLTEzMTgwMzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2Nz
-UsMTkzNTE2MTk3OSwxODE0MzY1OTYwLC0xODg5OTc0OTI1LC05
-NzMzMTg0XX0=
+eyJoaXN0b3J5IjpbMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMT
+kzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMz
+NDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC
+0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NTg3
+MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2NDYwMC
+wxOTg0NTQxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMTg4
+OTk3NDkyNV19
 -->
