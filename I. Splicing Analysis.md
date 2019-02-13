@@ -205,7 +205,7 @@ Output file is created in directory of input file. This reports the differential
 
 Output file of diff command = INCLUSION-FILTERED.tab
 
-### View output files
+### View diff output files
 ```bash
 order tab file by MV value:
 more INCLUSION-FILTERED.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }'
@@ -509,11 +509,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA3OTc3NDk2LC0yNjI3ODc5OSwxNTYwOT
-UyMzMwLC02MjMxNDE4NTIsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1
-Miw1Nzc4MjI0NzMsNTg5NDU2ODY1LDE1NTY1ODM4NjQsLTQxNj
-IwMDU1MCwtMTQwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0
-LDEzOTU5Mjk5MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLT
-IwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0
-MjM0MDJdfQ==
+eyJoaXN0b3J5IjpbLTE2OTI0Nzk2NjcsMzA3OTc3NDk2LC0yNj
+I3ODc5OSwxNTYwOTUyMzMwLC02MjMxNDE4NTIsLTIxMzM0MjQ2
+ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5NDU2ODY1LDE1NT
+Y1ODM4NjQsLTQxNjIwMDU1MCwtMTQwNjc0MTUzLDE3NzM5NDIy
+OTcsMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMTkzMjAzNzUsLT
+E4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5
+MTczODhdfQ==
 -->
