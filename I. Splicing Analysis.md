@@ -169,7 +169,6 @@ conda create -n rtest r-essentials r-devtools
 source activate rtest
 # install the package normally by calling R
 R
-devtools::install_github("kcha/psiplot") # this install didnt work
 install.packages("optparse")
 install.packages("ggplot2")
 install.packages("MASS")
@@ -177,6 +176,7 @@ install.packages("RColorBrewer")
 install.packages("reshape2")
 install.packages("devtools")
 install.packages("psiplot")
+devtools::install_github("kcha/psiplot")
 #to deactivate environment
 > source deactivate
 ```
@@ -510,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA4MDc4ODM2LC02MjMxNDE4NTIsLTIxMz
-M0MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5NDU2ODY1
-LDE1NTY1ODM4NjQsLTQxNjIwMDU1MCwtMTQwNjc0MTUzLDE3Nz
-M5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMTkzMjAz
-NzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMzNDYwLD
-EzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC0xOTA2
-Njg1NzJdfQ==
+eyJoaXN0b3J5IjpbMTU2MDk1MjMzMCwtNjIzMTQxODUyLC0yMT
+MzNDI0NjgzLC02NDY5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2
+NSwxNTU2NTgzODY0LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNz
+czOTQyMjk3LDM2MjYzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIw
+Mzc1LC0xODQ1MjEyNDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MC
+wxMzcyOTE3Mzg4LC0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkw
+NjY4NTcyXX0=
 -->
