@@ -145,7 +145,10 @@ There are 2 approaches to comparing:
 
 ### Time Effect
 
+```bash
+mkdir /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
+```
 
 Run the script `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
 Run the Compare step for each of the WT & VCP comparisons.
@@ -526,11 +529,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjUwMjM3ODEsMTc3Mzk0MjI5NywzNj
-I2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIx
-MjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OC
-wtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYy
-MzU1NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5Nj
-csLTEzMTgwMzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkz
-NTE2MTk3OV19
+eyJoaXN0b3J5IjpbLTE0MDY3NDE1MywxNzczOTQyMjk3LDM2Mj
+YzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIwMzc1LC0xODQ1MjEy
+NDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MCwxMzcyOTE3Mzg4LC
+0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC0xNjIz
+NTU3MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1Mjk2Ny
+wtMTMxODAzMDY0Nyw5NDQ4NjQ2MDAsMTk4NDU0MTY3NSwxOTM1
+MTYxOTc5XX0=
 -->
