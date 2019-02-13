@@ -190,22 +190,14 @@ This performs the VAST-tools Compare & Diff commands on each of the WT & VCP tim
 
 ### Mutant Effect
 
-```bash
-#run on cluster
-IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
-```
+Run the Compare MUTATION-EFFECT section of the script in `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
+
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 Output file is created in directory of input file. This reports the differentially spliced AS events between the 2 groups (based on difference in average inclusion levels - delta PSI)
 
-Run vast-tools diff command
-```bash
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -r 0.99 -m 0.2 -d diff.splicing_r0.99_mv0.2 -c 8"
-# use the -m argument to set threshold for differential splicing events (default is 0.1)
-```
 Output file = diff.splicing.pdf & diff.splicing.tab
 
+View output files:
 ```bash
 order tab file by MV value:
 more diff.splicing_mv0.2.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }'
@@ -510,11 +502,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc3ODIyNDczLDU4OTQ1Njg2NSwxNTU2NT
-gzODY0LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNzczOTQyMjk3
-LDM2MjYzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIwMzc1LC0xOD
-Q1MjEyNDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MCwxMzcyOTE3
-Mzg4LC0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC
-0xNjIzNTU3MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1
-Mjk2N119
+eyJoaXN0b3J5IjpbLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5ND
+U2ODY1LDE1NTY1ODM4NjQsLTQxNjIwMDU1MCwtMTQwNjc0MTUz
+LDE3NzM5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMT
+kzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMz
+NDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC
+0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NTg3
+MDE0NF19
 -->
