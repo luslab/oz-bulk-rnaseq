@@ -128,7 +128,8 @@ cd raw_incl
 head INCLUSION_LEVELS_ANNOT-Hsa14-n.tab
 head INCLUSION_LEVELS_COMBI-Hsa14-n.tab
 head INCLUSION_LEVELS_EXSK-Hsa14-n.tab
-head 
+head INCLUSION_LEVELS_MIC-Hsa14-n.tab
+head INCLUSION_LEVELS_MULTI-Hsa14-n.tab
 ```
 Format of the combine output is as follows: 
 https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-format
@@ -528,11 +529,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MjMzMjgxMSwtMTg0NTIxMjQ0NywtMj
-A5MjAwMzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQy
-MzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LD
-M5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgw
-MzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OS
-wxODE0MzY1OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0LC0xMDQ0
-MzcxODUwXX0=
+eyJoaXN0b3J5IjpbLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLT
+IwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0
+MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOC
+wzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4
+MDMwNjQ3LDk0NDg2NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5Nz
+ksMTgxNDM2NTk2MCwtMTg4OTk3NDkyNSwtOTczMzE4NCwtMTA0
+NDM3MTg1MF19
 -->
