@@ -163,7 +163,7 @@ library("psiplot")
 q()
 #save workspace image
 ```
-If needed, to create a conda environment from scratch:
+To create a conda environment from scratch:
 ```bash
 conda create -n rtest r-essentials r-devtools
 source activate rtest
@@ -183,7 +183,7 @@ devtools::install_github("kcha/psiplot")
 run `vast-tools compare` and `vast-tools diff` in the conda environment outside of R
 
 There are 2 approaches to comparing samples: 
-1. Time effect (delta change in differential splicing between different time points of iPSC differentiation in CTRLs and VCPs independently)
+1. Time effect (delta change in differential splicing between different time points of iPSC differentiation in CTRLs and VCPs independently). Effectively is a pair-wise analysis like repeated measures but between 2 time points only.
 2.  Mutant effect (VCP vs CTRL at specified time points)
 
 ### Time Effect
@@ -510,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2MDk1MjMzMCwtNjIzMTQxODUyLC0yMT
-MzNDI0NjgzLC02NDY5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2
-NSwxNTU2NTgzODY0LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNz
-czOTQyMjk3LDM2MjYzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIw
-Mzc1LC0xODQ1MjEyNDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MC
-wxMzcyOTE3Mzg4LC0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkw
-NjY4NTcyXX0=
+eyJoaXN0b3J5IjpbMjA2MTU5NTI3OSwxNTYwOTUyMzMwLC02Mj
+MxNDE4NTIsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0
+NzMsNTg5NDU2ODY1LDE1NTY1ODM4NjQsLTQxNjIwMDU1MCwtMT
+QwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5
+MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4Mz
+QsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYx
+Mzk0MjYxXX0=
 -->
