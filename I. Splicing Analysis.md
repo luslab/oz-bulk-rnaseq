@@ -143,7 +143,6 @@ https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 -   `compare`: pre-filters the events based on read coverage, imbalance and other features, and simply compares average and individual dPSIs. It looks for non-overlapping PSI distributions based on fixed dPSI cut-offs. For more than 3 replicates, it is likely to be too stringent.
 -   `diff`: performs a statistical test to assess whether the PSI distributions of the two compared groups are significantly different. It is possible to pre-filter the events based on the minimum number of reads per sample, but subsequent filtering is highly recommended (e.g. overlapping the results with the output of  `tidy`). For more than 5 samples per group it may also be over stringent.
 
-
 As CAMP R module doesn't have psiplots R package need to create a conda environment to install packages. Once this environment has been made it is saved for future and can be activated using `source activate`. Then load relevant R module tools within the conda environment.
 ```bash
 ml Anaconda2
@@ -177,10 +176,11 @@ install.packages("reshape2")
 install.packages("devtools")
 install.packages("psiplot")
 devtools::install_github("kcha/psiplot")
+
 #to deactivate environment
 > source deactivate
 ```
-run `vast-tools compare` and `vast-tools diff` in the conda environment outside of R
+run `vast-tools compare` and `vast-tools diff` in this rtest conda environment outside of R
 
 There are 2 approaches to comparing samples: 
 1. Time effect (delta change in differential splicing between different time points of iPSC differentiation in CTRLs and VCPs independently). Effectively is a pair-wise analysis like repeated measures but between 2 time points only.
@@ -205,15 +205,15 @@ Output file is created in directory of input file. This reports the differential
 
 Output file of diff command = INCLUSION-FILTERED.tab
 
-View output files:
+### View output files
 ```bash
 order tab file by MV value:
 more INCLUSION-FILTERED.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }'
 
 # count number of genes with MV > X:
-awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | wc -l
+awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | wc -l
 # count number of genes with +ve intron retention (VCP vs CTRL):
-awk '{ if ($6 >= 0.2) { print } }' diff.splicing_mv0.2.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
+awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
 
 ## Coverage for introns of interest
@@ -510,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MTU5NTI3OSwxNTYwOTUyMzMwLC02Mj
-MxNDE4NTIsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0
-NzMsNTg5NDU2ODY1LDE1NTY1ODM4NjQsLTQxNjIwMDU1MCwtMT
-QwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5
-MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4Mz
-QsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYx
-Mzk0MjYxXX0=
+eyJoaXN0b3J5IjpbLTE2MzI3MjM4NTksMTU2MDk1MjMzMCwtNj
+IzMTQxODUyLC0yMTMzNDI0NjgzLC02NDY5NDAwNTIsNTc3ODIy
+NDczLDU4OTQ1Njg2NSwxNTU2NTgzODY0LC00MTYyMDA1NTAsLT
+E0MDY3NDE1MywxNzczOTQyMjk3LDM2MjYzOTUxNCwxMzk1OTI5
+OTIyLC0xMTE5MzIwMzc1LC0xODQ1MjEyNDQ3LC0yMDkyMDAzOD
+M0LDcwNzkzMzQ2MCwxMzcyOTE3Mzg4LC0xMjU3NDIzNDAyLDg2
+MTM5NDI2MV19
 -->
