@@ -150,14 +150,6 @@ INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_t
 Run the script `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
 Run the Compare step for each of the WT & VCP comparisons.
 
-SAMPLE_A=WT.d0
-SAMPLE_B=WT.d35
-mkdir /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/time_effect/wt_d35
-cd /SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/time_effect/wt_d35
-cp $INFILE .
-vast-tools diff -i ${INFILE} -c 8 -a ${SAMPLE_A} -b ${SAMPLE_B} > INCLUSION-FILTERED.tab
-vast-tools compare INCLUSION_LEVELS_FULL-Hsa10.tab -a ${SAMPLE_A} -b ${SAMPLE_B} --min_dPSI 15 --min_range 5 --GO -sp Hsa
-
 ### Mutant Effect
 
 As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
@@ -534,11 +526,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NT
-kyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAw
-MzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMi
-w4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYy
-ODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2ND
-csOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OSwxODE0
-MzY1OTYwXX0=
+eyJoaXN0b3J5IjpbLTExNjUwMjM3ODEsMTc3Mzk0MjI5NywzNj
+I2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIx
+MjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OC
+wtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYy
+MzU1NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5Nj
+csLTEzMTgwMzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkz
+NTE2MTk3OV19
 -->
