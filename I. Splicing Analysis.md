@@ -168,6 +168,13 @@ source activate rtest
 R
 devtools::install_github("kcha/psiplot")
 install.packages("optparse")
+install.packages("ggplot2")
+install.packages("MASS")
+install.packages("RColorBrewer")
+install.packages("reshape2")
+install.packages("grid")
+install.packages("devtools")
+install.packages("psiplot")
 #to deactivate environment
 > source deactivate
 ```
@@ -501,11 +508,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0ODE2NjA5MywtMjEzMzQyNDY4MywtNj
-Q2OTQwMDUyLDU3NzgyMjQ3Myw1ODk0NTY4NjUsMTU1NjU4Mzg2
-NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMTc3Mzk0MjI5NywzNj
-I2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIx
-MjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OC
-wtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYy
-MzU1NzA4XX0=
+eyJoaXN0b3J5IjpbMTY3Mjc3NTEyLC0yMTMzNDI0NjgzLC02ND
+Y5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2NSwxNTU2NTgzODY0
+LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNzczOTQyMjk3LDM2Mj
+YzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIwMzc1LC0xODQ1MjEy
+NDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MCwxMzcyOTE3Mzg4LC
+0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC0xNjIz
+NTU3MDhdfQ==
 -->
