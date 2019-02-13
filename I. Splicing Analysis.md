@@ -147,7 +147,8 @@ There are 2 approaches to comparing:
 
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
 
-Run the script 
+Run the script `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
+Run the Compare step for each of the WT & VCP comparisons.
 
 SAMPLE_A=WT.d0
 SAMPLE_B=WT.d35
@@ -533,7 +534,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MzM1MDYwNywzNjI2Mzk1MTQsMTM5NT
+eyJoaXN0b3J5IjpbMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NT
 kyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAw
 MzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMi
 w4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYy
