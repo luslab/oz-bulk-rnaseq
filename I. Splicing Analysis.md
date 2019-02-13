@@ -156,6 +156,7 @@ library("MASS")
 library("RColorBrewer")
 library("reshape2")
 library("grid")
+library("parallel")
 library("devtools")
 library("psiplot")
 #quit R in cluster
@@ -509,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTI0Nzk2NjcsMzA3OTc3NDk2LC0yNj
-I3ODc5OSwxNTYwOTUyMzMwLC02MjMxNDE4NTIsLTIxMzM0MjQ2
-ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5NDU2ODY1LDE1NT
-Y1ODM4NjQsLTQxNjIwMDU1MCwtMTQwNjc0MTUzLDE3NzM5NDIy
-OTcsMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMTkzMjAzNzUsLT
-E4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5
-MTczODhdfQ==
+eyJoaXN0b3J5IjpbMTgyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMD
+c5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMzE0MTg1
+MiwtMjEzMzQyNDY4MywtNjQ2OTQwMDUyLDU3NzgyMjQ3Myw1OD
+k0NTY4NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQx
+NTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMT
+ExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNCw3MDc5
+MzM0NjBdfQ==
 -->
