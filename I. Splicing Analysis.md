@@ -123,9 +123,10 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 
 #check output
 ## old legacy table
+cd vast_out
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 ## new v2.0.0
-cd raw_incl
+cd vast_out/raw_incl
 head INCLUSION_LEVELS_ANNOT-Hsa14-n.tab
 head INCLUSION_LEVELS_COMBI-Hsa14-n.tab
 head INCLUSION_LEVELS_EXSK-Hsa14-n.tab
@@ -144,7 +145,7 @@ There are 2 approaches to comparing:
 
 ### Time Effect
 
-INFILE=/SAN/luscombelab/general/rluisier/UleLab/VCP_neurones/Splicing/VCFTOOLS/INCLUSION_LEVELS_FULL-Hsa10.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
 
 SAMPLE_A=WT.d0
 SAMPLE_B=WT.d35
@@ -530,11 +531,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYyNjM5NTE0LDEzOTU5Mjk5MjIsLTExMT
-kzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNzA3OTMz
-NDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0MjYxLC
-0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLTQ4NTg3
-MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2NDYwMC
-wxOTg0NTQxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MCwtMTg4
-OTk3NDkyNV19
+eyJoaXN0b3J5IjpbLTU2NjI4MjgxMiwzNjI2Mzk1MTQsMTM5NT
+kyOTkyMiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAw
+MzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMi
+w4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYy
+ODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2ND
+csOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OSwxODE0
+MzY1OTYwXX0=
 -->
