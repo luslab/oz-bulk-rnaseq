@@ -197,7 +197,6 @@ Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_ex
 Output file is created in directory of input file. This reports the differentially spliced AS events between the 2 groups (based on difference in average inclusion levels - delta PSI)
 
 ## Differential Splicing Analysis
-https://github.com/vastgroup/vast-tools#differential-splicing-analysis
 Test for differential alternative splicing between 2 groups of samples.
 
 ```bash
@@ -528,7 +527,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4Mzc1ODU4Nyw1ODk0NTY4NjUsMTU1Nj
+eyJoaXN0b3J5IjpbLTUyNzYwMzkxOCw1ODk0NTY4NjUsMTU1Nj
 U4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMTc3Mzk0MjI5
 NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMT
 g0NTIxMjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3Mjkx
