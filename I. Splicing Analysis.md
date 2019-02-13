@@ -121,7 +121,14 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
 ##MULTI = transcript based pipeline, multiexon
 
 #check output
+## old legacy table
 head INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
+## new v2.0.0
+cd raw_incl
+head INCLUSION_LEVELS_ANNOT-Hsa14-n.tab
+head INCLUSION_LEVELS_COMBI-Hsa14-n.tab
+head INCLUSION_LEVELS_EXSK-Hsa14-n.tab
+head 
 ```
 Format of the combine output is as follows: 
 https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-format
@@ -521,11 +528,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDUyMTI0NDcsLTIwOTIwMDM4MzQsNz
-A3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYxMzk0
-MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzODAsLT
-Q4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0NDg2
-NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5NzksMTgxNDM2NTk2MC
-wtMTg4OTk3NDkyNSwtOTczMzE4NCwtMTA0NDM3MTg1MCwxNTA3
-NDg5NDI5XX0=
+eyJoaXN0b3J5IjpbLTI3MjMzMjgxMSwtMTg0NTIxMjQ0NywtMj
+A5MjAwMzgzNCw3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQy
+MzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LD
+M5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgw
+MzA2NDcsOTQ0ODY0NjAwLDE5ODQ1NDE2NzUsMTkzNTE2MTk3OS
+wxODE0MzY1OTYwLC0xODg5OTc0OTI1LC05NzMzMTg0LC0xMDQ0
+MzcxODUwXX0=
 -->
