@@ -138,6 +138,8 @@ https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-for
 
 ## Compare Groups & Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
+https://github.com/vastgroup/vast-tools#differential-splicing-analysis
+
 
 As CAMP R module doesn't have psiplots R package need to create a conda environment to install packages. Once this environment has been made it is saved for future and can be activated using `source activate`. Then load relevant R module tools within the conda environment.
 ```bash
@@ -196,27 +198,8 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare $IN -a SRR5483788_1,SRR54
 Can use VAST-TOOLS here to calculate differentially expressed genes: `compare_expr`
 Output file is created in directory of input file. This reports the differentially spliced AS events between the 2 groups (based on difference in average inclusion levels - delta PSI)
 
-## Differential Splicing Analysis
-Test for differential alternative splicing between 2 groups of samples.
-
+Run vast-tools diff command
 ```bash
-ml Anaconda2
-ml R
-
-#create conda environment
-source activate rtest
-
-R
-library("ggplot2")
-library("optparse")
-library("MASS")
-library("RColorBrewer")
-library("reshape2")
-library("grid")
-library("psiplot")
-#quit R in cluster
-q()
-
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 --sampleNameA=VCP --sampleNameB=CTRL -o $OUT -r 0.99 -m 0.2 -d diff.splicing_r0.99_mv0.2 -c 8"
 # use the -m argument to set threshold for differential splicing events (default is 0.1)
@@ -527,11 +510,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyNzYwMzkxOCw1ODk0NTY4NjUsMTU1Nj
-U4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMTc3Mzk0MjI5
-NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMyMDM3NSwtMT
-g0NTIxMjQ0NywtMjA5MjAwMzgzNCw3MDc5MzM0NjAsMTM3Mjkx
-NzM4OCwtMTI1NzQyMzQwMiw4NjEzOTQyNjEsLTE5MDY2ODU3Mi
-wtMTYyMzU1NzA4LDM5NzYyODM4MCwtNDg1ODcwMTQ0LC02MjYy
-NTI5NjddfQ==
+eyJoaXN0b3J5IjpbNTc3ODIyNDczLDU4OTQ1Njg2NSwxNTU2NT
+gzODY0LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNzczOTQyMjk3
+LDM2MjYzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIwMzc1LC0xOD
+Q1MjEyNDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MCwxMzcyOTE3
+Mzg4LC0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC
+0xNjIzNTU3MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1
+Mjk2N119
 -->
