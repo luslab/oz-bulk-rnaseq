@@ -224,7 +224,6 @@ To perform the more focussed analysis on the 167 retained introns identified usi
 3. Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
 
 Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
-The `import_VARTOOLS.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
 To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons. Then select the events of interest. The `get_relative_coverage_interactive.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
@@ -510,11 +509,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMz
-E0MTg1MiwtMjEzMzQyNDY4MywtNjQ2OTQwMDUyLDU3NzgyMjQ3
-Myw1ODk0NTY4NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC0xND
-A2NzQxNTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTky
-MiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNC
-w3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4NjEz
-OTQyNjFdfQ==
+eyJoaXN0b3J5IjpbMzA3OTc3NDk2LC0yNjI3ODc5OSwxNTYwOT
+UyMzMwLC02MjMxNDE4NTIsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1
+Miw1Nzc4MjI0NzMsNTg5NDU2ODY1LDE1NTY1ODM4NjQsLTQxNj
+IwMDU1MCwtMTQwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0
+LDEzOTU5Mjk5MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLT
+IwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0
+MjM0MDJdfQ==
 -->
