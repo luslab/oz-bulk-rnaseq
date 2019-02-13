@@ -139,22 +139,6 @@ https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-for
 ## Compare Groups & Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
-There are 2 approaches to comparing: 
-1. Time effect (delta change in differential splicing between different time points of iPSC differentiation)
-2.  Mutant effect (VCP vs CTRL at specified time points)
-
-### Time Effect
-
-```bash
-mkdir /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
-```
-
-Run the script in `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
-Run the Compare step for each of the WT & VCP time-point comparisons.
-
-### Mutant Effect
-
 As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
 ```bash
 ml Anaconda2
@@ -189,6 +173,25 @@ library("optparse")
 q()
 ```
 run vastools compare in conda environment outside of R
+
+There are 2 approaches to comparing: 
+1. Time effect (delta change in differential splicing between different time points of iPSC differentiation)
+2.  Mutant effect (VCP vs CTRL at specified time points)
+
+### Time Effect
+
+```bash
+mkdir /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
+```
+
+Run the script in `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
+Run the Compare step for each of the WT & VCP time-point comparisons
+
+### Mutant Effect
+
+
+
 ```bash
 #run on cluster
 IN=/home/camp/ziffo/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
@@ -529,11 +532,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODM5NzA5MTQsLTQxNjIwMDU1MCwtMT
-QwNjc0MTUzLDE3NzM5NDIyOTcsMzYyNjM5NTE0LDEzOTU5Mjk5
-MjIsLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLTIwOTIwMDM4Mz
-QsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0MjM0MDIsODYx
-Mzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOCwzOTc2MjgzOD
-AsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4MDMwNjQ3LDk0
-NDg2NDYwMF19
+eyJoaXN0b3J5IjpbLTUwNzA5MTE0MiwtNDE2MjAwNTUwLC0xND
+A2NzQxNTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTky
+MiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNC
+w3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4NjEz
+OTQyNjEsLTE5MDY2ODU3MiwtMTYyMzU1NzA4LDM5NzYyODM4MC
+wtNDg1ODcwMTQ0LC02MjYyNTI5NjcsLTEzMTgwMzA2NDcsOTQ0
+ODY0NjAwXX0=
 -->
