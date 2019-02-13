@@ -98,6 +98,7 @@ vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa --move_to_PARTS
 ```
 
 ## Combining results
+ml R
 https://github.com/vastgroup/vast-tools#combining-results
 
 About 2G of memory required; completed in about 10 min
@@ -529,11 +530,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTkzMjAzNzUsLTE4NDUyMTI0NDcsLT
-IwOTIwMDM4MzQsNzA3OTMzNDYwLDEzNzI5MTczODgsLTEyNTc0
-MjM0MDIsODYxMzk0MjYxLC0xOTA2Njg1NzIsLTE2MjM1NTcwOC
-wzOTc2MjgzODAsLTQ4NTg3MDE0NCwtNjI2MjUyOTY3LC0xMzE4
-MDMwNjQ3LDk0NDg2NDYwMCwxOTg0NTQxNjc1LDE5MzUxNjE5Nz
-ksMTgxNDM2NTk2MCwtMTg4OTk3NDkyNSwtOTczMzE4NCwtMTA0
-NDM3MTg1MF19
+eyJoaXN0b3J5IjpbNzc4NDg5MzI0LC0xMTE5MzIwMzc1LC0xOD
+Q1MjEyNDQ3LC0yMDkyMDAzODM0LDcwNzkzMzQ2MCwxMzcyOTE3
+Mzg4LC0xMjU3NDIzNDAyLDg2MTM5NDI2MSwtMTkwNjY4NTcyLC
+0xNjIzNTU3MDgsMzk3NjI4MzgwLC00ODU4NzAxNDQsLTYyNjI1
+Mjk2NywtMTMxODAzMDY0Nyw5NDQ4NjQ2MDAsMTk4NDU0MTY3NS
+wxOTM1MTYxOTc5LDE4MTQzNjU5NjAsLTE4ODk5NzQ5MjUsLTk3
+MzMxODRdfQ==
 -->
