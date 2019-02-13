@@ -139,10 +139,12 @@ https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-for
 ## Compare Groups & Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 
-As CAMP R module doesnt have psiplots R package need to create a conda environment to install packages:
+As CAMP R module doesn't have psiplots R package need to create a conda environment to install packages. Once this environment has been made it is saved for future and can be activated using `source activate`
 ```bash
 ml Anaconda2
-#create conda environment
+source activate rtest
+
+# To create a conda environment from scratch
 conda create -n rtest r-essentials r-devtools
 source activate rtest
 # install the package normally by calling R
@@ -532,7 +534,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNzA5MTE0MiwtNDE2MjAwNTUwLC0xND
+eyJoaXN0b3J5IjpbLTQ1MDk4NTMyMywtNDE2MjAwNTUwLC0xND
 A2NzQxNTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTky
 MiwtMTExOTMyMDM3NSwtMTg0NTIxMjQ0NywtMjA5MjAwMzgzNC
 w3MDc5MzM0NjAsMTM3MjkxNzM4OCwtMTI1NzQyMzQwMiw4NjEz
