@@ -223,6 +223,8 @@ To perform the a focussed analysis of the 167 retained introns identified using 
 First use `import_VARTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`. Use Section C "Import time effect".
 Then run `get_relative_coverage_inteactive.R` script
 
+First run the global analysis to get the big picture of splicing events in VCP vs CTRL.
+Then run detailed 
 
 to be run in R which calculates a ratio of intron sequence coverage and surrounding exons. 
 
@@ -516,7 +518,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzgwMTIxOTgsLTQ4MzQ0ODA2MCwxMT
+eyJoaXN0b3J5IjpbLTE4MjUxNTA5MDQsLTQ4MzQ0ODA2MCwxMT
 cyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2OTI0Nzk2NjcsMzA3OTc3
 NDk2LC0yNjI3ODc5OSwxNTYwOTUyMzMwLC02MjMxNDE4NTIsLT
 IxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5NDU2
