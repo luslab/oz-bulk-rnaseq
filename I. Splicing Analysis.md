@@ -220,7 +220,7 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 ## Coverage for introns of interest
 To perform the a focussed analysis of the 167 retained introns identified using VAST-tools, 
 
-First use `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`. Use Section C "Import time effect".
+First use Section C "Import time effect" from `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention` 
 Then run `get_relative_coverage_inteactive.R` script.  
 This uses a combination of threshold but accounts for the depth of coverage between different samples. 
 
@@ -519,11 +519,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNz
-I5NzY3ODYsMTgyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0
-OTYsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMzE0MTg1MiwtMj
-EzMzQyNDY4MywtNjQ2OTQwMDUyLDU3NzgyMjQ3Myw1ODk0NTY4
-NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMT
-c3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMy
-MDM3NV19
+eyJoaXN0b3J5IjpbLTE2NDM2MzY0ODcsLTgzNDIyNDI4OCwtND
+gzNDQ4MDYwLDExNzI5NzY3ODYsMTgyMzQ4MDU2MiwtMTY5MjQ3
+OTY2NywzMDc5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLT
+YyMzE0MTg1MiwtMjEzMzQyNDY4MywtNjQ2OTQwMDUyLDU3Nzgy
+MjQ3Myw1ODk0NTY4NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC
+0xNDA2NzQxNTMsMTc3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTky
+OTkyMl19
 -->
