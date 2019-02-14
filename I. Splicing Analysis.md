@@ -221,8 +221,10 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 To perform the a focussed analysis of the 167 retained introns identified using VAST-tools, 
 
 Run Sections A, B,  C "Import time effect" from `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention` 
+
 Then run `get_relative_coverage_inteactive.R` script.  
-This uses a combination of threshold but accounts for the depth of coverage between different samples. 
+
+This approach uses a combination of threshold but accounts for the depth of coverage between different samples. Uses [MaxEntScan of 5' and 3' end](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) to identify splice sites. 
 
 First run the global analysis to get the big picture of splicing events in VCP vs CTRL.  SVD & PCA analysis clustering by mutation. 
 Then run detailed analysis according to specific genes or features. Multivariate analysis of the 2 VCP mutants. 
@@ -519,11 +521,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtOD
-M0MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgw
-NTYyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMT
-U2MDk1MjMzMCwtNjIzMTQxODUyLC0yMTMzNDI0NjgzLC02NDY5
-NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2NSwxNTU2NTgzODY0LC
-00MTYyMDA1NTAsLTE0MDY3NDE1MywxNzczOTQyMjk3LDM2MjYz
-OTUxNF19
+eyJoaXN0b3J5IjpbLTM0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNj
+QzNjM2NDg3LC04MzQyMjQyODgsLTQ4MzQ0ODA2MCwxMTcyOTc2
+Nzg2LDE4MjM0ODA1NjIsLTE2OTI0Nzk2NjcsMzA3OTc3NDk2LC
+0yNjI3ODc5OSwxNTYwOTUyMzMwLC02MjMxNDE4NTIsLTIxMzM0
+MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5NDU2ODY1LD
+E1NTY1ODM4NjQsLTQxNjIwMDU1MCwtMTQwNjc0MTUzLDE3NzM5
+NDIyOTddfQ==
 -->
