@@ -222,7 +222,7 @@ To perform the a focussed analysis of the 167 retained introns identified using 
 
 First use `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`. Use Section C "Import time effect".
 Then run `get_relative_coverage_inteactive.R` script.  
-This uses a com
+This uses a combination of threshold but accounts for the depth of coverage between different samples. 
 
 First run the global analysis to get the big picture of splicing events in VCP vs CTRL.  SVD & PCA analysis clustering by mutation. 
 Then run detailed analysis according to specific genes or features. Multivariate analysis of the 2 VCP mutants. 
@@ -519,11 +519,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgwMTcwMDQzLC00ODM0NDgwNjAsMTE3Mj
-k3Njc4NiwxODIzNDgwNTYyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5
-NiwtMjYyNzg3OTksMTU2MDk1MjMzMCwtNjIzMTQxODUyLC0yMT
-MzNDI0NjgzLC02NDY5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2
-NSwxNTU2NTgzODY0LC00MTYyMDA1NTAsLTE0MDY3NDE1MywxNz
-czOTQyMjk3LDM2MjYzOTUxNCwxMzk1OTI5OTIyLC0xMTE5MzIw
-Mzc1XX0=
+eyJoaXN0b3J5IjpbLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNz
+I5NzY3ODYsMTgyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0
+OTYsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMzE0MTg1MiwtMj
+EzMzQyNDY4MywtNjQ2OTQwMDUyLDU3NzgyMjQ3Myw1ODk0NTY4
+NjUsMTU1NjU4Mzg2NCwtNDE2MjAwNTUwLC0xNDA2NzQxNTMsMT
+c3Mzk0MjI5NywzNjI2Mzk1MTQsMTM5NTkyOTkyMiwtMTExOTMy
+MDM3NV19
 -->
