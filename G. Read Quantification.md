@@ -74,7 +74,7 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ml HTSeq
 ml Pysam
 
-Raphaelle uses R scripts called `SVD_htseqcount.R` and `nested_fun_svd_htseq.R` located in 
+Raphaelle uses R scripts called `SVD_htseqcount.R` and `nested_fun_svd_htseq.R` located in `oliver/scripts/intron_retention/`
 
 HTSeq-Counts is slow as you cant multithread.
 
@@ -214,7 +214,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NTAxMzg3MSw1MjczNzY3MTQsLTczOD
+eyJoaXN0b3J5IjpbMTk4NzIzMDAxNCw1MjczNzY3MTQsLTczOD
 MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
 LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
 IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
