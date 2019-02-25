@@ -74,6 +74,8 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ml HTSeq
 ml Pysam
 
+Raphaelle uses R scripts called `SVD_htseqcount.R` and `nested_fun_svd_htseq.R` located in 
+
 HTSeq-Counts is slow as you cant multithread.
 
 -   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
@@ -212,11 +214,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTIxMTM4NzUsNTI3Mzc2NzE0LC03Mz
-gzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1
-OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMz
-MyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIw
-Mzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcxNjgsLT
-UzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0ODksMzY3OTYy
-NjhdfQ==
+eyJoaXN0b3J5IjpbMTA5NTAxMzg3MSw1MjczNzY3MTQsLTczOD
+MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
+LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
+IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
+ODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2OCwtNT
+M4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2
+OF19
 -->
