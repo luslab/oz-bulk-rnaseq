@@ -227,7 +227,6 @@ Then run `get_relative_coverage_inteactive.R` script.
 Also note other R scripts:
 `characterise_introns.R`
 
-
 This approach uses a combination of threshold but accounts for the depth of coverage between different samples. Uses [MaxEntScan of 5' and 3' end](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) to identify splice sites. 
 
 First run the global analysis to get the big picture of splicing events in VCP vs CTRL.  SVD & PCA analysis clustering by mutation. 
@@ -525,7 +524,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMTQyMTUzMCwtMzQyNjA0MDc1LC04OT
+eyJoaXN0b3J5IjpbMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OT
 k0NTc0NDksLTE2NDM2MzY0ODcsLTgzNDIyNDI4OCwtNDgzNDQ4
 MDYwLDExNzI5NzY3ODYsMTgyMzQ4MDU2MiwtMTY5MjQ3OTY2Ny
 wzMDc5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMzE0
