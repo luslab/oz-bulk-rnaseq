@@ -27,7 +27,8 @@ Few exon-exon spanning genes.
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 - [IR Finder](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
 - SUPPA
-- 
+
+Annotated versus novel exploratorary events. 
 
 # Gene Isoform counting
 
@@ -527,7 +528,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODczNDU0MzE0LDEyODAxNjgwMDgsLTM0Mj
+eyJoaXN0b3J5IjpbNzYwMjQ0MjIwLDEyODAxNjgwMDgsLTM0Mj
 YwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQy
 ODgsLTQ4MzQ0ODA2MCwxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLT
 E2OTI0Nzk2NjcsMzA3OTc3NDk2LC0yNjI3ODc5OSwxNTYwOTUy
