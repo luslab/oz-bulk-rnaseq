@@ -99,6 +99,7 @@ awk '/rRNA|tRNA|Mt_rRNA|Mt_tRNA|miRNA|misc_RNA|snRNA|snoRNA/{print $0}' gencode.
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' temp.gtf > gencode.v28_ribosomal.gtf
 gtf2bed < gencode.v28_ribosomal.gtf > gencode.v28_ribosomal.bed
 sed -i -r 's/^([0-9]+|[XY]|MT)/chr\1/' gencode.v28_ribosomal.bed
+# mv ribosomal.bed to ribosomal/
 ```
 
 2. Index the rRNA reference genome
@@ -109,8 +110,7 @@ ml SAMtools
 ml BWA
 
 ```bash
-#
-
+# cd to annotation/ribosomal/
 #BEDTools (any many other programs) need TABS, not spaces.
 #sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed
 #mv temp.bed Homo_sapiens.GRCh38.77_ribosomal.bed
@@ -176,7 +176,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc5NDA5ODczLDkwOTcxMzc0Niw3MjA3MD
-M5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAwNTMs
-OTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNz
+AzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUz
+LDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIyXX0=
 -->
