@@ -122,9 +122,9 @@ samtools faidx gencode.v28_ribosomal.fa
 Once the rRNA reference genome is created & indexed then **map sequences** to the rRNA & tRNA genome
 
 ```bash
-#set shortcuts
-##set the desired name of the output fastq file with the RNA aligned reads depleted
-OUTPUT=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_no_rRNA.fq
+# set shortcuts
+## set the desired name of the output fastq file with the RNA aligned reads depleted
+OUTPUT=/home/camp/ziffo/working/oliver/projects/airals/read/D0_samples/rRNA_depleted/SRR5483788_1_no_rRNA.fq
 ##set reference genome as the ribosomal genome
 REF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal
 ##set the input fastq file
@@ -171,7 +171,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxNzgxOTc3NSwxMDY5NjAwMjc3LDY0Nz
-IyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4MjAy
-Ml19
+eyJoaXN0b3J5IjpbLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2ND
+cyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIw
+MjJdfQ==
 -->
