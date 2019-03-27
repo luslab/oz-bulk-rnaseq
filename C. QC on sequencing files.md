@@ -55,7 +55,7 @@ https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Mo
 https://www.youtube.com/watch?v=qPbIlO_KWN0
 
 # Filter low quality bases & Trim adapters (Essential Step)
-
+ml Trim_Galore
 
 There are many QC tools available (most in bash but some in R - bioconductor) each with basic QC methods plus unique functionality. Best ones include:
 `Trimmomatic`  application note in Nucleic Acid Research, 2012, web server issue
@@ -170,6 +170,6 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg4MjUyMzg1LDk5MDAwNDgxMSwtMTg2OD
+eyJoaXN0b3J5IjpbNjQ3MjIwMDUzLDk5MDAwNDgxMSwtMTg2OD
 c2NzIxOCwtMTg5OTgyMDIyXX0=
 -->
