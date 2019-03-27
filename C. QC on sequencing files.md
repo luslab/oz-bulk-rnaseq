@@ -136,30 +136,14 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 for SAMPLE in $TIMEPOINT;
 do
 DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-	for SAMPLE in $FASTQ 
+	for REPLICATE in $FASTQ 
 	do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID}.fastq -x $IDX -U $SAMPLE";
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID}.fastq -x $IDX -U $REPLICATE";
 	done
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that **didnt align** to this path (i.e. non ribosomal); -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
-```bash
-
-
-## run multiple alignments using in for loop
-for SAMPLE in $TIMEPOINT;
-do
-DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-	for REPLICATE in $READ1 
-	do
-	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-	# Index each BAM file as they are produced
-	samtools index ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam
-	done
-done
-```
 
 
 
@@ -197,9 +181,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjQ1Njk4NzEsMTkxMDg3NzI2MSwtND
-g0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEzNzQ2
-LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMDY5NjAwMjc3LDY0Nz
-IyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4MjAy
-Ml19
+eyJoaXN0b3J5IjpbLTU1NDMwNTc3MiwxOTEwODc3MjYxLC00OD
+Q1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYs
+NzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3Mj
+IwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIy
+XX0=
 -->
