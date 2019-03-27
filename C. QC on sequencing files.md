@@ -146,7 +146,6 @@ done
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that **didnt align** to this path (i.e. non ribosomal); -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
 
 
-
 4. Re-run FastQC & MultiQC step
 `ml pandoc`
 ```bash
@@ -181,11 +180,11 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNzI3MjQxMCwtMTAyOTE3Mjc1NywtMT
-YyNTM1NDkyNSw3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4
-MjY0LC0xODgwMzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC
-00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3
-NDYsNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNj
-Q3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgy
-MDIyXX0=
+eyJoaXN0b3J5IjpbNDE4MjcxMTEyLDE2MDcyNzI0MTAsLTEwMj
+kxNzI3NTcsLTE2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0
+ODIsMTg3MTE0ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMT
+kxMDg3NzI2MSwtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAy
+ODcsOTA5NzEzNzQ2LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMD
+Y5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3Njcy
+MThdfQ==
 -->
