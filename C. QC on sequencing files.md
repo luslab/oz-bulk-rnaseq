@@ -148,7 +148,7 @@ for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 #define relevant ouput folder
-echo `/home/camp/ziffo/working/oliver/projects/airals/reads/${DAY}/trimmed_depleted/`
+echo `/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted`
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that **didnt align** to this path (i.e. non ribosomal); -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
@@ -189,11 +189,11 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0ODM2ODA3OSwtMTAyOTE3Mjc1NywtMT
-YyNTM1NDkyNSw3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4
-MjY0LC0xODgwMzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC
-00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3
-NDYsNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNj
-Q3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgy
-MDIyXX0=
+eyJoaXN0b3J5IjpbODE1OTc3NjUwLC0xMDI5MTcyNzU3LC0xNj
+I1MzU0OTI1LDcyMzY4MjYwNywtNjI1Mzg2NDgyLDE4NzExNDgy
+NjQsLTE4ODAzODAyNiwtNTU0MzA1NzcyLDE5MTA4NzcyNjEsLT
+Q4NDU1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0
+Niw3MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2ND
+cyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIw
+MjJdfQ==
 -->
