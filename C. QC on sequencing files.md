@@ -123,12 +123,11 @@ Once the rRNA reference genome is created & indexed then **map sequences** to th
 ```bash
 mkdir trimmed_depleted 
 
-# set shortcuts
-## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed/*.fq.gz
 # set timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
-## set SAM output file aligned to the RNA genome
+## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
+FASTQ=$TIMEPOINT/trimmed/*.fq.gz
+# set fastq output file of reads that dont align to the RNA genome
 OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/
 ##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
 IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
@@ -142,13 +141,7 @@ done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that **didnt align** to this path (i.e. non ribosomal); -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
 ```bash
-#set the index
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 
-#set the sequencing file to read in (use trimmed_depleted output)
-READ1=$TIMEPOINT/trimmed_depleted/*.fq
-#set the paired fastq sequencing file to read in (for paired end data only)
-READ2=
 #set BAM output file aligned to human genome
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAYID/
 
@@ -202,7 +195,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA0MjIwMzY1LDE5MTA4NzcyNjEsLTQ4ND
+eyJoaXN0b3J5IjpbNzM3MTI4OTM2LDE5MTA4NzcyNjEsLTQ4ND
 U1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3
 MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMj
 AwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJd
