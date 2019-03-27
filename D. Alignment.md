@@ -295,9 +295,9 @@ mkdir /home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 # set timepoint folders
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples/
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 #set the sequencing file to read in (use trimmed_depleted output)
-READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples/trimmed_depleted/*.sam
+READ1=$TIMEPOINT/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set BAM output file aligned to human genome
@@ -619,11 +619,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMD
-M1Mzk1NTUsNjA4MjM4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0
-LC0xODMwNzQ4NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LD
-YxMDE4NDIxMCwxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1
-MDczMiwxODczNDc0Nzk0LDc3NTg0MDU5NCwxOTMxMTkzMDQyLC
-0xNTgwNzgzMzc2LC0zODc3NjY5NzIsMTM0MzkyODMxNywtMTQy
-MzgyNzE2N119
+eyJoaXN0b3J5IjpbMTgyNTQ4MDUwMCwtMjEzOTg5MTU5NCw3NT
+g5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgwODMsMTAxMzY0MTcw
+MCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLT
+E4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQz
+MTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LD
+E5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQz
+OTI4MzE3XX0=
 -->
