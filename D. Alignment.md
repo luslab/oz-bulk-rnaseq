@@ -296,8 +296,7 @@ mkdir /home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 # set timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
-#set the sequencing file to read in (use trimmed_depleted output)
-READ1=$TIMEPOINT/trimmed_depleted/*.fq
+
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set BAM output file aligned to human genome
@@ -306,13 +305,37 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAYID/
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
-DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+#set the sequencing file to read in (use trimmed_depleted output)
+READ1=$TIMEPOINT/trimmed_depleted/*.fq
 	for REPLICATE in $READ1 
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	# Index each BAM file as they are produced
 	samtools index ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam
+	done
+done
+
+
+
+
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
+# set index as ribosomal genome (do not include .fai on end - only include base name)
+IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
+
+## run multiple alignments using in for loop
+for SAMPLE in $TIMEPOINT;
+do
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+# set FASTQ file input (output of trim galore)
+FASTQ=$SAMPLE/trimmed/*trimmed.fq.gz
+	for REPLICATE in $FASTQ 
+	do
+	#define relevant ouput folder
+	OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
 	done
 done
 ```
@@ -621,11 +644,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQwNzM2NzUzLC04NjQ1NzQ0MjcsLTE1ND
-k2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMjEzOTg5
-MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgwODMsMT
-AxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2
-Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyND
-MsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1
-ODQwNTk0XX0=
+eyJoaXN0b3J5IjpbMTg0MzEyMzYxLDk0MDczNjc1MywtODY0NT
+c0NDI3LC0xNTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2
+ODcsLTIxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNj
+A4MjM4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4
+NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMC
+wxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODcz
+NDc0Nzk0XX0=
 -->
