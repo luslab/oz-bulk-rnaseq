@@ -313,8 +313,6 @@ DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	# Index each BAM file as they are produced
 	samtools index ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam
-	# convert each BAM file to SAM as they are produced
-	samtools view -h ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam > ${BAM}${SRRID}.sam
 	done
 done
 ```
@@ -504,7 +502,6 @@ Scoring is based on the value you associate with a match, mismatch or a space. A
 - for SAM files you can run other commands on them eg head FILENAME.sam whereas BAM files need to be run through samtools i.e. `samtools view FILENAME.bam | cut -f 2 | head`
 
 ## Convert BAM > SAM
-Can be integrated into the STAR alignment for loop above
 ```bash
 #set BAM input files
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
@@ -624,11 +621,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLT
-U5NDM0MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUz
-OTU1NSw2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLT
-E4MzA3NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEw
-MTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNz
-MyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1
-ODA3ODMzNzZdfQ==
+eyJoaXN0b3J5IjpbLTg2NDU3NDQyNywtMTU0OTY3Nzc5OSwtMT
+cwMTY1NzQ3MCwtNTk0MzQxNjg3LC0yMTM5ODkxNTk0LDc1ODk0
+NDg3MSwtMTAzNTM5NTU1LDYwODIzODA4MywxMDEzNjQxNzAwLD
+cyMjUzMDQxNCwtMTgzMDc0ODQ5OSwtMTE2MjY3ODQ5MywtMTgx
+MjAxMDU5NCw2MTAxODQyMTAsMTczODQ2MzI0MywtMjA5NDMxNz
+k1MSwxNTMxNTA3MzIsMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkz
+MTE5MzA0Ml19
 -->
