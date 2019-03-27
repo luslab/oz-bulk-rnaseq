@@ -128,22 +128,24 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 ## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
 FASTQ=$TIMEPOINT/trimmed/*.fq.gz
 # set fastq output file of reads that dont align to the RNA genome
-OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/
+OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAYID/trimmed_depleted
 ##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
 IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
 
 ## run multiple alignments using in for loop
-for SAMPLE in $FASTQ 
+for SAMPLE in $TIMEPOINT;
 do
-SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID}.fastq -x $IDX -U $SAMPLE";
+DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+	for SAMPLE in $FASTQ 
+	do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID}.fastq -x $IDX -U $SAMPLE";
+	done
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that **didnt align** to this path (i.e. non ribosomal); -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
 ```bash
 
-#set BAM output file aligned to human genome
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAYID/
 
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
@@ -195,9 +197,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM3MTI4OTM2LDE5MTA4NzcyNjEsLTQ4ND
-U1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3
-MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMj
-AwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJd
-fQ==
+eyJoaXN0b3J5IjpbLTE3NjQ1Njk4NzEsMTkxMDg3NzI2MSwtND
+g0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEzNzQ2
+LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMDY5NjAwMjc3LDY0Nz
+IyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4MjAy
+Ml19
 -->
