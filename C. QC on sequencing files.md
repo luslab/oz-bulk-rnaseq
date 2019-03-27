@@ -153,7 +153,7 @@ FASTQ=$SAMPLE/trimmed/*trimmed.fq.gz
 	#define relevant ouput folder
 	OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted`
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	echo $OUT/$SRRID
+	echo ${OUT}_${SRRID}
 	done
 done
 ```
@@ -195,11 +195,11 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgyNjc5NzcsLTEwMjkxNzI3NTcsLTE2Mj
-UzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0ODI2
-NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MSwtND
-g0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEzNzQ2
-LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMDY5NjAwMjc3LDY0Nz
-IyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4MjAy
-Ml19
+eyJoaXN0b3J5IjpbLTE5Nzc2MjQ4MDcsLTEwMjkxNzI3NTcsLT
+E2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0
+ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MS
+wtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEz
+NzQ2LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMDY5NjAwMjc3LD
+Y0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4
+MjAyMl19
 -->
