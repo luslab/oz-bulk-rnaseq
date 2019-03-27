@@ -129,18 +129,18 @@ mkdir trimmed_depleted
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
 ## set output of SAM file with alignment info to the RNA genome
 OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted
-##set reference genome as the ribosomal genome
-REF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal
+##set index of reference genome as the ribosomal genome
+IDX=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal
 
 # map to ribosomal genome
 ## run individual 
-sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $FASTQ -S $RNA_SAM"
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $FASTQ -S $RNA_SAM"
 
 ## run multiple in for loop
 for SAMPLE in $FASTQ 
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $SAMPLE -S ${OUT}_${SRRID}.sam";
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $SAMPLE -S ${OUT}_${SRRID}.sam";
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
@@ -179,7 +179,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNj
-k2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIx
-OCwtMTg5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbMjc3Nzg2NDU1LDcyMDcwMzk4NCwtMTQ3MD
+QxMzEzOSwxMDY5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEs
+LTE4Njg3NjcyMTgsLTE4OTk4MjAyMl19
 -->
