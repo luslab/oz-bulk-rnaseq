@@ -94,7 +94,7 @@ The first time you do this you need to:
 1. Create rRNA&tRNA reference genome
 `ml BEDOPS`
 ```bash
-
+# cd to annotation/
 awk '/rRNA|tRNA|Mt_rRNA|Mt_tRNA|miRNA|misc_RNA|snRNA|snoRNA/{print $0}' gencode.v28.primary_assembly.annotation.gtf > temp.gtf
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' temp.gtf > gencode.v28_ribosomal.gtf
 gtf2bed < gencode.v28_ribosomal.gtf > gencode.v28_ribosomal.bed
@@ -109,7 +109,7 @@ ml SAMtools
 ml BWA
 
 ```bash
-mkdir trimmed_depleted 
+#
 
 #BEDTools (any many other programs) need TABS, not spaces.
 #sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed
@@ -176,7 +176,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzAzMjk4OCw5MDk3MTM3NDYsNzIwNz
-AzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUz
-LDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbNjc5NDA5ODczLDkwOTcxMzc0Niw3MjA3MD
+M5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAwNTMs
+OTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
 -->
