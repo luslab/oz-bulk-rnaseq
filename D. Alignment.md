@@ -559,7 +559,6 @@ There are 4 major toolsets for processing SAM/BAM files:
 4. Statistics
 5. Viewing
 
-
 ## Sort BAM files
 
 - BAM files are usually sorted by **position** coordinates. This allows rapid access to the huge BAM file.
@@ -636,7 +635,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExOTUzMTQ5NCw5NDA3MzY3NTMsLTg2ND
+eyJoaXN0b3J5IjpbMTQ0MzY1MjQ3Miw5NDA3MzY3NTMsLTg2ND
 U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
 Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
 YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
