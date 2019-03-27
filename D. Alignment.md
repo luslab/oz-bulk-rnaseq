@@ -398,7 +398,7 @@ ml SAMtools
 - STAR auto creates [BAM files](http://software.broadinstitute.org/software/igv/bam).  `-b`will produce a BAM file. `-s` will produce a SAM file.
 - Now need to index each BAM file. The indexed BAM file format = BAM.BAI file. Inxed allows quick access to the BAM files without having to load them to memory.
 
-With a For Loop you can automate this with the above phase as each BAM file is produced:
+Using the STAR alignment For Loop above you can automate this with the above phase as each BAM file is produced:
 ```bash
 for file in /home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 do
@@ -622,11 +622,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY5NDk5NTU4LC01OTQzNDE2ODcsLTIxMz
-k4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4MDgz
-LDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMT
-YyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYz
-MjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0Nzk0LD
-c3NTg0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3
-NjY5NzJdfQ==
+eyJoaXN0b3J5IjpbLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
+EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
+ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
+ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
+NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OT
+QsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4
+Nzc2Njk3Ml19
 -->
