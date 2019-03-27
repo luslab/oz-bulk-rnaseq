@@ -136,6 +136,7 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 for SAMPLE in $TIMEPOINT;
 do
 DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+
 	for REPLICATE in $FASTQ 
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
@@ -180,9 +181,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MTE0ODI2NCwtMTg4MDM4MDI2LC01NT
-QzMDU3NzIsMTkxMDg3NzI2MSwtNDg0NTU2ODY1LC0xMDgzNzcw
-LC0xMTE0NzAyODcsOTA5NzEzNzQ2LDcyMDcwMzk4NCwtMTQ3MD
-QxMzEzOSwxMDY5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEs
-LTE4Njg3NjcyMTgsLTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbLTE3MTU1Mjk2NzAsLTE4ODAzODAyNiwtNT
+U0MzA1NzcyLDE5MTA4NzcyNjEsLTQ4NDU1Njg2NSwtMTA4Mzc3
+MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3MjA3MDM5ODQsLTE0Nz
+A0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODEx
+LC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
 -->
