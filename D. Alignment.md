@@ -211,6 +211,8 @@ Compress with `gzip` command or `faToTwoBit filename.fa filename.2bit`. Can then
 
 ### 1. Build Index
 
+The **index often needs updating** to match the current version of STAR.
+
 - All short read aligners first build an index from the reference genome. Then the FASTQ sequencing files are aligned against this index.
 - Index building prepares the reference genome to allow the tools to search it efficiently. It creates multiple files that should be stored near to the FASTA reference sequence.
 - Can take days for large genomes to build an index. The relevant indexes have already been created and stored on the CAMP cluster in `/home/camp/ziffo/working/luscombelab-UCL`
@@ -307,8 +309,7 @@ sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFi
 done
 ```
 
-
-
+Biostars approach to alignment:
 ```bash
 # Create output folder
 mkdir -p bam
@@ -615,11 +616,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjI2NDc1MTksLTEwMzUzOTU1NSw2MD
-gyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0
-OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLD
-E3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4NzM0
-NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMzNz
-YsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC0z
-NzczNDM2MThdfQ==
+eyJoaXN0b3J5IjpbLTE1OTgyOTg2MywtMTAzNTM5NTU1LDYwOD
+IzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0ODQ5
+OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAxODQyMTAsMT
+czODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3MzIsMTg3MzQ3
+NDc5NCw3NzU4NDA1OTQsMTkzMTE5MzA0MiwtMTU4MDc4MzM3Ni
+wtMzg3NzY2OTcyLDEzNDM5MjgzMTcsLTE0MjM4MjcxNjcsLTM3
+NzM0MzYxOF19
 -->
