@@ -280,7 +280,6 @@ By allocating all file names to the `$INPUT` term it means all the FASTQ files a
 `sed` = stream editor - modify each line of a file by replacing specified parts of the line. Makes basic text changes to a file - `s/input/output/g`
 
 ```bash
-#SET CHANAGABLE ELEMENTS
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 #set the fastq sequencing file to read in
@@ -604,11 +603,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNj
-EwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUw
-NzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLT
-E1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIz
-ODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4OD
-k2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYsLTE1ODY0MTM4MjYs
-NjMwMjQ3OTA1XX0=
+eyJoaXN0b3J5IjpbLTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLT
+E4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQz
+MTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LD
+E5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQz
+OTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4Nj
+U2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYs
+LTE1ODY0MTM4MjZdfQ==
 -->
