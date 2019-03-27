@@ -87,8 +87,7 @@ You can specify the precise adapter sequence you want removed e.g. `-a AGCGCTAG`
 adapter removal: `fastx_clipper -Q 33 -l 24 -a $adapt -i ${paths}${file} > ${paths}${data}-clipped.fastq`
 
 # Remove rRNA & tRNA (Optional step)
-Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads. 
-There are disadvantages to removing these sequences. Generally for most RNA-seq remove rRNA at this point pre-alignment.
+Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads.  There are disadvantages to removing these sequences. Generally for most RNA-seq remove rRNA at this point pre-alignment.
 
 The first time you do this you need to:
 1. Create rRNA&tRNA reference genome
@@ -103,7 +102,6 @@ sed -i -r 's/^([0-9]+|[XY]|MT)/chr\1/' gencode.v28_ribosomal.bed
 ```
 
 2. Index the rRNA reference genome
-
 ml Bowtie2
 ml BEDTools
 ml SAMtools
@@ -176,8 +174,8 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4NDU1Njg2NSwtMTA4Mzc3MCwtMTExND
-cwMjg3LDkwOTcxMzc0Niw3MjA3MDM5ODQsLTE0NzA0MTMxMzks
-MTA2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4Nz
-Y3MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbODU2MjI2NjIxLC00ODQ1NTY4NjUsLTEwOD
+M3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNzAzOTg0LC0x
+NDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwND
+gxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIyXX0=
 -->
