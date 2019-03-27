@@ -294,6 +294,8 @@ mkdir /home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples
 
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+# set timepoint folders
+
 #set the sequencing file to read in (use trimmed_depleted output)
 READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
@@ -302,6 +304,7 @@ READ2=
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D112_samples/
 
 ## run multiple alignments using in for loop
+for TIMEPOINT in 
 for SAMPLE in $READ1 
 do
 SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
@@ -313,8 +316,6 @@ Biostars approach to alignment:
 ```bash
 # Create output folder
 mkdir -p bam
-# Exit this script on any error.
-set -euo pipefail
 # set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 
@@ -616,11 +617,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTgyOTg2MywtMTAzNTM5NTU1LDYwOD
-IzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0ODQ5
-OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAxODQyMTAsMT
-czODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3MzIsMTg3MzQ3
-NDc5NCw3NzU4NDA1OTQsMTkzMTE5MzA0MiwtMTU4MDc4MzM3Ni
-wtMzg3NzY2OTcyLDEzNDM5MjgzMTcsLTE0MjM4MjcxNjcsLTM3
-NzM0MzYxOF19
+eyJoaXN0b3J5IjpbNDM4OTc1OTYwLC0xMDM1Mzk1NTUsNjA4Mj
+M4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5
+LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNz
+M4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0
+Nzk0LDc3NTg0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC
+0zODc3NjY5NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3
+MzQzNjE4XX0=
 -->
