@@ -134,7 +134,7 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 
 # map to ribosomal genome
 ## run individual 
-sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $FASTQ -S $RNA_SAM"
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $FASTQ -S $OUT_SRRID.sam"
 
 ## run multiple in for loop
 for SAMPLE in $FASTQ 
@@ -179,7 +179,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzAxOTU0NCw3MjA3MDM5ODQsLTE0Nz
-A0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODEx
-LC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTE4NTU3OTEzMTEsNzIwNzAzOTg0LC0xND
+cwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgx
+MSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIyXX0=
 -->
