@@ -297,16 +297,12 @@ IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 # set timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 
-#set the paired fastq sequencing file to read in (for paired end data only)
-READ2=
-
-
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 #set the sequencing file to read in (use trimmed_depleted output)
-READ1=$SAMPLE/trimmed_depleted/*.fq
+READ1=$SAMPLE/trimmed_depleted/*.fastq
 	for REPLICATE in $READ1 
 	do
 	#set BAM output file aligned to human genome
@@ -645,7 +641,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0MTQ2MTg2OCw5NDA3MzY3NTMsLTg2ND
+eyJoaXN0b3J5IjpbLTIwODYzMDY2Myw5NDA3MzY3NTMsLTg2ND
 U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
 Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
 YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
