@@ -306,10 +306,11 @@ BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples/
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
+DID=`echo $SAMPLE | grep -E -o 'D[0-9]+'`
 	for REPLICATE in $READ1 
 	do
-		SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-		sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	done
 done
 ```
@@ -619,7 +620,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNTQ4MDUwMCwtMjEzOTg5MTU5NCw3NT
+eyJoaXN0b3J5IjpbLTMwNTgxNjk4MiwtMjEzOTg5MTU5NCw3NT
 g5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgwODMsMTAxMzY0MTcw
 MCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLT
 E4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQz
