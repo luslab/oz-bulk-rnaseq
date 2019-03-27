@@ -125,8 +125,6 @@ mkdir trimmed_depleted
 
 # set INPUT timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
-# set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
-FASTQ=$TIMEPOINT/trimmed/*trimmed.fq.gz
 # set index as ribosomal genome (do not include .fai on end - only include base name)
 IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
 
@@ -134,7 +132,9 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-#define relevant ouput folder for none aligning reads
+# set FASTQ file input (output of trim galore)
+FASTQ=$TIMEPOINT/trimmed/*trimmed.fq.gz
+#define relevant ouput folder
 OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted/`
 	for REPLICATE in $FASTQ 
 	do
@@ -181,11 +181,11 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjQ5Nzk2NDUsLTEwMjkxNzI3NTcsLT
-E2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0
-ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MS
-wtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEz
-NzQ2LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMDY5NjAwMjc3LD
-Y0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4
-MjAyMl19
+eyJoaXN0b3J5IjpbLTYwNDU2NzYwNSwtMTAyOTE3Mjc1NywtMT
+YyNTM1NDkyNSw3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4
+MjY0LC0xODgwMzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC
+00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3
+NDYsNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNj
+Q3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgy
+MDIyXX0=
 -->
