@@ -133,7 +133,7 @@ for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 #define relevant ouput folder
-OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted/`
+OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/${DAY}/trimmed_depleted/`
 # set FASTQ file input (output of trim galore)
 FASTQ=$SAMPLE/trimmed/*trimmed.fq.gz
 	for REPLICATE in $FASTQ 
@@ -181,7 +181,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5ODU1Nzc1NCwtMTAyOTE3Mjc1NywtMT
+eyJoaXN0b3J5IjpbLTQ4MzQzMzYwNiwtMTAyOTE3Mjc1NywtMT
 YyNTM1NDkyNSw3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4
 MjY0LC0xODgwMzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC
 00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3
