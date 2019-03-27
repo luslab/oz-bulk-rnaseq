@@ -128,7 +128,7 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 ## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
 FASTQ=$TIMEPOINT/trimmed/*.fq.gz
 # set fastq output file of reads that dont align to the RNA genome
-OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAYID/trimmed_depleted
+OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAYID/trimmed_depleted/
 ##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
 IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
 
@@ -182,9 +182,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjYwNTQ3ODEsLTU1NDMwNTc3MiwxOT
-EwODc3MjYxLC00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4
-Nyw5MDk3MTM3NDYsNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNj
-k2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIx
-OCwtMTg5OTgyMDIyXX0=
+eyJoaXN0b3J5IjpbLTE4ODAzODAyNiwtNTU0MzA1NzcyLDE5MT
+A4NzcyNjEsLTQ4NDU1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3
+LDkwOTcxMzc0Niw3MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OT
+YwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4
+LC0xODk5ODIwMjJdfQ==
 -->
