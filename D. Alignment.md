@@ -302,14 +302,15 @@ To create a script that runs all sequencing files (non-redundant) you can use a 
 ```bash
 # create output folder
 mkdir /home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples
+
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 #set the sequencing file to read in (use trimmed_depleted output)
-READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted/*.sam
+READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set BAM output file aligned to human genome
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D21_samples/
 
 ## run multiple alignments using in for loop
 for SAMPLE in $READ1 
@@ -627,11 +628,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTQ5ODU2NTcsNjA4MjM4MDgzLDEwMT
-M2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMTYyNjc4
-NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYzMjQzLC
-0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0Nzk0LDc3NTg0
-MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3NjY5Nz
-IsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQzNjE4LDk5
-ODk4ODY1Nl19
+eyJoaXN0b3J5IjpbMjcyMDA4NDUsNjA4MjM4MDgzLDEwMTM2ND
+E3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMTYyNjc4NDkz
+LC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYzMjQzLC0yMD
+k0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0Nzk0LDc3NTg0MDU5
+NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3NjY5NzIsMT
+M0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQzNjE4LDk5ODk4
+ODY1Nl19
 -->
