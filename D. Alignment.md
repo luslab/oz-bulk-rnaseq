@@ -395,6 +395,8 @@ ml SAMtools
 - STAR auto creates [BAM files](http://software.broadinstitute.org/software/igv/bam).  `-b`will produce a BAM file. `-s` will produce a SAM file.
 - Now need to index each BAM file. The indexed BAM file format = BAM.BAI file. Inxed allows quick access to the BAM files without having to load them to memory.
 
+for individual files: `samtools index filename_Aligned.sortedByCoord.out.bam`
+
 Using the STAR alignment For Loop above you can automate this with the above phase as each BAM file is produced:
 ```bash
 for file in /home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
@@ -402,7 +404,20 @@ do
 	sbatch -N 1 -c 8 --mem 40 --wrap="samtools index $file";
 done
 ```
-for individual files: `samtools index filename_Aligned.sortedByCoord.out.bam`
+
+```bash
+for SAMPLE in $TIMEPOINT;
+do
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+READ=$SAMPLE/trimmed_depleted/*.fastq
+	for REPLICATE in $READ
+	do
+	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	samtools index ${BAM}/${SRRID}Aligned.sortedByCoord.out.bam
+	done
+done
+```
 
 # Sequence Alignment Map (SAM/BAM) file
 
@@ -618,11 +633,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzg2ODQ5NDMsOTQwNzM2NzUzLC04Nj
-Q1NzQ0MjcsLTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0
-MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NS
-w2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3
-NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0Mj
-EwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4
-NzM0NzQ3OTRdfQ==
+eyJoaXN0b3J5IjpbLTU4Nzg1NDQ2NSw5NDA3MzY3NTMsLTg2ND
+U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
+Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
+YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
+ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAxODQyMT
+AsMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3MzIsMTg3
+MzQ3NDc5NF19
 -->
