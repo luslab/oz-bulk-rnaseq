@@ -313,22 +313,6 @@ READ1=$SAMPLE/trimmed_depleted/*.fastq
 	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
 	done
 done
-
-
-for SAMPLE in $TIMEPOINT;
-do
-DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-#set the sequencing file to read in (use trimmed_depleted output)
-READ1=$SAMPLE/trimmed_depleted/*.fastq
-	for REPLICATE in $READ1 
-	do
-	#set BAM output file aligned to human genome
-	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
-	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	# Index each BAM file as they are produced
-	samtools index ${BAM}/${SRRID}Aligned.sortedByCoord.out.bam
-	done
-done
 ```
 
 Biostars approach to alignment:
@@ -345,7 +329,6 @@ do
         # Build the name of the files.
         READ1=reads/${SAMPLE}_${REPLICATE}_R1.fq
         BAM=bam/${SAMPLE}_${REPLICATE}.bam
-
         echo "Running STAR on $SAMPLE"
         # Run the aligner.
         STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic
@@ -635,11 +618,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0NjM0OTQ3OSw5NDA3MzY3NTMsLTg2ND
-U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
-Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
-YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
-ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAxODQyMT
-AsMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3MzIsMTg3
-MzQ3NDc5NF19
+eyJoaXN0b3J5IjpbLTEyMzg2ODQ5NDMsOTQwNzM2NzUzLC04Nj
+Q1NzQ0MjcsLTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0
+MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NS
+w2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3
+NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0Mj
+EwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4
+NzM0NzQ3OTRdfQ==
 -->
