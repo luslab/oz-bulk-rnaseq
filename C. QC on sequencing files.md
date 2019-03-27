@@ -123,6 +123,8 @@ Once the rRNA reference genome is created & indexed then **map sequences** to th
 
 ```bash
 # set shortcuts
+## set FASTQ input
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
 ## set output
 OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed
 ##set reference genome as the ribosomal genome
@@ -130,11 +132,12 @@ REF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ri
 ##set name of output SAM file with alignment info to the RNA genome
 RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/$file.sam
 
-#map to ribosomal genome
+# map to ribosomal genome
+# run individual 
 sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $FASTQ -S $RNA_SAM"
 
-
-for SAMPLE in $FASTQ~/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
+#run multiple in for loop
+for SAMPLE in $FASTQ 
 do
 	sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $file -S $RNA_SAM";
 done
@@ -145,7 +148,7 @@ done
 #set GTF annoation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR*_Aligned.sortedByCoord.out.bam
 #set output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts
 
@@ -192,7 +195,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NDUyOTIwNCwtMTQ3MDQxMzEzOSwxMD
+eyJoaXN0b3J5IjpbLTYwMDg3MDM3NCwtMTQ3MDQxMzEzOSwxMD
 Y5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3Njcy
 MTgsLTE4OTk4MjAyMl19
 -->
