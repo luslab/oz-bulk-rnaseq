@@ -312,9 +312,9 @@ DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	# Index each BAM file as they are produced
-	samtools index ${BAM}${SRRID}
+	samtools index ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam
 	# convert each BAM file to SAM as they are produced
-	samtools view -h ${BAM}${SRRID} > ${BAM}${SRRID}.sam
+	samtools view -h ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam > ${BAM}${SRRID}.sam
 	done
 done
 ```
@@ -601,7 +601,7 @@ Create SAM file with intron spanning reads:
 
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge the BAM files for downstream processing.  
 
-You should merge BAM files from each condition but not combine different conditions (wildtype & mutant). Dont forget there maybe batch effects between samples in the sample condition which are difficult to anaylse after merging BAM files.
+You can merge BAM files from each condition (VCP or CTRL) but not combine different conditions (wildtype & mutant). Dont forget there maybe batch effects between samples in the sample condition which are difficult to anaylse after merging BAM files.
 ```bash
 #run samtools merge command listing all BAM files to read in
 samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
@@ -624,7 +624,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDE2MjI0OCwtMTcwMTY1NzQ3MCwtNT
+eyJoaXN0b3J5IjpbMTg0NjQ4NzUwNywtMTcwMTY1NzQ3MCwtNT
 k0MzQxNjg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5
 NTU1LDYwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMT
 gzMDc0ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAx
