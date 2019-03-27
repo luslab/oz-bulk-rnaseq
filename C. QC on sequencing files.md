@@ -108,7 +108,7 @@ ml SAMtools
 ml BWA
 
 ```bash
-mkdir trimmed_depleted
+mkdir trimmed_depleted 
 
 #BEDTools (any many other programs) need TABS, not spaces.
 #sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed
@@ -122,6 +122,8 @@ samtools faidx gencode.v28_ribosomal.fa
 Once the rRNA reference genome is created & indexed then **map sequences** to the rRNA & tRNA genome
 
 ```bash
+mkdir trimmed_depleted 
+
 # set shortcuts
 ## set FASTQ input
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
@@ -130,7 +132,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed
 ##set reference genome as the ribosomal genome
 REF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal
 ##set name of output SAM file with alignment info to the RNA genome
-RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/$file.sam
+RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed
 
 # map to ribosomal genome
 ## run individual 
@@ -179,7 +181,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAyNTExMywtMTQ3MDQxMzEzOSwxMDY5Nj
-AwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgs
-LTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbLTE4NDQyODc4MjIsLTE0NzA0MTMxMzksMT
+A2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3
+MjE4LC0xODk5ODIwMjJdfQ==
 -->
