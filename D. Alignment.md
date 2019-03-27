@@ -266,7 +266,7 @@ ml SAMtools
 * Sample distributed over X flow cell lanes → X fastq files per sample
 * STAR merges the X files if multiple file names are indicated (other align tools don't)
 * Separate the file names with a comma (no spaces)
-* Create directory to store STAR output `mkdir alignment_STAR`
+* Create directory to store STAR output `mkdir alignment`
 
 By allocating all file names to the `$INPUT` term it means all the FASTQ files are read together (see example further down) but it is best to do each separately - can use [snakemake](http://slides.com/johanneskoester/snakemake-tutorial#/) - this makes it easier to see if there is an alignment error in each individual sequencing file:
 
@@ -603,11 +603,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLT
-E4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQz
-MTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LD
-E5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQz
-OTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4OTg4Nj
-U2LC0xNDcwOTI4ODk2LC00ODY4ODQ4NDQsLTE0Nzg1NjA0OTYs
-LTE1ODY0MTM4MjZdfQ==
+eyJoaXN0b3J5IjpbNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMT
+YyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYz
+MjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0Nzk0LD
+c3NTg0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3
+NjY5NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3MzQzNj
+E4LDk5ODk4ODY1NiwtMTQ3MDkyODg5NiwtNDg2ODg0ODQ0LC0x
+NDc4NTYwNDk2XX0=
 -->
