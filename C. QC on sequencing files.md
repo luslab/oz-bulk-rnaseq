@@ -123,20 +123,22 @@ Once the rRNA reference genome is created & indexed then **map sequences** to th
 
 ```bash
 # set shortcuts
+## set output
+OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed
 ##set reference genome as the ribosomal genome
 REF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28_ribosomal
 ##set the input fastq file
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/trimmed_results/SRR5483788_1_trimmed.fq.gz
 ##set name of output SAM file with alignment info to the RNA genome
-RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/rRNA_depleted/SRR5483788_1_with_rRNA.sam
+RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/rRNA_depleted/SRR5483788_1_with_rRNA.sam
 
 #map to ribosomal genome
-sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUTPUT -x $REF -U $FASTQ -S $RNA_SAM"
+sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $FASTQ -S $RNA_SAM"
 
 
 for file in ~/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
 do
-	sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un  /home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed $file";
+	sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $file -S $RNA_SAM";
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
@@ -175,7 +177,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3NzQ5NTEzMiwtMTQ3MDQxMzEzOSwxMD
-Y5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3Njcy
-MTgsLTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbLTE4NzEzNzkxOTYsLTE0NzA0MTMxMzksMT
+A2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3
+MjE4LC0xODk5ODIwMjJdfQ==
 -->
