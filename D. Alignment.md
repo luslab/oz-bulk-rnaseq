@@ -307,20 +307,13 @@ IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
-#set name under which to store the BAM file output
+#set BAM output file aligned to human genome
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/trimmed_depleted/
-
-## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed/*.fq.gz
-## set SAM output file aligned to the RNA genome
-OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/
 
 ## run multiple alignments using in for loop
 for SAMPLE in $READ1 
 do
 SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $SAMPLE -S ${OUT}${SRRID}.sam";
-
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $SAMPLE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 done
 ```
@@ -633,7 +626,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzM2MzEzMzI0LDEwMTM2NDE3MDAsNzIyNT
+eyJoaXN0b3J5IjpbNjA4MjM4MDgzLDEwMTM2NDE3MDAsNzIyNT
 MwNDE0LC0xODMwNzQ4NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEw
 NTk0LDYxMDE4NDIxMCwxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLD
 E1MzE1MDczMiwxODczNDc0Nzk0LDc3NTg0MDU5NCwxOTMxMTkz
