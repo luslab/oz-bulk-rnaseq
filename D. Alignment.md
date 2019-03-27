@@ -297,11 +297,11 @@ IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 # set timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples/
 #set the sequencing file to read in (use trimmed_depleted output)
-READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/*.sam
+READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set BAM output file aligned to human genome
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D112_samples/
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples/
 
 ## run multiple alignments using in for loop
 for REPLICATES in $TIMEPOINT;
@@ -619,11 +619,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4Mj
-M4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5
-LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNz
-M4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0
-Nzk0LDc3NTg0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC
-0zODc3NjY5NzIsMTM0MzkyODMxNywtMTQyMzgyNzE2NywtMzc3
-MzQzNjE4XX0=
+eyJoaXN0b3J5IjpbMTk0OTg1NDUxOSw3NTg5NDQ4NzEsLTEwMz
+UzOTU1NSw2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQs
+LTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNj
+EwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUw
+NzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLT
+E1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIz
+ODI3MTY3XX0=
 -->
