@@ -137,7 +137,8 @@ for SAMPLE in $TIMEPOINT;
 do
 DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	for REPLICATE in $FASTQ 
-	do
+	dols
+	
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID}.fastq -x $IDX -U $REPLICATE";
 	done
@@ -181,9 +182,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1NDMwNTc3MiwxOTEwODc3MjYxLC00OD
-Q1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYs
-NzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3Mj
-IwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIy
-XX0=
+eyJoaXN0b3J5IjpbLTE3NjYwNTQ3ODEsLTU1NDMwNTc3MiwxOT
+EwODc3MjYxLC00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4
+Nyw5MDk3MTM3NDYsNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNj
+k2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIx
+OCwtMTg5OTgyMDIyXX0=
 -->
