@@ -126,6 +126,8 @@ mkdir trimmed_depleted
 # set shortcuts
 ## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed/*.fq.gz
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 ## set SAM output file aligned to the RNA genome
 OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/
 ##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
@@ -135,10 +137,36 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 for SAMPLE in $FASTQ 
 do
 SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID} -x $IDX -U $SAMPLE";
+sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}${SRRID}.fastq -x $IDX -U $SAMPLE";
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that **didnt align** to this path (i.e. non ribosomal); -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
+```bash
+#set the index
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+
+#set the sequencing file to read in (use trimmed_depleted output)
+READ1=$TIMEPOINT/trimmed_depleted/*.fq
+#set the paired fastq sequencing file to read in (for paired end data only)
+READ2=
+#set BAM output file aligned to human genome
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAYID/
+
+## run multiple alignments using in for loop
+for SAMPLE in $TIMEPOINT;
+do
+DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+	for REPLICATE in $READ1 
+	do
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	# Index each BAM file as they are produced
+	samtools index ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam
+	done
+done
+```
+
+
 
 4. Re-run FastQC & MultiQC step
 `ml pandoc`
@@ -174,9 +202,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNTM1NjU2NCwxOTEwODc3MjYxLC00OD
-Q1NTY4NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYs
-NzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3Mj
-IwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIy
-XX0=
+eyJoaXN0b3J5IjpbNTA0MjIwMzY1LDE5MTA4NzcyNjEsLTQ4ND
+U1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3
+MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMj
+AwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJd
+fQ==
 -->
