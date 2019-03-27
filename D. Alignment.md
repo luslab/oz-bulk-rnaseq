@@ -289,8 +289,8 @@ To create a script that runs all sequencing files (non-redundant) you can use a 
 **For Loop**
 
 ```bash
-# create all time point output folder
-mkdir /home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples
+# create all time point output folders
+mkdir D0_samples D7_samples D14_samples D21_samples D35_samples D112_samples
 
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
@@ -315,24 +315,18 @@ READ1=$SAMPLE/trimmed_depleted/*.fastq
 done
 
 
-
-
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
-# set index as ribosomal genome (do not include .fai on end - only include base name)
-IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
-
-## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-# set FASTQ file input (output of trim galore)
-FASTQ=$SAMPLE/trimmed/*trimmed.fq.gz
-	for REPLICATE in $FASTQ 
+#set the sequencing file to read in (use trimmed_depleted output)
+READ1=$SAMPLE/trimmed_depleted/*.fastq
+	for REPLICATE in $READ1 
 	do
-	#define relevant ouput folder
-	OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted
+	#set BAM output file aligned to human genome
+	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
+	# Index each BAM file as they are produced
+	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
 	done
 done
 ```
@@ -641,11 +635,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjg0NDk0ODUsOTQwNzM2NzUzLC04Nj
-Q1NzQ0MjcsLTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0
-MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NS
-w2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3
-NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0Mj
-EwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4
-NzM0NzQ3OTRdfQ==
+eyJoaXN0b3J5IjpbLTI4MzI2MTM4OSw5NDA3MzY3NTMsLTg2ND
+U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
+Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
+YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
+ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAxODQyMT
+AsMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3MzIsMTg3
+MzQ3NDc5NF19
 -->
