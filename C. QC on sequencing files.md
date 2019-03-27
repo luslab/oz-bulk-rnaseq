@@ -126,17 +126,13 @@ mkdir trimmed_depleted
 
 # set shortcuts
 ## set FASTQ input
-FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/*.fq.z
-## set output of SAM file with alignment info to the RNA genome
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed/*.fq.gz
+## set SAM output file aligned to the RNA genome
 OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted
 ##set index of reference genome as the ribosomal genome
 IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal.fa.fai
 
-# map to ribosomal genome
-## run individual 
-sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $FASTQ -S $OUT_SRRID.sam"
-
-## run multiple in for loop
+## run multiple alignments using in for loop
 for SAMPLE in $FASTQ 
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
@@ -179,7 +175,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0NTEzMDc3LDcyMDcwMzk4NCwtMTQ3MD
-QxMzEzOSwxMDY5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEs
-LTE4Njg3NjcyMTgsLTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbLTEzMDc0NTMwMDUsNzIwNzAzOTg0LC0xND
+cwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgx
+MSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIyXX0=
 -->
