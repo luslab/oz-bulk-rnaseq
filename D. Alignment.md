@@ -311,6 +311,8 @@ DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	# Index each BAM file as they are produced
+	samtools index ${BAM}${SRRID}
 	done
 done
 ```
@@ -396,7 +398,7 @@ ml SAMtools
 - STAR auto creates [BAM files](http://software.broadinstitute.org/software/igv/bam).  `-b`will produce a BAM file. `-s` will produce a SAM file.
 - Now need to index each BAM file. The indexed BAM file format = BAM.BAI file. Inxed allows quick access to the BAM files without having to load them to memory.
 
-With a For Loop above you can automate this with the above phase as each BAM file is produced:
+With a For Loop you can automate this with the above phase as each BAM file is produced:
 ```bash
 for file in /home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 do
@@ -620,11 +622,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NDM0MTY4NywtMjEzOTg5MTU5NCw3NT
-g5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgwODMsMTAxMzY0MTcw
-MCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLT
-E4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQz
-MTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LD
-E5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3MiwxMzQz
-OTI4MzE3XX0=
+eyJoaXN0b3J5IjpbODY5NDk5NTU4LC01OTQzNDE2ODcsLTIxMz
+k4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4MDgz
+LDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMT
+YyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYz
+MjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0Nzk0LD
+c3NTg0MDU5NCwxOTMxMTkzMDQyLC0xNTgwNzgzMzc2LC0zODc3
+NjY5NzJdfQ==
 -->
