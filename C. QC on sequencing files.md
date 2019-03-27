@@ -137,7 +137,7 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 for SAMPLE in $FASTQ 
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $SAMPLE -S ${OUT}_${SRRID}.sam";
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $SAMPLE -S ${OUT}${SRRID}.sam";
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
@@ -176,8 +176,8 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1NTk4MjA0NywtMTExNDcwMjg3LDkwOT
-cxMzc0Niw3MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3
-Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xOD
-k5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MT
+M3NDYsNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcs
+NjQ3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OT
+gyMDIyXX0=
 -->
