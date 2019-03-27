@@ -308,7 +308,7 @@ READ1=$SAMPLE/trimmed_depleted/*.fastq
 	#set BAM output file aligned to human genome
 	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}/${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}/${SRRID}_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	# Index each BAM file as they are produced
 	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
 	done
@@ -326,7 +326,7 @@ READ1=$SAMPLE/trimmed_depleted/*.fastq
 	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	# Index each BAM file as they are produced
-	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
+	samtools index ${BAM}/${SRRID}Aligned.sortedByCoord.out.bam
 	done
 done
 ```
@@ -635,7 +635,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4MzI2MTM4OSw5NDA3MzY3NTMsLTg2ND
+eyJoaXN0b3J5IjpbMTk0NjM0OTQ3OSw5NDA3MzY3NTMsLTg2ND
 U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
 Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
 YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
