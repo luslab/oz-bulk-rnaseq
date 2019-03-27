@@ -406,6 +406,9 @@ done
 ```
 
 ```bash
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
+
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
@@ -633,11 +636,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4Nzg1NDQ2NSw5NDA3MzY3NTMsLTg2ND
-U3NDQyNywtMTU0OTY3Nzc5OSwtMTcwMTY1NzQ3MCwtNTk0MzQx
-Njg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5NTU1LD
-YwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMTgzMDc0
-ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAxODQyMT
-AsMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3MzIsMTg3
-MzQ3NDc5NF19
+eyJoaXN0b3J5IjpbNDAyMzE0MzM4LDk0MDczNjc1MywtODY0NT
+c0NDI3LC0xNTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2
+ODcsLTIxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNj
+A4MjM4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4
+NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMC
+wxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODcz
+NDc0Nzk0XX0=
 -->
