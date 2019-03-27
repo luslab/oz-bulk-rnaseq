@@ -82,11 +82,12 @@ HTSeq-Counts is slow as you cant multithread.
 -   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
 
 ```bash
-mkdir -p htseq
+### OLD (run each time point separately)
+mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/D0_samples
 #set GTF annoation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 #set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR*_Aligned.sortedByCoord.out.bam
 #set output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts
 
@@ -96,7 +97,32 @@ do
 	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tsv"
 done
 
-# merge results files into a single matrix for use in edgeR
+### NEW RUNING ALL SAMPLES AT ONCE FROM ALL TIME POINTS
+# create folders for each timepoint D0 D7 D14 D21 D35 D112
+mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/D0_samples
+#set GTF annoation
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
+#set the BAM file to read in (using STAR output)
+BAM=$TIMEPOINT/SRR*_Aligned.sortedByCoord.out.bam
+#set htseq-count output file aligned
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAYID/
+
+## run multiple alignments using in for loop
+for SAMPLE in $TIMEPOINT;
+do
+DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+	for REPLICATE in $BAM 
+	do
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}${SRRID}.tsv"
+	done
+done
+```
+
+Can merge results files into a single matrix for use in edgeR
+```bash
 join SRR5483788.tsv SRR5483789.tsv | join - SRR5483790.tsv | join - SRR5483794.tsv | join - SRR5483795.tsv | join - SRR5483796.tsv > htseq_counts_table_temp.tsv
 echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
 cat header.txt htseq_counts_table_temp.tsv | grep -v "__" | perl -ne 'chomp $_; $_ =~ s/\s+/\t/g; print "$_\n"' > htseq_counts_table.tsv
@@ -215,11 +241,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgwODk2OTUzLC04MjQ5ODMzODgsNTI3Mz
-c2NzE0LC03MzgzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3
-LDk4NjMyMDY1OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OT
-M4NTEyMSwxMzMyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAx
-NSwxNzE5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02Mz
-AxMTcxNjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0
-ODldfQ==
+eyJoaXN0b3J5IjpbMTA3NTEyMjg4MiwyODA4OTY5NTMsLTgyND
+k4MzM4OCw1MjczNzY3MTQsLTczODMxMzkzMywxMDc3NDY3NjI3
+LC0yNDU2MTA5ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MT
+U3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4
+MCwxOTE5NjA2MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1ND
+Y0NDM3MjIsLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEw
+ODNdfQ==
 -->
