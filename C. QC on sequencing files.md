@@ -90,6 +90,7 @@ adapter removal: `fastx_clipper -Q 33 -l 24 -a $adapt -i ${paths}${file} > ${pat
 Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads. 
 There are disadvantages to removing these sequences. Generally for most RNA-seq remove rRNA at this point pre-alignment.
 
+The first time you do this you need to:
 1. Create rRNA&tRNA reference genome
 `ml BEDOPS`
 ```bash
@@ -118,7 +119,7 @@ bowtie2-build gencode.v28_ribosomal.fa gencode.v28_ribosomal
 samtools faidx gencode.v28_ribosomal.fa
 ```
 
-3. Map sequences to the rRNA & tRNA genome
+Once the rRNA reference genome is created & indexed then **map sequences** to the rRNA & tRNA genome
 
 ```bash
 #set shortcuts
@@ -170,6 +171,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMD
-A0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTYxNzgxOTc3NSwxMDY5NjAwMjc3LDY0Nz
+IyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3NjcyMTgsLTE4OTk4MjAy
+Ml19
 -->
