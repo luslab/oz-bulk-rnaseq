@@ -136,6 +136,8 @@ IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_rib
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+#define relevant ouput folder for none aligning reads
+OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted`
 	for REPLICATE in $FASTQ 
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
@@ -180,9 +182,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzM4MjAwMTEzLDE4NzExNDgyNjQsLTE4OD
-AzODAyNiwtNTU0MzA1NzcyLDE5MTA4NzcyNjEsLTQ4NDU1Njg2
-NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3MjA3MD
-M5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAwNTMs
-OTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbMTc5ODMxNDk3MiwxODcxMTQ4MjY0LC0xOD
+gwMzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC00ODQ1NTY4
+NjUsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNz
+AzOTg0LC0xNDcwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUz
+LDk5MDAwNDgxMSwtMTg2ODc2NzIxOCwtMTg5OTgyMDIyXX0=
 -->
