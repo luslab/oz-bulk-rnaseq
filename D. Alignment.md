@@ -601,7 +601,7 @@ Create SAM file with intron spanning reads:
 
 As you aligned each fastq file separately you have a BAM file for each fastq. At some point you will need to merge the BAM files for downstream processing.  
 
-You can merge BAM files from each condition (VCP or CTRL) but not combine different conditions (wildtype & mutant). Dont forget there maybe batch effects between samples in the sample condition which are difficult to anaylse after merging BAM files.
+You can merge BAM files from each condition (VCP or CTRL) but not combine different conditions (wildtype & mutant). Dont forget there maybe batch effects between samples in the sample condition which are difficult to analyse after merging BAM files.
 ```bash
 #run samtools merge command listing all BAM files to read in
 samtools merge all_bam_files.bam filename1.bam filename2.bam filename3.bam`
@@ -624,11 +624,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0NjQ4NzUwNywtMTcwMTY1NzQ3MCwtNT
-k0MzQxNjg3LC0yMTM5ODkxNTk0LDc1ODk0NDg3MSwtMTAzNTM5
-NTU1LDYwODIzODA4MywxMDEzNjQxNzAwLDcyMjUzMDQxNCwtMT
-gzMDc0ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAxMDU5NCw2MTAx
-ODQyMTAsMTczODQ2MzI0MywtMjA5NDMxNzk1MSwxNTMxNTA3Mz
-IsMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkzMTE5MzA0MiwtMTU4
-MDc4MzM3Nl19
+eyJoaXN0b3J5IjpbLTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLT
+U5NDM0MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUz
+OTU1NSw2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLT
+E4MzA3NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEw
+MTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNz
+MyLDE4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1
+ODA3ODMzNzZdfQ==
 -->
