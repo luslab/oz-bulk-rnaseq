@@ -297,6 +297,28 @@ The above script needs editing for each sequencing file (redundant).
 To create a script that runs all sequencing files (non-redundant) you can use a for loop or snakemake.
 
 **For Loop**
+
+```bash
+# create output folder
+mkdir D0_samples
+# set shortcuts
+## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
+FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed/*.fq.gz
+## set SAM output file aligned to the RNA genome
+OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/
+##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
+IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
+
+## run multiple alignments using in for loop
+for SAMPLE in $FASTQ 
+do
+SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $SAMPLE -S ${OUT}${SRRID}.sam";
+done
+```
+
+
+
 ```bash
 # Create output folder
 mkdir -p bam
@@ -603,11 +625,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4Mz
-A3NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0
-MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLD
-E4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3
-ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MT
-Y3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00
-ODY4ODQ4NDRdfQ==
+eyJoaXN0b3J5IjpbMTI1NzMyMzE4MCwxMDEzNjQxNzAwLDcyMj
+UzMDQxNCwtMTgzMDc0ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAx
+MDU5NCw2MTAxODQyMTAsMTczODQ2MzI0MywtMjA5NDMxNzk1MS
+wxNTMxNTA3MzIsMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkzMTE5
+MzA0MiwtMTU4MDc4MzM3NiwtMzg3NzY2OTcyLDEzNDM5MjgzMT
+csLTE0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0
+NzA5Mjg4OTZdfQ==
 -->
