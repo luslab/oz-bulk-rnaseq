@@ -74,7 +74,8 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ml HTSeq
 ml Pysam
 
-Raphaelle uses R scripts called `SVD_htseqcount.R` and `nested_fun_svd_htseq.R` located in `oliver/scripts/intron_retention/`. The output of these are then loaded into the import_VASTOOLS.R pipeline.
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output
+The output of these are then loaded into the import_VASTOOLS.R pipeline.
 
 HTSeq-Counts is slow as you cant multithread.
 
@@ -214,11 +215,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
-MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
-LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
-IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
-ODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2OCwtNT
-M4NjI1ODI1LC04MzA1ODEwODMsLTczNDQxNTQ4OSwzNjc5NjI2
-OF19
+eyJoaXN0b3J5IjpbLTIwNDg4NDQyNzUsLTgyNDk4MzM4OCw1Mj
+czNzY3MTQsLTczODMxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5
+ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMj
+c5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2
+MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLT
+YzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLTczNDQx
+NTQ4OV19
 -->
