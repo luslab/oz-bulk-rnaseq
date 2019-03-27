@@ -123,7 +123,7 @@ Once the rRNA reference genome is created & indexed then **map sequences** to th
 ```bash
 mkdir trimmed_depleted 
 
-# set timepoint folders
+# set INPUT timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 ## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
 FASTQ=$TIMEPOINT/trimmed/*.fq.gz
@@ -181,7 +181,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUyNDE2NTY5LC02MjUzODY0ODIsMTg3MT
+eyJoaXN0b3J5IjpbNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MT
 E0ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2
 MSwtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5Nz
 EzNzQ2LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMDY5NjAwMjc3
