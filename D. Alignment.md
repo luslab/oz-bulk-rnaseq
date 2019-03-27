@@ -242,22 +242,9 @@ The "hard-coding" looks like this (very long and difficult to edit):
 ```bash
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 59 --runThreadN 8"
 ```
-
 Check it is running using `myq`
 If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
 Open slurm file: `more slurm…` which will explain outcome of file eg FATAL INPUT PARAMETER ERROR
-
-Alternative approach is to build Index using [snakemake](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html) which parallelises the indexing process: https://www.biostarhandbook.com/unix/makefiles.html
-
- - Write the Snakefile in Atom and save it in the relevant directory near the index. Define input, output and shell script.
-```bash
-input:
-	ref="/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"+"/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa", starref="/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"+"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR",
-output: 
-	"/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"+"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR"+"/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index/chrName.txt"
-shell: 
-	"STAR --runMode genomeGenerate --genomeDir {input.starref} --genomeFastaFiles {input.ref} --sjdbOverhang 59 --runThreadN 8"
-```
  
 ### 2. Align each FASTQ file to the Index
 ml STAR
@@ -628,11 +615,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzUzOTU1NSw2MDgyMzgwODMsMTAxMz
-Y0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0
-OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLT
-IwOTQzMTc5NTEsMTUzMTUwNzMyLDE4NzM0NzQ3OTQsNzc1ODQw
-NTk0LDE5MzExOTMwNDIsLTE1ODA3ODMzNzYsLTM4Nzc2Njk3Mi
-wxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC0zNzczNDM2MTgsOTk4
-OTg4NjU2XX0=
+eyJoaXN0b3J5IjpbLTEwNjI2NDc1MTksLTEwMzUzOTU1NSw2MD
+gyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0
+OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLD
+E3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4NzM0
+NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3ODMzNz
+YsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MTY3LC0z
+NzczNDM2MThdfQ==
 -->
