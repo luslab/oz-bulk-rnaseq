@@ -136,7 +136,9 @@ do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 #define relevant ouput folder for none aligning reads
 OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted`
-	for REPLICATE in $FASTQ; SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	for REPLICATE in $FASTQ 
+	do
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
 	done
 done
@@ -179,7 +181,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4ODMzOTQ2MSwtNjI1Mzg2NDgyLDE4Nz
+eyJoaXN0b3J5IjpbMTgzODQwMDEyMSwtNjI1Mzg2NDgyLDE4Nz
 ExNDgyNjQsLTE4ODAzODAyNiwtNTU0MzA1NzcyLDE5MTA4Nzcy
 NjEsLTQ4NDU1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOT
 cxMzc0Niw3MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3
