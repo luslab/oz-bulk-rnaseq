@@ -300,20 +300,20 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set BAM output file aligned to human genome
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAYID/
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY/
 
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 #set the sequencing file to read in (use trimmed_depleted output)
-READ1=$TIMEPOINT/trimmed_depleted/*.fq
+READ1=$SAMPLE/trimmed_depleted/*.fq
 	for REPLICATE in $READ1 
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}/${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	# Index each BAM file as they are produced
-	samtools index ${BAM}${SRRID}_Aligned.sortedByCoord.out.bam
+	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
 	done
 done
 
@@ -644,11 +644,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MzEyMzYxLDk0MDczNjc1MywtODY0NT
-c0NDI3LC0xNTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2
-ODcsLTIxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNj
-A4MjM4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4
-NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMC
-wxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODcz
-NDc0Nzk0XX0=
+eyJoaXN0b3J5IjpbLTIwNjE2MDI4OTEsOTQwNzM2NzUzLC04Nj
+Q1NzQ0MjcsLTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0
+MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NS
+w2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3
+NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0Mj
+EwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLDE4
+NzM0NzQ3OTRdfQ==
 -->
