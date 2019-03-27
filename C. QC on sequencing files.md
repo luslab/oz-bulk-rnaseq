@@ -64,10 +64,10 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 `CutAdapt`  application note in Embnet Journal, 2011 - advised by Nobby
 `Trim Galore` is a wrapper around `Cutadapt` - this performs quality trimming then adaptor trimming all in 1. It can also run FastQC.
 
-1. `mkdir trimmed_results`
+1. `mkdir trimmed_results` output folder in the `reads` directory
 
 2. Run Trim Galore 
-`trim_galore -q 20 --length 20 --gzip -o /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_results /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq`
+`trim_galore -q 20 --length 20 --gzip -o /home/camp/ziffo/working/oliver/projects/airals/reads/D7_samples/trimmed_results /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483788_1.fastq`
 
 for multiple sequences can parallelise by using for loop & sbatch:
 ```bash
@@ -170,6 +170,6 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xOD
-k5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbLTU5MzI0NTY1Miw5OTAwMDQ4MTEsLTE4Nj
+g3NjcyMTgsLTE4OTk4MjAyMl19
 -->
