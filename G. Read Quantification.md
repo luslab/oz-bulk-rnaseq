@@ -74,8 +74,8 @@ Geneid    Chr   Start   End	  Strand   Length 	 Hits
 ml HTSeq
 ml Pysam
 
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output
-The output of these are then loaded into the import_VASTOOLS.R pipeline.
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample.
+The output of these are then loaded into the SVD_analysis.Rmd script.
 
 HTSeq-Counts is slow as you cant multithread.
 
@@ -215,11 +215,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDg4NDQyNzUsLTgyNDk4MzM4OCw1Mj
-czNzY3MTQsLTczODMxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5
-ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMj
-c5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2
-MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3MjIsLT
-YzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEwODMsLTczNDQx
-NTQ4OV19
+eyJoaXN0b3J5IjpbMjgwODk2OTUzLC04MjQ5ODMzODgsNTI3Mz
+c2NzE0LC03MzgzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3
+LDk4NjMyMDY1OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OT
+M4NTEyMSwxMzMyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAx
+NSwxNzE5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02Mz
+AxMTcxNjgsLTUzODYyNTgyNSwtODMwNTgxMDgzLC03MzQ0MTU0
+ODldfQ==
 -->
