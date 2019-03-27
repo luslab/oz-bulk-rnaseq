@@ -134,6 +134,12 @@ RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/r
 
 #map to ribosomal genome
 sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUTPUT -x $REF -U $FASTQ -S $RNA_SAM"
+
+
+for file in ~/working/oliver/projects/airals/reads/D0_samples/SRR5*_1.fastq
+do
+	sbatch -N 1 -c 1 --mem 32 --wrap="trim_galore -q 20 --length 20 --gzip -fastqc -o /home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed $file";
+done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
 
@@ -171,7 +177,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2ND
-cyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIw
-MjJdfQ==
+eyJoaXN0b3J5IjpbLTE4NDc0NDMxMDAsLTE0NzA0MTMxMzksMT
+A2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3
+MjE4LC0xODk5ODIwMjJdfQ==
 -->
