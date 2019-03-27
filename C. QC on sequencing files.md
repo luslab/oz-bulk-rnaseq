@@ -137,23 +137,16 @@ FASTQ=$SAMPLE/trimmed/*trimmed.fq.gz
 	for REPLICATE in $FASTQ 
 	do
 	#define relevant ouput folder
-	OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted/`
+	OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT$SRRID.fastq -x $IDX -U $REPLICATE";
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
 	done
 done
 
-for SAMPLE in $TIMEPOINT;
-do
-DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-# set FASTQ file input (output of trim galore)
-FASTQ=$SAMPLE/trimmed/*trimmed.fq.gz
-	for REPLICATE in $FASTQ 
-	do
-	#define relevant ouput folder
-	OUT=`/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted`
+
+	OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	echo ${OUT}_${SRRID}
+	echo ${OUT}/${SRRID}
 	done
 done
 ```
@@ -195,7 +188,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Nzc2MjQ4MDcsLTEwMjkxNzI3NTcsLT
+eyJoaXN0b3J5IjpbLTE2OTQ4MTgxNjMsLTEwMjkxNzI3NTcsLT
 E2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0
 ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MS
 wtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEz
