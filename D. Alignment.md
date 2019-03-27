@@ -301,19 +301,27 @@ To create a script that runs all sequencing files (non-redundant) you can use a 
 ```bash
 # create output folder
 mkdir D0_samples
-# set shortcuts
+#set the index
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+#set the fastq sequencing file to read in
+READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted/*.sam
+#set the paired fastq sequencing file to read in (for paired end data only)
+READ2=
+#set name under which to store the BAM file output
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_
+
 ## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed/*.fq.gz
 ## set SAM output file aligned to the RNA genome
 OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/
-##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
-IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
 
 ## run multiple alignments using in for loop
 for SAMPLE in $FASTQ 
 do
 SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $IDX -U $SAMPLE -S ${OUT}${SRRID}.sam";
+
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $SAMPLE --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 done
 ```
 
@@ -625,11 +633,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1NzMyMzE4MCwxMDEzNjQxNzAwLDcyMj
-UzMDQxNCwtMTgzMDc0ODQ5OSwtMTE2MjY3ODQ5MywtMTgxMjAx
-MDU5NCw2MTAxODQyMTAsMTczODQ2MzI0MywtMjA5NDMxNzk1MS
-wxNTMxNTA3MzIsMTg3MzQ3NDc5NCw3NzU4NDA1OTQsMTkzMTE5
-MzA0MiwtMTU4MDc4MzM3NiwtMzg3NzY2OTcyLDEzNDM5MjgzMT
-csLTE0MjM4MjcxNjcsLTM3NzM0MzYxOCw5OTg5ODg2NTYsLTE0
-NzA5Mjg4OTZdfQ==
+eyJoaXN0b3J5IjpbNDMwMjkyNjEzLDEwMTM2NDE3MDAsNzIyNT
+MwNDE0LC0xODMwNzQ4NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEw
+NTk0LDYxMDE4NDIxMCwxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLD
+E1MzE1MDczMiwxODczNDc0Nzk0LDc3NTg0MDU5NCwxOTMxMTkz
+MDQyLC0xNTgwNzgzMzc2LC0zODc3NjY5NzIsMTM0MzkyODMxNy
+wtMTQyMzgyNzE2NywtMzc3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3
+MDkyODg5Nl19
 -->
