@@ -128,16 +128,16 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 ## set FASTQ input (use the output of trim galore zipped adapter trimmed fastq files)
 FASTQ=$TIMEPOINT/trimmed/*.fq.gz
 # set fastq output file of reads that dont align to the RNA genome
-OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAYID/trimmed_depleted
+OUT=/home/camp/ziffo/working/oliver/projects/airals/reads/$DAY/trimmed_depleted
 ##set index of reference genome as the ribosomal genome (do not include .fai on end of ribosomal i.e. only include base name)
 IDX=/home/camp/ziffo/working/oliver/genomes/annotation/ribosomal/gencode.v28_ribosomal
 
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
-DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	for REPLICATE in $FASTQ 
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un ${OUT}/${SRRID}.fastq -x $IDX -U $REPLICATE";
 	done
 done
@@ -180,9 +180,9 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg3MTE0ODI2NCwtMTg4MDM4MDI2LC01NT
-QzMDU3NzIsMTkxMDg3NzI2MSwtNDg0NTU2ODY1LC0xMDgzNzcw
-LC0xMTE0NzAyODcsOTA5NzEzNzQ2LDcyMDcwMzk4NCwtMTQ3MD
-QxMzEzOSwxMDY5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEs
-LTE4Njg3NjcyMTgsLTE4OTk4MjAyMl19
+eyJoaXN0b3J5IjpbNzM4MjAwMTEzLDE4NzExNDgyNjQsLTE4OD
+AzODAyNiwtNTU0MzA1NzcyLDE5MTA4NzcyNjEsLTQ4NDU1Njg2
+NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3MjA3MD
+M5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAwNTMs
+OTkwMDA0ODExLC0xODY4NzY3MjE4LC0xODk5ODIwMjJdfQ==
 -->
