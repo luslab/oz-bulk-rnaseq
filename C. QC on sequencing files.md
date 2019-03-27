@@ -140,7 +140,7 @@ sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $FASTQ -S
 for SAMPLE in $FASTQ 
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40BG --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $SAMPLE -S ${OUT}_${SRRID}.sam";
+	sbatch -N 1 -c 8 --mem=40GB --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $SAMPLE -S ${OUT}_${SRRID}.sam";
 done
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
@@ -179,7 +179,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTg0OTIzMjYsLTE0NzA0MTMxMzksMT
-A2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3
-MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbNzIwNzAzOTg0LC0xNDcwNDEzMTM5LDEwNj
+k2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgxMSwtMTg2ODc2NzIx
+OCwtMTg5OTgyMDIyXX0=
 -->
