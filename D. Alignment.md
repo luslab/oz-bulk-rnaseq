@@ -283,7 +283,7 @@ By allocating all file names to the `$INPUT` term it means all the FASTQ files a
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 #set the fastq sequencing file to read in
-READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted/SRR5483788.fq
+READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set name under which to store the BAM file output
@@ -603,11 +603,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODA0NjQ0MjQsNzIyNTMwNDE0LC0xOD
-MwNzQ4NDk5LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4
-NDIxMCwxNzM4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMi
-wxODczNDc0Nzk0LDc3NTg0MDU5NCwxOTMxMTkzMDQyLC0xNTgw
-NzgzMzc2LC0zODc3NjY5NzIsMTM0MzkyODMxNywtMTQyMzgyNz
-E2NywtMzc3MzQzNjE4LDk5ODk4ODY1NiwtMTQ3MDkyODg5Niwt
-NDg2ODg0ODQ0XX0=
+eyJoaXN0b3J5IjpbMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4Mz
+A3NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0
+MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUzMTUwNzMyLD
+E4NzM0NzQ3OTQsNzc1ODQwNTk0LDE5MzExOTMwNDIsLTE1ODA3
+ODMzNzYsLTM4Nzc2Njk3MiwxMzQzOTI4MzE3LC0xNDIzODI3MT
+Y3LC0zNzczNDM2MTgsOTk4OTg4NjU2LC0xNDcwOTI4ODk2LC00
+ODY4ODQ4NDRdfQ==
 -->
