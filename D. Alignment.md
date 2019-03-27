@@ -295,7 +295,7 @@ mkdir /home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples
 #set the index
 IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
 # set timepoint folders
-
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples/
 #set the sequencing file to read in (use trimmed_depleted output)
 READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
@@ -304,11 +304,13 @@ READ2=
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D112_samples/
 
 ## run multiple alignments using in for loop
-for TIMEPOINT in 
-for SAMPLE in $READ1 
+for REPLICATES in $TIMEPOINT;
 do
-SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $SAMPLE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	for SAMPLE in $READ1 
+	do
+		SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+		sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $SAMPLE --outFileNamePrefix ${BAM}${SRRID} --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	done
 done
 ```
 
@@ -617,7 +619,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM4OTc1OTYwLC0xMDM1Mzk1NTUsNjA4Mj
+eyJoaXN0b3J5IjpbNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4Mj
 M4MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5
 LC0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNz
 M4NDYzMjQzLC0yMDk0MzE3OTUxLDE1MzE1MDczMiwxODczNDc0
