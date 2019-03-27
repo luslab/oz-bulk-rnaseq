@@ -134,10 +134,27 @@ RNA_SAM=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed
 sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $FASTQ -S $RNA_SAM"
 
 
-for file in ~/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
+for SAMPLE in $FASTQ~/working/oliver/projects/airals/reads/D0_samples/trimmed/SRR*.fq.qz
 do
 	sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $file -S $RNA_SAM";
 done
+
+
+
+
+#set GTF annoation
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts
+
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tsv"
+done
+
 ```
 -q = input is fastq; -p 8 = launch 8 alignment threads; --un (path) = write unpaired reads that didnt align to this path; -x bt2 = index filename prefix; -U file.fq = files with unpaired reads (can be .gz); -S sam = sam output file
 
@@ -175,7 +192,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NDA2MDc5MiwtMTQ3MDQxMzEzOSwxMD
+eyJoaXN0b3J5IjpbMjE0NDUyOTIwNCwtMTQ3MDQxMzEzOSwxMD
 Y5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3Njcy
 MTgsLTE4OTk4MjAyMl19
 -->
