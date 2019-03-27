@@ -140,7 +140,7 @@ sbatch -N 1 -c 8 --mem 40 --wrap="bowtie2 -q -p 8 --un $OUT -x $REF -U $FASTQ -S
 for SAMPLE in $FASTQ 
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40BG --wrap="bowtie2 -q -p 8 --un ${OUT}_${SRRID} -x $REF -U $file -S $RNA_SAM";
+	sbatch -N 1 -c 8 --mem=40BG --wrap="bowtie2 -q -p 8 --un ${OUT}_${SRRID} -x $REF -U $file -S $RNA_SAM.fq";
 done
 
 
@@ -196,7 +196,7 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTQyMTgyODcsLTE0NzA0MTMxMzksMT
-A2OTYwMDI3Nyw2NDcyMjAwNTMsOTkwMDA0ODExLC0xODY4NzY3
-MjE4LC0xODk5ODIwMjJdfQ==
+eyJoaXN0b3J5IjpbMTU1MDg4MjU1MCwtMTQ3MDQxMzEzOSwxMD
+Y5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3Njcy
+MTgsLTE4OTk4MjAyMl19
 -->
