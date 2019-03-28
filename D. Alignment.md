@@ -530,7 +530,20 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $SAMPLE > ${SRRID}.sam"
 done
 
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
 
+for SAMPLE in $TIMEPOINT;
+do
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
+	for REPLICATE in $BAM
+	do
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY/${SRRID}Aligned.sortedByCoord.out.bam
+	samtools index $BAM
+	done
+done
 ```
 
 or alternatively: 
@@ -637,11 +650,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjA3MDM5MTIsNjE1Mjg1MzAwLDE0ND
-M2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0MjcsLTE1NDk2Nzc3
-OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMjEzOTg5MTU5NC
-w3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgwODMsMTAxMzY0
-MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0OT
-MsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIw
-OTQzMTc5NTFdfQ==
+eyJoaXN0b3J5IjpbMTE3NDc4MDExNiw2MTUyODUzMDAsMTQ0Mz
+Y1MjQ3Miw5NDA3MzY3NTMsLTg2NDU3NDQyNywtMTU0OTY3Nzc5
+OSwtMTcwMTY1NzQ3MCwtNTk0MzQxNjg3LC0yMTM5ODkxNTk0LD
+c1ODk0NDg3MSwtMTAzNTM5NTU1LDYwODIzODA4MywxMDEzNjQx
+NzAwLDcyMjUzMDQxNCwtMTgzMDc0ODQ5OSwtMTE2MjY3ODQ5My
+wtMTgxMjAxMDU5NCw2MTAxODQyMTAsMTczODQ2MzI0MywtMjA5
+NDMxNzk1MV19
 -->
