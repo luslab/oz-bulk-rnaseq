@@ -118,7 +118,7 @@ BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	#set htseq output file
 	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}/${SRRID}"
+	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}/${SRRID}.tsv"
 	done
 done
 ```
@@ -243,11 +243,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDc2MDQxNzksMTg2NDEwODI4MSwxMD
-c1MTIyODgyLDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3Njcx
-NCwtNzM4MzEzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5OD
-YzMjA2NTksLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUx
-MjEsMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMT
-cxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3
-MTY4XX0=
+eyJoaXN0b3J5IjpbMTM2MTc3MDk2NiwxODY0MTA4MjgxLDEwNz
+UxMjI4ODIsMjgwODk2OTUzLC04MjQ5ODMzODgsNTI3Mzc2NzE0
+LC03MzgzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4Nj
+MyMDY1OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEy
+MSwxMzMyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNz
+E5MzIwMzg0LDU4OTQ0NTcwOCwxNTQ2NDQzNzIyLC02MzAxMTcx
+NjhdfQ==
 -->
