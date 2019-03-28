@@ -82,19 +82,11 @@ HTSeq-Counts is slow as you cant multithread.
 -   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
 
 ```bash
-### OLD (run each time point separately)
-mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/D0_samples
-#set GTF annoation
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR*_Aligned.sortedByCoord.out.bam
-#set output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/htseq/htseq_counts
 
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tsv"
+	sbatch -N 1 -c 8 --mem=24GB --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $SAMPLE $GTF > ${OUT}_${SRRID}.tab"
 done
 
 ### NEW RUNING ALL SAMPLES AT ONCE FROM ALL TIME POINTS
@@ -119,7 +111,7 @@ echo "Running timepoint $SAMPLE"
 	#set htseq output file
 	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count -s reverse $REPLICATE $GTF > ${OUT}/${SRRID}.tsv"
+	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count -s reverse $REPLICATE $GTF > ${OUT}/${SRRID}.tab"
 	echo "Running sample $REPLICATE"
 	done
 done
@@ -245,11 +237,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMzU5NzU5MSwxMTg2Njk1NzY2LDE4Nj
-QxMDgyODEsMTA3NTEyMjg4MiwyODA4OTY5NTMsLTgyNDk4MzM4
-OCw1MjczNzY3MTQsLTczODMxMzkzMywxMDc3NDY3NjI3LC0yND
-U2MTA5ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEw
-NiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4MCwxOT
-E5NjA2MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1NDY0NDM3
-MjJdfQ==
+eyJoaXN0b3J5IjpbMTg1ODQ2Mzc0NiwxNzMzNTk3NTkxLDExOD
+Y2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgyLDI4MDg5Njk1
+MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMzLDEwNz
+c0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMzgzODY0
+NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUyOSwxOD
+k3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4NCw1ODk0NDU3
+MDhdfQ==
 -->
