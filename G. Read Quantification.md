@@ -111,7 +111,7 @@ echo "Running timepoint $SAMPLE"
 	#set htseq output file
 	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count -s reverse $REPLICATE $GTF > ${OUT}/${SRRID}.tab"
+	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count -s reverse $REPLICATE $GTF > $OUT/$DAY_${SRRID}.tab"
 	echo "Running sample $REPLICATE"
 	done
 done
@@ -237,11 +237,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1ODQ2Mzc0NiwxNzMzNTk3NTkxLDExOD
-Y2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgyLDI4MDg5Njk1
-MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMzLDEwNz
-c0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMzgzODY0
-NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUyOSwxOD
-k3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4NCw1ODk0NDU3
-MDhdfQ==
+eyJoaXN0b3J5IjpbMTk3NjI4ODc5LDE3MzM1OTc1OTEsMTE4Nj
+Y5NTc2NiwxODY0MTA4MjgxLDEwNzUxMjI4ODIsMjgwODk2OTUz
+LC04MjQ5ODMzODgsNTI3Mzc2NzE0LC03MzgzMTM5MzMsMTA3Nz
+Q2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1OSwtNDIzODM4NjQ0
+LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5LDE4OT
+c0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OTQ0NTcw
+OF19
 -->
