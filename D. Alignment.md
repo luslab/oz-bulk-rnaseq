@@ -411,14 +411,14 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 
 for SAMPLE in $TIMEPOINT;
 do
-DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-READ=$SAMPLE/trimmed_depleted/*.fastq
-for REPLICATE in $READ
-do
-SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY/${SRRID}Aligned.sortedByCoord.out.bam
-samtools index $BAM
-done
+	DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+	READ=$SAMPLE/trimmed_depleted/*.fastq
+		for REPLICATE in $READ
+		do
+			SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+			BAM=$SAMPLE/${SRRID}Aligned.sortedByCoord.out.bam
+			samtools index $BAM
+		done
 done
 ```
 
@@ -541,8 +541,6 @@ BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > $SAMPLE/${SRRID}.sam"
-	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY/${SRRID}Aligned.sortedByCoord.out.bam
-	samtools index $BAM
 	done
 done
 ```
@@ -651,11 +649,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzI2MTcyNTY0LDYxNTI4NTMwMCwxNDQzNj
-UyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3LC0xNTQ5Njc3Nzk5
-LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLTIxMzk4OTE1OTQsNz
-U4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4MDgzLDEwMTM2NDE3
-MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMTYyNjc4NDkzLC
-0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYzMjQzLC0yMDk0
-MzE3OTUxXX0=
+eyJoaXN0b3J5IjpbLTMyODg1MzA5OSw3MjYxNzI1NjQsNjE1Mj
+g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
+LTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
+EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
+ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
+ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
+NjMyNDNdfQ==
 -->
