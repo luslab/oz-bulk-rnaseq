@@ -116,14 +116,14 @@ BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM 
 	do
 	#set htseq output file
-	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAY
+	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}/${SRRID}"
 	done
 done
 ```
 
-Can merge results files into a single matrix for use in edgeR
+### Can merge  htseq count files into a single matrix for use in edgeR
 ```bash
 join SRR5483788.tsv SRR5483789.tsv | join - SRR5483790.tsv | join - SRR5483794.tsv | join - SRR5483795.tsv | join - SRR5483796.tsv > htseq_counts_table_temp.tsv
 echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
@@ -243,11 +243,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2NDEwODI4MSwxMDc1MTIyODgyLDI4MD
-g5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMz
-LDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMz
-gzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUy
-OSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4NCw1OD
-k0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3MTY4LC01Mzg2MjU4
-MjVdfQ==
+eyJoaXN0b3J5IjpbLTIxMDc2MDQxNzksMTg2NDEwODI4MSwxMD
+c1MTIyODgyLDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3Njcx
+NCwtNzM4MzEzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5OD
+YzMjA2NTksLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUx
+MjEsMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMT
+cxOTMyMDM4NCw1ODk0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3
+MTY4XX0=
 -->
