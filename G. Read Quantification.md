@@ -98,8 +98,9 @@ do
 done
 
 ### NEW RUNING ALL SAMPLES AT ONCE FROM ALL TIME POINTS
-# create folders for each timepoint D0 D7 D14 D21 D35 D112
-mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/D0_samples
+# create one htseq output folder in expression/
+mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/
+
 #set GTF annoation
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 # set timepoint folders
@@ -117,6 +118,33 @@ DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}${SRRID}.tsv"
+	done
+done
+
+
+
+# create all time point output folders
+mkdir D0_samples D7_samples D14_samples D21_samples D35_samples D112_samples
+
+#set the index
+IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
+
+## run multiple alignments using in for loop
+for SAMPLE in $TIMEPOINT;
+do
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+#set the sequencing file to read in (use trimmed_depleted output)
+READ1=$SAMPLE/trimmed_depleted/*.fastq
+	for REPLICATE in $READ1 
+	do
+	#set BAM output file aligned to human genome
+	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}/${SRRID}_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
+	# Index each BAM file as they are produced
+	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
 	done
 done
 ```
@@ -241,11 +269,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NTEyMjg4MiwyODA4OTY5NTMsLTgyND
-k4MzM4OCw1MjczNzY3MTQsLTczODMxMzkzMywxMDc3NDY3NjI3
-LC0yNDU2MTA5ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MT
-U3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4
-MCwxOTE5NjA2MDE1LDE3MTkzMjAzODQsNTg5NDQ1NzA4LDE1ND
-Y0NDM3MjIsLTYzMDExNzE2OCwtNTM4NjI1ODI1LC04MzA1ODEw
-ODNdfQ==
+eyJoaXN0b3J5IjpbLTEwMzY4OTA4ODYsMTA3NTEyMjg4MiwyOD
+A4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczODMxMzkz
+MywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5LC00Mj
+M4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1
+MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAzODQsNT
+g5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2OCwtNTM4NjI1
+ODI1XX0=
 -->
