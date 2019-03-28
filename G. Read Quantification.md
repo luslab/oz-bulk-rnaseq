@@ -98,7 +98,7 @@ do
 done
 
 ### NEW RUNING ALL SAMPLES AT ONCE FROM ALL TIME POINTS
-# create one htseq output folder in expression/
+# create one htseq/ output folder in expression/
 mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/
 
 #set GTF annoation
@@ -113,7 +113,9 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAYID/
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
-DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
+#set the sequencing file to read in (use trimmed_depleted output)
+BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM 
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
@@ -121,15 +123,6 @@ DAYID=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	done
 done
 
-
-
-# create all time point output folders
-mkdir D0_samples D7_samples D14_samples D21_samples D35_samples D112_samples
-
-#set the index
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
-# set timepoint folders
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
@@ -269,11 +262,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzY4OTA4ODYsMTA3NTEyMjg4MiwyOD
-A4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczODMxMzkz
-MywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5LC00Mj
-M4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1
-MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAzODQsNT
-g5NDQ1NzA4LDE1NDY0NDM3MjIsLTYzMDExNzE2OCwtNTM4NjI1
-ODI1XX0=
+eyJoaXN0b3J5IjpbMTE2NjA1MjIzNCwxMDc1MTIyODgyLDI4MD
+g5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMz
+LDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMz
+gzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUy
+OSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4NCw1OD
+k0NDU3MDgsMTU0NjQ0MzcyMiwtNjMwMTE3MTY4LC01Mzg2MjU4
+MjVdfQ==
 -->
