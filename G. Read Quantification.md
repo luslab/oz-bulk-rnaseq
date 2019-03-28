@@ -105,19 +105,18 @@ mkdir -p /home/camp/ziffo/working/oliver/projects/airals/expression/htseq/
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 # set timepoint folders
 TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
-#set the BAM file to read in (using STAR output)
-BAM=$TIMEPOINT/SRR*_Aligned.sortedByCoord.out.bam
 #set htseq-count output file aligned
-OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAYID/
 
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-#set the sequencing file to read in (use trimmed_depleted output)
+#set the BAM file to read in (using STAR output)
 BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM 
 	do
+	#set htseq output file
+	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAY/
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}${SRRID}.tsv"
 	done
@@ -262,7 +261,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2NjA1MjIzNCwxMDc1MTIyODgyLDI4MD
+eyJoaXN0b3J5IjpbMTQ2NTMyMTM3OSwxMDc1MTIyODgyLDI4MD
 g5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMz
 LDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMz
 gzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUy
