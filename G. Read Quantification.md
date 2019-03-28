@@ -116,27 +116,9 @@ BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM 
 	do
 	#set htseq output file
-	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAY/
+	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq/$DAY
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}${SRRID}.tsv"
-	done
-done
-
-
-## run multiple alignments using in for loop
-for SAMPLE in $TIMEPOINT;
-do
-DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-#set the sequencing file to read in (use trimmed_depleted output)
-READ1=$SAMPLE/trimmed_depleted/*.fastq
-	for REPLICATE in $READ1 
-	do
-	#set BAM output file aligned to human genome
-	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
-	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}/${SRRID}_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
-	# Index each BAM file as they are produced
-	samtools index ${BAM}/${SRRID}_Aligned.sortedByCoord.out.bam
+	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}/${SRRID}"
 	done
 done
 ```
@@ -261,7 +243,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NTMyMTM3OSwxMDc1MTIyODgyLDI4MD
+eyJoaXN0b3J5IjpbMTg2NDEwODI4MSwxMDc1MTIyODgyLDI4MD
 g5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMz
 LDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMz
 gzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUy
