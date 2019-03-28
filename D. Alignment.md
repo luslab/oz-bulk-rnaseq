@@ -540,7 +540,7 @@ echo "Running timepoint $SAMPLE"
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > $SAMPLE/${SRRID}.sam"
-	echo "Running sample 
+	echo "Running sample $SRRID"
 	done
 done
 ```
@@ -649,11 +649,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAwNTM5NzAsNzI2MTcyNTY0LDYxNTI4NT
-MwMCwxNDQzNjUyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3LC0x
-NTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLTIxMz
-k4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4MDgz
-LDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMT
-YyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYz
-MjQzXX0=
+eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
+g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
+LTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
+EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
+ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
+ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
+NjMyNDNdfQ==
 -->
