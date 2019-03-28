@@ -111,14 +111,14 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
 for SAMPLE in $TIMEPOINT;
 do
 DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
-#set the BAM file to read in (using STAR output)
-BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
+#set the SAM file to read in (using STAR output)
+SAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM 
 	do
 	#set htseq output file
 	OUT=/home/camp/ziffo/working/oliver/projects/airals/expression/htseq
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count --format bam --order pos --mode intersection-strict --stranded reverse --minaqual 1 --type exon --idattr gene_id $REPLICATE $GTF > ${OUT}/${SRRID}.tsv"
+	sbatch -N 1 -c 8 --mem 40G --wrap="htseq-count -s reverse $REPLICATE $GTF > ${OUT}/${SRRID}.tsv"
 	done
 done
 ```
@@ -243,7 +243,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MTc3MDk2NiwxODY0MTA4MjgxLDEwNz
+eyJoaXN0b3J5IjpbMTE4NjY5NTc2NiwxODY0MTA4MjgxLDEwNz
 UxMjI4ODIsMjgwODk2OTUzLC04MjQ5ODMzODgsNTI3Mzc2NzE0
 LC03MzgzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4Nj
 MyMDY1OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEy
