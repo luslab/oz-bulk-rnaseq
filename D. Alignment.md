@@ -411,7 +411,6 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
 
 for SAMPLE in $TIMEPOINT;
 do
-	DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 	READ=$SAMPLE/trimmed_depleted/*.fastq
 		for REPLICATE in $READ
 		do
@@ -649,11 +648,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyODg1MzA5OSw3MjYxNzI1NjQsNjE1Mj
-g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
-LTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
-EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
-ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
-ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
-NjMyNDNdfQ==
+eyJoaXN0b3J5IjpbLTIwNDEwOTUyOTIsNzI2MTcyNTY0LDYxNT
+I4NTMwMCwxNDQzNjUyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3
+LC0xNTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLT
+IxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4
+MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC
+0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4
+NDYzMjQzXX0=
 -->
