@@ -529,6 +529,8 @@ do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $SAMPLE > ${SRRID}.sam"
 done
+
+
 ```
 
 or alternatively: 
@@ -635,11 +637,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE1Mjg1MzAwLDE0NDM2NTI0NzIsOTQwNz
-M2NzUzLC04NjQ1NzQ0MjcsLTE1NDk2Nzc3OTksLTE3MDE2NTc0
-NzAsLTU5NDM0MTY4NywtMjEzOTg5MTU5NCw3NTg5NDQ4NzEsLT
-EwMzUzOTU1NSw2MDgyMzgwODMsMTAxMzY0MTcwMCw3MjI1MzA0
-MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0OTMsLTE4MTIwMTA1OT
-QsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIwOTQzMTc5NTEsMTUz
-MTUwNzMyXX0=
+eyJoaXN0b3J5IjpbLTIwMjA3MDM5MTIsNjE1Mjg1MzAwLDE0ND
+M2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0MjcsLTE1NDk2Nzc3
+OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMjEzOTg5MTU5NC
+w3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgwODMsMTAxMzY0
+MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLTExNjI2Nzg0OT
+MsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0NjMyNDMsLTIw
+OTQzMTc5NTFdfQ==
 -->
