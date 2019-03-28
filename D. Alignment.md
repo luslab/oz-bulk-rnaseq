@@ -540,6 +540,7 @@ BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > ${SRRID}.sam"
 	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY/${SRRID}Aligned.sortedByCoord.out.bam
 	samtools index $BAM
 	done
@@ -650,11 +651,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NDc4MDExNiw2MTUyODUzMDAsMTQ0Mz
-Y1MjQ3Miw5NDA3MzY3NTMsLTg2NDU3NDQyNywtMTU0OTY3Nzc5
-OSwtMTcwMTY1NzQ3MCwtNTk0MzQxNjg3LC0yMTM5ODkxNTk0LD
-c1ODk0NDg3MSwtMTAzNTM5NTU1LDYwODIzODA4MywxMDEzNjQx
-NzAwLDcyMjUzMDQxNCwtMTgzMDc0ODQ5OSwtMTE2MjY3ODQ5My
-wtMTgxMjAxMDU5NCw2MTAxODQyMTAsMTczODQ2MzI0MywtMjA5
-NDMxNzk1MV19
+eyJoaXN0b3J5IjpbLTc1ODY0MTcxLDYxNTI4NTMwMCwxNDQzNj
+UyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3LC0xNTQ5Njc3Nzk5
+LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLTIxMzk4OTE1OTQsNz
+U4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4MDgzLDEwMTM2NDE3
+MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMTYyNjc4NDkzLC
+0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYzMjQzLC0yMDk0
+MzE3OTUxXX0=
 -->
