@@ -535,10 +535,12 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
 for SAMPLE in $TIMEPOINT;
 do
 BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
+echo "Running timepoint $SAMPLE"
 	for REPLICATE in $BAM
 	do
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > $SAMPLE/${SRRID}.sam"
+	echo "Running sample 
 	done
 done
 ```
@@ -647,11 +649,11 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjIyNDYxMzEsNzI2MTcyNTY0LDYxNT
-I4NTMwMCwxNDQzNjUyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3
-LC0xNTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLT
-IxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4
-MDgzLDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC
-0xMTYyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4
-NDYzMjQzXX0=
+eyJoaXN0b3J5IjpbOTAwNTM5NzAsNzI2MTcyNTY0LDYxNTI4NT
+MwMCwxNDQzNjUyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3LC0x
+NTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLTIxMz
+k4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4MDgz
+LDEwMTM2NDE3MDAsNzIyNTMwNDE0LC0xODMwNzQ4NDk5LC0xMT
+YyNjc4NDkzLC0xODEyMDEwNTk0LDYxMDE4NDIxMCwxNzM4NDYz
+MjQzXX0=
 -->
