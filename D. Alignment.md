@@ -534,7 +534,6 @@ TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
 
 for SAMPLE in $TIMEPOINT;
 do
-DAY=`echo $SAMPLE | grep -E -o 'D[0-9]+_samples'`
 BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
 	for REPLICATE in $BAM
 	do
@@ -648,7 +647,7 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDEwOTUyOTIsNzI2MTcyNTY0LDYxNT
+eyJoaXN0b3J5IjpbLTE1NjIyNDYxMzEsNzI2MTcyNTY0LDYxNT
 I4NTMwMCwxNDQzNjUyNDcyLDk0MDczNjc1MywtODY0NTc0NDI3
 LC0xNTQ5Njc3Nzk5LC0xNzAxNjU3NDcwLC01OTQzNDE2ODcsLT
 IxMzk4OTE1OTQsNzU4OTQ0ODcxLC0xMDM1Mzk1NTUsNjA4MjM4
