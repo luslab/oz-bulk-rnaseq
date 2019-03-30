@@ -2,18 +2,6 @@
 
 
 > # Alternative Expression Analysis
-https://www.nature.com/articles/nmeth.1503.pdf
-
-Infer structural infromation about the transcript 
-Infer the strand by examining splice site spanning reads
-Each transcript isoform has very few exons & exon-exon junctions that are unique to that isoform.
-
-Can ignore structure of full length transcript & focus on individual sequence features.
-
-![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g006)
-yellow gene = noncoding RNA gene.
-brown & green genes = coding genes
-Few exon-exon spanning genes.
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle.
@@ -27,8 +15,26 @@ Few exon-exon spanning genes.
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 - [IR Finder](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
 - SUPPA
+- [DARTS]([https://github.com/Xinglab/DARTS](https://github.com/Xinglab/DARTS) [https://www.nature.com/articles/s41592-019-0351-9](https://www.nature.com/articles/s41592-019-0351-9) uses deep learning to analyse alternative splicing
 
 Annotated versus novel exploratory events. 
+
+## Analysis approach
+https://www.nature.com/articles/nmeth.1503.pdf
+
+Infer structural infromation about the transcript 
+Infer the strand by examining splice site spanning reads
+Each transcript isoform has very few exons & exon-exon junctions that are unique to that isoform.
+
+Can ignore structure of full length transcript & focus on individual sequence features.
+
+![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g006)
+yellow gene = noncoding RNA gene.
+brown & green genes = coding genes
+Few exon-exon spanning genes.
+
+
+
 
 # Gene Isoform counting
 
@@ -528,11 +534,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMz
-QyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0ODcsLTgzNDIy
-NDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMTgyMzQ4MDU2Mi
-wtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5
-NTIzMzAsLTYyMzE0MTg1MiwtMjEzMzQyNDY4MywtNjQ2OTQwMD
-UyLDU3NzgyMjQ3Myw1ODk0NTY4NjUsMTU1NjU4Mzg2NCwtNDE2
-MjAwNTUwXX0=
+eyJoaXN0b3J5IjpbMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
+gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
+NjQ4NywtODM0MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4Ni
+wxODIzNDgwNTYyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYy
+Nzg3OTksMTU2MDk1MjMzMCwtNjIzMTQxODUyLC0yMTMzNDI0Nj
+gzLC02NDY5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2NSwxNTU2
+NTgzODY0XX0=
 -->
