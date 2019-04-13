@@ -44,6 +44,8 @@ http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/
 # Results Visualisation Packages
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#rich-visualization-and-reporting-of-results
 
+SVD analysis.Rmd script runs the visualisation steps
+
 Start with using an automated visualisation package as it autocreates key plots which are interactive in HTML format. These all work with DESeq2
 
  - **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
@@ -460,7 +462,7 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4OTc3MjMwNywtMjA1MzE2OTMxOSwtMT
+eyJoaXN0b3J5IjpbMTkzNTY3MDQxOSwtMjA1MzE2OTMxOSwtMT
 c4MzI2Nzg0NSwtNDI3MDY3Njg3LDc4NjMyMjQ3MCw4NTA0ODIz
 NTAsLTk3MjQyMjIyMiwtMTE0NDc5MzYxMSwtMTE0MjU1NTQ5My
 wtMjA2MTI2NjkwOCwtNjIyODU2MTUxLC0xMTczNjQ3MzUsNTQ5
