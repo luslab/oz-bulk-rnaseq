@@ -47,8 +47,13 @@ DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
 
 # SVD analysis.Rmd
-Run SVD analysis.Rmd script directly in R studio
+Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
 
+1. Import HTSeq raw gene count matrices
+2. Gene annotation from ensembl
+3. Label samples
+4. Create colour palatte
+5. Filter low count reads out
 # Load Counts dataset into R
 
 ```r
@@ -450,11 +455,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIwODEzNTk4LDE3OTY1MjY2MjAsMjc2NT
-M5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYs
-MjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0ND
-M2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2
-NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNj
-k2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1N119
+eyJoaXN0b3J5IjpbNDc1ODI0NzQsMTc5NjUyNjYyMCwyNzY1Mz
+kyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwy
+MDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0Mz
+YwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3
+NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OT
+YsMTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3XX0=
 
 -->
