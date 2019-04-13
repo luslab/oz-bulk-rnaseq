@@ -31,7 +31,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DE analysis
 
-DESeq2, edgeR (better for false positives, less conservative, recommended if <12 replicates), ballgown, limmaVoom. Ccuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives.
+DESeq2, edgeR (better for false positives, less conservative, recommended if <12 replicates), ballgown, limmaVoom. Cuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives.
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
@@ -442,11 +442,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
-UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
-MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5Nz
-gwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcs
-LTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxOD
-E0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDgsOTIwMzA1NDU0
-XX0=
+eyJoaXN0b3J5IjpbLTIxNTU5MjAyNCw3MTgxMjI4NSwtMTI1Mj
+AwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2
+MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOT
+M3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMs
+LTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0NywtMTQ5Mz
+cwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0
+OF19
 -->
