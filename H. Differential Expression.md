@@ -37,7 +37,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
  - DESeq2
  - edgeR - better for false positives, less conservative, recommended if <12 replicates)
  - ballgown
- - limmaVoom
+ - limma: raphaelles Rscript uses this (normalizeQuantiles function)
  - Cuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
@@ -447,7 +447,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2NjMxOTc5NSwyNzY1MzkyNiw3MTgxMj
+eyJoaXN0b3J5IjpbMTc5NjUyNjYyMCwyNzY1MzkyNiw3MTgxMj
 I4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3
 LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NT
 E0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwy
