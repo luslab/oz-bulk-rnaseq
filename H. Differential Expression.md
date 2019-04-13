@@ -1,6 +1,6 @@
 > # Differential Gene Expression Analysis
 
-This chapter covers downstream interpretation of expression & differential estimates. To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
+This covers downstream interpretation of expression & differential estimates. To compare two conditions look at the fraction of transcripts assigned to a specific gene over the total number of reads (total read number differs drastically between samples). The number of sequenced reads depends on:
 1. expression level
 2. read length
 3. sequencing depth
@@ -13,6 +13,8 @@ Methods of normalising:
 - **DSeq size factor** using R
 - TMM (trimmed mean of M values)
 - upper quartile
+
+Raphaelle does this using Rstudio using the SVD_analysis.Rmd markdown.
 
 ## Comparison Types
 
@@ -43,8 +45,6 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
 
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
-
-Raphaelle does this using Rstudio using the SVD_analysis.Rmd markdown.
 
 # Load Counts dataset into R
 
@@ -447,11 +447,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMD
-IyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIx
-LC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNz
-I0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00
-NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MD
-A1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDhd
+eyJoaXN0b3J5IjpbMTI2NjMxOTc5NSwyNzY1MzkyNiw3MTgxMj
+I4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3
+LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NT
+E0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwy
+OTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MT
+U0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTNd
 fQ==
 -->
