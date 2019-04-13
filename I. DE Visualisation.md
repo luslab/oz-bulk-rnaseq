@@ -1,21 +1,4 @@
 > # Visualise Differential Expression
-```r
-library(QoRTs)
-library(edgeR)
-library(DESeq2)
-library(ggplot2)
-library(gplots)
-library(GenomicRanges)
-library("vsn")
-library("pheatmap")
-library("ggrepel")
-library("apeglm")
-library("AnnotationDbi")
-library("Homo.sapiens")
-library("Glimma")
-library("ReportingTools")
-library("regionReport")
-```
 
 There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown etc). 
 
@@ -62,6 +45,24 @@ Start with using an automated visualisation package as it autocreates key plots 
  - **ReportingTools.**  An HTML report of the results with plots and sortable/filterable columns can be generated using the  [ReportingTools](http://bioconductor.org/packages/ReportingTools)  package on a _DESeqDataSet_ that has been processed by the _DESeq_ function. For a code example, see the _RNA-seq differential expression_ vignette at the [ReportingTools](http://bioconductor.org/packages/ReportingTools) page, or the manual page for the _publish_ method for the _DESeqDataSet_ class.
  - **regionReport.**  An HTML and PDF summary of the results with plots can also be generated using the  [regionReport](http://bioconductor.org/packages/regionReport)  package. The  _DESeq2Report_  function should be run on a  _DESeqDataSet_  that has been processed by the  _DESeq_  function. For more details see the manual page for  _DESeq2Report_  and an example vignette in the  [regionReport](http://bioconductor.org/packages/regionReport)  package.
  - **pcaExplorer.**  Interactive visualization of DESeq2 output, including PCA plots, boxplots of counts and other useful summaries can be generated using the  [pcaExplorer](http://bioconductor.org/packages/pcaExplorer)  package. See the  *Launching the application* section of the package vignette.
+
+```r
+library(QoRTs)
+library(edgeR)
+library(DESeq2)
+library(ggplot2)
+library(gplots)
+library(GenomicRanges)
+library("vsn")
+library("pheatmap")
+library("ggrepel")
+library("apeglm")
+library("AnnotationDbi")
+library("Homo.sapiens")
+library("Glimma")
+library("ReportingTools")
+library("regionReport")
+```
 
 ## regionReport
 http://leekgroup.github.io/regionReportSupp/DESeq2.html
@@ -454,7 +455,7 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjM3MDE0MjEsLTE3ODMyNjc4NDUsLT
+eyJoaXN0b3J5IjpbLTEwNTQ1OTYzMzcsLTE3ODMyNjc4NDUsLT
 QyNzA2NzY4Nyw3ODYzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIy
 MjIsLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MD
 gsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQz
