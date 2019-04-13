@@ -6,7 +6,8 @@ This chapter covers downstream interpretation of expression & differential estim
 3. sequencing depth
 4. expression of all other genes in the sample
 
-Normalisation & Log Transforming Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. Methods of normalising:
+Normalisation & Log Transforming Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. 
+Methods of normalising:
 - total count
 - Counts/million
 - **DSeq size factor** using R
@@ -442,11 +443,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNTU5MjAyNCw3MTgxMjI4NSwtMTI1Mj
-AwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2
-MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOT
-M3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMs
-LTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0NywtMTQ5Mz
-cwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0
-OF19
+eyJoaXN0b3J5IjpbODQzNTEyMjYsNzE4MTIyODUsLTEyNTIwMD
+IyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIx
+LC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNz
+I0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00
+NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MD
+A1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDhd
+fQ==
 -->
