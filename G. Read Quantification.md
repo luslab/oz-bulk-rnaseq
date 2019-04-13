@@ -21,61 +21,11 @@ featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
 
-## QoRTs
-ml QoRTs
-
-see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
-see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
-
-QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots).
-
-QoRTs already produced the Counts files during the initial processing QC run and individual files formatted for DESeq. So skip straight to next chapter for DE analysis.
-
-## featureCounts
-ml Subread
-
-1. Count reads (estimate abundance) per sample:
-
-```bash
-# Create output folder
-mkdir -p featureCounts
-#set gene coordinates
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
-#set BAM input file
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
-#set Counts.txt output file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
-
-#run featureCounts on each BAM file separately
-for SAMPLE in $BAM
-do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
-done
-
-#run featureCounts on all BAM files together. By default it uses gene_id in the GTF - override with gene_name
-# Using * wildcard list all BAM files into 1 file. The output file contains a column for each sample. 
-featureCounts -a $GTF -g gene_name -o $OUT $BAM
-```
-
-For each featureCounts command run there are 2 output files:
-- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
-- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
-
-2. Find sequences with highest abundance
-
-To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
-Output table is in columns as:
-```bash
-Geneid    Chr   Start   End	  Strand   Length 	 Hits
-```
-
 ## HTSeq-Count
 ml HTSeq
 ml Pysam
 
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample.
-The output of these are then loaded into the SVD_analysis.Rmd script.
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script SVD_analysis.Rmd script where we log, filter & normalise read cou
 
 HTSeq-Counts is slow as you cant multithread.
 
@@ -127,6 +77,58 @@ head htseq_counts_table.tsv
 ```
 
 This output is then analysed for differential expression using edgeR (see next chapter)
+
+
+## QoRTs
+ml QoRTs
+
+see Chapter 10.2 on Merging Count Data in http://hartleys.github.io/QoRTs/doc/QoRTs-vignette.pdf
+see Chapter 7 (page 12) of [walkthrough example](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
+
+QoRTs package is composed of 2 parts: java jar-file (for data processing) & R package (for generating tables, figures, plots).
+
+QoRTs already produced the Counts files during the initial processing QC run and individual files formatted for DESeq. So skip straight to next chapter for DE analysis.
+
+## featureCounts
+ml Subread
+
+1. Count reads (estimate abundance) per sample:
+
+```bash
+# Create output folder
+mkdir -p featureCounts
+#set gene coordinates
+GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+#set BAM input file
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+#set Counts.txt output file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/featureCounts/D7_samples/featureCounts/
+
+#run featureCounts on each BAM file separately
+for SAMPLE in $BAM
+do
+	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=24GB --wrap="featureCounts -a $GTF -g gene_name -o ${OUT}_${SRRID} $SAMPLE"
+done
+
+#run featureCounts on all BAM files together. By default it uses gene_id in the GTF - override with gene_name
+# Using * wildcard list all BAM files into 1 file. The output file contains a column for each sample. 
+featureCounts -a $GTF -g gene_name -o $OUT $BAM
+```
+
+For each featureCounts command run there are 2 output files:
+- featureCounts_results.txt has actual read counts per gene - tab delimited file where the first six columns contain feature specific information and the rest of the columns contain the read counts that overlap with that feature.
+- featureCounts_results.txt.sumary gives quick overview of how many reads were assigned to genes. 
+
+2. Find sequences with highest abundance
+
+To find sequences with most hits sort by column 7: `cat counts.txt | sort -rn -k 7 | head`
+Output table is in columns as:
+```bash
+Geneid    Chr   Start   End	  Strand   Length 	 Hits
+```
+
+
 
 # MultiQC
 
@@ -237,11 +239,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3NjI4ODc5LDE3MzM1OTc1OTEsMTE4Nj
-Y5NTc2NiwxODY0MTA4MjgxLDEwNzUxMjI4ODIsMjgwODk2OTUz
-LC04MjQ5ODMzODgsNTI3Mzc2NzE0LC03MzgzMTM5MzMsMTA3Nz
-Q2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1OSwtNDIzODM4NjQ0
-LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5LDE4OT
-c0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIwMzg0LDU4OTQ0NTcw
-OF19
+eyJoaXN0b3J5IjpbLTIwMTI2Mzc3MTAsMTk3NjI4ODc5LDE3Mz
+M1OTc1OTEsMTE4NjY5NTc2NiwxODY0MTA4MjgxLDEwNzUxMjI4
+ODIsMjgwODk2OTUzLC04MjQ5ODMzODgsNTI3Mzc2NzE0LC03Mz
+gzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1
+OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMz
+MyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIw
+Mzg0XX0=
 -->
