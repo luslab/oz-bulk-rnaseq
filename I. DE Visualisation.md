@@ -32,10 +32,13 @@ Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV searc
 
 
 
-# DESeq2 Visualisation Resources
+# Visualisation Resources
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
+
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exploratory-analysis-and-visualization
+
 https://github.com/griffithlab/rnaseq_tutorial/wiki/DE-Visualization
+
 http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/rnaseqAnalysis.pdf
 
 # Results Visualisation Packages
@@ -457,11 +460,11 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTMxNjkzMTksLTE3ODMyNjc4NDUsLT
-QyNzA2NzY4Nyw3ODYzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIy
-MjIsLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MD
-gsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQz
-MzQwMzksMTg5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3Nj
-Q3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4
-MjkzMzQ0NTVdfQ==
+eyJoaXN0b3J5IjpbLTc4OTc3MjMwNywtMjA1MzE2OTMxOSwtMT
+c4MzI2Nzg0NSwtNDI3MDY3Njg3LDc4NjMyMjQ3MCw4NTA0ODIz
+NTAsLTk3MjQyMjIyMiwtMTE0NDc5MzYxMSwtMTE0MjU1NTQ5My
+wtMjA2MTI2NjkwOCwtNjIyODU2MTUxLC0xMTczNjQ3MzUsNTQ5
+NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQxLC0xNjY2MTAxND
+AxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2MTgsLTE5
+MDgyNDk0MTddfQ==
 -->
