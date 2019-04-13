@@ -44,7 +44,7 @@ DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/
 
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
 
-Raphaelle does this all using Rstudio
+Raphaelle does this using Rstudio using the SVD_analysis.Rmd markdown.
 
 # Load Counts dataset into R
 
@@ -447,11 +447,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MjczOTE0Niw3MTgxMjI4NSwtMTI1Mj
-AwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2
-MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOT
-M3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMs
-LTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0NywtMTQ5Mz
-cwMDU3MSwxOTE4MTQwNjU3LC00OTcxODU0MTMsMjAyMDg4Njc0
-OF19
+eyJoaXN0b3J5IjpbMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMD
+IyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIx
+LC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNz
+I0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00
+NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDcsLTE0OTM3MD
+A1NzEsMTkxODE0MDY1NywtNDk3MTg1NDEzLDIwMjA4ODY3NDhd
+fQ==
 -->
