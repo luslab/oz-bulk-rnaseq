@@ -30,6 +30,8 @@ java -Xmx750m -jar igv.jar
 4. Search most significantly DE genes reported from DE analysis output in IGV: 
 Take ENSG ID > type into Ensembl / Google > Type Gene Name directly in IGV search box
 
+
+
 # DESeq2 Visualisation Resources
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 https://www.bioconductor.org/help/course-materials/2016/CSAMA/lab-3-rnaseq/rnaseq_gene_CSAMA2016.html#exploratory-analysis-and-visualization
@@ -455,7 +457,7 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTY3MDM4MTksLTE3ODMyNjc4NDUsLT
+eyJoaXN0b3J5IjpbLTIwNTMxNjkzMTksLTE3ODMyNjc4NDUsLT
 QyNzA2NzY4Nyw3ODYzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIy
 MjIsLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MD
 gsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQz
