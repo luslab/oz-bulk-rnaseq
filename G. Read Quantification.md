@@ -16,7 +16,7 @@ Instead of normalising simply assign fragments to a defined set of genes/transcr
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
 **Tools**: 
-[HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) - Raphaelle uses this
+[HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) - Raphaelle uses this. It is slow as you cant multithread.
 featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
@@ -25,13 +25,10 @@ STAR (also does counts if you give it GTF file)
 ml HTSeq
 ml Pysam
 
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we log, filter & normalise read counts. Then produce visualisations (dendrogram, heatmap).
-
-HTSeq-Counts is slow as you cant multithread.
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we log, filter & normalise read counts to produce visualisations (dendrogram, heatmap). She then runs heirachical clustering & SVD 
 
 [https://htseq.readthedocs.io/en/release_0.11.1/](https://htseq.readthedocs.io/en/release_0.11.1/)
 ```bash
-
 for SAMPLE in $BAM
 do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
@@ -66,7 +63,7 @@ echo "Running timepoint $SAMPLE"
 done
 ```
 
-### Can merge  htseq count files into a single matrix for use in edgeR
+### Optional: merge htseq count files into a single matrix for use in edgeR
 ```bash
 join SRR5483788.tsv SRR5483789.tsv | join - SRR5483790.tsv | join - SRR5483794.tsv | join - SRR5483795.tsv | join - SRR5483796.tsv > htseq_counts_table_temp.tsv
 echo "GeneID SRR5483788 SRR5483789 SRR5483790 SRR5483794 SRR5483795 SRR5483796" > header.txt
@@ -238,7 +235,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2NzY1NDY5MywxOTc2Mjg4NzksMTczMz
+eyJoaXN0b3J5IjpbLTcyMDUyMDY0OSwxOTc2Mjg4NzksMTczMz
 U5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4
 MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
 MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
