@@ -25,12 +25,11 @@ STAR (also does counts if you give it GTF file)
 ml HTSeq
 ml Pysam
 
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script SVD_analysis.Rmd script where we log, filter & normalise read cou
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we log, filter & normalise read counts. Then produce visualisations (dendrogram, heatmap).
 
 HTSeq-Counts is slow as you cant multithread.
 
--   [http://www-huber.embl.de/users/anders/HTSeq/doc/count.html](http://www-huber.embl.de/users/anders/HTSeq/doc/count.html)
-
+[https://htseq.readthedocs.io/en/release_0.11.1/](https://htseq.readthedocs.io/en/release_0.11.1/)
 ```bash
 
 for SAMPLE in $BAM
@@ -239,11 +238,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTI2Mzc3MTAsMTk3NjI4ODc5LDE3Mz
-M1OTc1OTEsMTE4NjY5NTc2NiwxODY0MTA4MjgxLDEwNzUxMjI4
-ODIsMjgwODk2OTUzLC04MjQ5ODMzODgsNTI3Mzc2NzE0LC03Mz
-gzMTM5MzMsMTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1
-OSwtNDIzODM4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMz
-MyMDYxNTI5LDE4OTc0NDI1ODAsMTkxOTYwNjAxNSwxNzE5MzIw
-Mzg0XX0=
+eyJoaXN0b3J5IjpbMTA2NzY1NDY5MywxOTc2Mjg4NzksMTczMz
+U5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4
+MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
+MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
+LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
+IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
+ODRdfQ==
 -->
