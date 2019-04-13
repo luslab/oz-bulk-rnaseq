@@ -54,10 +54,15 @@ Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis
 3. Label samples
 4. Create colour palatte
 5. Filter low count reads out
-6. Normalise between samples
+6. Normalise between samples using Limma
 
-# Load Counts dataset into R
+Below are alternative options to run this analysis using DESeq2 or EdgeR
 
+# DESeq2
+
+All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
+
+DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 ```r
 #######################
 # Load Data into R #
@@ -80,12 +85,6 @@ keep <- which((quant >= 25) == 1)
 rawdata <- rawdata[keep,]
 dim(rawdata)
 ```
-
-# DESeq2
-
-All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
-
-DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 
 ```r
 # DESeq( ) function wraps around the following 3 functions:
@@ -457,11 +456,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0MTY3MjAwOSwxNzk2NTI2NjIwLDI3Nj
-UzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2
-LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwND
-QzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwx
-Njc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMz
-Y5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MTgxNDA2NTdd
-fQ==
+eyJoaXN0b3J5IjpbNTMxNTQ5MzkyLDE3OTY1MjY2MjAsMjc2NT
+M5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYs
+MjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0ND
+M2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2
+NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNj
+k2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1N119
+
 -->
