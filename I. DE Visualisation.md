@@ -1,13 +1,13 @@
 > # Visualise Differential Expression
 
-There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown etc). 
+There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown, limma etc). 
 
 There are 2 parts to DE visualisation:
 1. Relationships between Samples: Transformations of counts for making plots.
 2. Statistical testing for differences attributable to disease & control. 
 
-Check that basic global patterns are met:
-- do replicates have similar expression patterns; 
+Check basic global patterns are met:
+- do replicates have similar expression patterns 
 - do experimental conditions have differences
 - For gene which you have prior knowledge about, you should check to see if they behaved as expected - a knockout gene should be very strongly down-regulated in the DGE analysis.
 - Map the ORF identifiers from the read count matrix to the gene name --> retrieve the rlog transformed read counts & log2 fold changes.
@@ -455,7 +455,7 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTQ1OTYzMzcsLTE3ODMyNjc4NDUsLT
+eyJoaXN0b3J5IjpbLTE2MTY3MDM4MTksLTE3ODMyNjc4NDUsLT
 QyNzA2NzY4Nyw3ODYzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIy
 MjIsLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MD
 gsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQz
