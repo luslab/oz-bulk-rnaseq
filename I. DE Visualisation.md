@@ -44,8 +44,6 @@ http://bioconductor.org/packages/release/bioc/vignettes/ReportingTools/inst/doc/
 # Results Visualisation Packages
 http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#rich-visualization-and-reporting-of-results
 
-SVD analysis.Rmd script runs the visualisation steps
-
 Start with using an automated visualisation package as it autocreates key plots which are interactive in HTML format. These all work with DESeq2
 
  - **Glimma.**  Interactive visualization of DESeq2 output, including MA-plots (also called MD-plot) can be generated using the  [Glimma](http://bioconductor.org/packages/Glimma)  package. See the manual page for  _glMDPlot.DESeqResults_.
@@ -82,7 +80,7 @@ report <- DESeq2Report(dds, project = 'DESeq2 HTML report',
 	output = 'index', theme = theme_bw())
 ```
 
-Now create plots manually
+Now create plots manually 
 
 
 # Transformations
@@ -462,11 +460,11 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzNTY3MDQxOSwtMjA1MzE2OTMxOSwtMT
-c4MzI2Nzg0NSwtNDI3MDY3Njg3LDc4NjMyMjQ3MCw4NTA0ODIz
-NTAsLTk3MjQyMjIyMiwtMTE0NDc5MzYxMSwtMTE0MjU1NTQ5My
-wtMjA2MTI2NjkwOCwtNjIyODU2MTUxLC0xMTczNjQ3MzUsNTQ5
-NjY1NDg5LDc5NDMzNDAzOSwxODk3NTY0NjQxLC0xNjY2MTAxND
-AxLC0zMjE0MTc2NDcsNDc2MjgzMjE4LDE3ODYwODg2MTgsLTE5
-MDgyNDk0MTddfQ==
+eyJoaXN0b3J5IjpbNDcyNjkxMTM5LDE5MzU2NzA0MTksLTIwNT
+MxNjkzMTksLTE3ODMyNjc4NDUsLTQyNzA2NzY4Nyw3ODYzMjI0
+NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2MTEsLT
+ExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMTE3
+MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MS
+wtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2
+MDg4NjE4XX0=
 -->
