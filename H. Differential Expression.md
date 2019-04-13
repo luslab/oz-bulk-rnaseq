@@ -54,6 +54,8 @@ Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis
 3. Label samples
 4. Create colour palatte
 5. Filter low count reads out
+6. Normalise between samples
+
 # Load Counts dataset into R
 
 ```r
@@ -455,11 +457,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc1ODI0NzQsMTc5NjUyNjYyMCwyNzY1Mz
-kyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwy
-MDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0Mz
-YwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3
-NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OT
-YsMTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3XX0=
-
+eyJoaXN0b3J5IjpbMTQ0MTY3MjAwOSwxNzk2NTI2NjIwLDI3Nj
+UzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2
+LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwND
+QzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwx
+Njc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMz
+Y5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcxLDE5MTgxNDA2NTdd
+fQ==
 -->
