@@ -80,8 +80,7 @@ report <- DESeq2Report(dds, project = 'DESeq2 HTML report',
 	output = 'index', theme = theme_bw())
 ```
 
-Now create plots manually 
-
+Now create plots manually. SVD analysis.Rmd script runs the visualisaiton manually.
 
 # Transformations
 Statistical exploration of multidimension data eg clustering & PCA, work best when data has the same range of variance across the range of means (homoskedastic). With RNA-seq raw counts the variance grows with the mean. DESeq2 uses **rlog** (regularise logarithm) & **vst** (variance stabilising transformation) to transform count data stabilising variance across the mean. 
@@ -460,7 +459,7 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDcyNjkxMTM5LDE5MzU2NzA0MTksLTIwNT
+eyJoaXN0b3J5IjpbNTYxMDQ0MDQ1LDE5MzU2NzA0MTksLTIwNT
 MxNjkzMTksLTE3ODMyNjc4NDUsLTQyNzA2NzY4Nyw3ODYzMjI0
 NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2MTEsLT
 ExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMTE3
