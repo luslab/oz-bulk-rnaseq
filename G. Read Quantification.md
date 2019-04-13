@@ -74,7 +74,6 @@ head htseq_counts_table.tsv
 
 This output is then analysed for differential expression using edgeR (see next chapter)
 
-
 ## QoRTs
 ml QoRTs
 
@@ -235,7 +234,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMDUyMDY0OSwxOTc2Mjg4NzksMTczMz
+eyJoaXN0b3J5IjpbMTY3MDU2NDc3MywxOTc2Mjg4NzksMTczMz
 U5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4
 MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
 MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
