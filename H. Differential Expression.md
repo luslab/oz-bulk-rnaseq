@@ -44,6 +44,8 @@ DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/
 
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
 
+Raphaelle does this all using Rstudio
+
 # Load Counts dataset into R
 
 ```r
@@ -103,12 +105,12 @@ Perform DE analysis with DESeq2 in R
 Write the Decoder text files: decoder.by.UID.txt & decoder.bySample.txt (identical to that used in QC of Aligned Reads chapter):
 ```
 sample.ID	group.ID  qc.data.dir
-SRR5483788	VCP  QoRTs_SRR5483788
-SRR5483789	VCP  QoRTs_SRR5483789
-SRR5483790	VCP  QoRTs_SRR5483790
-SRR5483794	CTRL QoRTs_SRR5483794
-SRR5483795	CTRL QoRTs_SRR5483795
-SRR5483796	CTRL QoRTs_SRR5483796
+SRR5483788	VCP  	QoRTs_SRR5483788
+SRR5483789	VCP  	QoRTs_SRR5483789
+SRR5483790	VCP  	QoRTs_SRR5483790
+SRR5483794	CTRL 	QoRTs_SRR5483794
+SRR5483795	CTRL 	QoRTs_SRR5483795
+SRR5483796	CTRL 	QoRTs_SRR5483796
 ```
 If there are technical replicates then merge them at this point. QoRTs allows count data to be combined across technical replicates. See step 4 (chapter 9, page 15) http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf 
 If there are no technical replicates (as with Nat Comms paper) then skip this step.
@@ -147,8 +149,6 @@ library("regionReport")
 library(topGO)
 library(GOstats)
 library(org.Mm.eg.db)
-
-
 
 res <- read.qc.results.data("/Volumes/lab-luscomben/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/alignment_QC/", 
                             decoder.files = "/Volumes/lab-luscomben/working/oliver/projects/airals/expression/D7_samples/QoRTs/decoder.byUID.txt", 
@@ -447,7 +447,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyNzM2MTk1NCw3MTgxMjI4NSwtMTI1Mj
+eyJoaXN0b3J5IjpbLTU3MjczOTE0Niw3MTgxMjI4NSwtMTI1Mj
 AwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2
 MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOT
 M3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMs
