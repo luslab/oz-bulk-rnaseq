@@ -1,7 +1,5 @@
-
-
-
 > # Visualise Differential Expression
+```r
 library(QoRTs)
 library(edgeR)
 library(DESeq2)
@@ -17,6 +15,7 @@ library("Homo.sapiens")
 library("Glimma")
 library("ReportingTools")
 library("regionReport")
+```
 
 There are many scripts available specific to the tool you used for DE analysis (edgeR, DESeq, ballgown etc). 
 
@@ -274,12 +273,6 @@ resOrderedDF_top100 <- as.data.frame(resOrdered)[seq_len(100),]
 write.csv(resOrderedDF_top100, file="DESeq2_results.csv")
 ```
 
-
-
-
-
-
-
 # Number of transcripts per gene
 
 Use output from DE analysis
@@ -461,11 +454,11 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODMyNjc4NDUsLTQyNzA2NzY4Nyw3OD
-YzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2
-MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MS
-wtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2
-NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOC
-wxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4MjkzMzQ0NTUsMTAw
-NzAwODc5MF19
+eyJoaXN0b3J5IjpbLTE3MjM3MDE0MjEsLTE3ODMyNjc4NDUsLT
+QyNzA2NzY4Nyw3ODYzMjI0NzAsODUwNDgyMzUwLC05NzI0MjIy
+MjIsLTExNDQ3OTM2MTEsLTExNDI1NTU0OTMsLTIwNjEyNjY5MD
+gsLTYyMjg1NjE1MSwtMTE3MzY0NzM1LDU0OTY2NTQ4OSw3OTQz
+MzQwMzksMTg5NzU2NDY0MSwtMTY2NjEwMTQwMSwtMzIxNDE3Nj
+Q3LDQ3NjI4MzIxOCwxNzg2MDg4NjE4LC0xOTA4MjQ5NDE3LDE4
+MjkzMzQ0NTVdfQ==
 -->
