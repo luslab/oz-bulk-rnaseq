@@ -56,7 +56,7 @@ Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis
 5. Filter low count reads out
 6. Normalise between samples using Limma
 
-Below are alternative options to run this analysis using DESeq2 or EdgeR
+**Below are alternative options to run this analysis using DESeq2, EdgeR and Ballgown.**
 
 # DESeq2
 
@@ -456,11 +456,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTMxNTQ5MzkyLDE3OTY1MjY2MjAsMjc2NT
-M5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYs
-MjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0ND
-M2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2
-NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNj
-k2LDEzMzM0NTE1NDcsLTE0OTM3MDA1NzEsMTkxODE0MDY1N119
-
+eyJoaXN0b3J5IjpbLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
+Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
+NiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MD
+Q0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEs
+MTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMT
+M2OTYsMTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3
+XX0=
 -->
