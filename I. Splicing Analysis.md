@@ -4,7 +4,7 @@
 > # Alternative Expression Analysis
 
 # Tools
-- [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle.
+- [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets
@@ -534,11 +534,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
-gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
-NjQ4NywtODM0MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4Ni
-wxODIzNDgwNTYyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYy
-Nzg3OTksMTU2MDk1MjMzMCwtNjIzMTQxODUyLC0yMTMzNDI0Nj
-gzLC02NDY5NDAwNTIsNTc3ODIyNDczLDU4OTQ1Njg2NSwxNTU2
-NTgzODY0XX0=
+eyJoaXN0b3J5IjpbLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMD
+U5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3
+NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyODgsLTQ4MzQ0ODA2MC
+wxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2OTI0Nzk2NjcsMzA3
+OTc3NDk2LC0yNjI3ODc5OSwxNTYwOTUyMzMwLC02MjMxNDE4NT
+IsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1Nzc4MjI0NzMsNTg5
+NDU2ODY1XX0=
 -->
