@@ -43,10 +43,12 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
 DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
+See the stat quest videos on highthroughput sequencing analysis 
+[https://statquest.org/video-index/](https://statquest.org/video-index/)
 
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
 
-See the stat quest videos
+
 
 # SVD analysis.Rmd
 Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -458,7 +460,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzODA0MTc4NywtMTgzMTcwNTI4MCwxNz
+eyJoaXN0b3J5IjpbMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNz
 k2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4
 LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMj
 I1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2
