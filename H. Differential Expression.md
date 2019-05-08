@@ -34,7 +34,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DE analysis
 
- - DESeq2 - Nobby u
+ - DESeq2 - Nobby uses this.
  - edgeR - better for false positives, less conservative, recommended if <12 replicates
  - ballgown
  - limma: raphaelles Rscript uses this (normalizeQuantiles function) but her filtering function is a 2 component mixture model to separate low vs high counts.
@@ -42,13 +42,11 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
-DESeq2 and edgeR are similar. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
+DESeq2 and edgeR are both good. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
 See the stat quest videos on highthroughput sequencing analysis 
 [https://statquest.org/video-index/](https://statquest.org/video-index/)
 
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
-
-
 
 # SVD analysis.Rmd
 Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -460,11 +458,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0MzE2MTAyMSwxMTU5Mzc2NzY1LC0xOD
-MxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUs
-LTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMj
-U3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkz
-LC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OT
-EwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDdd
-fQ==
+eyJoaXN0b3J5IjpbNjA3NDQwODA3LDExNTkzNzY3NjUsLTE4Mz
+E3MDUyODAsMTc5NjUyNjYyMCwyNzY1MzkyNiw3MTgxMjI4NSwt
+MTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNT
+cyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMs
+LTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwyOTQ5MT
+A0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0N119
+
 -->
