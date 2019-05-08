@@ -34,7 +34,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DE analysis
 
- - DESeq2
+ - DESeq2 - Nobby u
  - edgeR - better for false positives, less conservative, recommended if <12 replicates
  - ballgown
  - limma: raphaelles Rscript uses this (normalizeQuantiles function) but her filtering function is a 2 component mixture model to separate low vs high counts.
@@ -460,11 +460,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNz
-k2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4
-LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMj
-I1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2
-LDEwOTc4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5Nz
-A3MTI3LC02MTIxMzY5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcx
-XX0=
+eyJoaXN0b3J5IjpbLTg0MzE2MTAyMSwxMTU5Mzc2NzY1LC0xOD
+MxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUs
+LTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMj
+U3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkz
+LC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OT
+EwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2LDEzMzM0NTE1NDdd
+fQ==
 -->
