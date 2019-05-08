@@ -35,9 +35,9 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 ## Tools for DE analysis
 
  - DESeq2
- - edgeR - better for false positives, less conservative, recommended if <12 replicates)
+ - edgeR - better for false positives, less conservative, recommended if <12 replicates
  - ballgown
- - limma: raphaelles Rscript uses this (normalizeQuantiles function)
+ - limma: raphaelles Rscript uses this (normalizeQuantiles function) but her filtering function is a 2 component mixture model to separate low vs high counts.
  - Cuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
@@ -456,11 +456,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
-Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
-NiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MD
-Q0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEs
-MTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMT
-M2OTYsMTMzMzQ1MTU0NywtMTQ5MzcwMDU3MSwxOTE4MTQwNjU3
+eyJoaXN0b3J5IjpbLTU2MzcyMDM1NSwtMTgzMTcwNTI4MCwxNz
+k2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4
+LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMj
+I1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2
+LDEwOTc4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5Nz
+A3MTI3LC02MTIxMzY5NiwxMzMzNDUxNTQ3LC0xNDkzNzAwNTcx
 XX0=
 -->
