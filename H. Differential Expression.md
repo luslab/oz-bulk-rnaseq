@@ -40,7 +40,7 @@ FDR & Benjamini Hochberg method partly compensate for this BUT this adjustment l
 ![enter image description here](https://lh3.googleusercontent.com/y9gZel8cdmsYicJXqpgh7dP5erLxMosgCbl4C1_P3Z4jpYzhvwDplbTsi3q4hn1_2PVxtcOljdH3Iw)
 To filter bogus tests, edgeR & DESeq2 use alternative filters:
 - Very low read counts are not informative so they are removed > reduce number of tests
-	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling factor is susceptible to sequencing depth when it is very high (loose relevant but lower read counts) or very low (e.g. sincle cell RNASeq, includes irrelevant low read counts)
+	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling factor is susceptible to sequencing depth when it is very high (loose relevant but lower read counts) or very low (e.g. sincle cell RNASeq, includes irrelevant low read counts) - DESeq2 uses Quantiles to avoid this issue.
 ![enter image description here](https://lh3.googleusercontent.com/LnuncxJbacK6DUrC12OPFhEFMeAS_1m9mpzzOfA2gme_6BL4ShdfnmYy_a5vQPObuR5B4yyzDoWETg)
 
 Changing the CPM threshold to exclude genes drastically changes the number of signficant genes.
@@ -55,9 +55,9 @@ DESeq2 calculates p-values before trying different CPM thresholds
 To get around this DESeq2 has an outlier detection method used when there is >2 samples.
 Note peak is similar with similar cut off.
 ![enter image description here](https://lh3.googleusercontent.com/7rmKBF-BM_NC1D80xxn0PrS-x8ggFZc7xwQEfJEHTz1qeZUxjhpi_fSBZfMaheDsbEOjPlbSp8LEdA)
-2. DESeq2 plots significant genes relative to quantiles instead of CPM cutoff:
+2. DESeq2 plots significant genes relative to **quantiles** instead of CPM cutoff:
 ![enter image description here](https://lh3.googleusercontent.com/epqp9PFrycol1yat7Bdz9LTLZ6OXc1MYzrcMOT2xeWHyOBKJAXllnN-jX0Kuf5xVOMR2YQ9ajsqqrg)
-0 quanti
+0 quantile = 0 genes are below cutoff. 0.2 quantile = 20% of genes are below cutoff. Quantiles are not influences by sequencing depth like CPM is.
 
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -541,11 +541,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjE3MDgwNjAsMTMyMzQzNTYyLDE5Nj
-U5ODU3MjMsMTkzMjM2NTc4NywtNTk2MzEyMTU1LDY0MDUxNzM5
-OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNz
-k2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4
-LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMj
-I1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2
-XX0=
+eyJoaXN0b3J5IjpbMTUxMjM0MDIyOCwxMzIzNDM1NjIsMTk2NT
+k4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4
+LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OT
+Y1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgs
+LTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMj
+UxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzZd
+fQ==
 -->
