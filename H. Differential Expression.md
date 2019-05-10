@@ -47,7 +47,10 @@ Changing the CPM threshold to exclude genes drastically changes the number of si
 Red line = CPM 1 threshold: to strict - removes important genes
 Blue line = CPM 0.2 threshold is better as it includes all the approapriate genes based on the curve (from peak)
 ![enter image description here](https://lh3.googleusercontent.com/caQjY78DDqLrBeG3DQDaV6wWwFnUVVWTphhmEZUP_QFl9bnKbdyvauR8gerHZjvQiy_qhYRH2yPtww)
+DESeq2 calculates p-values before trying different CPM thresholds
 
+## EdgeR vs DESeq2 Filtering
+1. Ed
 
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -531,7 +534,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5ODA2NTk5MSwxMzIzNDM1NjIsMTk2NT
+eyJoaXN0b3J5IjpbLTI0MzI4NDE0MiwxMzIzNDM1NjIsMTk2NT
 k4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4
 LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OT
 Y1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgs
