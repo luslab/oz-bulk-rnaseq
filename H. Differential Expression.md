@@ -79,14 +79,15 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 
 # DESeq2
 [StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
-1. Log^e^ of all gene count values. 0 counts become -Infinity
-2. Average each Gene (row) logs (i.e. the Geometric Average). This removes impact of outliers. Averaging a row with a -Inf value becomes -Inf. 
+1. **Log^e^** of all gene count values. 0 counts become -Infinity
+2. **Average each Gene (row) logs** (i.e. the Geometric Average). This removes impact of outliers. Averaging a row with a -Inf value becomes -Inf. 
 3. **Filter out** Genes with Infinity i.e. if any of the samples had a 0 count.
 4. Subtract the average log value from log(counts). This is the same as log (Sample Count / Average Count) i.e. the **ratio of reads to average** of all samples
 ![enter image description here](https://lh3.googleusercontent.com/YcuQUEulQ5OEhaSOsx9pJwwuusIxW8DAJziJzdYTbg9aKA10309WTgo6-ca_q0GtdgR3AXS7gObE6g)
 5. Calculate the **median of the ratios** for each sample. This further removes influence of outliers.
 ![enter image description here](https://lh3.googleusercontent.com/zmpaRfyzX8-2Ake2YMQpnpSkXV-vr87uNvIHfKlcp40Y2ajJI0cNsMYfGbSL-0IcNaqL5yE-SefMLg)
-6. Convert medians to "normal numbers" to get the **Scaling Factors** for each sample
+6. Convert medians to "normal numbers" to get the **Scaling Factors** for each sample. e ^sample_median^  
+7. Divide the original read counts by the Scal
 
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
@@ -513,11 +514,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NDk0OTU4MCwxOTMyMzY1Nzg3LC01OT
-YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
-LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
-IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
-NywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5Nj
-UxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDBd
-fQ==
+eyJoaXN0b3J5IjpbLTExNzYwMzIzMzUsMTkzMjM2NTc4NywtNT
+k2MzEyMTU1LDY0MDUxNzM5OCw2MDc0NDA4MDcsMTE1OTM3Njc2
+NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2LDcxOD
+EyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwODcxNTUx
+MjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1LDc0OT
+Y1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwxNjc3MjUxNDQw
+XX0=
 -->
