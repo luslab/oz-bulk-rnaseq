@@ -354,7 +354,7 @@ edgeR is a bioconductor package designed for DE of raw counts (it does not use R
 		3a. filter out biased genes (very up/down regulated genes) by using log fold differences
 		3b. Compare remaining genes with Reference gene counts. Log2(Reference Gene/Sample Gene). If Reference gene count or sample Gene count = 0 then value is -Inf.
 		3c. Remove gene with Inf values (i.e. no reads mapped to gene in 1 or both samples) 
-
+![enter image description here](https://lh3.googleusercontent.com/a8vrZVwNslMuV6rGYX46XhqRFNB-ei7GC2QL4Qt6TIFm5bxYKN01sqZ9yV43zOt48Wmv_WfCZvjmDQ)
 4. Calculate a **table to identify highly/lowly transcribed genes in across samples (Mean of Logs)**
 	4a. Calculate Geometric mean for each gene Log. 
 	4b. Remove Inf values again (no reads mapped to them in 1 or more samples).
@@ -486,7 +486,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM3Mzc3NjE5LDYwNzQ0MDgwNywxMTU5Mz
+eyJoaXN0b3J5IjpbNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mz
 c2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYs
 NzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4Nz
 E1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUs
