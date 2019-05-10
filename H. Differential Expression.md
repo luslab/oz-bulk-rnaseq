@@ -50,7 +50,8 @@ Blue line = CPM 0.2 threshold is better as it includes all the approapriate gene
 DESeq2 calculates p-values before trying different CPM thresholds
 
 ## EdgeR vs DESeq2 Filtering
-1. Ed
+1. EdgeR looks at individual samples. Removes genes with <2 samples of CPM 1 or more.
+2. DESeq2 looks at average normalised reads across all samples. If average is above CPM threshold then it keeps the gene.
 
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -534,11 +535,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MzI4NDE0MiwxMzIzNDM1NjIsMTk2NT
-k4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4
-LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OT
-Y1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgs
-LTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMj
-UxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzZd
-fQ==
+eyJoaXN0b3J5IjpbLTE3MDQ4NjI1ODksMTMyMzQzNTYyLDE5Nj
+U5ODU3MjMsMTkzMjM2NTc4NywtNTk2MzEyMTU1LDY0MDUxNzM5
+OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNz
+k2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4
+LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMj
+I1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2
+XX0=
 -->
