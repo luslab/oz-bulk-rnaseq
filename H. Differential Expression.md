@@ -40,7 +40,7 @@ FDR & Benjamini Hochberg method partly compensate for this BUT this adjustment l
 ![enter image description here](https://lh3.googleusercontent.com/y9gZel8cdmsYicJXqpgh7dP5erLxMosgCbl4C1_P3Z4jpYzhvwDplbTsi3q4hn1_2PVxtcOljdH3Iw)
 To filter bogus tests, edgeR & DESeq2 use alternative filters:
 - Very low read counts are not informative so they are removed > reduce number of tests
-	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling facotr 
+	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling factor is susceptible to sequencing depth when it is very high (loose important but lower read or very low
 ![enter image description here](https://lh3.googleusercontent.com/LnuncxJbacK6DUrC12OPFhEFMeAS_1m9mpzzOfA2gme_6BL4ShdfnmYy_a5vQPObuR5B4yyzDoWETg)
 
 ### SVD_analysis.Rmd
@@ -525,11 +525,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNTIwMDg2MywxOTY1OTg1NzIzLDE5Mz
-IzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3NDQwODA3
-LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
-Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
-NiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MD
-Q0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTFd
-fQ==
+eyJoaXN0b3J5IjpbOTU1NDAzMzYyLDE5NjU5ODU3MjMsMTkzMj
+M2NTc4NywtNTk2MzEyMTU1LDY0MDUxNzM5OCw2MDc0NDA4MDcs
+MTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3Nj
+UzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2
+LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwND
+QzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMV19
+
 -->
