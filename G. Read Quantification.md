@@ -8,12 +8,11 @@ Whilst IGV is used to initial glance at coverage, these methods **normalise** & 
 4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model. The variance estimates of reads count for each transcript  are statistically tested to report DE genes.
 
 ![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
-
+[Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 
 
 # Raw Counts
-
-Instead of normalising simply assign reads to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
+Raw referes to non-normalised read counts. Simply assign reads to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
@@ -23,12 +22,11 @@ featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
 
-
 ## HTSeq-Count
 ml HTSeq
 ml Pysam
 
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we log, filter & normalise read counts to produce visualisations (dendrogram, heatmap). She then runs heirachical clustering & SVD 
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we run the Differential Gene Expression & Visualisation steps. log, filter & normalise read counts to produce visualisations (dendrogram, heatmap). She then runs heirachical clustering & SVD 
 
 [https://htseq.readthedocs.io/en/release_0.11.1/](https://htseq.readthedocs.io/en/release_0.11.1/)
 ```bash
@@ -216,7 +214,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ1NjI4OTU4LDE5NzYyODg3OSwxNzMzNT
+eyJoaXN0b3J5IjpbNzEyMTk2NjQ4LDE5NzYyODg3OSwxNzMzNT
 k3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgy
 LDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4Mz
 EzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTks
