@@ -82,7 +82,8 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 1. Log^e^ of all gene count values. 0 counts become -Infinity
 2. Average each Gene (row) logs (i.e. the Geometric Average). This removes impact of outliers. Averaging a row with a -Inf value becomes -Inf. 
 3. Filter out Genes with Infinity i.e. if any of the samples had a 0 count.
-4. Subtract the average log value from log(counts)
+4. Subtract the average log value from log(counts). This is the same as log (Sample Count / Average Count) i.e. the ratio of reads
+![enter image description here](https://lh3.googleusercontent.com/YcuQUEulQ5OEhaSOsx9pJwwuusIxW8DAJziJzdYTbg9aKA10309WTgo6-ca_q0GtdgR3AXS7gObE6g)
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
@@ -508,7 +509,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5Nzk1ODM4MCwtNTk2MzEyMTU1LDY0MD
+eyJoaXN0b3J5IjpbLTE0MTA3NTUxNiwtNTk2MzEyMTU1LDY0MD
 UxNzM5OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4
 MCwxNzk2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMD
 AyMjM4LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYy
