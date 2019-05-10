@@ -350,6 +350,7 @@ edgeR is a bioconductor package designed for DE of raw counts (it does not use R
 	2c. Average the 75th quantiles between samples
 	2d. choose the sample whose 75th quintile is closest to the average
 3. Select the genes for calculating the scaling factors. Do this separately for each sample relative to the reference.
+		3a. filter out biased genes (very up/down regulated genes) by using log fold differences
 Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [page 17](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
 
@@ -467,11 +468,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NzM3MTQzMyw2MDc0NDA4MDcsMTE1OT
-M3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2
-LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwOD
-cxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1
-LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwxNjc3Mj
-UxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMzY5Nl19
+eyJoaXN0b3J5IjpbMjQ2MjI4MTczLDYwNzQ0MDgwNywxMTU5Mz
+c2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYs
+NzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4Nz
+E1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUs
+NzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNT
+E0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2XX0=
 
 -->
