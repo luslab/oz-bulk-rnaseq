@@ -28,7 +28,6 @@ N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 FLAWED STATISTICALLY. These has been superseded by:
 - Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
-- **DSeq size factor** & **EdgeR**
 - TMM (trimmed mean of M values)
 - upper quartile
 2.  Normalise for gene length & sequencing depth:
@@ -90,7 +89,7 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 7. Divide the original read counts by the Scaling Factors
 ![enter image description here](https://lh3.googleusercontent.com/64nhKIz6HkNRl5TzsK_aafA-OocPa8DQiRJIJoVsWgnvNfrmhFR4dy-c3EBGg4qsYQPsfyRQHlQOCw)
 
-All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
+All DESeq2 information is available in the [vignette](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis)
 
 DESeq takes counts --> read them into R --> normalise for sequencing depth differences
 ```r
@@ -514,7 +513,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3MzU5Njc0MCwxOTMyMzY1Nzg3LC01OT
+eyJoaXN0b3J5IjpbMTUyNjYyNzE2OSwxOTMyMzY1Nzg3LC01OT
 YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
 LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
 IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
