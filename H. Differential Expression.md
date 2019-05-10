@@ -30,8 +30,8 @@ FLAWED STATISTICALLY. These has been superseded by:
 - Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
 - TMM (trimmed mean of M values)
 - upper quartile
-2.  Normalise for gene length & sequencing depth:
 
+### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
 
 1. Import HTSeq raw gene count matrices
@@ -47,7 +47,7 @@ Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering f
 2.  _Between-sample_  comparisons: compare the expression of a gene between experimental conditions aka pairwise comparison e.g. has the gene expression for gene A  changed across different experimental conditions? if yes, then differentially expressed (DE).
 
 ## Goals of DE analysis
-The 2 tasks of DE are to:
+The 2 tasks of DGE are to:
 1. Estimate the magnitude **fold change** of differential expression in read counts between different conditions, accounting for differences in sequencing depth & variability
 2. Estimate the **significance** of the difference, accounting for multiple testing
 
@@ -513,7 +513,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyNjYyNzE2OSwxOTMyMzY1Nzg3LC01OT
+eyJoaXN0b3J5IjpbLTY0MzUwODc2OSwxOTMyMzY1Nzg3LC01OT
 YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
 LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
 IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
