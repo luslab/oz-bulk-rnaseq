@@ -345,7 +345,10 @@ cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
 edgeR is a bioconductor package designed for DE of raw counts (it does not use RPKM, TPM etc).
 1. Remove all untranscribed genes (0 counts)
 2. Choose the reference sample to normalise all others against. A good reference sample should be the most average sample 
-	3
+	2a. Scale each sample by total read counts
+	2b. For each sample determine the value such that 75% of the scaled data are <= that it.
+	2c. Average the 75th quantiles between samples
+	2d. choose the sample whose 75th quintile is closest to the average
 Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [page 17](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
 
@@ -463,11 +466,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0NzQ1MDI4OSw2MDc0NDA4MDcsMTE1OT
-M3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2
-LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwOD
-cxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1
-LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwxNjc3Mj
-UxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMzY5Nl19
-
+eyJoaXN0b3J5IjpbLTEzODMwNzAyMjcsNjA3NDQwODA3LDExNT
+kzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNzY1Mzky
+Niw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMD
+g3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYw
+NSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3Nz
+I1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTZd
+fQ==
 -->
