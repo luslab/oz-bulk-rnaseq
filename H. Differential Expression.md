@@ -33,7 +33,7 @@ FLAWED STATISTICALLY. These has been superseded by:
 - upper quartile
 2.  Normalise for gene length & sequencing depth:
 
-Raphaelle normalises using the SVD_analysis.Rmd markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
+Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
 
 1. Import HTSeq raw gene count matrices
 2. Gene annotation from ensembl
@@ -504,11 +504,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE5NTQwOTY1LDY0MDUxNzM5OCw2MDc0ND
-A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
-LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
-c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
-LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MD
-QxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3XX0=
+eyJoaXN0b3J5IjpbLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3ND
+QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
+MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
+A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
+NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
+A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
 
 -->
