@@ -6,6 +6,28 @@ This covers downstream interpretation of expression & differential estimates. To
 3. sequencing depth
 4. expression of all other genes in the sample
 
+# Normalisation
+
+There are gene counting tools that normalise for sequencing depth at Read Quantification step, however DE analysis (DESeq & edgeR) normalise whilst doing DGE analysis. 
+
+[TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
+RPKM Reads per kilobase of transcript per million mapped reads & FPKM Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
+FPKM normalises for gene size & library depth using: **FPKM = (10^9^ * C ) / (N * L)**
+C = number of mappable reads (fragments) for gene/transcript/exon etc
+N = total number of mappable reads in the library
+L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
+
+Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+
+## Process:
+1. Overlapping bundles of fragment are **assembled**
+2. Fragments are connected in an **overlap graph**. This graph models variability in fragment count for each gene across replicates (if the fragments are compatible then these are assumed to come from the same genetic locus - it calculates mutually incompatible fragments where splice sites are mid exon or intron)
+3. Transcript isoforms are inferred from the **minimum paths** required to cover the graph
+4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model. The variance estimates of fragment count for each transcript  are statistically tested to report DE genes.
+
+![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
+
+
 **Normalisation** & **Log Transforming** Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. 
 
 2 reasons we need to normalise:
@@ -499,11 +521,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQwNTY3NTMzLDY0MDUxNzM5OCw2MDc0ND
-A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
-LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
-c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
-LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MD
-QxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3XX0=
+eyJoaXN0b3J5IjpbMTMzMjc2MjMwNSw2NDA1MTczOTgsNjA3ND
+QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
+MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
+A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
+NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
+A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
 
 -->
