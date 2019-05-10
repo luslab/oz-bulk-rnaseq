@@ -1,13 +1,8 @@
 > # Read Quantification
-Whilst IGV is used to initial glance at coverage, these methods normalise & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
+Whilst IGV is used to initial glance at coverage, these methods **normalise** & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
-2 different ways to quantify mRNA abundances of known genes and transcripts:
-1.  Raw Counts - simply the number of reads overlapping with a transcript.
-2.  Normalise for gene length & sequencing depth:
-	- FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. (FLAWED MEASURE STATISTICALLY). This has been superseded by:
-	- TPM: Transcripts per Million: also normalises sequencing depth & gene length but in the reverse order. 
 
-https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
+
 
 # Raw Counts
 
@@ -234,7 +229,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MDU2NDc3MywxOTc2Mjg4NzksMTczMz
+eyJoaXN0b3J5IjpbLTIyNTg0Njg4OSwxOTc2Mjg4NzksMTczMz
 U5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4
 MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
 MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
