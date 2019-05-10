@@ -53,8 +53,9 @@ DESeq2 calculates p-values before trying different CPM thresholds
 1. EdgeR looks at individual samples. Removes genes with <2 samples of CPM 1 or more.
 2. DESeq2 looks at average normalised reads across all samples. If average is above CPM threshold then it keeps the gene.  This would be susceptible to huge outliers e.g.
 ![enter image description here](https://lh3.googleusercontent.com/2gKnrHbFKwU-7wMItYGJIf-NiI-h0JAlQ3o0TykWS8bXHrMdmxAkvHCiiEjXz8bbi8vp8YrDXHvlQQ)
-To get around this DESeq2 has an outlier detection method
-
+To get around this DESeq2 has an outlier detection method used when there is >2 samples.
+Note peak is similar with simi
+![enter image description here](https://lh3.googleusercontent.com/7rmKBF-BM_NC1D80xxn0PrS-x8ggFZc7xwQEfJEHTz1qeZUxjhpi_fSBZfMaheDsbEOjPlbSp8LEdA)
 
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -538,7 +539,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NTYxNjAzMSwxMzIzNDM1NjIsMTk2NT
+eyJoaXN0b3J5IjpbMTM2MTQxMzgwOSwxMzIzNDM1NjIsMTk2NT
 k4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4
 LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OT
 Y1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgs
