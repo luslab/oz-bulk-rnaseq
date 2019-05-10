@@ -365,6 +365,8 @@ edgeR is a bioconductor package designed for DE of raw counts (it does not use R
 6. Use remaining genes to calculate **Scaling Factor**
 	6a. Calculate weight average of remaining Log2 ratios (Weighted trimmed mean of log2 ratios). Genes with more reads have more weight.
 	6b. Convert weighted average of of Log2 ratios to "normal numbers"
+	6c. Centre the scaling factors around 1 (divide each raw scaling factor by their geometric mean)
+![enter image description here](https://lh3.googleusercontent.com/YLp-aXY4_5KDswitLovAOqvXhu7r4wOPdjgcIFqVEA_MybzhQqIAUEzA9OIMKAmIYXq-iejOm4TJew)
 	
 Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [page 17](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
@@ -483,11 +485,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEwODQ2NTI5LDYwNzQ0MDgwNywxMTU5Mz
-c2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYs
-NzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4Nz
-E1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUs
-NzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNT
-E0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjcsLTYxMjEzNjk2XX0=
+eyJoaXN0b3J5IjpbLTQzMzM5ODY1NCw2MDc0NDA4MDcsMTE1OT
+M3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2
+LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwOD
+cxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1
+LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwxNjc3Mj
+UxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3LC02MTIxMzY5Nl19
 
 -->
