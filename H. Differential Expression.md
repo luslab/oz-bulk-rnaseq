@@ -31,8 +31,10 @@ FLAWED STATISTICALLY. These has been superseded by:
 - TMM (trimmed mean of M values)
 - upper quartile
 
-# Filtering Counts
-
+# Filtering low read counts
+[StatQuest video](https://www.youtube.com/watch?v=Gi0JdrxRq5s&feature=youtu.be) 
+aka Independent Filtering or Mitigating the multiple testing problem
+5% of 20,000 statistical tests = 1000
 
 
 ### SVD_analysis.Rmd
@@ -517,11 +519,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NTk4NTcyMywxOTMyMzY1Nzg3LC01OT
-YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
-LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
-IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
-NywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5Nj
-UxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDBd
-fQ==
+eyJoaXN0b3J5IjpbLTE0MjU5MDEzODgsMTk2NTk4NTcyMywxOT
+MyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgw
+NywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMj
+c2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQx
+MzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsOD
+A0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDEx
+XX0=
 -->
