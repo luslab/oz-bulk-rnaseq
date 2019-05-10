@@ -26,8 +26,6 @@ STAR (also does counts if you give it GTF file)
 ml HTSeq
 ml Pysam
 
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we run the Differential Gene Expression & Visualisation steps. log, filter & normalise read counts to produce visualisations (dendrogram, heatmap). She then runs heirachical clustering & SVD 
-
 [https://htseq.readthedocs.io/en/release_0.11.1/](https://htseq.readthedocs.io/en/release_0.11.1/)
 ```bash
 for SAMPLE in $BAM
@@ -72,8 +70,9 @@ cat header.txt htseq_counts_table_temp.tsv | grep -v "__" | perl -ne 'chomp $_; 
 rm -f htseq_counts_table_temp.tsv header.txt
 head htseq_counts_table.tsv
 ```
+Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we run the Differential Gene Expression & Visualisation steps. This logs read counts, filters out low read counts & normalises read counts. She then runs heirachical clustering, PCA & SVD 
 
-This output is then analysed for differential expression using edgeR (see next chapter)
+This output can then be analysed for differential expression using edgeR or DESeq2 (see next chapter)
 
 ## QoRTs
 ml QoRTs
@@ -214,7 +213,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzEyMTk2NjQ4LDE5NzYyODg3OSwxNzMzNT
+eyJoaXN0b3J5IjpbOTY3Nzg1NTE2LDE5NzYyODg3OSwxNzMzNT
 k3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgy
 LDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4Mz
 EzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTks
