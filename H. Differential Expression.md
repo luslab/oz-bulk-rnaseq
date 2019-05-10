@@ -16,7 +16,8 @@ This covers downstream interpretation of expression & differential estimates. To
 Methods of normalising:
 - total count/million (TPM)
 - Counts/million (CPM)
-- RPKM (Reads/
+- RPKM (Reads/million)
+- FPKM
 - **DSeq size factor** & **EdgeR**
 - TMM (trimmed mean of M values)
 - upper quartile
@@ -496,7 +497,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODUyNTgzMTksNjQwNTE3Mzk4LDYwNz
+eyJoaXN0b3J5IjpbLTE3NzMzODcwNzMsNjQwNTE3Mzk4LDYwNz
 Q0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2
 MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
 UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
