@@ -33,7 +33,14 @@ FLAWED STATISTICALLY. These has been superseded by:
 - upper quartile
 2.  Normalise for gene length & sequencing depth:
 
-Raphaelle normalises using the SVD_analysis.Rmd markdown. filtering function is a 2 component mixture model to separate low vs high counts.
+Raphaelle normalises using the SVD_analysis.Rmd markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
+
+1. Import HTSeq raw gene count matrices
+2. Gene annotation from ensembl
+3. Label samples
+4. Create colour palatte
+5. Filter low count reads out
+6. Normalise between samples using Limma
 
 ## Comparison Types
 
@@ -62,22 +69,11 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
 DESeq2 and edgeR are both good. Stick to one. https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/
-See the stat quest videos on highthroughput sequencing analysis 
-[https://statquest.org/video-index/](https://statquest.org/video-index/)
+See the [StatQuest videos](https://statquest.org/video-index/) on high-throughput sequencing analysis 
 
 All these tools require a similar input = a matrix of counts: columns represent different samples; rows represent different genes; and the integers populating the matrix represent the counts of reads (if single end) or fragments (if paired end).
 
-# SVD analysis.Rmd
-Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
-
-1. Import HTSeq raw gene count matrices
-2. Gene annotation from ensembl
-3. Label samples
-4. Create colour palatte
-5. Filter low count reads out
-6. Normalise between samples using Limma
-
-**Below are alternative options to run this analysis using DESeq2, EdgeR and Ballgown.**
+**Below are walkthroughs of this analysis using DESeq2, EdgeR and Ballgown.**
 
 # DESeq2
 [StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
@@ -508,11 +504,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MjM0NTUzMSw2NDA1MTczOTgsNjA3ND
-QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
-MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
-A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
-NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
-A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
+eyJoaXN0b3J5IjpbMzE5NTQwOTY1LDY0MDUxNzM5OCw2MDc0ND
+A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
+LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
+c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
+LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MD
+QxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3XX0=
 
 -->
