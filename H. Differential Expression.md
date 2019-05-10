@@ -10,14 +10,9 @@ This covers downstream interpretation of expression & differential estimates. To
 
 There are gene counting tools that normalise for sequencing depth at Read Quantification step, however DE analysis (DESeq & edgeR) normalise whilst doing DGE analysis. 
 
-[TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
-RPKM Reads per kilobase of transcript per million mapped reads & FPKM Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
-FPKM normalises for gene size & library depth using: **FPKM = (10^9^ * C ) / (N * L)**
-C = number of mappable reads (fragments) for gene/transcript/exon etc
-N = total number of mappable reads in the library
-L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 
-Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+
+
 
 ## Process:
 1. Overlapping bundles of fragment are **assembled**
@@ -35,16 +30,25 @@ Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now
 ![enter image description here](https://lh3.googleusercontent.com/9qxYyeRJPOD_Iv8MRfRfbBbHVkUvpW-H9JQTCRYhdF_uYqRbTFI8ELV7OQfSeOcz_E6ea5bObIi9FA)
 2. Differences in **Library composition (different sample type** e.g. neurones vs glia )
 ![enter image description here](https://lh3.googleusercontent.com/RcxEg6_OW73xGL4z_PDorRNJV9WcsHJoOmB09ZhHd4YTFfiQ6bgzXoRL2QsLgssjblzhXI9FIlJWWg)
+
 Methods of normalising:
-- FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. FLAWED MEASURE STATISTICALLY). This has been superseded by:
-- Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. 
+- FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads. FLAWED STATISTICALLY. These has been superseded by:
+- Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
 - **DSeq size factor** & **EdgeR**
 - TMM (trimmed mean of M values)
 - upper quartile
 2.  Normalise for gene length & sequencing depth:
 
 
-https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
+
+FPKM normalises for gene size & library depth using: **FPKM = (10^9^ * C ) / (N * L)**
+C = number of mappable reads (fragments) for gene/transcript/exon etc
+N = total number of mappable reads in the library
+L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
+
+Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
+
+
 
 Raphaelle does this using Rstudio using the SVD_analysis.Rmd markdown.
 
@@ -521,11 +525,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMjc2MjMwNSw2NDA1MTczOTgsNjA3ND
-QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
-MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
-A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
-NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
-A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
-
+eyJoaXN0b3J5IjpbLTE5MzM4OTIzNDgsNjQwNTE3Mzk4LDYwNz
+Q0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2
+MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
+UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
+MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5Nz
+gwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjdd
+fQ==
 -->
