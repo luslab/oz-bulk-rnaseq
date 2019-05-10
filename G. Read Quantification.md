@@ -128,27 +128,6 @@ Go to the `counts` folder with the aligned QC files in and run: `multiqc .`
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 
-# Normalise for Gene Length & Sequencing Depth
-
-There are also counting tools that normalise for sequencing depth at this point. However DE analysis (DESeq & edgeR) normalise later so this isn't necessary at this point. 
-
-[TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
-RPKM Reads per kilobase of transcript per million mapped reads & FPKM Fragments per kilbase of transcript per million mapped reads. Fragment refers to read pairs from paired-end reads (counting fragments and not individual reads )
-FPKM normalises for gene size & library depth using: **FPKM = (10^9^ * C ) / (N * L)**
-C = number of mappable reads (fragments) for gene/transcript/exon etc
-N = total number of mappable reads in the library
-L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
-
-Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
-
-## Process:
-1. Overlapping bundles of fragment are **assembled**
-2. Fragments are connected in an **overlap graph**. This graph models variability in fragment count for each gene across replicates (if the fragments are compatible then these are assumed to come from the same genetic locus - it calculates mutually incompatible fragments where splice sites are mid exon or intron)
-3. Transcript isoforms are inferred from the **minimum paths** required to cover the graph
-4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model. The variance estimates of fragment count for each transcript  are statistically tested to report DE genes.
-
-![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
-
 ## StringTie
 ml StringTie
 
@@ -226,11 +205,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEzNjUxMzQxLDE5NzYyODg3OSwxNzMzNT
-k3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgy
-LDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4Mz
-EzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTks
-LTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMj
-A2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4
-NF19
+eyJoaXN0b3J5IjpbMTM4NDI4NTY2MiwxOTc2Mjg4NzksMTczMz
+U5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4
+MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
+MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
+LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
+IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
+ODRdfQ==
 -->
