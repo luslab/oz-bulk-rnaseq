@@ -38,8 +38,6 @@ FLAWED STATISTICALLY. These has been superseded by:
 
 
 
-Tools = [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/papers/) is now outdated and superseded by [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
-
 
 
 Raphaelle does this using Rstudio using the SVD_analysis.Rmd markdown.
@@ -517,7 +515,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMjc3MjEwLDY0MDUxNzM5OCw2MDc0ND
+eyJoaXN0b3J5IjpbLTM5MjMyNzE3LDY0MDUxNzM5OCw2MDc0ND
 A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
 LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
 c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
