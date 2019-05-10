@@ -12,7 +12,7 @@ This covers downstream interpretation of expression & differential estimates. To
 1. Differences in Library sizes (sequencing depth) between samples - RPKM, FPKM, TPM, CPM addresses this.
 ![enter image description here](https://lh3.googleusercontent.com/9qxYyeRJPOD_Iv8MRfRfbBbHVkUvpW-H9JQTCRYhdF_uYqRbTFI8ELV7OQfSeOcz_E6ea5bObIi9FA)
 2. Differences in Library composition (different sample type e.g. neurones vs glia )
-
+![enter image description here](https://lh3.googleusercontent.com/RcxEg6_OW73xGL4z_PDorRNJV9WcsHJoOmB09ZhHd4YTFfiQ6bgzXoRL2QsLgssjblzhXI9FIlJWWg)
 Methods of normalising:
 - total count
 - Counts/million
@@ -495,11 +495,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NzcwNTcwMiw2NDA1MTczOTgsNjA3ND
-QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
-MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
-A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
-NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
-A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
-
+eyJoaXN0b3J5IjpbLTEyMDM1MTI4NjUsNjQwNTE3Mzk4LDYwNz
+Q0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2
+MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
+UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
+MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5Nz
+gwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjdd
+fQ==
 -->
