@@ -75,9 +75,10 @@ All these tools require a similar input = a matrix of counts: columns represent 
 
 **Below are walkthroughs of this analysis using DESeq2, EdgeR and Ballgown.**
 
+DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling factor for each sample that accounts for read depth & library composition.
+
 # DESeq2
 [StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
-DESEq2 (nor EdgeR) use RPKM, FPKM, TPM etc.
 
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
@@ -504,11 +505,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3ND
-QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
-MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
-A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
-NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
-A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
+eyJoaXN0b3J5IjpbLTIyNzQxMTc4OSwtNTk2MzEyMTU1LDY0MD
+UxNzM5OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4
+MCwxNzk2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMD
+AyMjM4LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYy
+MSwtMjI1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5Mz
+cyNDM2LDEwOTc4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0M119
 
 -->
