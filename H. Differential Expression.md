@@ -341,6 +341,7 @@ cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
 ```
 
 # edgeR
+[StatQuest video on Edge R normalisation](https://www.youtube.com/watch?v=Wdt6jdi-NQo)
 
 edgeR is a bioconductor package designed for DE of raw counts
 Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [page 17](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
@@ -458,11 +459,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA3NDQwODA3LDExNTkzNzY3NjUsLTE4Mz
-E3MDUyODAsMTc5NjUyNjYyMCwyNzY1MzkyNiw3MTgxMjI4NSwt
-MTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNT
-cyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMs
-LTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3NzI1MTQ0MCwyOTQ5MT
-A0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTYsMTMzMzQ1MTU0N119
-
+eyJoaXN0b3J5IjpbLTE5MDI2ODc3NjgsNjA3NDQwODA3LDExNT
+kzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNzY1Mzky
+Niw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMD
+g3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYw
+NSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTEsMTY3Nz
+I1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyNywtNjEyMTM2OTZd
+fQ==
 -->
