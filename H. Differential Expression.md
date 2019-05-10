@@ -9,14 +9,15 @@ This covers downstream interpretation of expression & differential estimates. To
 **Normalisation** & **Log Transforming** Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. 
 
 2 reasons we need to normalise:
-1. Differences in Library sizes (sequencing depth) between samples - RPKM, FPKM, TPM, CPM addresses this.
+1. Differences in **Library sizes (sequencing depth)** between samples - RPKM, FPKM, TPM, CPM addresses this.
 ![enter image description here](https://lh3.googleusercontent.com/9qxYyeRJPOD_Iv8MRfRfbBbHVkUvpW-H9JQTCRYhdF_uYqRbTFI8ELV7OQfSeOcz_E6ea5bObIi9FA)
-2. Differences in Library composition (different sample type e.g. neurones vs glia )
+2. Differences in **Library composition (different sample type** e.g. neurones vs glia )
 ![enter image description here](https://lh3.googleusercontent.com/RcxEg6_OW73xGL4z_PDorRNJV9WcsHJoOmB09ZhHd4YTFfiQ6bgzXoRL2QsLgssjblzhXI9FIlJWWg)
 Methods of normalising:
-- total count
-- Counts/million
-- **DSeq size factor** using R
+- total count/million (TPM)
+- Counts/million (CPM)
+- RPKM (Reads/
+- **DSeq size factor** & **EdgeR**
 - TMM (trimmed mean of M values)
 - upper quartile
 
@@ -495,7 +496,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDM1MTI4NjUsNjQwNTE3Mzk4LDYwNz
+eyJoaXN0b3J5IjpbLTE4ODUyNTgzMTksNjQwNTE3Mzk4LDYwNz
 Q0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2
 MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
 UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
