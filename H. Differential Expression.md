@@ -79,7 +79,7 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 
 # DESeq2
 [StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
-
+1. Log^e^ of all gene count values
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
@@ -505,11 +505,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNzQxMTc4OSwtNTk2MzEyMTU1LDY0MD
-UxNzM5OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4
-MCwxNzk2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMD
-AyMjM4LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYy
-MSwtMjI1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5Mz
-cyNDM2LDEwOTc4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0M119
+eyJoaXN0b3J5IjpbNjIzMDU4MDAzLC01OTYzMTIxNTUsNjQwNT
+E3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1Mjgw
+LDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMD
+IyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIx
+LC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNz
+I0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzXX0=
 
 -->
