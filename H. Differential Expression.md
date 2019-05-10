@@ -31,6 +31,10 @@ FLAWED STATISTICALLY. These has been superseded by:
 - TMM (trimmed mean of M values)
 - upper quartile
 
+# Filtering Counts
+
+
+
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
 
@@ -57,7 +61,7 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 - precision depends on the number & variation of replicates (i.e. the statistical power). 
 - For RNA-seq typically there is only 2-3 replicates creating poor precision. There are tools to compensate for this by looking across genes with similar expression to reduce a given genes variance towards the regressed values.
 
-## Tools for DE analysis
+## Tools for DGE analysis
 
  - DESeq2 - Nobby uses this.
  - edgeR - better for false positives, less conservative, recommended if <12 replicates
@@ -513,7 +517,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0MzUwODc2OSwxOTMyMzY1Nzg3LC01OT
+eyJoaXN0b3J5IjpbMTk2NTk4NTcyMywxOTMyMzY1Nzg3LC01OT
 YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
 LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
 IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
