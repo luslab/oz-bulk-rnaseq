@@ -61,7 +61,10 @@ Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis
 **Below are alternative options to run this analysis using DESeq2, EdgeR and Ballgown.**
 
 # DESeq2
-[https://www.youtube.com/watch?v=UFB993xufUU](https://www.youtube.com/watch?v=UFB993xufUU)
+[StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
+DESEq2 (nor EdgeR) use RPKM, FPKM, TPM etc.
+
+
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
 DESeq takes counts --> read them into R --> normalise for sequencing depth differences
@@ -486,11 +489,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI4MDY2NTA4NSw2NDA1MTczOTgsNjA3ND
-QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
-MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
-A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
-NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
-A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
+eyJoaXN0b3J5IjpbMTM0MDAxODczLDY0MDUxNzM5OCw2MDc0ND
+A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
+LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
+c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
+LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MD
+QxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3XX0=
 
 -->
