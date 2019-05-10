@@ -9,8 +9,9 @@ This covers downstream interpretation of expression & differential estimates. To
 **Normalisation** & **Log Transforming** Read Counts is performed to ensure that systematic effects not related to the biological differences between samples are removed. 
 
 2 reasons we need to normalise:
-1. Differences in Library sizes (read depth) be
-2. 
+1. Differences in Library sizes (sequencing depth) between samples - RPKM, FPKM, TPM addresses this.
+2. Differences in Library composition
+
 Methods of normalising:
 - total count
 - Counts/million
@@ -493,11 +494,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4ODIxNDgxMSw2NDA1MTczOTgsNjA3ND
-QwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYy
-MCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NT
-A3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkw
-NCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3OD
-A0MTEsMTY3NzI1MTQ0MCwyOTQ5MTA0NDMsLTQ0OTcwNzEyN119
+eyJoaXN0b3J5IjpbNzE4MjYxMjQxLDY0MDUxNzM5OCw2MDc0ND
+A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
+LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
+c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
+LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MD
+QxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3XX0=
 
 -->
