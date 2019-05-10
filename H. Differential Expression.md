@@ -34,7 +34,7 @@ FLAWED STATISTICALLY. These has been superseded by:
 # Filtering low read counts
 [StatQuest video](https://www.youtube.com/watch?v=Gi0JdrxRq5s&feature=youtu.be) 
 aka Independent Filtering or Mitigating the multiple testing problem
-5% of 20,000 statistical tests = 1000
+False positives are a huge problem when significance checking every gene in the genome: 5% of 20,000 statistical tests = 1000 false positives. FDR & Benjamini Hochberg method partly compensate for this BUT this adjustment looses some true positives > false negatives.
 
 
 ### SVD_analysis.Rmd
@@ -519,11 +519,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjU5MDEzODgsMTk2NTk4NTcyMywxOT
-MyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgw
-NywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMj
-c2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQx
-MzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsOD
-A0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDEx
-XX0=
+eyJoaXN0b3J5IjpbMTA2NzQxMDc5MywxOTY1OTg1NzIzLDE5Mz
+IzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3NDQwODA3
+LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
+Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
+NiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MD
+Q0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTFd
+fQ==
 -->
