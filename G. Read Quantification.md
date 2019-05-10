@@ -1,9 +1,19 @@
 > # Read Quantification
 Whilst IGV is used to initial glance at coverage, these methods **normalise** & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
+## Read Count Process
+1. Overlapping bundles of reads are **assembled**
+2. Reads are connected in an **overlap graph** that models variability in read count for each gene across replicates (if the reads are compatible then these are assumed to come from the same genetic locus - calculates mutually incompatible reads where splice sites are mid exon or intron).
+3. Transcript isoforms are inferred from the **minimum paths** required to cover the graph
+4. Abundance of each gene isoform is estimated with a maximum likelihood probabilstic model. The variance estimates of reads count for each transcript  are statistically tested to report DE genes.
+
+![enter image description here](https://media.nature.com/lw926/nature-assets/nbt/journal/v28/n5/images/nbt.1621-F1.jpg)
+
+
+
 # Raw Counts
 
-Instead of normalising simply assign fragments to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
+Instead of normalising simply assign reads to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
@@ -12,6 +22,7 @@ Use a BAM file & GTF file and assign each read as best as possible to a known ge
 featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
+
 
 ## HTSeq-Count
 ml HTSeq
@@ -205,11 +216,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NDI4NTY2MiwxOTc2Mjg4NzksMTczMz
-U5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4
-MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczOD
-MxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5
-LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMz
-IwNjE1MjksMTg5NzQ0MjU4MCwxOTE5NjA2MDE1LDE3MTkzMjAz
-ODRdfQ==
+eyJoaXN0b3J5IjpbNzQ1NjI4OTU4LDE5NzYyODg3OSwxNzMzNT
+k3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgy
+LDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4Mz
+EzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTks
+LTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMj
+A2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4
+NF19
 -->
