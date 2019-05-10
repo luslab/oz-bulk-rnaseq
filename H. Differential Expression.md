@@ -84,7 +84,7 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 3. Filter out Genes with Infinity i.e. if any of the samples had a 0 count.
 4. Subtract the average log value from log(counts). This is the same as log (Sample Count / Average Count) i.e. the ratio of reads to average of all samples
 ![enter image description here](https://lh3.googleusercontent.com/YcuQUEulQ5OEhaSOsx9pJwwuusIxW8DAJziJzdYTbg9aKA10309WTgo6-ca_q0GtdgR3AXS7gObE6g)
-5. Calculate the median of the ratios for each sample
+5. Calculate the median of the ratios for each sample. This further 
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
@@ -510,11 +510,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMjM2NTc4NywtNTk2MzEyMTU1LDY0MD
-UxNzM5OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4
-MCwxNzk2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMD
-AyMjM4LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYy
-MSwtMjI1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5Mz
-cyNDM2LDEwOTc4MDQxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0M119
-
+eyJoaXN0b3J5IjpbMTM3MzExNzg4MywxOTMyMzY1Nzg3LC01OT
+YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
+LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
+IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
+NywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5Nj
+UxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDBd
+fQ==
 -->
