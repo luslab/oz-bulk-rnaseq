@@ -79,7 +79,7 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 
 # DESeq2
 [StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
-1. **Log^e^** of all gene count values. 0 counts become -Infinity
+1. **Log^e^** of all gene count values. 0 counts become -Infinity. This allows normalisation between different tissue types & smooths effect of outlier read counts
 2. **Average each Gene (row) logs** (i.e. the Geometric Average). This removes impact of outliers. Averaging a row with a -Inf value becomes -Inf. 
 3. **Filter out** Genes with Infinity i.e. if any of the samples had a 0 count.
 4. Subtract the average log value from log(counts). This is the same as log (Sample Count / Average Count) i.e. the **ratio of reads to average** of all samples
@@ -514,7 +514,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4MzcxMDAzMCwxOTMyMzY1Nzg3LC01OT
+eyJoaXN0b3J5IjpbLTk3MzU5Njc0MCwxOTMyMzY1Nzg3LC01OT
 YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
 LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
 IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
