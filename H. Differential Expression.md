@@ -40,7 +40,8 @@ FDR & Benjamini Hochberg method partly compensate for this BUT this adjustment l
 ![enter image description here](https://lh3.googleusercontent.com/y9gZel8cdmsYicJXqpgh7dP5erLxMosgCbl4C1_P3Z4jpYzhvwDplbTsi3q4hn1_2PVxtcOljdH3Iw)
 To filter bogus tests, edgeR & DESeq2 use alternative filters:
 - Very low read counts are not informative so they are removed > reduce number of tests
-	- EdgeR removes all genes except thos with >1CPM in 2 or more samples
+	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling facotr 
+![enter image description here](https://lh3.googleusercontent.com/LnuncxJbacK6DUrC12OPFhEFMeAS_1m9mpzzOfA2gme_6BL4ShdfnmYy_a5vQPObuR5B4yyzDoWETg)
 
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -524,7 +525,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNDUzNTA2MiwxOTY1OTg1NzIzLDE5Mz
+eyJoaXN0b3J5IjpbLTczNTIwMDg2MywxOTY1OTg1NzIzLDE5Mz
 IzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3NDQwODA3
 LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
 Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
