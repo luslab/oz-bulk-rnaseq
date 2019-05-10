@@ -27,7 +27,7 @@ C = number of mappable reads (fragments) for gene/transcript/exon etc
 N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 FLAWED STATISTICALLY. These has been superseded by:
-- Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
+- Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/).  Per Million helps keep the value sensible (avoids huge number of decimals) 
 ![enter image description here](https://lh3.googleusercontent.com/wB60H7Ih8MZmQk_7TAkj_Kc9KKO-vKpyvszwsf2xmpwOdV7q-QXqyGHkO_jDbczcHW2id7g1VW9w6w)
 - TMM (trimmed mean of M values)
 - upper quartile
@@ -524,7 +524,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4NzA1NDg2MSwxOTY1OTg1NzIzLDE5Mz
+eyJoaXN0b3J5IjpbMjEwNDUzNTA2MiwxOTY1OTg1NzIzLDE5Mz
 IzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3NDQwODA3
 LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
 Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
