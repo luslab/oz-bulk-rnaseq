@@ -14,13 +14,15 @@ This covers downstream interpretation of expression & differential estimates. To
 2. Differences in **Library composition (different sample type** e.g. neurones vs glia )
 ![enter image description here](https://lh3.googleusercontent.com/RcxEg6_OW73xGL4z_PDorRNJV9WcsHJoOmB09ZhHd4YTFfiQ6bgzXoRL2QsLgssjblzhXI9FIlJWWg)
 Methods of normalising:
-- total count/million (TPM)
-- Counts/million (CPM)
-- RPKM (Reads/million)
-- FPKM
+- FPKM (RPKM): Reads/Fragments per kilobase of transcript per millions of read mapped. FLAWED MEASURE STATISTICALLY). This has been superseded by:
+- Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. 
 - **DSeq size factor** & **EdgeR**
 - TMM (trimmed mean of M values)
 - upper quartile
+2.  Normalise for gene length & sequencing depth:
+
+
+https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/
 
 Raphaelle does this using Rstudio using the SVD_analysis.Rmd markdown.
 
@@ -497,11 +499,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NzMzODcwNzMsNjQwNTE3Mzk4LDYwNz
-Q0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OTY1MjY2
-MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgsLTE1OT
-UwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMjUxMTI5
-MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzYsMTA5Nz
-gwNDExLDE2NzcyNTE0NDAsMjk0OTEwNDQzLC00NDk3MDcxMjdd
-fQ==
+eyJoaXN0b3J5IjpbNDQwNTY3NTMzLDY0MDUxNzM5OCw2MDc0ND
+A4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIw
+LDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MD
+c0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0
+LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MD
+QxMSwxNjc3MjUxNDQwLDI5NDkxMDQ0MywtNDQ5NzA3MTI3XX0=
+
 -->
