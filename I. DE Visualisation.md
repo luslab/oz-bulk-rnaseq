@@ -71,7 +71,7 @@ library("regionReport")
 
 ## regionReport
 http://leekgroup.github.io/regionReportSupp/DESeq2.html
-
+[http://bioconductor.org/packages/release/bioc/vignettes/regionReport/inst/doc/regionReport.html](http://bioconductor.org/packages/release/bioc/vignettes/regionReport/inst/doc/regionReport.html)
 ```r
 library('ggplot2')
 library('regionReport')
@@ -459,11 +459,11 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYxMDQ0MDQ1LDE5MzU2NzA0MTksLTIwNT
-MxNjkzMTksLTE3ODMyNjc4NDUsLTQyNzA2NzY4Nyw3ODYzMjI0
-NzAsODUwNDgyMzUwLC05NzI0MjIyMjIsLTExNDQ3OTM2MTEsLT
-ExNDI1NTU0OTMsLTIwNjEyNjY5MDgsLTYyMjg1NjE1MSwtMTE3
-MzY0NzM1LDU0OTY2NTQ4OSw3OTQzMzQwMzksMTg5NzU2NDY0MS
-wtMTY2NjEwMTQwMSwtMzIxNDE3NjQ3LDQ3NjI4MzIxOCwxNzg2
-MDg4NjE4XX0=
+eyJoaXN0b3J5IjpbNDMzNzA5Nzk4LDU2MTA0NDA0NSwxOTM1Nj
+cwNDE5LC0yMDUzMTY5MzE5LC0xNzgzMjY3ODQ1LC00MjcwNjc2
+ODcsNzg2MzIyNDcwLDg1MDQ4MjM1MCwtOTcyNDIyMjIyLC0xMT
+Q0NzkzNjExLC0xMTQyNTU1NDkzLC0yMDYxMjY2OTA4LC02MjI4
+NTYxNTEsLTExNzM2NDczNSw1NDk2NjU0ODksNzk0MzM0MDM5LD
+E4OTc1NjQ2NDEsLTE2NjYxMDE0MDEsLTMyMTQxNzY0Nyw0NzYy
+ODMyMThdfQ==
 -->
