@@ -28,6 +28,7 @@ N = total number of mappable reads in the library
 L = number of base pairs in the gene/transcript/exon etc (i.e. the size of gene length) 
 FLAWED STATISTICALLY. These has been superseded by:
 - Transcripts per Million (TPM); Counts/million (CPM): also normalises sequencing depth & gene length but in the reverse order. [TPM has superseded FPKM as it is a fairer statistical measure](https://www.rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/). 
+![enter image description here](https://lh3.googleusercontent.com/wB60H7Ih8MZmQk_7TAkj_Kc9KKO-vKpyvszwsf2xmpwOdV7q-QXqyGHkO_jDbczcHW2id7g1VW9w6w)
 - TMM (trimmed mean of M values)
 - upper quartile
 
@@ -39,7 +40,7 @@ FDR & Benjamini Hochberg method partly compensate for this BUT this adjustment l
 ![enter image description here](https://lh3.googleusercontent.com/y9gZel8cdmsYicJXqpgh7dP5erLxMosgCbl4C1_P3Z4jpYzhvwDplbTsi3q4hn1_2PVxtcOljdH3Iw)
 To filter bogus tests, edgeR & DESeq2 use alternative filters:
 - Very low read counts are not informative so they are removed > reduce number of tests
-- 
+	- EdgeR removes all genes except thos with >1CPM in 2 or more samples
 
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
@@ -523,11 +524,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYzMDU1ODQwLDE5NjU5ODU3MjMsMTkzMj
-M2NTc4NywtNTk2MzEyMTU1LDY0MDUxNzM5OCw2MDc0NDA4MDcs
-MTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3Nj
-UzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2
-LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwND
-QzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMV19
-
+eyJoaXN0b3J5IjpbLTI4NzA1NDg2MSwxOTY1OTg1NzIzLDE5Mz
+IzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgsNjA3NDQwODA3
+LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNz
+Y1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEz
+NiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MD
+Q0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNiwxMDk3ODA0MTFd
+fQ==
 -->
