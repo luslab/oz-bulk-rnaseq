@@ -87,8 +87,8 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 5. Calculate the **median of the ratios** for each sample. This further removes influence of outliers.
 ![enter image description here](https://lh3.googleusercontent.com/zmpaRfyzX8-2Ake2YMQpnpSkXV-vr87uNvIHfKlcp40Y2ajJI0cNsMYfGbSL-0IcNaqL5yE-SefMLg)
 6. Convert medians to "normal numbers" to get the **Scaling Factors** for each sample. e ^sample_median^  
-7. Divide the original read counts by the Scal
-
+7. Divide the original read counts by the Scaling Factors
+![enter image description here](https://lh3.googleusercontent.com/64nhKIz6HkNRl5TzsK_aafA-OocPa8DQiRJIJoVsWgnvNfrmhFR4dy-c3EBGg4qsYQPsfyRQHlQOCw)
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
@@ -514,11 +514,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzYwMzIzMzUsMTkzMjM2NTc4NywtNT
-k2MzEyMTU1LDY0MDUxNzM5OCw2MDc0NDA4MDcsMTE1OTM3Njc2
-NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2LDcxOD
-EyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwODcxNTUx
-MjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1LDc0OT
-Y1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMSwxNjc3MjUxNDQw
-XX0=
+eyJoaXN0b3J5IjpbLTU4MzcxMDAzMCwxOTMyMzY1Nzg3LC01OT
+YzMTIxNTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1
+LC0xODMxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MT
+IyODUsLTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEy
+NywxMjU3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5Nj
+UxNDkzLC0yMTkzNzI0MzYsMTA5NzgwNDExLDE2NzcyNTE0NDBd
+fQ==
 -->
