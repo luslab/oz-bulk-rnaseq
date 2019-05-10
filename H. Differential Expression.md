@@ -354,10 +354,12 @@ edgeR is a bioconductor package designed for DE of raw counts (it does not use R
 		3b. Compare remaining genes with Reference gene counts. Log2(Reference Gene/Sample Gene). If Reference gene count or sample Gene count = 0 then value is -Inf.
 		3c. Remove gene with Inf values (i.e. no reads mapped to gene in 1 or both samples) 
 
-4. Calculate a table to identify high/low samples giving a table of Mean of Logs
+4. Calculate a **table to identify highly/lowly transcribed genes in across samples (Mean of Logs)**
 	4a. Calculate Geometric mean for each gene Log. 
 	4b. Remove Inf values again (no reads mapped to them in 1 or more samples).
 	
+5. Sort both Table of Log Ratios & Mean of Logs tables by Low to High.
+	6
 Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [page 17](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
 
@@ -475,7 +477,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODk2OTkxMzksNjA3NDQwODA3LDExNT
+eyJoaXN0b3J5IjpbLTEzMzcyMDA0MDgsNjA3NDQwODA3LDExNT
 kzNzY3NjUsLTE4MzE3MDUyODAsMTc5NjUyNjYyMCwyNzY1Mzky
 Niw3MTgxMjI4NSwtMTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMD
 g3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYw
