@@ -343,7 +343,9 @@ cat valid.txt | Rscript deseq1.r 3x3 > D7-results.txt
 # edgeR
 [StatQuest video on Edge R normalisation](https://www.youtube.com/watch?v=Wdt6jdi-NQo)
 edgeR is a bioconductor package designed for DE of raw counts (it does not use RPKM, TPM etc).
-1. Remove all untranscribed ge
+1. Remove all untranscribed genes (0 counts)
+2. Choose the reference sample to normalise all others against. A good reference sample should be the most average sample 
+	3
 Input = raw counts from htseq-count or featureCounts. Can also use QoRTs Counts - see [page 17](http://hartleys.github.io/QoRTs/doc/example-walkthrough.pdf)
 
 
@@ -461,7 +463,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MjU2ODQ1OCw2MDc0NDA4MDcsMTE1OT
+eyJoaXN0b3J5IjpbMTU0NzQ1MDI4OSw2MDc0NDA4MDcsMTE1OT
 M3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2
 LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwOD
 cxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1
