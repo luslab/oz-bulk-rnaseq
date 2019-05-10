@@ -80,6 +80,7 @@ DESEq2 nor EdgeR use RPKM, FPKM, TPM etc. Both DESeq2 & EdgeR create a scaling f
 # DESeq2
 [StatQuest video on DESeq2 normalisation](https://www.youtube.com/watch?v=UFB993xufUU)
 1. Log^e^ of all gene count values
+2. Average each Gene (row). This removes impact of outliers. 
 
 All DESeq2 information is available at: http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#differential-expression-analysis
 
@@ -505,7 +506,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIzMDU4MDAzLC01OTYzMTIxNTUsNjQwNT
+eyJoaXN0b3J5IjpbMTI2MDU0NTA0LC01OTYzMTIxNTUsNjQwNT
 E3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1Mjgw
 LDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMD
 IyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIx
