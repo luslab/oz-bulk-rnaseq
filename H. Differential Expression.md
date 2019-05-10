@@ -43,6 +43,10 @@ To filter bogus tests, edgeR & DESeq2 use alternative filters:
 	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling factor is susceptible to sequencing depth when it is very high (loose relevant but lower read counts) or very low (e.g. sincle cell RNASeq, includes irrelevant low read counts)
 ![enter image description here](https://lh3.googleusercontent.com/LnuncxJbacK6DUrC12OPFhEFMeAS_1m9mpzzOfA2gme_6BL4ShdfnmYy_a5vQPObuR5B4yyzDoWETg)
 
+Changing the CPM thresh
+![enter image description here](https://lh3.googleusercontent.com/caQjY78DDqLrBeG3DQDaV6wWwFnUVVWTphhmEZUP_QFl9bnKbdyvauR8gerHZjvQiy_qhYRH2yPtww)
+
+
 ### SVD_analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
 
@@ -525,11 +529,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMzQzNTYyLDE5NjU5ODU3MjMsMTkzMj
-M2NTc4NywtNTk2MzEyMTU1LDY0MDUxNzM5OCw2MDc0NDA4MDcs
-MTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3Nj
-UzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2
-LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwND
-QzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2LDEwOTc4MDQxMV19
+eyJoaXN0b3J5IjpbNzQ0NzEzMjIxLDEzMjM0MzU2MiwxOTY1OT
+g1NzIzLDE5MzIzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgs
+NjA3NDQwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5Nj
+UyNjYyMCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwt
+MTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNT
+ExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNl19
 
 -->
