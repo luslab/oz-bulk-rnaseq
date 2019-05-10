@@ -43,7 +43,9 @@ To filter bogus tests, edgeR & DESeq2 use alternative filters:
 	- EdgeR removes all genes except thos with >1CPM in 2 or more samples. Note that CPM scaling factor is susceptible to sequencing depth when it is very high (loose relevant but lower read counts) or very low (e.g. sincle cell RNASeq, includes irrelevant low read counts)
 ![enter image description here](https://lh3.googleusercontent.com/LnuncxJbacK6DUrC12OPFhEFMeAS_1m9mpzzOfA2gme_6BL4ShdfnmYy_a5vQPObuR5B4yyzDoWETg)
 
-Changing the CPM thresh
+Changing the CPM threshold to exclude genes drastically changes the number of signficant genes.
+Red line = CPM 1 threshold: to strict - removes important genes
+Blue line = CPM 0.2 threshold is better as it includes all the approapriate genes based on the curve (from peak)
 ![enter image description here](https://lh3.googleusercontent.com/caQjY78DDqLrBeG3DQDaV6wWwFnUVVWTphhmEZUP_QFl9bnKbdyvauR8gerHZjvQiy_qhYRH2yPtww)
 
 
@@ -529,11 +531,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ0NzEzMjIxLDEzMjM0MzU2MiwxOTY1OT
-g1NzIzLDE5MzIzNjU3ODcsLTU5NjMxMjE1NSw2NDA1MTczOTgs
-NjA3NDQwODA3LDExNTkzNzY3NjUsLTE4MzE3MDUyODAsMTc5Nj
-UyNjYyMCwyNzY1MzkyNiw3MTgxMjI4NSwtMTI1MjAwMjIzOCwt
-MTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNTcyNzI2MjEsLTIyNT
-ExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTMsLTIxOTM3MjQzNl19
-
+eyJoaXN0b3J5IjpbMjA5ODA2NTk5MSwxMzIzNDM1NjIsMTk2NT
+k4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIxNTUsNjQwNTE3Mzk4
+LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xODMxNzA1MjgwLDE3OT
+Y1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUsLTEyNTIwMDIyMzgs
+LTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMjU3MjcyNjIxLC0yMj
+UxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkzLC0yMTkzNzI0MzZd
+fQ==
 -->
