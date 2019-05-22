@@ -22,15 +22,18 @@ In **Differential Isoform Usage** you compare the usage of all the alternativel 
 
 
 # Approaches to Differential Splicing Analysis
+1. Isoform Resolution Approach
+Differences in complete isoform proportions (expression) between samples. 
+Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
+Advantages: investigate full length isoforms.
+Limitations: complex, amibuity with different reads aligning to same position
+Tools: Cuffdiff, DiffSplice, SplicingCompass
+
+
 1. Exon Usage Approach
 Differential exon-level expression between conditions
 Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 
-2. Isoform Resolution Approach
-Differences in complete isoform proportions (expression) between samples. 
-Tools: Cuffdiff, DiffSplice, SplicingCompass
-Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
-Advantages: investigate full length isoforms, 
 
 3. Splicing Event Approach
 Differential inclusion of alternative splicing events between samples
@@ -583,11 +586,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzUyMzAyNjEsLTU3ODI3NzczLDIwOT
-I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
-NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
-AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
-MiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMT
-I4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2
-MzY0ODddfQ==
+eyJoaXN0b3J5IjpbMjA1OTM4NDcxMiwtNTc4Mjc3NzMsMjA5Mj
+QzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1
+MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMD
+AwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIy
+LC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
+gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
+NjQ4N119
 -->
