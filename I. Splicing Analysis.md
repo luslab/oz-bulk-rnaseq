@@ -11,8 +11,8 @@ Concatenate = link exons into a chain to form mRNA
 
 Alternative splicing is used normally to enable a gene to produce different proteins which maybe tissue specific. However aberrant splicing can cuase disease by inappropriate exon skipping (e.g. BRCA1 exon 18 in cancer) and intron retention.
 
-Whereas in Differential Gene Expression you compare the mutant with control read counts for each gene, with Differential Splicing Analysis you compare all the different mRNA isoforms between mutant and control - since there are many isoforms for each gene there are many comparisons:
-![enter image description here](https://lh3.googleusercontent.com/KwFlVPsk93QojcmRkbJjq8asqs8WHLDv1bJecXfg0rb154W0X_kkFD1FoyYYoXk4InhmLuDOjPAqlw)
+Whereas in Differential Gene Expression you compare mutant vs control read counts for each gene, with Differential Splicing Analysis you compare all the different mRNA isoforms between mutant and control - there are many isoforms for each gene so there are many comparisons:
+![enter image description here](https://lh3.googleusercontent.com/VyUh9L2RvsCzGjGbh1fV5pPq2gGCU4gadhSaCk7BvpvceELVaUiMngWYwXIwFhbvU1xTQmAR0f4DFg)
 
 # Tool Methods
 1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
@@ -562,11 +562,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMD
-c5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5
-NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyOD
-AyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1
-NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLT
-g5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC00ODM0
-NDgwNjBdfQ==
+eyJoaXN0b3J5IjpbMTcyMDQzMDQ2NCwyMDkyNDMxMjg1LDkwMT
+EyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcw
+NDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNj
+M2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4
+NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLT
+M0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQy
+MjQyODhdfQ==
 -->
