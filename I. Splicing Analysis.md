@@ -35,7 +35,7 @@ Method: Avoids complexity of transcript assembly & expression estimation. Assume
 Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 Advantages: easier as doesnt resolve full length isoforms, doesnt make an abundance estimation at the transcript level
 ![enter image description here](https://lh3.googleusercontent.com/00opX631NuAn6nJrNQatEU2G9n6Hk-e0UxaMGqVwGV6vJUI3VHrUEaQ3CPcnd1DpIqpqEFpoVV8uaA)
-
+![enter image description here](https://lh3.googleusercontent.com/yLcLWxmo7DlPLJyzSeLxqlae97F9a69sXdXJeDOxf2ct-_e7wj9iiNcWAxF6hMC4UQccwrSbR-r7gQ)
 3. Splicing Event Approach
 Differential inclusion of alternative splicing events between samples
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -587,11 +587,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc4MzQ3NjMwLC01NzgyNzc3MywyMDkyND
-MxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUx
-LC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMD
-A4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIs
-LTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyOD
-AxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2
-NDg3XX0=
+eyJoaXN0b3J5IjpbLTE4NjQzNzA4MzYsLTU3ODI3NzczLDIwOT
+I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
+NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
+AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
+MiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMT
+I4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2
+MzY0ODddfQ==
 -->
