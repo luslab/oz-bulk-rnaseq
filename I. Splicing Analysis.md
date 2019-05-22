@@ -5,7 +5,7 @@
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
-- - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Uses the VAST-Tools output table
+- [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Uses the VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; 
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
 
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
@@ -537,11 +537,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMT
-E3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2
-ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0OD
-csLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMTgy
-MzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4Nz
-k5LDE1NjA5NTIzMzAsLTYyMzE0MTg1MiwtMjEzMzQyNDY4Mywt
-NjQ2OTQwMDUyXX0=
+eyJoaXN0b3J5IjpbMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMT
+Q2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUx
+NTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLT
+E2NDM2MzY0ODcsLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5
+NzY3ODYsMTgyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0OT
+YsLTI2Mjc4Nzk5LDE1NjA5NTIzMzAsLTYyMzE0MTg1MiwtMjEz
+MzQyNDY4M119
 -->
