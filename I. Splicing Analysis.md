@@ -30,8 +30,9 @@ Limitations: complex, amibuity with different reads aligning to same position
 Tools: Cuffdiff, DiffSplice, SplicingCompass
 
 2. Exon Usage Approach
-Differential exon-level expression between conditions. 
+Differential exon-level expression between conditions. Compares individual exon expression.
 Method: Avoids complexity of transcript assembly & expression estimation. Assumes differential usage of non-terminal exons equates to differential splicing.
+Requires transcriptome annotation to iden
 Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 
 
@@ -586,7 +587,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA3OTQ0Mjg2LC01NzgyNzc3MywyMDkyND
+eyJoaXN0b3J5IjpbNzc5MzA1Mjc2LC01NzgyNzc3MywyMDkyND
 MxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUx
 LC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMD
 A4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIs
