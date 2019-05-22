@@ -3,8 +3,12 @@
 
 > # Alternative Expression Analysis
 # Tool Methods
-1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS
+1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
+Uses splice aware aligner
+
 2. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
+
+
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
@@ -21,7 +25,7 @@
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 - [IR Finder](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
-- SUPPA2: only able to detect AS events that are in the annotation
+- SUPPA2: only able to detect AS events that are in the annotation. requires the quantification of the input transcripts, which can be obtained by using Salmon
 - [DARTS]([https://github.com/Xinglab/DARTS](https://github.com/Xinglab/DARTS) [https://www.nature.com/articles/s41592-019-0351-9](https://www.nature.com/articles/s41592-019-0351-9) uses deep learning to analyse alternative splicing
 - [Cuffdiff](http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff), [ALEXA-seq](http://www.alexaplatform.org/alexa_seq/), [MISO](http://genes.mit.edu/burgelab/miso/), [SplicingCompass](http://www.ichip.de/software/SplicingCompass.html), [Flux Capacitor](http://flux.sammeth.net/capacitor.html), [JuncBASE](http://compbio.berkeley.edu/proj/juncbase/Home.html), [DEXSeq](http://bioconductor.org/packages/2.11/bioc/html/DEXSeq.html), [MATS](http://rnaseq-mats.sourceforge.net/), [SpliceR](http://www.bioconductor.org/packages/2.13/bioc/html/spliceR.html), [FineSplice](http://nar.oxfordjournals.org/content/early/2014/02/25/nar.gku166.full), [ARH-seq](http://nar.oxfordjournals.org/content/early/2014/06/11/nar.gku495.full),
 
@@ -542,11 +546,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjczMDgyNTUsODE4MDI1OTIsMTMyMD
-AwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIy
-LC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
-gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
-NjQ4NywtODM0MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4Ni
-wxODIzNDgwNTYyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYy
-Nzg3OTldfQ==
+eyJoaXN0b3J5IjpbMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMD
+A4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIs
+LTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyOD
+AxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2
+NDg3LC04MzQyMjQyODgsLTQ4MzQ0ODA2MCwxMTcyOTc2Nzg2LD
+E4MjM0ODA1NjIsLTE2OTI0Nzk2NjcsMzA3OTc3NDk2LC0yNjI3
+ODc5OV19
 -->
