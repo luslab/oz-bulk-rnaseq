@@ -22,7 +22,7 @@ Uses splice aware aligner
 - [MISO](http://genes.mit.edu/burgelab/miso/):Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
 - [MAJIQ] is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!). quantifies the relative abundances of a set of Local Splicing Variations which implicitly represent combinations of AS events involving both annotated and novel splice sites
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
-- [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter quantifies differential intron usage across samples, allowing the detection of novel introns which model complex splicing events. 
+- [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter quantifies differential intron usage across samples, allowing the detection of novel introns which model complex splicing events. requires as input the spliced alignments. 
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 - [IR Finder](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
 - SUPPA2: only able to detect AS events that are in the annotation. requires the quantification of the input transcripts, which can be obtained by using Salmon
@@ -546,7 +546,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2MzcxMzgxMSwxOTAyNDc2OTY5LDgxOD
+eyJoaXN0b3J5IjpbLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxOD
 AyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwt
 MTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNT
 kzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0
