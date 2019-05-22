@@ -12,6 +12,8 @@ Tools use aligners capable of splitting reads across splice junctions...but ofte
 
 
 # Tools
+[http://www.rna-seqblog.com/tag/alternative-splicing/](http://www.rna-seqblog.com/tag/alternative-splicing/)
+
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
@@ -548,11 +550,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQyMDc4OTMyLC0yNzI2NjA2NTEsLTU0Nj
-I0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAs
-MTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3Mj
-A5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAw
-OCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0ODcsLT
-gzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMTgyMzQ4
-MDU2Ml19
+eyJoaXN0b3J5IjpbLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNT
+Q2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2
+MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMT
+cyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4
+MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4Ny
+wtODM0MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIz
+NDgwNTYyXX0=
 -->
