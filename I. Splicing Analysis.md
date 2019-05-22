@@ -2,13 +2,14 @@
 
 
 > # Alternative Expression Analysis
-
+![enter image description here](https://lh3.googleusercontent.com/BGrCH8FUIUWYDSY2U1b_kBzc0AtCXguL7EQdOR3ozQ1wCLdZPvjk58ImA96UpRVRJWUX4-b5IjuyhA)
 
 Cassette exon = Exon skipping
 Alternative splice sites incorporate different regions of an exon in the mRNA isoform
 Mutally exclusive exons = include one or the other exon
-
 Concatenate = link exons into a chain to form mRNA
+
+
 
 # Tool Methods
 1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
@@ -558,11 +559,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg4NDE3NzY1LDkwMTEyNzI4MywtMjEwNz
-kwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2
-OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MD
-I5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2
-LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtOD
-k5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyODgsLTQ4MzQ0
-ODA2MF19
+eyJoaXN0b3J5IjpbMTE2MDE0NTc5OCw5MDExMjcyODMsLTIxMD
+c5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5
+NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyOD
+AyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1
+NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLT
+g5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC00ODM0
+NDgwNjBdfQ==
 -->
