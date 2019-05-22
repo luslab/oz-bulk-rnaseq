@@ -39,7 +39,7 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 
 **3. Splicing Event Approach**
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
-Method: Differential splicing is assumed from differential inclusion of a particular splicing event.
+Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. 
 Advantages:
 Limtitations:
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -592,11 +592,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDExNjk4MDgsLTU3ODI3NzczLDIwOT
-I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
-NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
-AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
-MiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMT
-I4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2
-MzY0ODddfQ==
+eyJoaXN0b3J5IjpbOTcyNDMyMjUsLTU3ODI3NzczLDIwOTI0Mz
+EyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEs
+LTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMjAwMD
+g2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwt
+MTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MD
+E2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0
+ODddfQ==
 -->
