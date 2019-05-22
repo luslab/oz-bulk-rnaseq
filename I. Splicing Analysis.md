@@ -16,7 +16,7 @@
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets. only lists novel events that use annotated splice sites
 - [MISO](http://genes.mit.edu/burgelab/miso/):Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
-- MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
+- [MAJIQ] is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!). quantifies the relative abundances of a set of Local Splicing Variations which implicitly represent combinations of AS events involving both annotated and novel splice sites
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
@@ -542,11 +542,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NjQ0NjQxLDgxODAyNTkyLDEzMjAwMD
-g2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwt
-MTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MD
-E2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0
-ODcsLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMT
-gyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4
-Nzk5XX0=
+eyJoaXN0b3J5IjpbLTE5NjczMDgyNTUsODE4MDI1OTIsMTMyMD
+AwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIy
+LC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
+gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
+NjQ4NywtODM0MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4Ni
+wxODIzNDgwNTYyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYy
+Nzg3OTldfQ==
 -->
