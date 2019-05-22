@@ -39,7 +39,8 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 
 **3. Splicing Event Approach**
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
-Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**.
+Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
+PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1
 Advantages:
 Limtitations:
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -593,11 +594,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5Mj
-QzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1
-MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMD
-AwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIy
-LC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
-gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
-NjQ4N119
+eyJoaXN0b3J5IjpbODY1NjA4ODQ3LDE1NzYzNDY1NDYsLTU3OD
+I3NzczLDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5
+LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxOD
+AyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwt
+MTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNT
+kzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0
+NDldfQ==
 -->
