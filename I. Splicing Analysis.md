@@ -41,7 +41,7 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
 Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
-Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a threshold (likelihood-ratio test)
+Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
 Advantages:
 Limtitations:
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -49,6 +49,8 @@ Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
 ![enter image description here](https://lh3.googleusercontent.com/k05ELwI_1WON11e6TULfOIQ8Mc9w-248qVu2LkCJ148MrOcK3wA9EsVOqJcTWus24yGIVNV3zRugVg)
 
 ![enter image description here](https://lh3.googleusercontent.com/V1TmFNGiyJK7TehC_I6G0n_G9l71OA282Q1RXPD1qEJCLUC1xB8cFQWB1jIEJEpI_1sPk5uolLAGmA)
+
+
 
 5. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
@@ -597,11 +599,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5NjY0ODM3MSwxNTc2MzQ2NTQ2LC01Nz
-gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
-OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
-gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDks
-LTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMD
-U5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3
-NDQ5XX0=
+eyJoaXN0b3J5IjpbMTEyMDQ4NTkzLDE1NzYzNDY1NDYsLTU3OD
+I3NzczLDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5
+LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxOD
+AyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwt
+MTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNT
+kzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0
+NDldfQ==
 -->
