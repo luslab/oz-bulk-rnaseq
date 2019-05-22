@@ -5,8 +5,9 @@
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
+- - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Uses the VAST-Tools output table
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
-- [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Extracts exon/intron features
+
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets
@@ -536,11 +537,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMD
-YxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYw
-NDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyOD
-gsLTQ4MzQ0ODA2MCwxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2
-OTI0Nzk2NjcsMzA3OTc3NDk2LC0yNjI3ODc5OSwxNTYwOTUyMz
-MwLC02MjMxNDE4NTIsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1
-Nzc4MjI0NzNdfQ==
+eyJoaXN0b3J5IjpbMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMT
+E3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2
+ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0OD
+csLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMTgy
+MzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4Nz
+k5LDE1NjA5NTIzMzAsLTYyMzE0MTg1MiwtMjEzMzQyNDY4Mywt
+NjQ2OTQwMDUyXX0=
 -->
