@@ -42,8 +42,8 @@ Differential inclusion of alternative splicing events between samples. Focus on 
 Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
-Advantages: doesnt make assumptions that is required with full isoform resolution, 
-Limitations: only tests the 5 simple classical splicing patterns (skipped exons, retained introns etc )& misses patterns not classified; splicing events are strictly binary (inclusion/exclusio
+**Advantages**: doesnt make assumptions that is required with full isoform resolution, 
+**Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& misses patterns not classified (compound events eg Alt 5'ss + ES + Alt 3', multiple skipped exons, non binary splicing); splicing events are strictly binary (inclusion/exclusion of event)
 Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ![enter image description here](https://lh3.googleusercontent.com/k05ELwI_1WON11e6TULfOIQ8Mc9w-248qVu2LkCJ148MrOcK3wA9EsVOqJcTWus24yGIVNV3zRugVg)
@@ -601,11 +601,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MDYzNDA1NiwxNTc2MzQ2NTQ2LC01Nz
-gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
-OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
-gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDks
-LTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMD
-U5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3
-NDQ5XX0=
+eyJoaXN0b3J5IjpbLTE1MzExMTYzMTMsMTU3NjM0NjU0NiwtNT
+c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
+NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
+E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
+LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMT
+A1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1
+NzQ0OV19
 -->
