@@ -56,7 +56,8 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ## 1. Overlapping Transcriptome Features
 Transcriptome features found at same gene location: completely overlap, partially overlap, shared boundaries.
-DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoformss
+DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoforms.
+![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
 
 # Tools
@@ -598,11 +599,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NjU4NzI0NSwxNTc2MzQ2NTQ2LC01Nz
-gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
-OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
-gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDks
-LTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMD
-U5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3
-NDQ5XX0=
+eyJoaXN0b3J5IjpbLTEzNzQ2MTEwODcsMTU3NjM0NjU0NiwtNT
+c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
+NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
+E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
+LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMT
+A1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1
+NzQ0OV19
 -->
