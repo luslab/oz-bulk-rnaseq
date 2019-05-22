@@ -15,7 +15,7 @@ In Differential Gene Expression you compare mutant vs control read counts for ea
 In **Differential Splicing Expression** you compare all the different mRNA isoforms between mutant and control - there are many isoforms for each gene so there are many comparisons.
 ![enter image description here](https://lh3.googleusercontent.com/VyUh9L2RvsCzGjGbh1fV5pPq2gGCU4gadhSaCk7BvpvceELVaUiMngWYwXIwFhbvU1xTQmAR0f4DFg)
 
-In **Differential Isoform Usage** you compare the realtive usage of the different isoforms to the total gene expression. I.e. take the Isoform expression counts relative to the gene expression:
+In **Differential Isoform Usage** you compare the relative usage of the different isoform's to the total gene expression. I.e. take the Isoform expression counts divide by that gene expression counts. This is the important calculation with Diffentia
 ![enter image description here](https://lh3.googleusercontent.com/yc1EU-oIRVA1EuDyUkmW0rQewMRlBPWaOtgLIkpdAxMqaMr74KSbzfc4kekQKSEpV62ZaWv0WX1ElA)
 ![enter image description here](https://lh3.googleusercontent.com/vCWCaScTZWxndCmsKzKNrrQULS51WUsJNo-e64d5YP-s1m6kfWd_0pyNPBsItwIlo-Rhaz1O7N5vpw)
 
@@ -568,7 +568,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5MTE3OTY1MCwyMDkyNDMxMjg1LDkwMT
+eyJoaXN0b3J5IjpbLTM0MTM2OTMwNiwyMDkyNDMxMjg1LDkwMT
 EyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcw
 NDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNj
 M2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4
