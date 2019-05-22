@@ -19,6 +19,7 @@
 - [IR Finder](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
 - SUPPA
 - [DARTS]([https://github.com/Xinglab/DARTS](https://github.com/Xinglab/DARTS) [https://www.nature.com/articles/s41592-019-0351-9](https://www.nature.com/articles/s41592-019-0351-9) uses deep learning to analyse alternative splicing
+- [Cuffdiff](http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff), [ALEXA-seq](http://www.alexaplatform.org/alexa_seq/), [MISO](http://genes.mit.edu/burgelab/miso/), [SplicingCompass](http://www.ichip.de/software/SplicingCompass.html), [Flux Capacitor](http://flux.sammeth.net/capacitor.html), [JuncBASE](http://compbio.berkeley.edu/proj/juncbase/Home.html), [DEXSeq](http://bioconductor.org/packages/2.11/bioc/html/DEXSeq.html), [MATS](http://rnaseq-mats.sourceforge.net/), [SpliceR](http://www.bioconductor.org/packages/2.13/bioc/html/spliceR.html), [FineSplice](http://nar.oxfordjournals.org/content/early/2014/02/25/nar.gku166.full), [ARH-seq](http://nar.oxfordjournals.org/content/early/2014/06/11/nar.gku495.full),
 
 Annotated versus novel exploratory events. 
 
@@ -537,11 +538,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ2NTEyNjI0LDEyNjM2MTY5LDE2NDI4MD
-I5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2
-LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtOD
-k5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyODgsLTQ4MzQ0
-ODA2MCwxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2OTI0Nzk2Nj
-csMzA3OTc3NDk2LC0yNjI3ODc5OSwxNTYwOTUyMzMwLC02MjMx
-NDE4NTJdfQ==
+eyJoaXN0b3J5IjpbMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyOD
+AyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1
+NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLT
+g5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC00ODM0
+NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC0xNjkyNDc5Nj
+Y3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2MDk1MjMzMCwtNjIz
+MTQxODUyXX0=
 -->
