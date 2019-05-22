@@ -29,9 +29,9 @@ Advantages: investigate full length isoforms.
 Limitations: complex, amibuity with different reads aligning to same position
 Tools: Cuffdiff, DiffSplice, SplicingCompass
 
-
-1. Exon Usage Approach
-Differential exon-level expression between conditions
+2. Exon Usage Approach
+Differential exon-level expression between conditions. 
+Method: Avoids complexity of transcript assembly & expression estimation. Assumes differential usage of non-terminal exons equates to differential splicing.
 Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 
 
@@ -586,11 +586,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1OTM4NDcxMiwtNTc4Mjc3NzMsMjA5Mj
-QzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1
-MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMD
-AwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIy
-LC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
-gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
-NjQ4N119
+eyJoaXN0b3J5IjpbNDA3OTQ0Mjg2LC01NzgyNzc3MywyMDkyND
+MxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUx
+LC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMD
+A4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIs
+LTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyOD
+AxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2
+NDg3XX0=
 -->
