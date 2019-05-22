@@ -22,23 +22,28 @@ In **Differential Isoform Usage** you compare the usage of all the alternativel 
 
 
 # Approaches to Differential Splicing Analysis
-1. Isoform Resolution Approach
+**1. Isoform Resolution Approach**
 Differences in complete isoform proportions (expression) between samples. 
 Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
 Advantages: investigate full length isoforms.
 Limitations: complex, amibuity with different reads aligning to same position
 Tools: Cuffdiff, DiffSplice, SplicingCompass
 
-2. Exon Usage Approach
+**2. Exon Usage Approach**
 Differential exon-level expression between conditions. Compares individual exon expression count.
 Method: Avoids complexity of transcript assembly & expression estimation. Assumes differential usage of non-terminal exons equates to differential splicing. **Requires transcriptome annotation** to identify all possible exon units for each gene. Genes models are flattened into exon counting bins (tourquoise in image below). Overalpping exons and exons with alternative boundaries are split into separate bins (dotted lines in image). Then quantifies individual exon bins. Then tests differential usage of each exon bin using generalised linear model (same as with differential gene expression)
 Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 Advantages: easier as doesnt resolve full length isoforms, doesnt make an abundance estimation at the transcript level
 ![enter image description here](https://lh3.googleusercontent.com/00opX631NuAn6nJrNQatEU2G9n6Hk-e0UxaMGqVwGV6vJUI3VHrUEaQ3CPcnd1DpIqpqEFpoVV8uaA)
 ![enter image description here](https://lh3.googleusercontent.com/yLcLWxmo7DlPLJyzSeLxqlae97F9a69sXdXJeDOxf2ct-_e7wj9iiNcWAxF6hMC4UQccwrSbR-r7gQ)
-3. Splicing Event Approach
-Differential inclusion of alternative splicing events between samples
+
+**3. Splicing Event Approach**
+Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing 
+Method: 
+Advantages:
+Limtitations:
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
+
 
 5. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
@@ -587,7 +592,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjQzNzA4MzYsLTU3ODI3NzczLDIwOT
+eyJoaXN0b3J5IjpbLTE2MzEyMjc5MTMsLTU3ODI3NzczLDIwOT
 I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
 NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
 AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
