@@ -2,6 +2,8 @@
 
 
 > # Alternative Expression Analysis
+# Tool Methods
+1. Spliced alignment of reads a
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
@@ -538,11 +540,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyOD
-AyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1
-NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLT
-g5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC00ODM0
-NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC0xNjkyNDc5Nj
-Y3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2MDk1MjMzMCwtNjIz
-MTQxODUyXX0=
+eyJoaXN0b3J5IjpbLTE1MDA5NDUyODYsMTMyMDAwODY2MCwxMj
+YzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4
+ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC
+0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0
+MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNT
+YyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2
+MDk1MjMzMF19
 -->
