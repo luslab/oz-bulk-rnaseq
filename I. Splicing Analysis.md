@@ -5,7 +5,7 @@
 # Tool Methods
 1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
-Tools use aligners capable of splitting reads across splice junc
+Tools use aligners capable of splitting reads across splice junctions...but often include large numbers of incorrect splice junctions.
 
 2. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
 
@@ -16,6 +16,7 @@ Tools use aligners capable of splitting reads across splice junc
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
 - [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph
+- [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. 
 
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
@@ -547,11 +548,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY3NzE4NTgyLC01NDYyNDcwNDgsMTkwMj
-Q3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2
-NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNT
-Q1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3
-NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyODgsLT
-Q4MzQ0ODA2MCwxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2OTI0
-Nzk2NjddfQ==
+eyJoaXN0b3J5IjpbMTAxNjk1NzY1NCwtNTQ2MjQ3MDQ4LDE5MD
+I0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwx
+NjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MT
+U0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQw
+NzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC
+00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC0xNjky
+NDc5NjY3XX0=
 -->
