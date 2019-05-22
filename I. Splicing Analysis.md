@@ -10,6 +10,7 @@ Mutally exclusive exons = include one or the other exon
 Concatenate = link exons into a chain to form mRNA
 
 Alternative splicing is used normally to enable a gene to produce different proteins which maybe tissue specific. However aberrant splicing can cuase disease by inappropriate exon skipping (e.g. BRCA1 exon 18 in cancer) and intron retention.
+![enter image description here](https://lh3.googleusercontent.com/jeQ92hUjro9rmqVMyY53dnH1cGWIRAN466rpSTAceqTWdWFm8xN0aO3DgUfebTQZsvWNWg8UhYEgXA)
 
 In Differential Gene Expression you compare mutant vs control read counts for each gene. 
 In **Differential Splicing Expression** you compare all the different mRNA isoforms between mutant and control - there are many isoforms for each gene so there are many comparisons.
@@ -568,11 +569,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDUxOTQ1NzYsMjA5MjQzMTI4NSw5MD
-ExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3
-MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMj
-YzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4
-ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC
-0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0
-MjI0Mjg4XX0=
+eyJoaXN0b3J5IjpbLTU3ODI3NzczLDIwOTI0MzEyODUsOTAxMT
+I3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0NzA0
+OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAsMTI2Mz
+YxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3MjA5ODg0
+LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMz
+QyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0ODcsLTgzNDIy
+NDI4OF19
 -->
