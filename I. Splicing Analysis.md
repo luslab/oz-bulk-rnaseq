@@ -14,14 +14,14 @@
 
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
-- [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets
+- [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets. only lists novel events that use annotated splice sites
 - [MISO](http://genes.mit.edu/burgelab/miso/):Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 - [IR Finder](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
-- SUPPA
+- SUPPA2: only able to detect AS events that are in the annotation
 - [DARTS]([https://github.com/Xinglab/DARTS](https://github.com/Xinglab/DARTS) [https://www.nature.com/articles/s41592-019-0351-9](https://www.nature.com/articles/s41592-019-0351-9) uses deep learning to analyse alternative splicing
 - [Cuffdiff](http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff), [ALEXA-seq](http://www.alexaplatform.org/alexa_seq/), [MISO](http://genes.mit.edu/burgelab/miso/), [SplicingCompass](http://www.ichip.de/software/SplicingCompass.html), [Flux Capacitor](http://flux.sammeth.net/capacitor.html), [JuncBASE](http://compbio.berkeley.edu/proj/juncbase/Home.html), [DEXSeq](http://bioconductor.org/packages/2.11/bioc/html/DEXSeq.html), [MATS](http://rnaseq-mats.sourceforge.net/), [SpliceR](http://www.bioconductor.org/packages/2.13/bioc/html/spliceR.html), [FineSplice](http://nar.oxfordjournals.org/content/early/2014/02/25/nar.gku166.full), [ARH-seq](http://nar.oxfordjournals.org/content/early/2014/06/11/nar.gku495.full),
 
@@ -542,11 +542,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNj
-E2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQs
-MjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zND
-I2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0
-Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC
-0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2MDk1
-MjMzMF19
+eyJoaXN0b3J5IjpbMTI0NjQ0NjQxLDgxODAyNTkyLDEzMjAwMD
+g2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwt
+MTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MD
+E2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0
+ODcsLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMT
+gyMzQ4MDU2MiwtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4
+Nzk5XX0=
 -->
