@@ -52,12 +52,8 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ![enter image description here](https://lh3.googleusercontent.com/Y8GI4VPHpZ6V6Rp99jtcERChY83IWskw6PC-4Fc4NuIUOUlKbJJ-VLrky9bhcuEWWn7VNq31jloC7A)
 
-5. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
-Uses splice aware aligner.
-Identification of splice junctions (intron boundaries, exon-exon boundaries). Mapping short reads to reference is error prone (random sequence matches). 
-Tools use aligners capable of splitting reads across splice junctions...but often include large numbers of incorrect splice junctions.
+# Limitations of Differential Splicing Analysis
 
-6. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
 
 
 # Tools
@@ -66,7 +62,7 @@ Tools use aligners capable of splitting reads across splice junctions...but ofte
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
-- [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph
+- [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph.  Directly align reads to a splicing graph.
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
 
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
@@ -599,11 +595,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTE4MTYzNzMsMTU3NjM0NjU0NiwtNT
-c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
-NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
-E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
-LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMT
-A1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1
-NzQ0OV19
+eyJoaXN0b3J5IjpbMTIxMjcxNzM4NiwxNTc2MzQ2NTQ2LC01Nz
+gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
+OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
+gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDks
+LTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMD
+U5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3
+NDQ5XX0=
 -->
