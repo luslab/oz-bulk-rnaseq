@@ -3,7 +3,8 @@
 
 > # Alternative Expression Analysis
 # Tool Methods
-1. Spliced alignment of reads a
+1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS
+2. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
@@ -540,11 +541,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDA5NDUyODYsMTMyMDAwODY2MCwxMj
-YzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4
-ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC
-0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0
-MjI0Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNT
-YyLC0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2
-MDk1MjMzMF19
+eyJoaXN0b3J5IjpbMjMyMTY4MjYzLDEzMjAwMDg2NjAsMTI2Mz
+YxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3MjA5ODg0
+LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMz
+QyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0ODcsLTgzNDIy
+NDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMTgyMzQ4MDU2Mi
+wtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5
+NTIzMzBdfQ==
 -->
