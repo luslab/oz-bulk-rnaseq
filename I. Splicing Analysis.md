@@ -4,6 +4,7 @@
 > # Alternative Expression Analysis
 
 
+
 # Tool Methods
 1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
@@ -552,11 +553,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNz
-I2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTky
-LDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMT
-Q2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUx
-NTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLT
-E2NDM2MzY0ODcsLTgzNDIyNDI4OCwtNDgzNDQ4MDYwLDExNzI5
-NzY3ODZdfQ==
+eyJoaXN0b3J5IjpbMTAxNTQyNzc0NSw5MDExMjcyODMsLTIxMD
+c5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5
+NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyOD
+AyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1
+NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLT
+g5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC00ODM0
+NDgwNjBdfQ==
 -->
