@@ -38,8 +38,8 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 ![enter image description here](https://lh3.googleusercontent.com/yLcLWxmo7DlPLJyzSeLxqlae97F9a69sXdXJeDOxf2ct-_e7wj9iiNcWAxF6hMC4UQccwrSbR-r7gQ)
 
 **3. Splicing Event Approach**
-Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing 
-Method: 
+Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
+Method: Differential splicing is assumed from differential inclusion of a particular splicing event.
 Advantages:
 Limtitations:
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -592,7 +592,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzEyMjc5MTMsLTU3ODI3NzczLDIwOT
+eyJoaXN0b3J5IjpbLTEyNDExNjk4MDgsLTU3ODI3NzczLDIwOT
 I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
 NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
 AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
