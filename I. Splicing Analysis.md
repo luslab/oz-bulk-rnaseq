@@ -55,8 +55,9 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 # Limitations of Differential Splicing Analysis
 
 ## 1. Overlapping Transcriptome Features
-Transcriptome features found at same gene location: completely overlap, partially overlap, shared boundaries.
+Transcriptome features found at same gene location: completely overlap, partially overlap, shared boundaries. Introduces complexity & ambiguity for splicing analysis. 
 DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoforms.
+Address with strand-speciifc library prep.
 ![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
 
@@ -599,7 +600,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzQ2MTEwODcsMTU3NjM0NjU0NiwtNT
+eyJoaXN0b3J5IjpbLTEyMDIxODg1MzEsMTU3NjM0NjU0NiwtNT
 c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
 NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
 E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
