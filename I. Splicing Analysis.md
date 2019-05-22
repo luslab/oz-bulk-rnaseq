@@ -30,6 +30,7 @@ Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 Differences in complete isoform proportions (expression) between samples. 
 Tools: Cuffdiff, DiffSplice, SplicingCompass
 Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
+Advantages: investigate full length isoforms, 
 
 3. Splicing Event Approach
 Differential inclusion of alternative splicing events between samples
@@ -582,7 +583,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTAxMzU1NDksLTU3ODI3NzczLDIwOT
+eyJoaXN0b3J5IjpbLTE5NzUyMzAyNjEsLTU3ODI3NzczLDIwOT
 I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
 NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
 AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
