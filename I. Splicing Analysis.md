@@ -9,7 +9,9 @@ Alternative splice sites incorporate different regions of an exon in the mRNA is
 Mutally exclusive exons = include one or the other exon
 Concatenate = link exons into a chain to form mRNA
 
-Alternative splicing is used normally to produce different proteins e.g. the same gene produces 
+Alternative splicing is used normally to enable a gene to produce different proteins which maybe tissue specific. However aberrant splicing can cuase disease by inappropriate exon skipping (e.g. BRCA1 exon 18 in cancer) and intron retention.
+
+Wh
 
 # Tool Methods
 1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
@@ -559,11 +561,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM5OTk2NTE5LDkwMTEyNzI4MywtMjEwNz
-kwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2
-OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MD
-I5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2
-LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtOD
-k5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyODgsLTQ4MzQ0
-ODA2MF19
+eyJoaXN0b3J5IjpbLTE2MDg2MTc5ODksOTAxMTI3MjgzLC0yMT
+A3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2
+OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0Mj
+gwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2
+NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC
+04OTk0NTc0NDksLTE2NDM2MzY0ODcsLTgzNDIyNDI4OCwtNDgz
+NDQ4MDYwXX0=
 -->
