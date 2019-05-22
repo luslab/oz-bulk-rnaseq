@@ -28,14 +28,18 @@ Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
 
 2. Isoform Resolution Approach
 Differences in complete isoform proportions between samples
-Tools
+Tools: Cuffdiff, DiffSplice, SplicingCompass
 
-4. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
+3. Splicing Event Approach
+Differential inclusion of alternative splicing events between samples
+Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
+
+5. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
 Identification of splice junctions (intron boundaries, exon-exon boundaries). Mapping short reads to reference is error prone (random sequence matches). 
 Tools use aligners capable of splitting reads across splice junctions...but often include large numbers of incorrect splice junctions.
 
-5. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
+6. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
 
 
 # Tools
@@ -577,11 +581,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc3MzIyMTM1LC01NzgyNzc3MywyMDkyND
-MxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUx
-LC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMD
-A4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIs
-LTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyOD
-AxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2
-NDg3XX0=
+eyJoaXN0b3J5IjpbLTE3Mzg4MTA4NzAsLTU3ODI3NzczLDIwOT
+I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
+NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
+AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
+MiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMT
+I4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2
+MzY0ODddfQ==
 -->
