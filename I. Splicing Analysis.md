@@ -40,7 +40,8 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 **3. Splicing Event Approach**
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
 Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
-PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1
+PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
+Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. 
 Advantages:
 Limtitations:
 Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -594,11 +595,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY1NjA4ODQ3LDE1NzYzNDY1NDYsLTU3OD
-I3NzczLDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5
-LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxOD
-AyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwt
-MTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNT
-kzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0
-NDldfQ==
+eyJoaXN0b3J5IjpbLTEwNTQ1MTI5NzgsMTU3NjM0NjU0NiwtNT
+c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
+NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
+E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
+LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMT
+A1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1
+NzQ0OV19
 -->
