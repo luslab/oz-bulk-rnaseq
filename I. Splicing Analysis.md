@@ -31,9 +31,9 @@ Tools: Cuffdiff, DiffSplice, SplicingCompass
 
 2. Exon Usage Approach
 Differential exon-level expression between conditions. Compares individual exon expression count.
-Method: Avoids complexity of transcript assembly & expression estimation. Assumes differential usage of non-terminal exons equates to differential splicing. **Requires transcriptome annotation** to identify all possible exon units for each gene. Genes models are flattened into exon counting bins (tourquoise in image below). Overalpping exons and exons with alternative boundaries are split into separate bins.
+Method: Avoids complexity of transcript assembly & expression estimation. Assumes differential usage of non-terminal exons equates to differential splicing. **Requires transcriptome annotation** to identify all possible exon units for each gene. Genes models are flattened into exon counting bins (tourquoise in image below). Overalpping exons and exons with alternative boundaries are split into separate bins (dotted lines in image). Then quantifies individual exon bins. Then tests differential usage of each exon bin using generalised linear model (same as with differential gene expression)
 Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
-![enter image description here](https://lh3.googleusercontent.com/V6Sqj8PjLZQPB7HHSnhfOb1B6Ga8ZQ7QUZAEywUX3j-ktNsgHlphnmeWEIwMDojXgUHqkvlWoogLng)
+![enter image description here](https://lh3.googleusercontent.com/00opX631NuAn6nJrNQatEU2G9n6Hk-e0UxaMGqVwGV6vJUI3VHrUEaQ3CPcnd1DpIqpqEFpoVV8uaA)
 
 3. Splicing Event Approach
 Differential inclusion of alternative splicing events between samples
@@ -586,11 +586,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk1MDc0NzMxLC01NzgyNzc3MywyMDkyND
-MxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUx
-LC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMD
-A4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIs
-LTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyOD
-AxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2
-NDg3XX0=
+eyJoaXN0b3J5IjpbLTE4MDg3Mjk4MywtNTc4Mjc3NzMsMjA5Mj
+QzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1
+MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMD
+AwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIy
+LC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMj
+gwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYz
+NjQ4N119
 -->
