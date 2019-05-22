@@ -5,6 +5,7 @@
 # Tool Methods
 1. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
+Identification of splice junctions (intron boundaries). Mapping short reads to reference is error prone (random sequence matches). 
 Tools use aligners capable of splitting reads across splice junctions...but often include large numbers of incorrect splice junctions.
 
 2. Directly align reads to a splicing graph e.g. ASGAL, Splice detector
@@ -548,11 +549,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzkwMDQ5Mzk3LC01NDYyNDcwNDgsMTkwMj
-Q3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2
-NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNT
-Q1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3
-NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyODgsLT
-Q4MzQ0ODA2MCwxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2OTI0
-Nzk2NjddfQ==
+eyJoaXN0b3J5IjpbLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MD
+I0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwx
+NjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MT
+U0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQw
+NzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC
+00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC0xNjky
+NDc5NjY3XX0=
 -->
