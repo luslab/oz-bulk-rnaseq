@@ -10,6 +10,7 @@
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
+- [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph
 
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
@@ -541,11 +542,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjMyMTY4MjYzLDEzMjAwMDg2NjAsMTI2Mz
-YxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3MjA5ODg0
-LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMz
-QyNjA0MDc1LC04OTk0NTc0NDksLTE2NDM2MzY0ODcsLTgzNDIy
-NDI4OCwtNDgzNDQ4MDYwLDExNzI5NzY3ODYsMTgyMzQ4MDU2Mi
-wtMTY5MjQ3OTY2NywzMDc5Nzc0OTYsLTI2Mjc4Nzk5LDE1NjA5
-NTIzMzBdfQ==
+eyJoaXN0b3J5IjpbODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNj
+E2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQs
+MjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zND
+I2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0
+Mjg4LC00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC
+0xNjkyNDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2MDk1
+MjMzMF19
 -->
