@@ -17,7 +17,7 @@ In **Differential Splicing Expression** you compare all the different mRNA isofo
 
 In **Differential Isoform Usage** you compare the realtive usage of the different isoforms to the total gene expression. I.e. take the Isoform expression counts relative to the gene expression:
 ![enter image description here](https://lh3.googleusercontent.com/yc1EU-oIRVA1EuDyUkmW0rQewMRlBPWaOtgLIkpdAxMqaMr74KSbzfc4kekQKSEpV62ZaWv0WX1ElA)
-
+![enter image description here](https://lh3.googleusercontent.com/vCWCaScTZWxndCmsKzKNrrQULS51WUsJNo-e64d5YP-s1m6kfWd_0pyNPBsItwIlo-Rhaz1O7N5vpw)
 
 
 # Tool Methods
@@ -568,11 +568,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDY1MTI0ODEsMjA5MjQzMTI4NSw5MD
-ExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3
-MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMj
-YzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4
-ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC
-0zNDI2MDQwNzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0
-MjI0Mjg4XX0=
+eyJoaXN0b3J5IjpbLTM5MTE3OTY1MCwyMDkyNDMxMjg1LDkwMT
+EyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcw
+NDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNj
+M2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4
+NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLT
+M0MjYwNDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQy
+MjQyODhdfQ==
 -->
