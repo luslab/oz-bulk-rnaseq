@@ -27,12 +27,12 @@ Differences in complete isoform proportions (expression) between samples.
 Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
 Advantages: investigate full length isoforms.
 Limitations: complex, amibuity with different reads aligning to same position
-Tools: Cuffdiff, DiffSplice, SplicingCompass
+Tools: **Cuffdiff**, DiffSplice, SplicingCompass
 
 **2. Exon Usage Approach**
 Differential exon-level expression between conditions. Compares individual exon expression count.
 Method: Avoids complexity of transcript assembly & expression estimation. Assumes differential usage of non-terminal exons equates to differential splicing. **Requires transcriptome annotation** to identify all possible exon units for each gene. Genes models are flattened into exon counting bins (tourquoise in image below). Overalpping exons and exons with alternative boundaries are split into separate bins (dotted lines in image). Then quantifies individual exon bins. Then tests differential usage of each exon bin using generalised linear model (same as with differential gene expression)
-Tools: DEXSeq, DSGSeq, GPSeq, SOLAS
+Tools: **DEXSeq**, DSGSeq, GPSeq, SOLAS
 Advantages: easier as doesnt resolve full length isoforms, doesnt make an abundance estimation at the transcript level
 ![enter image description here](https://lh3.googleusercontent.com/00opX631NuAn6nJrNQatEU2G9n6Hk-e0UxaMGqVwGV6vJUI3VHrUEaQ3CPcnd1DpIqpqEFpoVV8uaA)
 ![enter image description here](https://lh3.googleusercontent.com/yLcLWxmo7DlPLJyzSeLxqlae97F9a69sXdXJeDOxf2ct-_e7wj9iiNcWAxF6hMC4UQccwrSbR-r7gQ)
@@ -42,15 +42,15 @@ Differential inclusion of alternative splicing events between samples. Focus on 
 Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
-Advantages:
+Advantages: doesnt make assumptions that is required with full isoform resolution, 
 Limtitations:
-Tools: VAST-TOOLS, rMATS, JuncBASE, JETTA, SpliceSeq
+Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ![enter image description here](https://lh3.googleusercontent.com/k05ELwI_1WON11e6TULfOIQ8Mc9w-248qVu2LkCJ148MrOcK3wA9EsVOqJcTWus24yGIVNV3zRugVg)
 
 ![enter image description here](https://lh3.googleusercontent.com/V1TmFNGiyJK7TehC_I6G0n_G9l71OA282Q1RXPD1qEJCLUC1xB8cFQWB1jIEJEpI_1sPk5uolLAGmA)
 
-
+![enter image description here](https://lh3.googleusercontent.com/Y8GI4VPHpZ6V6Rp99jtcERChY83IWskw6PC-4Fc4NuIUOUlKbJJ-VLrky9bhcuEWWn7VNq31jloC7A)
 
 5. Spliced alignment of reads against a reference genome for alternative splicing analysis e.g. VAST-TOOLS.
 Uses splice aware aligner.
@@ -599,11 +599,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMDQ4NTkzLDE1NzYzNDY1NDYsLTU3OD
-I3NzczLDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5
-LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxOD
-AyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwt
-MTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNT
-kzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0MDc1LC04OTk0NTc0
-NDldfQ==
+eyJoaXN0b3J5IjpbLTIwMTE4MTYzNzMsMTU3NjM0NjU0NiwtNT
+c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
+NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
+E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
+LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMT
+A1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQwNzUsLTg5OTQ1
+NzQ0OV19
 -->
