@@ -5,12 +5,12 @@
 
 # Tools
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
-- [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast.
-Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
+- [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
+- [Matt
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets
-- [MISO](http://genes.mit.edu/burgelab/miso/)
+- [MISO](http://genes.mit.edu/burgelab/miso/):Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
 - MAJIQ is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!)
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter
@@ -536,11 +536,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTg2OTYyMzEsLTExNzIwOTg4NCwyMD
-YxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYw
-NDA3NSwtODk5NDU3NDQ5LC0xNjQzNjM2NDg3LC04MzQyMjQyOD
-gsLTQ4MzQ0ODA2MCwxMTcyOTc2Nzg2LDE4MjM0ODA1NjIsLTE2
-OTI0Nzk2NjcsMzA3OTc3NDk2LC0yNjI3ODc5OSwxNTYwOTUyMz
-MwLC02MjMxNDE4NTIsLTIxMzM0MjQ2ODMsLTY0Njk0MDA1Miw1
-Nzc4MjI0NzNdfQ==
+eyJoaXN0b3J5IjpbNTgyMTQ4ODUyLC0xMTcyMDk4ODQsMjA2MT
+U0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQw
+NzUsLTg5OTQ1NzQ0OSwtMTY0MzYzNjQ4NywtODM0MjI0Mjg4LC
+00ODM0NDgwNjAsMTE3Mjk3Njc4NiwxODIzNDgwNTYyLC0xNjky
+NDc5NjY3LDMwNzk3NzQ5NiwtMjYyNzg3OTksMTU2MDk1MjMzMC
+wtNjIzMTQxODUyLC0yMTMzNDI0NjgzLC02NDY5NDAwNTIsNTc3
+ODIyNDczXX0=
 -->
