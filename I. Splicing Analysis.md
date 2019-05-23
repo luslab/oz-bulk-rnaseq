@@ -86,6 +86,8 @@ Splicing event approach deals with this by identifying splicing events based on 
 
 ![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
+
+
 # Tools
 [http://www.rna-seqblog.com/tag/alternative-splicing/](http://www.rna-seqblog.com/tag/alternative-splicing/)
 
@@ -631,11 +633,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMD
-QwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2
-LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNz
-kwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2
-OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MD
-I5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2
-XX0=
+eyJoaXN0b3J5IjpbNTUwODk5MzYsLTIzNTM2NjQyMCwtNTg2OD
+EwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4Mywx
+NTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMTEyNz
+I4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgs
+MTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MT
+Y5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NF19
+
 -->
