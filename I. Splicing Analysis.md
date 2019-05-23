@@ -3,6 +3,10 @@
 
 > # Differential Splicing Analysis
 [Video RNA seqblog](https://www.rna-seqblog.com/differential-splicing-analysis-with-rna-seq-current-applications-approaches-limitations/)
+
+![enter image description here](https://lh3.googleusercontent.com/mAVrLXkGSEAroRb6hIXjSFkHJhrHrXo_T0wKWqVrTXofmVU1I_NTXU70mhs3LG6OuvMPcdzSLz9JyQ)
+
+
 ![enter image description here](https://lh3.googleusercontent.com/BGrCH8FUIUWYDSY2U1b_kBzc0AtCXguL7EQdOR3ozQ1wCLdZPvjk58ImA96UpRVRJWUX4-b5IjuyhA)
 
 Cassette exon = Exon skipping
@@ -20,6 +24,7 @@ In **Differential Splicing Expression** you compare all the different mRNA isofo
 In **Differential Isoform Usage** you compare the usage of all the alternativel spliced transcripts **RELATIVE** to the total gene expression between mutant & control. I.e. take the Isoform expression counts divide by that gene expression counts. This is the important calculation with Diffential Splicing Analysis.
 ![enter image description here](https://lh3.googleusercontent.com/yc1EU-oIRVA1EuDyUkmW0rQewMRlBPWaOtgLIkpdAxMqaMr74KSbzfc4kekQKSEpV62ZaWv0WX1ElA)
 ![enter image description here](https://lh3.googleusercontent.com/vCWCaScTZWxndCmsKzKNrrQULS51WUsJNo-e64d5YP-s1m6kfWd_0pyNPBsItwIlo-Rhaz1O7N5vpw)
+
 
 
 # Approaches to Differential Splicing Analysis
@@ -643,11 +648,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMj
-M1MzY2NDIwLC01ODY4MTAxNDcsMzIwNDA3MTIwLDU5NDUzNDc5
-OCwtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLDIwOT
-I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
-NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
-AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
-Ml19
+eyJoaXN0b3J5IjpbNzk2MjYyMjM3LDExNzg5ODEwMjIsLTE1Mz
+I2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEy
+MCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01Nz
+gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
+OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
+gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDld
+fQ==
 -->
