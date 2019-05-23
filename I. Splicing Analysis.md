@@ -42,7 +42,9 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information. Compresses  alternative transcripts into a single unit:
 ![enter image description here](https://lh3.googleusercontent.com/mxwnemNNIlCnwrJdpNKroGcigW-yZHFv0C8jIhXaSdxHhoX7eCElMdybH2mi7DDZySNQzmIx_fir0Q)
 
-Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
+Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event . Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below).
+
+Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
 **PSI index = (a + b)/(a + b + 2c)**, where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons.
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
@@ -621,11 +623,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NjgxMDE0NywzMjA0MDcxMjAsNTk0NT
-M0Nzk4LC01MDI1NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMs
-MjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3Mj
-Y2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIs
-MTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxND
-Y5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1
-NV19
+eyJoaXN0b3J5IjpbLTQzMDk2OTkzMywtNTg2ODEwMTQ3LDMyMD
+QwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2
+LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNz
+kwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2
+OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MD
+I5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2
+XX0=
 -->
