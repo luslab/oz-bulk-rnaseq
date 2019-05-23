@@ -3,7 +3,7 @@
 
 > # Differential Splicing Analysis
 [Video RNA seqblog](https://www.rna-seqblog.com/differential-splicing-analysis-with-rna-seq-current-applications-approaches-limitations/)
-
+[Coursera tools video](https://www.coursera.org/lecture/genomic-tools/tools-for-transcriptomics-2-rna-seq-ESKKW)
 ![enter image description here](https://lh3.googleusercontent.com/mAVrLXkGSEAroRb6hIXjSFkHJhrHrXo_T0wKWqVrTXofmVU1I_NTXU70mhs3LG6OuvMPcdzSLz9JyQ)
 
 
@@ -648,11 +648,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk2MjYyMjM3LDExNzg5ODEwMjIsLTE1Mz
-I2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEy
-MCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01Nz
-gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
-OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
-gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDld
-fQ==
+eyJoaXN0b3J5IjpbLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0xNT
+MyNjY5MzYzLC0yMzUzNjY0MjAsLTU4NjgxMDE0NywzMjA0MDcx
+MjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3NjM0NjU0NiwtNT
+c4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1
+NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksOD
+E4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5
+XX0=
 -->
