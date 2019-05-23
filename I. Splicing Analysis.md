@@ -42,6 +42,7 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
 Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
+**PSI index = (a + b)/(a + b + 2c)**, where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons.
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
 **Advantages**: doesnt make assumptions that is required with full isoform resolution, 
 **Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& misses patterns not classified (compound events eg Alt 5'ss + ES + Alt 3'ss, multiple skipped exons, non binary splicing); splicing events are strictly binary (inclusion/exclusion of event)
@@ -608,11 +609,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2MzI1Njk5MCwtNTAyNTU4ODgzLDE1Nz
-YzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUsOTAxMTI3Mjgz
-LC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOT
-AyNDc2OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjks
-MTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNj
-E1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0
-MDc1XX0=
+eyJoaXN0b3J5IjpbNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3Nj
+M0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMs
+LTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MD
+I0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwx
+NjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MT
+U0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQw
+NzVdfQ==
 -->
