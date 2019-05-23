@@ -47,7 +47,9 @@ PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image bel
 **PSI index = (a + b)/(a + b + 2c)**, where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons.
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
 **Advantages**: doesnt make assumptions that is required with full isoform resolution, 
-**Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& **misses complex patterns not classified** (compound events eg Alt 5'ss + ES + Alt 3'ss, multiple skipped exons, non binary splicing - account for ~20% of AS events); splicing events are **strictly binary** (inclusion/exclusion of event)
+**Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& **misses complex patterns not classified** (compound events eg Alt 5'ss + ES + Alt 3'ss, multiple skipped exons, non binary splicing - account for ~20% of AS events); splicing events are **strictly binary** (inclusion/exclusion of event):
+
+![enter image description here](https://lh3.googleusercontent.com/D52SoO2TmOgf9tzlCamVAVRvDkZGGqoBAO1zJbcz-bNg6zntuJ2T8VUrUs7t6NtPDc4grPlkyKihZw)
 Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ![enter image description here](https://lh3.googleusercontent.com/k05ELwI_1WON11e6TULfOIQ8Mc9w-248qVu2LkCJ148MrOcK3wA9EsVOqJcTWus24yGIVNV3zRugVg)
@@ -618,11 +620,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTgyNjI3MjI0LDMyMDQwNzEyMCw1OTQ1Mz
-Q3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3Mywy
-MDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNj
-YwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5Miwx
-MzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Nj
-k2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1
-XX0=
+eyJoaXN0b3J5IjpbLTE4NDEwNDI2MDksMzIwNDA3MTIwLDU5ND
+UzNDc5OCwtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3Nzcz
+LDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNz
+I2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTky
+LDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMT
+Q2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUx
+NTVdfQ==
 -->
