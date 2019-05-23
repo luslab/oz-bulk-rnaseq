@@ -48,6 +48,7 @@ PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image bel
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
 **Advantages**: doesnt make assumptions that is required with full isoform resolution, 
 **Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& **misses complex patterns not classified** (compound events eg Alt 5'ss + ES + Alt 3'ss, multiple skipped exons, non binary splicing - account for ~20% of AS events); splicing events are **strictly binary** (inclusion/exclusion of event):
+![enter image description here](https://lh3.googleusercontent.com/IdaivGvJ6g2Y4oNTLGwnrY4pqhbv_wemYzT_sYYX71_fWnTn9jNp1bLZcLKM6WSuK0RVzaGiYDhR4Q)
 
 ![enter image description here](https://lh3.googleusercontent.com/D52SoO2TmOgf9tzlCamVAVRvDkZGGqoBAO1zJbcz-bNg6zntuJ2T8VUrUs7t6NtPDc4grPlkyKihZw)
 Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
@@ -620,11 +621,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDEwNDI2MDksMzIwNDA3MTIwLDU5ND
-UzNDc5OCwtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3Nzcz
-LDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNz
-I2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTky
-LDEzMjAwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMT
-Q2OTYyMiwtMTE3MjA5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUx
-NTVdfQ==
+eyJoaXN0b3J5IjpbLTU4NjgxMDE0NywzMjA0MDcxMjAsNTk0NT
+M0Nzk4LC01MDI1NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMs
+MjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3Mj
+Y2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIs
+MTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxND
+Y5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1
+NV19
 -->
