@@ -67,7 +67,7 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 Method: build splicing graph from transcriptome annotations, representing all possible AS variants. Then identify & quantify AS events.
 Advantages: utilising read alignment information, can identify novel splicing events (not possible with DEU & AS event approaches). Can annotate & quantify complex splicing patterns.
-Tool
+Tools: ASGAL
 ![enter image description here](https://lh3.googleusercontent.com/vLTaa0NevRDtwSSIIHXQusqYmSolMCtMYJPLFzc53zC3SfoKh_mnNwSs61W0iAla6trRXRFo5ifH2A)
 
 # Limitations of Differential Splicing Analysis
@@ -639,7 +639,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODkzMDk1NDUsLTE1MzI2NjkzNjMsLT
+eyJoaXN0b3J5IjpbLTE0MjM0NzgxNzgsLTE1MzI2NjkzNjMsLT
 IzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3
 OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMD
 kyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYw
