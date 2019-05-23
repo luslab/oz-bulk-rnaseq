@@ -39,7 +39,9 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 ![enter image description here](https://lh3.googleusercontent.com/yLcLWxmo7DlPLJyzSeLxqlae97F9a69sXdXJeDOxf2ct-_e7wj9iiNcWAxF6hMC4UQccwrSbR-r7gQ)
 
 **3. Splicing Event Approach**
-Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information.
+Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information. Compresses  alternative transcripts into a single unit:
+![enter image description here](https://lh3.googleusercontent.com/mxwnemNNIlCnwrJdpNKroGcigW-yZHFv0C8jIhXaSdxHhoX7eCElMdybH2mi7DDZySNQzmIx_fir0Q)
+
 Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event. Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below). Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
 **PSI index = (a + b)/(a + b + 2c)**, where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons.
@@ -616,11 +618,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzI1Njc2NjUsNTk0NTM0Nzk4LC01MD
-I1NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4
-NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNT
-Q2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2
-MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMT
-cyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4
-MDA4XX0=
+eyJoaXN0b3J5IjpbLTE3Njg0NTY4MCw1OTQ1MzQ3OTgsLTUwMj
+U1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1
+LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01ND
+YyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYw
+LDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNz
+IwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgw
+MDhdfQ==
 -->
