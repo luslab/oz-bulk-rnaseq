@@ -59,8 +59,11 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 ## 1. Overlapping Transcriptome Features
 Transcriptome features found at same gene location: completely overlap, partially overlap, shared boundaries. Introduces complexity & ambiguity for splicing analysis. 
 DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoforms.
+
 Deal with opposite strand issue with strand-specific library prep:
-Isoform resoltTo deal with same strand isoforms calculate the maximum likelihood estimation to determine probability of a read belonging to a particular isoform
+
+Isoform resolution approach deals with same strand isoforms calculate the **maximum likelihood estimation** to determine probability of a read belonging to a particular isoform. Overlapping genes are a major problem: they increase the number of transcripts 
+
 Splicing event approach deals with this by identifying splicing events based on transcriptome annotation. Then annotates events separately for each gene. Then tests each event of each gene independently (doesnt group genes together). The disadvantage of this is that ambiguious reads aligning to more than 1 gene will be counted towards the expression of both isoforms.
 
 Can work out which reads come from which strand:
@@ -613,7 +616,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzMzk0MDc4OSw1OTQ1MzQ3OTgsLTUwMj
+eyJoaXN0b3J5IjpbMTcwODU4OTQxNCw1OTQ1MzQ3OTgsLTUwMj
 U1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1
 LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01ND
 YyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYw
