@@ -24,7 +24,7 @@ In **Differential Isoform Usage** you compare the usage of all the alternativel 
 
 # Approaches to Differential Splicing Analysis
 **1. Isoform Resolution Approach**
-Differences in complete isoform proportions (expression) between samples. 
+Differences in complete isoform proportions (expression) between samples. Does NOT rely on transcriptom annotation as with the other approaches.
 Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
 Advantages: investigate full length isoforms.
 Limitations: complex, amibuity with different reads aligning to same position
@@ -42,7 +42,9 @@ Advantages: easier as doesnt resolve full length isoforms, doesnt make an abunda
 Differential inclusion of alternative splicing events between samples. Focus on localised alternative splicing patterns. Builds on exon-based approach by incorporating splice site information. Compresses  alternative transcripts into a single unit:
 ![enter image description here](https://lh3.googleusercontent.com/mxwnemNNIlCnwrJdpNKroGcigW-yZHFv0C8jIhXaSdxHhoX7eCElMdybH2mi7DDZySNQzmIx_fir0Q)
 
-Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event . Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below).
+Method: Differential splicing is assumed from **differential inclusion** of a particular splicing event (5 simple AS events):
+![enter image description here](https://lh3.googleusercontent.com/Yp1gfeFb5Vv45TQHCfigT4J29TwTpT4NqcS9QUNAPB2Zp9XvK-uE1ZLqpSv-m8znWoYIilXvpKu6RA)
+Identifies the different alternative splicing patterns from transcriptome annotation. Exons from all transcripts with the same flanking exons and binary event exon are collapsed into single units (torquoise below).
 
 Splicing event is quantified as **percent spliced in (PSI)**. 
 PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image below PSI 0.76 = 76% of the genes expression is coming from the exon inclusion event.
@@ -623,11 +625,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzMDk2OTkzMywtNTg2ODEwMTQ3LDMyMD
-QwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2
-LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNz
-kwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2
-OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MD
-I5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2
-XX0=
+eyJoaXN0b3J5IjpbLTE2MTc0ODczMDQsLTU4NjgxMDE0NywzMj
+A0MDcxMjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3NjM0NjU0
+NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMD
+c5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5
+NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwxNjQyOD
+AyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MTU0NTY1
+Nl19
 -->
