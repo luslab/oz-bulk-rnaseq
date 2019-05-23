@@ -159,8 +159,6 @@ Gene isoforms are mRNA produced from the same locus but with different protein c
 4.  Alternative acceptor (3') site.
 5.  Intron retention.
 
-![Alternative Splicing](https://en.wikipedia.org/wiki/Protein_isoform#/media/File:Alternative_splicing.jpg)
-
 # VAST-TOOLS
 
 ## Approach using iPSC differentiation
@@ -524,10 +522,6 @@ MATS is a computational tool to detect differential alternative splicing events 
 
 ![enter image description here](http://rnaseq-mats.sourceforge.net/splicing.jpg)
 
-
-
-
-
 # Perform GO analysis of gene list of differentially spliced genes
 
 ### Data Preparation
@@ -648,11 +642,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc4MTQyMzczLC0xNzU4NTk5OTksMTE3OD
-k4MTAyMiwtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC01ODY4MTAx
-NDcsMzIwNDA3MTIwLDU5NDUzNDc5OCwtNTAyNTU4ODgzLDE1Nz
-YzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUsOTAxMTI3Mjgz
-LC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOT
-AyNDc2OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjld
-fQ==
+eyJoaXN0b3J5IjpbLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMT
+c4OTgxMDIyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4Njgx
+MDE0NywzMjA0MDcxMjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMT
+U3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcy
+ODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LD
+E5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2
+OV19
 -->
