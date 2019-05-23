@@ -47,7 +47,7 @@ PSI = Alternative Splicing Event / Normal Splicing Event. 0 < PSI < 1. Image bel
 **PSI index = (a + b)/(a + b + 2c)**, where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons.
 Calculates change in inclusion (delta PSI) for all potential splicing events between conditions. Tests if delta PSI exceeds a set threshold e.g. 5% (likelihood-ratio test). Visualise results in a sashimi plot.
 **Advantages**: doesnt make assumptions that is required with full isoform resolution, 
-**Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& misses patterns not classified (compound events eg Alt 5'ss + ES + Alt 3'ss, multiple skipped exons, non binary splicing); splicing events are strictly binary (inclusion/exclusion of event)
+**Limitations**: only tests the 5 simple classical splicing patterns (skipped exons, retained introns, alt 5' splice site, alt 3' splice site, mut excl splice sites )& **misses complex patterns not classified** (compound events eg Alt 5'ss + ES + Alt 3'ss, multiple skipped exons, non binary splicing - account for ~20% of AS events); splicing events are **strictly binary** (inclusion/exclusion of event).
 Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ![enter image description here](https://lh3.googleusercontent.com/k05ELwI_1WON11e6TULfOIQ8Mc9w-248qVu2LkCJ148MrOcK3wA9EsVOqJcTWus24yGIVNV3zRugVg)
@@ -618,11 +618,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njg0NTY4MCw1OTQ1MzQ3OTgsLTUwMj
-U1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1
-LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01ND
-YyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYw
-LDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNz
-IwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgw
-MDhdfQ==
+eyJoaXN0b3J5IjpbMzIwNDA3MTIwLDU5NDUzNDc5OCwtNTAyNT
+U4ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUs
+OTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0Nj
+I0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAs
+MTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3Mj
+A5ODg0LDIwNjE1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAw
+OF19
 -->
