@@ -24,10 +24,10 @@ In **Differential Isoform Usage** you compare the usage of all the alternativel 
 
 # Approaches to Differential Splicing Analysis
 **1. Isoform Resolution Approach**
-Differences in complete isoform proportions (expression) between samples. Does NOT rely on transcriptom annotation as with the other approaches.
+Differences in complete isoform proportions (expression) between samples. Does NOT rely on transcriptome annotation as with the other approaches.
 Method: Assemble all full length isoforms > Quantify expression of each isoform > Test differeneces in relative abundance
-Advantages: investigate full length isoforms.
-Limitations: complex, amibuity with different reads aligning to same position
+Advantages: investigate full length isoforms. Doesnt rely on transcriptome annotation > better for identifying novel events.
+Limitations: complex, ambiguity with different reads aligning to same position.
 Tools: **Cuffdiff**, DiffSplice, SplicingCompass
 
 **2. Exon Usage Approach**
@@ -62,6 +62,10 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 ![enter image description here](https://lh3.googleusercontent.com/V1TmFNGiyJK7TehC_I6G0n_G9l71OA282Q1RXPD1qEJCLUC1xB8cFQWB1jIEJEpI_1sPk5uolLAGmA)
 
 ![enter image description here](https://lh3.googleusercontent.com/Y8GI4VPHpZ6V6Rp99jtcERChY83IWskw6PC-4Fc4NuIUOUlKbJJ-VLrky9bhcuEWWn7VNq31jloC7A)
+
+4. Alternative Splicing Graphs Approach
+
+
 
 # Limitations of Differential Splicing Analysis
 
@@ -625,7 +629,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTc0ODczMDQsLTU4NjgxMDE0NywzMj
+eyJoaXN0b3J5IjpbLTE0MDA0NjY5NzUsLTU4NjgxMDE0NywzMj
 A0MDcxMjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3NjM0NjU0
 NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMD
 c5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5
