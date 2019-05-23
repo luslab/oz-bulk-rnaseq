@@ -59,10 +59,14 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 ## 1. Overlapping Transcriptome Features
 Transcriptome features found at same gene location: completely overlap, partially overlap, shared boundaries. Introduces complexity & ambiguity for splicing analysis. 
 DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoforms.
-Deal with opposite strand issue with strand-specific library prep. To deal with same strand isoforms calculate the maximum likelihood estimation to determine probability of a read belonging to a particular isoform
+Deal with opposite strand issue with strand-specific library prep:
+Isoform resoltTo deal with same strand isoforms calculate the maximum likelihood estimation to determine probability of a read belonging to a particular isoform
 Splicing event approach deals with this by identifying splicing events based on transcriptome annotation. Then annotates events separately for each gene. Then tests each event of each gene independently (doesnt group genes together). The disadvantage of this is that ambiguious reads aligning to more than 1 gene will be counted towards the expression of both isoforms.
-![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
+Can work out which reads come from which strand:
+![enter image description here](https://lh3.googleusercontent.com/sO5sJcsyqVa7u2FfuTooa5YOUbIM7X2Vali9zWR45BBUj0m3CIh4eOFCPLvL3dMSs0eFeaj7vWN5QA)
+
+![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
 # Tools
 [http://www.rna-seqblog.com/tag/alternative-splicing/](http://www.rna-seqblog.com/tag/alternative-splicing/)
@@ -609,11 +613,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3Nj
-M0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMs
-LTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MD
-I0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwx
-NjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMDk4ODQsMjA2MT
-U0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4LC0zNDI2MDQw
-NzVdfQ==
+eyJoaXN0b3J5IjpbMTIzMzk0MDc4OSw1OTQ1MzQ3OTgsLTUwMj
+U1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1
+LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01ND
+YyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYw
+LDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNz
+IwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgw
+MDhdfQ==
 -->
