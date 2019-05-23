@@ -64,7 +64,7 @@ Deal with opposite strand issue with strand-specific library prep:
 
 Isoform resolution approach deals with same strand isoforms calculate the **maximum likelihood estimation** to determine probability of a read belonging to a particular isoform. Overlapping genes are a major problem: they increase the number of transcripts & potential for overlapping exons.
 
-Exon based approach deals with this by aggregating overlapping genes into a single group and testing differential exon usage within the group. Then re
+Exon based approach deals with this by aggregating overlapping genes into a single group and testing differential exon usage within the group. Then removals all overlapping exons and tests remaining structures. This looses exons. For overlapping genes it has ambuguity at gene level for differential splicing - mistake differential gene express
 
 Splicing event approach deals with this by identifying splicing events based on transcriptome annotation. Then annotates events separately for each gene. Then tests each event of each gene independently (doesnt group genes together). The disadvantage of this is that ambiguious reads aligning to more than 1 gene will be counted towards the expression of both isoforms.
 
@@ -618,11 +618,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTQ3Mzg5Myw1OTQ1MzQ3OTgsLTUwMj
-U1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1
-LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01ND
-YyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYw
-LDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNz
-IwOTg4NCwyMDYxNTQ1NjU2LC0xMDU5MzM1MTU1LDEyODAxNjgw
-MDhdfQ==
+eyJoaXN0b3J5IjpbMzY4MTU5MTIsNTk0NTM0Nzk4LC01MDI1NT
+g4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5
+MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2Mj
+Q3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwx
+MjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMD
+k4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4
+XX0=
 -->
