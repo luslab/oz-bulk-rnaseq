@@ -122,6 +122,9 @@ C2Sj = the junction reads whose 3′ splice site is connected to the downstream 
 - [DARTS]([https://github.com/Xinglab/DARTS](https://github.com/Xinglab/DARTS) [https://www.nature.com/articles/s41592-019-0351-9](https://www.nature.com/articles/s41592-019-0351-9) uses deep learning to analyse alternative splicing
 - [Cuffdiff](http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff), [ALEXA-seq](http://www.alexaplatform.org/alexa_seq/), [MISO](http://genes.mit.edu/burgelab/miso/), [SplicingCompass](http://www.ichip.de/software/SplicingCompass.html), [Flux Capacitor](http://flux.sammeth.net/capacitor.html), [JuncBASE](http://compbio.berkeley.edu/proj/juncbase/Home.html), [DEXSeq](http://bioconductor.org/packages/2.11/bioc/html/DEXSeq.html), [MATS](http://rnaseq-mats.sourceforge.net/), [SpliceR](http://www.bioconductor.org/packages/2.13/bioc/html/spliceR.html), [FineSplice](http://nar.oxfordjournals.org/content/early/2014/02/25/nar.gku166.full), [ARH-seq](http://nar.oxfordjournals.org/content/early/2014/06/11/nar.gku495.full),
 
+**Alternative splicing, alternative expression**[[24447644](http://www.ncbi.nlm.nih.gov/pubmed/24447644),  [24885830](http://www.ncbi.nlm.nih.gov/pubmed/24885830),  [24058384](http://www.ncbi.nlm.nih.gov/pubmed/24058384),  [24549677](http://www.ncbi.nlm.nih.gov/pubmed/24549677),  [24951248](http://www.ncbi.nlm.nih.gov/pubmed/24951248),  [25511303](http://www.ncbi.nlm.nih.gov/pubmed/25511303)]
+
+Cuffdiff [[23222703](http://www.ncbi.nlm.nih.gov/pubmed/23222703)], DEXSeq [[22722343](http://www.ncbi.nlm.nih.gov/pubmed/22722343)], ALEXA-seq [[20835245](http://www.ncbi.nlm.nih.gov/pubmed/20835245)], IUTA [[25283306](http://www.ncbi.nlm.nih.gov/pubmed/25283306)], FineSplice [[24574529](http://www.ncbi.nlm.nih.gov/pubmed/24574529)], PennSeq [[24362841](http://www.ncbi.nlm.nih.gov/pubmed/24362841)], FlipFlop [[24813214](http://www.ncbi.nlm.nih.gov/pubmed/24813214)], SNPlice [[25481010](http://www.ncbi.nlm.nih.gov/pubmed/25481010)], spliceR [[24655717](http://www.ncbi.nlm.nih.gov/pubmed/24655717)], GESS [[24447644](http://www.ncbi.nlm.nih.gov/pubmed/24447644)], RNASeq-MATS [[23872975](http://www.ncbi.nlm.nih.gov/pubmed/23872975)], SplicingCompass [[23449093](http://www.ncbi.nlm.nih.gov/pubmed/23449093)], DiffSplice [[23155066](http://www.ncbi.nlm.nih.gov/pubmed/23155066)], SigFuge [[25030904](http://www.ncbi.nlm.nih.gov/pubmed/25030904)], SUPPA [bioRXiv], CLASS [bioRXiv], SplAdder [bioRXiv], SplicePie [[25800735](http://www.ncbi.nlm.nih.gov/pubmed/25800735)].
 
 Annotated versus novel exploratory events. 
 
@@ -640,11 +643,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDA4MDI4NjgsLTE1MzI2NjkzNjMsLT
-IzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3
-OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMD
-kyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYw
-NjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMz
-IwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2
-MjJdfQ==
+eyJoaXN0b3J5IjpbMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMj
+M1MzY2NDIwLC01ODY4MTAxNDcsMzIwNDA3MTIwLDU5NDUzNDc5
+OCwtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLDIwOT
+I0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2
+NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAyNTkyLDEzMj
+AwMDg2NjAsMTI2MzYxNjksMTY0MjgwMjkwOSwtMTEwMTQ2OTYy
+Ml19
 -->
