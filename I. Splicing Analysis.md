@@ -86,6 +86,11 @@ Splicing event approach deals with this by identifying splicing events based on 
 
 ![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
+## 2. Complex Splicing Events
+
+Neglected by the differential exon usage & alternative splicing event approaches.
+
+![enter image description here](https://lh3.googleusercontent.com/IdaivGvJ6g2Y4oNTLGwnrY4pqhbv_wemYzT_sYYX71_fWnTn9jNp1bLZcLKM6WSuK0RVzaGiYDhR4Q)
 
 
 # Tools
@@ -633,11 +638,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTUwODk5MzYsLTIzNTM2NjQyMCwtNTg2OD
-EwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4Mywx
-NTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMTEyNz
-I4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgs
-MTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MT
-Y5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4NF19
-
+eyJoaXN0b3J5IjpbLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNT
+g2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4
+MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMT
+EyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYyNDcw
+NDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4NjYwLDEyNj
+M2MTY5LDE2NDI4MDI5MDksLTExMDE0Njk2MjIsLTExNzIwOTg4
+NF19
 -->
