@@ -68,6 +68,11 @@ Splicing event approach deals with this by identifying splicing events based on 
 
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
+- PSI Sigma:
+A new PSI index
+Traditionally, the PSI index is denoted as (a + b)/(a + b + 2c), where a and b stand for the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively (Barbosa-Morais et al. 2012), and c stands for the number of junction reads connecting the two constitutive exons. We modified the PSI index as follows:
+Formula
+where C1 and C2 stand for the upstream and downstream constitutive exons, respectively. C1Si stands for the total number of junction reads whose 5′ splice site is connected to the upstream constitutive exon in a given splicing event. Similarly, C2Sj stands for the junction reads whose 3′ splice site is connected to the downstream constitutive exon.
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
 - [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph.  Directly align reads to a splicing graph.
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
@@ -602,11 +607,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01Nz
-gyNzc3MywyMDkyNDMxMjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2
-OSwtMjcyNjYwNjUxLC01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MT
-gwMjU5MiwxMzIwMDA4NjYwLDEyNjM2MTY5LDE2NDI4MDI5MDks
-LTExMDE0Njk2MjIsLTExNzIwOTg4NCwyMDYxNTQ1NjU2LC0xMD
-U5MzM1MTU1LDEyODAxNjgwMDgsLTM0MjYwNDA3NSwtODk5NDU3
-NDQ5XX0=
+eyJoaXN0b3J5IjpbLTUxMzM2MDgyMywtNTAyNTU4ODgzLDE1Nz
+YzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUsOTAxMTI3Mjgz
+LC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOT
+AyNDc2OTY5LDgxODAyNTkyLDEzMjAwMDg2NjAsMTI2MzYxNjks
+MTY0MjgwMjkwOSwtMTEwMTQ2OTYyMiwtMTE3MjA5ODg0LDIwNj
+E1NDU2NTYsLTEwNTkzMzUxNTUsMTI4MDE2ODAwOCwtMzQyNjA0
+MDc1XX0=
 -->
