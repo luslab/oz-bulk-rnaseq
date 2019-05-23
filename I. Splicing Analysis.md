@@ -68,9 +68,8 @@ Splicing event approach deals with this by identifying splicing events based on 
 
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
-- PSI Sigma:
-A new [PSI index](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5848607/))
-Traditionally, the PSI index is denoted as (a + b)/(a + b + 2c), where a and b stand for the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively (Barbosa-Morais et al. 2012), and c stands for the number of junction reads connecting the two constitutive exons. We modified the PSI index as follows:
+- [PSI Sigma](https://github.com/wososa/PSI-Sigma): A new [PSI index](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5848607/). Traditionally, the PSI index is denoted as (a + b)/(a + b + 2c), where a and b stand for the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c stands for the number of junction reads connecting the two constitutive exons. We modified the PSI index as follows: 
+Ψ=a+b∑ni=1C1Si+∑mj=1C2Sj×100%,
 Formula
 where C1 and C2 stand for the upstream and downstream constitutive exons, respectively. C1Si stands for the total number of junction reads whose 5′ splice site is connected to the upstream constitutive exon in a given splicing event. Similarly, C2Sj stands for the junction reads whose 3′ splice site is connected to the downstream constitutive exon.
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
@@ -607,7 +606,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwMzQ1MjYwLC01MDI1NTg4ODMsMTU3Nj
+eyJoaXN0b3J5IjpbNjA3MjU4MzUwLC01MDI1NTg4ODMsMTU3Nj
 M0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMs
 LTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MD
 I0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2OSwx
