@@ -58,18 +58,16 @@ Tools: **VAST-TOOLS**, rMATS, JuncBASE, JETTA, SpliceSeq
 
 ## 1. Overlapping Transcriptome Features
 Transcriptome features found at same gene location: completely overlap, partially overlap, shared boundaries. Introduces complexity & ambiguity for splicing analysis. 
-DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoforms.
+DNA is double stranded: the 2 strands can produce different isoforms. But even on same strand you can produce different isoforms. Can work out which reads come from which strand:
+![enter image description here](https://lh3.googleusercontent.com/sO5sJcsyqVa7u2FfuTooa5YOUbIM7X2Vali9zWR45BBUj0m3CIh4eOFCPLvL3dMSs0eFeaj7vWN5QA)
 
 Deal with opposite strand issue with strand-specific library prep:
 
 Isoform resolution approach deals with same strand isoforms calculate the **maximum likelihood estimation** to determine probability of a read belonging to a particular isoform. Overlapping genes are a major problem: they increase the number of transcripts & potential for overlapping exons.
 
-Exon based approach deals with this by aggregating overlapping genes into a single group and testing differential exon usage within the group. Then removals all overlapping exons and tests remaining structures. This looses exons. For overlapping genes it has ambuguity at gene level for differential splicing - mistake differential gene express
+Exon based approach deals with this by aggregating overlapping genes into a single group and testing differential exon usage within the group. Then removals all overlapping exons and tests remaining structures. This looses exons. For overlapping genes it has ambuguity at gene level for differential splicing - mistake differential gene expression for differential exon usage.
 
 Splicing event approach deals with this by identifying splicing events based on transcriptome annotation. Then annotates events separately for each gene. Then tests each event of each gene independently (doesnt group genes together). The disadvantage of this is that ambiguious reads aligning to more than 1 gene will be counted towards the expression of both isoforms.
-
-Can work out which reads come from which strand:
-![enter image description here](https://lh3.googleusercontent.com/sO5sJcsyqVa7u2FfuTooa5YOUbIM7X2Vali9zWR45BBUj0m3CIh4eOFCPLvL3dMSs0eFeaj7vWN5QA)
 
 ![enter image description here](https://lh3.googleusercontent.com/iHZ1u2hZF4WkZZW_D4AOviQO9rtSTJ_uemJ9fYQ_W3ibJ8xpdYOv0np1GDvcY7XNaONrc1ELabmhCA)
 
@@ -618,11 +616,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY4MTU5MTIsNTk0NTM0Nzk4LC01MDI1NT
-g4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5
-MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2Mj
-Q3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwx
-MjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMTcyMD
-k4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4MDA4
-XX0=
+eyJoaXN0b3J5IjpbLTEwMzI1Njc2NjUsNTk0NTM0Nzk4LC01MD
+I1NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4
+NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNT
+Q2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2
+MCwxMjYzNjE2OSwxNjQyODAyOTA5LC0xMTAxNDY5NjIyLC0xMT
+cyMDk4ODQsMjA2MTU0NTY1NiwtMTA1OTMzNTE1NSwxMjgwMTY4
+MDA4XX0=
 -->
