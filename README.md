@@ -18,7 +18,6 @@
 - The protocol utilises a combination of bash `unix` commmand line and `R` scripts.
 - FAQs https://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s009
 - Tools: https://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s004
-- 
 
 ## Chapters
 1. RNA seq workflow
@@ -104,8 +103,8 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2MDc1MjYwLDIwMTE0NDE4ODEsMTg4MD
-A5NDM5NSwtMTIxOTc3NTIzOSwxNDA3MjY1NjEzLDEwNDQyNjE2
-NDEsMTkyMTI2MDY1MCwxNDAxNTI3NTEyLDE5OTU4MDQwODgsLT
-E2MTAxNDk5MjNdfQ==
+eyJoaXN0b3J5IjpbMTQ0ODI5MTg0MSwxODYwNzUyNjAsMjAxMT
+Q0MTg4MSwxODgwMDk0Mzk1LC0xMjE5Nzc1MjM5LDE0MDcyNjU2
+MTMsMTA0NDI2MTY0MSwxOTIxMjYwNjUwLDE0MDE1Mjc1MTIsMT
+k5NTgwNDA4OCwtMTYxMDE0OTkyM119
 -->
