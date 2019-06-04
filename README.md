@@ -15,6 +15,7 @@
 	- [Data Camp](https://www.datacamp.com/home)
 	- [Coursera](https://www.coursera.org/specializations/bioinformatics)
 	- and most importantly the experience of established experts in RNAseq analysis within [the Luscombe lab - my host laboratory](https://www.luscombelab.org/crickmembersdetail). 
+	- [http://127.0.0.1:13884/library/rnaseqGene/doc/rnaseqGene.html](http://127.0.0.1:13884/library/rnaseqGene/doc/rnaseqGene.html) RNA seq workflow
 - The protocol utilises a combination of bash `unix` commmand line and `R` scripts.
 - FAQs https://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s009
 - Tools: https://journals.plos.org/ploscompbiol/article/file?type=supplementary&id=info:doi/10.1371/journal.pcbi.1004393.s004
@@ -103,8 +104,8 @@ Even though packages have been installed into R locally, then need to be brought
 `library("DESeq")`
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0ODI5MTg0MSwxODYwNzUyNjAsMjAxMT
-Q0MTg4MSwxODgwMDk0Mzk1LC0xMjE5Nzc1MjM5LDE0MDcyNjU2
-MTMsMTA0NDI2MTY0MSwxOTIxMjYwNjUwLDE0MDE1Mjc1MTIsMT
-k5NTgwNDA4OCwtMTYxMDE0OTkyM119
+eyJoaXN0b3J5IjpbNTczNTk0NzY0LDE0NDgyOTE4NDEsMTg2MD
+c1MjYwLDIwMTE0NDE4ODEsMTg4MDA5NDM5NSwtMTIxOTc3NTIz
+OSwxNDA3MjY1NjEzLDEwNDQyNjE2NDEsMTkyMTI2MDY1MCwxND
+AxNTI3NTEyLDE5OTU4MDQwODgsLTE2MTAxNDk5MjNdfQ==
 -->
