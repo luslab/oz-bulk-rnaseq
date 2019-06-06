@@ -77,7 +77,8 @@ Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering f
 5. Filter low count reads out
 6. Normalise between samples using Limma
 
-I have utilised the DESeq2 vignettes to create an R scri
+I have utilised the DESeq2 vignettes to create an R script: 
+`/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/DGE analysis.Rmd`
 
 ## Comparison Types
 
@@ -551,7 +552,7 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNzkyMDk2NywtMTQ2MDAxNjM0OCwxMz
+eyJoaXN0b3J5IjpbMTUwNDQxNzgyOSwtMTQ2MDAxNjM0OCwxMz
 IzNDM1NjIsMTk2NTk4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIx
 NTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xOD
 MxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUs
