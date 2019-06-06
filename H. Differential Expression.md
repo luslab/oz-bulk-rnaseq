@@ -67,7 +67,7 @@ Note peak is similar with similar cut off.
 Summary of differences:
 ![enter image description here](https://lh3.googleusercontent.com/CQew0g_bZuc6STofFU3E1sanQLTfUZ_t1Cy2OTMnwBh9IJ8Ar5LMDjzCascZmRwYQylOYzf3rbpgjQ)
 
-### SVD_analysis.Rmd
+### DGE analysis.Rmd
 Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering function that is a 2 component mixture model to separate low vs high counts. Run `/Volumes/lab-luscomben/working/oliver/scripts/intron_retention/SVD analysis.Rmd` script directly in R studio
 
 1. Import HTSeq raw gene count matrices
@@ -76,6 +76,8 @@ Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering f
 4. Create colour palatte
 5. Filter low count reads out
 6. Normalise between samples using Limma
+
+I have utilised the DESeq2 vignettes to create an R scri
 
 ## Comparison Types
 
@@ -549,11 +551,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjAwMTYzNDgsMTMyMzQzNTYyLDE5Nj
-U5ODU3MjMsMTkzMjM2NTc4NywtNTk2MzEyMTU1LDY0MDUxNzM5
-OCw2MDc0NDA4MDcsMTE1OTM3Njc2NSwtMTgzMTcwNTI4MCwxNz
-k2NTI2NjIwLDI3NjUzOTI2LDcxODEyMjg1LC0xMjUyMDAyMjM4
-LC0xNTk1MDc0MTM2LDIwODcxNTUxMjcsMTI1NzI3MjYyMSwtMj
-I1MTEyOTA0LDgwNDQzNjA1LDc0OTY1MTQ5MywtMjE5MzcyNDM2
+eyJoaXN0b3J5IjpbMjEwNzkyMDk2NywtMTQ2MDAxNjM0OCwxMz
+IzNDM1NjIsMTk2NTk4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIx
+NTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xOD
+MxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUs
+LTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMj
+U3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkz
 XX0=
 -->
