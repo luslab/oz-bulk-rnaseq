@@ -98,8 +98,9 @@ Need to estimate the **mean** and **dispersion** from the read counts:
 
 ## Tools for DGE analysis
 
- - DESeq2 - Nobby uses this.
- - edgeR - better for false positives, less conservative, recommended if <12 replicates
+- EdgeR: looks at individual samples and ensures > 1 sample per gene has more CPM than the cutoff.  Better for false positives, less conservative, recommended if <12 replicates
+- DESeq2: Nobby uses this. looks at average normalised reads across all samples. Keeps the gene if the average of sample is above cutoff. This includes genes where 1 sample is a huge outlier > DESeq2 has an outlier detection method when there are >2 samples. DESeq2 plots the number of significant genes relative to quantiles instead of the minimum CPM cutoff (with edgeR - affected by sequencing depth). DESeq2 fits curve to to the points removing random noise > calculates peak of curve > calculates threshold as curve maximum minus standard deviation between fitted curve & raw values.
+Calculates p-values, then tries different cutoffs for the minimum CPM.
  - ballgown
  - limma: raphaelles Rscript uses this (normalizeQuantiles function)
  - Cuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives
@@ -552,11 +553,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwNDQxNzgyOSwtMTQ2MDAxNjM0OCwxMz
-IzNDM1NjIsMTk2NTk4NTcyMywxOTMyMzY1Nzg3LC01OTYzMTIx
-NTUsNjQwNTE3Mzk4LDYwNzQ0MDgwNywxMTU5Mzc2NzY1LC0xOD
-MxNzA1MjgwLDE3OTY1MjY2MjAsMjc2NTM5MjYsNzE4MTIyODUs
-LTEyNTIwMDIyMzgsLTE1OTUwNzQxMzYsMjA4NzE1NTEyNywxMj
-U3MjcyNjIxLC0yMjUxMTI5MDQsODA0NDM2MDUsNzQ5NjUxNDkz
-XX0=
+eyJoaXN0b3J5IjpbMzAwODU0ODAxLC0xNDYwMDE2MzQ4LDEzMj
+M0MzU2MiwxOTY1OTg1NzIzLDE5MzIzNjU3ODcsLTU5NjMxMjE1
+NSw2NDA1MTczOTgsNjA3NDQwODA3LDExNTkzNzY3NjUsLTE4Mz
+E3MDUyODAsMTc5NjUyNjYyMCwyNzY1MzkyNiw3MTgxMjI4NSwt
+MTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNT
+cyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTNd
+fQ==
 -->
