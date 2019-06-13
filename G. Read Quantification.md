@@ -1,4 +1,5 @@
 > # Read Quantification
+
 Whilst IGV is used to initial glance at coverage, these methods **normalise** & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
 ## Read Count Process
@@ -213,11 +214,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY3Nzg1NTE2LDE5NzYyODg3OSwxNzMzNT
-k3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4MSwxMDc1MTIyODgy
-LDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwtNzM4Mz
-EzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTks
-LTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjEsMTMzMj
-A2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYwMTUsMTcxOTMyMDM4
-NF19
+eyJoaXN0b3J5IjpbLTEzMzMwNTc1NzQsOTY3Nzg1NTE2LDE5Nz
+YyODg3OSwxNzMzNTk3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4
+MSwxMDc1MTIyODgyLDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNz
+M3NjcxNCwtNzM4MzEzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4
+Nyw5ODYzMjA2NTksLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNz
+kzODUxMjEsMTMzMjA2MTUyOSwxODk3NDQyNTgwLDE5MTk2MDYw
+MTVdfQ==
 -->
