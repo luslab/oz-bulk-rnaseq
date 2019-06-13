@@ -2,7 +2,7 @@
 
 Whilst IGV is used to initial glance at coverage, these methods **normalise** & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
-Counting reads requires us to know the number of reads originating from a transcript, however counting reads is frequently ambiguous as to their transcript of origin because of multi-isoform genes. Precise measurement of transcript counts is not currently possible. Count based methods (DESeq2 / edgeR) first requre counting reads across genome featur
+Counting reads requires us to know the number of reads originating from a transcript, however counting reads is frequently ambiguous as to their transcript of origin because of multi-isoform genes. Precise measurement of transcript counts is not currently possible. Count based methods (DESeq2 / edgeR) study at gene level - they first requre counting reads across genome features using HTSeq or featureCounts.
 
 ## Read Count Process
 1. Overlapping bundles of reads are **assembled**
@@ -216,11 +216,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzAwNDI1NDMsLTE3NzgzNjUxMDMsOT
-Y3Nzg1NTE2LDE5NzYyODg3OSwxNzMzNTk3NTkxLDExODY2OTU3
-NjYsMTg2NDEwODI4MSwxMDc1MTIyODgyLDI4MDg5Njk1MywtOD
-I0OTgzMzg4LDUyNzM3NjcxNCwtNzM4MzEzOTMzLDEwNzc0Njc2
-MjcsLTI0NTYxMDk4Nyw5ODYzMjA2NTksLTQyMzgzODY0NCwyMD
-kxNTcyMTA2LDEyNzkzODUxMjEsMTMzMjA2MTUyOSwxODk3NDQy
-NTgwXX0=
+eyJoaXN0b3J5IjpbMTU2MjM4Mjc3MSwtMTc3ODM2NTEwMyw5Nj
+c3ODU1MTYsMTk3NjI4ODc5LDE3MzM1OTc1OTEsMTE4NjY5NTc2
+NiwxODY0MTA4MjgxLDEwNzUxMjI4ODIsMjgwODk2OTUzLC04Mj
+Q5ODMzODgsNTI3Mzc2NzE0LC03MzgzMTM5MzMsMTA3NzQ2NzYy
+NywtMjQ1NjEwOTg3LDk4NjMyMDY1OSwtNDIzODM4NjQ0LDIwOT
+E1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5LDE4OTc0NDI1
+ODBdfQ==
 -->
