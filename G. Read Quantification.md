@@ -2,6 +2,8 @@
 
 Whilst IGV is used to initial glance at coverage, these methods **normalise** & objectively quantify gene expression.  To compare the expression rates of individual genes between samples you need to quantify the number of reads per gene.  We first use RNA seq to determine the **abundance** of mRNA (cDNA) fragments, rather than the composition of the fragments. 
 
+Counting reads requires us to know the number of reads originating from a transcript, however counting reads is frequently ambiguous
+
 ## Read Count Process
 1. Overlapping bundles of reads are **assembled**
 2. Reads are connected in an **overlap graph** that models variability in read count for each gene across replicates (if the reads are compatible then these are assumed to come from the same genetic locus - calculates mutually incompatible reads where splice sites are mid exon or intron).
@@ -214,7 +216,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzMwNTc1NzQsOTY3Nzg1NTE2LDE5Nz
+eyJoaXN0b3J5IjpbLTE3NzgzNjUxMDMsOTY3Nzg1NTE2LDE5Nz
 YyODg3OSwxNzMzNTk3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4
 MSwxMDc1MTIyODgyLDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNz
 M3NjcxNCwtNzM4MzEzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4
