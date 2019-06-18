@@ -348,21 +348,23 @@ The workflow is as follows: pre-process the output table of VAST-TOOLS for extra
 
 ## Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
-Check tab
+Check tables 
 ```bash
 # check column names of data table
-matt get_colnms IR_UP-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.txt
+matt get_colnms DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab
 
 # print rows aligned
-matt prnt_tab INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -W 30 | less -s -
+matt prnt_tab matt get_colnms DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab
+ -W 30 | less -s -
 
 # check all different types of splicing events
-matt col_uniq INCLUSION_LEVELS_FULL-Hsa6-hg19.tab TYPE | matt prnt_tab - -w 9 | less -S -
+matt col_uniq matt get_colnms DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab
+TYPE | matt prnt_tab - -w 9 | less -S -
 ```
 
 Extract all intron retention events across samples and extract Gene IDs from GTD file used for alignment in VAST-TOOLS
 
-`matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
+`matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/matt get_colnms DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
 
 `matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > introns.tab`
 
@@ -704,11 +706,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1MTkxNTI0Niw3NDkxOTY5MDMsMTA4Mz
-A1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4
-MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLT
-g5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0
-MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMj
-IsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMy
-MDQwNzEyMF19
+eyJoaXN0b3J5IjpbNjE1MTUyMjgyLDc0OTE5NjkwMywxMDgzMD
+U3MzUxLDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgx
+MiwtMTkyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4MiwtOD
+k5NTkyNjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQw
+NzExLC0xOTQ2ODczODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMi
+wtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC01ODY4MTAxNDcsMzIw
+NDA3MTIwXX0=
 -->
