@@ -366,6 +366,8 @@ Extract all intron retention events across samples and extract Gene IDs from GTD
 
 `matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
 
+`matt get_colnms ir_events.tab`
+
 ## Define categories
 
 Use this command def_cats for creating a new column with group IDs. Generally, rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns using the same constraint syntax as used with command [get_rows](http://matt.crg.eu/#get_rows).
@@ -704,11 +706,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTg4MjU2OTUsNzQ5MTk2OTAzLDEwOD
-MwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2
-ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC
-04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3Njky
-NDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMD
-IyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4NjgxMDE0Nywz
-MjA0MDcxMjBdfQ==
+eyJoaXN0b3J5IjpbLTUzMTM1OTIxOCw3NDkxOTY5MDMsMTA4Mz
+A1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4
+MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLT
+g5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0
+MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMj
+IsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMy
+MDQwNzEyMF19
 -->
