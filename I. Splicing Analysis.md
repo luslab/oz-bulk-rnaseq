@@ -359,18 +359,12 @@ also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to us
 
 `matt get_colnms ir_events.tab`
 
-## Define categories
+## Extract Gene IDs
+[http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
 
-Use this command def_cats for creating a new column with group IDs. Generally, rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns using the same constraint syntax as used with command [get_rows](http://matt.crg.eu/#get_rows).
+matt retr_geneids ir_events.tab START END SCAFFOLD STRAND Hsa19.gtf -f gene_id
 
-This command is important as many analyses essentially compare some groups of items (e.g. groups of exons, introns, sequences, or more), hence, the user needs to define the groups to be compared.  
-  
-**Example:**  With  [t1.tab](http://matt.crg.eu/#TB)  being the table from above
 
-`matt def_cats ir_events.tab GROUP2 'g1=START[0,5000000] STRAND]+[' 
-     'g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'`
-
-will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorising each micro exon in table t1.tab wrt. the defined constraints.
 
 ## Intron Features
 
@@ -701,11 +695,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNTU4NjM2NCwtOTE2MTU3MzczLDk1ND
-k2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1
-MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
-E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
-MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
-wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
-MzI2NjkzNjNdfQ==
+eyJoaXN0b3J5IjpbLTE2OTkwNzU3ODUsLTkxNjE1NzM3Myw5NT
+Q5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTcz
+NTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC
+0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC04OTk1
+OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MT
+EsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0x
+NTMyNjY5MzYzXX0=
 -->
