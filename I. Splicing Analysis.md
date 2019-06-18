@@ -380,12 +380,12 @@ Extract all intron retention events across samples and extract Gene IDs from GTD
 
 Use this command def_cats for creating a new column with group IDs. Generally, rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns using the same constraint syntax as used with command [get_rows](http://matt.crg.eu/#get_rows).
 
-This command is important as many analyses essentially compare some groups of items (e.g. groups of exons, introns, sequences, or more), hence, the user needs to defined the groups to be compared.  
+This command is important as many analyses essentially compare some groups of items (e.g. groups of exons, introns, sequences, or more), hence, the user needs to define the groups to be compared.  
   
 **Example:**  With  [t1.tab](http://matt.crg.eu/#TB)  being the table from above
 
-> matt def_cats t1.tab GROUP2 'g1=START[0,5000000] STRAND]+[' 
-     'g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'
+`matt def_cats ir_events.tab GROUP2 'g1=START[0,5000000] STRAND]+[' 
+     'g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'`
 
 will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorizing each micro exon in table t1.tab wrt. the defined constraints.
 
@@ -671,11 +671,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNzg5Nzg3MCwtNDAyNzk5MDE2LC03Mj
-Q5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5
-OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMC
-wtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1
-ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LD
-kwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYy
-NDcwNDhdfQ==
+eyJoaXN0b3J5IjpbLTEyNTkzODkzMDQsLTQwMjc5OTAxNiwtNz
+I0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1
+OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5MzYzLC0yMzUzNjY0Mj
+AsLTU4NjgxMDE0NywzMjA0MDcxMjAsNTk0NTM0Nzk4LC01MDI1
+NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NS
+w5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2
+MjQ3MDQ4XX0=
 -->
