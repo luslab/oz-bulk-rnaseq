@@ -314,7 +314,6 @@ There are 2 approaches to comparing samples:
 mkdir /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
 ```
-
 Run the Compare TIME-EFFECT section of the script in `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
 This performs the VAST-tools Compare & Diff commands on each of the WT & VCP time-point comparisons
 
@@ -338,30 +337,6 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | wc -l
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
 
-## Coverage for introns of interest
-To perform the a focussed analysis of the 167 retained introns identified using VAST-tools, 
-
-Run Sections A, B,  C "Import time effect" from `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention` 
-
-Then run `get_relative_coverage_inteactive.R` script.  
-
-Also note other R scripts:
-`characterise_introns.R`
-
-This approach uses a combination of threshold but accounts for the depth of coverage between different samples. Uses [MaxEntScan of 5' and 3' end](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) to identify splice sites. 
-
-First run the global analysis to get the big picture of splicing events in VCP vs CTRL.  SVD & PCA analysis clustering by mutation. 
-Then run detailed analysis according to specific genes or features. Multivariate analysis of the 2 VCP mutants. 
-
-to be run in R which calculates a ratio of intron sequence coverage and surrounding exons. 
-
-1. First check that the gene where the event is occurring is expressed. 
-2. Then check the event exhibits a change over time of at least 10%. 
-3. Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
-
-Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
-
-To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons. Then select the events of interest. The `get_relative_coverage_interactive.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -418,6 +393,35 @@ For intron features help page:
 `matt get_ifeatures help`
 
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap > ifeatures.tab`
+
+
+
+## Coverage for introns of interest
+To perform the a focussed analysis of the 167 retained introns identified using VAST-tools, 
+
+Run Sections A, B,  C "Import time effect" from `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention` 
+
+Then run `get_relative_coverage_inteactive.R` script.  
+
+Also note other R scripts:
+`characterise_introns.R`
+
+This approach uses a combination of threshold but accounts for the depth of coverage between different samples. Uses [MaxEntScan of 5' and 3' end](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) to identify splice sites. 
+
+First run the global analysis to get the big picture of splicing events in VCP vs CTRL.  SVD & PCA analysis clustering by mutation. 
+Then run detailed analysis according to specific genes or features. Multivariate analysis of the 2 VCP mutants. 
+
+to be run in R which calculates a ratio of intron sequence coverage and surrounding exons. 
+
+1. First check that the gene where the event is occurring is expressed. 
+2. Then check the event exhibits a change over time of at least 10%. 
+3. Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
+
+Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
+
+To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons. Then select the events of interest. The `get_relative_coverage_interactive.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
+
+
 
 
 
@@ -699,11 +703,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MD
-MxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYz
-MTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLT
-QwMjc5OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4
-NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5Mz
-YzLC0yMzUzNjY0MjAsLTU4NjgxMDE0NywzMjA0MDcxMjAsNTk0
-NTM0Nzk4XX0=
+eyJoaXN0b3J5IjpbLTE5NDM2ODcwMTksNzQ5MTk2OTAzLDEwOD
+MwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2
+ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC
+04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3Njky
+NDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMD
+IyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4NjgxMDE0Nywz
+MjA0MDcxMjBdfQ==
 -->
