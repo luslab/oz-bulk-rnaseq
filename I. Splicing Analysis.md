@@ -371,7 +371,7 @@ To then get a value of IR across diverse data-sets I then wrote the custom code 
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
 Extract all intron retention events across samples
-`matt get_vast vts_out.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a kd1,kd2 -b ctr1,ctr2 > ir_events.tab`
+`matt get_vast INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a kd1,kd2 -b ctr1,ctr2 > ir_events.tab`
      
 
 # DEXSeq
@@ -652,11 +652,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNDk4NDk5OSwxNzY5MjQwNzExLC0xOT
-Q2ODczODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUzMjY2
-OTM2MywtMjM1MzY2NDIwLC01ODY4MTAxNDcsMzIwNDA3MTIwLD
-U5NDUzNDc5OCwtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3
-NzczLDIwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC
-0yNzI2NjA2NTEsLTU0NjI0NzA0OCwxOTAyNDc2OTY5LDgxODAy
-NTkyXX0=
+eyJoaXN0b3J5IjpbLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3Nj
+kyNDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgx
+MDIyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4NjgxMDE0Ny
+wzMjA0MDcxMjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3NjM0
+NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLT
+IxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0
+NzY5NjldfQ==
 -->
