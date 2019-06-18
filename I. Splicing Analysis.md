@@ -234,7 +234,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tool
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v --noANNOT"
 
 # run vast-tools combine using new v2.0.0 ANNOT tool - identifies annotated exon-exon reads
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --IR_version 2"
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
 ##ANNOT = identifies & profiles annotated exons. This is the novel feature of v.2.0.0
 ##COMBI = splice site based pipeline
@@ -699,11 +699,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mj
-k3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0
-MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC
-03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1
-ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2Nj
-QyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUw
-MjU1ODg4M119
+eyJoaXN0b3J5IjpbNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MD
+MxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYz
+MTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLT
+QwMjc5OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4
+NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5Mz
+YzLC0yMzUzNjY0MjAsLTU4NjgxMDE0NywzMjA0MDcxMjAsNTk0
+NTM0Nzk4XX0=
 -->
