@@ -395,6 +395,7 @@ Write a table with columns containing the feature values & extracted sequence of
 For intron features help page:
 `matt get_ifeatures help`
 
+`matt get_colnms ir_events.tab`
 ```
 awk '{ print $1, $87 }' ir_events.tab
 
@@ -712,7 +713,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mjk2MDY2ODAsNzQ5MTk2OTAzLDEwOD
+eyJoaXN0b3J5IjpbLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEwOD
 MwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2
 ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC
 04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3Njky
