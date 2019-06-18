@@ -21,7 +21,7 @@ In Differential Gene Expression you compare mutant vs control read counts for ea
 In **Differential Splicing Expression** you compare all the different mRNA isoforms between mutant and control - there are many isoforms for each gene so there are many comparisons.
 ![enter image description here](https://lh3.googleusercontent.com/VyUh9L2RvsCzGjGbh1fV5pPq2gGCU4gadhSaCk7BvpvceELVaUiMngWYwXIwFhbvU1xTQmAR0f4DFg)
 
-In **Differential Isoform Usage** you compare the usage of all the alternativel spliced transcripts **RELATIVE** to the total gene expression between mutant & control. I.e. take the Isoform expression counts divide by that gene expression counts. This is the important calculation with Diffential Splicing Analysis.
+In **Differential Isoform Usage** you compare the usage of all the alternatively spliced transcripts **RELATIVE** to the total gene expression between mutant & control. I.e. take the Isoform expression counts divide by that gene expression counts. This is the important calculation with Diffential Splicing Analysis.
 ![enter image description here](https://lh3.googleusercontent.com/yc1EU-oIRVA1EuDyUkmW0rQewMRlBPWaOtgLIkpdAxMqaMr74KSbzfc4kekQKSEpV62ZaWv0WX1ElA)
 ![enter image description here](https://lh3.googleusercontent.com/vCWCaScTZWxndCmsKzKNrrQULS51WUsJNo-e64d5YP-s1m6kfWd_0pyNPBsItwIlo-Rhaz1O7N5vpw)
 
@@ -642,11 +642,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMT
-c4OTgxMDIyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4Njgx
-MDE0NywzMjA0MDcxMjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMT
-U3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NSw5MDExMjcy
-ODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2MjQ3MDQ4LD
-E5MDI0NzY5NjksODE4MDI1OTIsMTMyMDAwODY2MCwxMjYzNjE2
-OV19
+eyJoaXN0b3J5IjpbMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMT
+c1ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2
+NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLT
+UwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMx
+Mjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC
+01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4
+NjYwXX0=
 -->
