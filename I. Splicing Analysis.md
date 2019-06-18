@@ -405,7 +405,7 @@ awk '{ print $1, $10 }' ~/working/oliver/genomes/annotation/gencode.v28.primary_
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
 
 remove rows with NAs:
-
+awk '(
 
 
 ## Coverage for introns of interest
@@ -715,11 +715,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNzQxNTU2NCwtMTU4NzQ5NTM5OSw3ND
-kxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2
-MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC
-05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5
-ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OT
-k5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwt
-NTg2ODEwMTQ3XX0=
+eyJoaXN0b3J5IjpbOTU0OTY0NzA0LC0xNTg3NDk1Mzk5LDc0OT
+E5NjkwMywxMDgzMDU3MzUxLDI4NTAzMTU0OCwtMTQyOTcwNDYw
+NywtMTg1NzMzNjgxMiwtMTkyMjk2MzEzMSw4MTc4NDQyMTcsLT
+k3Mzg3ODQ4MiwtODk5NTkyNjA4LC00MDI3OTkwMTYsLTcyNDk4
+NDk5OSwxNzY5MjQwNzExLC0xOTQ2ODczODk0LC0xNzU4NTk5OT
+ksMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC01
+ODY4MTAxNDddfQ==
 -->
