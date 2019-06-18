@@ -400,7 +400,10 @@ To get an overview of all the intron features
 
 Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply  [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
-matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap > ifeatures.tab
+For intron features help page:
+`matt get_ifeatures help`
+
+`matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap > ifeatures.tab`
 
 
 
@@ -682,11 +685,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03Mj
-Q5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5
-OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMC
-wtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1
-ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LD
-kwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYy
-NDcwNDhdfQ==
+eyJoaXN0b3J5IjpbLTk3Mzg3ODQ4MiwtODk5NTkyNjA4LC00MD
+I3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQwNzExLC0xOTQ2ODcz
+ODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUzMjY2OTM2My
+wtMjM1MzY2NDIwLC01ODY4MTAxNDcsMzIwNDA3MTIwLDU5NDUz
+NDc5OCwtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLD
+IwOTI0MzEyODUsOTAxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2
+NjA2NTFdfQ==
 -->
