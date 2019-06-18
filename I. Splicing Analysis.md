@@ -373,7 +373,11 @@ The workflow is as follows: pre-process the output table of VAST-TOOLS for extra
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
 ```bash
-matt get_colnms 
+# check column names of data table
+matt get_colnms INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
+
+# print rows aligned
+matt prnt_tab INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -W 30 | less -s -
 ```
 
 Extract all intron retention events across samples and extract Gene IDs from GTD file used for alignment in VAST-TOOLS
@@ -691,11 +695,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMzQ5NDQ5Miw4MTc4NDQyMTcsLTk3Mz
-g3ODQ4MiwtODk5NTkyNjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5
-OSwxNzY5MjQwNzExLC0xOTQ2ODczODk0LC0xNzU4NTk5OTksMT
-E3ODk4MTAyMiwtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC01ODY4
-MTAxNDcsMzIwNDA3MTIwLDU5NDUzNDc5OCwtNTAyNTU4ODgzLD
-E1NzYzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUsOTAxMTI3
-MjgzXX0=
+eyJoaXN0b3J5IjpbLTE5NDkxNDgyNjIsODE3ODQ0MjE3LC05Nz
+M4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5
+OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LD
+ExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2
+ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4My
+wxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LDkwMTEy
+NzI4M119
 -->
