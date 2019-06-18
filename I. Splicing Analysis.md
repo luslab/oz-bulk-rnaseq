@@ -364,6 +364,12 @@ Import the results obtained from VAST-tools (remember analysis in VCP & CTRL ove
 
 To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons. Then select the events of interest. The `get_relative_coverage_interactive.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
+# Matt
+[http://matt.crg.eu/](http://matt.crg.eu/)
+
+## Import VAST-TOOLS results tables
+[http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
+
 # DEXSeq
 
 https://bioconductor.org/packages/release/bioc/html/DEXSeq.html
@@ -642,11 +648,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMT
-c1ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2
-NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLT
-UwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMx
-Mjg1LDkwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC
-01NDYyNDcwNDgsMTkwMjQ3Njk2OSw4MTgwMjU5MiwxMzIwMDA4
-NjYwXX0=
+eyJoaXN0b3J5IjpbNjQ3OTA1MTQyLDE3NjkyNDA3MTEsLTE5ND
+Y4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5
+MzYzLC0yMzUzNjY0MjAsLTU4NjgxMDE0NywzMjA0MDcxMjAsNT
+k0NTM0Nzk4LC01MDI1NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3
+NzMsMjA5MjQzMTI4NSw5MDExMjcyODMsLTIxMDc5MDI1NjksLT
+I3MjY2MDY1MSwtNTQ2MjQ3MDQ4LDE5MDI0NzY5NjksODE4MDI1
+OTJdfQ==
 -->
