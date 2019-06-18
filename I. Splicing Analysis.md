@@ -206,9 +206,6 @@ https://github.com/vastgroup/vast-tools#merging-outputs
 Merge the aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.  Ideally have >150 million reads per sample for VAST-TOOLS AS analysis.  Raphaelle merged the 3 samples for each of VCP & CTRL at each time point.
 If no technical replicates then skip this.
 
-D7 merge together as:
-VCP = SRR5483788_1.fastq  SRR5483789_1.fastq  SRR5483790_1.fastq
-CTRL = SRR5483794_1.fastq  SRR5483795_1.fastq  SRR5483796_1.fastq
 ```bash
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 #Prepare config_file from sample group txt file (needs 2 columns: fastq file name & group separated by a tab)
@@ -702,11 +699,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xOD
-U3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4
-NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LD
-E3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4
-OTgxMDIyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4NjgxMD
-E0NywzMjA0MDcxMjAsNTk0NTM0Nzk4LC01MDI1NTg4ODMsMTU3
-NjM0NjU0Nl19
+eyJoaXN0b3J5IjpbMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mj
+k3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0
+MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC
+03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1
+ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2Nj
+QyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUw
+MjU1ODg4M119
 -->
