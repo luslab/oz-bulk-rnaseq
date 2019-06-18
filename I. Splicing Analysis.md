@@ -147,9 +147,6 @@ yellow gene = noncoding RNA gene.
 brown & green genes = coding genes
 Few exon-exon spanning genes.
 
-
-
-
 # Gene Isoform counting
 
 Gene isoforms are mRNA produced from the same locus but with different protein coding sequences.  5 modes of alternative splicing are recognised:
@@ -700,7 +697,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxNzkyNDUwMywtMTkyMjk2MzEzMSw4MT
+eyJoaXN0b3J5IjpbLTI0NTc0MDA2NSwtMTkyMjk2MzEzMSw4MT
 c4NDQyMTcsLTk3Mzg3ODQ4MiwtODk5NTkyNjA4LC00MDI3OTkw
 MTYsLTcyNDk4NDk5OSwxNzY5MjQwNzExLC0xOTQ2ODczODk0LC
 0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMjM1
