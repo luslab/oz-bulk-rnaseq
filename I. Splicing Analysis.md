@@ -389,8 +389,6 @@ This command is important as many analyses essentially compare some groups of it
 
 will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorizing each micro exon in table t1.tab wrt. the defined constraints.
 
-def_cats
-
 ## High Level Analysis
 
 # DEXSeq
@@ -671,11 +669,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTkzODkzMDQsLTQwMjc5OTAxNiwtNz
-I0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1
-OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5MzYzLC0yMzUzNjY0Mj
-AsLTU4NjgxMDE0NywzMjA0MDcxMjAsNTk0NTM0Nzk4LC01MDI1
-NTg4ODMsMTU3NjM0NjU0NiwtNTc4Mjc3NzMsMjA5MjQzMTI4NS
-w5MDExMjcyODMsLTIxMDc5MDI1NjksLTI3MjY2MDY1MSwtNTQ2
-MjQ3MDQ4XX0=
+eyJoaXN0b3J5IjpbMTgzMTg2MjUzLC00MDI3OTkwMTYsLTcyND
+k4NDk5OSwxNzY5MjQwNzExLC0xOTQ2ODczODk0LC0xNzU4NTk5
+OTksMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC
+01ODY4MTAxNDcsMzIwNDA3MTIwLDU5NDUzNDc5OCwtNTAyNTU4
+ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUsOT
+AxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0
+NzA0OF19
 -->
