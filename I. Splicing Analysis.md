@@ -378,6 +378,9 @@ matt get_colnms INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
 
 # print rows aligned
 matt prnt_tab INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -W 30 | less -s -
+
+# check all different types of splicing events
+matt col_uniq INCLUSION_LEVELS_FULL-Hsa6-hg19.tab TYPE | matt prnt_tab - -w 9 | less -S -
 ```
 
 Extract all intron retention events across samples and extract Gene IDs from GTD file used for alignment in VAST-TOOLS
@@ -695,7 +698,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDkxNDgyNjIsODE3ODQ0MjE3LC05Nz
+eyJoaXN0b3J5IjpbLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05Nz
 M4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5
 OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LD
 ExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2
