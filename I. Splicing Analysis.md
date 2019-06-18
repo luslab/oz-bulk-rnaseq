@@ -349,7 +349,7 @@ The workflow is as follows: pre-process the output table of VAST-TOOLS for extra
 ## Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
-Use the get_vast command to extract all intron retention events across samples 
+Use the get_vast command to extract all intron retention events (IR, IR-S, IR-C) across samples 
 
 `matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab VLOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab`
 
@@ -703,11 +703,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1Mzc0MTY5NTcsLTkxNjE1NzM3Myw5NT
-Q5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTcz
-NTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC
-0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC04OTk1
-OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MT
-EsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0x
-NTMyNjY5MzYzXX0=
+eyJoaXN0b3J5IjpbMTc5MTk3Nzc0NSwtOTE2MTU3MzczLDk1ND
+k2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1
+MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
+E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
+MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
+wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
+MzI2NjkzNjNdfQ==
 -->
