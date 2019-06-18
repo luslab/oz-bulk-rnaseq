@@ -342,7 +342,7 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 [http://matt.crg.eu/](http://matt.crg.eu/)
 
 Two phases: Data preparation > Data analysis.
-Input files are tab separated plain text tables
+Input file = Output from Combine command in VAST-TOOL (file called 
 
 The workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis (50 intron features).
 
@@ -703,7 +703,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MTk3Nzc0NSwtOTE2MTU3MzczLDk1ND
+eyJoaXN0b3J5IjpbLTY1MTA0MjE2OSwtOTE2MTU3MzczLDk1ND
 k2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1
 MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
 E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
