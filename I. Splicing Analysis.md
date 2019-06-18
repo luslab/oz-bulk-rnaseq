@@ -362,9 +362,11 @@ matt col_uniq matt get_colnms DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.t
 TYPE | matt prnt_tab - -w 9 | less -S -
 ```
 
-Extract all intron retention events across samples and extract Gene IDs from GTD file used for alignment in VAST-TOOLS
+Extract all intron retention events across samples 
 
-matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a kd1,kd2 -b ctr1,ctr2 > ir_events.tab
+`matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab`
+
+also extract Gene IDs from GTD file used for alignment in VAST-TOOLS
 
 `matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
 
@@ -404,13 +406,7 @@ awk '{ print $1, $87 }' ir_events.tab
 awk '{ print $1, $10 }' ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf 
 ```
 
-
-
-
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
-
-remove rows with NAs:
-awk '(
 
 
 ## Coverage for introns of interest
@@ -720,11 +716,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgzNzU5Njk1LDk1NDk2NDcwNCwtMTU4Nz
-Q5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgs
-LTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsOD
-E3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5
-MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NC
-wtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIz
-NTM2NjQyMF19
+eyJoaXN0b3J5IjpbLTcwNzc4ODYwNSw5NTQ5NjQ3MDQsLTE1OD
+c0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4
+LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLD
+gxNzg0NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5
+OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OT
+QsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5MzYzLC0y
+MzUzNjY0MjBdfQ==
 -->
