@@ -368,7 +368,7 @@ Extract all intron retention events across samples
 
 also extract Gene IDs from GTD file used for alignment in VAST-TOOLS
 
-`matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab VLOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
+`matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab VLOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id > ir_events.tab`
 
 `matt get_colnms ir_events.tab`
 
@@ -406,7 +406,7 @@ awk '{ print $1, $87 }' ir_events.tab
 awk '{ print $1, $10 }' ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf 
 ```
 
-`matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
+`matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
 
 
 ## Coverage for introns of interest
@@ -716,11 +716,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNjE1NzM3Myw5NTQ5NjQ3MDQsLTE1OD
-c0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4
-LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLD
-gxNzg0NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5
-OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OT
-QsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0xNTMyNjY5MzYzLC0y
-MzUzNjY0MjBdfQ==
+eyJoaXN0b3J5IjpbMTU4NTY1MzI5MywtOTE2MTU3MzczLDk1ND
+k2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1
+MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
+E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
+MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
+wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
+MzI2NjkzNjNdfQ==
 -->
