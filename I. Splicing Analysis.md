@@ -166,11 +166,13 @@ Most changes in IR in CTRL occurred at day 14 whilst in VCP the same events were
 
 The `Splicing_VASTOOLS.sh` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
-There are 4 steps:
-1. Alignment (this is redone in VAST-TOOLS using bowtie - needs loading)
+There are 6 steps:
+1. Align (this is redone in VAST-TOOLS using bowtie - needs loading)
 2. Combine outputs into 1 summary table
-3. Differential Splicing analysis
-4. Plot the output
+3. Merge (optional)
+4. Tidy (optional)
+5. Differential Splicing analysis
+6. Plot the output
 
 ## Alignment
 ml R
@@ -697,11 +699,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsOD
-E3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5
-MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NC
-wtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIz
-NTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OT
-gsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDky
-NDMxMjg1XX0=
+eyJoaXN0b3J5IjpbLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
+E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
+MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
+wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
+MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNz
+EyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01
+NzgyNzc3M119
 -->
