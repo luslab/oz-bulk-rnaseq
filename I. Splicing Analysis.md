@@ -398,7 +398,7 @@ For intron features help page:
 ```
 awk '{ print $1, $87 }' ir_events.tab
 
-awk '{ print $9, $10 }' ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf 
+awk '{ print $1, $10 }' ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf 
 ```
 
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
@@ -712,7 +712,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNDAwMzI1NDQsNzQ5MTk2OTAzLDEwOD
+eyJoaXN0b3J5IjpbLTE3Mjk2MDY2ODAsNzQ5MTk2OTAzLDEwOD
 MwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2
 ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC
 04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3Njky
