@@ -362,7 +362,7 @@ also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to us
 ## Extract Gene IDs
 [http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
 
-matt retr_geneids ir_events.tab START END SCAFFOLD STRAND Hsa19.gtf -f gene_id
+matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
 
 
 
@@ -695,11 +695,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTkwNzU3ODUsLTkxNjE1NzM3Myw5NT
-Q5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTcz
-NTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2ODEyLC
-0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC04OTk1
-OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3NjkyNDA3MT
-EsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMDIyLC0x
-NTMyNjY5MzYzXX0=
+eyJoaXN0b3J5IjpbMzQ2OTIwNDI0LC05MTYxNTczNzMsOTU0OT
+Y0NzA0LC0xNTg3NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3MzUx
+LDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgxMiwtMT
+kyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4MiwtODk5NTky
+NjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQwNzExLC
+0xOTQ2ODczODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUz
+MjY2OTM2M119
 -->
