@@ -348,7 +348,7 @@ The workflow is as follows: pre-process the output table of VAST-TOOLS for extra
 
 ```bash
 # check column names of data table
-matt get_colnms INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
+matt get_colnms IR_UP-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.txt
 
 # print rows aligned
 matt prnt_tab INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -W 30 | less -s -
@@ -703,11 +703,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDM2ODcwMTksNzQ5MTk2OTAzLDEwOD
-MwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xODU3MzM2
-ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4NDgyLC
-04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LDE3Njky
-NDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4OTgxMD
-IyLC0xNTMyNjY5MzYzLC0yMzUzNjY0MjAsLTU4NjgxMDE0Nywz
-MjA0MDcxMjBdfQ==
+eyJoaXN0b3J5IjpbMTk1NDg4NTkzNSw3NDkxOTY5MDMsMTA4Mz
+A1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4
+MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLT
+g5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0
+MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMj
+IsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMy
+MDQwNzEyMF19
 -->
