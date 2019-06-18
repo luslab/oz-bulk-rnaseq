@@ -355,7 +355,7 @@ Use the get_vast command to extract all intron retention events (IR, IR-S, IR-C)
 
 also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to use Hsa Ensembl GTF to match VASTOOLS alignment step
 
-`matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id > ir_events.tab`
+`matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id > ir_events.tab`
 
 `matt get_colnms ir_events.tab`
 
@@ -703,11 +703,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNDY1MjA1NSwtOTE2MTU3MzczLDk1ND
-k2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1
-MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
-E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
-MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
-wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
-MzI2NjkzNjNdfQ==
+eyJoaXN0b3J5IjpbNDk3Mzk1NzA4LC05MTYxNTczNzMsOTU0OT
+Y0NzA0LC0xNTg3NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3MzUx
+LDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgxMiwtMT
+kyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4MiwtODk5NTky
+NjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQwNzExLC
+0xOTQ2ODczODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUz
+MjY2OTM2M119
 -->
