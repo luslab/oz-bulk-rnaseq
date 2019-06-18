@@ -371,7 +371,7 @@ To then get a value of IR across diverse data-sets I then wrote the custom code 
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
 Extract all intron retention events across samples
-`matt get_vast INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1, SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf  > ir_events.tab`
+`matt get_vast INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1, SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
      
 
 # DEXSeq
@@ -652,7 +652,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMDk4NjEzMiwtNDAyNzk5MDE2LC03Mj
+eyJoaXN0b3J5IjpbLTY2NDY4ODY4NCwtNDAyNzk5MDE2LC03Mj
 Q5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5
 OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMC
 wtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1
