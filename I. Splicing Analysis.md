@@ -169,7 +169,7 @@ The `Splicing_VASTOOLS.sh` script is located in `/home/camp/ziffo/working/oliver
 There are 6 steps:
 1. Align (this is redone in VAST-TOOLS using bowtie - needs loading)
 2. Combine outputs into 1 summary table
-3. Merge (optional)
+3. Merge technical repeats (optional)
 4. Tidy (optional)
 5. Differential Splicing analysis
 6. Plot the output
@@ -200,12 +200,13 @@ do
 done
 ```
 
-## Merging Output
+## Merging Outputs
 https://github.com/vastgroup/vast-tools#merging-outputs
 
 Merge the aligned output files for technical replicates when read coverage for independent replicates is not deep enough for a complete AS analysis.  Ideally have >150 million reads per sample for VAST-TOOLS AS analysis.  Raphaelle merged the 3 samples for each of VCP & CTRL at each time point.
 If no technical replicates then skip this.
 
+D7 merge together
 ```bash
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 #Prepare config_file from sample group txt file (needs 2 columns: fastq file name & group separated by a tab)
@@ -699,11 +700,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
-E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
-MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
-wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
-MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNz
-EyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01
-NzgyNzc3M119
+eyJoaXN0b3J5IjpbLTE0NzUyMDEyMzAsLTE0Mjk3MDQ2MDcsLT
+E4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4
+Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OT
+ksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDEx
+Nzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2OD
+EwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1ODg4Mywx
+NTc2MzQ2NTQ2XX0=
 -->
