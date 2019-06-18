@@ -395,6 +395,10 @@ Write a table with columns containing the feature values & extracted sequence of
 For intron features help page:
 `matt get_ifeatures help`
 
+```
+awk '{ print $1, $5 }' filename
+```
+
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f transcript_id > ifeatures.tab`
 
 
@@ -706,11 +710,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU1NjUyNjg1LDc0OTE5NjkwMywxMDgzMD
-U3MzUxLDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgx
-MiwtMTkyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4MiwtOD
-k5NTkyNjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQw
-NzExLC0xOTQ2ODczODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMi
-wtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC01ODY4MTAxNDcsMzIw
-NDA3MTIwXX0=
+eyJoaXN0b3J5IjpbMTgxMTIzODYzOCw3NDkxOTY5MDMsMTA4Mz
+A1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4
+MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLT
+g5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0
+MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMj
+IsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMCwtNTg2ODEwMTQ3LDMy
+MDQwNzEyMF19
 -->
