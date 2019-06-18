@@ -366,8 +366,6 @@ Extract all intron retention events across samples and extract Gene IDs from GTD
 
 `matt get_vast ~/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/DiffAS-Hsa14-hg19-dPSI15-range5_VCP.d0-vs-VCP.d7.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > ir_events.tab`
 
-`matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf -f gene_id > introns.tab`
-
 ## Define categories
 
 Use this command def_cats for creating a new column with group IDs. Generally, rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns using the same constraint syntax as used with command [get_rows](http://matt.crg.eu/#get_rows).
@@ -706,7 +704,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk2MzM2Njg2LDc0OTE5NjkwMywxMDgzMD
+eyJoaXN0b3J5IjpbNTM0NDM0OTczLDc0OTE5NjkwMywxMDgzMD
 U3MzUxLDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgx
 MiwtMTkyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4MiwtOD
 k5NTkyNjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQw
