@@ -389,11 +389,20 @@ This command is important as many analyses essentially compare some groups of it
 
 will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorising each micro exon in table t1.tab wrt. the defined constraints.
 
-## 50 Intron Features
+## Intron Features
 
 Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information like their genomic coordinates and a gene ID of genes the introns belong to. If the table does not yet contain gene IDs, you might use the command  [retr_geneids](http://matt.crg.eu/#retr_geneids)  for extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
+
+To get an overview of all the intron features
+`matt get_ifeatures explain`
+
+Write a table with columns containing theg e
+matt get_ifeatures introns.tab START END SCAFF STRAND ENSEMBL_GID ...
+      ... Hsa19.gtf Hsa19.fa Hsap > ifeatures.tab
+
+
 
 # DEXSeq
 
@@ -673,11 +682,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1ODg0Nzg1OSwtNDAyNzk5MDE2LC03Mj
-Q5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1ODU5
-OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIzNTM2NjQyMC
-wtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OTgsLTUwMjU1
-ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDkyNDMxMjg1LD
-kwMTEyNzI4MywtMjEwNzkwMjU2OSwtMjcyNjYwNjUxLC01NDYy
-NDcwNDhdfQ==
+eyJoaXN0b3J5IjpbMjU0NDc4Mzk0LC00MDI3OTkwMTYsLTcyND
+k4NDk5OSwxNzY5MjQwNzExLC0xOTQ2ODczODk0LC0xNzU4NTk5
+OTksMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMjM1MzY2NDIwLC
+01ODY4MTAxNDcsMzIwNDA3MTIwLDU5NDUzNDc5OCwtNTAyNTU4
+ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLDIwOTI0MzEyODUsOT
+AxMTI3MjgzLC0yMTA3OTAyNTY5LC0yNzI2NjA2NTEsLTU0NjI0
+NzA0OF19
 -->
