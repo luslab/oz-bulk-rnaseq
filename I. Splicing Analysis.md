@@ -158,7 +158,7 @@ Gene isoforms are mRNA produced from the same locus but with different protein c
 
 # VAST-TOOLS
 
-## Approach using iPSC differentiation
+## Overview
 
 VAST-tools output = any splicing changes OVER TIME. i.e not just retained introns
 Focus is how splicing patterns changed over time (Day 0; Day 7; Day 14 & Day 21) in the CTRL & VCP groups. Rather than directly compare splicing differences at each stage between CTRL & VCP, I compared the groups of genes at each stage which were exhibiting changes in splicing over time in control group versus VCP group. 
@@ -697,11 +697,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NTc0MDA2NSwtMTkyMjk2MzEzMSw4MT
-c4NDQyMTcsLTk3Mzg3ODQ4MiwtODk5NTkyNjA4LC00MDI3OTkw
-MTYsLTcyNDk4NDk5OSwxNzY5MjQwNzExLC0xOTQ2ODczODk0LC
-0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUzMjY2OTM2MywtMjM1
-MzY2NDIwLC01ODY4MTAxNDcsMzIwNDA3MTIwLDU5NDUzNDc5OC
-wtNTAyNTU4ODgzLDE1NzYzNDY1NDYsLTU3ODI3NzczLDIwOTI0
-MzEyODVdfQ==
+eyJoaXN0b3J5IjpbLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsOD
+E3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5
+MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NC
+wtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1MzI2NjkzNjMsLTIz
+NTM2NjQyMCwtNTg2ODEwMTQ3LDMyMDQwNzEyMCw1OTQ1MzQ3OT
+gsLTUwMjU1ODg4MywxNTc2MzQ2NTQ2LC01NzgyNzc3MywyMDky
+NDMxMjg1XX0=
 -->
