@@ -387,10 +387,8 @@ For intron features help page:
 `matt get_ifeatures help`
 
 `matt get_colnms ir_events.tab`
-```
+```r
 awk '{ print $1, $87 }' ir_events.tab
-
-
 ```
 
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
@@ -703,11 +701,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk3Mzk1NzA4LC05MTYxNTczNzMsOTU0OT
-Y0NzA0LC0xNTg3NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3MzUx
-LDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgxMiwtMT
-kyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4MiwtODk5NTky
-NjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5MjQwNzExLC
-0xOTQ2ODczODk0LC0xNzU4NTk5OTksMTE3ODk4MTAyMiwtMTUz
-MjY2OTM2M119
+eyJoaXN0b3J5IjpbMTgxNTU4NjM2NCwtOTE2MTU3MzczLDk1ND
+k2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1
+MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLT
+E5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5
+MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMS
+wtMTk0Njg3Mzg5NCwtMTc1ODU5OTk5LDExNzg5ODEwMjIsLTE1
+MzI2NjkzNjNdfQ==
 -->
