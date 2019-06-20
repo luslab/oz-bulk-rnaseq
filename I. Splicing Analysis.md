@@ -400,12 +400,13 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
-INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
-
+INFILE = ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 
 matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 
-matt get_match ir_events.tab EVENT mapping_EVENT2GENEID.tab EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab
+MAP = ~/working/oliver/bin/matt/mapping_EVENT2GENEID.tab
+
+matt get_match ir_events.tab EVENT $MAP EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab
 
 matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf -f gene_id
 
@@ -778,7 +779,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE4ODM1MTk5LDEwNTQyNTA5LDE5Nzg0Mz
+eyJoaXN0b3J5IjpbNTY2OTk3MTc0LDEwNTQyNTA5LDE5Nzg0Mz
 gzNzYsLTEzNTE1MTgwNjMsMjAyOTAyMjYxOCwtNzY0MjMwMTks
 Mjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNT
 EyOTExOSwtMTM2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTEx
