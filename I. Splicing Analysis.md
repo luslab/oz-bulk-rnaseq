@@ -390,7 +390,7 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
 # specify minimum quality flag as LOW
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
-# augment the output with gene IDs from GTF annotaiton used by vastools
+# augment the output with gene IDs from Hg 19 GTF annotaiton used by vastools
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf > ir_events.tab
 ```
 The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step
@@ -757,11 +757,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDc0NDY4NywyMTM4OTE5NjA0LC03Mj
-MzNzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2
-NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcxNTM2LC
-0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MTMwOTMsLTE3
-NDI3MDI1NzYsLTI3ODc5ODQzNCwzNDY5MjA0MjQsLTkxNjE1Nz
-M3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEw
-ODMwNTczNTFdfQ==
+eyJoaXN0b3J5IjpbLTkyNjcxNjc0MiwtMTcwNzQ0Njg3LDIxMz
+g5MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3
+OTcsLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4MDQzNDM4LD
+EwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQwNTI4NDIsLTE0
+NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0LDM0NjkyMD
+QyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5OSw3
+NDkxOTY5MDNdfQ==
 -->
