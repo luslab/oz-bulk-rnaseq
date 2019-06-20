@@ -375,6 +375,8 @@ NB to deactivate environment:
 
 ## Data Preparation / Table manipulation
 
+Generally, the workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with  [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis.
+
 ### Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
@@ -386,24 +388,15 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
+# specify minimum quality flag as LOW
+matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
 # augment the output with gene IDs from GTF annotaiton used by vastools
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf > ir_events.tab
 ```
 
 The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file.
 
-Generally, the workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with  [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with  [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis.
 
-
-
-
-
-
-Input file = Output from Combine command in VAST-TOOL (file called INCLUSION_LEVELS_FULL-Hsa6-hg19.tab)
-
-The workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis (50 intron features).
-
-Use the get_vast command to extract all intron retention events (IR, IR-S, IR-C) across samples 
 
 `matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab`
 
@@ -755,7 +748,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNzM2MDE5NCwxNTQxNDcxODY3LDE1Mz
+eyJoaXN0b3J5IjpbLTM4ODY4MjM0OSwxNTQxNDcxODY3LDE1Mz
 gwNDM0MzgsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MSwtMjExNDA1
 Mjg0MiwtMTQ3NjEzMDkzLC0xNzQyNzAyNTc2LC0yNzg3OTg0Mz
 QsMzQ2OTIwNDI0LC05MTYxNTczNzMsOTU0OTY0NzA0LC0xNTg3
