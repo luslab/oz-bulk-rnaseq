@@ -223,7 +223,7 @@ ml R
 https://github.com/vastgroup/vast-tools#combining-results
 
 About 2G of memory required; completed in about 10 min
-Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz` (if using old legacy version) or 5 tables in v.2.0.0. This is the table that you send to differential splicing command. **Specify hg38**. The output directory contains the sub-folders to combine. 
+Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz` (if using old legacy version) or 5 tables in v.2.0.0. This is the table that you send to differential splicing command. **Option to specify hg38 (default hg19)**. The output directory contains the sub-folders to combine. 
 ```bash
 #move to to_combine directory with merged aligned files
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/to_combine
@@ -231,7 +231,7 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tool
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 
 #  create the old legacy version INCLUSION_TABLE.tab single output then specify `--noANNOT`
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --v --noANNOT"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v --noANNOT"
 
 # run vast-tools combine using new v2.0.0 ANNOT tool - identifies annotated exon-exon reads
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa --IR_version 2"
@@ -757,11 +757,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3NTcwNTk1LC0xMzY4NTc2NDQ4LDgwMT
-Y1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5MTk2
-MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3OTcsLT
-E0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4MDQzNDM4LDEwNzM3
-NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQwNTI4NDIsLTE0NzYxMz
-A5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0LDM0NjkyMDQyNCwt
-OTE2MTU3MzczXX0=
+eyJoaXN0b3J5IjpbLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsOD
+AxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkx
+OTYwNCwtNzIzMzcxMDczLC05NzQ2ODcxNTEsMTUzODMxMTc5Ny
+wtMTQxMDU5NjQyMywxNTQxNDcxODY3LDE1MzgwNDM0MzgsMTA3
+Mzc3MTUzNiwtMjExNzIwOTQ5MSwtMjExNDA1Mjg0MiwtMTQ3Nj
+EzMDkzLC0xNzQyNzAyNTc2LC0yNzg3OTg0MzQsMzQ2OTIwNDI0
+LC05MTYxNTczNzNdfQ==
 -->
