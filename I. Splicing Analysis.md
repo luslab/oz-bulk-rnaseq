@@ -428,6 +428,7 @@ Use get_ifeatures command to retrieve 50 features of interest for introns. Intro
 ```bash
 #print columns in ir_events table
 matt get_colnms ir_events.tab
+awk '{ print $55}' ir_events.tab 
 
 matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap > ifeatures.tab
 
@@ -752,11 +753,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1Mz
-gzMTE3OTcsLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4MDQz
-NDM4LDEwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQwNTI4ND
-IsLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0LDM0
-NjkyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NT
-M5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0
-Mjk3MDQ2MDddfQ==
+eyJoaXN0b3J5IjpbNjMwNzg1NTg3LC03MjMzNzEwNzMsLTk3ND
+Y4NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4
+NjcsMTUzODA0MzQzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC
+0yMTE0MDUyODQyLC0xNDc2MTMwOTMsLTE3NDI3MDI1NzYsLTI3
+ODc5ODQzNCwzNDY5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MD
+QsLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1
+MDMxNTQ4XX0=
 -->
