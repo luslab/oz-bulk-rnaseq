@@ -453,8 +453,10 @@ matt get_colnms ir_events.tab
 #print column GENEID
 awk '{ print $39}' ir_events.tab 
 
+GTF=
+FASTA=Homo_sapiens.GRCh37.dna.alt.fa
 #run get_ifeatures
-matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF Homo_sapiens.GRCh37.dna.alt.fa Hsap > ifeatures.tab
+matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap > ifeatures.tab
 ```
 
 
@@ -775,7 +777,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4MzA0MTcyMCwtMTk0ODU0NzYxNSwxMD
+eyJoaXN0b3J5IjpbMTQwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMD
 U0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2
 MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgxOCwyMT
 Q4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsODAxNjU2
