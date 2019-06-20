@@ -357,8 +357,8 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 Matt is a **Unix command-line toolkit** for analyzing genomic sequences with focus on the down-stream analysis of alternative splicing events. Being a POSIX-style command-line toolkit, Matt runs on the terminal of any Unix-like system. **Matt is modular**: It comprises many commands, each of which tailored to one specific task. Combining commands allows the user to solve complex tasks:  **The whole is more than the sum of its parts**. Matt works on tables as its data structure, where rows correspond to objects, e.g., exons, genes, etc., and columns correspond to features of these objects.
 
 Matt usage goes through  **two phases**:
-1. Data preparation: Fit the output from other programs, e.g., VASTOOLS estimation of inclusion levels of alternative splicing events, to the input format of Matt analyses
-2. Data analysis: 
+1. Data preparation: Fit the output from other programs, e.g., VASTOOLS estimation of inclusion levels of alternative splicing events, to the input format of Matt analyses. Works on the INCLUSION_LEVELS_FULL-Hsa2-hg19.tab file from `vast-tools combine` output.
+2. Data analysis
 
 The main focus of Matt is high-level analyses, but Matt also offers commands for data preparation/table manipulation. Commands produce **reports as PDF documents, PDF graphics, or web pages** summarizing the results.
 
@@ -770,11 +770,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTIzMDYzNjYsLTc2NDIzMDE5LDI3NT
-UxNDU4MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkx
-MTksLTEzNjg1NzY0NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC
-0xNzA3NDQ2ODcsMjEzODkxOTYwNCwtNzIzMzcxMDczLC05NzQ2
-ODcxNTEsMTUzODMxMTc5NywtMTQxMDU5NjQyMywxNTQxNDcxOD
-Y3LDE1MzgwNDM0MzgsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MSwt
-MjExNDA1Mjg0Ml19
+eyJoaXN0b3J5IjpbMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NT
+E0NTgyLC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTEx
+OSwtMTM2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLT
+E3MDc0NDY4NywyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4
+NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4Nj
+csMTUzODA0MzQzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC0y
+MTE0MDUyODQyXX0=
 -->
