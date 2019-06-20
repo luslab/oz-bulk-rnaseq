@@ -399,6 +399,7 @@ The output table ir_events.tab will have one additional column GENEID with the e
 
 ### Define Groups
 `matt def_cats`
+Optional step
 
 Before you run a high-level analysis you might need to define groups of events (e.g. up-regulated vs down-regulated retained introns) with [def_cats](http://matt.crg.eu/#def_cats) applied to the result table of [get_vast](http://matt.crg.eu/#get_vast). More information on the format of the VAST-TOOLs output table can be found [here](https://github.com/vastgroup/vast-tools#combine-output-format).
 
@@ -408,14 +409,12 @@ Before you run a high-level analysis you might need to define groups of events (
 
 will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorizing each micro exon in table t1.tab wrt. the defined constraints.
 
-## Extract Gene IDs
-[http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
-
-matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
 
 ## Data Analysis
 
 ### Intron Features
+[http://matt.crg.eu/#get_ifeatures](http://matt.crg.eu/#get_ifeatures)
+`matt get_ifeatures`
 
 Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information like their genomic coordinates and a gene ID of genes the introns belong to. If the table does not yet contain gene IDs, you might use the command  [retr_geneids](http://matt.crg.eu/#retr_geneids)  for extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes
 
@@ -435,6 +434,14 @@ awk '{ print $1, $87 }' ir_events.tab
 ```
 
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
+
+
+### Extract Gene IDs
+[http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
+
+matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
+
+
 
 
 ## Coverage for introns of interest
@@ -744,11 +751,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNT
-M4MDQzNDM4LDEwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQw
-NTI4NDIsLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4ND
-M0LDM0NjkyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4
-NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1ND
-gsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEs
-ODE3ODQ0MjE3XX0=
+eyJoaXN0b3J5IjpbLTEyNDc5NjIwMzIsLTE0MTA1OTY0MjMsMT
+U0MTQ3MTg2NywxNTM4MDQzNDM4LDEwNzM3NzE1MzYsLTIxMTcy
+MDk0OTEsLTIxMTQwNTI4NDIsLTE0NzYxMzA5MywtMTc0MjcwMj
+U3NiwtMjc4Nzk4NDM0LDM0NjkyMDQyNCwtOTE2MTU3MzczLDk1
+NDk2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1Nz
+M1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIs
+LTE5MjI5NjMxMzFdfQ==
 -->
