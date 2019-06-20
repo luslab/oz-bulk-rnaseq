@@ -400,7 +400,7 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
-matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
+matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 # specify minimum quality flag as LOW
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
 # augment the output with gene IDs from Hg 19 GTF annotaiton used by vastools
@@ -770,11 +770,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTE1MTgwNjMsMjAyOTAyMjYxOCwtNz
-Y0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxNDgwMjU0
-MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OCw4MDE2NTY0NTcsLT
-ExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5NjA0LC03MjMz
-NzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2ND
-IzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcxNTM2LC0y
-MTE3MjA5NDkxXX0=
+eyJoaXN0b3J5IjpbLTE3MDMzMjU0MTYsLTEzNTE1MTgwNjMsMj
+AyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1
+ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OC
+w4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4
+OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNz
+k3LC0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwx
+MDczNzcxNTM2XX0=
 -->
