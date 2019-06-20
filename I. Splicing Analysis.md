@@ -373,7 +373,9 @@ Now progress to next step.
 NB to deactivate environment:
 `source deactivate rtest`
 
-## Import VAST-TOOLS results tables
+## Data Preparation / Table manipulation
+
+### Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
 Input file = Output from Combine command in VAST-TOOL (file called INCLUSION_LEVELS_FULL-Hsa6-hg19.tab)
@@ -395,9 +397,9 @@ also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to us
 
 matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
 
+## Data Analysis
 
-
-## Intron Features
+### Intron Features
 
 Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information like their genomic coordinates and a gene ID of genes the introns belong to. If the table does not yet contain gene IDs, you might use the command  [retr_geneids](http://matt.crg.eu/#retr_geneids)  for extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes
 
@@ -726,11 +728,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDI3MDI1NzYsLTI3ODc5ODQzNCwzND
-Y5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUz
-OTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xND
-I5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0
-NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNi
-wtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3
-NTg1OTk5OV19
+eyJoaXN0b3J5IjpbLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMj
+c4Nzk4NDM0LDM0NjkyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcw
+NCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyOD
+UwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5
+NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOC
+wtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0
+Njg3Mzg5NF19
 -->
