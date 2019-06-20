@@ -400,11 +400,11 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
-matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
+matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 # specify minimum quality flag as LOW
-matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
+matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 # augment the output with gene IDs from Hg 19 GTF annotaiton used by vastools
-matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf > ir_events.tab
+matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf > ir_events.tab
 ```
 The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step
 
@@ -770,11 +770,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDMzMjU0MTYsLTEzNTE1MTgwNjMsMj
-AyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1
-ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OC
-w4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4
-OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNz
-k3LC0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwx
-MDczNzcxNTM2XX0=
+eyJoaXN0b3J5IjpbMTE0NTY4MTUzMCwtMTM1MTUxODA2MywyMD
+I5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4
+MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LD
+gwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5
+MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3OT
+csLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4MDQzNDM4LDEw
+NzM3NzE1MzZdfQ==
 -->
