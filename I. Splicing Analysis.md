@@ -447,9 +447,8 @@ matt get_colnms ir_events.tab
 #print column GENEID
 awk '{ print $55}' ir_events.tab 
 
+#run 
 matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf Homo_sapiens.GRCh37.dna.alt.fa Hsap > ifeatures.tab
-
-awk '{ print $1, $87 }' ir_events.tab
 ```
 
 
@@ -770,11 +769,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1MjUzMTk1NywtMTM1MTUxODA2MywyMD
-I5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4
-MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LD
-gwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5
-MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3OT
-csLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4MDQzNDM4LDEw
-NzM3NzE1MzZdfQ==
+eyJoaXN0b3J5IjpbNDE3MjUyNTI3LC0xMzUxNTE4MDYzLDIwMj
+kwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgx
+OCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsOD
+AxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkx
+OTYwNCwtNzIzMzcxMDczLC05NzQ2ODcxNTEsMTUzODMxMTc5Ny
+wtMTQxMDU5NjQyMywxNTQxNDcxODY3LDE1MzgwNDM0MzgsMTA3
+Mzc3MTUzNl19
 -->
