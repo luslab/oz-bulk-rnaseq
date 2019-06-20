@@ -230,7 +230,7 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tool
 #set aligned output file
 OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 
-#  create theINCLUSION_TABLE.tab single output then specify `--noANNOT`
+# run combine command
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools combine -o $OUT -sp Hsa -v"
 
 # This produces 5 INCLUSION_TABLE files in the raw_incl folder. 
@@ -755,11 +755,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwODk1MjQ5OCwtMTMwNTEyOTExOSwtMT
-M2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0
-NDY4NywyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MS
-wxNTM4MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUz
-ODA0MzQzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC0yMTE0MD
-UyODQyLC0xNDc2MTMwOTMsLTE3NDI3MDI1NzYsLTI3ODc5ODQz
-NCwzNDY5MjA0MjRdfQ==
+eyJoaXN0b3J5IjpbMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMz
+Y4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0
+Njg3LDIxMzg5MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLD
+E1MzgzMTE3OTcsLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4
+MDQzNDM4LDEwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQwNT
+I4NDIsLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0
+LDM0NjkyMDQyNF19
 -->
