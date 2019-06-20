@@ -402,14 +402,9 @@ The output table ir_events.tab will have one additional column GENEID with the e
 
 Before you run a high-level analysis you might need to define groups of events (e.g. up-regulated vs down-regulated retained introns) with [def_cats](http://matt.crg.eu/#def_cats) applied to the result table of [get_vast](http://matt.crg.eu/#get_vast). More information on the format of the VAST-TOOLs output table can be found [here](https://github.com/vastgroup/vast-tools#combine-output-format).
 
-`def_cats` (define categories) is used for creating a new column with a group IDs. Rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns using the same constraint syntax as used with command [get_rows](http://matt.crg.eu/#get_rows).
-
-This command is important as many analyses essentially compare some groups of items (e.g. groups of exons, introns, sequences, or more), hence, the user needs to defined the groups to be compared.  
+`def_cats` (define categories) is used for creating a new column with a group IDs. Rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns. This command is important as many analyses essentially compare some groups of items (e.g. groups of introns), hence, the user needs to define the groups to be compared.  
   
-**Example:**  With  [t1.tab](http://matt.crg.eu/#TB)  being the table from above
-
-> matt def_cats t1.tab GROUP2 'g1=START[0,5000000] STRAND]+[' 
-     'g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'
+`matt def_cats t1.tab GROUP2 'g1=START[0,5000000] STRAND]+[''g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'`
 
 will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorizing each micro exon in table t1.tab wrt. the defined constraints.
 
@@ -749,11 +744,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQ1MjM5MDAsMTU0MTQ3MTg2NywxNTM4MD
-QzNDM4LDEwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQwNTI4
-NDIsLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0LD
-M0NjkyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5
-NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLT
-E0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3
-ODQ0MjE3XX0=
+eyJoaXN0b3J5IjpbLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNT
+M4MDQzNDM4LDEwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQw
+NTI4NDIsLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4ND
+M0LDM0NjkyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4
+NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1ND
+gsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEs
+ODE3ODQ0MjE3XX0=
 -->
