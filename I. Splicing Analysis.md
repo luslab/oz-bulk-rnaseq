@@ -396,42 +396,34 @@ Generally, the workflow is as follows: pre-process the output table of VAST-TOOL
 `matt get_vast` command is tailored to the result tables of [VAST-TOOLS](https://github.com/vastgroup/vast-tools). Use this command to transform the output table from VAST-TOOLS into Matt format and extract sub-sets of reported alternative splicing events. VAST-TOOLs reports skipped exons, retained introns, alt3, alt5 events in one output table together with estimated PSI values across several data sets. Matt allows you to retrieve form this table events of specific types (skipped exons, retained introns, Alt3, Alt5) or events that have a PSI value within a user specified range across all samples. 
 
 **Workflow**
-With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-TOOLS combine command:
+Uses INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-TOOLS `combine` command:
 
 ```bash
-# extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
+# extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b (if merged then use the group names rather than the individual sample names). To be included PSI values need to have a minimum quality flag of LOW across all samples:
 INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
 
-matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
+matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
 
+### NB the last column GENEID in ir_events.tab is full of NAs:
+#print columns in ir_events table
+matt get_colnms ir_events.tab
+#print column GENEID
+awk '{ print $39}' ir_events.tab 
+```
+This suggests mapping of events (rows) to ensembl gene IDs is not working. 
+
+Alternative approaches to adding Ensembl gene IDs outlined here: [http://matt.crg.eu/#CMPR_EXS_EXP](http://matt.crg.eu/#CMPR_EXS_EXP) in section 4.1, 4.2 & 4.3:
+```bash
 # add mapping table as another was to add gene IDs
 MAP=~/working/oliver/bin/matt/mapping_EVENT2GENEID.tab
-
 matt get_match ir_events.tab EVENT $MAP EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab ir_events.tab ENSEMBL_GENEID
 
+#or use retr_geneids command. use [retr_geneids](http://matt.crg.eu/#retr_geneids) to extract gene IDs from any GTF file for given genomic events, like exons, introns, genes.
 matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf -f gene_id
-
-
-# specify minimum quality flag as LOW
-matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 ```
+
 The output table ir_events.tab column GENEID should have the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step - Hsa19 = Hg19.
-
-`matt get_colnms ir_events.tab`
-
-### Define Groups
-`matt def_cats`
-Optional step
-
-Before you run a high-level analysis you might need to define groups of events (e.g. up-regulated vs down-regulated retained introns) with [def_cats](http://matt.crg.eu/#def_cats) applied to the result table of [get_vast](http://matt.crg.eu/#get_vast). More information on the format of the VAST-TOOLs output table can be found [here](https://github.com/vastgroup/vast-tools#combine-output-format).
-
-`def_cats` (define categories) is used for creating a new column with a group IDs. Rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns. This command is important as many analyses essentially compare some groups of items (e.g. groups of introns), hence, the user needs to define the groups to be compared.  
-  
-`matt def_cats t1.tab GROUP2 'g1=START[0,5000000] STRAND]+[''g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'`
-
-will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorizing each micro exon in table t1.tab wrt. the defined constraints.
-
 
 ## Data Analysis
 
@@ -443,26 +435,18 @@ To get an overview of all the intron features
 For intron features help page:
 `matt get_ifeatures help`
 
-Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). If the table does not yet contain gene IDs (i.e. didnt use GTF flag in `get_vast`), use [retr_geneids](http://matt.crg.eu/#retr_geneids)  to extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes.
+Use `get_ifeatures` command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). 
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
 
-
 ```bash
-#print columns in ir_events table
-matt get_colnms ir_events.tab
-#print column GENEID
-awk '{ print $39}' ir_events.tab 
-
 GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 #run get_ifeatures
-matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap -f GENEID > ifeatures.tab
+matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap -f gene_id > ifeatures.tab
 ```
 
-
-
-Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply  [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
+Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
 
 ### Compare Introns
@@ -778,7 +762,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODA3MjE3NzksMjA5NTQ2Nzg3NiwzMT
+eyJoaXN0b3J5IjpbLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMT
 czMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDks
 MTk3ODQzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC03Nj
 QyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAyNTQw
