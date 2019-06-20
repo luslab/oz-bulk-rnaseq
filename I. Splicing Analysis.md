@@ -351,7 +351,20 @@ The main focus of Matt is high-level analyses, but Matt also offers commands for
 
 ## Load R environment on cluster
 
-Matt requires R.utils package for Rscript so load the rtest envi
+Matt requires R.utils package for Rscript so load the rtest environment:
+```bash
+ml Anaconda2
+#create conda environment
+source activate rtest
+# load R & load R.utils pacakge
+R
+library("R.utils")
+# quit R
+q()
+
+#to deactivate environment
+> source deactivate
+
 
 Access help pages:
 `matt`
@@ -712,7 +725,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNDAzMzI0NSwtMjc4Nzk4NDM0LDM0Nj
+eyJoaXN0b3J5IjpbMTI5MjAyMjM1NCwtMjc4Nzk4NDM0LDM0Nj
 kyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5
 OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mj
 k3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0
