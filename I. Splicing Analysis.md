@@ -347,6 +347,10 @@ Matt usage goes through  **two phases**:
 1. Data preparation: Fit the output from other programs, e.g., VASTOOLS estimation of inclusion levels of alternative splicing events, to the input format of Matt analyses
 2. Data analysis: 
 
+Though the main focus of working with Matt are the high-level analyses, Matt offers commands for data preparation/table manipulation within the same framework, too. The motivation for this is to prevent users from implementing many highly similar scripts by themselves for standard preprocessing steps like defining groups of exons/introns to be compared with each other, extracting genomic sequences or stratifying data sets. In addition, users can use and combine with Matt any other tool for manipulating tables, e.g., other scripting languages like Awk, Sed, etc. or even LibreOffice Calc or Excel. Some analysis commands produce **reports as PDF documents, PDF graphics, or web pages** summarizing the results.
+
+To make the work with Matt more efficient,  **many Matt commands are designed to be combined by piping**. Exploiting this capability improves the work experience with Matt.
+
 Input file = Output from Combine command in VAST-TOOL (file called INCLUSION_LEVELS_FULL-Hsa6-hg19.tab)
 
 The workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis (50 intron features).
@@ -700,11 +704,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3ODc5ODQzNCwzNDY5MjA0MjQsLTkxNj
-E1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OTAz
-LDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xOD
-U3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4
-NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNiwtNzI0OTg0OTk5LD
-E3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3NTg1OTk5OSwxMTc4
-OTgxMDIyXX0=
+eyJoaXN0b3J5IjpbLTEyNDA2ODI5MTQsLTI3ODc5ODQzNCwzND
+Y5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUz
+OTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xND
+I5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0
+NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNi
+wtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3
+NTg1OTk5OV19
 -->
