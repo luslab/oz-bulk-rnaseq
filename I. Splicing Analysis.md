@@ -199,7 +199,6 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -sp Hsa"
 done
 ```
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align ~/working/oliver/projects/airals/reads/D7_samples/SRR5483788_1.fastq -sp Hsa"
 
 ## Merging Outputs
 https://github.com/vastgroup/vast-tools#merging-outputs
@@ -212,8 +211,8 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 #Prepare config_file from sample group txt file (needs 2 columns: fastq file name & group separated by a tab)
 awk '{print $3"\t"$2}' /home/camp/ziffo/working/oliver/scripts/intron_retention/VASTOOLS_merge_groups.txt | tail -31 > /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/config_file
 
-CONFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/config_file
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out
+CONFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/config_file
+OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 
 #Run it -- takes about 10 minutes on the 31 samples
 vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa --move_to_PARTS
@@ -224,7 +223,7 @@ ml R
 https://github.com/vastgroup/vast-tools#combining-results
 
 About 2G of memory required; completed in about 10 min
-Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz` (if using old legacy version) or 5 tables in v.2.0.0. This is the table that you send to differential splicing command. Can specify hg38. The output directory contains the sub-folders to combine. 
+Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz` (if using old legacy version) or 5 tables in v.2.0.0. This is the table that you send to differential splicing command. **specify hg38**. The output directory contains the sub-folders to combine. 
 ```bash
 #move to to_combine directory with merged aligned files
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/to_combine
@@ -758,11 +757,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjg1NzY0NDgsODAxNjU2NDU3LC0xMT
-Y2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkxOTYwNCwtNzIzMzcx
-MDczLC05NzQ2ODcxNTEsMTUzODMxMTc5NywtMTQxMDU5NjQyMy
-wxNTQxNDcxODY3LDE1MzgwNDM0MzgsMTA3Mzc3MTUzNiwtMjEx
-NzIwOTQ5MSwtMjExNDA1Mjg0MiwtMTQ3NjEzMDkzLC0xNzQyNz
-AyNTc2LC0yNzg3OTg0MzQsMzQ2OTIwNDI0LC05MTYxNTczNzMs
-OTU0OTY0NzA0XX0=
+eyJoaXN0b3J5IjpbLTc3OTUzOTY3OCwtMTM2ODU3NjQ0OCw4MD
+E2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5
+NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNzk3LC
+0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDcz
+NzcxNTM2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MT
+MwOTMsLTE3NDI3MDI1NzYsLTI3ODc5ODQzNCwzNDY5MjA0MjQs
+LTkxNjE1NzM3M119
 -->
