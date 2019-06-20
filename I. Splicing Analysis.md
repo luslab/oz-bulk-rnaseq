@@ -428,18 +428,17 @@ Write a table with columns containing the feature values & extracted sequence of
 
 
 
-`matt get_colnms ir_events.tab`
-```r
+`
+```bash
+#print columns in ir
+matt get_colnms ir_events.tab`
 awk '{ print $1, $87 }' ir_events.tab
 ```
 
 `matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
 
-
-### Extract Gene IDs
-[http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
-
-matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
+### Compare Introns
+[http://matt.crg.eu/#cmpr_introns](http://matt.crg.eu/#cmpr_introns)
 
 
 
@@ -751,7 +750,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2Nzk0OTQyNCwxNTM4MzExNzk3LC0xND
+eyJoaXN0b3J5IjpbMjAxODYzMzkyNSwxNTM4MzExNzk3LC0xND
 EwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcx
 NTM2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MTMwOT
 MsLTE3NDI3MDI1NzYsLTI3ODc5ODQzNCwzNDY5MjA0MjQsLTkx
