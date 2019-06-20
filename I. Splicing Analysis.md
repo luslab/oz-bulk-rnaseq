@@ -384,11 +384,11 @@ NB to deactivate environment:
 With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-TOOLS combine command:
 
 ```bash
-# extract all intron retention events & PSI values (min, max & mean) from vast tools output table
+# extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
  matt get_vast INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C 
      -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b RR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
 
-across all samples, across samples -a kd1,kd2, across samples -b ctr1,ctr2, and dPSIs for the comparison of samples -a vs samples -b. In order to be considered in these calculations, PSI values need to have a minimum quality flag of LOW in samples -a and -b and N across all other samples. If for certain events no PSI values are left, NA is output.
+If for certain events no PSI values are left, NA is output.
 
 The user can augment the result table (e.g. ir_events.tab) with gene IDs extracted from any given gene annotation (e.g. GTF file Hsa19.gtf with gene ids in field gene_id) by
 
@@ -760,7 +760,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNjcyODUwOSwtMjExNDA1Mjg0MiwtMT
+eyJoaXN0b3J5IjpbMTcwNzYyNjU1NiwtMjExNDA1Mjg0MiwtMT
 Q3NjEzMDkzLC0xNzQyNzAyNTc2LC0yNzg3OTg0MzQsMzQ2OTIw
 NDI0LC05MTYxNTczNzMsOTU0OTY0NzA0LC0xNTg3NDk1Mzk5LD
 c0OTE5NjkwMywxMDgzMDU3MzUxLDI4NTAzMTU0OCwtMTQyOTcw
