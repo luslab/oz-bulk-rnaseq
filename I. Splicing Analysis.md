@@ -415,18 +415,18 @@ will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categor
 ### Intron Features
 [http://matt.crg.eu/#get_ifeatures](http://matt.crg.eu/#get_ifeatures)
 `matt get_ifeatures`
+To get an overview of all the intron features
+`matt get_ifeatures explain`
+For intron features help page:
+`matt get_ifeatures help`
 
-Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). If the table does not yet contain gene IDs (i.e. didnt use GTF flag in `get_vast`), you can use  [retr_geneids](http://matt.crg.eu/#retr_geneids)  to extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes.
+Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). If the table does not yet contain gene IDs (i.e. didnt use GTF flag in `get_vast`), use [retr_geneids](http://matt.crg.eu/#retr_geneids)  to extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes.
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
 
-To get an overview of all the intron features
-`matt get_ifeatures explain`
-
 Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply  [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
-For intron features help page:
-`matt get_ifeatures help`
+
 
 `matt get_colnms ir_events.tab`
 ```r
@@ -751,11 +751,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzODMxMTc5NywtMTQxMDU5NjQyMywxNT
-QxNDcxODY3LDE1MzgwNDM0MzgsMTA3Mzc3MTUzNiwtMjExNzIw
-OTQ5MSwtMjExNDA1Mjg0MiwtMTQ3NjEzMDkzLC0xNzQyNzAyNT
-c2LC0yNzg3OTg0MzQsMzQ2OTIwNDI0LC05MTYxNTczNzMsOTU0
-OTY0NzA0LC0xNTg3NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3Mz
-UxLDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMzNjgxMiwt
-MTkyMjk2MzEzMV19
+eyJoaXN0b3J5IjpbLTU2Nzk0OTQyNCwxNTM4MzExNzk3LC0xND
+EwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcx
+NTM2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MTMwOT
+MsLTE3NDI3MDI1NzYsLTI3ODc5ODQzNCwzNDY5MjA0MjQsLTkx
+NjE1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OT
+AzLDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0x
+ODU3MzM2ODEyXX0=
 -->
