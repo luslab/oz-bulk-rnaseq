@@ -422,7 +422,7 @@ For intron features help page:
 
 Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). If the table does not yet contain gene IDs (i.e. didnt use GTF flag in `get_vast`), use [retr_geneids](http://matt.crg.eu/#retr_geneids)  to extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes.
 ```bash
-matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
+matt retr_geneids ir_events.tab START END ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id
 ```
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
@@ -757,11 +757,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTQyOTYxNywtNzIzMzcxMDczLC05Nz
-Q2ODcxNTEsMTUzODMxMTc5NywtMTQxMDU5NjQyMywxNTQxNDcx
-ODY3LDE1MzgwNDM0MzgsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MS
-wtMjExNDA1Mjg0MiwtMTQ3NjEzMDkzLC0xNzQyNzAyNTc2LC0y
-Nzg3OTg0MzQsMzQ2OTIwNDI0LC05MTYxNTczNzMsOTU0OTY0Nz
-A0LC0xNTg3NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3MzUxLDI4
-NTAzMTU0OF19
+eyJoaXN0b3J5IjpbNTM2MjQ4MjU1LC03MjMzNzEwNzMsLTk3ND
+Y4NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4
+NjcsMTUzODA0MzQzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC
+0yMTE0MDUyODQyLC0xNDc2MTMwOTMsLTE3NDI3MDI1NzYsLTI3
+ODc5ODQzNCwzNDY5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MD
+QsLTE1ODc0OTUzOTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1
+MDMxNTQ4XX0=
 -->
