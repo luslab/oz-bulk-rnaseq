@@ -217,13 +217,14 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_too
 #Run it -- takes about 10 minutes on the 31 samples
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa"
 ```
+The output files from `merge` are in `to_combine/`
 
 ## Combining results
 ml R
 https://github.com/vastgroup/vast-tools#combining-results
 
 About 2G of memory required; completed in about 10 min
-Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz` (if using old legacy version) or 5 tables in v.2.0.0. This is the table that you send to differential splicing command. **Option to specify hg38 (default hg19)**. The output directory contains the sub-folders to combine. 
+Combine aligned files that are stored in the folders `to_combine`  to form one final table called `INCLUSION_LEVELS_FULL-Hsa6-hg19.tabz` (if using old legacy version) or 5 tables in v.2.0.0. This is the table that you send to differential splicing command (and to Matt). **Option to specify hg38 (default hg19)**. The output directory contains the sub-folders to combine. 
 ```bash
 #move to to_combine directory with merged aligned files
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/to_combine
@@ -755,11 +756,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxND
-gwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OCw4MDE2NTY0
-NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5NjA0LC
-03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNzk3LC0xNDEw
-NTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcxNT
-M2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MTMwOTMs
-LTE3NDI3MDI1NzZdfQ==
+eyJoaXN0b3J5IjpbLTE1MjQ1MjkzODEsMjc1NTE0NTgyLC0yMD
+U2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3
+NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4Ny
+wyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4
+MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0Mz
+QzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQy
+LC0xNDc2MTMwOTNdfQ==
 -->
