@@ -385,10 +385,9 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
+# augment the output with gene IDs from GTF annotaiton used by vastools
  matt get_vast INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C 
      -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b RR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab
-
-If for certain events no PSI values are left, NA is output.
 
 The user can augment the result table (e.g. ir_events.tab) with gene IDs extracted from any given gene annotation (e.g. GTF file Hsa19.gtf with gene ids in field gene_id) by
 
@@ -760,11 +759,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNzYyNjU1NiwtMjExNDA1Mjg0MiwtMT
-Q3NjEzMDkzLC0xNzQyNzAyNTc2LC0yNzg3OTg0MzQsMzQ2OTIw
-NDI0LC05MTYxNTczNzMsOTU0OTY0NzA0LC0xNTg3NDk1Mzk5LD
-c0OTE5NjkwMywxMDgzMDU3MzUxLDI4NTAzMTU0OCwtMTQyOTcw
-NDYwNywtMTg1NzMzNjgxMiwtMTkyMjk2MzEzMSw4MTc4NDQyMT
-csLTk3Mzg3ODQ4MiwtODk5NTkyNjA4LC00MDI3OTkwMTYsLTcy
-NDk4NDk5OV19
+eyJoaXN0b3J5IjpbLTIxMTcyMDk0OTEsLTIxMTQwNTI4NDIsLT
+E0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0LDM0Njky
+MDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5OS
+w3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mjk3
+MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0Mj
+E3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03
+MjQ5ODQ5OTldfQ==
 -->
