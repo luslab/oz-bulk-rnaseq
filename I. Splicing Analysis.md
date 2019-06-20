@@ -404,7 +404,7 @@ INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/
 
 matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 
-matt get_match ir_events.tab EVENT mapping_EVENT2GENEID.tab EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab -
+matt get_match ir_events.tab EVENT mapping_EVENT2GENEID.tab EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab
 
 matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf -f gene_id
 
@@ -777,11 +777,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQyNDEzODI0LDE5Nzg0MzgzNzYsLTEzNT
-E1MTgwNjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgy
-LC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMT
-M2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0
-NDY4NywyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MS
-wxNTM4MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUz
-ODA0MzQzOF19
+eyJoaXN0b3J5IjpbMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MT
+UxODA2MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIs
+LTIwNTYxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMz
+Y4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0
+Njg3LDIxMzg5MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLD
+E1MzgzMTE3OTcsLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4
+MDQzNDM4XX0=
 -->
