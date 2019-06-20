@@ -217,7 +217,7 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_too
 #Run it -- takes about 10 minutes on the 31 samples
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa"
 ```
-The output files from `merge` are in `to_combine/`
+The output files from `merge` are in `to_combine/` and named according to their group name from the `CONFILE`
 
 ## Combining results
 ml R
@@ -756,7 +756,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjQ1MjkzODEsMjc1NTE0NTgyLC0yMD
+eyJoaXN0b3J5IjpbLTEwNzgyODc5MzMsMjc1NTE0NTgyLC0yMD
 U2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3
 NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4Ny
 wyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4
