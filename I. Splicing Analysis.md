@@ -343,9 +343,10 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 
 Matt is a **Unix command-line toolkit** for analyzing genomic sequences with focus on the down-stream analysis of alternative splicing events. Being a POSIX-style command-line toolkit, Matt runs on the terminal of any Unix-like system. **Matt is modular**: It comprises many commands, each of which tailored to one specific task. Combining commands allows the user to solve complex tasks:  **The whole is more than the sum of its parts**. Matt works on tables as its data structure, where rows correspond to objects, e.g., exons, genes, etc., and columns correspond to features of these objects.
 
-Matt usage goes through  **two phases**.
+Matt usage goes through  **two phases**:
+1. Data preparation: Fit the output from other programs, e.g., VASTOOLS estimation of inclusion levels of alternative splicing events, to the input format of Matt analyses
+2. Data analysis: 
 
-Two phases: Data preparation > Data analysis.
 Input file = Output from Combine command in VAST-TOOL (file called INCLUSION_LEVELS_FULL-Hsa6-hg19.tab)
 
 The workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis (50 intron features).
@@ -699,7 +700,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NjczMDAzMSwzNDY5MjA0MjQsLTkxNj
+eyJoaXN0b3J5IjpbLTI3ODc5ODQzNCwzNDY5MjA0MjQsLTkxNj
 E1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUzOTksNzQ5MTk2OTAz
 LDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xNDI5NzA0NjA3LC0xOD
 U3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0NDIxNywtOTczODc4
