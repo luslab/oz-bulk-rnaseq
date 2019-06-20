@@ -400,7 +400,14 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
-matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
+INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+
+
+matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
+
+matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf -f gene_id
+
+
 # specify minimum quality flag as LOW
 matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 # augment the output with gene IDs from Hg 19 GTF annotaiton used by vastools
@@ -435,7 +442,7 @@ For intron features help page:
 
 Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). If the table does not yet contain gene IDs (i.e. didnt use GTF flag in `get_vast`), use [retr_geneids](http://matt.crg.eu/#retr_geneids)  to extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes.
 ```bash
-matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf -f gene_id
+
 ```
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
@@ -769,11 +776,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3ODQzODM3NiwtMTM1MTUxODA2MywyMD
-I5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4
-MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LD
-gwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5
-MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3OT
-csLTE0MTA1OTY0MjMsMTU0MTQ3MTg2NywxNTM4MDQzNDM4LDEw
-NzM3NzE1MzZdfQ==
+eyJoaXN0b3J5IjpbMTMwMzc3OTg4MywxOTc4NDM4Mzc2LC0xMz
+UxNTE4MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4
+MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLT
+EzNjg1NzY0NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3
+NDQ2ODcsMjEzODkxOTYwNCwtNzIzMzcxMDczLC05NzQ2ODcxNT
+EsMTUzODMxMTc5NywtMTQxMDU5NjQyMywxNTQxNDcxODY3LDE1
+MzgwNDM0MzhdfQ==
 -->
