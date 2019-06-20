@@ -347,7 +347,7 @@ Matt usage goes through  **two phases**:
 1. Data preparation: Fit the output from other programs, e.g., VASTOOLS estimation of inclusion levels of alternative splicing events, to the input format of Matt analyses
 2. Data analysis: 
 
-Though the main focus of working with Matt are the high-level analyses, Matt offers commands for data preparation/table manipulation within the same framework, too. The motivation for this is to prevent users from implementing many highly similar scripts by themselves for standard preprocessing steps like defining groups of exons/introns to be compared with each other, extracting genomic sequences or stratifying data sets. In addition, users can use and combine with Matt any other tool for manipulating tables, e.g., other scripting languages like Awk, Sed, etc. or even LibreOffice Calc or Excel. Some analysis commands produce **reports as PDF documents, PDF graphics, or web pages** summarizing the results.
+The main focus of Matt is high-level analyses, but Matt also offers commands for data preparation/table manipulation within the same framework, too. The motivation for this is to prevent users from implementing many highly similar scripts by themselves for standard preprocessing steps like defining groups of exons/introns to be compared with each other, extracting genomic sequences or stratifying data sets. In addition, users can use and combine with Matt any other tool for manipulating tables, e.g., other scripting languages like Awk, Sed, etc. or even LibreOffice Calc or Excel. Some analysis commands produce **reports as PDF documents, PDF graphics, or web pages** summarizing the results.
 
 To make the work with Matt more efficient,  **many Matt commands are designed to be combined by piping**. Exploiting this capability improves the work experience with Matt.
 
@@ -704,11 +704,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDA2ODI5MTQsLTI3ODc5ODQzNCwzND
-Y5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUz
-OTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xND
-I5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0
-NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNi
-wtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3
-NTg1OTk5OV19
+eyJoaXN0b3J5IjpbMTc0MDE2NjAzOSwtMjc4Nzk4NDM0LDM0Nj
+kyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5
+OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mj
+k3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0
+MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC
+03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1
+ODU5OTk5XX0=
 -->
