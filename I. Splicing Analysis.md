@@ -405,6 +405,7 @@ GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
 
 matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
 
+# add mapping table as another was to add gene IDs
 MAP=~/working/oliver/bin/matt/mapping_EVENT2GENEID.tab
 
 matt get_match ir_events.tab EVENT $MAP EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab ir_events.tab ENSEMBL_GENEID
@@ -777,11 +778,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTI3NTI1NDEsMzE3MzIwNywxNDA2MT
-EzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYs
-LTEzNTE1MTgwNjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NT
-E0NTgyLC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTEx
-OSwtMTM2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLT
-E3MDc0NDY4NywyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4
-NzE1MV19
+eyJoaXN0b3J5IjpbMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMT
+M0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3Niwt
+MTM1MTUxODA2MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MT
+Q1ODIsLTIwNTYxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5
+LC0xMzY4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMT
+cwNzQ0Njg3LDIxMzg5MTk2MDQsLTcyMzM3MTA3MywtOTc0Njg3
+MTUxXX0=
 -->
