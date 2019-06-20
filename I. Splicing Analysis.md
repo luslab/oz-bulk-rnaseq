@@ -390,7 +390,7 @@ matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCL
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf > ir_events.tab
 ```
 
-The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. Of course do the chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file.
+The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file.
 
 Generally, the workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with  [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with  [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis.
 
@@ -755,11 +755,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MTQ3MTg2NywxNTM4MDQzNDM4LDEwNz
-M3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQwNTI4NDIsLTE0NzYx
-MzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4NDM0LDM0NjkyMDQyNC
-wtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5OSw3NDkx
-OTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MD
-csLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05
-NzM4Nzg0ODJdfQ==
+eyJoaXN0b3J5IjpbMTUxNzM2MDE5NCwxNTQxNDcxODY3LDE1Mz
+gwNDM0MzgsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MSwtMjExNDA1
+Mjg0MiwtMTQ3NjEzMDkzLC0xNzQyNzAyNTc2LC0yNzg3OTg0Mz
+QsMzQ2OTIwNDI0LC05MTYxNTczNzMsOTU0OTY0NzA0LC0xNTg3
+NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3MzUxLDI4NTAzMTU0OC
+wtMTQyOTcwNDYwNywtMTg1NzMzNjgxMiwtMTkyMjk2MzEzMSw4
+MTc4NDQyMTddfQ==
 -->
