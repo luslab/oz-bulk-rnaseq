@@ -401,8 +401,9 @@ With INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b. To be considered in these calculations, PSI values need to have a minimum quality flag of LOW across all samples
 INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
 
-matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
+matt get_vast $INFILE -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
 
 MAP=~/working/oliver/bin/matt/mapping_EVENT2GENEID.tab
 
@@ -414,7 +415,7 @@ matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genom
 # specify minimum quality flag as LOW
 matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
 # augment the output with gene IDs from Hg 19 GTF annotaiton used by vastools
-matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf > ir_events.tab
+matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf  > ir_events.tab
 ```
 The output table ir_events.tab column GENEID should have the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step - Hsa19 = Hg19.
 
@@ -779,11 +780,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3OD
-QzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC03NjQyMzAx
-OSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAyNTQwLC0xMz
-A1MTI5MTE5LC0xMzY4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5
-MTE3MCwtMTcwNzQ0Njg3LDIxMzg5MTk2MDQsLTcyMzM3MTA3My
-wtOTc0Njg3MTUxLDE1MzgzMTE3OTcsLTE0MTA1OTY0MjMsMTU0
-MTQ3MTg2N119
+eyJoaXN0b3J5IjpbLTEyOTcyNTkxOTQsLTE5NDg1NDc2MTUsMT
+A1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2MywyMDI5MDIy
+NjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMj
+E0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LDgwMTY1
+NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5MTk2MD
+QsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3OTcsLTE0
+MTA1OTY0MjNdfQ==
 -->
