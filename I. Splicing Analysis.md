@@ -349,6 +349,8 @@ Matt usage goes through  **two phases**:
 
 The main focus of Matt is high-level analyses, but Matt also offers commands for data preparation/table manipulation. Commands produce **reports as PDF documents, PDF graphics, or web pages** summarizing the results.
 
+To make the work with Matt more efficient,  **many Matt commands are designed to be combined by piping**. Exploiting this capability improves the work experience with Matt.
+
 ## Load R environment on cluster
 
 Matt requires R.utils package for Rscript so load the rtest environment:
@@ -361,23 +363,22 @@ R
 library("R.utils")
 # quit R
 q()
-
-#to deactivate environment
-> source deactivate
-
-
+```
 Access help pages:
 `matt`
 `matt COMMAND`
 
-To make the work with Matt more efficient,  **many Matt commands are designed to be combined by piping**. Exploiting this capability improves the work experience with Matt.
+Now progress to next step.
+
+NB to deactivate environment:
+`source deactivate rtest`
+
+## Import VAST-TOOLS results tables
+[http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
 Input file = Output from Combine command in VAST-TOOL (file called INCLUSION_LEVELS_FULL-Hsa6-hg19.tab)
 
 The workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis (50 intron features).
-
-## Import VAST-TOOLS results tables
-[http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
 Use the get_vast command to extract all intron retention events (IR, IR-S, IR-C) across samples 
 
@@ -725,11 +726,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5MjAyMjM1NCwtMjc4Nzk4NDM0LDM0Nj
-kyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5
-OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mj
-k3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0
-MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC
-03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1
-ODU5OTk5XX0=
+eyJoaXN0b3J5IjpbLTE3NDI3MDI1NzYsLTI3ODc5ODQzNCwzND
+Y5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUz
+OTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xND
+I5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0
+NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNi
+wtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3
+NTg1OTk5OV19
 -->
