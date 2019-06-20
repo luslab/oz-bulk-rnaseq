@@ -193,7 +193,7 @@ FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D21_samples/SRR*_1.f
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D35_samples/SRR*_1.fastq
 FASTQ=/home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/SRR*_1.fastq
 
-#run vast-tools on each FASTQ file separately at each time point. Dont specify output as all files need to be in same subfolder > output auto goes into a folder called vast_out. Run from the vast-tools directory
+#run vast-tools on each FASTQ file separately at each time point. Dont specify output as all files need to be in same subfolder > output auto goes into a folder called vast_out. Run from the vast-tools directory. Takes ~ 40mins per fastq.
 for SAMPLE in $FASTQ
 do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -sp Hsa"
@@ -755,11 +755,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyNjAyOTMwNywtMjA1NjExNTgxOCwyMT
-Q4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsODAxNjU2
-NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkxOTYwNC
-wtNzIzMzcxMDczLC05NzQ2ODcxNTEsMTUzODMxMTc5NywtMTQx
-MDU5NjQyMywxNTQxNDcxODY3LDE1MzgwNDM0MzgsMTA3Mzc3MT
-UzNiwtMjExNzIwOTQ5MSwtMjExNDA1Mjg0MiwtMTQ3NjEzMDkz
-LC0xNzQyNzAyNTc2XX0=
+eyJoaXN0b3J5IjpbMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxND
+gwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OCw4MDE2NTY0
+NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5NjA0LC
+03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4MzExNzk3LC0xNDEw
+NTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcxNT
+M2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MTMwOTMs
+LTE3NDI3MDI1NzZdfQ==
 -->
