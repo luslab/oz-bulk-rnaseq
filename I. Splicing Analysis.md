@@ -380,7 +380,6 @@ NB to deactivate environment:
 
 `matt get_vast` command is tailored to the result tables of [VAST-TOOLS](https://github.com/vastgroup/vast-tools). Use this command to transform the output table from VAST-TOOLS into Matt format and extract sub-sets of reported alternative splicing events. VAST-TOOLs reports skipped exons, retained introns, alt3, alt5 events in one output table together with estimated PSI values across several data sets. Matt allows you to retrieve form this table events of specific types (skipped exons, retained introns, Alt3, Alt5) or events that have a PSI value within a user specified range across all samples. 
 
-Before you run a high-level analysis you might need to defined groups of events (e.g. up-regulated vs down-regulated skipped exons) with Matt function [def_cats](http://matt.crg.eu/#def_cats) applied to the result table of [get_vast](http://matt.crg.eu/#get_vast). More information on the format of the VAST-TOOLs output table can be found [here](https://github.com/vastgroup/vast-tools#combine-output-format).
 
 Input file = Output from Combine command in VAST-TOOL (file called INCLUSION_LEVELS_FULL-Hsa6-hg19.tab)
 
@@ -395,6 +394,12 @@ also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to us
 `matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id > ir_events.tab`
 
 `matt get_colnms ir_events.tab`
+
+### Define Groups
+`matt def_cats`
+
+Before you run a high-level analysis you might need to define groups of events (e.g. up-regulated vs down-regulated retained introns) with Matt function [def_cats](http://matt.crg.eu/#def_cats) applied to the result table of [get_vast](http://matt.crg.eu/#get_vast). More information on the format of the VAST-TOOLs output table can be found [here](https://github.com/vastgroup/vast-tools#combine-output-format).
+
 
 ## Extract Gene IDs
 [http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
@@ -732,11 +737,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MDA5Nzg5NywtMTQ3NjEzMDkzLC0xNz
-QyNzAyNTc2LC0yNzg3OTg0MzQsMzQ2OTIwNDI0LC05MTYxNTcz
-NzMsOTU0OTY0NzA0LC0xNTg3NDk1Mzk5LDc0OTE5NjkwMywxMD
-gzMDU3MzUxLDI4NTAzMTU0OCwtMTQyOTcwNDYwNywtMTg1NzMz
-NjgxMiwtMTkyMjk2MzEzMSw4MTc4NDQyMTcsLTk3Mzg3ODQ4Mi
-wtODk5NTkyNjA4LC00MDI3OTkwMTYsLTcyNDk4NDk5OSwxNzY5
-MjQwNzExXX0=
+eyJoaXN0b3J5IjpbLTIxMTQwNTI4NDIsLTE0NzYxMzA5MywtMT
+c0MjcwMjU3NiwtMjc4Nzk4NDM0LDM0NjkyMDQyNCwtOTE2MTU3
+MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5OSw3NDkxOTY5MDMsMT
+A4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mjk3MDQ2MDcsLTE4NTcz
+MzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0MjE3LC05NzM4Nzg0OD
+IsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC03MjQ5ODQ5OTksMTc2
+OTI0MDcxMV19
 -->
