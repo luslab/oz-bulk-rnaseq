@@ -199,7 +199,7 @@ do
 	sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align $SAMPLE -sp Hsa"
 done
 ```
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align /home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples -sp Hsa"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools align ~/working/oliver/projects/airals/reads/D0_samples/SRR5483800_1.fastq -sp Hsa"
 
 ## Merging Outputs
 https://github.com/vastgroup/vast-tools#merging-outputs
@@ -758,7 +758,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MTg1NTI2OCw4MDE2NTY0NTcsLTExNj
+eyJoaXN0b3J5IjpbMTExOTU3MzA5Niw4MDE2NTY0NTcsLTExNj
 Y3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5NjA0LC03MjMzNzEw
 NzMsLTk3NDY4NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2NDIzLD
 E1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcxNTM2LC0yMTE3
