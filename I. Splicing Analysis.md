@@ -349,6 +349,10 @@ Matt usage goes through  **two phases**:
 
 The main focus of Matt is high-level analyses, but Matt also offers commands for data preparation/table manipulation. Commands produce **reports as PDF documents, PDF graphics, or web pages** summarizing the results.
 
+## Load R environment on cluster
+
+Matt requires R.utils package for Rscript so load the rtest envi
+
 Access help pages:
 `matt`
 `matt COMMAND`
@@ -708,11 +712,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjg3MzM0NjEsLTI3ODc5ODQzNCwzND
-Y5MjA0MjQsLTkxNjE1NzM3Myw5NTQ5NjQ3MDQsLTE1ODc0OTUz
-OTksNzQ5MTk2OTAzLDEwODMwNTczNTEsMjg1MDMxNTQ4LC0xND
-I5NzA0NjA3LC0xODU3MzM2ODEyLC0xOTIyOTYzMTMxLDgxNzg0
-NDIxNywtOTczODc4NDgyLC04OTk1OTI2MDgsLTQwMjc5OTAxNi
-wtNzI0OTg0OTk5LDE3NjkyNDA3MTEsLTE5NDY4NzM4OTQsLTE3
-NTg1OTk5OV19
+eyJoaXN0b3J5IjpbLTMwNDAzMzI0NSwtMjc4Nzk4NDM0LDM0Nj
+kyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4NzQ5NTM5
+OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1NDgsLTE0Mj
+k3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEsODE3ODQ0
+MjE3LC05NzM4Nzg0ODIsLTg5OTU5MjYwOCwtNDAyNzk5MDE2LC
+03MjQ5ODQ5OTksMTc2OTI0MDcxMSwtMTk0Njg3Mzg5NCwtMTc1
+ODU5OTk5XX0=
 -->
