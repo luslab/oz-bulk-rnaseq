@@ -319,11 +319,11 @@ INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_t
 ```
 Run the Compare TIME-EFFECT section of the script in `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
 This performs the VAST-tools Compare & Diff commands on each of the WT & VCP time-point comparisons
-```r
+```bash
 SAMPLE_A=VCP.d0
 SAMPLE_B=VCP.d7
-mkdir /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect/VCP_d7
-OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect/VCP_d7
+mkdir ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/time_effect
+OUT=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect/VCP_d7
 cp $INFILE .
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i ${INFILE} -c 8 -a ${SAMPLE_A} -b ${SAMPLE_B} -o ${OUT} -d INCLUSION-FILTERED"
@@ -770,11 +770,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1Nj
-ExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0
-NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMj
-EzODkxOTYwNCwtNzIzMzcxMDczLC05NzQ2ODcxNTEsMTUzODMx
-MTc5NywtMTQxMDU5NjQyMywxNTQxNDcxODY3LDE1MzgwNDM0Mz
-gsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MSwtMjExNDA1Mjg0Miwt
-MTQ3NjEzMDkzXX0=
+eyJoaXN0b3J5IjpbMTc4MzM0MjgwOSwtNzY0MjMwMTksMjc1NT
+E0NTgyLC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTEx
+OSwtMTM2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLT
+E3MDc0NDY4NywyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4
+NzE1MSwxNTM4MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4Nj
+csMTUzODA0MzQzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC0y
+MTE0MDUyODQyXX0=
 -->
