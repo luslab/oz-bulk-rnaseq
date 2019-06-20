@@ -393,16 +393,7 @@ matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCL
 # augment the output with gene IDs from GTF annotaiton used by vastools
 matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf > ir_events.tab
 ```
-
-The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file.
-
-
-
-`matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 > ir_events.tab`
-
-also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to use Hsa Ensembl GTF to match VASTOOLS alignment step
-
-`matt get_vast ~/working/oliver/projects/airals/splicing/vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa6-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a SRR5483788_1,SRR5483789_1,SRR5483790_1 -b SRR5483794_1,SRR5483795_1,SRR5483796_1 -gtf ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf -f gene_id > ir_events.tab`
+The output table ir_events.tab will have one additional column GENEID with the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step
 
 `matt get_colnms ir_events.tab`
 
@@ -411,6 +402,17 @@ also extract Gene IDs from GTD file used for alignment in VAST-TOOLS. Need to us
 
 Before you run a high-level analysis you might need to define groups of events (e.g. up-regulated vs down-regulated retained introns) with Matt function [def_cats](http://matt.crg.eu/#def_cats) applied to the result table of [get_vast](http://matt.crg.eu/#get_vast). More information on the format of the VAST-TOOLs output table can be found [here](https://github.com/vastgroup/vast-tools#combine-output-format).
 
+
+**Description:** Use this command (define categories) for creating a new column with some kind of group IDs. Generally, rows of table corresponds to events, while columns correspond to their features. Hence, you define group IDs (one for each row) wrt. entries in the feature columns using the same constraint syntax as used with command [get_rows](http://matt.crg.eu/#get_rows).
+
+This command is important as many analyses essentially compare some groups of items (e.g. groups of exons, introns, sequences, or more), hence, the user needs to defined the groups to be compared.  
+  
+**Example:**  With  [t1.tab](http://matt.crg.eu/#TB)  being the table from above
+
+> matt def_cats t1.tab GROUP2 'g1=START[0,5000000] STRAND]+[' 
+     'g2=START[0,5000000] !STRAND]+[' 'g3=START[5000001,10000000]'
+
+will output a table with column GROUP2 with group IDs g1, g1, g2, g3, g1 categorizing each micro exon in table t1.tab wrt. the defined constraints.
 
 ## Extract Gene IDs
 [http://matt.crg.eu/#retr_geneids](http://matt.crg.eu/#retr_geneids)
@@ -748,11 +750,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4ODY4MjM0OSwxNTQxNDcxODY3LDE1Mz
-gwNDM0MzgsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MSwtMjExNDA1
-Mjg0MiwtMTQ3NjEzMDkzLC0xNzQyNzAyNTc2LC0yNzg3OTg0Mz
-QsMzQ2OTIwNDI0LC05MTYxNTczNzMsOTU0OTY0NzA0LC0xNTg3
-NDk1Mzk5LDc0OTE5NjkwMywxMDgzMDU3MzUxLDI4NTAzMTU0OC
-wtMTQyOTcwNDYwNywtMTg1NzMzNjgxMiwtMTkyMjk2MzEzMSw4
-MTc4NDQyMTddfQ==
+eyJoaXN0b3J5IjpbLTE2NDEwMzM1MTcsMTU0MTQ3MTg2NywxNT
+M4MDQzNDM4LDEwNzM3NzE1MzYsLTIxMTcyMDk0OTEsLTIxMTQw
+NTI4NDIsLTE0NzYxMzA5MywtMTc0MjcwMjU3NiwtMjc4Nzk4ND
+M0LDM0NjkyMDQyNCwtOTE2MTU3MzczLDk1NDk2NDcwNCwtMTU4
+NzQ5NTM5OSw3NDkxOTY5MDMsMTA4MzA1NzM1MSwyODUwMzE1ND
+gsLTE0Mjk3MDQ2MDcsLTE4NTczMzY4MTIsLTE5MjI5NjMxMzEs
+ODE3ODQ0MjE3XX0=
 -->
