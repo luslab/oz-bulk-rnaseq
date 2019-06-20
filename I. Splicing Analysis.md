@@ -414,8 +414,6 @@ matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genom
 
 # specify minimum quality flag as LOW
 matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 > ir_events.tab
-# augment the output with gene IDs from Hg 19 GTF annotaiton used by vastools
-matt get_vast ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf  > ir_events.tab
 ```
 The output table ir_events.tab column GENEID should have the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step - Hsa19 = Hg19.
 
@@ -445,9 +443,6 @@ For intron features help page:
 `matt get_ifeatures help`
 
 Use get_ifeatures command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). If the table does not yet contain gene IDs (i.e. didnt use GTF flag in `get_vast`), use [retr_geneids](http://matt.crg.eu/#retr_geneids)  to extracting gene IDs from any GTF file for given genomic events, like exons, introns, genes.
-```bash
-
-```
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
 
@@ -456,10 +451,10 @@ Use get_ifeatures command to retrieve 50 features of interest for introns. Intro
 #print columns in ir_events table
 matt get_colnms ir_events.tab
 #print column GENEID
-awk '{ print $55}' ir_events.tab 
+awk '{ print $39}' ir_events.tab 
 
 #run get_ifeatures
-matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf Homo_sapiens.GRCh37.dna.alt.fa Hsap > ifeatures.tab
+matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF Homo_sapiens.GRCh37.dna.alt.fa Hsap > ifeatures.tab
 ```
 
 
@@ -780,11 +775,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTcyNTkxOTQsLTE5NDg1NDc2MTUsMT
-A1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2MywyMDI5MDIy
-NjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMj
-E0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LDgwMTY1
-NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5MTk2MD
-QsLTcyMzM3MTA3MywtOTc0Njg3MTUxLDE1MzgzMTE3OTcsLTE0
-MTA1OTY0MjNdfQ==
+eyJoaXN0b3J5IjpbLTU4MzA0MTcyMCwtMTk0ODU0NzYxNSwxMD
+U0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2
+MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgxOCwyMT
+Q4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsODAxNjU2
+NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkxOTYwNC
+wtNzIzMzcxMDczLC05NzQ2ODcxNTEsMTUzODMxMTc5NywtMTQx
+MDU5NjQyM119
 -->
