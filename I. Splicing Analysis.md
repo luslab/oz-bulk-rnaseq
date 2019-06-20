@@ -424,18 +424,20 @@ Use get_ifeatures command to retrieve 50 features of interest for introns. Intro
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
 
-Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply  [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
-
-
-`
 ```bash
-#print columns in ir
-matt get_colnms ir_events.tab`
+#print columns in ir_events table
+matt get_colnms ir_events.tab
+
+matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab
+
 awk '{ print $1, $87 }' ir_events.tab
 ```
 
-`matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.96.gtf ~/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa Hsap -f gene_id > ifeatures.tab`
+
+
+Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply  [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
+
 
 ### Compare Introns
 [http://matt.crg.eu/#cmpr_introns](http://matt.crg.eu/#cmpr_introns)
@@ -750,7 +752,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxODYzMzkyNSwxNTM4MzExNzk3LC0xND
+eyJoaXN0b3J5IjpbLTk3NDY4NzE1MSwxNTM4MzExNzk3LC0xND
 EwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0MzQzOCwxMDczNzcx
 NTM2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQyLC0xNDc2MTMwOT
 MsLTE3NDI3MDI1NzYsLTI3ODc5ODQzNCwzNDY5MjA0MjQsLTkx
