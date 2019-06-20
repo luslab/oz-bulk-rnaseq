@@ -217,7 +217,9 @@ OUT=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_too
 #Run it -- takes about 10 minutes on the 31 samples
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools merge --groups ${CONFILE} --o $OUT --sp Hsa"
 ```
-The output files from `merge` are in `to_combine/` and named according to their group name from the `CONFILE`
+The output files from `merge` are in `to_combine/` and named according to their group name from the `CONFILE`. Need to remove the individual un-merged files:
+```bash
+cd 
 
 ## Combining results
 ml R
@@ -756,11 +758,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzgyODc5MzMsMjc1NTE0NTgyLC0yMD
-U2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3
-NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4Ny
-wyMTM4OTE5NjA0LC03MjMzNzEwNzMsLTk3NDY4NzE1MSwxNTM4
-MzExNzk3LC0xNDEwNTk2NDIzLDE1NDE0NzE4NjcsMTUzODA0Mz
-QzOCwxMDczNzcxNTM2LC0yMTE3MjA5NDkxLC0yMTE0MDUyODQy
-LC0xNDc2MTMwOTNdfQ==
+eyJoaXN0b3J5IjpbNTU1MzcyMDI2LDI3NTUxNDU4MiwtMjA1Nj
+ExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0
+NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMj
+EzODkxOTYwNCwtNzIzMzcxMDczLC05NzQ2ODcxNTEsMTUzODMx
+MTc5NywtMTQxMDU5NjQyMywxNTQxNDcxODY3LDE1MzgwNDM0Mz
+gsMTA3Mzc3MTUzNiwtMjExNzIwOTQ5MSwtMjExNDA1Mjg0Miwt
+MTQ3NjEzMDkzXX0=
 -->
