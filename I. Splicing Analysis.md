@@ -453,11 +453,9 @@ This writes a table with columns containing the feature values & extracted seque
 The input table describing introns needs to contain introns info in separate columns:
 1.  start coordinate
 2.  end coordinate
-3.  chromosome ID; these chromosome IDs must match with the chromosome IDs in the GTF and FASTA which you use
+3.  chromosome ID; these chromosome IDs must match with the chromosome IDs in the GTF and FASTA (Homo.gtf)
 4.  strand
-5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF which you use
-
-**Recommendation:**  use the GTF files from Ensembl as they also contain information on the gene types (coding, non-coding, etc.) as these information will get used as well.  
+5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF 
   
 **Example:**  With introns.tab being a table describing human introns with these columns (and maybe more)
 
@@ -789,11 +787,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NjQ2OTIxMSwxNTEzNjA3Mjk2LC0xMj
-IxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3
-NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOT
-Q4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgw
-NjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMD
-U2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3
-NjQ0OF19
+eyJoaXN0b3J5IjpbOTE5MjUyOTg3LDE1MTM2MDcyOTYsLTEyMj
+EzOTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1
+MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5ND
+g1NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2
+MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNT
+YxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2
+NDQ4XX0=
 -->
