@@ -473,13 +473,13 @@ press `q` to exit
 
 We need to use command  [get_vast](http://matt.crg.eu/#get_vast)  later which works with Vast-Tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5.  [get_vast](http://matt.crg.eu/#get_vast)  is  designed for extracting information from VAST-TOOLs output tables. It outputs an augmented table, from which we select only intron events by re-directing this table to the command  [get_rows](http://matt.crg.eu/#get_rows). The final output table gets re-directed into file introns.tab.
 ```bash
-matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH | matt get_rows - COMPLEX]IR,IR-C,IR-S[ > introns.tab
-
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
 matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH -gtf $GTF -f gene_id | matt get_rows - COMPLEX]IR,IR-C,IR-S[ | matt rn_cols - GENEID:ENSEMBL_GENEID > introns.tab
 
 matt get_colnms introns.tab
+# get idea of intron events
+matt col_uniq introns.tab COMPLEX
 
 ```
 
@@ -810,11 +810,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxODY5NzcyNSwyODE1ODg2MTUsLTE1NT
-gwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5
-NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNy
-wyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0
-NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLD
-IwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjEx
-NTgxOF19
+eyJoaXN0b3J5IjpbLTE5NDI1NDM0MTYsMjgxNTg4NjE1LC0xNT
+U4MDAwMjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEz
+OTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1Mz
+csMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1
+NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2My
+wyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYx
+MTU4MThdfQ==
 -->
