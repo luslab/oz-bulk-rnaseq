@@ -477,6 +477,8 @@ We need to use command  [get_vast](http://matt.crg.eu/#get_vast)  later which wo
 
 `matt get_colnms introns.tab`
 
+matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH -gtf $GTF -f gene_id | matt get_rows - TYPE]IR,IR-C[ | matt rn_cols - GENEID:ENSEMBL_GENEID > exons.tab
+
 #### Run cmpr_introns
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
@@ -804,11 +806,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNzk4NDI2MSwtMTU1ODAwMDIyMCwtMj
-AyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAz
-ODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4Nz
-YsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQy
-NTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAyMjYxOC
-wtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxNDgw
-MjU0MF19
+eyJoaXN0b3J5IjpbLTY3NjA5NTU2LC0xNTU4MDAwMjIwLC0yMD
+I3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4
+MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3Ni
+wzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1
+MDksMTk3ODQzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC
+03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAy
+NTQwXX0=
 -->
