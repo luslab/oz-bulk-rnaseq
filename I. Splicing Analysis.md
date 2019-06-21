@@ -457,8 +457,7 @@ The input table describing introns needs to contain introns info in separate col
 4.  strand
 5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF 
   
-**Example:**  With introns.tab being a table describing human introns with these columns (and maybe more)
-
+introns.tab  describe introns with these columns (and maybe more)
 1.  START
 2.  END
 3.  SCAFFOLD
@@ -787,11 +786,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE5MjUyOTg3LDE1MTM2MDcyOTYsLTEyMj
-EzOTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1
-MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5ND
-g1NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2
-MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNT
-YxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2
-NDQ4XX0=
+eyJoaXN0b3J5IjpbLTE3ODc3NTk2MjksMTUxMzYwNzI5NiwtMT
+IyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5
+NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMT
+k0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4
+MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMj
+A1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1
+NzY0NDhdfQ==
 -->
