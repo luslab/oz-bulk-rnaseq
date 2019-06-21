@@ -418,9 +418,10 @@ awk '{ print $39}' ir_events.tab
 ```
   
 Matt can help uncover the chromosome-id issues.  
- The command `matt extr_scafids` allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  
-  
-> matt extr_scafids Homo_sapiens.GRCh37.87.gtf GTF
+ The command `matt extr_scafids` allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  ```bash
+GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
+matt extr_scafids $GTF GTF
+ ```
 
 
 
@@ -769,11 +770,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNzQyNzUxMywtMTM4MjE5NzUzNywyMD
-k1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYx
-NSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMj
-kwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgx
-OCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsOD
-AxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkx
-OTYwNF19
+eyJoaXN0b3J5IjpbNDk3ODIxNzcyLC0xMzgyMTk3NTM3LDIwOT
+U0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1
+LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOT
+AyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4
+LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OCw4MD
+E2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5
+NjA0XX0=
 -->
