@@ -441,7 +441,46 @@ This writes a table with columns containing the feature values & extracted seque
 ### Compare Introns
 [http://matt.crg.eu/#cmpr_introns](http://matt.crg.eu/#cmpr_introns)
 
+`cmpr_introns` compares groups of introns. This command goes through these steps:
+1.  run  [get_ifeatures](http://matt.crg.eu/#get_ifeatures)  on the input table to determine exon-related features
+2.  apply Mann-Whitney U test to the comparison of feature distributions across groups
+3.  output:
+	1.  PDF report summarizing results with box plots
+	2.  table with all events and extracted features
+	3.  table with details on performed statistical tests including p values
+	4.  all box plots as PDF graphics
 
+Information on features under  [get_ifeatures](http://matt.crg.eu/#get_ifeatures). The input table describing introns needs to contain these pieces of information about the introns in separate columns
+
+1.  start coordinate
+2.  end coordinate
+3.  chromosome ID; these chromosome IDs must match with the chromosome IDs in the GTF and FASTA which you use
+4.  strand
+5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF which you use
+
+**Recommendation:**  use the GTF files from Ensembl as they also contain information on the gene types (coding, non-coding, etc.) as these information will get used as well.  
+  
+**Example:**  With introns.tab being a table describing human introns with these columns (and maybe more)
+
+1.  START
+2.  END
+3.  SCAFFOLD
+4.  STRAND
+5.  GENEID_ENSEMBL
+6.  DATASET: containing group IDs of introns (down, up, ndiff)
+
+and with Hsa19.gtf being a gene description file from Ensembl and Hsa19.fa the corresponding FASTA file with all genome sequences
+
+> matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL ...
+
+    ... Hsa19.gtf Hsa19.fa Hsap 150 DATASET[down,ndiff] down_vs_ndiff
+
+will compare introns down vs. ndiff and leave untouched introns from group up. The argument 150 specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It will also place therein a PDF document summary.pdf containing all details of the comparison.  
+  
+**Hint 1:**  You might first stratify the sets of introns with  [stratify](http://matt.crg.eu/#stratify)  and then apply cmpr_introns.  
+**Hint 2:**  You might choose colors for the box plots of the PDF report. See help message of cmpr_introns for getting help on this.  
+**Hint 3:**  DATASET[down,ndiff]: the last group specified should be the reference group (like non-differentially spliced).  
+**Hint 4:**  DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compares down vs. up, down vs. ndiff, up vs. ndiff.
 
 
 ## Coverage for introns of interest
@@ -751,11 +790,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMzYwNzI5NiwtMTIyMTM5NjI1LDE3Mz
-EwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3
-ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMD
-U0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2
-MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgxOCwyMT
-Q4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsODAxNjU2
-NDU3XX0=
+eyJoaXN0b3J5IjpbLTExMDAyMDA2MzUsMTUxMzYwNzI5NiwtMT
+IyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5
+NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMT
+k0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4
+MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMj
+A1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1
+NzY0NDhdfQ==
 -->
