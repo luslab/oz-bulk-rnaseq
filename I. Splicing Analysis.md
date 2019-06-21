@@ -401,15 +401,12 @@ Uses INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b (if merged then use the group names rather than the individual sample names). To be included PSI values need to have a minimum quality flag of LOW across all samples:
 INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
-# specify GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
+# specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
 matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
 ```
-
-### sort chromosome ID Scaffold
-The chromosome / scaffold ids of the VAST-TOOLS table do not match the GTF. Unfortunately that's a common issue in bioinformatics because different researchers use different naming / id conventions for chromosome / scaffold ids. `get_vast` cannot extract gene ids for the events, they are NA. And this has the consequence that `get_ifeature` stops because it cannot find the gene ids NA in the GTF.  
-
+Check the GENE ID column - for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
 ```bash
 ### NB the last column GENEID in ir_events.tab is full of NAs:
 #print columns in ir_events table
@@ -417,20 +414,6 @@ matt get_colnms ir_events.tab
 #print column GENEID
 awk '{ print $39}' ir_events.tab 
 ```
-  
-
-
-=> Please re-run get_vast with GTF=Homo.gtf and check then if you get gene ids in column GENEID. Though, for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
-  
-=> Then, the call get_ifeatures should work, too.
-
-
-
-
-```
-This suggests mapping of events (rows) to ensembl gene IDs is not working. 
-
-The output table ir_events.tab column GENEID should have the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step - Hsa19 = Hg19.
 
 ## Data Analysis
 
@@ -447,7 +430,7 @@ Use `get_ifeatures` command to retrieve 50 features of interest for introns. Int
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
 
 ```bash
-GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 #run get_ifeatures
 matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap -f gene_id > ifeatures.tab
@@ -769,11 +752,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTE1MjE4NDYsLTQ5ODA0NzYzOSwtMT
-M4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0
-OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMz
-UxNTE4MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4
-MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLT
-EzNjg1NzY0NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3
-NDQ2ODddfQ==
+eyJoaXN0b3J5IjpbMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMz
+gyMTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5
+LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNT
+E1MTgwNjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgy
+LC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMT
+M2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0
+NDY4N119
 -->
