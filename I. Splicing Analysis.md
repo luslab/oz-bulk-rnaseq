@@ -450,8 +450,7 @@ This writes a table with columns containing the feature values & extracted seque
 	3.  table with details on performed statistical tests including p values
 	4.  all box plots as PDF graphics
 
-Information on features under  [get_ifeatures](http://matt.crg.eu/#get_ifeatures). The input table describing introns needs to contain these pieces of information about the introns in separate columns
-
+The input table describing introns needs to contain introns info in separate columns:
 1.  start coordinate
 2.  end coordinate
 3.  chromosome ID; these chromosome IDs must match with the chromosome IDs in the GTF and FASTA which you use
@@ -790,11 +789,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMDAyMDA2MzUsMTUxMzYwNzI5NiwtMT
-IyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5
-NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMT
-k0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4
-MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMj
-A1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1
-NzY0NDhdfQ==
+eyJoaXN0b3J5IjpbMTM4NjQ2OTIxMSwxNTEzNjA3Mjk2LC0xMj
+IxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3
+NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOT
+Q4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgw
+NjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMD
+U2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3
+NjQ0OF19
 -->
