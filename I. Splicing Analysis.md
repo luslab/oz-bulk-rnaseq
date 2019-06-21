@@ -407,22 +407,26 @@ matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b
 ```
 
 ### sort chromosome ID Scaffold
-The chromosome / scaffold ids of the VAST-TOOLS table do not match the GTF. Unfortunately that's a common issue in bioinformatics because different researchers use different naming / id conventions for chromosome / scaffold ids. As a result, get_vast cannot extract gene ids for the events, they are NA. And this has the consequence that get_ifeature stops because it cannot find the gene ids NA in the GTF.  
+The chromosome / scaffold ids of the VAST-TOOLS table do not match the GTF. Unfortunately that's a common issue in bioinformatics because different researchers use different naming / id conventions for chromosome / scaffold ids. `get_vast` cannot extract gene ids for the events, they are NA. And this has the consequence that `get_ifeature` stops because it cannot find the gene ids NA in the GTF.  
+
+```bash
+### NB the last column GENEID in ir_events.tab is full of NAs:
+#print columns in ir_events table
+matt get_colnms ir_events.tab
+#print column GENEID
+awk '{ print $39}' ir_events.tab 
+```
   
-Matt can help you to uncover / investigate such chromosome-id issues.  
-  
-1.) The command extr_scafids allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  
+Matt can help uncover the chromosome-id issues.  
+ The command `matt extr_scafids` allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  
   
 > matt extr_scafids Homo_sapiens.GRCh37.87.gtf GTF
 
 
 
 
-### NB the last column GENEID in ir_events.tab is full of NAs:
-#print columns in ir_events table
-matt get_colnms ir_events.tab
-#print column GENEID
-awk '{ print $39}' ir_events.tab 
+
+
 ```
 This suggests mapping of events (rows) to ensembl gene IDs is not working. 
 
@@ -765,7 +769,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNzcwNTg4NywtMTM4MjE5NzUzNywyMD
+eyJoaXN0b3J5IjpbMTMyNzQyNzUxMywtMTM4MjE5NzUzNywyMD
 k1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYx
 NSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMj
 kwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgx
