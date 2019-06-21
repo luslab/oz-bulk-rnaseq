@@ -417,12 +417,17 @@ matt get_colnms ir_events.tab
 awk '{ print $39}' ir_events.tab 
 ```
   
-Matt can help uncover the chromosome-id issues.  
- The command `matt extr_scafids` allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  ```bash
+Matt can help uncover the chromosome-id issues.  `matt extr_scafids` allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  
+ ```bash
 GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
 matt extr_scafids $GTF GTF
  ```
 
+Use `col_uniq` on  ir_events.tab to see which scaffold ids you have in your table:  
+  
+> matt col_uniq ir_events.tab SCAFFOLD  
+  
+And you should see something like this (but with different numbers in column FREQ):
 
 
 
@@ -770,11 +775,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDk3ODIxNzcyLC0xMzgyMTk3NTM3LDIwOT
-U0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1
-LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOT
-AyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4
-LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3NjQ0OCw4MD
-E2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0NDY4NywyMTM4OTE5
-NjA0XX0=
+eyJoaXN0b3J5IjpbLTExNjU2NDc2OTEsLTEzODIxOTc1MzcsMj
+A5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2
+MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2MywyMD
+I5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4
+MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LD
+gwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5
+MTk2MDRdfQ==
 -->
