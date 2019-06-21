@@ -481,6 +481,9 @@ matt get_colnms introns.tab
 # get idea of intron events
 matt col_uniq introns.tab COMPLEX
 
+# extract intron features
+
+
 ```
 
 #### Run cmpr_introns
@@ -810,11 +813,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDI1NDM0MTYsMjgxNTg4NjE1LC0xNT
-U4MDAwMjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEz
-OTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1Mz
-csMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1
-NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2My
-wyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYx
-MTU4MThdfQ==
+eyJoaXN0b3J5IjpbNzU5NTc2NjEzLDI4MTU4ODYxNSwtMTU1OD
+AwMDIyMCwtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2
+MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LD
+IwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3
+NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMj
+AyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1
+ODE4XX0=
 -->
