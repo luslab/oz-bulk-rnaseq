@@ -472,13 +472,12 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
 matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,ndiff] down_vs_ndiff
 ```
-will compare introns down vs. ndiff and leave untouched introns from group up. The argument 150 specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It will also place therein a PDF document summary.pdf containing all details of the comparison.  
+This compares introns down vs. ndiff and leave untouched introns from group up. The argument `150` specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It also produces a PDF document summary.pdf containing all details of the comparison.  
   
 **Hint 1:**  You might first stratify the sets of introns with  [stratify](http://matt.crg.eu/#stratify)  and then apply cmpr_introns.  
 **Hint 2:**  You might choose colors for the box plots of the PDF report. See help message of cmpr_introns for getting help on this.  
 **Hint 3:**  DATASET[down,ndiff]: the last group specified should be the reference group (like non-differentially spliced).  
 **Hint 4:**  DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compares down vs. up, down vs. ndiff, up vs. ndiff.
-
 
 ## Coverage for introns of interest
 To perform the a focussed analysis of the 167 retained introns identified using VAST-tools, 
@@ -787,11 +786,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MTkyNDI4LDE1MTM2MDcyOTYsLTEyMj
-EzOTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1
-MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5ND
-g1NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2
-MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNT
-YxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2
-NDQ4XX0=
+eyJoaXN0b3J5IjpbMTEyMjMwMTk4MCwxNTEzNjA3Mjk2LC0xMj
+IxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3
+NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOT
+Q4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgw
+NjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgyLC0yMD
+U2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMTM2ODU3
+NjQ0OF19
 -->
