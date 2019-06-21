@@ -467,8 +467,12 @@ introns.tab  describes introns with these columns (and maybe more)
 5.  GENEID_ENSEMBL
 6.  DATASET: containing group IDs of introns (down, up, ndiff)
 
-matt col_uniq INCLUSION_LEVELS_FULL-Hsa2-hg19.tab TYPE | matt prnt_tab - -w 9 | less -S -
+INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 
+We need to use command  [get_vast](http://matt.crg.eu/#get_vast)  later which works with Vast-Tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5. INCLUSION_LEVELS_FULL-Hsa2-hg19.tab contains these standard types but also other types like S*, C1*. Hence, we adapt all labels to the standard types with command  [chg_labs](http://matt.crg.eu/#chg_labs).
+
+> matt chg_labs data.tab TYPE S*:S C1*:C1 C2*:C2 C3*:C3 MIC_M:MIC MIC_S:MIC > tmp.tab
+> mv tmp.tab data.tab
 
 
 #### Run cmpr_introns
@@ -798,11 +802,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA3MjA3NDY3LC0xNTU4MDAwMjIwLC0yMD
-I3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4
-MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3Ni
-wzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1
-MDksMTk3ODQzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC
-03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAy
-NTQwXX0=
+eyJoaXN0b3J5IjpbMTE3NjUxNjg4NiwtMTU1ODAwMDIyMCwtMj
+AyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAz
+ODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4Nz
+YsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQy
+NTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAyMjYxOC
+wtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxNDgw
+MjU0MF19
 -->
