@@ -457,6 +457,8 @@ The input table describing introns needs to contain introns info in separate col
 4.  strand
 5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF 
   
+#### Create introns.tab 
+ 
 introns.tab  describes introns with these columns (and maybe more)
 ifeatures.tab
 1.  START
@@ -466,6 +468,7 @@ ifeatures.tab
 5.  GENEID_ENSEMBL
 6.  DATASET: containing group IDs of introns (down, up, ndiff)
 
+#### Run cmpr_introns
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
@@ -792,11 +795,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMT
-IyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5
-NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMT
-k0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4
-MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMj
-A1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1
-NzY0NDhdfQ==
+eyJoaXN0b3J5IjpbLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMT
+UxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0
+NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMT
+QwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4
+Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LD
+I3NTUxNDU4MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUx
+MjkxMTldfQ==
 -->
