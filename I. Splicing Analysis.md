@@ -457,7 +457,8 @@ The input table describing introns needs to contain introns info in separate col
 4.  strand
 5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF 
   
-introns.tab  describe introns with these columns (and maybe more)
+introns.tab  describes introns with these columns (and maybe more)
+ifeatures.tab
 1.  START
 2.  END
 3.  SCAFFOLD
@@ -465,12 +466,12 @@ introns.tab  describe introns with these columns (and maybe more)
 5.  GENEID_ENSEMBL
 6.  DATASET: containing group IDs of introns (down, up, ndiff)
 
-and with Hsa19.gtf being a gene description file from Ensembl and Hsa19.fa the corresponding FASTA file with all genome sequences
+```bash
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
+FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
-> matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL ...
-
-    ... Hsa19.gtf Hsa19.fa Hsap 150 DATASET[down,ndiff] down_vs_ndiff
-
+matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,ndiff] down_vs_ndiff
+```
 will compare introns down vs. ndiff and leave untouched introns from group up. The argument 150 specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It will also place therein a PDF document summary.pdf containing all details of the comparison.  
   
 **Hint 1:**  You might first stratify the sets of introns with  [stratify](http://matt.crg.eu/#stratify)  and then apply cmpr_introns.  
@@ -786,11 +787,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODc3NTk2MjksMTUxMzYwNzI5NiwtMT
-IyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5
-NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMT
-k0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4
-MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMj
-A1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1
-NzY0NDhdfQ==
+eyJoaXN0b3J5IjpbLTI3MTkyNDI4LDE1MTM2MDcyOTYsLTEyMj
+EzOTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1
+MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5ND
+g1NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MTUxODA2
+MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIsLTIwNT
+YxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMzY4NTc2
+NDQ4XX0=
 -->
