@@ -460,13 +460,14 @@ The input table describing introns needs to contain introns info in separate col
 #### Create introns.tab 
  
 introns.tab  describes introns with these columns (and maybe more)
-ifeatures.tab
 1.  START
 2.  END
 3.  SCAFFOLD
 4.  STRAND
 5.  GENEID_ENSEMBL
 6.  DATASET: containing group IDs of introns (down, up, ndiff)
+
+INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 
 #### Run cmpr_introns
 ```bash
@@ -795,11 +796,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMT
-UxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0
-NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMT
-QwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4
-Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LD
-I3NTUxNDU4MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUx
-MjkxMTldfQ==
+eyJoaXN0b3J5IjpbMTY5NTQxODM3NSwtMTU1ODAwMDIyMCwtMj
+AyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAz
+ODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4Nz
+YsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQy
+NTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAyMjYxOC
+wtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxNDgw
+MjU0MF19
 -->
