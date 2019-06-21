@@ -459,6 +459,10 @@ perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf
 matt extr_scafids Homo.gtf GTF
 ```
 
+=> Please re-run get_vast with GTF=Homo.gtf and check then if you get gene ids in column GENEID. Though, for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
+  
+=> Then, the call get_ifeatures should work, too.
+
 
 
 
@@ -804,11 +808,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNywyMD
-k1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYx
-NSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMj
-kwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgx
-OCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsOD
-AxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkx
-OTYwNF19
+eyJoaXN0b3J5IjpbLTEzMTQyMzI0OTMsLTQ5ODA0NzYzOSwtMT
+M4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0
+OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMz
+UxNTE4MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4
+MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLT
+EzNjg1NzY0NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3
+NDQ2ODddfQ==
 -->
