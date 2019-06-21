@@ -473,7 +473,9 @@ press `q` to exit
 
 We need to use command  [get_vast](http://matt.crg.eu/#get_vast)  later which works with Vast-Tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5.  [get_vast](http://matt.crg.eu/#get_vast)  is  designed for extracting information from VAST-TOOLs output tables. It outputs an augmented table, from which we select only intron events by re-directing this table to the command  [get_rows](http://matt.crg.eu/#get_rows). The final output table gets re-directed into file introns.tab.
 
-`matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH | matt get_rows - TYPE]IR,IR-C,IR-S[ > introns.tab`
+`matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH | matt get_rows - COMPLEX]IR,IR-C,IR-S[ > introns.tab`
+
+`matt get_colnms introns.tab`
 
 #### Run cmpr_introns
 ```bash
@@ -802,11 +804,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDI0MzM4OTgsLTE1NTgwMDAyMjAsLT
-IwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEw
-MzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3OD
-c2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0
-MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2MT
-gsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgxOCwyMTQ4
-MDI1NDBdfQ==
+eyJoaXN0b3J5IjpbLTUzNzk4NDI2MSwtMTU1ODAwMDIyMCwtMj
+AyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAz
+ODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4Nz
+YsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQy
+NTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAyMjYxOC
+wtNzY0MjMwMTksMjc1NTE0NTgyLC0yMDU2MTE1ODE4LDIxNDgw
+MjU0MF19
 -->
