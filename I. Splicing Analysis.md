@@ -404,6 +404,19 @@ INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/
 GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
 
 matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
+```
+
+### sort chromosome ID Scaffold
+The chromosome / scaffold ids of the VAST-TOOLS table do not match the GTF. Unfortunately that's a common issue in bioinformatics because different researchers use different naming / id conventions for chromosome / scaffold ids. As a result, get_vast cannot extract gene ids for the events, they are NA. And this has the consequence that get_ifeature stops because it cannot find the gene ids NA in the GTF.  
+  
+Matt can help you to uncover / investigate such chromosome-id issues.  
+  
+1.) The command extr_scafids allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  
+  
+> matt extr_scafids Homo_sapiens.GRCh37.87.gtf GTF
+
+
+
 
 ### NB the last column GENEID in ir_events.tab is full of NAs:
 #print columns in ir_events table
@@ -412,16 +425,6 @@ matt get_colnms ir_events.tab
 awk '{ print $39}' ir_events.tab 
 ```
 This suggests mapping of events (rows) to ensembl gene IDs is not working. 
-
-Alternative approaches to adding Ensembl gene IDs outlined here: [http://matt.crg.eu/#CMPR_EXS_EXP](http://matt.crg.eu/#CMPR_EXS_EXP) in section 4.1, 4.2 & 4.3:
-```bash
-# add mapping table as another was to add gene IDs
-MAP=~/working/oliver/bin/matt/mapping_EVENT2GENEID.tab
-matt get_match ir_events.tab EVENT $MAP EVENT ENSEMBL_GENEID | matt add_cols ir_events.tab ir_events.tab ENSEMBL_GENEID
-
-#or use retr_geneids command. use [retr_geneids](http://matt.crg.eu/#retr_geneids) to extract gene IDs from any GTF file for given genomic events, like exons, introns, genes.
-matt retr_geneids ir_events.tab START END SCAFFOLD STRAND ~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf -f gene_id
-```
 
 The output table ir_events.tab column GENEID should have the extracted gene IDs. The chromosome annotations in the VAST-TOOLs output need to match to those in the GTF file - need to use Hsa Ensembl GTF to match VASTOOLS alignment step - Hsa19 = Hg19.
 
@@ -762,11 +765,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMT
-czMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDks
-MTk3ODQzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC03Nj
-QyMzAxOSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAyNTQw
-LC0xMzA1MTI5MTE5LC0xMzY4NTc2NDQ4LDgwMTY1NjQ1NywtMT
-E2Njc5MTE3MCwtMTcwNzQ0Njg3LDIxMzg5MTk2MDQsLTcyMzM3
-MTA3M119
+eyJoaXN0b3J5IjpbMTIzNzcwNTg4NywtMTM4MjE5NzUzNywyMD
+k1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYx
+NSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMj
+kwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgx
+OCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsOD
+AxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3NDQ2ODcsMjEzODkx
+OTYwNF19
 -->
