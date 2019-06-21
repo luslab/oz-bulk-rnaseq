@@ -404,7 +404,7 @@ INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
-matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
+matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
 ```
 Check the GENE ID column - for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
 ```bash
@@ -752,11 +752,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMz
-gyMTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5
-LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNT
-E1MTgwNjMsMjAyOTAyMjYxOCwtNzY0MjMwMTksMjc1NTE0NTgy
-LC0yMDU2MTE1ODE4LDIxNDgwMjU0MCwtMTMwNTEyOTExOSwtMT
-M2ODU3NjQ0OCw4MDE2NTY0NTcsLTExNjY3OTExNzAsLTE3MDc0
-NDY4N119
+eyJoaXN0b3J5IjpbLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OT
+gwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3
+LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3OD
+QzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC03NjQyMzAx
+OSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAyNTQwLC0xMz
+A1MTI5MTE5LC0xMzY4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5
+MTE3MF19
 -->
