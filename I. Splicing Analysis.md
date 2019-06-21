@@ -455,9 +455,8 @@ chrY 759
 # Use this script to add the "chr" prefix to the GTF. Name the output file Homo.gtf.
 perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf  
   
-You can check the result with the command you know already ( ;-) ):  
-  
-> matt extr_scafids Homo.gtf GTF
+# check the result:  
+matt extr_scafids Homo.gtf GTF
 ```
 
 
@@ -805,7 +804,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2NzEzNDM4MSwtMTM4MjE5NzUzNywyMD
+eyJoaXN0b3J5IjpbLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNywyMD
 k1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYx
 NSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMj
 kwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgx
