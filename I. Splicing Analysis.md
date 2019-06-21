@@ -435,8 +435,7 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 #run get_ifeatures
 matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap -f gene_id > ifeatures.tab
 ```
-
-Write a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
+This writes a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
 
 ### Compare Introns
@@ -752,11 +751,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OT
-gwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3
-LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3OD
-QzODM3NiwtMTM1MTUxODA2MywyMDI5MDIyNjE4LC03NjQyMzAx
-OSwyNzU1MTQ1ODIsLTIwNTYxMTU4MTgsMjE0ODAyNTQwLC0xMz
-A1MTI5MTE5LC0xMzY4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5
-MTE3MF19
+eyJoaXN0b3J5IjpbMTUxMzYwNzI5NiwtMTIyMTM5NjI1LDE3Mz
+EwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3
+ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMD
+U0MjUwOSwxOTc4NDM4Mzc2LC0xMzUxNTE4MDYzLDIwMjkwMjI2
+MTgsLTc2NDIzMDE5LDI3NTUxNDU4MiwtMjA1NjExNTgxOCwyMT
+Q4MDI1NDAsLTEzMDUxMjkxMTksLTEzNjg1NzY0NDgsODAxNjU2
+NDU3XX0=
 -->
