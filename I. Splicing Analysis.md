@@ -401,7 +401,10 @@ Uses INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b (if merged then use the group names rather than the individual sample names). To be included PSI values need to have a minimum quality flag of LOW across all samples:
 INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
-GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
+# specify GTF as Homo.gtf - chromosome scaffolds ID added chr to start 
+# Use this script to add the "chr" prefix to the GTF. Name the output file Homo.gtf.
+perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf 
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
 matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF -f gene_id > ir_events.tab
 ```
@@ -417,47 +420,7 @@ matt get_colnms ir_events.tab
 awk '{ print $39}' ir_events.tab 
 ```
   
-Matt can help uncover the chromosome-id issues.  `matt extr_scafids` allows the user to extract and see the scaffold ids in FASTA, FASTQ, GTF, GFF files.  
-```bash
-GTF=~/working/oliver/genomes/annotation/Homo_sapiens.GRCh37.87.gtf
-matt extr_scafids $GTF GTF
 
-# Use `col_uniq` on  `ir_events.tab` to see which scaffold ids you have in your table:  
-matt col_uniq ir_events.tab SCAFFOLD
-
-#You should see something like this (but with different numbers in column FREQ):
-SCAFFOLD_UNIQ FREQ  
-chr1 72658  
-chr10 29127  
-chr11 40656  
-chr12 41216  
-chr13 13392  
-chr14 23451  
-chr15 25504  
-chr16 30999  
-chr17 42636  
-chr18 11698  
-chr19 42173  
-chr2 54111  
-chr20 18624  
-chr21 8089  
-chr22 15983  
-chr3 44127  
-chr4 28897  
-chr5 32929  
-chr6 35956  
-chr7 33748  
-chr8 25887  
-chr9 28911  
-chrX 21794  
-chrY 759
-
-# Use this script to add the "chr" prefix to the GTF. Name the output file Homo.gtf.
-perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf  
-  
-# check the result:  
-matt extr_scafids Homo.gtf GTF
-```
 
 => Please re-run get_vast with GTF=Homo.gtf and check then if you get gene ids in column GENEID. Though, for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
   
@@ -808,11 +771,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTQyMzI0OTMsLTQ5ODA0NzYzOSwtMT
-M4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0
-OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4Mzc2LC0xMz
-UxNTE4MDYzLDIwMjkwMjI2MTgsLTc2NDIzMDE5LDI3NTUxNDU4
-MiwtMjA1NjExNTgxOCwyMTQ4MDI1NDAsLTEzMDUxMjkxMTksLT
-EzNjg1NzY0NDgsODAxNjU2NDU3LC0xMTY2NzkxMTcwLC0xNzA3
-NDQ2ODddfQ==
+eyJoaXN0b3J5IjpbLTMwOTc5NjAyLC00OTgwNDc2MzksLTEzOD
+IxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDks
+LTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3ODQzODM3NiwtMTM1MT
+UxODA2MywyMDI5MDIyNjE4LC03NjQyMzAxOSwyNzU1MTQ1ODIs
+LTIwNTYxMTU4MTgsMjE0ODAyNTQwLC0xMzA1MTI5MTE5LC0xMz
+Y4NTc2NDQ4LDgwMTY1NjQ1NywtMTE2Njc5MTE3MCwtMTcwNzQ0
+Njg3XX0=
 -->
