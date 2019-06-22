@@ -478,7 +478,7 @@ GTF=~/working/oliver/genomes/annotation/Homo.gtf
 matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH -gtf $GTF -f gene_id | matt get_rows - COMPLEX]IR,IR-C,IR-S[ | matt rn_cols - GENEID:ENSEMBL_GENEID > introns.tab
 
 matt get_colnms introns.tab
-# get idea of intron events
+# get idea of number of intron sets events
 matt col_uniq introns.tab COMPLEX
 
 # extract intron features
@@ -490,9 +490,9 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCA
 
 Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like intron sequence, splice site sequences, sequences of up/down-stream exons. 
   
-The sizes of the intron sets are: 
+The sizes of the intron sets are printed here `matt col_uniq introns.tab COMPLEX`
 
-AS_noNeural=10465, NEURAL-DOWN=631, NEURAL-UP=1046. Hugh groups like AS_noNeural are unnecessary for comparing exon sets and would slow down analysis. Hence, we sub-sample 2000 AS_noNeural exons with  [rand_rows](http://matt.crg.eu/#rand_rows)  and create a new table exons_testsets.tab.
+AS_noNeural=10465, NEURAL-DOWN=631, NEURAL-UP=1046. Huge groups like AS_noNeural are unnecessary for comparing exon sets and would slow down analysis. Hence, we sub-sample 2000 AS_noNeural exons with  [rand_rows](http://matt.crg.eu/#rand_rows)  and create a new table exons_testsets.tab.
 
 > matt get_rows exons.tab GROUP]AS_noNeural[  ... 
        ... | matt rand_rows - 2000 132927352 > exons_testsets.tab
@@ -841,11 +841,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEzOD
-E1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYx
-NSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC
-0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgy
-MTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC
-0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1
-MTgwNjNdfQ==
+eyJoaXN0b3J5IjpbLTUyODg1OTM1LC0yMTI4NTM1NzcxLDQxND
+MxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTky
+MCwyODE1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMT
+UxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0
+NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMT
+QwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4
+Mzc2XX0=
 -->
