@@ -490,11 +490,12 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCA
 
 Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like intron sequence, splice site sequences, sequences of up/down-stream exons. 
   
-introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  contain already columns with identical column names because column names in a table must be unique. Hence, from exons_testsets.tab we select only the important columns and neglect the already added columns with exon features.
+introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
 
-> matt get_cols exons_testsets.tab START END SCAFFOLD STRAND ...
-   ... ENSEMBL_GENEID GROUP > tmp.tab
-> mv tmp.tab exons_testsets.tab
+```bash
+matt get_cols introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID GROUP > tmp.tab
+mv tmp.tab exons_testsets.tab
+```
 
 Checking the number of exons in the final table exons_testsets.tab confirms that the sampling worked as expected.
 
@@ -832,11 +833,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDA2ODQwNjAsLTIxMjg1MzU3NzEsND
-E0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQx
-OTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOS
-wxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4
-MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNy
-wxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0
-MzgzNzZdfQ==
+eyJoaXN0b3J5IjpbLTQxOTEwMjU3MCwtMjEyODUzNTc3MSw0MT
+QzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5
+MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LD
+E1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OTgw
+NDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LD
+E0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3ODQz
+ODM3Nl19
 -->
