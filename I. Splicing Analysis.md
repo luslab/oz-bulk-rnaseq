@@ -493,17 +493,12 @@ Table introns.tab now contains for all introns information about their genomic c
 introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
 
 ```bash
-matt get_cols introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID VCP.d0 VCP.d0-Q VCP.d7 VCP.d7-Q > introns.tab
+matt get_cols introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID COMPLEX VCP.d0 VCP.d0-Q VCP.d7 VCP.d7-Q > introns.tab
 ```
 
 Checking the number of introns in the final table introns.tab confirms that the sampling worked as expected.
 
-> matt col_uniq introns.tab GROUP
-
-   GROUP_UNIQ     FREQ
-   AS_noNeural    2000
-   NEURAL-DOWN    631
-   NEURAL-UP      1046
+> matt col_uniq introns.tab COMPLEX
 
 #### Run cmpr_introns
 ```bash
@@ -511,7 +506,24 @@ GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
 matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,up,ndiff] down_vs_ndiff
+
+matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,up,ndiff] down_vs_ndiff
 ```
+
+> matt cmpr_exons exons_testsets.tab START END SCAFFOLD STRAND ENSEMBL_GENEID ...
+   ... $gtf $fasta Hsap 150 GROUP[NEURAL-UP,NEURAL-DOWN,AS_noNeural] ...
+   ... cmpr_1 -colors:brown2,darkgoldenrod2,azure4
+
+With GROUP[NEURAL-UP,NEURAL-DOWN,AS_noNeural] we select the groups which should be compared, i.e., all pair-wise comparisons are done: NEURAL-UP vs. NEURAL-DOWN, NEURAL-UP vs. AS_noNeural, and NEURAL-DOWN vs. AS_noNeural. Putting AS_noNeural in the last place will give us box plots which contain the group AS_noNeural as reference group. All output gets written into folder cmpr_1, where you find a summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  
+  
+The  [PDF report](http://matt.crg.eu/examples/cmpr_exons/cmpr_1/summary.pdf)  contains all details and plots and is organized in four main parts:
+
+1.  Overview of results of permutation tests across all comparisons and features
+2.  Box-plots for all numerical features with all exon groups tested
+3.  Comparative sequence plots for all groups of splice sites, branch points for all comparisons
+4.  Details of results of permutation tests
+
+
 This compares introns down vs. ndiff and leave untouched introns from group up. The argument `150` specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It also produces a PDF document summary.pdf containing all details of the comparison.  
   
 **Hint 1:**  You might first stratify the sets of introns with  [stratify](http://matt.crg.eu/#stratify)  and then apply cmpr_introns.  
@@ -832,7 +844,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjIyNzQxMTAsLTIxMjg1MzU3NzEsND
+eyJoaXN0b3J5IjpbLTEyMzgwNDA0NzksLTIxMjg1MzU3NzEsND
 E0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQx
 OTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOS
 wxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4
