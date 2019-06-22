@@ -488,7 +488,31 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
 ```
 
-Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like exon sequence, splice site sequences, sequences of up/down-stream introns. All these information can be used as input for further analyses, e.g., with R. The extracted sequences might be of interest for further analyses like de-novo motif search etc, which often expect their input as FASTA files. Using the command  [extr_seqs](http://matt.crg.eu/#extr_seqs), you might extract sequences from specific columns of exons.tab in FASTA format.
+Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like intron sequence, splice site sequences, sequences of up/down-stream exons. 
+  
+The sizes of the intron sets are: 
+
+AS_noNeural=10465, NEURAL-DOWN=631, NEURAL-UP=1046. Hugh groups like AS_noNeural are unnecessary for comparing exon sets and would slow down analysis. Hence, we sub-sample 2000 AS_noNeural exons with  [rand_rows](http://matt.crg.eu/#rand_rows)  and create a new table exons_testsets.tab.
+
+> matt get_rows exons.tab GROUP]AS_noNeural[  ... 
+       ... | matt rand_rows - 2000 132927352 > exons_testsets.tab
+> matt get_rows exons.tab GROUP]NEURAL-DOWN,NEURAL-UP[ ...
+  ... | matt add_rows exons_testsets.tab -
+
+The table exons_testsets.tab should be used as input for command  [cmpr_exons](http://matt.crg.eu/#cmpr_exons). It is important to know that  [cmpr_exons](http://matt.crg.eu/#cmpr_exons)  will extract features for all exons of its input table and append them to the input table. As a consequence, the input table  **must not**  contain already columns with identical column names because column names in a table must be unique. Hence, from exons_testsets.tab we select only the important columns and neglect the already added columns with exon features.
+
+> matt get_cols exons_testsets.tab START END SCAFFOLD STRAND ...
+   ... ENSEMBL_GENEID GROUP > tmp.tab
+> mv tmp.tab exons_testsets.tab
+
+Checking the number of exons in the final table exons_testsets.tab confirms that the sampling worked as expected.
+
+> matt col_uniq exons_testsets.tab GROUP
+
+   GROUP_UNIQ     FREQ
+   AS_noNeural    2000
+   NEURAL-DOWN    631
+   NEURAL-UP      1046
 
 #### Run cmpr_introns
 ```bash
@@ -817,7 +841,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzA1NDM3NjEsNDE0MzE2NDMsLTEzOD
+eyJoaXN0b3J5IjpbLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEzOD
 E1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYx
 NSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC
 0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgy
