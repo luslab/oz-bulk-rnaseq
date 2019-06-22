@@ -493,8 +493,7 @@ Table introns.tab now contains for all introns information about their genomic c
 introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
 
 ```bash
-matt get_cols introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID GROUP > tmp.tab
-mv tmp.tab exons_testsets.tab
+matt get_cols introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID GROUP > introns.tab
 ```
 
 Checking the number of exons in the final table exons_testsets.tab confirms that the sampling worked as expected.
@@ -833,7 +832,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxOTEwMjU3MCwtMjEyODUzNTc3MSw0MT
+eyJoaXN0b3J5IjpbMTk4NzcxNDU5MywtMjEyODUzNTc3MSw0MT
 QzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5
 MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LD
 E1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OTgw
