@@ -508,20 +508,18 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,up,ndiff] down_vs_ndiff
 
 #from example with exons
-matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,darkgoldenrod2,azure4
+matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_introns -colors:brown2,darkgoldenrod2,azure4
 ```
 
-With `COMPLEX[IR-C,IR-S]` we select the groups which should be compared, i.e., all pair-wise comparisons are done. Putting AS_noNeural in the last place will give us box plots which contain the group AS_noNeural as reference group. All output gets written into folder cmpr_1, where you find a summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  
+With `COMPLEX[IR-C,IR-S]` we select the groups which should be compared, i.e., all pair-wise comparisons are done. The last place will give us box plots which contain the IR-S as reference group. All output gets written into folder cmpr_introns, where you find a summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  
   
 The  [PDF report](http://matt.crg.eu/examples/cmpr_exons/cmpr_1/summary.pdf)  contains all details and plots and is organized in four main parts:
-
 1.  Overview of results of permutation tests across all comparisons and features
 2.  Box-plots for all numerical features with all exon groups tested
 3.  Comparative sequence plots for all groups of splice sites, branch points for all comparisons
 4.  Details of results of permutation tests
 
-
-This compares introns down vs. ndiff and leave untouched introns from group up. The argument `150` specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It also produces a PDF document summary.pdf containing all details of the comparison.  
+The argument `150` specifies the length of the 3'-end of the introns which should be searched for SF1 hits. It will generate the output folder down_vs_ndiff and place therein a table with all introns (down and ndiff) and the extracted intron features. It also produces a PDF document summary.pdf containing all details of the comparison.  
   
 **Hint 1:**  You might first stratify the sets of introns with  [stratify](http://matt.crg.eu/#stratify)  and then apply cmpr_introns.  
 **Hint 2:**  You might choose colors for the box plots of the PDF report. See help message of cmpr_introns for getting help on this.  
@@ -841,11 +839,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NzcxMjA1MSwtMjEyODUzNTc3MSw0MT
-QzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5
-MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LD
-E1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OTgw
-NDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LD
-E0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3ODQz
-ODM3Nl19
+eyJoaXN0b3J5IjpbMzI4MjA5NzUwLC0yMTI4NTM1NzcxLDQxND
+MxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTky
+MCwyODE1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMT
+UxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0
+NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMT
+QwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4
+Mzc2XX0=
 -->
