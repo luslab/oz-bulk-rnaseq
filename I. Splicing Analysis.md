@@ -488,6 +488,8 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
 ```
 
+Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like exon sequence, splice site sequences, sequences of up/down-stream introns. All these information can be used as input for further analyses, e.g., with R. The extracted sequences might be of interest for further analyses like de-novo motif search etc, which often expect their input as FASTA files. Using the command  [extr_seqs](http://matt.crg.eu/#extr_seqs), you might extract sequences from specific columns of exons.tab in FASTA format.
+
 #### Run cmpr_introns
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
@@ -815,11 +817,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNz
-QzNzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIy
-MCwtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMT
-czMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0
-Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LD
-EwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAy
-MjYxOF19
+eyJoaXN0b3J5IjpbLTE5NzA1NDM3NjEsNDE0MzE2NDMsLTEzOD
+E1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYx
+NSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC
+0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgy
+MTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC
+0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1
+MTgwNjNdfQ==
 -->
