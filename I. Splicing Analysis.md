@@ -507,14 +507,11 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
 matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,up,ndiff] down_vs_ndiff
 
-matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 DATASET[down,up,ndiff] down_vs_ndiff
+#from example with exons
+matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID_ENSEMBL $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,darkgoldenrod2,azure4
 ```
 
-> matt cmpr_exons exons_testsets.tab START END SCAFFOLD STRAND ENSEMBL_GENEID ...
-   ... $gtf $fasta Hsap 150 GROUP[NEURAL-UP,NEURAL-DOWN,AS_noNeural] ...
-   ... cmpr_1 -colors:brown2,darkgoldenrod2,azure4
-
-With GROUP[NEURAL-UP,NEURAL-DOWN,AS_noNeural] we select the groups which should be compared, i.e., all pair-wise comparisons are done: NEURAL-UP vs. NEURAL-DOWN, NEURAL-UP vs. AS_noNeural, and NEURAL-DOWN vs. AS_noNeural. Putting AS_noNeural in the last place will give us box plots which contain the group AS_noNeural as reference group. All output gets written into folder cmpr_1, where you find a summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  
+With `COMPLEX[IR-C,IR-S]` we select the groups which should be compared, i.e., all pair-wise comparisons are done. Putting AS_noNeural in the last place will give us box plots which contain the group AS_noNeural as reference group. All output gets written into folder cmpr_1, where you find a summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  
   
 The  [PDF report](http://matt.crg.eu/examples/cmpr_exons/cmpr_1/summary.pdf)  contains all details and plots and is organized in four main parts:
 
@@ -844,11 +841,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzgwNDA0NzksLTIxMjg1MzU3NzEsND
-E0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQx
-OTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOS
-wxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4
-MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNy
-wxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0
-MzgzNzZdfQ==
+eyJoaXN0b3J5IjpbLTM5NzcxMjA1MSwtMjEyODUzNTc3MSw0MT
+QzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5
+MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LD
+E1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OTgw
+NDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LD
+E0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1MDksMTk3ODQz
+ODM3Nl19
 -->
