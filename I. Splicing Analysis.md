@@ -490,16 +490,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCA
 
 Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like intron sequence, splice site sequences, sequences of up/down-stream exons. 
   
-The sizes of the intron sets are printed here `matt col_uniq introns.tab COMPLEX`
-
-AS_noNeural=10465, NEURAL-DOWN=631, NEURAL-UP=1046. Huge groups like AS_noNeural are unnecessary for comparing exon sets and would slow down analysis. Hence, we sub-sample 2000 AS_noNeural exons with  [rand_rows](http://matt.crg.eu/#rand_rows)  and create a new table exons_testsets.tab.
-
-> matt get_rows exons.tab GROUP]AS_noNeural[  ... 
-       ... | matt rand_rows - 2000 132927352 > exons_testsets.tab
-> matt get_rows exons.tab GROUP]NEURAL-DOWN,NEURAL-UP[ ...
-  ... | matt add_rows exons_testsets.tab -
-
-The table exons_testsets.tab should be used as input for command  [cmpr_exons](http://matt.crg.eu/#cmpr_exons). It is important to know that  [cmpr_exons](http://matt.crg.eu/#cmpr_exons)  will extract features for all exons of its input table and append them to the input table. As a consequence, the input table  **must not**  contain already columns with identical column names because column names in a table must be unique. Hence, from exons_testsets.tab we select only the important columns and neglect the already added columns with exon features.
+introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  contain already columns with identical column names because column names in a table must be unique. Hence, from exons_testsets.tab we select only the important columns and neglect the already added columns with exon features.
 
 > matt get_cols exons_testsets.tab START END SCAFFOLD STRAND ...
    ... ENSEMBL_GENEID GROUP > tmp.tab
@@ -841,11 +832,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyODg1OTM1LC0yMTI4NTM1NzcxLDQxND
-MxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTky
-MCwyODE1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMT
-UxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0
-NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMyMDcsMT
-QwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0MjUwOSwxOTc4NDM4
-Mzc2XX0=
+eyJoaXN0b3J5IjpbLTE3MDA2ODQwNjAsLTIxMjg1MzU3NzEsND
+E0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQx
+OTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOS
+wxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4
+MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNy
+wxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LDE5Nzg0
+MzgzNzZdfQ==
 -->
