@@ -433,7 +433,7 @@ Use `get_ifeatures` command to retrieve 50 features of interest for introns. Int
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 #run get_ifeatures - takes ~20mins
-matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap -f gene_id > ifeatures.tab
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures ir_events.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap -f gene_id > ifeatures.tab"
 ```
 This writes a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
@@ -485,9 +485,7 @@ matt col_uniq introns.tab COMPLEX
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 #run get_ifeatures on introns.tab
-matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -
-
-matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab introns.tab
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
 ```
 
 #### Run cmpr_introns
@@ -817,11 +815,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNT
-Y2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgz
-NzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5My
-wtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3
-MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LDEwNTQyNTA5LD
-E5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAyMjYxOCwtNzY0
-MjMwMTldfQ==
+eyJoaXN0b3J5IjpbNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNz
+QzNzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIy
+MCwtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMT
+czMTAzODM5MywtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0
+Njc4NzYsMzE3MzIwNywxNDA2MTEzNDQ5LC0xOTQ4NTQ3NjE1LD
+EwNTQyNTA5LDE5Nzg0MzgzNzYsLTEzNTE1MTgwNjMsMjAyOTAy
+MjYxOF19
 -->
