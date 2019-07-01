@@ -104,6 +104,7 @@ Calculates p-values, then tries different cutoffs for the minimum CPM.
  - ballgown
  - limma: raphaelles Rscript uses this (normalizeQuantiles function)
  - Cuffdiff is slow, cant support multifactored experiments, can detect differential isoforms, high false positives
+ - [SINC-seq](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1446-9) for nuclear vs cytoplasmic  DGE for scRNAseq
 
 ![enter image description here](https://lh3.googleusercontent.com/LVvCl3GXhNzUx5lyTrHsr0z_ZmI0nb51TBiY1-53VifMuYW8HR9-X54sfLwoH5gFyqahHOm8_QaWhg "Comparison of DGE programs")
 
@@ -553,11 +554,11 @@ head DE_genes.txt
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwODU0ODAxLC0xNDYwMDE2MzQ4LDEzMj
-M0MzU2MiwxOTY1OTg1NzIzLDE5MzIzNjU3ODcsLTU5NjMxMjE1
-NSw2NDA1MTczOTgsNjA3NDQwODA3LDExNTkzNzY3NjUsLTE4Mz
-E3MDUyODAsMTc5NjUyNjYyMCwyNzY1MzkyNiw3MTgxMjI4NSwt
-MTI1MjAwMjIzOCwtMTU5NTA3NDEzNiwyMDg3MTU1MTI3LDEyNT
-cyNzI2MjEsLTIyNTExMjkwNCw4MDQ0MzYwNSw3NDk2NTE0OTNd
-fQ==
+eyJoaXN0b3J5IjpbLTY0OTQ5NDMzNCwzMDA4NTQ4MDEsLTE0Nj
+AwMTYzNDgsMTMyMzQzNTYyLDE5NjU5ODU3MjMsMTkzMjM2NTc4
+NywtNTk2MzEyMTU1LDY0MDUxNzM5OCw2MDc0NDA4MDcsMTE1OT
+M3Njc2NSwtMTgzMTcwNTI4MCwxNzk2NTI2NjIwLDI3NjUzOTI2
+LDcxODEyMjg1LC0xMjUyMDAyMjM4LC0xNTk1MDc0MTM2LDIwOD
+cxNTUxMjcsMTI1NzI3MjYyMSwtMjI1MTEyOTA0LDgwNDQzNjA1
+XX0=
 -->
