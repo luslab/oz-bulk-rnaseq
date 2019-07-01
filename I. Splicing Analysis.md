@@ -546,6 +546,7 @@ DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compar
 
 #### Run RNA maps
 [http://matt.crg.eu/#rna_maps](http://matt.crg.eu/#rna_maps)
+
 Allows the user to produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA binding proteins for different groups of exons or introns. Motifs can be defined as position weight matrix models (PWMs) or Perl regular expressions. This command will extract all necessary sequences from the genomic proximity of given exons/introns, predict hits of the specified motifs therein, and compute motif enrichment scores. If chosen by the user, a permutation test is applied for estimating p values and regions with significant differences in motif enrichment will be highlighted in the motif RNA-map.  
 **Output:**
 
@@ -893,11 +894,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njk0OTQ3MzYsMTA4NzA0MjQ2NSwzMj
-Y5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0
-Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMi
-wtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1
-MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMC
-wxNTY2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAy
-NzgzNzAwOV19
+eyJoaXN0b3J5IjpbLTIyNDc3MDMzOCwxMDg3MDQyNDY1LDMyNj
+kwMDQ4NywtMTEyNDc3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQy
+OTQsMTA4ODI2NjQ0NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC
+0zMjM0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUz
+NTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLD
+E1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3
+ODM3MDA5XX0=
 -->
