@@ -103,6 +103,7 @@ Neglected by the differential exon usage & alternative splicing event approaches
 [http://www.rna-seqblog.com/tag/alternative-splicing/](http://www.rna-seqblog.com/tag/alternative-splicing/)
 
 **1. Isoform Resolution Approach**
+
 **2. Exon Usage Approach**
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
 - JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc.
@@ -116,10 +117,9 @@ C1 and C2 = the upstream and downstream constitutive exons, respectively.  C1Si 
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
 
 **4. Alternative Splicing Graphs Approach**
-
 - [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph.  Directly align reads to a splicing graph.
 
-
+.
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
  - QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets. only lists novel events that use annotated splice sites
@@ -138,21 +138,17 @@ C1 and C2 = the upstream and downstream constitutive exons, respectively.  C1Si 
 - [SpliceR](http://www.bioconductor.org/packages/2.13/bioc/html/spliceR.html)
 - [FineSplice](http://nar.oxfordjournals.org/content/early/2014/02/25/nar.gku166.full)
 - [ARH-seq](http://nar.oxfordjournals.org/content/early/2014/06/11/nar.gku495.full)
-
-**Alternative splicing, alternative expression**[[24447644](http://www.ncbi.nlm.nih.gov/pubmed/24447644),  [24885830](http://www.ncbi.nlm.nih.gov/pubmed/24885830),  [24058384](http://www.ncbi.nlm.nih.gov/pubmed/24058384),  [24549677](http://www.ncbi.nlm.nih.gov/pubmed/24549677),  [24951248](http://www.ncbi.nlm.nih.gov/pubmed/24951248),  [25511303](http://www.ncbi.nlm.nih.gov/pubmed/25511303)]
-
 IUTA [[25283306](http://www.ncbi.nlm.nih.gov/pubmed/25283306)]
 PennSeq [[24362841](http://www.ncbi.nlm.nih.gov/pubmed/24362841)]
-FlipFlop [[24813214](http://www.ncbi.nlm.nih.gov/pubmed/24813214)], 
+FlipFlop [[24813214](http://www.ncbi.nlm.nih.gov/pubmed/24813214)]
 SNPlice [[25481010](http://www.ncbi.nlm.nih.gov/pubmed/25481010)]
 GESS [[24447644](http://www.ncbi.nlm.nih.gov/pubmed/24447644)]
-DiffSplice [[23155066](http://www.ncbi.nlm.nih.gov/pubmed/23155066)],
-SigFuge [[25030904](http://www.ncbi.nlm.nih.gov/pubmed/25030904)], 
+DiffSplice [[23155066](http://www.ncbi.nlm.nih.gov/pubmed/23155066)]
+SigFuge [[25030904](http://www.ncbi.nlm.nih.gov/pubmed/25030904)]
 CLASS [bioRXiv]
 SplAdder [bioRXiv]
 SplicePie [25800735](http://www.ncbi.nlm.nih.gov/pubmed/25800735)
 
-Annotated versus novel exploratory events. 
 
 ## Analysis approach
 https://www.nature.com/articles/nmeth.1503.pdf
@@ -856,7 +852,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0MTU5OTYzMSwtMzIzNDEzODY2LDIwNj
+eyJoaXN0b3J5IjpbLTE2NDQ5NjcxMiwtMzIzNDEzODY2LDIwNj
 U4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2NDMs
 LTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLDI4MT
 U4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEzNjA3
