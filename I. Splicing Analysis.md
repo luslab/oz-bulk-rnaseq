@@ -525,9 +525,6 @@ Checking the number of introns in the final table introns.tab confirms that the 
 
 ---
 
-matt get_rows introns.tab COMPLEX]AS_noNeural[ | matt rand_rows - 2000 132927352 > exons_testsets.tab
-> matt get_rows exons.tab GROUP]NEURAL-DOWN,NEURAL-UP[ ...
-  ... | matt add_rows exons_testsets.tab -
 
 
 
@@ -866,7 +863,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNzQ1MjY4OSwzMjY5MDA0ODcsLTExMj
+eyJoaXN0b3J5IjpbLTY4NzcyNzEzMCwzMjY5MDA0ODcsLTExMj
 Q3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0
 NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzODY2LD
 IwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2
