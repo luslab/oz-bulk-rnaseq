@@ -398,14 +398,15 @@ Access help pages:
 `matt`
 `matt COMMAND`
 
-Now progress to next step.
-
-NB to deactivate environment:
+NB to deactivate `rtest` environment:
 `source deactivate rtest`
 
 ## Data Preparation / Table manipulation
 
-Generally, the workflow is as follows: pre-process the output table of VAST-TOOLS for extracting PSI values with  [get_vast](http://matt.crg.eu/#get_vast), define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats), and eventually run a high-level analysis.
+The workflow is: 
+1. pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast)
+2. define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats)
+3. eventually run a high-level analysis.
 
 ### Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
@@ -852,11 +853,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDQ5NjcxMiwtMzIzNDEzODY2LDIwNj
-U4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2NDMs
-LTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLDI4MT
-U4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEzNjA3
-Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4MDQ3NjM5LC
-0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3MzIwNywxNDA2MTEz
-NDQ5XX0=
+eyJoaXN0b3J5IjpbLTgwOTAwMzA4MywtMTY0NDk2NzEyLC0zMj
+M0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3
+MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1Nj
+YxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3
+MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC
+00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTcz
+MjA3XX0=
 -->
