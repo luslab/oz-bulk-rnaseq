@@ -104,6 +104,9 @@ Neglected by the differential exon usage & alternative splicing event approaches
 
 **1. Isoform Resolution Approach**
 **2. Exon Usage Approach**
+- [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
+- JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc.
+
 **3. Splicing Event Approach**
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -121,8 +124,8 @@ C2Sj = the junction reads whose 3′ splice site is connected to the downstream 
 
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
 
-- [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
-- JunctionSeq is like DEXSeq with junction reads included (and is written by the QoRTs team). JunctionSeq vignette - they have a great walkthrough that ... walks you through the whole process from beginning to end inc. QoRTs
+
+ QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets. only lists novel events that use annotated splice sites
 - [MISO](http://genes.mit.edu/burgelab/miso/):Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
 - [MAJIQ] is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!). quantifies the relative abundances of a set of Local Splicing Variations which implicitly represent combinations of AS events involving both annotated and novel splice sites
@@ -842,11 +845,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg0OTA1MjgsMjA2NTgwNjMzNiwxMjU5MT
-g0OSwtMjEyODUzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4Nywy
-MDA3NDM3MTMwLDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MD
-AwMjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYy
-NSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMj
-A5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2
-MTVdfQ==
+eyJoaXN0b3J5IjpbLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNT
+kxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3
+LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NT
+gwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5
+NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNy
+wyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0
+NzYxNV19
 -->
