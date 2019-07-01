@@ -510,7 +510,7 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCA
 
 `introns.tab` contains for all intron information about their genomic coordinate, gene, and their intron features including intron sequence, splice site sequences, sequences of up/down-stream exons. 
   
-introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
+`introns.tab` is used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns), which extracts features for all introns and appends them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
 
 ```bash
 matt get_cols introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID COMPLEX VCP.d0 VCP.d0-Q VCP.d7 VCP.d7-Q > introns.tab
@@ -855,11 +855,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xND
-Y2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2
-MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMz
-gxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2
-MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5Ni
-wtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4
-MjE5NzUzN119
+eyJoaXN0b3J5IjpbLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwOD
+gyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEz
+ODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsND
+E0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQx
+OTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOS
+wxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4
+MDQ3NjM5XX0=
 -->
