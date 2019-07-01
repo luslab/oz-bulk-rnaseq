@@ -122,7 +122,7 @@ C2Sj = the junction reads whose 3′ splice site is connected to the downstream 
 - Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter quantifies differential intron usage across samples, allowing the detection of novel introns which model complex splicing events. requires as input the spliced alignments. 
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
-- [IR Finder]([https://github.com/williamritchie/IRFinder](https://github.com/williamritchie/IRFinder) and [paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
+- [IR Finder]([https://github.com/williamritchie/IRFinder](https://github.com/williamritchie/IRFinder) from Massachusetts General, utilises IRBase - a database of >2000 public human RNAseq samples. Uses STAR  [paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
 - SUPPA2: only able to detect AS events that are in the annotation. requires the quantification of the input transcripts, which can be obtained by using Salmon
 - [DARTS]([https://github.com/Xinglab/DARTS](https://github.com/Xinglab/DARTS) [https://www.nature.com/articles/s41592-019-0351-9](https://www.nature.com/articles/s41592-019-0351-9) uses deep learning to analyse alternative splicing
 - [Cuffdiff](http://cufflinks.cbcb.umd.edu/manual.html#cuffdiff), [ALEXA-seq](http://www.alexaplatform.org/alexa_seq/), [MISO](http://genes.mit.edu/burgelab/miso/), [SplicingCompass](http://www.ichip.de/software/SplicingCompass.html), [Flux Capacitor](http://flux.sammeth.net/capacitor.html), [JuncBASE](http://compbio.berkeley.edu/proj/juncbase/Home.html), [DEXSeq](http://bioconductor.org/packages/2.11/bioc/html/DEXSeq.html), [MATS](http://rnaseq-mats.sourceforge.net/), [SpliceR](http://www.bioconductor.org/packages/2.13/bioc/html/spliceR.html), [FineSplice](http://nar.oxfordjournals.org/content/early/2014/02/25/nar.gku166.full), [ARH-seq](http://nar.oxfordjournals.org/content/early/2014/06/11/nar.gku495.full),
@@ -835,11 +835,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI4NjE5OTAxLDEyNTkxODQ5LC0yMTI4NT
-M1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAs
-MTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMj
-c4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgz
-OTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LD
-MxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0NzYxNSwxMDU0MjUw
-OV19
+eyJoaXN0b3J5IjpbLTI5MzUzOTA3OSwxMjU5MTg0OSwtMjEyOD
+UzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMw
+LDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMD
+I3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4
+MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3Ni
+wzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1
+MDldfQ==
 -->
