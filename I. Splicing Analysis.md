@@ -532,6 +532,8 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_introns introns_testsets.tab START
 ```
 
 `COMPLEX[IR-C,IR-S]` selects the groups to be compared, (if >2 groups, all pair-wise comparisons are done). The last place will give us box plots which with IR-S as reference group. Output isL summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  The argument `150` specifies the length of the 3'-end of the introns which should be scanned for branch point analysis - 150 is advised. 
+
+Color names can be found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
   
 The  [PDF report](http://matt.crg.eu/examples/cmpr_exons/cmpr_1/summary.pdf)  contains all details and plots and is organized into:
 1.  Overview of results of permutation tests across all comparisons and features
@@ -539,10 +541,8 @@ The  [PDF report](http://matt.crg.eu/examples/cmpr_exons/cmpr_1/summary.pdf)  co
 3.  Comparative sequence plots for all groups of splice sites, branch points for all comparisons
 4.  Details of results of permutation tests
   
-**Hint 1:**  You might first stratify the sets of introns with [stratify](http://matt.crg.eu/#stratify)  and then apply cmpr_introns.  
-**Hint 2:**  You might choose colors for the box plots of the PDF report. See help message of cmpr_introns for getting help on this.  
-**Hint 3:**  DATASET[down,ndiff]: the last group specified should be the reference group (like non-differentially spliced).  
-**Hint 4:**  DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compares down vs. up, down vs. ndiff, up vs. ndiff.
+DATASET[down,ndiff]: the last group specified should be the reference group (like non-differentially spliced).  
+DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compares down vs. up, down vs. ndiff, up vs. ndiff.
 
 
 
@@ -857,11 +857,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk3MzAwMDc1LDMyNjkwMDQ4NywtMTEyND
-c3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQyOTQsMTA4ODI2NjQ0
-NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC0zMjM0MTM4NjYsMj
-A2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3MSw0MTQzMTY0
-MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5MjAsMj
-gxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LDE1MTM2
-MDcyOTZdfQ==
+eyJoaXN0b3J5IjpbLTExMTQ2NDgzMTgsMzI2OTAwNDg3LC0xMT
+I0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2
+NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2Ni
+wyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMx
+NjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMC
+wyODE1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMTUx
+MzYwNzI5Nl19
 -->
