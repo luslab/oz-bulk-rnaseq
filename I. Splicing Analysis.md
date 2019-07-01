@@ -102,6 +102,9 @@ Neglected by the differential exon usage & alternative splicing event approaches
 # Tools
 [http://www.rna-seqblog.com/tag/alternative-splicing/](http://www.rna-seqblog.com/tag/alternative-splicing/)
 
+
+
+
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [PSI Sigma](https://github.com/wososa/PSI-Sigma): A new [PSI index](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5848607/). Traditionally, the PSI index is denoted as (a + b)/(a + b + 2c), where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons. We modified the PSI index as follows: 
@@ -835,11 +838,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyOD
-UzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMw
-LDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMD
-I3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4
-MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3Ni
-wzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2MTUsMTA1NDI1
-MDldfQ==
+eyJoaXN0b3J5IjpbMTYxMTY0OTkzMCwyMDY1ODA2MzM2LDEyNT
+kxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3
+LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NT
+gwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5
+NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNy
+wyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0
+NzYxNV19
 -->
