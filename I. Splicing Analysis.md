@@ -528,7 +528,7 @@ GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
 #from example with exons
-matt cmpr_introns introns_testsets.tab SCAFFOLD START END STRAND ENSEMBL_GENEID COMPLEX VCP.d0 VCP.d0-Q VCP.d7 VCP.d7-Q $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,darkgoldenrod2,azure4
+matt cmpr_introns introns_testsets.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,darkgoldenrod2,azure4
 ```
 
 With `COMPLEX[IR-C,IR-S]` we select the groups which should be compared, i.e., all pair-wise comparisons are done. The last place will give us box plots which contain the IR-S as reference group. All output gets written into folder cmpr_introns, where you find a summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  The argument `150` specifies the length of the 3'-end of the introns which should be searched for SF1 hits. 
@@ -857,11 +857,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk0NzY5NzY2NSwzMjY5MDA0ODcsLTExMj
-Q3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0
-NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzODY2LD
-IwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2
-NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLD
-I4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEz
-NjA3Mjk2XX0=
+eyJoaXN0b3J5IjpbNjM3ODU3MzU3LDMyNjkwMDQ4NywtMTEyND
+c3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQyOTQsMTA4ODI2NjQ0
+NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC0zMjM0MTM4NjYsMj
+A2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3MSw0MTQzMTY0
+MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5MjAsMj
+gxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LDE1MTM2
+MDcyOTZdfQ==
 -->
