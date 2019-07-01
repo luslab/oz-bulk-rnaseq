@@ -516,7 +516,8 @@ matt get_colnms introns.tab
 `introns.tab` is used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns), which extracts features for all introns and appends them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
 
 ```bash
-matt get_cols introns.tab SCAFFOLD START END STRAND ENSEMBL_GENEID COMPLEX VCP.d0 VCP.d0-Q VCP.d7 VCP.d7-Q > introns_testsets.tab
+matt get_cols introns.tab SCAFFOLD START END STRAND ENSEMBL_GENEID COMPLEX VCP.d0 VCP.d0-Q VCP.d7 VCP.d7-Q > tmp.tab
+mv tmp.tab introns_testsets.tab
 ```
 
 Checking the number of introns in the final table introns.tab confirms that the sampling worked as expected.
@@ -863,7 +864,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NTI4NDUzMCwzMjY5MDA0ODcsLTExMj
+eyJoaXN0b3J5IjpbMTU2Nzg3MDU1NSwzMjY5MDA0ODcsLTExMj
 Q3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0
 NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzODY2LD
 IwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2
