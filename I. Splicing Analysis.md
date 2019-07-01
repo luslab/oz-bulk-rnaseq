@@ -123,9 +123,9 @@ C1 and C2 = the upstream and downstream constitutive exons, respectively.  C1Si 
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
  - QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets. only lists novel events that use annotated splice sites
-- [MISO](https://github.com/dmjio/miso): Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
+- [MISO](https://github.com/yarden/MISO): Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
 - [MAJIQ] is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!). quantifies the relative abundances of a set of Local Splicing Variations which implicitly represent combinations of AS events involving both annotated and novel splice sites
-- Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned (edited)
+- Whippet is new and lightweight, but you can't really see what it is up to or the reads it has aligned
 - [LeafCutter](https://www.nature.com/articles/s41588-017-0004-9) https://github.com/davidaknowles/leafcutter quantifies differential intron usage across samples, allowing the detection of novel introns which model complex splicing events. requires as input the spliced alignments. 
 - [IsoformSwitchAnalyzeR](https://bioconductor.org/packages/release/bioc/vignettes/IsoformSwitchAnalyzeR/inst/doc/IsoformSwitchAnalyzeR.html#overview-of-alternative-splicing-workflow)
 - [IR Finder](https://github.com/williamritchie/IRFinder) from Massachusetts General, utilises [IRBase](http://mimirna.centenary.org.au/irfinder/database/) - a database of >2000 public human RNAseq samples. Uses STAR > IR detection > IR quantification > compare samples: [User Manual](https://github.com/williamritchie/IRFinder/wiki) & [paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1184-4)
@@ -841,7 +841,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTE4MTY0NTIsLTMyMzQxMzg2NiwyMD
+eyJoaXN0b3J5IjpbLTExMTY0NzAyOTgsLTMyMzQxMzg2NiwyMD
 Y1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQz
 LC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyOD
 E1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYw
