@@ -508,7 +508,7 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
 ```
 
-Table introns.tab now contains for all introns information about their genomic coordinate, gene, and their intron features including sequences like intron sequence, splice site sequences, sequences of up/down-stream exons. 
+`introns.tab` contains for all intron information about their genomic coordinate, gene, and their intron features including intron sequence, splice site sequences, sequences of up/down-stream exons. 
   
 introns.tab can now be used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns). This will extract features for all introns of its input table and append them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
 
@@ -855,11 +855,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4ODI2NjQ0NiwtMTQ2NjA5Njk1OSwtMT
-Y0NDk2NzEyLC0zMjM0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0
-OSwtMjEyODUzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMD
-A3NDM3MTMwLDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAw
-MjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNS
-wxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5
-NTQ2Nzg3Nl19
+eyJoaXN0b3J5IjpbMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xND
+Y2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2
+MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMz
+gxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2
+MTUsLTE1NTgwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5Ni
+wtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4
+MjE5NzUzN119
 -->
