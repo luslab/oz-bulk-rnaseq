@@ -406,7 +406,7 @@ NB to deactivate `rtest` environment:
 The workflow is: 
 1. pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast)
 2. define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats)
-3. eventually run a high-level analysis.
+3. run high-level analysis e.g. `cmpr_introns`
 
 ### Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
@@ -853,11 +853,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwOTAwMzA4MywtMTY0NDk2NzEyLC0zMj
-M0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3
-MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1Nj
-YxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3
-MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC
-00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTcz
-MjA3XX0=
+eyJoaXN0b3J5IjpbLTIwNjY1NjE0MDcsLTE2NDQ5NjcxMiwtMz
+IzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3
+NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNT
+Y2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgz
+NzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5My
+wtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3
+MzIwN119
 -->
