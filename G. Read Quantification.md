@@ -26,6 +26,7 @@ Use a BAM file & GTF file and assign each read as best as possible to a known ge
 featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
+[SINC-seq](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1446-9) for nuclear vs cytoplasmic  DGE for sin
 
 ## HTSeq-Count
 ml HTSeq
@@ -218,11 +219,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY2MjQxODcxLC0xNzc4MzY1MTAzLDk2Nz
-c4NTUxNiwxOTc2Mjg4NzksMTczMzU5NzU5MSwxMTg2Njk1NzY2
-LDE4NjQxMDgyODEsMTA3NTEyMjg4MiwyODA4OTY5NTMsLTgyND
-k4MzM4OCw1MjczNzY3MTQsLTczODMxMzkzMywxMDc3NDY3NjI3
-LC0yNDU2MTA5ODcsOTg2MzIwNjU5LC00MjM4Mzg2NDQsMjA5MT
-U3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1MjksMTg5NzQ0MjU4
-MF19
+eyJoaXN0b3J5IjpbLTE5NzIwNTExMjMsNTY2MjQxODcxLC0xNz
+c4MzY1MTAzLDk2Nzc4NTUxNiwxOTc2Mjg4NzksMTczMzU5NzU5
+MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NTEyMjg4MiwyOD
+A4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQsLTczODMxMzkz
+MywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2MzIwNjU5LC00Mj
+M4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIxLDEzMzIwNjE1
+MjldfQ==
 -->
