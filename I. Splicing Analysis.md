@@ -102,9 +102,9 @@ Neglected by the differential exon usage & alternative splicing event approaches
 # Tools
 [http://www.rna-seqblog.com/tag/alternative-splicing/](http://www.rna-seqblog.com/tag/alternative-splicing/)
 
-
-
-
+**1. Isoform Resolution Approach**
+**2. Exon Usage Approach**
+**3. Splicing Event Approach**
 - [VAST-TOOLS](https://github.com/vastgroup/vast-tools): Ben Blancoe's lab. Used by Raphaelle. Looks at intron retention & 2 junction reads within each exon to look at Microexons.
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [PSI Sigma](https://github.com/wososa/PSI-Sigma): A new [PSI index](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5848607/). Traditionally, the PSI index is denoted as (a + b)/(a + b + 2c), where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons. We modified the PSI index as follows: 
@@ -112,9 +112,13 @@ Neglected by the differential exon usage & alternative splicing event approaches
 C1 and C2 = the upstream and downstream constitutive exons, respectively. 
 C1Si =the total number of junction reads whose 5′ splice site is connected to the upstream constitutive exon in a given splicing event.
 C2Sj = the junction reads whose 3′ splice site is connected to the downstream constitutive exon.
-
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
+
+**4. Alternative Splicing Graphs Approach**
+
 - [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph.  Directly align reads to a splicing graph.
+
+
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
 
 - [DEXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html): focused on differential exon usage. [Vignette](http://127.0.0.1:12657/library/DEXSeq/doc/DEXSeq.pdf).
@@ -838,11 +842,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMTY0OTkzMCwyMDY1ODA2MzM2LDEyNT
-kxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3
-LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NT
-gwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5
-NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNy
-wyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0
-NzYxNV19
+eyJoaXN0b3J5IjpbOTg0OTA1MjgsMjA2NTgwNjMzNiwxMjU5MT
+g0OSwtMjEyODUzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4Nywy
+MDA3NDM3MTMwLDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MD
+AwMjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYy
+NSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMj
+A5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0NDksLTE5NDg1NDc2
+MTVdfQ==
 -->
