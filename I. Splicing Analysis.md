@@ -491,7 +491,7 @@ introns.tab  describes introns with these columns (and maybe more)
 `matt col_uniq INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COMPLEX | matt prnt_tab - -w 9 | less -S -`
 press `q` to exit
 
-Use [get_vast](http://matt.crg.eu/#get_vast)  later which works with VAST-tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5. It outputs an augmented table, from which we select only intron events by re-directing this table to the command  [get_rows](http://matt.crg.eu/#get_rows). The final output table gets re-directed into file introns.tab.
+Use [get_vast](http://matt.crg.eu/#get_vast)  later which works with VAST-tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5. It outputs an augmented table, from which we select only intron events by re-directing this table to [get_rows](http://matt.crg.eu/#get_rows). The final output table gets re-directed into file introns.tab.
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
@@ -855,7 +855,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYxMDMxODI3NiwtMTQ2NjA5Njk1OSwtMT
+eyJoaXN0b3J5IjpbMTA4ODI2NjQ0NiwtMTQ2NjA5Njk1OSwtMT
 Y0NDk2NzEyLC0zMjM0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0
 OSwtMjEyODUzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMD
 A3NDM3MTMwLDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAw
