@@ -112,9 +112,7 @@ Neglected by the differential exon usage & alternative splicing event approaches
 - [Matt](https://academic.oup.com/bioinformatics/article/35/1/130/5053311): UNIX command line tool. Downstream analysis of VAST-Tools PSI output table to provide exon comparisons; motif RNA maps; [http://matt.crg.eu/](http://matt.crg.eu/)
 - [PSI Sigma](https://github.com/wososa/PSI-Sigma): A new [PSI index](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5848607/). Traditionally, the PSI index is denoted as (a + b)/(a + b + 2c), where a and b = the number of splice-junction reads connecting the alternative exon to the upstream and downstream constitutive exons, respectively, and c = the number of junction reads connecting the two constitutive exons. We modified the PSI index as follows: 
 ![enter image description here](https://lh3.googleusercontent.com/7AkyPb4-l3ftfBmhfl0gqHpvCB85STqY3iAAiFf7PGtVUD1x4KrcIYKC_NJNGQEVAoIka-aLPKVq6A)
-C1 and C2 = the upstream and downstream constitutive exons, respectively. 
-C1Si =the total number of junction reads whose 5′ splice site is connected to the upstream constitutive exon in a given splicing event.
-C2Sj = the junction reads whose 3′ splice site is connected to the downstream constitutive exon.
+C1 and C2 = the upstream and downstream constitutive exons, respectively.  C1Si =the total number of junction reads whose 5′ splice site is connected to the upstream constitutive exon in a given splicing event. C2Sj = the junction reads whose 3′ splice site is connected to the downstream constitutive exon.
 - [SpliceDetector](https://www.nature.com/articles/s41598-018-23245-1): SpliceGraph forms based on freq. of active splice sites in pre-mRNA. Then, compares transcript exons to SpliceGraph exons. Discovers AS events from known transcripts. Simple & Fast. Transcript ID > build SpliceGraph using Exon coordinates > identify AS events
 
 **4. Alternative Splicing Graphs Approach**
@@ -123,9 +121,7 @@ C2Sj = the junction reads whose 3′ splice site is connected to the downstream 
 
 
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
-
-
- QoRTs
+ - QoRTs
 - [rMATS](http://rnaseq-mats.sourceforge.net/): useful for comparing with other ENCODE datasets. only lists novel events that use annotated splice sites
 - [MISO](http://genes.mit.edu/burgelab/miso/):Bayesian inference to estimate the probability for a read to be issued from a particular isoform. supplies confidence intervals (CIs) for: (i) estimating of exon and isoform abundance, (ii) identifying differential expression. It can be applied for analyzing isoform regulation.
 - [MAJIQ] is also good but parsing the output is a bit annoying (but the default was the best looking one of the lot!). quantifies the relative abundances of a set of Local Splicing Variations which implicitly represent combinations of AS events involving both annotated and novel splice sites
@@ -845,11 +841,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNT
-kxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3
-LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NT
-gwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIyMTM5
-NjI1LDE3MzEwMzgzOTMsLTQ5ODA0NzYzOSwtMTM4MjE5NzUzNy
-wyMDk1NDY3ODc2LDMxNzMyMDcsMTQwNjExMzQ0OSwtMTk0ODU0
-NzYxNV19
+eyJoaXN0b3J5IjpbNjk0MzY2MTM5LC0zMjM0MTM4NjYsMjA2NT
+gwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3MSw0MTQzMTY0Mywt
+MTM4MTUxMDM4NywyMDA3NDM3MTMwLDE1NjYxNDE5MjAsMjgxNT
+g4NjE1LC0xNTU4MDAwMjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcy
+OTYsLTEyMjEzOTYyNSwxNzMxMDM4MzkzLC00OTgwNDc2MzksLT
+EzODIxOTc1MzcsMjA5NTQ2Nzg3NiwzMTczMjA3LDE0MDYxMTM0
+NDldfQ==
 -->
