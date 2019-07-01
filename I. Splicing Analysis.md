@@ -504,7 +504,7 @@ matt col_uniq introns.tab COMPLEX
 # extract intron features
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-#run get_ifeatures on introns.tab
+#run get_ifeatures on introns.tab - takes ~10mins
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
 ```
 
@@ -855,11 +855,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwOD
-gyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEz
-ODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsND
-E0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQx
-OTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOS
-wxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5MywtNDk4
-MDQ3NjM5XX0=
+eyJoaXN0b3J5IjpbLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMj
+Y4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5
+NjcxMiwtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLT
+IxMjg1MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQz
+NzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMC
+wtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTcz
+MTAzODM5M119
 -->
