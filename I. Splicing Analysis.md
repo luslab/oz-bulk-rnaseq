@@ -504,8 +504,11 @@ matt col_uniq introns.tab COMPLEX
 # extract intron features
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-#run get_ifeatures on introns.tab - takes ~10mins
+#run get_ifeatures on introns.tab - takes ~20mins
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
+
+#check cols added to introns.tab
+matt get_colnms introns.tab
 ```
 
 `introns.tab` contains for all intron information about their genomic coordinate, gene, and their intron features including intron sequence, splice site sequences, sequences of up/down-stream exons. 
@@ -855,11 +858,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMj
-Y4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5
-NjcxMiwtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLT
-IxMjg1MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQz
-NzEzMCwxNTY2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMC
-wtMjAyNzgzNzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTcz
-MTAzODM5M119
+eyJoaXN0b3J5IjpbMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OT
+A0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2
+OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LD
+EyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEw
+Mzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLT
+E1NTgwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIy
+MTM5NjI1XX0=
 -->
