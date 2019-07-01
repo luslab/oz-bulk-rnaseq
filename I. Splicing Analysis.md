@@ -406,7 +406,7 @@ NB to deactivate `rtest` environment:
 The workflow is: 
 1. pre-process the output table of VAST-TOOLS for extracting PSI values with [get_vast](http://matt.crg.eu/#get_vast)
 2. define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats)
-3. run high-level analysis e.g. [ir_features](http://matt.crg.eu/#get_ifeatures), `cmpr_introns`
+3. run high-level analysis e.g. [ir_features](http://matt.crg.eu/#get_ifeatures), [cmpr_introns](http://matt.crg.eu/#cmpr_introns)
 
 ![enter image description here](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/bioinformatics/35/1/10.1093_bioinformatics_bty606/1/m_bty606f1.png?Expires=1562078645&Signature=Ynp8fUlsBpcu2bphIP33~x0DH9ar6~4Mypdshqp6jPiqyaCDdApsmtqUfv-AYcQ3xCkxx2JlbmxIO2v0saHJlXhednFoUjkn7-bETSpF5ENgGy5x6wIoF36GgSAApntzlVofhChuMSpX8bURt1vhSN5fU~-qWmBcr-G6ajkBwV3s~~zdW7yBeyGqk7MvH5gW~hWbR9bzCNEpsdjNIlqHwKxyTzGWBy4iAxFJ9JMA1uUkgnOwDOcJJw33uMluPlSM9m09nFCzvp4T7DbV-nsAnysG-sBSmYQguRL4GCVG56b4-Mj~qNbC3UM4hEDT34~4jTN92UkeKCOAalwcwhMrvA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
 
@@ -462,7 +462,7 @@ This writes a table with columns containing the feature values & extracted seque
 [http://matt.crg.eu/#cmpr_introns](http://matt.crg.eu/#cmpr_introns)
 
 `cmpr_introns` compares groups of introns. This command goes through these steps:
-1.  run  [get_ifeatures](http://matt.crg.eu/#get_ifeatures)  on the input table to determine exon-related features
+1.  run [get_ifeatures](http://matt.crg.eu/#get_ifeatures)  on the input table to determine exon-related features
 2.  apply Mann-Whitney U test to the comparison of feature distributions across groups
 3.  output:
 	1.  PDF report summarizing results with box plots
@@ -855,11 +855,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMz
-IzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3
-NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNT
-Y2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgz
-NzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5My
-wtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3
-MzIwN119
+eyJoaXN0b3J5IjpbMTA3OTkxNDQzNiwtMTQ2NjA5Njk1OSwtMT
+Y0NDk2NzEyLC0zMjM0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0
+OSwtMjEyODUzNTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMD
+A3NDM3MTMwLDE1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAw
+MjIwLC0yMDI3ODM3MDA5LDE1MTM2MDcyOTYsLTEyMjEzOTYyNS
+wxNzMxMDM4MzkzLC00OTgwNDc2MzksLTEzODIxOTc1MzcsMjA5
+NTQ2Nzg3Nl19
 -->
