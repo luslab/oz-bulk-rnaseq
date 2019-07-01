@@ -408,6 +408,8 @@ The workflow is:
 2. define groups of events to be analyzed with [def_cats](http://matt.crg.eu/#def_cats)
 3. run high-level analysis e.g. [ir_features](http://matt.crg.eu/#get_ifeatures), `cmpr_introns`
 
+![enter image description here](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/bioinformatics/35/1/10.1093_bioinformatics_bty606/1/m_bty606f1.png?Expires=1562078645&Signature=Ynp8fUlsBpcu2bphIP33~x0DH9ar6~4Mypdshqp6jPiqyaCDdApsmtqUfv-AYcQ3xCkxx2JlbmxIO2v0saHJlXhednFoUjkn7-bETSpF5ENgGy5x6wIoF36GgSAApntzlVofhChuMSpX8bURt1vhSN5fU~-qWmBcr-G6ajkBwV3s~~zdW7yBeyGqk7MvH5gW~hWbR9bzCNEpsdjNIlqHwKxyTzGWBy4iAxFJ9JMA1uUkgnOwDOcJJw33uMluPlSM9m09nFCzvp4T7DbV-nsAnysG-sBSmYQguRL4GCVG56b4-Mj~qNbC3UM4hEDT34~4jTN92UkeKCOAalwcwhMrvA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+
 ### Import VAST-TOOLS results tables
 [http://matt.crg.eu/#get_vast](http://matt.crg.eu/#get_vast)
 
@@ -853,11 +855,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcwMDg5MDIwLC0xNjQ0OTY3MTIsLTMyMz
-QxMzg2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1Nzcx
-LDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2Nj
-E0MTkyMCwyODE1ODg2MTUsLTE1NTgwMDAyMjAsLTIwMjc4Mzcw
-MDksMTUxMzYwNzI5NiwtMTIyMTM5NjI1LDE3MzEwMzgzOTMsLT
-Q5ODA0NzYzOSwtMTM4MjE5NzUzNywyMDk1NDY3ODc2LDMxNzMy
-MDddfQ==
+eyJoaXN0b3J5IjpbLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMz
+IzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3
+NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNT
+Y2MTQxOTIwLDI4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgz
+NzAwOSwxNTEzNjA3Mjk2LC0xMjIxMzk2MjUsMTczMTAzODM5My
+wtNDk4MDQ3NjM5LC0xMzgyMTk3NTM3LDIwOTU0Njc4NzYsMzE3
+MzIwN119
 -->
