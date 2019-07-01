@@ -523,6 +523,14 @@ Checking the number of introns in the final table introns.tab confirms that the 
 
 > matt col_uniq introns.tab COMPLEX
 
+---
+
+matt get_rows introns.tab COMPLEX]AS_noNeural[ | matt rand_rows - 2000 132927352 > exons_testsets.tab
+> matt get_rows exons.tab GROUP]NEURAL-DOWN,NEURAL-UP[ ...
+  ... | matt add_rows exons_testsets.tab -
+
+
+
 #### Run cmpr_introns
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
@@ -858,11 +866,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OT
-A0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2
-OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LD
-EyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEw
-Mzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLT
-E1NTgwMDAyMjAsLTIwMjc4MzcwMDksMTUxMzYwNzI5NiwtMTIy
-MTM5NjI1XX0=
+eyJoaXN0b3J5IjpbMTAxNzQ1MjY4OSwzMjY5MDA0ODcsLTExMj
+Q3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0
+NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzODY2LD
+IwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2
+NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2MTQxOTIwLD
+I4MTU4ODYxNSwtMTU1ODAwMDIyMCwtMjAyNzgzNzAwOSwxNTEz
+NjA3Mjk2XX0=
 -->
