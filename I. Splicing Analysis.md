@@ -503,16 +503,18 @@ matt get_colnms introns.tab
 matt def_cats introns.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=DPSI_GRPA_MINUS_GRPB[-100,-25]' 'unregulated=DPSI_GRPA_MINUS_GRPB[-1,1] PSI_VCP.d0[10,90]' | matt add_cols introns.tab -
 # check events/group
 matt col_uniq introns.tab GROUP
-```
-Check the output:
-GENE ID column - for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
+
+# Run Feature extraction cmpr_introns
 ```bash
-### NB the last column GENEID in ir_events.tab is full of NAs:
-#print columns in ir_events table
-matt get_colnms ir_events.tab
-#print column GENEID
-awk '{ print $39}' ir_events.tab 
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
+FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
+output_dir=cmpr_introns
+
+# run cmpr_introns - output goes into cmpr_1 folder - takes ~20mins
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_introns introns_testsets.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,azure4"
 ```
+```
+
 
 ## Data Analysis
 
@@ -984,7 +986,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxMTc1MDQwNiwxODQwMDc3NzE5LDEyOT
+eyJoaXN0b3J5IjpbLTY4MjM0MTQ5OSwxODQwMDc3NzE5LDEyOT
 c1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3
 NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNS
 wtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEz
