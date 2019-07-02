@@ -453,6 +453,8 @@ matt get_colnms exons.tab
 matt def_cats exons.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=DPSI_GRPA_MINUS_GRPB[-100,-25]' 'unregulated=DPSI_GRPA_MINUS_GRPB[-1,1] PSI_VCP.d0[10,90]' | matt add_cols exons.tab -
 # Final check of number events per group in exons.tab
 matt col_uniq exons.tab GROUP
+matt prnt_tab exons.tab -W 10 | less -S -
+
 
 # Feature extraction of exons
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
@@ -964,11 +966,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0yNT
-c1MjgzMzMsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMjAzNzYy
-NzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1OTk5LD
-EwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0
-MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OT
-U5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEy
-NTkxODQ5XX0=
+eyJoaXN0b3J5IjpbMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Miw2OD
+cxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5MTE1
+NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5NzA3LD
+EwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLTExMjQ3
+NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0ND
+YsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzODY2LDIw
+NjU4MDYzMzZdfQ==
 -->
