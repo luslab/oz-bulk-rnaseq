@@ -423,10 +423,14 @@ Uses INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b (if merged then use the group names rather than the individual sample names). To be included PSI values need to have a minimum quality flag of LOW across all samples:
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+
+#inspect columns of this table
+matt get_colnms $vts_file
+
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
-matt get_vast $vts -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
+matt get_vast $vts_file -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
 ```
 Check the GENE ID column - for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
 ```bash
@@ -907,11 +911,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NTQ1NDY2NCwtMTEyMDM3NjI3MCwtMT
-E1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0
-MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MS
-wxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2
-NDQ5NjcxMiwtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4ND
-ksLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAw
-NzQzNzEzMF19
+eyJoaXN0b3J5IjpbLTIwNTMxODcwNTcsLTExMjAzNzYyNzAsLT
+ExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcw
+NDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNz
+EsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0x
+NjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxOD
+Q5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIw
+MDc0MzcxMzBdfQ==
 -->
