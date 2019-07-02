@@ -547,18 +547,16 @@ DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compar
 #### Run RNA maps
 [http://matt.crg.eu/#rna_maps](http://matt.crg.eu/#rna_maps)
 
-Allows the user to produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA binding proteins for different groups of exons or introns. Motifs can be defined as position weight matrix models (PWMs) or Perl regular expressions. This command will extract all necessary sequences from the genomic proximity of given exons/introns, predict hits of the specified motifs therein, and compute motif enrichment scores. If chosen by the user, a permutation test is applied for estimating p values and regions with significant differences in motif enrichment will be highlighted in the motif RNA-map.  
-**Output:**
+Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA binding proteins for different groups of exons or introns. Motifs can be defined as **position weight matrix models (PWMs)** or **Perl regular expressions**. This command extracts sequences from proximity of given exons/introns, predict hits of the specified motifs therein, and compute motif enrichment scores. A **permutation test** is applied for estimating p values and regions with significant differences in motif enrichment will be highlighted in the motif RNA-map.  
 
+**Output:**
 1.  PDF report containing all motif RNA-maps
 2.  PDF report with motif RNA-maps with significant enrichment only (with arguments -p, -fdr)
 3.  For each map, there are two versions, one with a data coverage section, and one without. The data coverage section shows the data overage along the map, which might be less then 100% if the data set contains exons/introns shorter than the specified exon/intron sections to be visualized.
 4.  The motif RNA-maps are ordered according to largest differences of motif enrichment scores; Maps with largest positive differences come first, maps with largest negative differences last. The reference group for computing differences is always the last group specified in the program call.
 5.  all motif RNA-maps as PDF graphics
 
-  
-**Example:**  Assume file nova2_regexpr.tab describes a Perl regular expression of the NOVA2 binding motif in a table with columns
-
+nova2_regexpr.tab describes a Perl regular expression of the NOVA2 binding motif in a table with columns:
 1.  TYPE: the type of motif model, either REGEXP or PWM
 2.  NAME: the name of the motif
 3.  REGEXP: the Perl regular expression of a link to a file (table) containing the PWM
@@ -566,7 +564,6 @@ Allows the user to produce motif RNA-maps for comparing enrichment of binding mo
 5.  BGMODEL: only for PWM (set to NA for REGEXPs): if and which background model should be used
 
 Further, 3 groups of human exons are described in table exons.tab with columns
-
 1.  START: start of exon
 2.  END: end of exon
 3.  SCAFFOLD: chromosome
@@ -577,10 +574,11 @@ Further, 3 groups of human exons are described in table exons.tab with columns
 
 The following call produces a NOVA2 motif RNA map with a sliding window of length 31 which slides up to position 35 into exons and up to position 135 into introns. Regions with significant enrichment as compared to the reference group ndiff are highlighted.
 
-matt rna_maps exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD
-    ... STRAND GROUP[up,down,ndiff] 31 35 135 Mmu09.fasta nova2_regexp.tab TYPE
-    ... NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
+```bash
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
+matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[up,down,ndiff] 31 35 135 $GTF nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
+```
 The following graphic as PDF will be put into output folder nova2_rnamap
 
 
@@ -894,7 +892,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNDc3MDMzOCwxMDg3MDQyNDY1LDMyNj
+eyJoaXN0b3J5IjpbMTA2NzA1NTk5OSwxMDg3MDQyNDY1LDMyNj
 kwMDQ4NywtMTEyNDc3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQy
 OTQsMTA4ODI2NjQ0NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC
 0zMjM0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUz
