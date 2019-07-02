@@ -395,6 +395,7 @@ library("R.utils")
 # quit R
 q()
 y
+
 ```
 Access help pages:
 `matt`
@@ -473,7 +474,6 @@ matt prnt_tab exons_with_efeatures.tab -W 10 | less -S -
 matt prnt_tab overview_of_features_and_comparisons.tab -W 10 | less -S -
 ```
 4.) all box plots as PDFs in directory summary_graphics
-
 
 Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulated
 ```bash
@@ -979,11 +979,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDQ3NDUyMTgsMTI5NzUwNjM3NSwxND
-U5ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxNDc3MDUsMTQ4NzY3
-ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1LC0yMDQ1NTgwOD
-kxLDEyOTQwMDU5MiwtMjI4Mjc4MTYzLDE0MTM0NzUzMzUsLTE0
-NzU1MDk4ODIsNjg3MTAxMTc1LC0yNTc1MjgzMzMsNDg0Mjc3OT
-I3LDE0MTQ4OTExNTYsLTExMjAzNzYyNzAsLTExNTU1ODkxNjQs
-LTM3ODM0OTcwN119
+eyJoaXN0b3J5IjpbLTIxODQ5OTUyMiwxMjk3NTA2Mzc1LDE0NT
+k4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4
+MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OT
+EsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3
+NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5Mj
+csMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwt
+Mzc4MzQ5NzA3XX0=
 -->
