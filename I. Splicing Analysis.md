@@ -465,11 +465,15 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_exons exons.tab START END SCAFFOLD
 Output folder contains a
 1.) summary PDF report with box plots (summary.pdf)
 2.) a table with all events and extracted features (exons_with_efeatures.tab)
-3.) a table with all p values and information on performed statistical tests (overview_of_features_and_comparisons.tab)
-4.) all box plots as PDFs in directory summary_graphics
 ```
 matt prnt_tab exons_with_efeatures.tab -W 10 | less -S -
 ```
+3.) a table with all p values and information on performed statistical tests (overview_of_features_and_comparisons.tab)
+```
+matt prnt_tab overview_of_features_and_comparisons.tab -W 10 | less -S -
+```
+4.) all box plots as PDFs in directory summary_graphics
+
 
 Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
@@ -979,11 +983,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMz
-I5NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4
-MTYzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC
-0yNTc1MjgzMzMsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMjAz
-NzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1OT
-k5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04
-OTA0MjcyNzFdfQ==
+eyJoaXN0b3J5IjpbMTY2MjQyOTMwMiwxNDg3Njc4MTQ4LDE2MD
+U5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5NDAw
+NTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Mi
+w2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5
+MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5Nz
+A3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLTEx
+MjQ3NzY1MTBdfQ==
 -->
