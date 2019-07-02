@@ -478,7 +478,7 @@ matt prnt_tab overview_of_features_and_comparisons.tab -W 10 | less -S -
 Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulated
 ```bash
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-outdir=cisbprna_maps
+outdir=exons_cisbprna_maps
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir"
 ```
 Output folder contains:
@@ -520,7 +520,15 @@ Output folder contains:
 4.) all box plots as PDFs in directory summary_graphics
 
 Generate RNA-maps comparing the intron groups
-
+```bash
+FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
+output_dir=introns_cisbprna_maps
+matt rna_maps_cisbp introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $output_dir
+```
+Output folder contains:
+1.) summary with all motif RNA-maps (0_all_motif_rna_maps.pdf); each motif RNA-map is printed twice: with and without a data coverage plot. The maps are ordered according to differences of the enrichment scores between groups
+(silenced vs. unregulated and enhanced vs unregulated) from most positive differences to most negative differences. Hence, maps with most differences come first and last.
+2.) all motif RNA-maps as PDFs
 
 ## Data Analysis
 
@@ -992,7 +1000,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTQ4MzA2MywxODQwMDc3NzE5LDEyOT
+eyJoaXN0b3J5IjpbMTMzNTE1ODczMiwxODQwMDc3NzE5LDEyOT
 c1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3
 NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNS
 wtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEz
