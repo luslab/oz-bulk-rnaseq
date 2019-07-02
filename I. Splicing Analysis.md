@@ -457,6 +457,7 @@ matt col_uniq exons.tab GROUP
 # Feature extraction of exons
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
+mkdir cmpr_exons
 OUT=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cmpr_exons
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Mmus 150 GROUP[silenced,enhanced,unregulated] $OUT -colors:deepskyblue,firebrick4,lightgreen"
 ```
@@ -964,11 +965,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5Mzg2OTA2NCw0ODQyNzc5MjcsMTQxND
-g5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5
-NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLT
-ExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgy
-NjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzOD
-Y2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0
-MzE2NDNdfQ==
+eyJoaXN0b3J5IjpbLTE0MjUxMTM0MzMsNDg0Mjc3OTI3LDE0MT
+Q4OTExNTYsLTExMjAzNzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0
+OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC
+0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4
+MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMz
+g2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQx
+NDMxNjQzXX0=
 -->
