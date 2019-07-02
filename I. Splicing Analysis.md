@@ -118,7 +118,7 @@ C1 and C2 = the upstream and downstream constitutive exons, respectively.  C1Si 
 
 **4. Alternative Splicing Graphs Approach**
 - [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph.  Directly align reads to a splicing graph.
-- [SGSeq](https://bioconductor.org/packages/release/bioc/html/SGSeq.html) - Jack Humphrey uses this. Rstudio based. Input = BAM. Novel events found from splice graph. 
+- [SGSeq](https://bioconductor.org/packages/release/bioc/html/SGSeq.html) - Jack Humphrey uses this. Rstudio based. Input = BAM. Novel events found from splice graph. Author = Leonard Goldstein from Genentech
 .
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
  - QoRTs
@@ -979,7 +979,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1MjI4NjkyMiwxNDU5ODA0MjM1LC0xNj
+eyJoaXN0b3J5IjpbMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNj
 I2MzIyMjA0LDE5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3
 Njk5LC0xMzI5NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5Mi
 wtMjI4Mjc4MTYzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3
