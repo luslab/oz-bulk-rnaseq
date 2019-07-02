@@ -471,9 +471,8 @@ Output folder contains a
 Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-mkdir cisbprna_maps
 outdir=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cisbprna_maps
-matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $fasta cisbprna_regexps -d $outdir
+matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir
 
 ```
 
@@ -965,11 +964,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMz
-Q3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMz
-Myw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMT
-E1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0
-MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MS
-wxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2
-NDQ5NjcxMl19
+eyJoaXN0b3J5IjpbLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMj
+gyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDEx
+NzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMT
+EyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcw
+NTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MT
+AsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0
+NjYwOTY5NTldfQ==
 -->
