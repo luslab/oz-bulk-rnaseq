@@ -459,7 +459,7 @@ matt prnt_tab exons.tab -W 10 | less -S -
 # Feature extraction of exons
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-outdir=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cmpr_exons
+outdir=cmpr_exons
 matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap 150 GROUP[silenced,enhanced,unregulated] $outdir -colors:deepskyblue,firebrick4,lightgreen
 ```
 Output folder contains a
@@ -471,7 +471,7 @@ Output folder contains a
 Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-outdir=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cisbprna_maps
+outdir=cisbprna_maps
 matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir
 
 ```
@@ -964,11 +964,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMj
-gyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDEx
-NzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMT
-EyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcw
-NTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MT
-AsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0
-NjYwOTY5NTldfQ==
+eyJoaXN0b3J5IjpbLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMT
+I5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUw
+OTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMT
+QxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4
+MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0OD
+csLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEw
+ODgyNjY0NDZdfQ==
 -->
