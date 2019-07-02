@@ -460,7 +460,7 @@ matt prnt_tab exons.tab -W 10 | less -S -
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 outdir=cmpr_exons
-matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap 150 GROUP[silenced,enhanced,unregulated] $outdir -colors:deepskyblue,firebrick4,lightgreen
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap 150 GROUP[silenced,enhanced,unregulated] $outdir -colors:deepskyblue,firebrick4,lightgreen"
 ```
 Output folder contains a
 1.) summary PDF report with box plots (summary.pdf)
@@ -472,7 +472,7 @@ Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 outdir=cisbprna_maps
-matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir"
 ```
 Output folder contains:
 1.) summary with all motif RNA-maps (0_all_motif_rna_maps.pdf); each motif RNA-map is printed twice: with and without a data coverage plot.
@@ -976,11 +976,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTQ5NTA4MzMsLTEzMjk3Mjg1MTUsLT
-IwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3
-NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMy
-w0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1
-NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0Mj
-Q2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwx
-MjY4MDI0Mjk0XX0=
+eyJoaXN0b3J5IjpbMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMj
+A0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEzNDc1
+MzM1LC0xNDc1NTA5ODgyLDY4NzEwMTE3NSwtMjU3NTI4MzMzLD
+Q4NDI3NzkyNywxNDE0ODkxMTU2LC0xMTIwMzc2MjcwLC0xMTU1
+NTg5MTY0LC0zNzgzNDk3MDcsMTA2NzA1NTk5OSwxMDg3MDQyND
+Y1LDMyNjkwMDQ4NywtMTEyNDc3NjUxMCwtODkwNDI3MjcxLDEy
+NjgwMjQyOTRdfQ==
 -->
