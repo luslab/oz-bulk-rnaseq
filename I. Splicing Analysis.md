@@ -487,14 +487,14 @@ Output folder contains:
 2.) all motif RNA-maps as PDFs
 
 ## Intron Retention Workflow
-Extract from vast-tools output table **intron retention** events
+Extract from vast-tools output table **intron retention** events.
+Use `get_ifeatures` command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). 
 ```bash
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 matt col_uniq $vts_file COMPLEX
 matt get_vast $vts_file -complex IR-C,IR-S -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > introns.tab
-
 # check events
 matt col_uniq introns.tab COMPLEX
 # check col names
@@ -530,17 +530,7 @@ Output folder contains:
 (silenced vs. unregulated and enhanced vs unregulated) from most positive differences to most negative differences. Hence, maps with most differences come first and last.
 2.) all motif RNA-maps as PDFs
 
-## Data Analysis
 
-### Intron Features
-[http://matt.crg.eu/#get_ifeatures](http://matt.crg.eu/#get_ifeatures)
-`matt get_ifeatures`
-To get an overview of all the intron features
-`matt get_ifeatures explain`
-For intron features help page:
-`matt get_ifeatures help`
-
-Use `get_ifeatures` command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). 
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
 
@@ -1000,7 +990,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3OTg0OTE2MSwxODQwMDc3NzE5LDEyOT
+eyJoaXN0b3J5IjpbMTg2MjQ4Mjk1MCwxODQwMDc3NzE5LDEyOT
 c1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3
 NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNS
 wtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEz
