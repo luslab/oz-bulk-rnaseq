@@ -589,27 +589,9 @@ Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA bin
 4.  The motif RNA-maps are ordered according to largest differences of motif enrichment scores; Maps with largest positive differences come first, maps with largest negative differences last. The reference group for computing differences is always the last group specified in the program call.
 5.  all motif RNA-maps as PDF graphics
 
+---
 
-
-```bash
-#check cols added to introns.tab
-matt get_colnms introns.tab
-matt col_uniq introns.tab COMPLEX
-
-# produce perl regular expression of gene binding motif table
-
-GTF=~/working/oliver/genomes/annotation/Homo.gtf
-FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-
-# run rna_maps command
-sbatch -N 1 -c 8 --mem=40GB --wrap="matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND COMPLEX[IR-C,IR-S] 31 35 135 $FASTA sfpq_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d sfpq_rnamap -p 0.0001 10000"
-
-sfpq_rnamap
-tdp43_rnamap
-fus_rnamap
-```
-The following graphic as PDF will be put into output folder nova2_rnamap
-
+RAPHAELLE APPROACH:
 
 
 
@@ -921,11 +903,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM5Njk4MDQ4LDE4NDAwNzc3MTksMTI5Nz
-UwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxNDc3
-MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1LC
-0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4MTYzLDE0MTM0
-NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0yNTc1MjgzMz
-MsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMjAzNzYyNzAsLTEx
-NTU1ODkxNjRdfQ==
+eyJoaXN0b3J5IjpbLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMj
+k3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0
+NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MT
+UsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQx
+MzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyOD
+MzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwt
+MTE1NTU4OTE2NF19
 -->
