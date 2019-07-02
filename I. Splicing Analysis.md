@@ -486,14 +486,6 @@ Output folder contains:
 (silenced vs. unregulated and enhanced vs unregulated) from most positive differences to most negative differences. Hence, maps with most differences come first and last.
 2.) all motif RNA-maps as PDFs
 
-More infos: This analysis can be done with all input tables describing exons, wherever they come from, if they contain the necessary pieces of information:
-1.) exon start coordinate
-2.) exon end
-3.) scaffold/chromosome of exon
-4.) strand
-5.) flanking borders of flanking exons
-6.) group IDs
-
 ## Intron Retention Workflow
 Extract from vast-tools output table **intron retention** events
 ```bash
@@ -982,11 +974,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NzE0NzcwNSwxNDg3Njc4MTQ4LDE2MD
-U5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5NDAw
-NTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Mi
-w2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5
-MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5Nz
-A3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLTEx
-MjQ3NzY1MTBdfQ==
+eyJoaXN0b3J5IjpbLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxND
+g3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1
+ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNS
+wtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQy
+Nzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OT
+E2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwz
+MjY5MDA0ODddfQ==
 -->
