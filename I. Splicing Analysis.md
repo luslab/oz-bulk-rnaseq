@@ -426,6 +426,9 @@ vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_ou
 
 #inspect columns of this table
 matt get_colnms $vts_file
+# print table to screen (which shows that, e.g., inclusion levels are in the range of [0;100]),
+# it can be printed nicely to screen with (where arrow keys up, down, left, right can be used for navigation):
+matt prnt_tab $vts_file -W 10 | less -S -
 
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
@@ -911,11 +914,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTMxODcwNTcsLTExMjAzNzYyNzAsLT
-ExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcw
-NDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNz
-EsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0x
-NjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxOD
-Q5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIw
-MDc0MzcxMzBdfQ==
+eyJoaXN0b3J5IjpbMTAxMTQxMTA1MywtMTEyMDM3NjI3MCwtMT
+E1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0
+MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MS
+wxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2
+NDQ5NjcxMiwtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4ND
+ksLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAw
+NzQzNzEzMF19
 -->
