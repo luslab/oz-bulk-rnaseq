@@ -482,8 +482,7 @@ outdir=cisbprna_maps
 sbatch -N 1 -c 8 --mem=40GB --wrap="matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir"
 ```
 Output folder contains:
-1.) summary with all motif RNA-maps (0_all_motif_rna_maps.pdf); each motif RNA-map is printed twice: with and without a data coverage plot.
-The maps are ordered according to differences of the enrichment scores between groups
+1.) summary with all motif RNA-maps (0_all_motif_rna_maps.pdf); each motif RNA-map is printed twice: with and without a data coverage plot. The maps are ordered according to differences of the enrichment scores between groups
 (silenced vs. unregulated and enhanced vs unregulated) from most positive differences to most negative differences.
 Hence, maps with most differences come first and last.
 2.) all motif RNA-maps as PDFs
@@ -983,7 +982,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNzQwNTAwNSwxNDg3Njc4MTQ4LDE2MD
+eyJoaXN0b3J5IjpbLTk4NTA0Mjk3NSwxNDg3Njc4MTQ4LDE2MD
 U5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5NDAw
 NTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Mi
 w2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5
