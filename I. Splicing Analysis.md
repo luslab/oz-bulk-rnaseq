@@ -556,25 +556,29 @@ Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA bin
 4.  The motif RNA-maps are ordered according to largest differences of motif enrichment scores; Maps with largest positive differences come first, maps with largest negative differences last. The reference group for computing differences is always the last group specified in the program call.
 5.  all motif RNA-maps as PDF graphics
 
+
 nova2_regexpr.tab describes a Perl regular expression of the NOVA2 binding motif in a table with columns:
-1.  TYPE: the type of motif model, either REGEXP or PWM
-2.  NAME: the name of the motif
-3.  REGEXP: the Perl regular expression of a link to a file (table) containing the PWM
-4.  THRESH: only for PWM (set to NA for REGEXPs): threshold for hit prediction (see  [get_pwm_hits](http://matt.crg.eu/#get_pwm_hits))
-5.  BGMODEL: only for PWM (set to NA for REGEXPs): if and which background model should be used
+6.  TYPE: the type of motif model, either REGEXP or PWM
+7.  NAME: the name of the motif
+8.  REGEXP: the Perl regular expression of a link to a file (table) containing the PWM
+9.  THRESH: only for PWM (set to NA for REGEXPs): threshold for hit prediction (see  [get_pwm_hits](http://matt.crg.eu/#get_pwm_hits))
+10.  BGMODEL: only for PWM (set to NA for REGEXPs): if and which background model should be used
 
 Further, 3 groups of human exons are described in table exons.tab with columns
-1.  START: start of exon
-2.  END: end of exon
-3.  SCAFFOLD: chromosome
-4.  STRAND
-5.  UPSTRM_EX_BORDER: border of next up-stream exon
-6.  DOSTRM_EX_BORDER: border of next down-stream exon
-7.  GROUP: defining exon groups (down, up, ndiff); last group is reference group
+11.  START: start of exon
+12.  END: end of exon
+13.  SCAFFOLD: chromosome
+14.  STRAND
+15.  UPSTRM_EX_BORDER: border of next up-stream exon
+16.  DOSTRM_EX_BORDER: border of next down-stream exon
+17.  GROUP: defining exon groups (down, up, ndiff); last group is reference group
 
 The following call produces a NOVA2 motif RNA map with a sliding window of length 31 which slides up to position 35 into exons and up to position 135 into introns. Regions with significant enrichment as compared to the reference group ndiff are highlighted.
 
 ```bash
+#check cols added to introns.tab
+matt get_colnms introns.tab
+
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
 matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[up,down,ndiff] 31 35 135 $GTF nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
@@ -892,11 +896,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3ODM0OTcwNywxMDY3MDU1OTk5LDEwOD
-cwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0Mjcy
-NzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC
-0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkx
-ODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LD
-IwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NTgw
-MDAyMjBdfQ==
+eyJoaXN0b3J5IjpbLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMD
+Y3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2
+NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC
+0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1
+ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC
+0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1
+ODg2MTVdfQ==
 -->
