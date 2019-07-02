@@ -504,8 +504,7 @@ matt def_cats introns.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhance
 # check events/group
 matt col_uniq introns.tab GROUP
 
-# Run Feature extraction cmpr_introns
-```bash
+# Run Feature extraction: cmpr_introns http://matt.crg.eu/#cmpr_introns
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 output_dir=cmpr_introns
@@ -990,7 +989,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2MjQ4Mjk1MCwxODQwMDc3NzE5LDEyOT
+eyJoaXN0b3J5IjpbLTg3MjI3MTIwMCwxODQwMDc3NzE5LDEyOT
 c1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3
 NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNS
 wtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEz
