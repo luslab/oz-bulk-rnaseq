@@ -547,7 +547,7 @@ DATASET[down,ndiff] compares group down vs. ndiff, DATASET[down,up,ndiff] compar
 #### Run RNA maps
 [http://matt.crg.eu/#rna_maps](http://matt.crg.eu/#rna_maps)
 
-Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA binding proteins for different groups of exons or introns. Motifs can be defined as **position weight matrix models (PWMs)** or **Perl regular expressions**. This command extracts sequences from proximity of given exons/introns, predict hits of the specified motifs therein, and compute motif enrichment scores. A **permutation test** is applied for estimating p values and regions with significant differences in motif enrichment will be highlighted in the motif RNA-map.  
+Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA binding proteins for different groups of exons or introns. Motifs can be defined as **position weight matrix models (PWMs)** or **Perl regular expressions**. This command extracts sequences from proximity of given exons/introns, predict hits of the specified motifs therein, and computes motif enrichment scores. A **permutation test** is applied for estimating p values - regions with significant differences in motif enrichment are highlighted in the motif RNA-map.  
 
 **Output:**
 1.  PDF report containing all motif RNA-maps
@@ -892,11 +892,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2NzA1NTk5OSwxMDg3MDQyNDY1LDMyNj
-kwMDQ4NywtMTEyNDc3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQy
-OTQsMTA4ODI2NjQ0NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC
-0zMjM0MTM4NjYsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUz
-NTc3MSw0MTQzMTY0MywtMTM4MTUxMDM4NywyMDA3NDM3MTMwLD
-E1NjYxNDE5MjAsMjgxNTg4NjE1LC0xNTU4MDAwMjIwLC0yMDI3
-ODM3MDA5XX0=
+eyJoaXN0b3J5IjpbLTM3ODM0OTcwNywxMDY3MDU1OTk5LDEwOD
+cwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0Mjcy
+NzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC
+0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkx
+ODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LD
+IwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1ODg2MTUsLTE1NTgw
+MDAyMjBdfQ==
 -->
