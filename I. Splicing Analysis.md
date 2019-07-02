@@ -372,7 +372,7 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
 
-Matt is a **Unix command-line toolkit** for analyzing genomic sequences with focus on the down-stream analysis of alternative splicing events. Being a POSIX-style command-line toolkit, Matt runs on the terminal of any Unix-like system. **Matt is modular**: It comprises many commands, each of which tailored to one specific task. Combining commands allows the user to solve complex tasks:  **The whole is more than the sum of its parts**. Matt works on tables as its data structure, where rows correspond to objects, e.g., exons, genes, etc., and columns correspond to features of these objects.
+Matt is a **Unix command-line toolkit** for analyzing genomic sequences with focus on the down-stream analysis of alternative splicing events. Being a POSIX-style command-line toolkit, Matt runs on the terminal of any Unix-like system. **Matt is modular**: It comprises many commands, each of which tailored to one specific task. Combining commands allows the user to solve complex tasks:  the whole is more than the sum of its parts. Matt works on tables as its data structure, where rows correspond to objects, e.g., exons, genes, etc., and columns correspond to features of these objects.
 
 Matt usage goes through  **two phases**:
 1. Data preparation: Fit the output from other programs, e.g., VASTOOLS estimation of inclusion levels of alternative splicing events, to the input format of Matt analyses. Works on the INCLUSION_LEVELS_FULL-Hsa2-hg19.tab file from `vast-tools combine` output.
@@ -394,6 +394,7 @@ R
 library("R.utils")
 # quit R
 q()
+y
 ```
 Access help pages:
 `matt`
@@ -421,11 +422,11 @@ Uses INCLUSION_LEVELS_FULL-Hsa6-hg19.tab being a final results table from VAST-T
 
 ```bash
 # extract all intron retention events & PSI values (min, max & mean) from vast tools output table for the comparison of samples -a vs -b (if merged then use the group names rather than the individual sample names). To be included PSI values need to have a minimum quality flag of LOW across all samples:
-INFILE=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
-matt get_vast $INFILE -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
+matt get_vast $vts -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
 ```
 Check the GENE ID column - for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
 ```bash
@@ -906,7 +907,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4MDAwNzgwMiwtMTEyMDM3NjI3MCwtMT
+eyJoaXN0b3J5IjpbLTI0NTQ1NDY2NCwtMTEyMDM3NjI3MCwtMT
 E1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0
 MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MS
 wxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2
