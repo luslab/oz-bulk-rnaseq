@@ -557,7 +557,7 @@ Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA bin
 5.  all motif RNA-maps as PDF graphics
 
 
-nova2_regexpr.tab describes a Perl regular expression of the NOVA2 binding motif in a table with columns:
+nova2_regexp.tab describes a Perl regular expression of the NOVA2 binding motif in a table with columns:
 6.  TYPE: the type of motif model, either REGEXP or PWM
 7.  NAME: the name of the motif
 8.  REGEXP: the Perl regular expression of a link to a file (table) containing the PWM
@@ -580,7 +580,7 @@ The following call produces a NOVA2 motif RNA map with a sliding window of lengt
 matt get_colnms introns.tab
 matt col_uniq introns.tab COMPLEX
 
-# produce perl regular expression of gene binding motif
+# produce perl regular expression of gene binding motif table
 
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
@@ -905,11 +905,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY5MzM2NjUyNCwtMTE1NTU4OTE2NCwtMz
-c4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0
-ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LD
-EwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIz
-NDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3Nz
-EsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2
-MTQxOTIwXX0=
+eyJoaXN0b3J5IjpbLTExMjAzNzYyNzAsLTExNTU1ODkxNjQsLT
+M3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAw
+NDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NC
+wxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMy
+MzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1Nz
+cxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2
+NjE0MTkyMF19
 -->
