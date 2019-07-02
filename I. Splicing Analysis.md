@@ -511,8 +511,9 @@ FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 output_dir=cmpr_introns
 
 # run cmpr_introns - output goes into cmpr_1 folder - takes ~20mins
-sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_introns introns_testsets.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,azure4"
-```
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_introns introns.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap 150 GROUP[silenced,enhanced,unregulated] $output_dir -colors:deepskyblue,firebrick4,lightgreen"
+
+
 ```
 
 
@@ -986,11 +987,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4MjM0MTQ5OSwxODQwMDc3NzE5LDEyOT
-c1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3
-NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNS
-wtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEz
-NDc1MzM1LC0xNDc1NTA5ODgyLDY4NzEwMTE3NSwtMjU3NTI4Mz
-MzLDQ4NDI3NzkyNywxNDE0ODkxMTU2LC0xMTIwMzc2MjcwLC0x
-MTU1NTg5MTY0XX0=
+eyJoaXN0b3J5IjpbLTE0NDg5NzE2NDEsMTg0MDA3NzcxOSwxMj
+k3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0
+NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MT
+UsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQx
+MzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyOD
+MzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwt
+MTE1NTU4OTE2NF19
 -->
