@@ -589,39 +589,35 @@ Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA bin
 4.  The motif RNA-maps are ordered according to largest differences of motif enrichment scores; Maps with largest positive differences come first, maps with largest negative differences last. The reference group for computing differences is always the last group specified in the program call.
 5.  all motif RNA-maps as PDF graphics
 
+## RNA motif maps
+LOOK UP
+UNDERSTAND GROUPS: enhanced vs silenced vs unregulated
+
 ---
 
 RAPHAELLE APPROACH:
 
-
-
-
 ## Coverage for introns of interest
 To perform the a focussed analysis of the 167 retained introns identified using VAST-tools, 
-
 Run Sections A, B,  C "Import time effect" from `import_VASTOOLS.R` script located in `/home/camp/ziffo/working/oliver/scripts/intron_retention` 
-
 Then run `get_relative_coverage_inteactive.R` script.  
-
 Also note other R scripts:
 `characterise_introns.R`
-
 This approach uses a combination of threshold but accounts for the depth of coverage between different samples. Uses [MaxEntScan of 5' and 3' end](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) to identify splice sites. 
-
 First run the global analysis to get the big picture of splicing events in VCP vs CTRL.  SVD & PCA analysis clustering by mutation. 
 Then run detailed analysis according to specific genes or features. Multivariate analysis of the 2 VCP mutants. 
-
 to be run in R which calculates a ratio of intron sequence coverage and surrounding exons. 
-
 1. First check that the gene where the event is occurring is expressed. 
 2. Then check the event exhibits a change over time of at least 10%. 
 3. Finally inspect visually all selected IR events occurring at Day 7 NPC stage in VCP mutant and at Day 14 pMN stage in CTRL to end up with the list of 167 events to get a high confidence list.
-
 Import the results obtained from VAST-tools (remember analysis in VCP & CTRL over time performed initially independently) 
-
 To then get a value of IR across diverse data-sets I then wrote the custom code that computed the ratio between coverage of the intron versus average coverage of the neighbouring exons. Then select the events of interest. The `get_relative_coverage_interactive.R` script is located in `/home/camp/ziffo/working/oliver/scripts/intron_retention`
 
 
+# SGSeq
+Jack Humphrey uses this
+Vignette](http://127.0.0.1:28705/library/SGSeq/doc/SGSeq.html)
+[Bioconductor page](https://bioconductor.org/packages/release/bioc/html/SGSeq.html)
 
 
 
@@ -903,11 +899,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMj
-k3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0
-NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MT
-UsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQx
-MzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyOD
-MzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwt
-MTE1NTU4OTE2NF19
+eyJoaXN0b3J5IjpbNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4ND
+AwNzc3MTksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIy
+MjA0LDE5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC
+0xMzI5NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4
+Mjc4MTYzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMT
+c1LC0yNTc1MjgzMzMsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTEx
+MjAzNzYyNzBdfQ==
 -->
