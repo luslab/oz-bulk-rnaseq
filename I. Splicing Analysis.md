@@ -277,6 +277,8 @@ head INCLUSION_LEVELS_MULTI-Hsa14-n.tab
 Format of the combine output is as follows: 
 https://github.com/vastgroup/vast-tools/blob/master/README.md#combine-output-format
 
+Can skip remainder of VAST tools and perform downstream analysis with Matt using INCLUSION_LEVELS_FULL-Hsa6-hg19.tab
+
 ## Compare Groups & Differential Splicing Analysis
 https://github.com/vastgroup/vast-tools#comparing-psis-between-samples
 https://github.com/vastgroup/vast-tools#differential-splicing-analysis
@@ -366,7 +368,6 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | wc -l
 # count number of genes with +ve intron retention (VCP vs CTRL):
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
-
 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -905,11 +906,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjAzNzYyNzAsLTExNTU1ODkxNjQsLT
-M3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAw
-NDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NC
-wxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMy
-MzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1Nz
-cxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2
-NjE0MTkyMF19
+eyJoaXN0b3J5IjpbMTc4MDAwNzgwMiwtMTEyMDM3NjI3MCwtMT
+E1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0
+MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MS
+wxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2
+NDQ5NjcxMiwtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4ND
+ksLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAw
+NzQzNzEzMF19
 -->
