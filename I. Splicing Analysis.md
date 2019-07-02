@@ -488,7 +488,7 @@ Output folder contains:
 
 ## Intron Retention Workflow
 Extract from vast-tools output table **intron retention** events.
-Use `get_ifeatures` command to retrieve 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). 
+
 ```bash
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
@@ -532,7 +532,7 @@ Output folder contains:
 
 
 ![enter image description here](http://matt.crg.eu/graphics/ov_introns.png)
-
+ `get_ifeatures` command is included in cmpr_introns - it retrieves 50 features of interest for introns. Introns need to be described by a table with basic information (genomic coordinates, gene ID of genes the introns belong to). 
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
@@ -541,26 +541,8 @@ sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures ir_events.tab START END S
 ```
 This writes a table with columns containing the feature values & extracted sequence of intron, up/downstream exon & splice sites. If only one or a few features are of interest, users can apply [get_cols](http://matt.crg.eu/#cmpr_exons)  and extract specific feature columns only.
 
-
-### Compare Introns
-[http://matt.crg.eu/#cmpr_introns](http://matt.crg.eu/#cmpr_introns)
-
-`cmpr_introns` compares groups of introns. This command goes through these steps:
-1.  run [get_ifeatures](http://matt.crg.eu/#get_ifeatures)  on the input table to determine exon-related features
-2.  apply Mann-Whitney U test to the comparison of feature distributions across groups
-3.  output:
-	1.  PDF report summarizing results with box plots
-	2.  table with all events and extracted features
-	3.  table with details on performed statistical tests including p values
-	4.  all box plots as PDF graphics
-
-The input table describing introns needs to contain introns info in separate columns:
-1.  start coordinate
-2.  end coordinate
-3.  chromosome ID; these chromosome IDs must match with the chromosome IDs in the GTF and FASTA (Homo.gtf)
-4.  strand
-5.  gene ID of gene where intron occurs in; these gene IDs must match with the gene IDs in the GTF 
-  
+---
+additional to remove  
 #### Create introns.tab 
  
 introns.tab  describes introns with these columns (and maybe more)
@@ -575,7 +557,7 @@ introns.tab  describes introns with these columns (and maybe more)
 `matt col_uniq INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COMPLEX | matt prnt_tab - -w 9 | less -S -`
 press `q` to exit
 
-Use [get_vast](http://matt.crg.eu/#get_vast)  later which works with VAST-tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5. It outputs an augmented table, from which we select only intron events by re-directing this table to [get_rows](http://matt.crg.eu/#get_rows). The final output table gets re-directed into file introns.tab.
+
 ```bash
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
@@ -989,11 +971,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3MjI3MTIwMCwxODQwMDc3NzE5LDEyOT
-c1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3
-NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNS
-wtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEz
-NDc1MzM1LC0xNDc1NTA5ODgyLDY4NzEwMTE3NSwtMjU3NTI4Mz
-MzLDQ4NDI3NzkyNywxNDE0ODkxMTU2LC0xMTIwMzc2MjcwLC0x
-MTU1NTg5MTY0XX0=
+eyJoaXN0b3J5IjpbLTEwNTQ5NzIxNjAsMTg0MDA3NzcxOSwxMj
+k3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0
+NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MT
+UsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQx
+MzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyOD
+MzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwt
+MTE1NTU4OTE2NF19
 -->
