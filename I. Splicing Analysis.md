@@ -467,6 +467,9 @@ Output folder contains a
 2.) a table with all events and extracted features (exons_with_efeatures.tab)
 3.) a table with all p values and information on performed statistical tests (overview_of_features_and_comparisons.tab)
 4.) all box plots as PDFs in directory summary_graphics
+```
+matt prnt_tab exons_with_efeatures.tab -W 10 | less -S -
+```
 
 Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
@@ -976,11 +979,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMj
-A0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEzNDc1
-MzM1LC0xNDc1NTA5ODgyLDY4NzEwMTE3NSwtMjU3NTI4MzMzLD
-Q4NDI3NzkyNywxNDE0ODkxMTU2LC0xMTIwMzc2MjcwLC0xMTU1
-NTg5MTY0LC0zNzgzNDk3MDcsMTA2NzA1NTk5OSwxMDg3MDQyND
-Y1LDMyNjkwMDQ4NywtMTEyNDc3NjUxMCwtODkwNDI3MjcxLDEy
-NjgwMjQyOTRdfQ==
+eyJoaXN0b3J5IjpbMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMz
+I5NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4
+MTYzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC
+0yNTc1MjgzMzMsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMjAz
+NzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1OT
+k5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04
+OTA0MjcyNzFdfQ==
 -->
