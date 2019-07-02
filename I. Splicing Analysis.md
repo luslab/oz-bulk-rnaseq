@@ -450,7 +450,7 @@ matt get_colnms exons.tab
 # define groups of skipped exons to be compared
 matt def_cats exons.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=DPSI_GRPA_MINUS_GRPB[-100,-25]' 'unregulated=DPSI_GRPA_MINUS_GRPB[-1,1] PSI_VCP.d0[10,90]' | matt add_cols exons.tab -
 #apply these group definitions
-matt def_cats exons.tab GROUP 'silenced=DPSI[25,100]' 'enhanced=DPSI[-100,-25]' 'unregulated=DPSI[-1,1] PSI_nova2wt[10,90]' | matt add_cols exons.tab -
+matt def_cats exons.tab GROUP 'silenced=DPSI[25,100]' 'enhanced=DPSI[-100,-25]' 'unregulated=DPSI[-1,1] PSI_VCP.d0[10,90]' | matt add_cols exons.tab -
 # Final check of number events per group in exons.tab
 matt col_uniq exons.tab GROUP
 ```
@@ -942,11 +942,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTkyODcyMjcsMTQxNDg5MTE1NiwtMT
-EyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcw
-NTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MT
-AsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0
-NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzODY2LDIwNjU4MD
-YzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEz
-ODE1MTAzODddfQ==
+eyJoaXN0b3J5IjpbNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMj
+AzNzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1
+OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC
+04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2
+MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2Mz
+M2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgx
+NTEwMzg3XX0=
 -->
