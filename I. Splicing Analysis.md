@@ -439,6 +439,9 @@ matt col_uniq $vts_file COMPLEX
 ## Skipped Exons Workflow
 as per shell script chapter 6: [http://matt.crg.eu/examples/nova2/all_analysis_steps.html](http://matt.crg.eu/examples/nova2/all_analysis_steps.html) 
 Extract from vast-tools output table **skipped exons**
+
+Use [get_vast](http://matt.crg.eu/#get_vast)  later which works with VAST-tools standard types of alternative splicing events which are: S, C1, C2, C3, MIC, IR-S, IR-C, Alt3, Alt5. It outputs an augmented table, from which we select only intron events by re-directing this table to [get_rows](http://matt.crg.eu/#get_rows). The final output table gets re-directed into file introns.tab.
+
 ```bash
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
@@ -553,30 +556,6 @@ introns.tab  describes introns with these columns (and maybe more)
 5.  GENEID_ENSEMBL
 6.  DATASET: containing group IDs of introns (down, up, ndiff)
 
-`matt get_colnms INCLUSION_LEVELS_FULL-Hsa2-hg19.tab`
-`matt col_uniq INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COMPLEX | matt prnt_tab - -w 9 | less -S -`
-press `q` to exit
-
-
-```bash
-GTF=~/working/oliver/genomes/annotation/Homo.gtf
-
-matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COORD FullCO COMPLEX LENGTH -gtf $GTF -f gene_id | matt get_rows - COMPLEX]IR,IR-C,IR-S[ | matt rn_cols - GENEID:ENSEMBL_GENEID > introns.tab
-
-matt get_colnms introns.tab
-# get idea of number of intron sets events
-matt col_uniq introns.tab COMPLEX
-
-# extract intron features
-GTF=~/working/oliver/genomes/annotation/Homo.gtf
-FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-#run get_ifeatures on introns.tab - takes ~20mins
-sbatch -N 1 -c 8 --mem=40GB --wrap="matt get_ifeatures introns.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 | matt add_cols introns.tab -"
-
-#check cols added to introns.tab
-matt get_colnms introns.tab
-```
-
 `introns.tab` contains for all intron information about their genomic coordinate, gene, and their intron features including intron sequence, splice site sequences, sequences of up/down-stream exons. 
   
 `introns.tab` is used as input for  [cmpr_introns](http://matt.crg.eu/#cmpr_introns), which extracts features for all introns and appends them to the input table. As a consequence, the input table  **must not**  already contain columns with identical column names because column names in a table must be unique. Hence, from introns.tab we select only the important columns and neglect the already added columns with intron features.
@@ -587,18 +566,6 @@ mv tmp.tab introns_testsets.tab
 # Check the number of introns in the final table introns_testsets.tab confirms that the sampling worked as expected.
 matt col_uniq introns.tab COMPLEX
 ```
-
-#### Run cmpr_introns
-```bash
-GTF=~/working/oliver/genomes/annotation/Homo.gtf
-FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
-
-# run cmpr_introns - output goes into cmpr_1 folder - takes ~20mins
-sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_introns introns_testsets.tab START END SCAFFOLD STRAND ENSEMBL_GENEID $GTF $FASTA Hsap 150 COMPLEX[IR-C,IR-S] cmpr_1 -colors:brown2,azure4"
-```
-
-`COMPLEX[IR-C,IR-S]` selects the groups to be compared, (if >2 groups, all pair-wise comparisons are done). The last place will give us box plots which with IR-S as reference group. Output isL summary in form of a PDF document with all details on the comparisons and all graphics in sub-folder summary_graphics for later use.  The argument `150` specifies the length of the 3'-end of the introns which should be scanned for branch point analysis - 150 is advised. 
-
 Color names can be found [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
   
 The  [PDF report](http://matt.crg.eu/examples/cmpr_exons/cmpr_1/summary.pdf)  contains all details and plots and is organized into:
@@ -623,23 +590,6 @@ Produce motif RNA-maps for comparing enrichment of binding motifs of RNA/DNA bin
 5.  all motif RNA-maps as PDF graphics
 
 
-nova2_regexp.tab describes a Perl regular expression of the NOVA2 binding motif in a table with columns:
-6.  TYPE: the type of motif model, either REGEXP or PWM
-7.  NAME: the name of the motif
-8.  REGEXP: the Perl regular expression of a link to a file (table) containing the PWM
-9.  THRESH: only for PWM (set to NA for REGEXPs): threshold for hit prediction (see  [get_pwm_hits](http://matt.crg.eu/#get_pwm_hits))
-10.  BGMODEL: only for PWM (set to NA for REGEXPs): if and which background model should be used
-
-Further, 3 groups of human exons are described in table exons.tab with columns
-11.  START: start of exon
-12.  END: end of exon
-13.  SCAFFOLD: chromosome
-14.  STRAND
-15.  UPSTRM_EX_BORDER: border of next up-stream exon
-16.  DOSTRM_EX_BORDER: border of next down-stream exon
-17.  GROUP: defining exon groups (down, up, ndiff); last group is reference group
-
-The following call produces a NOVA2 motif RNA map with a sliding window of length 31 which slides up to position 35 into exons and up to position 135 into introns. Regions with significant enrichment as compared to the reference group ndiff are highlighted.
 
 ```bash
 #check cols added to introns.tab
@@ -971,11 +921,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTQ5NzIxNjAsMTg0MDA3NzcxOSwxMj
-k3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0
-NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MT
-UsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQx
-MzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyOD
-MzMyw0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwt
-MTE1NTU4OTE2NF19
+eyJoaXN0b3J5IjpbNTM5Njk4MDQ4LDE4NDAwNzc3MTksMTI5Nz
+UwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxNDc3
+MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1LC
+0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4MTYzLDE0MTM0
+NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0yNTc1MjgzMz
+MsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMjAzNzYyNzAsLTEx
+NTU1ODkxNjRdfQ==
 -->
