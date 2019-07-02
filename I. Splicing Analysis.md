@@ -581,8 +581,9 @@ matt get_colnms introns.tab
 matt col_uniq introns.tab COMPLEX
 
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
+FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
-matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND COMPLEX[IR-C,IR-S] 31 35 135 $GTF nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
+matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND COMPLEX[IR-C,IR-S] 31 35 135 $FASTA nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
 ```
 The following graphic as PDF will be put into output folder nova2_rnamap
 
@@ -897,11 +898,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTY1NDgyMTMsLTExNTU1ODkxNjQsLT
-M3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAw
-NDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NC
-wxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMy
-MzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1Nz
-cxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2
-NjE0MTkyMF19
+eyJoaXN0b3J5IjpbMTM2MzUwMzc4OCwtMTE1NTU4OTE2NCwtMz
+c4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0
+ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LD
+EwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIz
+NDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3Nz
+EsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAwNzQzNzEzMCwxNTY2
+MTQxOTIwXX0=
 -->
