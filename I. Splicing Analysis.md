@@ -458,8 +458,8 @@ matt col_uniq exons.tab GROUP
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 mkdir cmpr_exons
-OUT=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cmpr_exons
-sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap 150 GROUP[silenced,enhanced,unregulated] $OUT -colors:deepskyblue,firebrick4,lightgreen"
+outdir=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cmpr_exons
+matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Hsap 150 GROUP[silenced,enhanced,unregulated] $outdir -colors:deepskyblue,firebrick4,lightgreen
 ```
 Output folder contains a
 1.) summary PDF report with box plots (summary.pdf)
@@ -471,8 +471,8 @@ Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 mkdir cisbprna_maps
-OUT=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cisbprna_maps
-matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $fasta cisbprna_regexps -d $OUT
+outdir=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cisbprna_maps
+matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $fasta cisbprna_regexps -d $outdir
 
 ```
 
@@ -964,11 +964,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg3MTAxMTc1LC0yNTc1MjgzMzMsNDg0Mj
-c3OTI3LDE0MTQ4OTExNTYsLTExMjAzNzYyNzAsLTExNTU1ODkx
-NjQsLTM3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMz
-I2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAy
-NDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MT
-IsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4
-NTM1NzcxXX0=
+eyJoaXN0b3J5IjpbLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0yNT
+c1MjgzMzMsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTExMjAzNzYy
+NzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1OTk5LD
+EwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC04OTA0
+MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2MDk2OT
+U5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2MzM2LDEy
+NTkxODQ5XX0=
 -->
