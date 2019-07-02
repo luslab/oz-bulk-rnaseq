@@ -578,10 +578,11 @@ The following call produces a NOVA2 motif RNA map with a sliding window of lengt
 ```bash
 #check cols added to introns.tab
 matt get_colnms introns.tab
+matt col_uniq introns.tab COMPLEX
 
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
-matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[up,down,ndiff] 31 35 135 $GTF nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
+matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND COMPLEX[IR-C,IR-S] 31 35 135 $GTF nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
 ```
 The following graphic as PDF will be put into output folder nova2_rnamap
 
@@ -896,11 +897,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMD
-Y3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2
-NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC
-0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1
-ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC
-0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2NjE0MTkyMCwyODE1
-ODg2MTVdfQ==
+eyJoaXN0b3J5IjpbLTIwOTY1NDgyMTMsLTExNTU1ODkxNjQsLT
+M3ODM0OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAw
+NDg3LC0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NC
+wxMDg4MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMy
+MzQxMzg2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1Nz
+cxLDQxNDMxNjQzLC0xMzgxNTEwMzg3LDIwMDc0MzcxMzAsMTU2
+NjE0MTkyMF19
 -->
