@@ -456,7 +456,21 @@ matt col_uniq exons.tab GROUP
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 OUT=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cmpr_exons
-matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Mmus 150 GROUP[silenced,enhanced,unregulated] $OUT -colors:deepskyblue,firebrick4,lightgreen
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Mmus 150 GROUP[silenced,enhanced,unregulated] $OUT -colors:deepskyblue,firebrick4,lightgreen"
+
+# Output folder contains a
+# 1.) summary PDF report with box plots (summary.pdf)
+# 2.) a table with all events and extracted features (exons_with_efeatures.tab)
+# 3.) a table with all p values and information on performed statistical tests (overview_of_features_and_comparisons.tab)
+# 4.) all box plots as PDFs in directory summary_graphics
+# More infos: This analysis can be done with all input tables describing exons, wherever they come from, if they contain the necessary pieces of information:
+# 1.) exon start coordinate
+# 2.) exon end
+# 3.) scaffold/chromosome of exon
+# 4.) strand
+# 5.) any type of gene ID which matches the gene IDs in the given GTF file with gene annotation
+# 6.) group IDs
+
 
 ```
 
@@ -947,11 +961,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTE4NjA0MDUwLDQ4NDI3NzkyNywxNDE0OD
-kxMTU2LC0xMTIwMzc2MjcwLC0xMTU1NTg5MTY0LC0zNzgzNDk3
-MDcsMTA2NzA1NTk5OSwxMDg3MDQyNDY1LDMyNjkwMDQ4NywtMT
-EyNDc3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQyOTQsMTA4ODI2
-NjQ0NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC0zMjM0MTM4Nj
-YsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3MSw0MTQz
-MTY0M119
+eyJoaXN0b3J5IjpbLTE0NTgyMTYwMDAsNDg0Mjc3OTI3LDE0MT
+Q4OTExNTYsLTExMjAzNzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0
+OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC
+0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4
+MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMz
+g2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQx
+NDMxNjQzXX0=
 -->
