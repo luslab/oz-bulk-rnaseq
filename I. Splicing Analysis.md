@@ -490,14 +490,10 @@ Output folder contains:
 Extract from vast-tools output table **intron retention** events
 ```bash
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
-GTF=~/working/oliver/genomes/annotation/Homo.gtf
-matt col_uniq $vts_file COMPLEX
-matt get_vast $vts_file -complex S,C1,C2,C3,MIC -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > exons.tab
-
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
-
-matt get_vast $vts_file -minqab LOW -minqglob N -complex IR,IR-S,IR-C -a VCP.d7 -b VCP.d0 -gtf $GTF > ir_events.tab
+matt col_uniq $vts_file COMPLEX
+matt get_vast $vts_file -complex IR-C,IR-S -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > introns.tab
 ```
 Check the output:
 GENE ID column - for very few events it might happen that matt can't determine the gene id but for the vast majority (98% or more) you should get a gene id.  
@@ -979,7 +975,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxODQ5OTUyMiwxMjk3NTA2Mzc1LDE0NT
+eyJoaXN0b3J5IjpbMTk0Nzc3MTE2OCwxMjk3NTA2Mzc1LDE0NT
 k4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4
 MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OT
 EsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3
