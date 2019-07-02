@@ -500,7 +500,7 @@ matt col_uniq introns.tab COMPLEX
 # check col names
 matt get_colnms introns.tab
 # define groups
-matt def_cats introns.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=DPSI_GRPA_MINUS_GRPB[-100,-25]' 'unregulated=DPSI_GRPA_MINUS_GRPB[-1,1] PSI_nova2wt[10,90]' | matt add_cols exons.tab -
+matt def_cats introns.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=DPSI_GRPA_MINUS_GRPB[-100,-25]' 'unregulated=DPSI_GRPA_MINUS_GRPB[-1,1] PSI_VCP.d0[10,90]' | matt add_cols introns.tab -
 
 ```
 Check the output:
@@ -983,11 +983,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4OTM1NzYzNzUsMTI5NzUwNjM3NSwxND
-U5ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxNDc3MDUsMTQ4NzY3
-ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1LC0yMDQ1NTgwOD
-kxLDEyOTQwMDU5MiwtMjI4Mjc4MTYzLDE0MTM0NzUzMzUsLTE0
-NzU1MDk4ODIsNjg3MTAxMTc1LC0yNTc1MjgzMzMsNDg0Mjc3OT
-I3LDE0MTQ4OTExNTYsLTExMjAzNzYyNzAsLTExNTU1ODkxNjQs
-LTM3ODM0OTcwN119
+eyJoaXN0b3J5IjpbMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NT
+k4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4
+MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OT
+EsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3
+NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5Mj
+csMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwt
+Mzc4MzQ5NzA3XX0=
 -->
