@@ -439,7 +439,7 @@ Extract from vast-tools output table **skipped exons**
 ```bash
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
-matt get_vast $vts_file -complex S,C1,C2,C3,MIC -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $gtf -f gene_id > exons.tab
+matt get_vast $vts_file -complex S,C1,C2,C3,MIC -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > exons.tab
 ```
 
 Extract from vast-tools output table **intron retention** events
@@ -928,11 +928,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMT
-E1NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0
-MjQ2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MS
-wxMjY4MDI0Mjk0LDEwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2
-NDQ5NjcxMiwtMzIzNDEzODY2LDIwNjU4MDYzMzYsMTI1OTE4ND
-ksLTIxMjg1MzU3NzEsNDE0MzE2NDMsLTEzODE1MTAzODcsMjAw
-NzQzNzEzMF19
+eyJoaXN0b3J5IjpbOTc1MTY4MTE2LDE0MTQ4OTExNTYsLTExMj
+AzNzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1
+OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC
+04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2
+MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2Mz
+M2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgx
+NTEwMzg3XX0=
 -->
