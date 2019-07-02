@@ -467,17 +467,12 @@ Output folder contains a
 3.) a table with all p values and information on performed statistical tests (overview_of_features_and_comparisons.tab)
 4.) all box plots as PDFs in directory summary_graphics
 
-This analysis can be done with all input tables describing exons, wherever they come from, if they contain the necessary pieces of information:
-1.) exon start coordinate
-2.) exon end
-3.) scaffold/chromosome of exon
-4.) strand
-5.) any type of gene ID which matches the gene IDs in the given GTF file with gene annotation
-6.) group IDs
-
+Generate motif RNA-map
+```bash
 
 ```
 
+## Intron Retention Workflow
 Extract from vast-tools output table **intron retention** events
 ```bash
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
@@ -965,11 +960,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjUxMTM0MzMsNDg0Mjc3OTI3LDE0MT
-Q4OTExNTYsLTExMjAzNzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0
-OTcwNywxMDY3MDU1OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC
-0xMTI0Nzc2NTEwLC04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4
-MjY2NDQ2LC0xNDY2MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMz
-g2NiwyMDY1ODA2MzM2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQx
-NDMxNjQzXX0=
+eyJoaXN0b3J5IjpbMTkyMTY0MTc2MSw0ODQyNzc5MjcsMTQxND
+g5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5
+NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLT
+ExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgy
+NjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzOD
+Y2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0
+MzE2NDNdfQ==
 -->
