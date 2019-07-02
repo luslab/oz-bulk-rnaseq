@@ -473,8 +473,20 @@ Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 outdir=cisbprna_maps
 matt rna_maps_cisbp exons.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND GROUP[silenced,enhanced,unregulated] 31 35 135 $FASTA cisbprna_regexps -d $outdir
-
 ```
+Output folder contains:
+1.) summary with all motif RNA-maps (0_all_motif_rna_maps.pdf); each motif RNA-map is printed twice: with and without a data coverage plot.
+The maps are ordered according to differences of the enrichment scores between groups
+(silenced vs. unregulated and enhanced vs unregulated) from most positive differences to most negative differences.
+Hence, maps with most differences come first and last.
+2.) all motif RNA-maps as PDFs
+More infos: This analysis can be done with all input tables describing exons, wherever they come from, if they contain the necessary pieces of information:
+1.) exon start coordinate
+2.) exon end
+3.) scaffold/chromosome of exon
+4.) strand
+5.) flanking borders of flanking exons
+6.) group IDs
 
 ## Intron Retention Workflow
 Extract from vast-tools output table **intron retention** events
@@ -964,11 +976,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMT
-I5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUw
-OTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMT
-QxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4
-MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0OD
-csLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEw
-ODgyNjY0NDZdfQ==
+eyJoaXN0b3J5IjpbLTIwMTQ5NTA4MzMsLTEzMjk3Mjg1MTUsLT
+IwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3
+NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMy
+w0ODQyNzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1
+NTU4OTE2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0Mj
+Q2NSwzMjY5MDA0ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwx
+MjY4MDI0Mjk0XX0=
 -->
