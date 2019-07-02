@@ -489,6 +489,11 @@ Output folder contains:
 ## Intron Retention Workflow
 Extract from vast-tools output table **intron retention** events
 ```bash
+vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
+matt col_uniq $vts_file COMPLEX
+matt get_vast $vts_file -complex S,C1,C2,C3,MIC -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > exons.tab
+
 # specify Hg19 GTF as Homo.gtf - chromosome scaffolds ID added chr to start using: perl -ne 'unless(/^#|^GL/){$_="chr$_"}print' < $GTF > Homo.gtf   - help from Manuel Irimia with this.
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 
@@ -974,11 +979,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxND
-g3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1
-ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNS
-wtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQy
-Nzc5MjcsMTQxNDg5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OT
-E2NCwtMzc4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwz
-MjY5MDA0ODddfQ==
+eyJoaXN0b3J5IjpbMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOT
+g3MTQ3NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcy
+ODUxNSwtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2My
+wxNDEzNDc1MzM1LC0xNDc1NTA5ODgyLDY4NzEwMTE3NSwtMjU3
+NTI4MzMzLDQ4NDI3NzkyNywxNDE0ODkxMTU2LC0xMTIwMzc2Mj
+cwLC0xMTU1NTg5MTY0LC0zNzgzNDk3MDcsMTA2NzA1NTk5OSwx
+MDg3MDQyNDY1XX0=
 -->
