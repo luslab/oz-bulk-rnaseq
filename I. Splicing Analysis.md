@@ -453,6 +453,11 @@ matt def_cats exons.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=
 matt col_uniq exons.tab GROUP
 
 # Feature extraction of exons
+GTF=~/working/oliver/genomes/annotation/Homo.gtf
+FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
+OUT=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cmpr_exons
+matt cmpr_exons exons.tab START END SCAFFOLD STRAND GENEID $GTF $FASTA Mmus 150 GROUP[silenced,enhanced,unregulated] $OUT -colors:deepskyblue,firebrick4,lightgreen
+
 ```
 
 Extract from vast-tools output table **intron retention** events
@@ -942,11 +947,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NjM3ODYxNyw0ODQyNzc5MjcsMTQxND
-g5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5
-NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLT
-ExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgy
-NjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIzNDEzOD
-Y2LDIwNjU4MDYzMzYsMTI1OTE4NDksLTIxMjg1MzU3NzEsNDE0
-MzE2NDNdfQ==
+eyJoaXN0b3J5IjpbNTE4NjA0MDUwLDQ4NDI3NzkyNywxNDE0OD
+kxMTU2LC0xMTIwMzc2MjcwLC0xMTU1NTg5MTY0LC0zNzgzNDk3
+MDcsMTA2NzA1NTk5OSwxMDg3MDQyNDY1LDMyNjkwMDQ4NywtMT
+EyNDc3NjUxMCwtODkwNDI3MjcxLDEyNjgwMjQyOTQsMTA4ODI2
+NjQ0NiwtMTQ2NjA5Njk1OSwtMTY0NDk2NzEyLC0zMjM0MTM4Nj
+YsMjA2NTgwNjMzNiwxMjU5MTg0OSwtMjEyODUzNTc3MSw0MTQz
+MTY0M119
 -->
