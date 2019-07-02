@@ -475,7 +475,7 @@ matt prnt_tab overview_of_features_and_comparisons.tab -W 10 | less -S -
 4.) all box plots as PDFs in directory summary_graphics
 
 
-Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
+Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulated
 ```bash
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 outdir=cisbprna_maps
@@ -983,7 +983,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2MjQyOTMwMiwxNDg3Njc4MTQ4LDE2MD
+eyJoaXN0b3J5IjpbLTQwNzQwNTAwNSwxNDg3Njc4MTQ4LDE2MD
 U5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5NDAw
 NTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Mi
 w2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxNDg5
