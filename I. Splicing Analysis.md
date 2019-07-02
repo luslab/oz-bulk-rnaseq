@@ -440,6 +440,16 @@ Extract from vast-tools output table **skipped exons**
 vts_file=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 matt get_vast $vts_file -complex S,C1,C2,C3,MIC -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > exons.tab
+
+# check output
+# check number of events
+matt col_uniq exons.tab COMPLEX
+# check column names
+matt get_colnms exons.tab
+
+# define groups of skipped exons to be compared
+matt def_cats exons.tab GROUP 'silenced=DPSI_GRPA_MINUS_GRPB[25,100]' 'enhanced=DPSI_GRPA_MINUS_GRPB[-100,-25]' 'unregulated=DPSI_GRPA_MINUS_GRPB[-1,1] PSI_nova2wt[10,90]' | matt add_cols exons.tab -
+
 ```
 
 Extract from vast-tools output table **intron retention** events
@@ -457,11 +467,6 @@ GENE ID column - for very few events it might happen that matt can't determine t
 matt get_colnms ir_events.tab
 #print column GENEID
 awk '{ print $39}' ir_events.tab 
-
-# check number of events
-matt col_uniq exons.tab COMPLEX
-# check colum
-matt get_colnms exons.tab
 ```
 
 ## Data Analysis
@@ -934,11 +939,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2NjEwNjA5MSwxNDE0ODkxMTU2LC0xMT
-IwMzc2MjcwLC0xMTU1NTg5MTY0LC0zNzgzNDk3MDcsMTA2NzA1
-NTk5OSwxMDg3MDQyNDY1LDMyNjkwMDQ4NywtMTEyNDc3NjUxMC
-wtODkwNDI3MjcxLDEyNjgwMjQyOTQsMTA4ODI2NjQ0NiwtMTQ2
-NjA5Njk1OSwtMTY0NDk2NzEyLC0zMjM0MTM4NjYsMjA2NTgwNj
-MzNiwxMjU5MTg0OSwtMjEyODUzNTc3MSw0MTQzMTY0MywtMTM4
-MTUxMDM4N119
+eyJoaXN0b3J5IjpbLTI3NDQzOTkxLDE0MTQ4OTExNTYsLTExMj
+AzNzYyNzAsLTExNTU1ODkxNjQsLTM3ODM0OTcwNywxMDY3MDU1
+OTk5LDEwODcwNDI0NjUsMzI2OTAwNDg3LC0xMTI0Nzc2NTEwLC
+04OTA0MjcyNzEsMTI2ODAyNDI5NCwxMDg4MjY2NDQ2LC0xNDY2
+MDk2OTU5LC0xNjQ0OTY3MTIsLTMyMzQxMzg2NiwyMDY1ODA2Mz
+M2LDEyNTkxODQ5LC0yMTI4NTM1NzcxLDQxNDMxNjQzLC0xMzgx
+NTEwMzg3XX0=
 -->
