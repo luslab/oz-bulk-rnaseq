@@ -467,9 +467,11 @@ Output folder contains a
 3.) a table with all p values and information on performed statistical tests (overview_of_features_and_comparisons.tab)
 4.) all box plots as PDFs in directory summary_graphics
 
-Generate motif RNA-map
+Generate motif RNA-map comparing 3 groups: silenced, enhanced, unregulatoed
 ```bash
-
+FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
+mkdir cisbprna_maps
+OUT=~/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/cisbprna_maps
 ```
 
 ## Intron Retention Workflow
@@ -960,7 +962,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMTY0MTc2MSw0ODQyNzc5MjcsMTQxND
+eyJoaXN0b3J5IjpbLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQxND
 g5MTE1NiwtMTEyMDM3NjI3MCwtMTE1NTU4OTE2NCwtMzc4MzQ5
 NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0ODcsLT
 ExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LDEwODgy
