@@ -580,14 +580,17 @@ The following call produces a NOVA2 motif RNA map with a sliding window of lengt
 matt get_colnms introns.tab
 matt col_uniq introns.tab COMPLEX
 
+# produce perl regular expression of gene binding motif
+
 GTF=~/working/oliver/genomes/annotation/Homo.gtf
 FASTA=~/working/oliver/genomes/sequences/human/Hsa19_gDNA.fasta
 
 # run rna_maps command
-matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND COMPLEX[IR-C,IR-S] 31 35 135 $FASTA nova2_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d nova2_rnamap -p 0.0001 10000
+sbatch -N 1 -c 8 --mem=40GB --wrap="matt rna_maps introns.tab UPSTRM_EX_BORDER START END DOSTRM_EX_BORDER SCAFFOLD STRAND COMPLEX[IR-C,IR-S] 31 35 135 $FASTA sfpq_regexp.tab TYPE NAME REGEXP THRESH BGMODEL -d sfpq_rnamap -p 0.0001 10000"
 
 sfpq_rnamap
 tdp43_rnamap
+fus_rnamap
 ```
 The following graphic as PDF will be put into output folder nova2_rnamap
 
@@ -902,7 +905,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1ODQxMDc4NywtMTE1NTU4OTE2NCwtMz
+eyJoaXN0b3J5IjpbMTY5MzM2NjUyNCwtMTE1NTU4OTE2NCwtMz
 c4MzQ5NzA3LDEwNjcwNTU5OTksMTA4NzA0MjQ2NSwzMjY5MDA0
 ODcsLTExMjQ3NzY1MTAsLTg5MDQyNzI3MSwxMjY4MDI0Mjk0LD
 EwODgyNjY0NDYsLTE0NjYwOTY5NTksLTE2NDQ5NjcxMiwtMzIz
