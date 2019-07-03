@@ -387,7 +387,6 @@ The input format follows the same format from the `combine` step. The output is 
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
 awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
 
-
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/significant_IRevents.tab
 vast-tools plot $INFILE
@@ -923,7 +922,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NjYyMzY4NywtMTcwMDM1NDc1OSwyMD
+eyJoaXN0b3J5IjpbMTMwNzA5Njc3OSwtMTcwMDM1NDc1OSwyMD
 Y3NDAxOTA2LC0xNzA5NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2
 NDU2LC0xMDcwMTU1NjM1LDEyNTIzNDg5NTcsMTExNTMzMjU4NC
 wzMzc1MDI1MTYsLTIwNzYyNjM2MTAsMTI0NzA4OTEwNywtMTUy
