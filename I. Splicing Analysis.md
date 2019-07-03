@@ -305,6 +305,8 @@ library("psiplot")
 #quit R in cluster
 q()
 #save workspace image
+y
+
 ```
 To create a conda environment from scratch:
 ```bash
@@ -899,11 +901,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4ND
-AwNzc3MTksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIy
-MjA0LDE5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC
-0xMzI5NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4
-Mjc4MTYzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMT
-c1LC0yNTc1MjgzMzMsNDg0Mjc3OTI3LDE0MTQ4OTExNTYsLTEx
-MjAzNzYyNzBdfQ==
+eyJoaXN0b3J5IjpbMTczMDMxMjQ4Myw1NzE2NzIzOTYsLTEwMT
+g0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NTk4MDQy
+MzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4MTQ4LD
+E2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5
+NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOT
+g4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQx
+NDg5MTE1Nl19
 -->
