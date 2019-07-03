@@ -363,7 +363,7 @@ Output file of diff command = INCLUSION-FILTERED.tab
 ### Explore diff output files
 Numbers in Luisier et al. Fig 1 are taken from these:
 ```bash
-order tab file by MV value:
+# order tab file by MV value:
 more INCLUSION-FILTERED.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }'
 
 # count number of events with MV > 0.2:
@@ -904,11 +904,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcyNzYzMDI3OSwxMDk5ODAyOTc1LDE3Mz
-AzMTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3
-MTksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LD
-E5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5
-NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4MT
-YzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0y
-NTc1MjgzMzNdfQ==
+eyJoaXN0b3J5IjpbNjA3NjM4Mzk2LDEwOTk4MDI5NzUsMTczMD
+MxMjQ4Myw1NzE2NzIzOTYsLTEwMTg0NjE0MDIsMTg0MDA3Nzcx
+OSwxMjk3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMT
+k4NzE0NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3
+Mjg1MTUsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNj
+MsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Miw2ODcxMDExNzUsLTI1
+NzUyODMzM119
 -->
