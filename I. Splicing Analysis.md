@@ -390,7 +390,7 @@ awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/significant_IRevents.tab
 vast-tools plot $INFILE
-vast-tools plot $
+
 ```
 
 ```bash
@@ -400,6 +400,7 @@ awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' INCLUSION-STRINGENT-FILTERED.tab >
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/stringant_significant_IRevents.tab
 vast-tools plot $INFILE
+vast-tools plot $INFILE --gene=SFPQ
 ```
 
 # Matt
@@ -932,7 +933,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxNDg0OTM1MCwtMTgyNDY2OTQxNywtMT
+eyJoaXN0b3J5IjpbMjA1OTQ0NzQ1MSwtMTgyNDY2OTQxNywtMT
 cwMDM1NDc1OSwyMDY3NDAxOTA2LC0xNzA5NTU3NjM5LDE5Mjc1
 MjExNzksNzczNjc2NDU2LC0xMDcwMTU1NjM1LDEyNTIzNDg5NT
 csMTExNTMzMjU4NCwzMzc1MDI1MTYsLTIwNzYyNjM2MTAsMTI0
