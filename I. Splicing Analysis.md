@@ -384,8 +384,8 @@ The input format follows the same format from the `combine` step. The output is 
 awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
 awk 'NR==FNR{c[$1$2]++;next};c[$1$2] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
 
-awk 'FILENAME=="file1"{A[$1$2]=$1$2}
-FILENAME=="file2"{if(A[$1$2]){print}}' file1 file2
+awk 'FILENAME=="INCLUSION-FILTERED.tab"{A[$1$2]=$1$2}
+FILENAME=="INCLUSION_IR-C_IR-S.tab"{if(A[$1$2]){print}}' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
 
 
 # match GENE names between INCLUSION-FILTERED.tab and INCLUSION_IR-C_IR-S.tab
@@ -926,11 +926,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA5Mzc3MTk4LDExMTUzMzI1ODQsMzM3NT
-AyNTE2LC0yMDc2MjYzNjEwLDEyNDcwODkxMDcsLTE1MjY2MDY3
-NjUsLTUyMzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2MzgzOTYsMT
-A5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5NiwtMTAxODQ2
-MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYzNzUsMTQ1OTgwNDIzNS
-wtMTYyNjMyMjIwNCwxOTg3MTQ3NzA1LDE0ODc2NzgxNDgsMTYw
-NTkxNzY5OV19
+eyJoaXN0b3J5IjpbLTM1MTAyMTgxMywxMTE1MzMyNTg0LDMzNz
+UwMjUxNiwtMjA3NjI2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2NjA2
+NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LD
+EwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIzOTYsLTEwMTg0
+NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NTk4MDQyMz
+UsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4MTQ4LDE2
+MDU5MTc2OTldfQ==
 -->
