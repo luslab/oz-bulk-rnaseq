@@ -385,7 +385,7 @@ awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > 
 
 # match GENE names between INCLUSION_LEVELS_FULL-Hsa2-hg19.tab and INCLUSION_IR-C_IR-S.tab
 
-awk 'NR==FNR
+awk 'NR==FNR{c[$1
 
 
 # run plot command
@@ -923,7 +923,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwOTc0MjExMCwzMzc1MDI1MTYsLTIwNz
+eyJoaXN0b3J5IjpbMTE3NzU3OTY1MCwzMzc1MDI1MTYsLTIwNz
 YyNjM2MTAsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNjc1
 Mjc5LC0xMzEzMTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1LD
 E3MzAzMTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAw
