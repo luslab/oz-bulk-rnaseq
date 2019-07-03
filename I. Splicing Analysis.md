@@ -392,7 +392,7 @@ FILENAME=="INCLUSION_IR-C_IR-S.tab"{if(A[$1$2]){print}}' INCLUSION-FILTERED.tab 
 
 awk 'NR==FNR{c[$1]++; next};c[$1] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab 
 # run plot command
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-ORDERED-BY-MV.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab
 vast-tools plot $INFILE
 ```
 
@@ -926,11 +926,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzAxNTU2MzUsMTI1MjM0ODk1NywxMT
-E1MzMyNTg0LDMzNzUwMjUxNiwtMjA3NjI2MzYxMCwxMjQ3MDg5
-MTA3LC0xNTI2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMD
-QsNjA3NjM4Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2
-NzIzOTYsLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mz
-c1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwx
-NDg3Njc4MTQ4XX0=
+eyJoaXN0b3J5IjpbNzczNjc2NDU2LC0xMDcwMTU1NjM1LDEyNT
+IzNDg5NTcsMTExNTMzMjU4NCwzMzc1MDI1MTYsLTIwNzYyNjM2
+MTAsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNjc1Mjc5LC
+0xMzEzMTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1LDE3MzAz
+MTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3MT
+ksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LDE5
+ODcxNDc3MDVdfQ==
 -->
