@@ -350,8 +350,8 @@ cp $INFILE .
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d INCLUSION-FILTERED"
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
 
-#run with more stringent cut offs:
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d INCLUSION-FILTERED"
+# run with more stringent cut offs to reduce number of events:
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d -r 0.99 INCLUSION-STRINGENT-FILTERED"
 ```
 
 ### Mutant Effect
@@ -932,7 +932,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3MTE3MTk2MCwtMTcwMDM1NDc1OSwyMD
+eyJoaXN0b3J5IjpbLTY3MjQwNzY3OCwtMTcwMDM1NDc1OSwyMD
 Y3NDAxOTA2LC0xNzA5NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2
 NDU2LC0xMDcwMTU1NjM1LDEyNTIzNDg5NTcsMTExNTMzMjU4NC
 wzMzc1MDI1MTYsLTIwNzYyNjM2MTAsMTI0NzA4OTEwNywtMTUy
