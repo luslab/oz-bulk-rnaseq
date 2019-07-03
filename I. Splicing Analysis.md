@@ -347,7 +347,7 @@ mkdir ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/time_effec
 OUT=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect/VCP_d7
 cp $INFILE .
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -c 8 -a VCP.d7 -b VCP.d0 -o $OUT -d INCLUSION-FILTERED"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d INCLUSION-FILTERED"
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
 ```
 
@@ -901,7 +901,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNjA0OTM0MCwxNzMwMzEyNDgzLDU3MT
+eyJoaXN0b3J5IjpbMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MT
 Y3MjM5NiwtMTAxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYz
 NzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3NzA1LD
 E0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMjA0
