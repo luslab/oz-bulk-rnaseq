@@ -381,9 +381,9 @@ The input format follows the same format from the `combine` step. The output is 
 
 ```bash
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
-awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION-IR-C_IR-S.tab
+awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
 # run plot command
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-IR-C_IR-S.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_IR-C_IR-S.tab
 vast-tools plot $INFILE
 ```
 
@@ -917,11 +917,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDM3MzA3MjksLTIwNzYyNjM2MTAsMT
-I0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEz
-MTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1LDE3MzAzMTI0OD
-MsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3MTksMTI5
-NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxND
-c3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1
-LC0yMDQ1NTgwODkxXX0=
+eyJoaXN0b3J5IjpbMTkzNDYyMzIxOSwtMjA3NjI2MzYxMCwxMj
+Q3MDg5MTA3LC0xNTI2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMx
+MzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4My
+w1NzE2NzIzOTYsLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3
+NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0Nz
+cwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUs
+LTIwNDU1ODA4OTFdfQ==
 -->
