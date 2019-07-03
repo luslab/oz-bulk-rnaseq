@@ -385,7 +385,7 @@ awk '$6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSI
 
 
 # run plot command
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-ORDERED-BY-MV.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-IR-C_IR-S.tab
 vast-tools plot $INFILE
 ```
 
@@ -919,7 +919,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODU2NDAxMTIsMTI0NzA4OTEwNywtMT
+eyJoaXN0b3J5IjpbLTEwMDI0NzU4NDAsMTI0NzA4OTEwNywtMT
 UyNjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEzMTM3MTA0LDYwNzYz
 ODM5NiwxMDk5ODAyOTc1LDE3MzAzMTI0ODMsNTcxNjcyMzk2LC
 0xMDE4NDYxNDAyLDE4NDAwNzc3MTksMTI5NzUwNjM3NSwxNDU5
