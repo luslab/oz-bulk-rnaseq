@@ -398,10 +398,10 @@ vast-tools plot $INFILE
 awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' INCLUSION-STRINGENT-FILTERED.tab > stringant_significant_IRevents.tab
 
 # run plot command
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/stringant_significant_IRevents.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab
 vast-tools plot $INFILE
 # specify specific genes to plot as sole PDF
-vast-tools plot $INFILE --gene=SEPT7
+vast-tools plot $INFILE --gene=TMEM165
 ```
 
 # Matt
@@ -934,7 +934,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMTU2MDMzNywyMDU5NDQ3NDUxLC0xOD
+eyJoaXN0b3J5IjpbLTQ3Njc3MjE1NSwyMDU5NDQ3NDUxLC0xOD
 I0NjY5NDE3LC0xNzAwMzU0NzU5LDIwNjc0MDE5MDYsLTE3MDk1
 NTc2MzksMTkyNzUyMTE3OSw3NzM2NzY0NTYsLTEwNzAxNTU2Mz
 UsMTI1MjM0ODk1NywxMTE1MzMyNTg0LDMzNzUwMjUxNiwtMjA3
