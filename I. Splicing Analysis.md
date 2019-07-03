@@ -394,10 +394,10 @@ vast-tools plot $INFILE
 
 ```bash
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
-awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
+awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' INCLUSION-STRINGENT-FILTERED.tab > stringant_significant_IRevents.tab
 
 # run plot command
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/significant_IRevents.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/stringant_significant_IRevents.tab
 vast-tools plot $INFILE
 ```
 
@@ -931,11 +931,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MTg3MTUwNywtMTcwMDM1NDc1OSwyMD
-Y3NDAxOTA2LC0xNzA5NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2
-NDU2LC0xMDcwMTU1NjM1LDEyNTIzNDg5NTcsMTExNTMzMjU4NC
-wzMzc1MDI1MTYsLTIwNzYyNjM2MTAsMTI0NzA4OTEwNywtMTUy
-NjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEzMTM3MTA0LDYwNzYzOD
-M5NiwxMDk5ODAyOTc1LDE3MzAzMTI0ODMsNTcxNjcyMzk2LC0x
-MDE4NDYxNDAyXX0=
+eyJoaXN0b3J5IjpbLTE4MjQ2Njk0MTcsLTE3MDAzNTQ3NTksMj
+A2NzQwMTkwNiwtMTcwOTU1NzYzOSwxOTI3NTIxMTc5LDc3MzY3
+NjQ1NiwtMTA3MDE1NTYzNSwxMjUyMzQ4OTU3LDExMTUzMzI1OD
+QsMzM3NTAyNTE2LC0yMDc2MjYzNjEwLDEyNDcwODkxMDcsLTE1
+MjY2MDY3NjUsLTUyMzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2Mz
+gzOTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5Niwt
+MTAxODQ2MTQwMl19
 -->
