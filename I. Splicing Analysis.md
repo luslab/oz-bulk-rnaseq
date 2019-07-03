@@ -383,7 +383,9 @@ The input format follows the same format from the `combine` step. The output is 
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
 awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
 
-# match GENE names between INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+# match GENE names between INCLUSION_LEVELS_FULL-Hsa2-hg19.tab and INCLUSION_IR-C_IR-S.tab
+
+
 
 
 # run plot command
@@ -921,11 +923,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1MTU4ODg3MCwtMjA3NjI2MzYxMCwxMj
-Q3MDg5MTA3LC0xNTI2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMx
-MzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4My
-w1NzE2NzIzOTYsLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3
-NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0Nz
-cwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUs
-LTIwNDU1ODA4OTFdfQ==
+eyJoaXN0b3J5IjpbMzM3NTAyNTE2LC0yMDc2MjYzNjEwLDEyND
+cwODkxMDcsLTE1MjY2MDY3NjUsLTUyMzY3NTI3OSwtMTMxMzEz
+NzEwNCw2MDc2MzgzOTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLD
+U3MTY3MjM5NiwtMTAxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1
+MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3Nz
+A1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwt
+MjA0NTU4MDg5MV19
 -->
