@@ -406,6 +406,31 @@ vast-tools plot $INFILE --gene=RPS24 -o PSI_plots/
 
 ## GO analysis on VAST-tools output
 
+Use [DAVID](https://www.biostarhandbook.com/ontology/david-analysis.html)
+https://david.ncifcrf.gov/home.jsp
+
+Step 1: Load a gene list into the [site](https://david.ncifcrf.gov/tools.jsp)
+Paste the output of vast-tools txt files from atom into the website:
+IR_DOWN-INCLUSION-STRINGENT-FILTERED.txt
+AltEx-INCLUSION-STRINGENT-FILTERED.txt
+
+Step 2: Select Gene identifier
+Entrez (or Ensembl depending on which column from the DT you extract)
+
+Step 3: Clarify List Type
+Specify Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
+
+Submit > Select input species (Homo sapiens)
+
+Explore details through the Functional Annotation Tools:  table, chart & clustering reports
+
+![enter image description here](https://www.biostarhandbook.com/ontology/images/summary.png)
+Click Pathways > Chart in KEGG_PATHWAY row > note the Terms (these are the enriched GO terms) > click Genes bar to see individual genes
+
+Download table as txt file > open in excel > copy the gene term & P-value columns > paste in to [revigo](http://revigo.irb.hr/) to further intepret 
+
+Export & save results
+
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
 
@@ -936,11 +961,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjgwNTA5MzgsMjA1OTQ0NzQ1MSwtMT
-gyNDY2OTQxNywtMTcwMDM1NDc1OSwyMDY3NDAxOTA2LC0xNzA5
-NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2NDU2LC0xMDcwMTU1Nj
-M1LDEyNTIzNDg5NTcsMTExNTMzMjU4NCwzMzc1MDI1MTYsLTIw
-NzYyNjM2MTAsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNj
-c1Mjc5LC0xMzEzMTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1
-LDE3MzAzMTI0ODNdfQ==
+eyJoaXN0b3J5IjpbMjAzNTg3MTYzMSwyMDU5NDQ3NDUxLC0xOD
+I0NjY5NDE3LC0xNzAwMzU0NzU5LDIwNjc0MDE5MDYsLTE3MDk1
+NTc2MzksMTkyNzUyMTE3OSw3NzM2NzY0NTYsLTEwNzAxNTU2Mz
+UsMTI1MjM0ODk1NywxMTE1MzMyNTg0LDMzNzUwMjUxNiwtMjA3
+NjI2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2NjA2NzY1LC01MjM2Nz
+UyNzksLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUs
+MTczMDMxMjQ4M119
 -->
