@@ -381,7 +381,7 @@ The input format follows the same format from the `combine` step. The output is 
 
 ```bash
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
-awk '{ if ($2 == "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
+awk '{ if ($2 = "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
 
 awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
 awk 'NR==FNR{c[$1$2]++;next};c[$1$2] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
@@ -926,11 +926,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NzQwMTkwNiwxOTI3NTIxMTc5LDc3Mz
-Y3NjQ1NiwtMTA3MDE1NTYzNSwxMjUyMzQ4OTU3LDExMTUzMzI1
-ODQsMzM3NTAyNTE2LC0yMDc2MjYzNjEwLDEyNDcwODkxMDcsLT
-E1MjY2MDY3NjUsLTUyMzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2
-MzgzOTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5Ni
-wtMTAxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYzNzUsMTQ1
-OTgwNDIzNV19
+eyJoaXN0b3J5IjpbLTE3MDk1NTc2MzksMTkyNzUyMTE3OSw3Nz
+M2NzY0NTYsLTEwNzAxNTU2MzUsMTI1MjM0ODk1NywxMTE1MzMy
+NTg0LDMzNzUwMjUxNiwtMjA3NjI2MzYxMCwxMjQ3MDg5MTA3LC
+0xNTI2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQsNjA3
+NjM4Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIzOT
+YsLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0
+NTk4MDQyMzVdfQ==
 -->
