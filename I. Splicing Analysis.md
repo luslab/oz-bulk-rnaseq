@@ -383,6 +383,9 @@ The input format follows the same format from the `combine` step. The output is 
 # create filtered IR-C & IR-S events table
 more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ if ($6 == /IR-C|IR-S/ { print } }' | awk '{ if ($5 >= 0) { print } }' > INCLUSION-ORDERED-BY-MV.tab
 
+more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ if ($6 == /IR-C|IR-S/ { print } }' 
+
+awk '$6 == /IR-C|IR-S/' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-ORDERED-BY-MV.tab
 vast-tools plot $INFILE
@@ -918,7 +921,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NjU2NTAwMywxMjQ3MDg5MTA3LC0xNT
+eyJoaXN0b3J5IjpbMTEyMjI3MDI5MiwxMjQ3MDg5MTA3LC0xNT
 I2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQsNjA3NjM4
 Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIzOTYsLT
 EwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NTk4
