@@ -401,7 +401,7 @@ awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' INCLUSION-STRINGENT-FILTERED.tab >
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab
 vast-tools plot $INFILE
 # specify specific genes to plot as sole PDF
-vast-tools plot $INFILE --gene=TMEM165
+vast-tools plot $INFILE --gene=TMEM165 -o PSI/
 ```
 
 # Matt
@@ -934,11 +934,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3Njc3MjE1NSwyMDU5NDQ3NDUxLC0xOD
-I0NjY5NDE3LC0xNzAwMzU0NzU5LDIwNjc0MDE5MDYsLTE3MDk1
-NTc2MzksMTkyNzUyMTE3OSw3NzM2NzY0NTYsLTEwNzAxNTU2Mz
-UsMTI1MjM0ODk1NywxMTE1MzMyNTg0LDMzNzUwMjUxNiwtMjA3
-NjI2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2NjA2NzY1LC01MjM2Nz
-UyNzksLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUs
-MTczMDMxMjQ4M119
+eyJoaXN0b3J5IjpbLTExNjgwNjA0MTgsMjA1OTQ0NzQ1MSwtMT
+gyNDY2OTQxNywtMTcwMDM1NDc1OSwyMDY3NDAxOTA2LC0xNzA5
+NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2NDU2LC0xMDcwMTU1Nj
+M1LDEyNTIzNDg5NTcsMTExNTMzMjU4NCwzMzc1MDI1MTYsLTIw
+NzYyNjM2MTAsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNj
+c1Mjc5LC0xMzEzMTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1
+LDE3MzAzMTI0ODNdfQ==
 -->
