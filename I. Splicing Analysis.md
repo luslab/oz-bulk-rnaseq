@@ -414,11 +414,9 @@ Paste the output of vast-tools txt files from atom into the website:
 IR_DOWN-INCLUSION-STRINGENT-FILTERED.txt
 AltEx-INCLUSION-STRINGENT-FILTERED.txt
 
-Step 2: Select Gene identifier
-Entrez (or Ensembl depending on which column from the DT you extract)
+Step 2: Select Gene identifier Ensembl_gene_ID 
 
-Step 3: Clarify List Type
-Specify Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
+Step 3: Clarify List Type: Gene List as you only pasted in significant events (Background is if you paste in entire gene list)
 
 Submit > Select input species (Homo sapiens)
 
@@ -430,6 +428,34 @@ Click Pathways > Chart in KEGG_PATHWAY row > note the Terms (these are the enric
 Download table as txt file > open in excel > copy the gene term & P-value columns > paste in to [revigo](http://revigo.irb.hr/) to further intepret 
 
 Export & save results
+
+Plot GO p-values as Barplot in Rstudio:
+https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
+
+```r
+#If you want only to plot the GO terms in one condition
+dat        <- enrich$value # the -log10(P-value)
+names(dat) <- enrich$Terms #the description of your GO term
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+barplot(height = dat,horiz=T,las=1)
+
+#If you want to plot side by side the same GO term but for 2 different conditions
+dat               <- -cbind(enrich.bp$p.value.norm.ngf,enrich.bp$p.value.norm.nt3)[match(least.transported,enrich.bp$names.goterms.),]
+rownames(dat)    <- enrich.bp$Term[match(least.transported,enrich.bp$names.goterms.)]
+dat              <- dat[order(dat[,1],-dat[,2]),]
+
+mycols           <- c("#81A4D6","#AF71AF")
+L                <- nrow(dat)
+val1             <- -as.vector(dat[,1])
+val2             <-  as.vector(dat[,2])
+par(mfrow=c(1,1),mar=c(3,10,2,3),cex=0.7)
+plot(c(L+3,0),xlim=c(min(val1)-10,max(val2)),type = "n",frame=F,yaxt="n",ylab="")
+mp=barplot(height = val2,add = TRUE,axes = FALSE,horiz=T,col=mycols[2])
+barplot(height = val1,add = TRUE,axes = FALSE,horiz=T,col=mycols[1])
+text(x=(min(val1)-5),y=mp,lab=rownames(dat),cex=0.6)
+mtext(side=1,line=2,text="Z-score",cex=0.6)
+abline(v=c(-2.5,2.5),col="grey",lty=2)
+```
 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -961,11 +987,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNTg3MTYzMSwyMDU5NDQ3NDUxLC0xOD
-I0NjY5NDE3LC0xNzAwMzU0NzU5LDIwNjc0MDE5MDYsLTE3MDk1
-NTc2MzksMTkyNzUyMTE3OSw3NzM2NzY0NTYsLTEwNzAxNTU2Mz
-UsMTI1MjM0ODk1NywxMTE1MzMyNTg0LDMzNzUwMjUxNiwtMjA3
-NjI2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2NjA2NzY1LC01MjM2Nz
-UyNzksLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUs
-MTczMDMxMjQ4M119
+eyJoaXN0b3J5IjpbNDQzNTYyNDc1LDIwNTk0NDc0NTEsLTE4Mj
+Q2Njk0MTcsLTE3MDAzNTQ3NTksMjA2NzQwMTkwNiwtMTcwOTU1
+NzYzOSwxOTI3NTIxMTc5LDc3MzY3NjQ1NiwtMTA3MDE1NTYzNS
+wxMjUyMzQ4OTU3LDExMTUzMzI1ODQsMzM3NTAyNTE2LC0yMDc2
+MjYzNjEwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUyMzY3NT
+I3OSwtMTMxMzEzNzEwNCw2MDc2MzgzOTYsMTA5OTgwMjk3NSwx
+NzMwMzEyNDgzXX0=
 -->
