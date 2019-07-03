@@ -1,4 +1,4 @@
-> # Gene Enrichment
+> # Gene Ontology
 
 https://www.biostarhandbook.com/ontology/gene-set-erichment.html
 Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  
@@ -317,11 +317,11 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxMTEyMDY4NiwxMTMzMzE4MzU5LDU4Mz
-IxNDYxMywxNjEwNTkzNTExLC0xNTk0OTg3MzI3LC0xNDI5MDU2
-MjcxLDEzNTg3OTkyOTQsMTQwNzgwMTE4OCw3NTEzMjgwNDgsMT
-A4ODE1MjA3NSwtMTIyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5
-NzI2MTksLTIwMDUyODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNT
-Q4LDExMTM1ODAxNjIsLTE5NjA1MjI5MDcsMjA2NzUzNzAyNCwx
-Mzk0MTU1NDMxXX0=
+eyJoaXN0b3J5IjpbNzUzNzcxNzE0LDIwMTExMjA2ODYsMTEzMz
+MxODM1OSw1ODMyMTQ2MTMsMTYxMDU5MzUxMSwtMTU5NDk4NzMy
+NywtMTQyOTA1NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNz
+UxMzI4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5
+NzgyNiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMT
+gsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIw
+Njc1MzcwMjRdfQ==
 -->
