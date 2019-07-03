@@ -361,14 +361,14 @@ Output file is created in directory of input file. This reports the differential
 Output file of diff command = INCLUSION-FILTERED.tab
 
 ### Explore diff output files
-Numbers in Luisier 2
+Numbers in Luisier et al. Fig 1 are taken from these:
 ```bash
 order tab file by MV value:
 more INCLUSION-FILTERED.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }'
 
-# count number of events with MV > X:
+# count number of events with MV > 0.2:
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | wc -l
-# count number of genes with +ve intron retention:
+# count number of events with intron retention:
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
 
@@ -902,11 +902,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQzMDQ0OCwxMDk5ODAyOTc1LDE3MzAzMT
-I0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3MTks
-MTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LDE5OD
-cxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4
-NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4MTYzLD
-E0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0yNTc1
-MjgzMzNdfQ==
+eyJoaXN0b3J5IjpbMTk5NTk2Njg5OCwxMDk5ODAyOTc1LDE3Mz
+AzMTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3
+MTksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LD
+E5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5
+NzI4NTE1LC0yMDQ1NTgwODkxLDEyOTQwMDU5MiwtMjI4Mjc4MT
+YzLDE0MTM0NzUzMzUsLTE0NzU1MDk4ODIsNjg3MTAxMTc1LC0y
+NTc1MjgzMzNdfQ==
 -->
