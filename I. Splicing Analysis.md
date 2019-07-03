@@ -387,7 +387,8 @@ more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ if ($6 == /IR-C|IR-S/ { print 
 
 awk '$6 == /IR-C|IR-S/' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 
-awk '$6 == "IR-C" && $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+awk '$6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+awk '$6 == "IR-C"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 
 matt col_uniq INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COMPLEX
 matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -complex IR-C,IR-S -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > introns.tab
@@ -927,11 +928,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzAzMjcxNTU1LDEyNDcwODkxMDcsLTE1Mj
-Y2MDY3NjUsLTUyMzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2Mzgz
-OTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5NiwtMT
-AxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYzNzUsMTQ1OTgw
-NDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3NzA1LDE0ODc2NzgxND
-gsMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMjA0NTU4MDg5MSwx
-Mjk0MDA1OTJdfQ==
+eyJoaXN0b3J5IjpbMTQ1Njk4OTYyMSwxMjQ3MDg5MTA3LC0xNT
+I2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQsNjA3NjM4
+Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIzOTYsLT
+EwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NTk4
+MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4MT
+Q4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEs
+MTI5NDAwNTkyXX0=
 -->
