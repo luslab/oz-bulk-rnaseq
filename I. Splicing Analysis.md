@@ -387,6 +387,8 @@ more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ if ($6 == /IR-C|IR-S/ { print 
 
 awk '$6 == /IR-C|IR-S/' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 
+awk '$6 == "IR-C" && $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
+
 matt col_uniq INCLUSION_LEVELS_FULL-Hsa2-hg19.tab COMPLEX
 matt get_vast INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -complex IR-C,IR-S -a VCP.d7 -b VCP.d0 -minqab VLOW -minqglob N -gtf $GTF -f gene_id > introns.tab
 
@@ -925,7 +927,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAxMDc2MDIyLDEyNDcwODkxMDcsLTE1Mj
+eyJoaXN0b3J5IjpbNzAzMjcxNTU1LDEyNDcwODkxMDcsLTE1Mj
 Y2MDY3NjUsLTUyMzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2Mzgz
 OTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5NiwtMT
 AxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYzNzUsMTQ1OTgw
