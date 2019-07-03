@@ -381,21 +381,12 @@ The input format follows the same format from the `combine` step. The output is 
 
 ```bash
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
-awk '{ if ($2 ~ "HsaINT*") print }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
-
-awk '$2~/^HsaINT*$/' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab
-
-
-awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
-awk 'NR==FNR{c[$1$2]++;next};c[$1$2] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
-
-awk 'FILENAME=="INCLUSION-FILTERED.tab"{A[$1$2]=$1$2}
-FILENAME=="INCLUSION_IR-C_IR-S.tab"{if(A[$1$2]){print}}' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
+awk '{ if ($2 ~ "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
 
 
 
 # run plot command
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/significant_IRevents.tab
 vast-tools plot $INFILE
 ```
 
@@ -929,11 +920,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NjY1OTUxOCwyMDY3NDAxOTA2LC0xNz
-A5NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2NDU2LC0xMDcwMTU1
-NjM1LDEyNTIzNDg5NTcsMTExNTMzMjU4NCwzMzc1MDI1MTYsLT
-IwNzYyNjM2MTAsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIz
-Njc1Mjc5LC0xMzEzMTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOT
-c1LDE3MzAzMTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4
-NDAwNzc3MTldfQ==
+eyJoaXN0b3J5IjpbLTEyNjgxMzAzOTUsMjA2NzQwMTkwNiwtMT
+cwOTU1NzYzOSwxOTI3NTIxMTc5LDc3MzY3NjQ1NiwtMTA3MDE1
+NTYzNSwxMjUyMzQ4OTU3LDExMTUzMzI1ODQsMzM3NTAyNTE2LC
+0yMDc2MjYzNjEwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUy
+MzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2MzgzOTYsMTA5OTgwMj
+k3NSwxNzMwMzEyNDgzLDU3MTY3MjM5NiwtMTAxODQ2MTQwMiwx
+ODQwMDc3NzE5XX0=
 -->
