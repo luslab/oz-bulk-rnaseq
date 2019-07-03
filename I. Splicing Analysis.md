@@ -336,7 +336,7 @@ There are 2 approaches to comparing samples:
 
 ```bash
 mkdir /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect
-INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa14-hg19.tab
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_LEVELS_FULL-Hsa2-hg19.tab
 ```
 Run the Compare TIME-EFFECT section of the script in `/home/camp/ziffo/working/oliver/scripts/intron_retention/Splicing_VASTOOLS.sh`
 This performs the VAST-tools Compare & Diff commands on each of the WT & VCP time-point comparisons
@@ -347,7 +347,7 @@ mkdir ~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/time_effec
 OUT=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect/VCP_d7
 cp $INFILE .
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -c 8 -a VCP.d7 -b VCP.d0 -o ${OUT} -d INCLUSION-FILTERED"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -c 8 -a VCP.d7 -b VCP.d0 -o $OUT -d INCLUSION-FILTERED"
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
 ```
 
@@ -901,11 +901,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMDMxMjQ4Myw1NzE2NzIzOTYsLTEwMT
-g0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NTk4MDQy
-MzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4MTQ4LD
-E2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5
-NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOT
-g4Miw2ODcxMDExNzUsLTI1NzUyODMzMyw0ODQyNzc5MjcsMTQx
-NDg5MTE1Nl19
+eyJoaXN0b3J5IjpbMjAyNjA0OTM0MCwxNzMwMzEyNDgzLDU3MT
+Y3MjM5NiwtMTAxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYz
+NzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3NzA1LD
+E0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMjA0
+NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEzNDc1Mz
+M1LC0xNDc1NTA5ODgyLDY4NzEwMTE3NSwtMjU3NTI4MzMzLDQ4
+NDI3NzkyN119
 -->
