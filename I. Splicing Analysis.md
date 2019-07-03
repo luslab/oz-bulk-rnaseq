@@ -349,6 +349,9 @@ cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools
 cp $INFILE .
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d INCLUSION-FILTERED"
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
+
+#run with more stringent cut offs:
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d INCLUSION-FILTERED"
 ```
 
 ### Mutant Effect
@@ -929,11 +932,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDAzNTQ3NTksMjA2NzQwMTkwNiwtMT
-cwOTU1NzYzOSwxOTI3NTIxMTc5LDc3MzY3NjQ1NiwtMTA3MDE1
-NTYzNSwxMjUyMzQ4OTU3LDExMTUzMzI1ODQsMzM3NTAyNTE2LC
-0yMDc2MjYzNjEwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUy
-MzY3NTI3OSwtMTMxMzEzNzEwNCw2MDc2MzgzOTYsMTA5OTgwMj
-k3NSwxNzMwMzEyNDgzLDU3MTY3MjM5NiwtMTAxODQ2MTQwMiwx
-ODQwMDc3NzE5XX0=
+eyJoaXN0b3J5IjpbMTA3MTE3MTk2MCwtMTcwMDM1NDc1OSwyMD
+Y3NDAxOTA2LC0xNzA5NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2
+NDU2LC0xMDcwMTU1NjM1LDEyNTIzNDg5NTcsMTExNTMzMjU4NC
+wzMzc1MDI1MTYsLTIwNzYyNjM2MTAsMTI0NzA4OTEwNywtMTUy
+NjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEzMTM3MTA0LDYwNzYzOD
+M5NiwxMDk5ODAyOTc1LDE3MzAzMTI0ODMsNTcxNjcyMzk2LC0x
+MDE4NDYxNDAyXX0=
 -->
