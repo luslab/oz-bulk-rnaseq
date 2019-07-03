@@ -373,6 +373,10 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 # count number of events with Alternative Exon:
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
+## Plotting VAST-TOOLS
+https://github.com/vastgroup/vast-tools#plotting
+uses psiplot in R
+
 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -904,11 +908,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LDEwOT
-k4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIzOTYsLTEwMTg0NjE0
-MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LDE0NTk4MDQyMzUsLT
-E2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3Njc4MTQ4LDE2MDU5
-MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1ODA4OTEsMTI5NDAwNT
-kyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwtMTQ3NTUwOTg4Miw2
-ODcxMDExNzVdfQ==
+eyJoaXN0b3J5IjpbLTMwMzIyMTkwMywtMTMxMzEzNzEwNCw2MD
+c2MzgzOTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5
+NiwtMTAxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYzNzUsMT
+Q1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3NzA1LDE0ODc2
+NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMjA0NTU4MD
+g5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEzNDc1MzM1LC0x
+NDc1NTA5ODgyXX0=
 -->
