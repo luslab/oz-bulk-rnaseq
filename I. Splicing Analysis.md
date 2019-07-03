@@ -381,7 +381,7 @@ The input format follows the same format from the `combine` step. The output is 
 
 ```bash
 # create filtered events table
-more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }' > INCLUSION-ORDERED-BY-MV.tab
+more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }' > INCLUSION-ORDERED-BY-MV.tab
 
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-ORDERED-BY-MV.tab
@@ -918,11 +918,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE0NzcwNzUwLC01MjM2NzUyNzksLTEzMT
-MxMzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4
-Myw1NzE2NzIzOTYsLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMj
-k3NTA2Mzc1LDE0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0
-NzcwNSwxNDg3Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MT
-UsLTIwNDU1ODA4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQx
-MzQ3NTMzNV19
+eyJoaXN0b3J5IjpbLTE1MjY2MDY3NjUsLTUyMzY3NTI3OSwtMT
+MxMzEzNzEwNCw2MDc2MzgzOTYsMTA5OTgwMjk3NSwxNzMwMzEy
+NDgzLDU3MTY3MjM5NiwtMTAxODQ2MTQwMiwxODQwMDc3NzE5LD
+EyOTc1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3
+MTQ3NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyOD
+UxNSwtMjA0NTU4MDg5MSwxMjk0MDA1OTIsLTIyODI3ODE2Mywx
+NDEzNDc1MzM1XX0=
 -->
