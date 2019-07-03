@@ -377,6 +377,12 @@ awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) 
 https://github.com/vastgroup/vast-tools#plotting
 uses psiplot in R
 
+The input format follows the same format from the `combine` step. The output is a pdf of scatterplots (one per AS event) of PSI values. To execute from VAST-TOOLS, use the subcommand `plot`:
+
+```bash
+INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/
+vast-tools plot $INFILE
+```
 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -908,11 +914,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwMzIyMTkwMywtMTMxMzEzNzEwNCw2MD
-c2MzgzOTYsMTA5OTgwMjk3NSwxNzMwMzEyNDgzLDU3MTY3MjM5
-NiwtMTAxODQ2MTQwMiwxODQwMDc3NzE5LDEyOTc1MDYzNzUsMT
-Q1OTgwNDIzNSwtMTYyNjMyMjIwNCwxOTg3MTQ3NzA1LDE0ODc2
-NzgxNDgsMTYwNTkxNzY5OSwtMTMyOTcyODUxNSwtMjA0NTU4MD
-g5MSwxMjk0MDA1OTIsLTIyODI3ODE2MywxNDEzNDc1MzM1LC0x
-NDc1NTA5ODgyXX0=
+eyJoaXN0b3J5IjpbLTE2NDA5MDE1NTgsLTEzMTMxMzcxMDQsNj
+A3NjM4Mzk2LDEwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIz
+OTYsLTEwMTg0NjE0MDIsMTg0MDA3NzcxOSwxMjk3NTA2Mzc1LD
+E0NTk4MDQyMzUsLTE2MjYzMjIyMDQsMTk4NzE0NzcwNSwxNDg3
+Njc4MTQ4LDE2MDU5MTc2OTksLTEzMjk3Mjg1MTUsLTIwNDU1OD
+A4OTEsMTI5NDAwNTkyLC0yMjgyNzgxNjMsMTQxMzQ3NTMzNSwt
+MTQ3NTUwOTg4Ml19
 -->
