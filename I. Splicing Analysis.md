@@ -381,9 +381,11 @@ The input format follows the same format from the `combine` step. The output is 
 
 ```bash
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
-awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk 'NR==FNR{c[$1]++; next};c[$1] > 0' INCLUSION-FILTERED.tab INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
+awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
+awk 'NR==FNR{c[$1]++; next};c[$1] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
 
-more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ NR==1; $6 == "IR-C" || $6 == "IR-S" { print } }' | awk '{ NR==FNR{c[$1]++; next};c[$1] > 0 { print } }' > INCLUSION_IR-C_IR-S.tab
+
+more INCLUSION_LEVELS_FULL-Hsa2-hg19.tab | awk '{ NR==1; $6 == "IR-C" || $6 == "IR-S" { print } }' | awk '{ NR==FNR(c[$1]++; next);c[$1] > 0 { print } }' > INCLUSION_IR-C_IR-S.tab
 
 
 more INCLUSION-FILTERED.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' | awk '{ if ($5 >= 0) { print } }' > INCLUSION-ORDERED-BY-MV.tab
@@ -927,11 +929,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMjE1MjE3NiwzMzc1MDI1MTYsLTIwNz
-YyNjM2MTAsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNjc1
-Mjc5LC0xMzEzMTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1LD
-E3MzAzMTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAw
-Nzc3MTksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMj
-A0LDE5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0x
-MzI5NzI4NTE1XX0=
+eyJoaXN0b3J5IjpbLTE5NzIyNzc4NDUsMzM3NTAyNTE2LC0yMD
+c2MjYzNjEwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUyMzY3
+NTI3OSwtMTMxMzEzNzEwNCw2MDc2MzgzOTYsMTA5OTgwMjk3NS
+wxNzMwMzEyNDgzLDU3MTY3MjM5NiwtMTAxODQ2MTQwMiwxODQw
+MDc3NzE5LDEyOTc1MDYzNzUsMTQ1OTgwNDIzNSwtMTYyNjMyMj
+IwNCwxOTg3MTQ3NzA1LDE0ODc2NzgxNDgsMTYwNTkxNzY5OSwt
+MTMyOTcyODUxNV19
 -->
