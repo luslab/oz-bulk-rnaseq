@@ -348,11 +348,11 @@ OUT=~/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out
 cd /home/camp/ziffo/working/oliver/projects/airals/splicing/raphaelle_vast_tools/time_effect/VCP_d7
 cp $INFILE .
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d INCLUSION-FILTERED"
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa --print_sets"
 
 # run with more stringent cut offs to reduce number of events:
 sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools diff -i $INFILE -c 8 -a $SAMPLE_B -b $SAMPLE_A -o $OUT -d -r 0.99 -m 0.2 INCLUSION-STRINGENT-FILTERED"
-sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa --outFile INCLUSION-STRINGENT-FILTERED"
+sbatch -N 1 -c 8 --mem=40GB --wrap="vast-tools compare INCLUSION_LEVELS_FULL-Hsa2-hg19.tab -a VCP.d7 -b VCP.d0 --min_dPSI 15 --min_range 5 --GO -sp Hsa --outFile INCLUSION-STRINGENT-FILTERED --print_sets --plot_PSI"
 ```
 
 ### Mutant Effect
@@ -386,16 +386,6 @@ The input format follows the same format from the `combine` step. The output is 
 ```bash
 # filter INCLUSION table to only significant IR-C & IR-S events, retain header
 awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab > significant_IRevents.tab
-
-
-
-
-awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION_IR-C_IR-S.tab
-awk 'NR==FNR{c[$1$2]++;next};c[$1$2] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
-
-awk 'FILENAME=="INCLUSION-FILTERED.tab"{A[$1$2]=$1$2}
-FILENAME=="INCLUSION_IR-C_IR-S.tab"{if(A[$1$2]){print}}' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab > INCLUSION_IR-C_IR-S.tab
-
 
 
 # run plot command
@@ -933,11 +923,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc1OTM1Nzg3LC0xNzAwMzU0NzU5LDIwNj
-c0MDE5MDYsLTE3MDk1NTc2MzksMTkyNzUyMTE3OSw3NzM2NzY0
-NTYsLTEwNzAxNTU2MzUsMTI1MjM0ODk1NywxMTE1MzMyNTg0LD
-MzNzUwMjUxNiwtMjA3NjI2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2
-NjA2NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQsNjA3NjM4Mz
-k2LDEwOTk4MDI5NzUsMTczMDMxMjQ4Myw1NzE2NzIzOTYsLTEw
-MTg0NjE0MDJdfQ==
+eyJoaXN0b3J5IjpbLTM5NjYyMzY4NywtMTcwMDM1NDc1OSwyMD
+Y3NDAxOTA2LC0xNzA5NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2
+NDU2LC0xMDcwMTU1NjM1LDEyNTIzNDg5NTcsMTExNTMzMjU4NC
+wzMzc1MDI1MTYsLTIwNzYyNjM2MTAsMTI0NzA4OTEwNywtMTUy
+NjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEzMTM3MTA0LDYwNzYzOD
+M5NiwxMDk5ODAyOTc1LDE3MzAzMTI0ODMsNTcxNjcyMzk2LC0x
+MDE4NDYxNDAyXX0=
 -->
