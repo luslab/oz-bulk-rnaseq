@@ -400,9 +400,11 @@ awk 'NR==1;{ if ($2 ~ "HsaINT*") { print } }' INCLUSION-STRINGENT-FILTERED.tab >
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/DiffAS-Hsa2-hg19-dPSI15-range5-min_ALT_use25_VCP.d7-vs-VCP.d0.tab
 vast-tools plot $INFILE
-# specify specific genes to plot as sole PDF. Go through ORDERED-by-MV.t
+# specify specific genes to plot as sole PDF. Go through ORDERED-by-MV.tab genes
 vast-tools plot $INFILE --gene=RPS24 -o PSI_plots/
 ```
+
+## GO analysis on VAST-tools output
 
 # Matt
 [http://matt.crg.eu/](http://matt.crg.eu/)
@@ -934,7 +936,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzMwMTc5NDcsMjA1OTQ0NzQ1MSwtMT
+eyJoaXN0b3J5IjpbLTE0MjgwNTA5MzgsMjA1OTQ0NzQ1MSwtMT
 gyNDY2OTQxNywtMTcwMDM1NDc1OSwyMDY3NDAxOTA2LC0xNzA5
 NTU3NjM5LDE5Mjc1MjExNzksNzczNjc2NDU2LC0xMDcwMTU1Nj
 M1LDEyNTIzNDg5NTcsMTExNTMzMjU4NCwzMzc1MDI1MTYsLTIw
