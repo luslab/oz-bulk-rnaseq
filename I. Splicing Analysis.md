@@ -368,7 +368,9 @@ more INCLUSION-FILTERED.tab | sort -k6 -r | awk '{ if ($6 >= 0.2) { print } }' |
 
 # count number of events with MV > 0.2:
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | wc -l
-# count number of events with intron retention:
+# count number of events with intron retention (E[dPsi]:
+awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
+# count number of events with Alternative Exon:
 awk '{ if ($6 >= 0.2) { print } }' INCLUSION-FILTERED.tab | awk '{ if ($5 >= 0) { print } }' | wc -l
 ```
 
@@ -902,7 +904,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NTk2Njg5OCwxMDk5ODAyOTc1LDE3Mz
+eyJoaXN0b3J5IjpbMTUwNzI4MTAxOCwxMDk5ODAyOTc1LDE3Mz
 AzMTI0ODMsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3
 MTksMTI5NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LD
 E5ODcxNDc3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5
