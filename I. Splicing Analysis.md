@@ -385,9 +385,7 @@ awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > 
 
 # match GENE names between INCLUSION-FILTERED.tab and INCLUSION_IR-C_IR-S.tab
 
-awk 'NR==FNR{c[$1]++; next};c[$1] > 0' INCLUSION-FILTERED.tab
-
-
+awk 'NR==FNR{c[$1]++; next};c[$1] > 0' INCLUSION-FILTERED.tab INCLUSION_IR-C_IR-S.tab 
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION_IR-C_IR-S.tab
 vast-tools plot $INFILE
@@ -923,7 +921,7 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODYxMDAzNTAwLDMzNzUwMjUxNiwtMjA3Nj
+eyJoaXN0b3J5IjpbODczNzY5MzA5LDMzNzUwMjUxNiwtMjA3Nj
 I2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2NjA2NzY1LC01MjM2NzUy
 NzksLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LDEwOTk4MDI5NzUsMT
 czMDMxMjQ4Myw1NzE2NzIzOTYsLTEwMTg0NjE0MDIsMTg0MDA3
