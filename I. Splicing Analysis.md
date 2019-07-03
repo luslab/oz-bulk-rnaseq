@@ -380,7 +380,7 @@ uses psiplot in R
 The input format follows the same format from the `combine` step. The output is a pdf of scatterplots (one per AS event) of PSI values. To execute from VAST-TOOLS, use the subcommand `plot`:
 
 ```bash
-# filter INCLUSION table to only IR-C & IR-S events, retaining header
+# filter INCLUSION table to only significant IR-C & IR-S events, retain header
 awk 'NR==1; $6 == "IR-C" || $6 == "IR-S"' INCLUSION_LEVELS_FULL-Hsa2-hg19.tab > INCLUSION-IR-C_IR-S.tab
 # run plot command
 INFILE=/home/camp/ziffo/working/oliver/projects/airals/splicing/D7vsD0_VCP_vast_tools/vast_out/INCLUSION-IR-C_IR-S.tab
@@ -917,11 +917,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzYyNjM2MTAsMTI0NzA4OTEwNywtMT
-UyNjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEzMTM3MTA0LDYwNzYz
-ODM5NiwxMDk5ODAyOTc1LDE3MzAzMTI0ODMsNTcxNjcyMzk2LC
-0xMDE4NDYxNDAyLDE4NDAwNzc3MTksMTI5NzUwNjM3NSwxNDU5
-ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxNDc3MDUsMTQ4NzY3OD
-E0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1LC0yMDQ1NTgwODkx
-LDEyOTQwMDU5Ml19
+eyJoaXN0b3J5IjpbLTE5MDM3MzA3MjksLTIwNzYyNjM2MTAsMT
+I0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNjc1Mjc5LC0xMzEz
+MTM3MTA0LDYwNzYzODM5NiwxMDk5ODAyOTc1LDE3MzAzMTI0OD
+MsNTcxNjcyMzk2LC0xMDE4NDYxNDAyLDE4NDAwNzc3MTksMTI5
+NzUwNjM3NSwxNDU5ODA0MjM1LC0xNjI2MzIyMjA0LDE5ODcxND
+c3MDUsMTQ4NzY3ODE0OCwxNjA1OTE3Njk5LC0xMzI5NzI4NTE1
+LC0yMDQ1NTgwODkxXX0=
 -->
