@@ -429,7 +429,7 @@ Download table as txt file > open in excel > copy the gene term & P-value column
 
 Export & save results
 
-Plot GO p-values as Barplot in Rstudio:
+**Plot GO p-values as Barplot in Rstudio:**
 https://cran.r-project.org/web/packages/GOplot/vignettes/GOplot_vignette.html
 
 ```r
@@ -987,11 +987,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQzNTYyNDc1LDIwNTk0NDc0NTEsLTE4Mj
-Q2Njk0MTcsLTE3MDAzNTQ3NTksMjA2NzQwMTkwNiwtMTcwOTU1
-NzYzOSwxOTI3NTIxMTc5LDc3MzY3NjQ1NiwtMTA3MDE1NTYzNS
-wxMjUyMzQ4OTU3LDExMTUzMzI1ODQsMzM3NTAyNTE2LC0yMDc2
-MjYzNjEwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUyMzY3NT
-I3OSwtMTMxMzEzNzEwNCw2MDc2MzgzOTYsMTA5OTgwMjk3NSwx
-NzMwMzEyNDgzXX0=
+eyJoaXN0b3J5IjpbOTg2NzExMDgzLDQ0MzU2MjQ3NSwyMDU5ND
+Q3NDUxLC0xODI0NjY5NDE3LC0xNzAwMzU0NzU5LDIwNjc0MDE5
+MDYsLTE3MDk1NTc2MzksMTkyNzUyMTE3OSw3NzM2NzY0NTYsLT
+EwNzAxNTU2MzUsMTI1MjM0ODk1NywxMTE1MzMyNTg0LDMzNzUw
+MjUxNiwtMjA3NjI2MzYxMCwxMjQ3MDg5MTA3LC0xNTI2NjA2Nz
+Y1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQsNjA3NjM4Mzk2LDEw
+OTk4MDI5NzVdfQ==
 -->
