@@ -40,7 +40,7 @@ https://github.com/YangLab/bamTobw
 Use bamCoverage to convert BAM > BW files
 ```bash
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/SRR54838*_Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/*_Aligned.sortedByCoord.out.bam
 #set OUT
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/
 
@@ -96,7 +96,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1NjQzNTcxMiwyMTE5MTA0NTUsMTgwOT
+eyJoaXN0b3J5IjpbLTgwNzk3NTczMywyMTE5MTA0NTUsMTgwOT
 M2OTE3NywyODMwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1NTcs
 LTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMT
 gzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2
