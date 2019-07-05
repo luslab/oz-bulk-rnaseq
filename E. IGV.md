@@ -46,8 +46,6 @@ do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SRRID.bw"
 done
-
-sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b SRR5483790_Aligned.sortedByCoord.out.bam -o SRR5483790.bw"
 ```
 
 # IGV
@@ -111,8 +109,11 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_NPC_D7_merged.bam SRR5483
 sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_iPSC_D0_merged.bam SRR5483800Aligned.sortedByCoord.out.bam SRR5483801Aligned.sortedByCoord.out.bam SRR5483802Aligned.sortedByCoord.out.bam"
 ```
 2. Convert merged BAMs > BigWig
+```bash
+sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_NPC_D7_merged.bam -o VCP_NPC_D7_merged.bw"
+sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP_iPSC_D0_merged.bw"
 
-
+```
 3. Normalise for read depth
 4. Upload to UCSC genome browser
 5. Optimise browser appearance
@@ -127,11 +128,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODIyNDgwMDAsMTY3OTIxNTI2OCwxMj
-YwMTgxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0
-Njg1ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzExMD
-IsOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4
-NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNC
-wtMTMzMDk3MTM4OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5
-OTQxNjgyMV19
+eyJoaXN0b3J5IjpbMTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNj
+AxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2
+ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMjY4LDc1NzUzMTEwMi
+w5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMjgzMDg3
+MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0LC
+0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNCwtNzk5
+NDE2ODIxXX0=
 -->
