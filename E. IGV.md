@@ -6,7 +6,7 @@
 	- Horizontal intervals = directions, genes, alignments
 	- Values over intervals = coverages, probabilities
 	- Attributes at locations = mutations, deletions, junctions
-- To create publication genome browser shots, merge 
+- To create publication genome browser shots, merge bedgraphs for each group, then upload tracks to UCSC genome browser > download
 
 ### `samtools tview`
 - simplest genome browser. can visualise any DAM file `samtools tview --reference reference_genome.fa filename.bam`
@@ -97,9 +97,9 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NDczNjI3Nyw5MTg5MTk1NTIsMjExOT
-EwNDU1LDE4MDkzNjkxNzcsMjgzMDg3MDQsNTc0MzQ3MDg5LC0x
-ODU3MTE5NTU3LC0xMDkyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMz
-kyNDMyMTE1LDE4Mzc3MTEzNCwtNzk5NDE2ODIxLC0xNjE4MDYy
-MjcwLDExMTUwNjA4MjEsMTI2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbNzU3NTMxMTAyLDkxODkxOTU1MiwyMTE5MT
+A0NTUsMTgwOTM2OTE3NywyODMwODcwNCw1NzQzNDcwODksLTE4
+NTcxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOT
+I0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIy
+NzAsMTExNTA2MDgyMSwxMjYwNTU3OTExXX0=
 -->
