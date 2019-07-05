@@ -107,6 +107,10 @@ ml SAMtools
 sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_NPC_D7_merged.bam SRR5483788_Aligned.sortedByCoord.out.bam SRR5483789_Aligned.sortedByCoord.out.bam SRR5483790_Aligned.sortedByCoord.out.bam"
 # VCP iPSC D0
 sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_iPSC_D0_merged.bam SRR5483800Aligned.sortedByCoord.out.bam SRR5483801Aligned.sortedByCoord.out.bam SRR5483802Aligned.sortedByCoord.out.bam"
+
+# index
+sbatch -N 1 -c 8 --mem 40 --wrap="samtools index VCP_NPC_D7_merged.bam"
+sbatch -N 1 -c 8 --mem 40 --wrap="samtools index VCP_iPSC_D0_merged.bam"
 ```
 2. Convert merged BAMs > BigWig
 ```bash
@@ -128,11 +132,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNj
-AxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2
-ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMjY4LDc1NzUzMTEwMi
-w5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMjgzMDg3
-MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0LC
-0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNCwtNzk5
-NDE2ODIxXX0=
+eyJoaXN0b3J5IjpbLTEwMzQwOTYyNTUsMTM5MzI1NTY5MywxNj
+c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
+MjU0MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMj
+Y4LDc1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkz
+NjkxNzcsMjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC
+0xMDkyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4
+Mzc3MTEzNF19
 -->
