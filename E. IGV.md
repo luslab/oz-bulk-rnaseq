@@ -92,6 +92,7 @@ Red lines within reads = deletions
 Blue boxes = reference genome
 
 # Create Publication Genome Browser view
+[Short introduction to UCSC genome browser PDF](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
 [http://genome.ucsc.edu/training/index.html](http://genome.ucsc.edu/training/index.html)
 [https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ](https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ)
 [https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub](https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub)
@@ -118,6 +119,7 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_NPC_D7_merged.bam -o VCP_
 sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP_iPSC_D0_merged.bw --normalizeUsing RPKM"
 ```
 3. Upload to UCSC genome browser
+[See page 8 here](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
 
 Login to UCSC browser: MyData > MySessions > Login [http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=733417633_FrgAYw50hwa3PWBTCps2DLCXaSLK&hgS_doMainPage=1](http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=733417633_FrgAYw50hwa3PWBTCps2DLCXaSLK&hgS_doMainPage=1)
 
@@ -127,7 +129,6 @@ Enter gene of interest in search box > click track of interest
 
 Click **Add custom track**, next to the bottom box click **upload**, on CAMP select the merged.bw file - allow time for upload
 
-[Short introduc](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
 
 
 4. Optimise browser appearance
@@ -144,7 +145,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1NzUyMjY4OSw1MDY5NTcwMjIsNjA4OT
+eyJoaXN0b3J5IjpbMTY4OTYzNjU2Nyw1MDY5NTcwMjIsNjA4OT
 QzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2NzkyMTUyNjgs
 MTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAyNTQyNCwtMT
 A0NDY4NTg2NSwxMzUzOTE3ODIzLC0zODkxNDAyNjgsNzU3NTMx
