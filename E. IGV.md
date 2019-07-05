@@ -99,14 +99,19 @@ Blue boxes = reference genome
 
 Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
-1. Convert bam files to bigwig
-Done above
-2. Merge bigwig files
-3. Normalise for read depth
-4. Upload to UCSC genome browser
-5. Optimise browser appearance
-6. Download
-7. Finalise in Illustrator
+1. Merge bigwig files
+
+```bash
+ml BEDTools
+
+
+```
+
+2. Normalise for read depth
+3. Upload to UCSC genome browser
+4. Optimise browser appearance
+5. Download
+6. Finalise in Illustrator
 
 **Sashimi Plots**
 Visualise splice junctions & explore exon usage
@@ -116,10 +121,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNDI1ODUzOSwtMzg5MTQwMjY4LDc1Nz
-UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
-MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
-kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
-NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
-I2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbLTcwMDQwMzY2LC0zODkxNDAyNjgsNzU3NT
+MxMTAyLDkxODkxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3Nywy
+ODMwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OT
+IwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0
+LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMj
+YwNTU3OTExXX0=
 -->
