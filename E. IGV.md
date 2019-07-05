@@ -104,6 +104,7 @@ Upload merged bigwig files to UCSC genome browser to download figures for public
 takes 10mins
 ```bash
 ml SAMtools
+ml STAR
 # VCP NPC D7
 sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_NPC_D7_merged.bam SRR5483788_Aligned.sortedByCoord.out.bam SRR5483789_Aligned.sortedByCoord.out.bam SRR5483790_Aligned.sortedByCoord.out.bam"
 # VCP iPSC D0
@@ -145,11 +146,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAyMjIzODIzLDEwNjEzNjcyNDcsMTY4OT
-YzNjU2Nyw1MDY5NTcwMjIsNjA4OTQzOTMwLDEzNzAwNzE4Niwx
-MzkzMjU1NjkzLDE2NzkyMTUyNjgsMTI2MDE4MTE4NCwtMTI4OD
-U2MTE5NSwtMTgzNDAyNTQyNCwtMTA0NDY4NTg2NSwxMzUzOTE3
-ODIzLC0zODkxNDAyNjgsNzU3NTMxMTAyLDkxODkxOTU1MiwyMT
-E5MTA0NTUsMTgwOTM2OTE3NywyODMwODcwNCw1NzQzNDcwODld
-fQ==
+eyJoaXN0b3J5IjpbMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MT
+M2NzI0NywxNjg5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAs
+MTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMT
+gxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0Njg1
+ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzExMDIsOT
+E4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4NzA0
+XX0=
 -->
