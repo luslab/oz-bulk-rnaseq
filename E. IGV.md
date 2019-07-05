@@ -101,7 +101,7 @@ Blue boxes = reference genome
 
 Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
-1. Merge bigwig files
+1. Merge BAM files
 
 ```bash
 ml BEDTools
@@ -126,11 +126,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLT
-EwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMjY4LDc1NzUz
-MTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMj
-gzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDky
-MDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNC
-wtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMTI2
-MDU1NzkxMV19
+eyJoaXN0b3J5IjpbLTEwNjI0NzIyODQsLTEyODg1NjExOTUsLT
+E4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5
+MTQwMjY4LDc1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LD
+E4MDkzNjkxNzcsMjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5
+NTU3LC0xMDkyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMT
+E1LDE4Mzc3MTEzNCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDEx
+MTUwNjA4MjFdfQ==
 -->
