@@ -97,6 +97,8 @@ Blue boxes = reference genome
 
 Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
+1. Merge
+
 **Sashimi Plots**
 Visualise splice junctions & explore exon usage
 ![sashimi plot explained](http://miso.readthedocs.io/en/fastmiso/_images/sashimi-plot-example-annotated.png)
@@ -105,10 +107,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4OTE0MDI2OCw3NTc1MzExMDIsOTE4OT
-E5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4NzA0LDU3
-NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNCwtMTMzMD
-k3MTM4OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQxNjgy
-MSwtMTYxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MTFdfQ
-==
+eyJoaXN0b3J5IjpbLTE3MDQ1MTQ2MSwtMzg5MTQwMjY4LDc1Nz
+UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
+MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
+kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
+NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
+I2MDU1NzkxMV19
 -->
