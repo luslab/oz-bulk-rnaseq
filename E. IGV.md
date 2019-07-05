@@ -123,8 +123,6 @@ Login to UCSC browser: MyData > MySessions > Login [http://genome.ucsc.edu/cgi-b
 
 Can save sessions
 
-
-
 [https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
 
 
@@ -140,11 +138,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNTI5NTY5Miw1MDY5NTcwMjIsNjA4OT
-QzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2NzkyMTUyNjgs
-MTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAyNTQyNCwtMT
-A0NDY4NTg2NSwxMzUzOTE3ODIzLC0zODkxNDAyNjgsNzU3NTMx
-MTAyLDkxODkxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3NywyOD
-MwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OTIw
-MDRdfQ==
+eyJoaXN0b3J5IjpbODU3OTU3OTI4LDUwNjk1NzAyMiw2MDg5ND
+M5MzAsMTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwx
+MjYwMTgxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC0xMD
+Q0Njg1ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzEx
+MDIsOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4Mz
+A4NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAw
+NF19
 -->
