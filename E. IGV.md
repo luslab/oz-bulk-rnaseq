@@ -138,6 +138,7 @@ Enter gene of interest in search box > click track of interest
 Click **Add custom track**, next to the bottom box click **upload**, on CAMP select the merged.bw file - allow time for upload
 
 Or use **ggbio** in Rstudio
+[http://bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf](http://bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf)
 
 4. Optimise browser appearance
 Change views of each track to "pack, denser or hide"
@@ -153,11 +154,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMT
-AyNjAyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1
-NjcsNTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5Mz
-I1NTY5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjEx
-OTUsLTE4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMy
-wtMzg5MTQwMjY4LDc1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEw
-NDU1XX0=
+eyJoaXN0b3J5IjpbNzA1NDU5Mjg5LC0xOTI1MTA0ODcwLC0yNT
+c5NTk2NjgsMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0
+NywxNjg5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MD
+A3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0
+LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0Njg1ODY1LD
+EzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzExMDIsOTE4OTE5
+NTUyXX0=
 -->
