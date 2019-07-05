@@ -28,7 +28,7 @@
 
 Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
 
-## Big Wig file coverage tracks
+# Convert BAM > Big Wig file coverage tracks
 ml SAMtools
 
 Convert BAM > BigWig file using BED tools & BED graph. Can then import the BigWig file into IGV. 
@@ -98,6 +98,7 @@ Blue boxes = reference genome
 Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
 1. Convert bam files to bigwig
+Done above
 2. Merge bigwig files
 3. Normalise for read depth
 4. Upload to UCSC genome browser
@@ -113,10 +114,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjA2OTIwNDgsLTM4OTE0MDI2OCw3NT
-c1MzExMDIsOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3
-LDI4MzA4NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5Mj
-Q5MjAwNCwtMTMzMDk3MTM4OSwtMTM5MjQzMjExNSwxODM3NzEx
-MzQsLTc5OTQxNjgyMSwtMTYxODA2MjI3MCwxMTE1MDYwODIxLD
-EyNjA1NTc5MTFdfQ==
+eyJoaXN0b3J5IjpbLTkxMjkyMzYyMSwtMzg5MTQwMjY4LDc1Nz
+UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
+MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
+kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
+NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
+I2MDU1NzkxMV19
 -->
