@@ -104,10 +104,9 @@ Upload merged bigwig files to UCSC genome browser to download figures for public
 1. Merge BAM files
 
 ```bash
-ml BEDTools
-ml picard
+ml SAMtools
 
-bigWigMerge SRR5483788.bw SRR5483789.bw SRR5483790.bw
+samtools merge SRR5483788.bw SRR5483789.bw SRR5483790.bw
 
 bedtools merge -i SRR5483788_Aligned.sortedByCoord.out.bam SRR5483789_Aligned.sortedByCoord.out.bam SRR5483790_Aligned.sortedByCoord.out.bam
 
@@ -127,11 +126,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMT
-gzNDAyNTQyNCwtMTA0NDY4NTg2NSwxMzUzOTE3ODIzLC0zODkx
-NDAyNjgsNzU3NTMxMTAyLDkxODkxOTU1MiwyMTE5MTA0NTUsMT
-gwOTM2OTE3NywyODMwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1
-NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMT
-UsMTgzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTEx
-NTA2MDgyMV19
+eyJoaXN0b3J5IjpbMTYyOTEwMjgwMywxMjYwMTgxMTg0LC0xMj
+g4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0Njg1ODY1LDEzNTM5
+MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzExMDIsOTE4OTE5NTUyLD
+IxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4NzA0LDU3NDM0NzA4
+OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNCwtMTMzMDk3MTM4OS
+wtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQxNjgyMSwtMTYx
+ODA2MjI3MF19
 -->
