@@ -118,6 +118,11 @@ sbatch -N 1 -c 8 --mem 40 --wrap="samtools index VCP_iPSC_D0_merged.bam"
 ```bash
 sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_NPC_D7_merged.bam -o VCP_NPC_D7_merged.bigWig --normalizeUsing RPKM"
 sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP_iPSC_D0_merged.bigWig --normalizeUsing RPKM"
+
+
+
+STAR --runMode inputAlignmentsFromBAM --runThreadN 24 --inputBAMfile VCP_NPC_D7_merged.bam --outWigType bigWig --outWigNorm RPM --outFileNamePrefix VCP_NPC_D7_merged
+
 ```
 3. Upload to UCSC genome browser
 [See page 13 here](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
@@ -146,11 +151,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MT
-M2NzI0NywxNjg5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAs
-MTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMT
-gxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0Njg1
-ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzExMDIsOT
-E4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4NzA0
-XX0=
+eyJoaXN0b3J5IjpbLTU1ODI1NjExMiwxMTAyNjAyNDc2LDYwMj
+IyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3MDIy
+LDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNjc5Mj
+E1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0
+MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMjY4LD
+c1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkx
+NzddfQ==
 -->
