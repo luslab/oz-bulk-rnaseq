@@ -67,8 +67,9 @@ To visualise on IGV its easier to generate TDF files which are much lighter. Thi
 
 4. Rename BAM files: right click file name in left hand column.
 
-5. Go to the Genomic Location of interest. For SFPQ type chr1:35,176,378-35,193,158 in top middle box > Go. Find Genomic Locations using google search eg https://www.genecards.org/cgi-bin/carddisp.pl?gene=SFPQ
+5. Go to the Genomic Location of interest: search gene name or gene coordinates e.g. SFPQ or chr1:35,176,378-35,193,158 in top middle box > Go. Find Genomic Locations using google search eg https://www.genecards.org/cgi-bin/carddisp.pl?gene=SFPQ
 Mark the region of interest: Regions > Region Navigator > Add
+
 6. Zoom in & out using top right zoomer or +/-. IGV will ask you to zoom in to see alignment data. This is because it has a default of 30 kb memory. You can change this to a higher value to see alignment data from a further out zoom but this will slow down the processing speed when scrolling across the genome. If you have deep coverage files then keep memory low to avoid it slowing down processing.
 
 For each BAM file there are 2 tracks. Top track shows summary distribution of the coverage of the exonic islands separated by spice junctions (introns). Bottom tracks show all the individual sequence read alignments piled up.
@@ -78,6 +79,7 @@ For each BAM file there are 2 tracks. Top track shows summary distribution of th
 Bases that dont match the reference sequences are highlighted by colour. The deeper the shade of grey the more confidence you can have that the sequence was aligned correctly. White means no confidence alignment.
 
 ![IGV RNA-seq specific view](https://lh3.googleusercontent.com/h7PbqBtb3kHxxevIpjvKJUAd451K0UFOoACMogIZzUhVVMz-_AqRnjSYsNpmhYeCbct9ikfaZU8-Yg "IGV RNA-seq specific view")
+
 IGV is used only to validate & confirm analysis results.  Use it to explore large genomic datasets. It is not good for the primary analysis.
 ![IGV of SFPQ D7 NPC samples](https://lh3.googleusercontent.com/r8Ph08oRuLWUBmnc6gbEyX5Rg3iBEkGhNmmNTHqTr7J01dtwdBGIdAqYJ2BMNlLcVIyYxPbn0QEhTQ "IGV of SFPQ D7 NPC samples")
 
@@ -114,10 +116,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU4Nzg5NjI2LC0zODkxNDAyNjgsNzU3NT
-MxMTAyLDkxODkxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3Nywy
-ODMwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OT
-IwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0
-LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMj
-YwNTU3OTExXX0=
+eyJoaXN0b3J5IjpbMTAwNDI1ODUzOSwtMzg5MTQwMjY4LDc1Nz
+UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
+MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
+kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
+NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
+I2MDU1NzkxMV19
 -->
