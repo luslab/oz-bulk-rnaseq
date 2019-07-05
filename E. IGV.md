@@ -1,4 +1,4 @@
-># IGV Genome Browser
+># Genome Browser
 - Check results visually to ensure reads align to expected regions without excess mismatches.
 - Genome browsers give a linear track representing the forward stand of the genome. left = 5'. right = 3'
 - Visualise in line orientated formats (fasta, bed, gff, SAM/BAM)
@@ -124,10 +124,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MzkxNzgyMywtMzg5MTQwMjY4LDc1Nz
-UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
-MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
-kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
-NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
-I2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMz
+g5MTQwMjY4LDc1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1
+LDE4MDkzNjkxNzcsMjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MT
+E5NTU3LC0xMDkyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMy
+MTE1LDE4Mzc3MTEzNCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLD
+ExMTUwNjA4MjEsMTI2MDU1NzkxMV19
 -->
