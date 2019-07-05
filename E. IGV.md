@@ -91,7 +91,7 @@ Blue lines within reads = insertions
 Red lines within reads = deletions
 Blue boxes = reference genome
 
-# UCSC Genome Browser
+# Create Publication Genome Browser view
 [http://genome.ucsc.edu/training/index.html](http://genome.ucsc.edu/training/index.html)
 [https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ](https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ)
 [https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub](https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub)
@@ -114,15 +114,13 @@ sbatch -N 1 -c 8 --mem 40 --wrap="samtools index VCP_iPSC_D0_merged.bam"
 ```
 2. Convert merged BAMs > BigWig & normalise for read depth
 ```bash
-sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_NPC_D7_merged.bam -o VCP_NPC_D7_merged.bw"
-sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP_iPSC_D0_merged.bw"
-
+sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_NPC_D7_merged.bam -o VCP_NPC_D7_merged.bw --normalizeUsing RPKM"
+sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP_iPSC_D0_merged.bw --normalizeUsing RPKM"
 ```
-3. Normalise for read depth
-4. Upload to UCSC genome browser
-5. Optimise browser appearance
-6. Download
-7. Finalise in Illustrator
+3. Upload to UCSC genome browser
+4. Optimise browser appearance
+5. Download
+6. Finalise in Illustrator
 
 **Sashimi Plots**
 Visualise splice junctions & explore exon usage
@@ -132,11 +130,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OT
-IxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1
-NDI0LC0xMDQ0Njg1ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OC
-w3NTc1MzExMDIsOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5
-MTc3LDI4MzA4NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1NywtMT
-A5MjQ5MjAwNCwtMTMzMDk3MTM4OSwtMTM5MjQzMjExNSwxODM3
-NzExMzRdfQ==
+eyJoaXN0b3J5IjpbNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMj
+U1NjkzLDE2NzkyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5
+NSwtMTgzNDAyNTQyNCwtMTA0NDY4NTg2NSwxMzUzOTE3ODIzLC
+0zODkxNDAyNjgsNzU3NTMxMTAyLDkxODkxOTU1MiwyMTE5MTA0
+NTUsMTgwOTM2OTE3NywyODMwODcwNCw1NzQzNDcwODksLTE4NT
+cxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOTI0
+MzIxMTVdfQ==
 -->
