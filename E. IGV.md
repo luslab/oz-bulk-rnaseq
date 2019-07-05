@@ -125,11 +125,13 @@ Click Genome Browser in Menu.
 Check reference genome is hg38
 Enter gene of interest in search box > click track of interest
 
+Add custom track
+
 [https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
 
 
 4. Optimise browser appearance
-Change views of each tra
+Change views of each track to "pack, denser or hide"
 
 5. Download
 6. Finalise in Illustrator
@@ -142,7 +144,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NTI2MDg3Miw1MDY5NTcwMjIsNjA4OT
+eyJoaXN0b3J5IjpbMTY0ODg5Mzc5MSw1MDY5NTcwMjIsNjA4OT
 QzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2NzkyMTUyNjgs
 MTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAyNTQyNCwtMT
 A0NDY4NTg2NSwxMzUzOTE3ODIzLC0zODkxNDAyNjgsNzU3NTMx
