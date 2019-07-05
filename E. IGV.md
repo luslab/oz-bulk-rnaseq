@@ -123,7 +123,9 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runT
 
 3. Upload to [https://www.biodalliance.org/human38.html](https://www.biodalliance.org/human38.html)
 
-
+Click + in top right of screen
+Click Binary
+Choose Files > select bigWig
 
 Alternatives are to upload to UCSC - couldnt get this to work as bigWigs too large.
 
@@ -153,7 +155,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI3MTIyOTk1LC0yNTc5NTk2NjgsMTEwMj
+eyJoaXN0b3J5IjpbMTMzNjc1Mjg5LC0yNTc5NTk2NjgsMTEwMj
 YwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2NTY3
 LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOTMyNT
 U2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYxMTk1
