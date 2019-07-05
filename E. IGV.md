@@ -6,7 +6,7 @@
 	- Horizontal intervals = directions, genes, alignments
 	- Values over intervals = coverages, probabilities
 	- Attributes at locations = mutations, deletions, junctions
-- To create publication genome browser shots, merge bedgraphs for each group, then upload tracks to UCSC genome browser > download
+- To create publication genome browser shots, merge bedgraphs for each group, then upload tracks to [UCSC genome browser](http://genome.ucsc.edu/index.html) > download
 
 ### `samtools tview`
 - simplest genome browser. can visualise any DAM file `samtools tview --reference reference_genome.fa filename.bam`
@@ -89,6 +89,10 @@ Blue lines within reads = insertions
 Red lines within reads = deletions
 Blue boxes = reference genome
 
+# UCSC Genome Browser
+
+Upload merged bigwig files to UCSC genome browser to dow
+
 **Sashimi Plots**
 Visualise splice junctions & explore exon usage
 ![sashimi plot explained](http://miso.readthedocs.io/en/fastmiso/_images/sashimi-plot-example-annotated.png)
@@ -97,9 +101,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU3NTMxMTAyLDkxODkxOTU1MiwyMTE5MT
-A0NTUsMTgwOTM2OTE3NywyODMwODcwNCw1NzQzNDcwODksLTE4
-NTcxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMzA5NzEzODksLTEzOT
-I0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4MjEsLTE2MTgwNjIy
-NzAsMTExNTA2MDgyMSwxMjYwNTU3OTExXX0=
+eyJoaXN0b3J5IjpbMjAwMjQ0MTIzMCw3NTc1MzExMDIsOTE4OT
+E5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4NzA0LDU3
+NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNCwtMTMzMD
+k3MTM4OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQxNjgy
+MSwtMTYxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MTFdfQ
+==
 -->
