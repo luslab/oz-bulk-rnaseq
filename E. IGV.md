@@ -46,6 +46,8 @@ do
 	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SRRID.bw"
 done
+
+sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b SRR5483790_Aligned.sortedByCoord.out.bam -o SRR5483790.bw"
 ```
 
 # IGV
@@ -124,10 +126,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMT
-M1MzkxNzgyMywtMzg5MTQwMjY4LDc1NzUzMTEwMiw5MTg5MTk1
-NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMjgzMDg3MDQsNTc0Mz
-Q3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0LC0xMzMwOTcx
-Mzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNCwtNzk5NDE2ODIxLC
-0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMTI2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLT
+EwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMjY4LDc1NzUz
+MTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMj
+gzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDky
+MDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNC
+wtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMTI2
+MDU1NzkxMV19
 -->
