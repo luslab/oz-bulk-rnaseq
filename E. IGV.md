@@ -1,11 +1,12 @@
 ># IGV Genome Browser
 - Check results visually to ensure reads align to expected regions without excess mismatches.
 - Genome browsers give a linear track representing the forward stand of the genome. left = 5'. right = 3'
-- can visualise line orientated formats (fasta, bed, gff, SAM/BAM)
+- Visualise in line orientated formats (fasta, bed, gff, SAM/BAM)
 - genomic features are drawn over the linear track in **glyphs** (pictogram)
 	- Horizontal intervals = directions, genes, alignments
 	- Values over intervals = coverages, probabilities
 	- Attributes at locations = mutations, deletions, junctions
+- To create publication genome browser shots, merge 
 
 ### `samtools tview`
 - simplest genome browser. can visualise any DAM file `samtools tview --reference reference_genome.fa filename.bam`
@@ -96,9 +97,9 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5Mz
-Y5MTc3LDI4MzA4NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1Nywt
-MTA5MjQ5MjAwNCwtMTMzMDk3MTM4OSwtMTM5MjQzMjExNSwxOD
-M3NzExMzQsLTc5OTQxNjgyMSwtMTYxODA2MjI3MCwxMTE1MDYw
-ODIxLDEyNjA1NTc5MTFdfQ==
+eyJoaXN0b3J5IjpbMTA4NDczNjI3Nyw5MTg5MTk1NTIsMjExOT
+EwNDU1LDE4MDkzNjkxNzcsMjgzMDg3MDQsNTc0MzQ3MDg5LC0x
+ODU3MTE5NTU3LC0xMDkyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMz
+kyNDMyMTE1LDE4Mzc3MTEzNCwtNzk5NDE2ODIxLC0xNjE4MDYy
+MjcwLDExMTUwNjA4MjEsMTI2MDU1NzkxMV19
 -->
