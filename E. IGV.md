@@ -119,6 +119,12 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP
 ```
 3. Upload to UCSC genome browser
 
+Login to UCSC browser: MyData > MySessions > Login [http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=733417633_FrgAYw50hwa3PWBTCps2DLCXaSLK&hgS_doMainPage=1](http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=733417633_FrgAYw50hwa3PWBTCps2DLCXaSLK&hgS_doMainPage=1)
+
+Can save sessions
+
+[https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
+
 
 4. Optimise browser appearance
 5. Download
@@ -132,11 +138,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMD
-cxODYsMTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNjAxODExODQs
-LTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMT
-M1MzkxNzgyMywtMzg5MTQwMjY4LDc1NzUzMTEwMiw5MTg5MTk1
-NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMjgzMDg3MDQsNTc0Mz
-Q3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0LC0xMzMwOTcx
-Mzg5XX0=
+eyJoaXN0b3J5IjpbODU3OTU3OTI4LDUwNjk1NzAyMiw2MDg5ND
+M5MzAsMTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwx
+MjYwMTgxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC0xMD
+Q0Njg1ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1MzEx
+MDIsOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4Mz
+A4NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAw
+NF19
 -->
