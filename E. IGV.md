@@ -140,11 +140,9 @@ Click **Add custom track**, next to the bottom box click **upload**, on CAMP sel
 Or use **ggbio** in Rstudio
 [http://bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf](http://bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf)
 
-4. Optimise browser appearance
-Change views of each track to "pack, denser or hide"
+4. Download or screenshot
 
-5. Download
-6. Finalise in Illustrator
+5. Finalise in Illustrator
 
 **Sashimi Plots**
 Visualise splice junctions & explore exon usage
@@ -154,7 +152,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA1NDU5Mjg5LC0xOTI1MTA0ODcwLC0yNT
+eyJoaXN0b3J5IjpbNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNT
 c5NTk2NjgsMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0
 NywxNjg5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MD
 A3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0
