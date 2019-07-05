@@ -60,11 +60,13 @@ cd ~/bin/IGV_2.4.14/lib
 java -Xmx750m -jar igv.jar
 ```
 2. Set reference genome to Human (hg38) top left box.
-3. Click File load from file > click Desktop > mount CAMP locally > click relevant BAM & BAI files or BigWig (.bw) files (can load multiple at once).
+3. 
+4. Click File load from file > click Desktop > mount CAMP locally > click relevant BigWig (.bw) or BAM files (to see individual read tracks)  files (load multiple at once).
 
 To visualise on IGV its easier to generate TDF files which are much lighter. This is useful if want to add more data-sets later. To generate TDF files first generate Bedgraph coverage files, then sort and then create the tdf file. Create 3 different coverage files: positive, negative strands and total. As the data is stranded it is better to look at both strands separately. Run the code in file: PE_strandedBedGraph.sh
 
 4. Rename BAM files: right click file name in left hand column.
+
 5. Go to the Genomic Location of interest. For SFPQ type chr1:35,176,378-35,193,158 in top middle box > Go. Find Genomic Locations using google search eg https://www.genecards.org/cgi-bin/carddisp.pl?gene=SFPQ
 Mark the region of interest: Regions > Region Navigator > Add
 6. Zoom in & out using top right zoomer or +/-. IGV will ask you to zoom in to see alignment data. This is because it has a default of 30 kb memory. You can change this to a higher value to see alignment data from a further out zoom but this will slow down the processing speed when scrolling across the genome. If you have deep coverage files then keep memory low to avoid it slowing down processing.
@@ -112,10 +114,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0NTczOTQ5NiwtMzg5MTQwMjY4LDc1Nz
-UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
-MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
-kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
-NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
-I2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbODU4Nzg5NjI2LC0zODkxNDAyNjgsNzU3NT
+MxMTAyLDkxODkxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3Nywy
+ODMwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OT
+IwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0
+LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMj
+YwNTU3OTExXX0=
 -->
