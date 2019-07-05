@@ -92,6 +92,7 @@ Blue boxes = reference genome
 # UCSC Genome Browser
 [http://genome.ucsc.edu/training/index.html](http://genome.ucsc.edu/training/index.html)
 [https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ](https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ)
+[https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub](https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub)
 
 Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
@@ -103,10 +104,9 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTIyNTk5OTIsNzU3NTMxMTAyLDkxOD
-kxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3NywyODMwODcwNCw1
-NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMz
-A5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4
-MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMjYwNTU3OTExXX
-0=
+eyJoaXN0b3J5IjpbOTE4MTIzMTc3LDc1NzUzMTEwMiw5MTg5MT
+k1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcsMjgzMDg3MDQsNTc0
+MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyNDkyMDA0LC0xMzMwOT
+cxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEzNCwtNzk5NDE2ODIx
+LC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMTI2MDU1NzkxMV19
 -->
