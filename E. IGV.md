@@ -100,7 +100,7 @@ Blue boxes = reference genome
 Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
 1. Merge BAM files for each group
-
+takes 10mins
 ```bash
 ml SAMtools
 # VCP NPC D7
@@ -108,11 +108,11 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_NPC_D7_merged.bam SRR5483
 # VCP iPSC D0
 sbatch -N 1 -c 4 --mem=24GB --wrap="samtools merge VCP_iPSC_D0_merged.bam SRR5483800Aligned.sortedByCoord.out.bam SRR5483801Aligned.sortedByCoord.out.bam SRR5483802Aligned.sortedByCoord.out.bam"
 
-# index
+# index merged BAMs
 sbatch -N 1 -c 8 --mem 40 --wrap="samtools index VCP_NPC_D7_merged.bam"
 sbatch -N 1 -c 8 --mem 40 --wrap="samtools index VCP_iPSC_D0_merged.bam"
 ```
-2. Convert merged BAMs > BigWig
+2. Convert merged BAMs > BigWig & normalise for read depth
 ```bash
 sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_NPC_D7_merged.bam -o VCP_NPC_D7_merged.bw"
 sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b VCP_iPSC_D0_merged.bam -o VCP_iPSC_D0_merged.bw"
@@ -132,11 +132,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzQwOTYyNTUsMTM5MzI1NTY5MywxNj
-c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
-MjU0MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMj
-Y4LDc1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkz
-NjkxNzcsMjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC
-0xMDkyNDkyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4
-Mzc3MTEzNF19
+eyJoaXN0b3J5IjpbMTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OT
+IxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1
+NDI0LC0xMDQ0Njg1ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OC
+w3NTc1MzExMDIsOTE4OTE5NTUyLDIxMTkxMDQ1NSwxODA5MzY5
+MTc3LDI4MzA4NzA0LDU3NDM0NzA4OSwtMTg1NzExOTU1NywtMT
+A5MjQ5MjAwNCwtMTMzMDk3MTM4OSwtMTM5MjQzMjExNSwxODM3
+NzExMzRdfQ==
 -->
