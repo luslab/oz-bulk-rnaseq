@@ -23,14 +23,7 @@
 - [Ensembl](http://useast.ensembl.org/index.html)
 - [UCSC](https://genome.ucsc.edu/)
 
-# [Integrative Genomics Viewer (IGV)](https://www.biostarhandbook.com/visualize/igv.html)
-`ml IGVTools`
-
-Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
-
 # Convert BAM > Big Wig file coverage tracks
-ml SAMtools
-
 Convert BAM > BigWig file using BED tools & BED graph. Can then import the BigWig file into IGV. 
 STAR creates a wiggle track (raw bigwig file). 
 They only show the coverage and not the individual reads. They are binary formatted and so a much smaller files - prevents IGV crashing.
@@ -40,6 +33,9 @@ https://github.com/YangLab/bamTobw
 
 Use bamCoverage to convert BAM > BW files
 ```bash
+ml SAMtools
+ml IGVTools
+
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/*Aligned.sortedByCoord.out.bam
 #set OUT
@@ -52,7 +48,9 @@ do
 done
 ```
 
-## Run IGV
+# IGV
+Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
+https://www.biostarhandbook.com/visualize/igv.html
 
 1. Run IGV on local computer and mount CAMP. [Set Java 8 as default](https://stackoverflow.com/questions/46513639/how-to-downgrade-java-from-9-to-8-on-a-macos-eclipse-is-not-running-with-java-9) since IGV doesnt work with Java 10
 ```bash
@@ -114,10 +112,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMjkyMzYyMSwtMzg5MTQwMjY4LDc1Nz
-UzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkxNzcs
-MjgzMDg3MDQsNTc0MzQ3MDg5LC0xODU3MTE5NTU3LC0xMDkyND
-kyMDA0LC0xMzMwOTcxMzg5LC0xMzkyNDMyMTE1LDE4Mzc3MTEz
-NCwtNzk5NDE2ODIxLC0xNjE4MDYyMjcwLDExMTUwNjA4MjEsMT
-I2MDU1NzkxMV19
+eyJoaXN0b3J5IjpbMzU4MzUyMjkzLC0zODkxNDAyNjgsNzU3NT
+MxMTAyLDkxODkxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3Nywy
+ODMwODcwNCw1NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OT
+IwMDQsLTEzMzA5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0
+LC03OTk0MTY4MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMj
+YwNTU3OTExXX0=
 -->
