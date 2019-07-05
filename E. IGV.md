@@ -90,8 +90,10 @@ Red lines within reads = deletions
 Blue boxes = reference genome
 
 # UCSC Genome Browser
+[http://genome.ucsc.edu/training/index.html](http://genome.ucsc.edu/training/index.html)
+[https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ](https://www.youtube.com/channel/UCQnUJepyNOw0p8s2otX4RYQ)
 
-Upload merged bigwig files to UCSC genome browser to dow
+Upload merged bigwig files to UCSC genome browser to download figures for publication.
 
 **Sashimi Plots**
 Visualise splice junctions & explore exon usage
@@ -101,10 +103,10 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwMjQ0MTIzMCw3NTc1MzExMDIsOTE4OT
-E5NTUyLDIxMTkxMDQ1NSwxODA5MzY5MTc3LDI4MzA4NzA0LDU3
-NDM0NzA4OSwtMTg1NzExOTU1NywtMTA5MjQ5MjAwNCwtMTMzMD
-k3MTM4OSwtMTM5MjQzMjExNSwxODM3NzExMzQsLTc5OTQxNjgy
-MSwtMTYxODA2MjI3MCwxMTE1MDYwODIxLDEyNjA1NTc5MTFdfQ
-==
+eyJoaXN0b3J5IjpbLTIwNTIyNTk5OTIsNzU3NTMxMTAyLDkxOD
+kxOTU1MiwyMTE5MTA0NTUsMTgwOTM2OTE3NywyODMwODcwNCw1
+NzQzNDcwODksLTE4NTcxMTk1NTcsLTEwOTI0OTIwMDQsLTEzMz
+A5NzEzODksLTEzOTI0MzIxMTUsMTgzNzcxMTM0LC03OTk0MTY4
+MjEsLTE2MTgwNjIyNzAsMTExNTA2MDgyMSwxMjYwNTU3OTExXX
+0=
 -->
