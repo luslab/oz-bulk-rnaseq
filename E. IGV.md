@@ -98,7 +98,7 @@ Blue boxes = reference genome
 [https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub](https://www.sciencedirect.com/science/article/pii/S0888754308000451?via%3Dihub)
 [http://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html](http://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html)
 
-Upload merged bigwig files to UCSC genome browser to download figures for publication.
+Upload merged bigwig files to genome browser to download figures for publication.
 
 1. Merge BAM files for each group
 takes 10mins
@@ -121,7 +121,12 @@ sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runT
 sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runThreadN 24 --inputBAMfile VCP_iPSC_D0_merged.bam --outWigType wiggle --outWigStrand Unstranded --outWigNorm RPM --outFileNamePrefix VCP_iPSC_D0_merged"
 ```
 
-3. Upload to UCSC genome browser
+3. Upload to [https://www.biodalliance.org/human38.html](https://www.biodalliance.org/human38.html)
+
+
+
+Alternatives are to upload to UCSC - couldnt get this to work as bigWigs too large.
+
 [See page 13 here](https://www.france-bioinformatique.fr/sites/default/files/EBA/V3-2014/Nicolas_Servant_UCSC_TP_EBA-2014-10.pdf)
 
 Login to UCSC browser: MyData > MySessions > Login [http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=733417633_FrgAYw50hwa3PWBTCps2DLCXaSLK&hgS_doMainPage=1](http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=733417633_FrgAYw50hwa3PWBTCps2DLCXaSLK&hgS_doMainPage=1)
@@ -132,7 +137,7 @@ Enter gene of interest in search box > click track of interest
 
 Click **Add custom track**, next to the bottom box click **upload**, on CAMP select the merged.bw file - allow time for upload
 
-
+Or use ggbio in Rstudio
 
 4. Optimise browser appearance
 Change views of each track to "pack, denser or hide"
@@ -148,11 +153,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LDYwMj
-IyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3MDIy
-LDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNjc5Mj
-E1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0
-MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5MTQwMjY4LD
-c1NzUzMTEwMiw5MTg5MTk1NTIsMjExOTEwNDU1LDE4MDkzNjkx
-NzddfQ==
+eyJoaXN0b3J5IjpbODI3MTIyOTk1LC0yNTc5NTk2NjgsMTEwMj
+YwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2NTY3
+LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOTMyNT
+U2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYxMTk1
+LC0xODM0MDI1NDI0LC0xMDQ0Njg1ODY1LDEzNTM5MTc4MjMsLT
+M4OTE0MDI2OCw3NTc1MzExMDIsOTE4OTE5NTUyLDIxMTkxMDQ1
+NV19
 -->
