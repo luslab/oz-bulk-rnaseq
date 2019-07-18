@@ -66,7 +66,7 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 
 1. `mkdir trimmed` output folder in the `reads` directory
 
-2. Run Trim Galore 
+2. Run Trim Galore  (RL uses fast tool kit)
 `trim_galore -q 20 --length 20 --gzip -o /home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed /home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/SRR5483788_1.fastq`
 
 for multiple sequences can parallelise by using for loop & sbatch:
@@ -180,11 +180,11 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE4MjcxMTEyLDE2MDcyNzI0MTAsLTEwMj
-kxNzI3NTcsLTE2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0
-ODIsMTg3MTE0ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMT
-kxMDg3NzI2MSwtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAy
-ODcsOTA5NzEzNzQ2LDcyMDcwMzk4NCwtMTQ3MDQxMzEzOSwxMD
-Y5NjAwMjc3LDY0NzIyMDA1Myw5OTAwMDQ4MTEsLTE4Njg3Njcy
-MThdfQ==
+eyJoaXN0b3J5IjpbLTEyNTg3MjEwNyw0MTgyNzExMTIsMTYwNz
+I3MjQxMCwtMTAyOTE3Mjc1NywtMTYyNTM1NDkyNSw3MjM2ODI2
+MDcsLTYyNTM4NjQ4MiwxODcxMTQ4MjY0LC0xODgwMzgwMjYsLT
+U1NDMwNTc3MiwxOTEwODc3MjYxLC00ODQ1NTY4NjUsLTEwODM3
+NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNzAzOTg0LC0xND
+cwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgx
+MV19
 -->
