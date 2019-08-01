@@ -481,6 +481,8 @@ http://oliverelliott.org/article/bioinformatics/wik_bioinform/
 Variant calling= identify differences between the observed sequencing reads and a reference genome.
 
 Using the alignment .bam files determine variants at specified genomic locations of interest.
+Definitions:
+Ploidy = no. of complete chromosome sets in a cell = number of alleles (
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -536,11 +538,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1OTAxMjYwMyw2NzQzODg0MzQsLTY0MD
-I3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2MjYs
-MTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNjA2OD
-A0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5
-LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMz
-c3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2
-NDc1Nl19
+eyJoaXN0b3J5IjpbMTcxMDkzMjYyMiwxMTU5MDEyNjAzLDY3ND
+M4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYs
+LTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1Nz
+Y5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAs
+LTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOT
+AxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYz
+MTk3M119
 -->
