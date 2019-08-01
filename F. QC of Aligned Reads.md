@@ -497,7 +497,7 @@ https://www.biostarhandbook.com/vcf.html#vcf
 Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Each sample is represented as a column. 
 Can view VCF files in IGV: [http://software.broadinstitute.org/software/igv/viewing_vcf_files](http://software.broadinstitute.org/software/igv/viewing_vcf_files)
 
-FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
+*FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
 *FORMAT/ADR* .. Allelic depths on the reverse strand (Number=R,Type=Integer)
 *FORMAT/DP* .. Number of high-quality bases (Number=1,Type=Integer)
@@ -579,11 +579,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxNzU1NTI2MywxMTcwNzIyMzE0LC01OT
-g2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAx
-MjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNT
-YxOTA0ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkx
-NjUsMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMj
-k4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQz
-NjMxOF19
+eyJoaXN0b3J5IjpbNjgxOTExMDMzLDExNzA3MjIzMTQsLTU5OD
+Y3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEy
+NjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1Nj
+E5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2
+NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOT
+gxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2
+MzE4XX0=
 -->
