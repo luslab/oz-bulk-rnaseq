@@ -492,6 +492,7 @@ Tools for calling variants:
 - VarScan2
 
 ## VCF
+
 Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Each sample is represented as a column. 
 Can view VCF files in IGV.
 
@@ -570,11 +571,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMT
-E1OTAxMjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkz
-ODYsNTYxOTA0ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNT
-UwMzkxNjUsMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0
-MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMj
-A2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0
-Njc0MDAxXX0=
+eyJoaXN0b3J5IjpbNzcyNjM4MTMxLC0xNjExNDYyMTM5LC0xOD
+YxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC02NDAyNzE2
+MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2NjI2LDExND
+Y4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMTYwNjgwNDcw
+NywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0OSwxNj
+U1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nzg3
+MjY5NV19
 -->
