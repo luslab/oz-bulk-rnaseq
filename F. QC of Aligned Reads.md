@@ -518,6 +518,11 @@ FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
         Number of high-quality bases for each observed allele (Number=R,Type=Integer)
         
  ## Variant Calling Pipeline
+
+With multiple samples variant call you can either:
+1. Call the variants SIMULTANEOUSLY on all BAM files; or
+2. Call variants separately on each BAM file and then MERGE the VCFs
+
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -573,11 +578,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjA0NzMxOTUsMTE3MDcyMjMxNCwtNT
-k4NjcwMzg5LC0xNjExNDYyMTM5LC0xODYxNzIxOTc3LDExNTkw
-MTI2MDMsNjc0Mzg4NDM0LC02NDAyNzE2MzcsODE5MzI5Mzg2LD
-U2MTkwNDg3NiwtOTIyNjc2NjI2LDExNDY4MjczNCwyMDU1MDM5
-MTY1LDE4NzU3NjkxMTMsMTYwNjgwNDcwNywxNTM5NDE0NDIsLT
-I5ODEzOTMzMCwtMTExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNjA0
-MzYzMThdfQ==
+eyJoaXN0b3J5IjpbMTM0NjgzNjc0OSwxMTcwNzIyMzE0LC01OT
+g2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAx
+MjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNT
+YxOTA0ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkx
+NjUsMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMj
+k4MTM5MzMwLC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQz
+NjMxOF19
 -->
