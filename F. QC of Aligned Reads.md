@@ -523,7 +523,7 @@ With multiple samples variant call you can either:
 1. Call the variants SIMULTANEOUSLY on all BAM files together; or
 2. Call variants separately on each BAM file and then MERGE the VCFs
 
-Here we stick to the first approach as merging VCFs is error rpone.
+Here we stick to the first approach as merging VCFs is error pone.
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -579,11 +579,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgxOTExMDMzLDExNzA3MjIzMTQsLTU5OD
-Y3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEy
-NjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1Nj
-E5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2
-NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOT
-gxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2
-MzE4XX0=
+eyJoaXN0b3J5IjpbLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNz
+A3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcy
+MTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LD
+gxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3
+MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMT
+UzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgy
+MzU4Nl19
 -->
