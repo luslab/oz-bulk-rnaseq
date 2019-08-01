@@ -483,6 +483,7 @@ Variant calling= identify differences between the observed sequencing reads and 
 Using the alignment .bam files determine variants at specified genomic locations of interest.
 Definitions:
 Ploidy = no. of complete chromosome sets in a cell = number of alleles (variant forms).
+Genotype = assign one or more reads to a known groups of variants.
 
 
 FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
@@ -560,11 +561,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2Nz
-QzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2
-LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NT
-c2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMw
-LC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMT
-kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
-MzE5NzNdfQ==
+eyJoaXN0b3J5IjpbLTM0MTQ2NDM3MSwtMTg2MTcyMTk3NywxMT
+U5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4
+Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NT
+AzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQy
+LC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMD
+YwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2
+NzQwMDFdfQ==
 -->
