@@ -478,6 +478,9 @@ Compare the results of STAR alignment across samples:
 [https://www.biostarhandbook.com/introduction-to-variant-calling.html](https://www.biostarhandbook.com/introduction-to-variant-calling.html)
 http://oliverelliott.org/article/bioinformatics/wik_bioinform/
 
+Variant calling= identify differences between the observed sequencing reads and a reference genome.
+
+Using the alignment .bam files determine variants at specified genomic locations of interest.
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -533,11 +536,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODEwNjksNjc0Mzg4NDM0LC02NDAyNz
-E2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2NjI2LDEx
-NDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMTYwNjgwND
-cwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0OSwx
-NjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nz
-g3MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgxNjQ3
-NTZdfQ==
+eyJoaXN0b3J5IjpbMTE1OTAxMjYwMyw2NzQzODg0MzQsLTY0MD
+I3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2MjYs
+MTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNjA2OD
+A0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMyNTQ5
+LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMTkwMTIyNzI4OSwxMz
+c3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2MzE5NzMsLTExODE2
+NDc1Nl19
 -->
