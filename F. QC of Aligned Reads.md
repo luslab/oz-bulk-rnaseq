@@ -520,6 +520,20 @@ The first nine columns of a VCF file are:
 8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format. Represents all samples.
 9.  `FORMAT`: Represents individual samples. Sample-level annotations as colon separated TAGS:
 
+This field specifies the meaning of the numbers in each sample column. The TAGS are colon  `:`  separated and map each field of the  `FORMAT`  to each value in the sample column. Suppose that columns 9,10 and 11 of a VCF file were:
+
+```bash
+FORMAT         sample1         sample2
+GT:PL         0/1:51,0,48    1/1:34,32,0    
+```
+ The variant observed for  `sample1`  has the values  `GT=0/1`  and  `PL=51,0,48`
+-This same variant when observed in  `sample2`  has the values  `GT=1/1`  and  `PL=34,32,0`
+- What if you wanted to know what do  `GT`  and  `PL`  mean? You’d have to go to the header for their definition, and there you would find
+
+```bash
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="List of Phred-scaled genotype likelihoods">
+```
 
 *FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
@@ -605,11 +619,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDEyMjQzMzIsLTExNTA4MjUwOTcsNj
-gxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2
-MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNC
-wtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3
-NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLD
-E2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5
-MzI1NDldfQ==
+eyJoaXN0b3J5IjpbODgzOTA4NTg2LC0xMTUwODI1MDk3LDY4MT
+kxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIx
+MzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLT
+Y0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2
+MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNj
+A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
+NTQ5XX0=
 -->
