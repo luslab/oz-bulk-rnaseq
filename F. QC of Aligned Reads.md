@@ -474,22 +474,70 @@ Compare the results of STAR alignment across samples:
 - generate bar chart
 
 
-# Check Mutation Status
+# Check Mutation Status of Samples (Variant Calling)
+[https://www.biostarhandbook.com/introduction-to-variant-calling.html](https://www.biostarhandbook.com/introduction-to-variant-calling.html)
+http://oliverelliott.org/article/bioinformatics/wik_bioinform/
 
+```bash
+# setting up environments, including paths
+ml SAMtools
 ml BamTools
-Utilise rnaseqmut
+
+FASTA=~/working/oliver/genomes/index/UCSC/hg38.fa
+BAM=~/working/oliver/projects/vcp_fractionation/alignment/roi_bam/*.bam
+OUT=~/working/oliver/projects/vcp_fractionation/alignment/vcp_mutation_analysis/bcftools
+
+#################
+# import region of interest BAM files from sango with rsync
+rsync -aP sango-ext:/work/LuscombeU/VCP_nuc_cyto_study/ROI/ .
+
+# remove last two files starting {out} - unclear what these are from
+rm {out}ID519_A1_CTRL1_iPS-D0-Cyto_L001.bam {out}ID519_A1_CTRL1_iPS-D0-Cyto_L001.bam.bai
+
+######### samtools mpileup > bcftools view #######
+
+### run as merged samples into 1 VCF
+# R155C loc 35,065,364. GLIA, GLIB, CBID. Mutation G > A (RNA mutation is C > T). https://www.ncbi.nlm.nih.gov/clinvar/variation/8469/
+samtools mpileup -D -S -d 5000 -r chr9:35065364-35065364 -uf $FASTA *.bam | bcftools view > R155Cstatus_all_samples_merged.vcf
+
+# R191Q genomic location = 35,065,255. CB1E. RNA Mutation C > T (DNA mut is G > A). https://www.ncbi.nlm.nih.gov/clinvar/variation/8473/
+samtools mpileup -D -S -d 5000 -r chr9:35065255-35065255 -uf $FASTA *.bam | bcftools view > R191Qstatus_all_samples_merged.vcf
+
+###############
+### Extract info from VCF
+# check genomic location matches file name
+bcftools query -f '%CHROM %POS %REF %ALT\n' R155Cstatus_all_samples_merged.vcf
+bcftools query -f '%CHROM %POS %REF %ALT\n' R191Qstatus_all_samples_merged.vcf
+# list samples stored in VCF
+bcftools query -l R155Cstatus_all_samples_merged.vcf
+bcftools query -l R191Qstatus_all_samples_merged.vcf
+# extract per sample information
+## extract PL flag. GT flag not present - unclear why but not necessary to have as order of PL flag indicates Genotype. Transpose to make human readable.
+bcftools query -H -f '%CHROM\t%POS[\t%PL\t]\n' R155Cstatus_all_samples_merged.vcf | rowsToCols -varCol stdin stdout > R155Cstatus_PLflag.vcf
+bcftools query -H -f '%CHROM\t%POS[\t%PL\t]\n' R191Qstatus_all_samples_merged.vcf | rowsToCols -varCol stdin stdout > R191Qstatus_PLflag.vcf
+
+#### SAMPLES TO CHECK IN IGV:
+ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001.bam
+ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002.bam
+ID519_E3_GLIA_D3-Cyto_L002.bam
+
+####  prepare .txt output from VCF with allele frequencies 
 
 
+
+#### use .txt to plot the QC output md file
+
+```
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjc0Mzg4NDM0LC02NDAyNzE2MzcsODE5Mz
-I5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2NjI2LDExNDY4MjczNCwy
-MDU1MDM5MTY1LDE4NzU3NjkxMTMsMTYwNjgwNDcwNywxNTM5ND
-E0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0OSwxNjU1ODIzNTg2
-LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nzg3MjY5NSwtMj
-E0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgxNjQ3NTYsLTk5NDgy
-MDc3Ml19
+eyJoaXN0b3J5IjpbLTEwODEwNjksNjc0Mzg4NDM0LC02NDAyNz
+E2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2NjI2LDEx
+NDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMTYwNjgwND
+cwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0OSwx
+NjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nz
+g3MjY5NSwtMjE0NDY3NDAwMSwxNjY4NjMxOTczLC0xMTgxNjQ3
+NTZdfQ==
 -->
