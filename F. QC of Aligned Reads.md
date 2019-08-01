@@ -498,13 +498,14 @@ Standard representation for variants is VCF format. All variant callers produce 
 Can view VCF files in IGV: [http://software.broadinstitute.org/software/igv/viewing_vcf_files](http://software.broadinstitute.org/software/igv/viewing_vcf_files)
 
 **VCF Header**
-Located at the beginning of the VCF file and consists of lines that start with the  `##`  symbols like so:
+Located at the beginning of the VCF file and consists of lines starting with `##`:
 ```bash
 ##fileformat=VCFv4.1
 ##contig=<ID=AF086833,length=18959>
 ##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ```
+The header defines all the acronyms used in the VCF e.g. AF = Allele Frequency.
 
 The first nine columns of a VCF file are:
 
@@ -600,11 +601,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTQ0MjYzNzUsLTExNTA4MjUwOTcsNj
-gxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2
-MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNC
-wtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3
-NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLD
-E2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5
-MzI1NDldfQ==
+eyJoaXN0b3J5IjpbLTk2MDc3MDU3MCwtMTE1MDgyNTA5Nyw2OD
+E5MTEwMzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYy
+MTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC
+02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2
+NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMT
+YwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkz
+MjU0OV19
 -->
