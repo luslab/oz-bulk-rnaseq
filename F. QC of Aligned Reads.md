@@ -513,7 +513,7 @@ The first nine columns of a VCF file are:
 1.  `CHROM`: The chromosome (contig) on which the variant occurs
 2.  `POS`: The genomic coordinates on which the variant occurs. For deletions, the position given here are on of the bases preceding the event.
 3.  `ID`: An identifier for the variant (if it exists). Typically a dbSNP database if that is known.
-4.  `REF`: The reference allele on the forward strand.
+4.  `REF`: The reference allele on the forward strand at position `POS`.
 5.  `ALT`: The alternate allele(s) on the forward strand. More than one may be present.
 6.  `QUAL`: A probability that the  `REF/ALT`  variant exists at this site. It is in Phred scale, just as the FASTQ quality and the MAPQ field in the SAM file are.
 7.  `FILTER`: The name of filters that the variant fails to pass, or the value  `PASS`  if the variant passed all filters. If the  `FILTER`  value is  `.`, then no filtering has been applied to the record.
@@ -526,9 +526,8 @@ This field specifies the meaning of the numbers in each sample column. The TAGS 
 FORMAT         sample1         sample2
 GT:PL         0/1:51,0,48    1/1:34,32,0    
 ```
- The variant observed for  `sample1`  has the values  `GT=0/1`  and  `PL=51,0,48`
--This same variant when observed in  `sample2`  has the values  `GT=1/1`  and  `PL=34,32,0`
-- What if you wanted to know what do  `GT`  and  `PL`  mean? You’d have to go to the header for their definition, and there you would find
+The variant observed for  `sample1`  has the values  `GT=0/1`  and  `PL=51,0,48`. This same variant when observed in  `sample2`  has the values  `GT=1/1`  and  `PL=34,32,0`
+What if you wanted to know what do  `GT`  and  `PL`  mean? Go to the header for their definition:
 
 ```bash
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
@@ -619,7 +618,7 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODgzOTA4NTg2LC0xMTUwODI1MDk3LDY4MT
+eyJoaXN0b3J5IjpbNDk1Mzc4MjE3LC0xMTUwODI1MDk3LDY4MT
 kxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIx
 MzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLT
 Y0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2
