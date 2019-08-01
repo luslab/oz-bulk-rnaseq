@@ -493,9 +493,15 @@ Genotype = assign one or more reads to a known groups of variants.
 
 ## VCF: Variance Call Format
 https://www.biostarhandbook.com/vcf.html#vcf
+VCF Poster:  [http://vcftools.sourceforge.net/VCF-poster.pdf](http://vcftools.sourceforge.net/VCF-poster.pdf)
+VCF short summary:  [http://www.htslib.org/doc/vcf.html](http://www.htslib.org/doc/vcf.html)
+VCF Specification:  [http://samtools.github.io/hts-specs/](http://samtools.github.io/hts-specs/)
+A detailed description of the VCF:  [What is a VCF file](http://gatkforums.broadinstitute.org/gatk/discussion/1268/what-is-a-vcf-and-how-should-i-interpret-it)  on the GATK forums.
 
 Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Samples are represented as a column. A VCF has header & record sections. It is a plain text file but in a specific order.
 Can view VCF files in IGV: [http://software.broadinstitute.org/software/igv/viewing_vcf_files](http://software.broadinstitute.org/software/igv/viewing_vcf_files)
+
+![enter image description here](https://lh3.googleusercontent.com/BAGxbWH7dXvbsWulTWG31B7o_SEwt6IAb3UzWRTKKaNTUQV-JZ6mcqPSLMS-8XkM9ICGICq-1s-H5A)
 
 **VCF Header**
 Located at the beginning of the VCF file and consists of lines starting with `##`:
@@ -632,11 +638,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg4Nzg0NjYxLC0xMTUwODI1MDk3LDY4MT
-kxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIx
-MzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLT
-Y0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2
-MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNj
-A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
-NTQ5XX0=
+eyJoaXN0b3J5IjpbMjAzMTYxODMwOSwtMTE1MDgyNTA5Nyw2OD
+E5MTEwMzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYy
+MTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC
+02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2
+NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMT
+YwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkz
+MjU0OV19
 -->
