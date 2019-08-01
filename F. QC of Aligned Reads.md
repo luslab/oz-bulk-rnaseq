@@ -497,6 +497,18 @@ https://www.biostarhandbook.com/vcf.html#vcf
 Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Each sample is represented as a column. 
 Can view VCF files in IGV: [http://software.broadinstitute.org/software/igv/viewing_vcf_files](http://software.broadinstitute.org/software/igv/viewing_vcf_files)
 
+The first nine columns of a VCF file are:
+
+1.  `CHROM`: The chromosome (contig) on which the variant occurs
+2.  `POS`: The genomic coordinates on which the variant occurs. For deletions, the position given here are on of the bases preceding the event.
+3.  `ID`: An identifier for the variant (if it exists). Typically a dbSNP database if that is known.
+4.  `REF`: The reference allele on the forward strand.
+5.  `ALT`: The alternate allele(s) on the forward strand. More than one may be present.
+6.  `QUAL`: A probability that the  `REF/ALT`  variant exists at this site. It is in Phred scale, just as the FASTQ quality and the MAPQ field in the SAM file are.
+7.  `FILTER`: The name of filters that the variant fails to pass, or the value  `PASS`  if the variant passed all filters. If the  `FILTER`  value is  `.`, then no filtering has been applied to the record.
+8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format.
+9.  `FORMAT`: Sample-level annotations as colon separated TAGS:
+
 *FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
 *FORMAT/ADR* .. Allelic depths on the reverse strand (Number=R,Type=Integer)
@@ -579,11 +591,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNz
-A3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcy
-MTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LD
-gxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3
-MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMT
-UzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgy
-MzU4Nl19
+eyJoaXN0b3J5IjpbMzM5MjMzMDM5LC0xMTUwODI1MDk3LDY4MT
+kxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIx
+MzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLT
+Y0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2
+MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNj
+A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
+NTQ5XX0=
 -->
