@@ -495,7 +495,7 @@ Genotype = assign one or more reads to a known groups of variants.
 https://www.biostarhandbook.com/vcf.html#vcf
 
 Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Each sample is represented as a column. 
-Can view VCF files in IGV.
+Can view VCF files in IGV: [http://software.broadinstitute.org/software/igv/viewing_vcf_files](http://software.broadinstitute.org/software/igv/viewing_vcf_files)
 
 FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
@@ -520,9 +520,10 @@ FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
  ## Variant Calling Pipeline
 
 With multiple samples variant call you can either:
-1. Call the variants SIMULTANEOUSLY on all BAM files; or
+1. Call the variants SIMULTANEOUSLY on all BAM files together; or
 2. Call variants separately on each BAM file and then MERGE the VCFs
 
+Here we stick to the first approach as merging VCFs is error rpone.
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -578,7 +579,7 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NjgzNjc0OSwxMTcwNzIyMzE0LC01OT
+eyJoaXN0b3J5IjpbMjAxNzU1NTI2MywxMTcwNzIyMzE0LC01OT
 g2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAx
 MjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNT
 YxOTA0ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkx
