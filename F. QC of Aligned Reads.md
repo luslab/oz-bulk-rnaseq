@@ -491,6 +491,9 @@ Tools for calling variants:
 - GATK
 - VarScan2
 
+## VCF
+Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files.
+
 FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
 *FORMAT/ADR* .. Allelic depths on the reverse strand (Number=R,Type=Integer)
@@ -566,11 +569,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTA1NDU5MDI0LC0xODYxNzIxOTc3LDExNT
-kwMTI2MDMsNjc0Mzg4NDM0LC02NDAyNzE2MzcsODE5MzI5Mzg2
-LDU2MTkwNDg3NiwtOTIyNjc2NjI2LDExNDY4MjczNCwyMDU1MD
-M5MTY1LDE4NzU3NjkxMTMsMTYwNjgwNDcwNywxNTM5NDE0NDIs
-LTI5ODEzOTMzMCwtMTExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNj
-A0MzYzMTgsLTE5MDEyMjcyODksMTM3Nzg3MjY5NSwtMjE0NDY3
-NDAwMV19
+eyJoaXN0b3J5IjpbLTQ1MDIwMjg0NiwtMTg2MTcyMTk3NywxMT
+U5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4
+Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NT
+AzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQy
+LC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMD
+YwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2
+NzQwMDFdfQ==
 -->
