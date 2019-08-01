@@ -485,7 +485,7 @@ Definitions:
 Ploidy = no. of complete chromosome sets in a cell = number of alleles (variant forms).
 Genotype = assign one or more reads to a known groups of variants.
 
-Tools for calling variants:
+**Tools for calling variants:**
 - bcftools
 - FreeBayes
 - GATK (genome analysis tool kit) [https://software.broadinstitute.org/gatk/](https://software.broadinstitute.org/gatk/)
@@ -517,6 +517,7 @@ FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *INFO/DPR* .. Deprecated in favor of INFO/AD;
         Number of high-quality bases for each observed allele (Number=R,Type=Integer)
         
+ ## Variant Calling Pipeline
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -572,11 +573,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNj
-ExNDYyMTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4
-NDM0LC02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOT
-IyNjc2NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3Njkx
-MTMsMTYwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMT
-ExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEy
-MjcyODldfQ==
+eyJoaXN0b3J5IjpbLTEyMjA0NzMxOTUsMTE3MDcyMjMxNCwtNT
+k4NjcwMzg5LC0xNjExNDYyMTM5LC0xODYxNzIxOTc3LDExNTkw
+MTI2MDMsNjc0Mzg4NDM0LC02NDAyNzE2MzcsODE5MzI5Mzg2LD
+U2MTkwNDg3NiwtOTIyNjc2NjI2LDExNDY4MjczNCwyMDU1MDM5
+MTY1LDE4NzU3NjkxMTMsMTYwNjgwNDcwNywxNTM5NDE0NDIsLT
+I5ODEzOTMzMCwtMTExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNjA0
+MzYzMThdfQ==
 -->
