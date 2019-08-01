@@ -491,7 +491,8 @@ Tools for calling variants:
 - GATK
 - VarScan2
 
-## VCF
+## VCF: Variance Call Format
+https://www.biostarhandbook.com/vcf.html#vcf
 
 Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Each sample is represented as a column. 
 Can view VCF files in IGV.
@@ -571,11 +572,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcyNjM4MTMxLC0xNjExNDYyMTM5LC0xOD
-YxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC02NDAyNzE2
-MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2NjI2LDExND
-Y4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMTYwNjgwNDcw
-NywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkzMjU0OSwxNj
-U1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEyMjcyODksMTM3Nzg3
-MjY5NV19
+eyJoaXN0b3J5IjpbLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMT
+g2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcx
+NjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMT
+Q2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3
+MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5MzI1NDksMT
+Y1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAxMjI3Mjg5LDEzNzc4
+NzI2OTVdfQ==
 -->
