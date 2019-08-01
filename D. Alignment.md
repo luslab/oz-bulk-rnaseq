@@ -1,3 +1,4 @@
+
 > # Sequence Alignment
 
 The purpose of **ASSEMBLY** is to merge reads into larger contiguous sequences (contigs) based on their sequence similarity to each other. 
@@ -656,4 +657,7 @@ EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
 ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
 ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
 NjMyNDNdfQ==
+-->
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTQ3OTc1MjE4NF19
 -->
