@@ -520,6 +520,7 @@ The first nine columns of a VCF file are:
 8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format. Represents all samples.
 9.  `FORMAT`: Represents individual samples. Sample-level annotations as colon separated TAGS:
 
+
 *FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
 *FORMAT/ADR* .. Allelic depths on the reverse strand (Number=R,Type=Integer)
@@ -540,6 +541,8 @@ The first nine columns of a VCF file are:
 *INFO/DPR* .. Deprecated in favor of INFO/AD;
         Number of high-quality bases for each observed allele (Number=R,Type=Integer)
         
+ Further columns from 10 onwards represent samples. A VCF file may contain any number of sample columns, thousands even and can be thought of as a single database that represents all variations in all samples.
+ 
  ## Variant Calling Pipeline
 
 With multiple samples variant call you can either:
@@ -602,11 +605,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQyMjkxMTg2LC0xMTUwODI1MDk3LDY4MT
-kxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIx
-MzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLT
-Y0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2
-MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNj
-A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
-NTQ5XX0=
+eyJoaXN0b3J5IjpbLTE4MDEyMjQzMzIsLTExNTA4MjUwOTcsNj
+gxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2
+MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNC
+wtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3
+NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLD
+E2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5
+MzI1NDldfQ==
 -->
