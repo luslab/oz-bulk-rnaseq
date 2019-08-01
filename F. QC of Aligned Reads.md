@@ -554,14 +554,12 @@ What if you wanted to know what do  `GT`  and  `PL`  mean? Go to the header for 
 *INFO/DPR* .. Deprecated in favor of INFO/AD;
         Number of high-quality bases for each observed allele (Number=R,Type=Integer)
         
-Whereas the  `REF`  and  `ALT`  columns show the change, we need to know how many of the copies of the DNA carry the variant or variants. The variant is encoded in `GT`  that indicates the genotype of this sample at this site.It is constructed out of slash-separated numbers where:
-
+Whereas the  `REF`  and  `ALT`  columns show the change, we need to know how many of the copies of the DNA carry the variant or variants. The variant is encoded in `GT`  that indicates the genotype of this sample at this site. It is constructed out of slash-separated numbers (0/0, 0/1, 1/1) where:
 -   `0`  indicates the  `REF`  field,
 -   `1`  indicates the first entry in the  `ALT`  field,
 -   `2`  indicates the second entry in the  `ALT`  field and so on.
 
 For example for a diploid organism the GT field indicates the two alleles carried by the sample:
-
 -   `0/0`  - the sample is a homozygous reference
 -   `0/1`  - the sample is heterozygous, carrying one of each the REF and ALT alleles
 -   `1/2`  - would indicate a heterozygous carrying one copy of each of the ALT alleles.
@@ -634,11 +632,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2OTAyMDQwMCwtMTE1MDgyNTA5Nyw2OD
-E5MTEwMzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYy
-MTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC
-02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2
-NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMT
-YwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkz
-MjU0OV19
+eyJoaXN0b3J5IjpbNDg4Nzg0NjYxLC0xMTUwODI1MDk3LDY4MT
+kxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIx
+MzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLT
+Y0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2
+MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2OTExMywxNj
+A2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMwLC0xMTExOTMy
+NTQ5XX0=
 -->
