@@ -485,7 +485,26 @@ Definitions:
 Ploidy = no. of complete chromosome sets in a cell = number of alleles (variant forms).
 
 
+FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
+*FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
+*FORMAT/ADR* .. Allelic depths on the reverse strand (Number=R,Type=Integer)
+*FORMAT/DP* .. Number of high-quality bases (Number=1,Type=Integer)
+*FORMAT/SP* .. Phred-scaled strand bias P-value (Number=1,Type=Integer)
 
+*INFO/AD* .. Total allelic depth (Number=R,Type=Integer)
+*INFO/ADF* .. Total allelic depths on the forward strand (Number=R,Type=Integer)
+*INFO/ADR* .. Total allelic depths on the reverse strand (Number=R,Type=Integer)
+
+*FORMAT/DV* .. Deprecated in favor of FORMAT/AD;
+        Number of high-quality non-reference bases, (Number=1,Type=Integer)
+*FORMAT/DP4* .. Deprecated in favor of FORMAT/ADF and FORMAT/ADR;
+        Number of high-quality ref-forward, ref-reverse,
+        alt-forward and alt-reverse bases (Number=4,Type=Integer)
+*FORMAT/DPR* .. Deprecated in favor of FORMAT/AD;
+        Number of high-quality bases for each observed allele (Number=R,Type=Integer)
+*INFO/DPR* .. Deprecated in favor of INFO/AD;
+        Number of high-quality bases for each observed allele (Number=R,Type=Integer)
+        
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -541,11 +560,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwOTEzNzkzMywxMTU5MDEyNjAzLDY3ND
-M4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYs
-LTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1Nz
-Y5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAs
-LTExMTE5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOT
-AxMjI3Mjg5LDEzNzc4NzI2OTUsLTIxNDQ2NzQwMDEsMTY2ODYz
-MTk3M119
+eyJoaXN0b3J5IjpbLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2Nz
+QzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2
+LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NT
+c2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5MzMw
+LC0xMTExOTMyNTQ5LDE2NTU4MjM1ODYsMjA2MDQzNjMxOCwtMT
+kwMTIyNzI4OSwxMzc3ODcyNjk1LC0yMTQ0Njc0MDAxLDE2Njg2
+MzE5NzNdfQ==
 -->
