@@ -494,8 +494,17 @@ Genotype = assign one or more reads to a known groups of variants.
 ## VCF: Variance Call Format
 https://www.biostarhandbook.com/vcf.html#vcf
 
-Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Samples are represented as a column. A VCF has header & record sections. It is a plain text file but in a specific rod
+Standard representation for variants is VCF format. All variant callers produce VCFs from BAM alignment files. Samples are represented as a column. A VCF has header & record sections. It is a plain text file but in a specific order.
 Can view VCF files in IGV: [http://software.broadinstitute.org/software/igv/viewing_vcf_files](http://software.broadinstitute.org/software/igv/viewing_vcf_files)
+
+**VCF Header**
+Located at the beginning of the VCF file and consists of lines that start with the  `##`  symbols like so:
+```bash
+##fileformat=VCFv4.1
+##contig=<ID=AF086833,length=18959>
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+```
 
 The first nine columns of a VCF file are:
 
@@ -591,7 +600,7 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDc0MDAwNTgsLTExNTA4MjUwOTcsNj
+eyJoaXN0b3J5IjpbLTE4MTQ0MjYzNzUsLTExNTA4MjUwOTcsNj
 gxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2
 MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNC
 wtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3
