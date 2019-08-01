@@ -516,8 +516,8 @@ The first nine columns of a VCF file are:
 5.  `ALT`: The alternate allele(s) on the forward strand. More than one may be present.
 6.  `QUAL`: A probability that the  `REF/ALT`  variant exists at this site. It is in Phred scale, just as the FASTQ quality and the MAPQ field in the SAM file are.
 7.  `FILTER`: The name of filters that the variant fails to pass, or the value  `PASS`  if the variant passed all filters. If the  `FILTER`  value is  `.`, then no filtering has been applied to the record.
-8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format.
-9.  `FORMAT`: Sample-level annotations as colon separated TAGS:
+8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format. Represents all samples.
+9.  `FORMAT`: Represents individual samples. Sample-level annotations as colon separated TAGS:
 
 *FORMAT/AD* .. Allelic depth (Number=R,Type=Integer)
 *FORMAT/ADF* .. Allelic depths on the forward strand (Number=R,Type=Integer)
@@ -601,11 +601,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MDc3MDU3MCwtMTE1MDgyNTA5Nyw2OD
-E5MTEwMzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYy
-MTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC
-02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2
-NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMT
-YwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkz
-MjU0OV19
+eyJoaXN0b3J5IjpbLTIxMjg1MDMwNDQsLTExNTA4MjUwOTcsNj
+gxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2
+MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNC
+wtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3
+NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5MTEzLD
+E2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLTExMTE5
+MzI1NDldfQ==
 -->
