@@ -483,6 +483,9 @@ Variant calling= identify differences between the observed sequencing reads and 
 Using the alignment .bam files determine variants at specified genomic locations of interest.
 Definitions:
 Ploidy = no. of complete chromosome sets in a cell = number of alleles (variant forms).
+
+
+
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -538,7 +541,7 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NzU0NzcwOSwxMTU5MDEyNjAzLDY3ND
+eyJoaXN0b3J5IjpbLTMwOTEzNzkzMywxMTU5MDEyNjAzLDY3ND
 M4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYs
 LTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1Nz
 Y5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAs
