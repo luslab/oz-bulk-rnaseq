@@ -488,7 +488,7 @@ Genotype = assign one or more reads to a known groups of variants.
 Tools for calling variants:
 - bcftools
 - FreeBayes
-- GATK (genome analysis tool kit)
+- GATK (genome analysis tool kit) [https://software.broadinstitute.org/gatk/](https://software.broadinstitute.org/gatk/)
 - VarScan2
 
 ## VCF: Variance Call Format
@@ -572,11 +572,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDEyOTMwNDUsLTU5ODY3MDM4OSwtMT
-YxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4
-ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLT
-kyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5
-MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkzMzAsLT
-ExMTE5MzI1NDksMTY1NTgyMzU4NiwyMDYwNDM2MzE4LC0xOTAx
-MjI3Mjg5XX0=
+eyJoaXN0b3J5IjpbMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNj
+ExNDYyMTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4
+NDM0LC02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOT
+IyNjc2NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3Njkx
+MTMsMTYwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMT
+ExMTkzMjU0OSwxNjU1ODIzNTg2LDIwNjA0MzYzMTgsLTE5MDEy
+MjcyODldfQ==
 -->
