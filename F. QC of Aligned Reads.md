@@ -529,7 +529,7 @@ The first nine columns of a VCF file are:
 *INFO/ADF* .. Total allelic depths on the forward strand (Number=R,Type=Integer)
 *INFO/ADR* .. Total allelic depths on the reverse strand (Number=R,Type=Integer)
 
-9.  `FORMAT`: **Represents individual samples within VCF - gives 1.** Sample-level annotations as colon separated TAGS:
+9.  `FORMAT`: **Represents individual samples within VCF - gives 1 value per sample.** Sample-level annotations as colon separated TAGS:
 
 This field specifies the meaning of the numbers in each sample column. The TAGS are colon  `:`  separated and map each field of the  `FORMAT`  to each value in the sample column. Suppose that columns 9,10 and 11 of a VCF file were:
 
@@ -639,11 +639,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MjgzNTQ0NiwyMDMxNjE4MzA5LC0xMT
-UwODI1MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAz
-ODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMy
-w2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0
-ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMT
-g3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5
-MzMwXX0=
+eyJoaXN0b3J5IjpbNDkyNDQ1OTQyLDIwMzE2MTgzMDksLTExNT
+A4MjUwOTcsNjgxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4
+OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLD
+Y3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4
+NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxOD
+c1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkz
+MzBdfQ==
 -->
