@@ -523,8 +523,13 @@ The first nine columns of a VCF file are:
 5.  `ALT`: The alternate allele(s) on the forward strand. More than one may be present.
 6.  `QUAL`: A probability that the  `REF/ALT`  variant exists at this site. It is in Phred scale, just as the FASTQ quality and the MAPQ field in the SAM file are.
 7.  `FILTER`: The name of filters that the variant fails to pass, or the value  `PASS`  if the variant passed all filters. If the  `FILTER`  value is  `.`, then no filtering has been applied to the record.
-8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format. Represents all samples.
-9.  `FORMAT`: Represents individual samples. Sample-level annotations as colon separated TAGS:
+8.  `INFO`: Contains the site-specific annotations represented as  `ID=VALUE`  format. **Represents all samples included in VCF - gives 1 value per VCF.**
+
+*INFO/AD* .. Total allelic depth (Number=R,Type=Integer)
+*INFO/ADF* .. Total allelic depths on the forward strand (Number=R,Type=Integer)
+*INFO/ADR* .. Total allelic depths on the reverse strand (Number=R,Type=Integer)
+
+9.  `FORMAT`: **Represents individual samples within VCF - gives 1.** Sample-level annotations as colon separated TAGS:
 
 This field specifies the meaning of the numbers in each sample column. The TAGS are colon  `:`  separated and map each field of the  `FORMAT`  to each value in the sample column. Suppose that columns 9,10 and 11 of a VCF file were:
 
@@ -545,10 +550,6 @@ What if you wanted to know what do  `GT`  and  `PL`  mean? Go to the header for 
 *FORMAT/ADR* .. Allelic depths on the reverse strand (Number=R,Type=Integer)
 *FORMAT/DP* .. Number of high-quality bases (Number=1,Type=Integer)
 *FORMAT/SP* .. Phred-scaled strand bias P-value (Number=1,Type=Integer)
-
-*INFO/AD* .. Total allelic depth (Number=R,Type=Integer)
-*INFO/ADF* .. Total allelic depths on the forward strand (Number=R,Type=Integer)
-*INFO/ADR* .. Total allelic depths on the reverse strand (Number=R,Type=Integer)
 
 *FORMAT/DV* .. Deprecated in favor of FORMAT/AD;
         Number of high-quality non-reference bases, (Number=1,Type=Integer)
@@ -638,11 +639,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzMTYxODMwOSwtMTE1MDgyNTA5Nyw2OD
-E5MTEwMzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYy
-MTM5LC0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC
-02NDAyNzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2
-NjI2LDExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMT
-YwNjgwNDcwNywxNTM5NDE0NDIsLTI5ODEzOTMzMCwtMTExMTkz
-MjU0OV19
+eyJoaXN0b3J5IjpbLTc2MjgzNTQ0NiwyMDMxNjE4MzA5LC0xMT
+UwODI1MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAz
+ODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMy
+w2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0
+ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMT
+g3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0MiwtMjk4MTM5
+MzMwXX0=
 -->
