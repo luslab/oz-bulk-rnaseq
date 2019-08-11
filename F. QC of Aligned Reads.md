@@ -642,8 +642,11 @@ R155C_all_samples.vcf
 R191Q_all_samples.vcf
 
 ```bash
-tabix R155C_all_samples.vcf
+tabix R155C_all_samples.vcf.gz
+tabix R191Q_all_samples.vcf.gz
 
+
+afplot regions histogram -v R155C_all_samples.vcf.gz -o $OUT
 ```
 
 ####  prepare .txt output from VCF with allele frequencies 
@@ -658,11 +661,11 @@ tabix R155C_all_samples.vcf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MzI3NTk2OCwtMTI3MTgyOTcxNSw0OT
-I0NDU5NDIsMjAzMTYxODMwOSwtMTE1MDgyNTA5Nyw2ODE5MTEw
-MzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYyMTM5LC
-0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC02NDAy
-NzE2MzcsODE5MzI5Mzg2LDU2MTkwNDg3NiwtOTIyNjc2NjI2LD
-ExNDY4MjczNCwyMDU1MDM5MTY1LDE4NzU3NjkxMTMsMTYwNjgw
-NDcwN119
+eyJoaXN0b3J5IjpbLTUyODA2ODc4MSwtMTUzMjc1OTY4LC0xMj
+cxODI5NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC0xMTUwODI1
+MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLT
+E2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQz
+ODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC
+05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2
+OTExM119
 -->
