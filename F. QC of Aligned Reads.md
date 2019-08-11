@@ -636,10 +636,15 @@ Provide on VCF per command > gives one plot output.
 
 VCFs need:
 1. AD in FORMAT field
-2. indexing with [tabix](http://www.htslib.org/doc/tabix.html)
+2. bzipped & indexed with [tabix](http://www.htslib.org/doc/tabix.html) - create .vcf.gz & .vcf.gz.tbi
 
 R155C_all_samples.vcf
 R191Q_all_samples.vcf
+
+```bash
+tabix R155C_all_samples.vcf
+
+```
 
 ####  prepare .txt output from VCF with allele frequencies 
 
@@ -653,7 +658,7 @@ R191Q_all_samples.vcf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMDkzMDYyNCwtMTI3MTgyOTcxNSw0OT
+eyJoaXN0b3J5IjpbLTE1MzI3NTk2OCwtMTI3MTgyOTcxNSw0OT
 I0NDU5NDIsMjAzMTYxODMwOSwtMTE1MDgyNTA5Nyw2ODE5MTEw
 MzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYyMTM5LC
 0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC02NDAy
