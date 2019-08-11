@@ -636,7 +636,7 @@ Provide on VCF per command > gives one plot output.
 
 VCFs need:
 1. AD in FORMAT field
-2. indexing with tabix]
+2. indexing with [tabix](http://www.htslib.org/doc/tabix.html)
 
 R155C_all_samples.vcf
 R191Q_all_samples.vcf
@@ -653,7 +653,7 @@ R191Q_all_samples.vcf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2MTYyOTQ5MiwtMTI3MTgyOTcxNSw0OT
+eyJoaXN0b3J5IjpbLTQwMDkzMDYyNCwtMTI3MTgyOTcxNSw0OT
 I0NDU5NDIsMjAzMTYxODMwOSwtMTE1MDgyNTA5Nyw2ODE5MTEw
 MzMsMTE3MDcyMjMxNCwtNTk4NjcwMzg5LC0xNjExNDYyMTM5LC
 0xODYxNzIxOTc3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC02NDAy
