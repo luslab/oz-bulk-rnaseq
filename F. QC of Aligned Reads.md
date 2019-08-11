@@ -626,6 +626,12 @@ bcftools query -H -f '%CHROM\t%POS[\t%PL\t]\n' R191Qstatus_all_samples_merged.vc
 ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001.bam
 ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002.bam
 ID519_E3_GLIA_D3-Cyto_L002.bam
+```
+## Plot allele frequencies in VCF files
+[https://github.com/sndrtj/afplot](https://github.com/sndrtj/afplot)
+
+Use `afplot regions` to plot the single region
+
 
 ####  prepare .txt output from VCF with allele frequencies 
 
@@ -639,11 +645,11 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkyNDQ1OTQyLDIwMzE2MTgzMDksLTExNT
-A4MjUwOTcsNjgxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4
-OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLD
-Y3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4
-NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxOD
-c1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQxNDQyLC0yOTgxMzkz
-MzBdfQ==
+eyJoaXN0b3J5IjpbLTE5ODI5NTI3NjksNDkyNDQ1OTQyLDIwMz
+E2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNzA3MjIz
+MTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3Ny
+wxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMy
+OTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMj
+A1NTAzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQx
+NDQyXX0=
 -->
