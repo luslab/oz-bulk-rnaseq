@@ -648,7 +648,7 @@ OUT=~/working/oliver/projects/vcp_fractionation/alignment/vcp_mutation_analysis
 
 afplot regions histogram -v R155C_all_samples.vcf.gz -o $OUT -R chr9:35065363-35065365
 
-afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065255-35065255
+afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35065256
 ```
 
 ####  prepare .txt output from VCF with allele frequencies 
@@ -663,7 +663,7 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065255-35
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ2NzM3MTI4LC0xNTMyNzU5NjgsLTEyNz
+eyJoaXN0b3J5IjpbMjUxMzU2MTAyLC0xNTMyNzU5NjgsLTEyNz
 E4Mjk3MTUsNDkyNDQ1OTQyLDIwMzE2MTgzMDksLTExNTA4MjUw
 OTcsNjgxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMT
 YxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4
