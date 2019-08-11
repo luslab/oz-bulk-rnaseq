@@ -632,8 +632,9 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 
 Use `afplot regions` to plot the single region as a histogram or scatter plot.
 
-Provide on VCF per command and run in a for loop.
-
+Provide on VCF per command > gives one plot output.
+R155C_all_samples.vcf
+R191Q_all_samples.vcf
 
 ####  prepare .txt output from VCF with allele frequencies 
 
@@ -647,7 +648,7 @@ Provide on VCF per command and run in a for loop.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUxOTkwNTc0LDQ5MjQ0NTk0MiwyMDMxNj
+eyJoaXN0b3J5IjpbNTYzMzgzNDkxLDQ5MjQ0NTk0MiwyMDMxNj
 E4MzA5LC0xMTUwODI1MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0
 LC01OTg2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMT
 E1OTAxMjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkz
