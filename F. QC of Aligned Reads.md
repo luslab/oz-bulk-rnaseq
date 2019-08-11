@@ -644,9 +644,9 @@ R191Q_all_samples.vcf
 ```bash
 tabix R155C_all_samples.vcf.gz
 tabix R191Q_all_samples.vcf.gz
+OUT=~/working/oliver/projects/vcp_fractionation/alignment/vcp_mutation_analysis
 
-
-afplot regions histogram -v R155C_all_samples.vcf.gz -o $OUT
+afplot regions histogram -v R155C_all_samples.vcf.gz -o $OUT -R 
 ```
 
 ####  prepare .txt output from VCF with allele frequencies 
@@ -661,11 +661,11 @@ afplot regions histogram -v R155C_all_samples.vcf.gz -o $OUT
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyODA2ODc4MSwtMTUzMjc1OTY4LC0xMj
-cxODI5NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC0xMTUwODI1
-MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLT
-E2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQz
-ODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC
-05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNTUwMzkxNjUsMTg3NTc2
-OTExM119
+eyJoaXN0b3J5IjpbOTUxNTE2NDc5LC0xNTMyNzU5NjgsLTEyNz
+E4Mjk3MTUsNDkyNDQ1OTQyLDIwMzE2MTgzMDksLTExNTA4MjUw
+OTcsNjgxOTExMDMzLDExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMT
+YxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4
+ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLT
+kyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAzOTE2NSwxODc1NzY5
+MTEzXX0=
 -->
