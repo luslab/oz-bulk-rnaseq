@@ -630,7 +630,9 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 ## Plot allele frequencies in VCF files
 [https://github.com/sndrtj/afplot](https://github.com/sndrtj/afplot)
 
-Use `afplot regions` to plot the single region
+Use `afplot regions` to plot the single region as a histogram or scatter plot.
+
+Provide on VCF per command and run in a for loop.
 
 
 ####  prepare .txt output from VCF with allele frequencies 
@@ -645,11 +647,11 @@ Use `afplot regions` to plot the single region
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODI5NTI3NjksNDkyNDQ1OTQyLDIwMz
-E2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNzA3MjIz
-MTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3Ny
-wxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMy
-OTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMj
-A1NTAzOTE2NSwxODc1NzY5MTEzLDE2MDY4MDQ3MDcsMTUzOTQx
-NDQyXX0=
+eyJoaXN0b3J5IjpbNjUxOTkwNTc0LDQ5MjQ0NTk0MiwyMDMxNj
+E4MzA5LC0xMTUwODI1MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0
+LC01OTg2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMT
+E1OTAxMjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkz
+ODYsNTYxOTA0ODc2LC05MjI2NzY2MjYsMTE0NjgyNzM0LDIwNT
+UwMzkxNjUsMTg3NTc2OTExMywxNjA2ODA0NzA3LDE1Mzk0MTQ0
+Ml19
 -->
