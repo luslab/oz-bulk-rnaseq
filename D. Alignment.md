@@ -649,6 +649,11 @@ Go to the `alignment` folder with the STAR Log.final.out files in and run: `mult
 Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
+
+# Kallisto
+
+
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
 g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
@@ -658,6 +663,8 @@ ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
 ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
 NjMyNDNdfQ==
 -->
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3OTc1MjE4NF19
+eyJoaXN0b3J5IjpbMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
 -->
