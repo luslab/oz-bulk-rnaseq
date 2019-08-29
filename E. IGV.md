@@ -37,7 +37,7 @@ ml SAMtools
 ml IGVTools
 
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/*Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam/*Aligned.sortedByCoord.out.bam
 #set OUT directory
 OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/
 
@@ -151,11 +151,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTYxMDY0MTIsNzUyMzkyNjk3LC0xOT
-I1MTA0ODcwLC0yNTc5NTk2NjgsMTEwMjYwMjQ3Niw2MDIyMjM4
-MjMsMTA2MTM2NzI0NywxNjg5NjM2NTY3LDUwNjk1NzAyMiw2MD
-g5NDM5MzAsMTM3MDA3MTg2LDEzOTMyNTU2OTMsMTY3OTIxNTI2
-OCwxMjYwMTgxMTg0LC0xMjg4NTYxMTk1LC0xODM0MDI1NDI0LC
-0xMDQ0Njg1ODY1LDEzNTM5MTc4MjMsLTM4OTE0MDI2OCw3NTc1
-MzExMDJdfQ==
+eyJoaXN0b3J5IjpbMTIyMTMzMDc3NiwtMTkxNjEwNjQxMiw3NT
+IzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAy
+NDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNT
+A2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5
+MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLT
+E4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5
+MTQwMjY4XX0=
 -->
