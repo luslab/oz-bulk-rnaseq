@@ -37,14 +37,14 @@ ml SAMtools
 ml IGVTools
 
 #set bam input
-BAM=/home/camp/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam/*Aligned.sortedByCoord.out.bam
+BAM=/home/camp/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam/*.bam
 #set OUT directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D0_samples/
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam/BigWigs
 
 for SAMPLE in $BAM
 do
-	SRRID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SRRID.bw"
+	SAMPLE_ID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SAMPLE_ID.bw"
 done
 ```
 
@@ -151,11 +151,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMTMzMDc3NiwtMTkxNjEwNjQxMiw3NT
-IzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAy
-NDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNT
-A2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5
-MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLT
-E4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMTM1MzkxNzgyMywtMzg5
-MTQwMjY4XX0=
+eyJoaXN0b3J5IjpbNDUwMDc4NzE3LC0xOTE2MTA2NDEyLDc1Mj
+M5MjY5NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0
+NzYsNjAyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MD
+Y5NTcwMjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1Njkz
+LDE2NzkyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMT
+gzNDAyNTQyNCwtMTA0NDY4NTg2NSwxMzUzOTE3ODIzLC0zODkx
+NDAyNjhdfQ==
 -->
