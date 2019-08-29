@@ -46,6 +46,9 @@ do
 	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SAMPLE_ID.bw"
 done
 ```
+```
+sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runThreadN 24 --inputBAMfile $SAMPLE --outWigType wiggle --outWigStrand Unstranded --outWigNorm RPM --outFileNamePrefix VCP_NPC_D7_merged"
+```
 
 # IGV
 Best resources are the [IVG mannual](http://software.broadinstitute.org/software/igv/userguide) and [youtube videos](https://www.youtube.com/results?search_query=integrative+genome+viewer)
@@ -150,11 +153,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1Mj
-M5MjY5NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0
-NzYsNjAyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MD
-Y5NTcwMjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1Njkz
-LDE2NzkyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMT
-gzNDAyNTQyNCwtMTA0NDY4NTg2NSwxMzUzOTE3ODIzLC0zODkx
-NDAyNjhdfQ==
+eyJoaXN0b3J5IjpbMTIzODY0NDYxOSw4ODE0MDg0MDEsLTE5MT
+YxMDY0MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2
+NjgsMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNj
+g5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2
+LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMj
+g4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0Njg1ODY1LDEzNTM5
+MTc4MjNdfQ==
 -->
