@@ -33,8 +33,7 @@ https://github.com/YangLab/bamTobw
 
 Use bamCoverage to convert BAM > BW files
 ```bash
-ml SAMtools
-ml IGVTools
+ml STAR
 
 #set bam input
 BAM=/home/camp/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam/*.bam
@@ -43,11 +42,11 @@ OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam
 
 for SAMPLE in $BAM
 do
-	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SAMPLE_ID.bw"
+	sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runThreadN 24 --inputBAMfile $SAMPLE --outWigType wiggle --outWigStrand Unstranded --outWigNorm RPM --outFileNamePrefix $SAMPLE"
 done
 ```
 ```
-sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runThreadN 24 --inputBAMfile $SAMPLE --outWigType wiggle --outWigStrand Unstranded --outWigNorm RPM --outFileNamePrefix VCP_NPC_D7_merged"
+sbatch -N 1 -c 4 --mem=24GB --wrap="STAR --runMode inputAlignmentsFromBAM --runThreadN 24 --inputBAMfile $SAMPLE --outWigType wiggle --outWigStrand Unstranded --outWigNorm RPM --outFileNamePrefix $SAMPLE"
 ```
 
 # IGV
@@ -153,11 +152,11 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzODY0NDYxOSw4ODE0MDg0MDEsLTE5MT
-YxMDY0MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2
-NjgsMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNj
-g5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2
-LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMj
-g4NTYxMTk1LC0xODM0MDI1NDI0LC0xMDQ0Njg1ODY1LDEzNTM5
-MTc4MjNdfQ==
+eyJoaXN0b3J5IjpbLTIwMTEwMzExOTEsODgxNDA4NDAxLC0xOT
+E2MTA2NDEyLDc1MjM5MjY5NywtMTkyNTEwNDg3MCwtMjU3OTU5
+NjY4LDExMDI2MDI0NzYsNjAyMjIzODIzLDEwNjEzNjcyNDcsMT
+Y4OTYzNjU2Nyw1MDY5NTcwMjIsNjA4OTQzOTMwLDEzNzAwNzE4
+NiwxMzkzMjU1NjkzLDE2NzkyMTUyNjgsMTI2MDE4MTE4NCwtMT
+I4ODU2MTE5NSwtMTgzNDAyNTQyNCwtMTA0NDY4NTg2NSwxMzUz
+OTE3ODIzXX0=
 -->
