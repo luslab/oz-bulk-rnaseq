@@ -43,7 +43,6 @@ OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/alignment/roi_bam
 
 for SAMPLE in $BAM
 do
-	SAMPLE_ID=`echo $SAMPLE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 4 --mem=24GB --wrap="bamCoverage -b $SAMPLE -o $OUT_$SAMPLE_ID.bw"
 done
 ```
@@ -151,7 +150,7 @@ Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDUwMDc4NzE3LC0xOTE2MTA2NDEyLDc1Mj
+eyJoaXN0b3J5IjpbODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1Mj
 M5MjY5NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0
 NzYsNjAyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MD
 Y5NTcwMjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1Njkz
