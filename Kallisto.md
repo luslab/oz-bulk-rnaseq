@@ -175,6 +175,12 @@ Load Gene Annotaiton & Import sample details as for Sleuth
 ## Tximport 
 [https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html)
 
+Import transcript abundance estimates for samples using the tximport. rows = gene ID, columns = sample ID. 
+
+kallisto abundance.h5 files can be imported by setting type to "kallisto". 
+
+
+## Manipulate Count Files
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
 ```bash
 # In the kallisto output directory match sample names to conditions
@@ -212,7 +218,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5ODEyMzIxMiwtNDQ2NTY2MTA2LDE3MD
+eyJoaXN0b3J5IjpbLTI1OTU3MTk2MiwtNDQ2NTY2MTA2LDE3MD
 cxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0
 MTgsNjMxNjYyMl19
 -->
