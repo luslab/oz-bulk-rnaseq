@@ -133,15 +133,11 @@ analyze the RNA-Seq dataset in order to obtain both gene-level and transcript-le
 Run Rstudio markdown pipeline:
 `Sleuth.Rmd` located in `/Volumes/lab-luscomben/working/oliver/projects/vcp_fractionation/expression/sleuth`
 
-The Sleuth object can be very large and needs to be run through CAMP cluster batch job:
+The Sleuth object can be very large and needs to be run as an Rscript through CAMP cluster batch job:
 ```bash
-# load conda
 ml Anaconda2
-# load r test environment
+ml sleuth
 source activate rtest
-# install sleuth into this environment
-conda install --channel https://conda.anaconda.org/bioconda r-sleuth
-# run Rscript as sbatch
 sbatch -N 1 -c 8 --mem 64G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
 ```
 
@@ -195,6 +191,6 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2Mz
-E2NjIyXX0=
+eyJoaXN0b3J5IjpbNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1Mz
+M0MTA0MTgsNjMxNjYyMl19
 -->
