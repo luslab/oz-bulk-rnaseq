@@ -148,9 +148,9 @@ sbatch -N 2 -c 10 --mem 120G -t 12:00:00 --wrap="Rscript ~/working/oliver/projec
 #PBS -l pmem=6gb
 #PBS -j oe
 
-module load r/version
+ml sleuth
 
-cd $PBS_O_WORKDIR
+cd ~/working/oliver/projects/vcp_fractionation/expression/sleuth
 
 R --file=storage/home/USERID/Code.R
 
@@ -206,6 +206,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1Nz
-I5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
+eyJoaXN0b3J5IjpbMTQyNDk4NTU5NiwxNzA3MTI4MDIzLDc1Nj
+gxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJd
+fQ==
 -->
