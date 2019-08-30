@@ -139,6 +139,21 @@ ml Anaconda2
 ml sleuth
 source activate rtest
 sbatch -N 2 -c 10 --mem 120G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
+
+
+#!/bin/bash -l
+#PBS -N JOBNAME
+#PBS -l walltime=5:00:00
+#PBS -l nodes=2:ppn=10
+#PBS -l pmem=6gb
+#PBS -j oe
+
+module load r/version
+
+cd $PBS_O_WORKDIR
+
+R --file=storage/home/USERID/Code.R
+
 ```
 
 Debugging conda:
@@ -191,6 +206,6 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4NTk1NDU1Nyw3NTY4MTg4NjQsLTE1Nz
+eyJoaXN0b3J5IjpbMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1Nz
 I5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
 -->
