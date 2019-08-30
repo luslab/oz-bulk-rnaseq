@@ -130,7 +130,35 @@ Sleuth runs differential analysis on kallisto counts (based on pseudo-alignment 
 
 analyze the RNA-Seq dataset in order to obtain both gene-level and transcript-level differential expression results that are consistent with each other. 
 
-Run 
+Run Rstudio markdown pipeline:
+`Sleuth.Rmd` located in `/Volumes/lab-luscomben/working/oliver/projects/vcp_fractionation/expression/sleuth`
+
+The Sleuth object can be very large and needs to be run through CAMP cluster batch job:
+ml Anaconda2
+ml sleuth/0.28.0-foss-2016b-R-3.3.1
+source activate rtest
+sbatch -N 1 -c 8 --mem 64G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
+sbatch -N 1 -c 8 --mem 100G --wrap="ml R; Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
+```
+
+Debugging conda:
+```bash
+conda clean --all
+conda update --all
+conda update -n base -c defaults conda
+conda install anaconda
+conda install --channel https://conda.anaconda.org/bioconda r-sleuth
+
+conda install PASTE THE INCONSITENT PACAKGES:
+  - defaults/linux-64::r-devtools==1.13.6=mro351hf348343_0
+  - defaults/linux-64::r-essentials==3.5.1=mro351_0
+  - defaults/linux-64::r-tidyverse==1.2.1=mro351hf348343_0
+  - defaults/linux-64::r-rvest==0.3.2=mro351hf348343_0
+ 
+  - defaults/linux-64::r-git2r==0.23.0=mro351hd10c6a6_0
+  - defaults/linux-64::r-httr==1.3.1=mro351hf348343_0
+  - defaults/linux-64::r-openssl==1.0.2=mro351hd10c6a6_0
+
 
 # DESeq2
 
@@ -172,6 +200,6 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxODA2OTE1MSwxNTMzNDEwNDE4LDYzMT
-Y2MjJdfQ==
+eyJoaXN0b3J5IjpbLTIwNjcxODM3MjksMTUzMzQxMDQxOCw2Mz
+E2NjIyXX0=
 -->
