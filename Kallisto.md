@@ -152,7 +152,7 @@ ml sleuth
 
 cd ~/working/oliver/projects/vcp_fractionation/expression/sleuth
 
-R --file=storage/home/USERID/Code.R
+R --file=~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R
 
 ```
 
@@ -206,7 +206,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNDk4NTU5NiwxNzA3MTI4MDIzLDc1Nj
+eyJoaXN0b3J5IjpbLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1Nj
 gxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJd
 fQ==
 -->
