@@ -139,8 +139,9 @@ ml Anaconda2
 ml sleuth
 source activate rtest
 sbatch -N 2 -c 10 --mem 120G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
-
-
+```
+Can submit job as a text script:
+```bash
 #!/bin/bash -l
 #PBS -N JOBNAME
 #PBS -l walltime=5:00:00
@@ -148,12 +149,13 @@ sbatch -N 2 -c 10 --mem 120G -t 12:00:00 --wrap="Rscript ~/working/oliver/projec
 #PBS -l pmem=6gb
 #PBS -j oe
 
+ml Anaconda2
 ml sleuth
+source activate rtest
 
 cd ~/working/oliver/projects/vcp_fractionation/expression/sleuth
 
 R --file=~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R
-
 ```
 
 Debugging conda:
@@ -167,6 +169,8 @@ ml sleuth/0.28.0-foss-2016b-R-3.3.1
 ```
 
 # Kallisto > DESeq2
+
+Load Gene Annotaiton & Import sample details as for Sleuth
 
 ## Tximport 
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
@@ -206,7 +210,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1Nj
-gxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJd
-fQ==
+eyJoaXN0b3J5IjpbLTEzNDk3NjYwNTMsLTQ0NjU2NjEwNiwxNz
+A3MTI4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEw
+NDE4LDYzMTY2MjJdfQ==
 -->
