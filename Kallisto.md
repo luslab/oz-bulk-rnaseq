@@ -138,7 +138,7 @@ The Sleuth object can be very large and needs to be run as an Rscript through CA
 ml Anaconda2
 ml sleuth
 source activate rtest
-sbatch -N 1 -c 8 --mem 64G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
+sbatch -N 2 -c 10 --mem 120G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
 ```
 
 Debugging conda:
@@ -191,6 +191,6 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1Mz
-M0MTA0MTgsNjMxNjYyMl19
+eyJoaXN0b3J5IjpbLTM4NTk1NDU1Nyw3NTY4MTg4NjQsLTE1Nz
+I5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
 -->
