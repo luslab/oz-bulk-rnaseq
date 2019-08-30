@@ -118,6 +118,23 @@ Column 3 = eff_length = scales the transcript length by fragment length distribu
 Column 4 = est_counts = transcript abundance count
 Column 5 = tpm = Transcripts Per Million
 
+# Sleuth
+https://github.com/pachterlab/sleuth
+vignette('intro', package = 'sleuth')
+help(package = 'sleuth')
+https://pachterlab.github.io/sleuth/walkthroughs
+https://pachterlab.github.io/sleuth_walkthroughs/pval_agg/analysis.html
+https://groups.google.com/forum/#!forum/kallisto-sleuth-users
+
+Sleuth runs differential analysis on kallisto counts (based on pseudo-alignment using alignment to the transcriptome index). Kallisto output includes transcript abundance estimates along with bootstraps.  Sleuth differential analysis model uses a general linear model, which accounts for biological & technical noise.
+
+analyze the RNA-Seq dataset in order to obtain both gene-level and transcript-level differential expression results that are consistent with each other. 
+
+Run 
+
+# DESeq2
+
+## Tximport 
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
 ```bash
 # In the kallisto output directory match sample names to conditions
@@ -155,5 +172,6 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzMzQxMDQxOCw2MzE2NjIyXX0=
+eyJoaXN0b3J5IjpbLTIxODA2OTE1MSwxNTMzNDEwNDE4LDYzMT
+Y2MjJdfQ==
 -->
