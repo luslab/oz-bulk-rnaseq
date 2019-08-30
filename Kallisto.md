@@ -173,6 +173,8 @@ ml sleuth/0.28.0-foss-2016b-R-3.3.1
 Load Gene Annotaiton & Import sample details as for Sleuth
 
 ## Tximport 
+[https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html)
+
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
 ```bash
 # In the kallisto output directory match sample names to conditions
@@ -210,7 +212,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDk3NjYwNTMsLTQ0NjU2NjEwNiwxNz
-A3MTI4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEw
-NDE4LDYzMTY2MjJdfQ==
+eyJoaXN0b3J5IjpbMTk5ODEyMzIxMiwtNDQ2NTY2MTA2LDE3MD
+cxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0
+MTgsNjMxNjYyMl19
 -->
