@@ -175,9 +175,9 @@ Load Gene Annotaiton & Import sample details as for Sleuth
 ## Tximport 
 [https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html)
 
-Import transcript abundance estimates for samples using the tximport. rows = gene ID, columns = sample ID. 
+Import transcript abundance estimates for samples using the tximport. rows = gene ID, columns = sample ID. kallisto abundance.h5 files can be imported by setting type to "kallisto". 
 
-kallisto abundance.h5 files can be imported by setting type to "kallisto". 
+Alternatively to .h5 files, kallisto abundance.tsv files can be imported, but this is slightly slower. Add an additional argument ignoreAfterBar=TRUE because the Gencode transcripts have names like “ENST00000456328.2|ENSG00000223972.5|…”, and our tx2gene table only includes the first “ENST” identifier. We therefore want to split the incoming quantification matrix rownames at the first bar “|”, and only use this as an identifier. 
 
 
 ## Manipulate Count Files
@@ -218,7 +218,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1OTU3MTk2MiwtNDQ2NTY2MTA2LDE3MD
+eyJoaXN0b3J5IjpbMTYzODA5MTA5NSwtNDQ2NTY2MTA2LDE3MD
 cxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0
 MTgsNjMxNjYyMl19
 -->
