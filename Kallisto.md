@@ -192,6 +192,11 @@ txi.kallisto.summary <- summarizeToGene(txi.kallisto, tx2gene)
 all.equal(txi.kallisto$counts, txi.kallisto.summary$counts)
 ```
 
+We could alternatively generate counts from abundances, using the argument countsFromAbundance, scaled to library size, "scaledTPM", or additionally scaled using the average transcript length, averaged over samples and to library size, "lengthScaledTPM". Using either of these approaches, the counts are not correlated with length, and so the length matrix should not be provided as an offset for downstream analysis packages. tximports has a countsFromAbundance option "dtuScaledTPM". This scaling option is designed for use with txOut=TRUE for differential transcript usage analyses. See ?tximport for details on the various countsFromAbundance options.
+
+We can avoid gene-level summarization by setting txOut=TRUE, giving the original transcript level estimates as a list of matrices.
+txi.tx <- tximport(files, type = "salmon", txOut = TRUE)
+
 ## Manipulate Count Files
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
 ```bash
@@ -230,7 +235,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTIxMDEyMiwtNDQ2NTY2MTA2LDE3MD
-cxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0
-MTgsNjMxNjYyMl19
+eyJoaXN0b3J5IjpbNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MT
+I4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4
+LDYzMTY2MjJdfQ==
 -->
