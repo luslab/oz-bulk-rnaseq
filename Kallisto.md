@@ -152,11 +152,10 @@ conda update --all
 conda update -n base -c defaults conda
 conda install anaconda
 conda install --channel https://conda.anaconda.org/bioconda r-sleuth
+ml sleuth/0.28.0-foss-2016b-R-3.3.1
+```
 
-
-
-
-# DESeq2
+# Kallisto > DESeq2
 
 ## Tximport 
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
@@ -196,6 +195,6 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgzODk4NzUzLDE1MzM0MTA0MTgsNjMxNj
-YyMl19
+eyJoaXN0b3J5IjpbLTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2Mz
+E2NjIyXX0=
 -->
