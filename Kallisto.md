@@ -179,6 +179,18 @@ Import transcript abundance estimates for samples using the tximport. rows = gen
 
 Alternatively to .h5 files, kallisto abundance.tsv files can be imported, but this is slightly slower. Add an additional argument ignoreAfterBar=TRUE because the Gencode transcripts have names like “ENST00000456328.2|ENSG00000223972.5|…”, and our tx2gene table only includes the first “ENST” identifier. We therefore want to split the incoming quantification matrix rownames at the first bar “|”, and only use this as an identifier. 
 
+```r
+files <- file.path(kallistodir, metadata$sample, "abundance.h5")
+names(files) <- metadata$sample
+# import kallisto count files. NB breaks after 97 files (memory exhausted).
+txi.kallisto <- tximport(files, type = "kallisto", txOut = TRUE)
+# txi.kallisto <- tximport(files, type = "kallisto", tx2gene = ttg)
+head(txi.kallisto$counts)
+
+# These matrices can then be summarized afterwards using the function summarizeToGene. This then gives the identical list of matrices as using  txOut=FALSE (default) in the first tximport call.
+txi.kallisto.summary <- summarizeToGene(txi.kallisto, tx2gene)
+all.equal(txi.kallisto$counts, txi.kallisto.summary$counts)
+```
 
 ## Manipulate Count Files
 Concatenate all counts into 1 file that can be used for DESeq DE analysis.
@@ -218,7 +230,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzODA5MTA5NSwtNDQ2NTY2MTA2LDE3MD
+eyJoaXN0b3J5IjpbLTE1OTIxMDEyMiwtNDQ2NTY2MTA2LDE3MD
 cxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0
 MTgsNjMxNjYyMl19
 -->
