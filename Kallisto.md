@@ -138,7 +138,7 @@ The Sleuth object can be very large and needs to be run as an Rscript through CA
 ml Anaconda2
 ml sleuth
 source activate rtest
-sbatch -N 2 -c 10 --mem 120G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
+sbatch -N 2 -c 10 --mem 100G -t 12:00:00 --wrap="Rscript ~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R"
 ```
 Can submit job as a text script:
 ```bash
@@ -235,7 +235,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MT
-I4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4
-LDYzMTY2MjJdfQ==
+eyJoaXN0b3J5IjpbLTE5MDg5NTkwODAsNzk2NTIxMjIsLTQ0Nj
+U2NjEwNiwxNzA3MTI4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkw
+NiwxNTMzNDEwNDE4LDYzMTY2MjJdfQ==
 -->
