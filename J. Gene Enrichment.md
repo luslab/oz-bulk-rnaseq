@@ -1,6 +1,6 @@
 > # Gene Ontology
 
-https://www.biostarhandbook.com/ontology/gene-set-erichment.html
+[https://www.biostarhandbook.com/gene-set-enrichment.html](https://www.biostarhandbook.com/gene-set-enrichment.html)
 Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  
 
 # Gene Ontology
@@ -395,11 +395,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk2MDAyMDgsMTMxNDI4NzQzNyw3NTM3Nz
-E3MTQsMjAxMTEyMDY4NiwxMTMzMzE4MzU5LDU4MzIxNDYxMywx
-NjEwNTkzNTExLC0xNTk0OTg3MzI3LC0xNDI5MDU2MjcxLDEzNT
-g3OTkyOTQsMTQwNzgwMTE4OCw3NTEzMjgwNDgsMTA4ODE1MjA3
-NSwtMTIyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2MTksLT
-IwMDUyODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMTM1
-ODAxNjJdfQ==
+eyJoaXN0b3J5IjpbMjEzMDkzMjY0MCwxMzE0Mjg3NDM3LDc1Mz
+c3MTcxNCwyMDExMTIwNjg2LDExMzMzMTgzNTksNTgzMjE0NjEz
+LDE2MTA1OTM1MTEsLTE1OTQ5ODczMjcsLTE0MjkwNTYyNzEsMT
+M1ODc5OTI5NCwxNDA3ODAxMTg4LDc1MTMyODA0OCwxMDg4MTUy
+MDc1LC0xMjI5MzU4NzY4LDIwOTkxOTc4MjYsMTI1MTk3MjYxOS
+wtMjAwNTI4ODc5NywtODg4Mjg2MTE4LDEyMjU1NjE1NDgsMTEx
+MzU4MDE2Ml19
 -->
