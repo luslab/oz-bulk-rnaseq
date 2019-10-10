@@ -4,7 +4,7 @@ https://www.biostarhandbook.com/ontology/gene-set-erichment.html
 Now that you have identified the differentially expressed genes (either up or down regulated), we need to identify their function. This is performed in a Gene Set Overlap analysis. Do the up or down regulated genes have anything in common?  
 
 # Gene Ontology
-https://www.biostarhandbook.com/ontology/gene-ontology.html
+[https://www.biostarhandbook.com/gene-ontology.html](https://www.biostarhandbook.com/gene-ontology.html)
 
 Gene Ontology (GO) is a vocabulary used to describe genes functions with respect to 3 aspects:
 - Cellular Component (CC): cellular location **where** product exhibits its effect
@@ -395,11 +395,11 @@ height <- log10(result1)
 circ <- circle_dat(UR_BP_table, sorted.df)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxNDI4NzQzNyw3NTM3NzE3MTQsMjAxMT
-EyMDY4NiwxMTMzMzE4MzU5LDU4MzIxNDYxMywxNjEwNTkzNTEx
-LC0xNTk0OTg3MzI3LC0xNDI5MDU2MjcxLDEzNTg3OTkyOTQsMT
-QwNzgwMTE4OCw3NTEzMjgwNDgsMTA4ODE1MjA3NSwtMTIyOTM1
-ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUyODg3OT
-csLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNjIsLTE5
-NjA1MjI5MDddfQ==
+eyJoaXN0b3J5IjpbNTk2MDAyMDgsMTMxNDI4NzQzNyw3NTM3Nz
+E3MTQsMjAxMTEyMDY4NiwxMTMzMzE4MzU5LDU4MzIxNDYxMywx
+NjEwNTkzNTExLC0xNTk0OTg3MzI3LC0xNDI5MDU2MjcxLDEzNT
+g3OTkyOTQsMTQwNzgwMTE4OCw3NTEzMjgwNDgsMTA4ODE1MjA3
+NSwtMTIyOTM1ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2MTksLT
+IwMDUyODg3OTcsLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMTM1
+ODAxNjJdfQ==
 -->
