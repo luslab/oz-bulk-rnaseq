@@ -316,12 +316,90 @@ Click Pathways > Chart in KEGG_PATHWAY row > note the Terms (these are the enric
 Download table as txt file > open in excel > copy the gene term & P-value columns > paste in to [revigo](http://revigo.irb.hr/) to further intepret 
 
 Export & save results
+
+# GOSeq
+
+```r
+### GO analysis
+library(topGO)
+library(GOstats)
+library(goseq)
+library(org.Mm.eg.db)
+# subset results table to only genes with sufficient read coverage
+resTested <- resLFC1[ !is.na(resLFC1$padj), ]
+# remove decimal string & everything that follows from row.names (ENSEMBL) and call it "tmp": https://www.biostars.org/p/178726/ (alternatively use biomaRt )
+temp=gsub("\\..*","",row.names(resTested))
+#set the temp as the new rownames
+rownames(resTested) <- temp
+# construct binary variable for UP and DOWN regulated
+genelistUp <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange > 0 ) )
+names(genelistUp) <- rownames(resTested)
+genelistDown <- factor( as.integer( resTested$padj < .1 & resTested$log2FoldChange < 0 ) )
+names(genelistDown) <- rownames(resTested)
+
+### Test UPREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistUp, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+
+### TEST DOWNREGULATED GENES
+#Test Biological Processes BP sub-ontology
+myGOdata <- new( "topGOdata", ontology = "BP", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="Ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+UR_BP_table <- GenTable( myGOdata, goTestResults )
+#Test Cellular Compartment (CC) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "CC", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+#Test Molecular function (MF) sub-ontology
+myGOdata <- new( "topGOdata", ontology = "MF", allGenes = genelistDown, nodeSize = 10,
+                 annot = annFUN.org, mapping = "org.Hs.eg.db", ID="ensembl" )
+goTestResults <- runTest( myGOdata, algorithm = "elim", statistic = "fisher" )
+GenTable( myGOdata, goTestResults )
+
+### Plot GO p-values as as bar plot
+library("GOplot")
+
+barplot(UR_BP_table, drop=TRUE, font.size = 10,showCategory=10000, title="Up Regulated Biological Process")
+
+
+UR_BP_table$result1
+table(UR_BP_table$Term)
+
+UR_BP_table$value <- (UR_BP_table$result1)+1
+
+pvalue <- UR_BP_table$result1
+na.omit(pvalue)
+log10(pvalue)
+
+barplot(table(UR_BP_table$result1), names.arg=Term, main="Up Regulated Biological Process")  
+
+
+height <- log10(result1)
+
+
+circ <- circle_dat(UR_BP_table, sorted.df)
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzUzNzcxNzE0LDIwMTExMjA2ODYsMTEzMz
-MxODM1OSw1ODMyMTQ2MTMsMTYxMDU5MzUxMSwtMTU5NDk4NzMy
-NywtMTQyOTA1NjI3MSwxMzU4Nzk5Mjk0LDE0MDc4MDExODgsNz
-UxMzI4MDQ4LDEwODgxNTIwNzUsLTEyMjkzNTg3NjgsMjA5OTE5
-NzgyNiwxMjUxOTcyNjE5LC0yMDA1Mjg4Nzk3LC04ODgyODYxMT
-gsMTIyNTU2MTU0OCwxMTEzNTgwMTYyLC0xOTYwNTIyOTA3LDIw
-Njc1MzcwMjRdfQ==
+eyJoaXN0b3J5IjpbMTMxNDI4NzQzNyw3NTM3NzE3MTQsMjAxMT
+EyMDY4NiwxMTMzMzE4MzU5LDU4MzIxNDYxMywxNjEwNTkzNTEx
+LC0xNTk0OTg3MzI3LC0xNDI5MDU2MjcxLDEzNTg3OTkyOTQsMT
+QwNzgwMTE4OCw3NTEzMjgwNDgsMTA4ODE1MjA3NSwtMTIyOTM1
+ODc2OCwyMDk5MTk3ODI2LDEyNTE5NzI2MTksLTIwMDUyODg3OT
+csLTg4ODI4NjExOCwxMjI1NTYxNTQ4LDExMTM1ODAxNjIsLTE5
+NjA1MjI5MDddfQ==
 -->
