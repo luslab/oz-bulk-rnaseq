@@ -637,7 +637,9 @@ Raphaelle normalises using the **SVD_analysis.Rmd** markdown. Uses a filtering f
 1. Import HTSeq raw gene count matrices
 2. Gene annotation from ensembl
 3. Label samples
-4. Create colour palatte
+4. Create colour pa# Transcript level vs. Gene level expression analysis
+
+Gene-level analysis = treats every gene as a single transcript that contains all exons of the gene. Collapses the transcripts into a single "representative" sequence - the sum of all transcripts for that gene. Unable to identify changes o the abundance of isoforms of a single gene. If you aligned to transcriptome with kallisto, to emulatte
 5. Filter low count reads out
 6. Normalise between samples using Limma
 
@@ -654,7 +656,9 @@ The 2 tasks of DGE are to:
 1. Estimate the magnitude **fold change** of differential expression in read counts between different conditions, accounting for differences in sequencing depth & variability
 2. Estimate the **significance** of the difference, accounting for multiple testing
 
-Null hypothesis = the mean read counts of genes in different samples are equal between different conditions.
+Null hypothesis = the mean read counts of genes in different sampl the gene-level you need to concatenate exons.
+
+Transcript-level analysis = abuntances are equal between different conditions.
 
 Need to estimate the **mean** and **dispersion** from the read counts:
 - precision depends on the number & variation of replicates (i.e. the statistical power). 
@@ -1106,9 +1110,25 @@ grep -v feature UHR_vs_HBR_gene_results_sig.tsv | sort -nk 3 | head -n 20 #Highe
 # Save all genes with P<0.05 to a new file.
 grep -v feature UHR_vs_HBR_gene_results_sig.tsv | cut -f 6 | sed 's/\"//g' > DE_genes.txt
 head DE_genes.txt
-```
+```ntified for each transcript. More fine grained. Kallisto works on transcript data. 
+
+Kallisto uses effective lengths & produces floating pont numbers rather than integers for counts. For DESeq2 you need to convert to integers instead.
+
+# Single Value Decomposition (SVD)
+
+Singular Value Decomposition (SVD) is a popular method, suited for longitudinal data processing and modeling. SVD decomposes data to a **linear combination** of main major modes of intensity. SVD for the analysis of genome-wide expression data was introduced by Alter and al in 2000, with the major modes referred to as **eigengenes** . Sorting the expression data to these modes **revealed clusters of genes with similar function**. 
+
+
+
+## SVD Tools
+BiocSingular [https://master.bioconductor.org/packages/release/bioc/vignettes/BiocSingular/inst/doc/decomposition.html](https://master.bioconductor.org/packages/release/bioc/vignettes/BiocSingular/inst/doc/decomposition.html)
+
+biosvd [https://bioconductor.org/packages/devel/bioc/vignettes/biosvd/inst/doc/biosvd.pdf](https://bioconductor.org/packages/devel/bioc/vignettes/biosvd/inst/doc/biosvd.pdf)
+
+CellMapper [https://bioconductor.org/packages/release/bioc/manuals/CellMapper/man/CellMapper.pdf](https://bioconductor.org/packages/release/bioc/manuals/CellMapper/man/CellMapper.pdf)
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQ3OTE1MTk5XX0=
+eyJoaXN0b3J5IjpbLTE4MDgzNzc5NjEsNTQ3OTE1MTk5XX0=
 -->
