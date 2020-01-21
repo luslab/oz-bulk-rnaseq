@@ -131,6 +131,8 @@ meanSdPlot(assay(rld))
 
 ```
 # PCA Plot
+[https://www.youtube.com/watch?v=HMOI_lkzW08](https://www.youtube.com/watch?v=HMOI_lkzW08)
+[https://www.youtube.com/watch?v=FgakZw6K1QQ](https://www.youtube.com/watch?v=FgakZw6K1QQ)
 
 Visualise sample-sample distances with the Principal Components Analysis (PCA). Data points represents samples in 2D spread in 2 directions: x-axis = PC1; y-axis = PC2. % of total variance is printed in axis label. These dont add to 100% as there are more dimension containing remaining variance. 
 
@@ -460,5 +462,5 @@ r=cor(gene_expression[i,data_columns], use="pairwise.complete.obs", method="pear
 r
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDUyMDQ2MTZdfQ==
+eyJoaXN0b3J5IjpbMTgxNDY1ODUxMCwtMTk0NTIwNDYxNl19
 -->
