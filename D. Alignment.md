@@ -651,7 +651,116 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 
 # Kallisto
+[https://pachterlab.github.io/kallisto/manual](https://pachterlab.github.io/kallisto/manual)
+[https://www.kallistobus.tools/getting_started_explained.html](https://www.kallistobus.tools/getting_started_explained.html)
 
+## file names
+
+### Create bash script to change file names:
+create 2 text files: list of old_names & list of new_names
+combine into 1 text file in 2 columns
+```bash
+paste old_names.txt new_names.txt > rename.txt
+paste oldnames.txt newnames.txt | column -s $'\t' -t > rename.txt
+sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
+```
+start file with: `#!/bin/bash`
+each line is a new `mv` command
+save text file on CAMP but with ending as `.sh`
+run script: `bash rename.sh`
+
+
+##  index
+
+Download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
+
+##  quant
+
+To do:
+1. sort * wildcard names: SAMPLE, FASTQ
+2. grep sample names ID
+
+
+```bash
+
+
+source activate rtest
+# set sample folders
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
+
+
+/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic_run1_lane1_R1.fastq.gz
+
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
+
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
+
+for READ in $SAMPLE;
+do
+CELLLINE=`echo $READ | grep -E -o 'CTRL1|CTRL3|CTRL4|CTRL5|GLIA|GLIB|CBID|CBIE'`
+DAY=`echo $READ | grep -E -o 'D[0-7]+'`
+FRACTION=`echo $READ | grep -E -o 'nuclear|cytoplasmic'`
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/$CELLLINE_$DAY_$FRACTION
+
+echo "Running $CELLLINE $DAY $FRACTION"
+done
+	for CELLLINE in $READ
+done
+
+$READ/*Aligned.sortedByCoord.out.bam
+echo "Running timepoint $READ"
+	for REPLICATE in $FASTQ
+	do
+	ID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $REPLICATE > $READ/${ID}"
+	echo "Running sample $ID"
+	done
+done
+
+
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
+
+for SAMPLE in $TIMEPOINT;
+do
+BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
+echo "Running timepoint $SAMPLE"
+	for REPLICATE in $BAM
+	do
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > $SAMPLE/${SRRID}.sam"
+	echo "Running sample $SRRID"
+	done
+done
+
+# quant for every sample at each timepoint & fraction (72 total)
+for
+	FASTQ=cytoplasmic.D0.ctrl1
+	sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT $FASTQ"
+
+
+```
+
+## merge
+
+```bash
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
+IN=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/ID519_A1_CTRL1_iPS-D0-Cyto*
+
+kallisto merge -i $INDEX -o $OUT ID519_A1_CTRL1_iPS-D0-Cyto_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L002
+
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
+
+
+ -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
+
+
+
+
+
+```
 
 
 <!--stackedit_data:
@@ -666,5 +775,6 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nz
+k3NTIxODRdfQ==
 -->
