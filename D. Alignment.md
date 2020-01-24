@@ -128,7 +128,7 @@ Annotation files store start sites, exon, introns. They contain spacial coordina
 Both formats contain information:
 - Span: start & end coordinates
 - Hierarchy: feature belongs to another feature e.g. exon to a transcript
-- Value: at a apsecific coordinate
+- Value: at a spsecific coordinate
 - Annotation: feature X is also characterised by Y & Z
 
 2 types of genome formats exist:
@@ -775,6 +775,6 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nz
-k3NTIxODRdfQ==
+eyJoaXN0b3J5IjpbMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nz
+c3NTEzNjIsMTQ3OTc1MjE4NF19
 -->
