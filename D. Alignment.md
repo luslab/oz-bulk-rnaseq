@@ -669,7 +669,6 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 
-
 ##  index
 
 Download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
@@ -680,10 +679,7 @@ To do:
 1. sort * wildcard names: SAMPLE, FASTQ
 2. grep sample names ID
 
-
 ```bash
-
-
 source activate rtest
 # set sample folders
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
@@ -775,6 +771,6 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nz
-c3NTEzNjIsMTQ3OTc1MjE4NF19
+eyJoaXN0b3J5IjpbNjY3NjkyODc3LDE4NTExMjQ3NDksMTA3NT
+Q0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIxODRdfQ==
 -->
