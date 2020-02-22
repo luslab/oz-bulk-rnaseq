@@ -686,6 +686,10 @@ SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
 
 
+/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
+
+
+
 /camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic_run1_lane1_R1.fastq.gz
 
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
@@ -771,6 +775,6 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY3NjkyODc3LDE4NTExMjQ3NDksMTA3NT
+eyJoaXN0b3J5IjpbMTM2MzA1NTc5LDE4NTExMjQ3NDksMTA3NT
 Q0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIxODRdfQ==
 -->
