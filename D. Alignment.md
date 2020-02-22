@@ -685,7 +685,7 @@ source activate rtest
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
 
-SAMPLE=/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
+SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/${SAMPLE}.fq
 
 
 
@@ -774,6 +774,6 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU4Nzg0ODg0LDE4NTExMjQ3NDksMTA3NT
-Q0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIxODRdfQ==
+eyJoaXN0b3J5IjpbMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNz
+U0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
 -->
