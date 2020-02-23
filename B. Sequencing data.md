@@ -164,10 +164,12 @@ ml SRA-Toolkit
 
 ## prefetch
 Now that we have the accessions, we can get the sequence files in fastq format . Use SRA toolkit [https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc] `prefetch` command to download the data with the command line
-```
+```bash
 ml SRA-Toolkit
 cd ~/working/oliver/projects/airals/reads/ # ensure you are in the read directory
+OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/reads
 prefetch SRR**** 
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -O $OUT SRR4242150"
 ```
 
 ## fastq-dump
@@ -178,7 +180,6 @@ ml SRA-Toolkit
 OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/reads
 fastq-dump --outdir $OUT SRR4242150
 
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -v SRR4242150"
 
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242150"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242151"
@@ -314,7 +315,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MDEyNDM2NiwxMDUyODk4OTA1LC0xND
-c4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NTcsMTY2NjQx
-MjIzMywtMTMzNDkwNDU0N119
+eyJoaXN0b3J5IjpbLTE0NTI4MjE2ODksMTA1Mjg5ODkwNSwtMT
+Q3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0
+MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
 -->
