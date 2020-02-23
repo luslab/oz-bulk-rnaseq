@@ -178,9 +178,9 @@ LINE=PRJNA342938
 while read LINE; 
 do 
 	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $LINE"; 
-done 
+done < SRR_Acc_List.txt
+
 ```
-< SRR_Acc_List.txt
 
 Alternatively create an `ids.txt` file list of SRR run IDs. Then invoke `fastq-dump` on each ID:
 ```bash
@@ -190,7 +190,7 @@ fastq-fump -X 10000 --split-files SRR******`
 ## make reads directory
 mkdir -p reads
 ## run fastq-dump on each line of text file with xargs
-cat ids.txt | xargs -n 1 fastq-dump -X 10000 --split-files reads
+cat SRR_Acc_List.txt | xargs -n 1 fastq-dump -X 10000 --split-files reads
 ```
 
 - **Paired-end reads** are concatenated by SRA (because that is how the instrument measures them). Therefore need to separate these into 2 different FASTQ files: 1 forward read; 1 backward read using the command: 
@@ -294,7 +294,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzg2NDczMzAsLTE0NzgzOTUxNjAsLTIwMT
-I4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0
-NTQ3XX0=
+eyJoaXN0b3J5IjpbLTUzNjIxMjk3OCwtMTQ3ODM5NTE2MCwtMj
+AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
+MDQ1NDddfQ==
 -->
