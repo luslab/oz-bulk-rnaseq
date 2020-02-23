@@ -175,11 +175,12 @@ Generates `SRR1553607.fastq` file
 The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: 
 ```bash
 LINE=PRJNA342938
-while read line; 
+while read LINE; 
 do 
-	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; 
-done < SRR_Acc_List.txt
+	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $LINE"; 
+done 
 ```
+< SRR_Acc_List.txt
 
 Alternatively using the `ids.txt` file list of SRR run IDs & invoke `fastq-dump` on each ID:
 ```bash
@@ -293,7 +294,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1NzkyMTQ3OSwtMTQ3ODM5NTE2MCwtMj
+eyJoaXN0b3J5IjpbLTUyMjE1NzUxNSwtMTQ3ODM5NTE2MCwtMj
 AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
 MDQ1NDddfQ==
 -->
