@@ -1,5 +1,5 @@
 > # Quality Control (QC) on Raw Reads
-
+```bash
 ml FastQC
 ml MultiQC
 ml Trim_Galore
@@ -7,7 +7,7 @@ ml cutadapt
 ml trimomatic
 ml FASTX-Toolkit
 ml Bowtie2
-
+```
 Quality control (abbreviated as QC) is the process of improving data by removing identifiable errors from it. QC is performed at different stages:
 - Pre-alignment: “raw data” - the protocols are the same regardless of what analysis will follow
 	- **FastQC** on raw sequenced reads
@@ -35,7 +35,8 @@ Each test will either = pass; warn; or fail. Fail is expected in some cases and 
  
 make a folder to store the results: `mkdir fastqc_results`
 run FastQC on each sequencing file: `fastqc SRR* -o fastqc_results/`
-if there are many fastq files needing FastQC then speed up by running as `sbatch`: `sbatch -N 1 -c 8 --mem 32 --wrap="fastqc SRR5* -o fastqc_results/"`
+if there are many fastq files needing FastQC then speed up by running as `sbatch`: 
+`sbatch -N 1 -c 8 --mem 32 --wrap="fastqc SRR5* -o fastqc_results/"`
 
 Look at the results: `ls fastqc_results/ERR458493_fastqc/`
 
@@ -173,18 +174,17 @@ FastQC error correction programs correct or remove reads that appear to have err
 
 # MultiQC
 
-Re run MultiQC on these processed reads
-
-run `multiqc` within the `trimmed_fastqc_results` folder
+Re run MultiQC on these processed reads: 
+go to run `multiqc` within the `trimmed_fastqc_results` folder
 Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MTk3MzM5OCwtMTI1ODcyMTA3LDQxOD
-I3MTExMiwxNjA3MjcyNDEwLC0xMDI5MTcyNzU3LC0xNjI1MzU0
-OTI1LDcyMzY4MjYwNywtNjI1Mzg2NDgyLDE4NzExNDgyNjQsLT
-E4ODAzODAyNiwtNTU0MzA1NzcyLDE5MTA4NzcyNjEsLTQ4NDU1
-Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3Mj
-A3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAw
-NTNdfQ==
+eyJoaXN0b3J5IjpbLTE1NTE0ODk4NzksLTM3MTk3MzM5OCwtMT
+I1ODcyMTA3LDQxODI3MTExMiwxNjA3MjcyNDEwLC0xMDI5MTcy
+NzU3LC0xNjI1MzU0OTI1LDcyMzY4MjYwNywtNjI1Mzg2NDgyLD
+E4NzExNDgyNjQsLTE4ODAzODAyNiwtNTU0MzA1NzcyLDE5MTA4
+NzcyNjEsLTQ4NDU1Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LD
+kwOTcxMzc0Niw3MjA3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYw
+MDI3N119
 -->
