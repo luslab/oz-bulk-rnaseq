@@ -163,15 +163,16 @@ ml SRA-Toolkit
 ![enter image description here](https://lh3.googleusercontent.com/MtirNCqJgzENksukOhrIZnqNwDpcXbbx_LTHMz17FZpe-p3Mn3iN0bsRAxsKgVbHJn3PjIOmyOOe5Q)
 
 ## prefetch
-Use SRA toolkit prefetch command to download the data with the command line
+Use SRA toolkit [https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc] `prefetch` command to download the data with the command line
 ```
 ml SRA-Toolkit
-cd ~/working/oliver/projects/airals/reads/ # ensure you are in the 
-prefetch -v SRR****
+cd ~/working/oliver/projects/airals/reads/ # ensure you are in the read directory
+prefetch -v SRR**** 
 ```
+
 ## fastq-dump
 
-Now that we have the accessions, we can get the sequence files in fastq format using fastq-dump from the SRA toolkit. [https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc)
+Now convert to  Now that we have the accessions, we can get the sequence files in fastq format using fastq-dump from the SRA toolkit. (https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc)
 
 In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type:
 ```bash
@@ -313,7 +314,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxMDQxMjE3NCwxMDUyODk4OTA1LC0xND
-c4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NTcsMTY2NjQx
-MjIzMywtMTMzNDkwNDU0N119
+eyJoaXN0b3J5IjpbLTE3OTk0NzQ4OTMsMTA1Mjg5ODkwNSwtMT
+Q3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0
+MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
 -->
