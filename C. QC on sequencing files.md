@@ -175,12 +175,12 @@ FastQC error correction programs correct or remove reads that appear to have err
 # MultiQC
 
 Re run MultiQC on these processed reads: 
-go to run `multiqc` within the `trimmed_fastqc_results` folder
-Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
+go to the `trimmed_fastqc_results` folder
+run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTE0ODk4NzksLTM3MTk3MzM5OCwtMT
+eyJoaXN0b3J5IjpbLTIxMjg1Njg0NzgsLTM3MTk3MzM5OCwtMT
 I1ODcyMTA3LDQxODI3MTExMiwxNjA3MjcyNDEwLC0xMDI5MTcy
 NzU3LC0xNjI1MzU0OTI1LDcyMzY4MjYwNywtNjI1Mzg2NDgyLD
 E4NzExNDgyNjQsLTE4ODAzODAyNiwtNTU0MzA1NzcyLDE5MTA4
