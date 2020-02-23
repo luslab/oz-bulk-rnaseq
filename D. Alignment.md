@@ -673,9 +673,10 @@ run script: `bash rename.sh`
 
 Build index from FASTA:
 /camp/home/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-
-kallisto index 
-Download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
+```bash
+kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+```
+Or can download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
 This is the v96 ensembl file: 
 /camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
 
@@ -693,7 +694,7 @@ source activate rtest
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
 
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx 
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
@@ -789,7 +790,7 @@ NjMyNDNdfQ==
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjU5ODY0ODUsMTQxNTYwNTgyMiwxOT
+eyJoaXN0b3J5IjpbLTEwMjk4MTE4MjAsMTQxNTYwNTgyMiwxOT
 g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
 MzI1LDE4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLD
 E0Nzk3NTIxODRdfQ==
