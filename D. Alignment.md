@@ -756,21 +756,16 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 
 ```bash
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
-OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto
+OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto/$SAMPLE
 SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/${SAMPLE}.fq
 
 for READ in $SAMPLE;
 do
-CELLLINE=`echo $READ | grep -E -o 'CTRL1|CTRL3|CTRL4|CTRL5|GLIA|GLIB|CBID|CBIE'`
-DAY=`echo $READ | grep -E -o 'D[0-7]+'`
-FRACTION=`echo $READ | grep -E -o 'nuclear|cytoplasmic'`
-OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/$CELLLINE_$DAY_$FRACTION
+OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto/$READ
 
-echo "Running $CELLLINE $DAY $FRACTION"
+echo "Running $READ"
 done
-	for CELLLINE in $READ
-done
-
+	
 $READ/*Aligned.sortedByCoord.out.bam
 echo "Running timepoint $READ"
 	for REPLICATE in $FASTQ
@@ -816,7 +811,7 @@ NjMyNDNdfQ==
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI2MzE4MTk1LDE0OTk5MTMzMjUsMTg1MT
-EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
-NF19
+eyJoaXN0b3J5IjpbMTkwNTgzNzgyNywxNDk5OTEzMzI1LDE4NT
+ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
+ODRdfQ==
 -->
