@@ -685,12 +685,8 @@ source activate rtest
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
 
-SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/${SAMPLE}.fq
-SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/SRR*.fastq
-
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
 
-OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 for READ in $SAMPLE;
@@ -754,11 +750,21 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
  -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
 
 
+```
+
+D21 airals kallisto:
+
+```bash
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
+
+OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto
+
+SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/${SAMPLE}.fq
+SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/SRR*.fastq
 
 
 
 ```
-
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
@@ -770,9 +776,8 @@ ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
 NjMyNDNdfQ==
 -->
 
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQzNzE1MDk0LDE0OTk5MTMzMjUsMTg1MT
-EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
-NF19
+eyJoaXN0b3J5IjpbMTA1NDE4NzAzOSwxNDk5OTEzMzI1LDE4NT
+ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
+ODRdfQ==
 -->
