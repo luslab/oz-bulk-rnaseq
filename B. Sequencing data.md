@@ -166,10 +166,15 @@ isolate single-end reads: `cat sequencing_data.csv | cut -f 1,16 -d , | grep SRR
 
 Now that we have the accessions, we can get the sequence files in fastq format using fastq-dump from the SRA toolkit.
 
-In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type `fastq-dump SRR1553607`. Generates `SRR1553607.fastq` file
+In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type:
+```bash
+fastq-dump SRR1553607
+```
+Generates `SRR1553607.fastq` file
 
 The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: 
 ```bash
+LINE=PRJNA342938
 while read line; 
 do 
 	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $line"; 
@@ -288,7 +293,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxNDU2MTUwNCwtMTQ3ODM5NTE2MCwtMj
+eyJoaXN0b3J5IjpbMTU1NzkyMTQ3OSwtMTQ3ODM5NTE2MCwtMj
 AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
 MDQ1NDddfQ==
 -->
