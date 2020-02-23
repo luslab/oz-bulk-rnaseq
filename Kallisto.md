@@ -125,48 +125,9 @@ echo "Running $ID"
 done
 ```
 
-## Kallisto merge
+### D7 Airals kallisto
 
-```bash
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
-OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
-IN=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/ID519_A1_CTRL1_iPS-D0-Cyto*
-
-kallisto merge -i $INDEX -o $OUT ID519_A1_CTRL1_iPS-D0-Cyto_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L002
-
-sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
-
- -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
-```
-
-
-
-
-
-
-**SVD (singular value decomposition) analysis**
-
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
-
-
-
-
-
-```bash
-SAMPLE=CTRL_3
-R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
-##if you have paired-end data then set the 2nd read files for input
-R2=PATH_TO_FASTQ_reverse_strand.fq
-
-#set subdirectory for output called out
-OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto
-#run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
-##paired-end mode
-kallisto quant -i $IDX -o $OUTDIR -b 100 $R1 $R2
-##single-end mode (set fragment mean length & standard deviation - Illumina generates fragments 180-200bp - acurately determine this from a library quantification with an instrument such as an Agilent Bioanalyzer)
-kallisto quant -i $IDX -o $SAMPLE -b 100 --single -l 187 -s 70 $R1
-```
-However for multiple fastq files use a For Loop:
+Run multiple fastq files at once
 ```bash
 # Create output folder
 mkdir -p kallisto
@@ -178,9 +139,6 @@ set -euo pipefail
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 # Set index to build
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
-
-# Build kallisto index
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto index -i $IDX  $REF"
 
 for SAMPLE in VCP CTRL;
 do
@@ -200,14 +158,36 @@ do
 done
 ```
 
-### Kallisto Output
+## Kallisto merge
+
+```bash
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
+IN=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/ID519_A1_CTRL1_iPS-D0-Cyto*
+
+kallisto merge -i $INDEX -o $OUT ID519_A1_CTRL1_iPS-D0-Cyto_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L002
+
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
+
+ -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
+```
+
+
+
+
+
+
+
+
+
+
+## Kallisto Output
 
 Output files:
 - abundance.txt
-- abundance.h5 (large scale format form of txt file)
+- abundance.h5 (large scale format form of txt file) - used by tximport
 - run_info.json
 
-The main output of Kallisto is the **abundance.tsv** file with columns:
 ```
 target_id   length eff_length est_counts 	tpm
 ERCC-00002  1061   891.059      18946      243099
@@ -218,6 +198,14 @@ ERCC-00009  984	   814.059      319        4480.29
 Column 3 = eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
 Column 4 = est_counts = transcript abundance count
 Column 5 = tpm = Transcripts Per Million
+
+
+**SVD (singular value decomposition) analysis**
+
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
+
+
+
 
 # Sleuth
 https://github.com/pachterlab/sleuth
@@ -336,8 +324,8 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwOTk3NzczNSwxMzYzOTQ2MjI4LC0xNz
-I0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYx
-MDYsMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMT
-UzMzQxMDQxOCw2MzE2NjIyXX0=
+eyJoaXN0b3J5IjpbLTE3MTkxMjE5NjcsMTM2Mzk0NjIyOCwtMT
+cyNDc0MTQ2OCwtMTkwODk1OTA4MCw3OTY1MjEyMiwtNDQ2NTY2
+MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LD
+E1MzM0MTA0MTgsNjMxNjYyMl19
 -->
