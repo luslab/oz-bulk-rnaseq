@@ -688,10 +688,6 @@ SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_
 SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/${SAMPLE}.fq
 SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/SRR*.fastq
 
-
-
-/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic_run1_lane1_R1.fastq.gz
-
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
@@ -775,7 +771,7 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI2NDYwNTMwLDE0OTk5MTMzMjUsMTg1MT
-EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
-NF19
+eyJoaXN0b3J5IjpbLTM1MDQ5NDA5MCwxNDk5OTEzMzI1LDE4NT
+ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
+ODRdfQ==
 -->
