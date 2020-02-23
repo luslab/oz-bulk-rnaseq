@@ -171,11 +171,17 @@ In terminal download each of the `SRR****` IDs in the txt file using the [SRA to
 fastq-dump SRR1553607
 
 sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242150"
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242151"
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242152"
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242153"
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242154"
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242155"
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242156"
 
 ```
 Generates `SRR1553607.fastq` file
 
-### Download many fastq files in 1 command
+### Download many fastq files in parallel
 
 The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: 
 ```bash
@@ -184,7 +190,6 @@ while read LINE;
 do 
 	sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump --split-files --accession $LINE"; 
 done < SRR_Acc_List.txt
-
 ```
 
 Alternatively create an `ids.txt` file list of SRR run IDs. Then invoke `fastq-dump` on each ID:
@@ -299,7 +304,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NTEyNTkyOSwtMTQ3ODM5NTE2MCwtMj
+eyJoaXN0b3J5IjpbMTA1Mjg5ODkwNSwtMTQ3ODM5NTE2MCwtMj
 AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
 MDQ1NDddfQ==
 -->
