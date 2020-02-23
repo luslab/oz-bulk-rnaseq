@@ -42,7 +42,7 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 Index is available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 
-Or can download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar`
+Or can download prebuilt ensemble reference transcriptome reference from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx`
 
 
 ##  Kallisto quant
@@ -344,7 +344,8 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjQ3NDE0NjgsLTE5MDg5NTkwODAsNz
-k2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1NjgxODg2
-NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJdfQ==
+eyJoaXN0b3J5IjpbMzA3MTgxNzM3LC0xNzI0NzQxNDY4LC0xOT
+A4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYxMDYsMTcwNzEyODAy
+Myw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2Mz
+E2NjIyXX0=
 -->
