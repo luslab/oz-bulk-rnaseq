@@ -118,6 +118,14 @@ OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
+
+for READ in $SAMPLE;
+do
+ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
+OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/kallisto/$ID
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
+echo "Running $ID"
+done
 ```
 
 ## Kallisto merge
@@ -344,8 +352,8 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2Mzk0NjIyOCwtMTcyNDc0MTQ2OCwtMT
-kwODk1OTA4MCw3OTY1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgw
-MjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNj
-MxNjYyMl19
+eyJoaXN0b3J5IjpbMTkyMTMxNzM3MywxMzYzOTQ2MjI4LC0xNz
+I0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYx
+MDYsMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMT
+UzMzQxMDQxOCw2MzE2NjIyXX0=
 -->
