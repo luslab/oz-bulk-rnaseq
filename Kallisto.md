@@ -118,14 +118,6 @@ OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
-
-for READ in $SAMPLE;
-do
-ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/kallisto/$ID
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
-echo "Running $ID"
-done
 ```
 
 ## Kallisto merge
@@ -154,7 +146,7 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 ## Kallisto Workflow
 
 Two steps:
-1. Build Index (10mins to run)
+1. Build Index (10mins to run) - only run the first time (or download from 
 2. Quantify Reads (10mins to run)
 
 For an individual single or paired end fastq file you can run:
@@ -352,7 +344,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMTMxNzM3MywxMzYzOTQ2MjI4LC0xNz
+eyJoaXN0b3J5IjpbMTA2NzI3MDQzMywxMzYzOTQ2MjI4LC0xNz
 I0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYx
 MDYsMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMT
 UzMzQxMDQxOCw2MzE2NjIyXX0=
