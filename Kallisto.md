@@ -86,7 +86,7 @@ This is single unpaired reads. Calculated transcript length from FastQC > MultiQ
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
 INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx 
-SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fastq
+SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fq.gz
 
 for READ in $SAMPLE;
 do
@@ -108,10 +108,7 @@ kallisto merge -i $INDEX -o $OUT ID519_A1_CTRL1_iPS-D0-Cyto_L001 ID519_A1_CTRL1_
 
 sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
 
-
  -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
-
-
 ```
 
 
@@ -365,7 +362,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU5NTQwNTExMywtMTkwODk1OTA4MCw3OT
+eyJoaXN0b3J5IjpbMTQ2NzA2NzAyNCwtMTkwODk1OTA4MCw3OT
 Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
 LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
 -->
