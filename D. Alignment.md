@@ -762,7 +762,7 @@ SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted
 for READ in $SAMPLE;
 do
 OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto/$READ
-
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $READ > $READ"
 echo "Running $READ"
 done
 	
@@ -811,7 +811,7 @@ NjMyNDNdfQ==
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNTgzNzgyNywxNDk5OTEzMzI1LDE4NT
+eyJoaXN0b3J5IjpbMTk2OTc3NDA3OCwxNDk5OTEzMzI1LDE4NT
 ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
 ODRdfQ==
 -->
