@@ -34,7 +34,7 @@ FastQC on raw reads FASTQ file using the [FastQC program](http://www.bioinformat
 Each test will either = pass; warn; or fail. Fail is expected in some cases and does not mean the sequencing needs repeated.
  
 make a folder to store the results: `mkdir fastqc_results`
-run FastQC on each sequencing file: `fastqc SRR5* -o fastqc_results/`
+run FastQC on each sequencing file: `fastqc SRR* -o fastqc_results/`
 if there are many fastq files needing FastQC then speed up by running as `sbatch`: `sbatch -N 1 -c 8 --mem 32 --wrap="fastqc SRR5* -o fastqc_results/"`
 
 Look at the results: `ls fastqc_results/ERR458493_fastqc/`
@@ -180,11 +180,11 @@ Go to the folder with the trimmed fastqc files in and simply run: `multiqc .`
 
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTg3MjEwNyw0MTgyNzExMTIsMTYwNz
-I3MjQxMCwtMTAyOTE3Mjc1NywtMTYyNTM1NDkyNSw3MjM2ODI2
-MDcsLTYyNTM4NjQ4MiwxODcxMTQ4MjY0LC0xODgwMzgwMjYsLT
-U1NDMwNTc3MiwxOTEwODc3MjYxLC00ODQ1NTY4NjUsLTEwODM3
-NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNzAzOTg0LC0xND
-cwNDEzMTM5LDEwNjk2MDAyNzcsNjQ3MjIwMDUzLDk5MDAwNDgx
-MV19
+eyJoaXN0b3J5IjpbLTM3MTk3MzM5OCwtMTI1ODcyMTA3LDQxOD
+I3MTExMiwxNjA3MjcyNDEwLC0xMDI5MTcyNzU3LC0xNjI1MzU0
+OTI1LDcyMzY4MjYwNywtNjI1Mzg2NDgyLDE4NzExNDgyNjQsLT
+E4ODAzODAyNiwtNTU0MzA1NzcyLDE5MTA4NzcyNjEsLTQ4NDU1
+Njg2NSwtMTA4Mzc3MCwtMTExNDcwMjg3LDkwOTcxMzc0Niw3Mj
+A3MDM5ODQsLTE0NzA0MTMxMzksMTA2OTYwMDI3Nyw2NDcyMjAw
+NTNdfQ==
 -->
