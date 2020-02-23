@@ -167,7 +167,7 @@ Now that we have the accessions, we can get the sequence files in fastq format .
 ```
 ml SRA-Toolkit
 cd ~/working/oliver/projects/airals/reads/ # ensure you are in the read directory
-prefetch -v SRR**** 
+prefetch SRR**** 
 ```
 
 ## fastq-dump
@@ -312,7 +312,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzYyNjM2ODU2LDEwNTI4OTg5MDUsLTE0Nz
-gzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEy
-MjMzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbMTAyNjg0NjQwNywxMDUyODk4OTA1LC0xND
+c4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NTcsMTY2NjQx
+MjIzMywtMTMzNDkwNDU0N119
 -->
