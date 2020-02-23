@@ -127,8 +127,8 @@ done
 for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=/camp/home/ziffo/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 150 -s 2 -i $INDEX -o $OUT $READ"
+OUT=/camp/home/ziffo/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto/$ID
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -310,9 +310,9 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU0MDczODgxLDg3OTcwNzA0NCw4Nzk3MD
-cwNDQsMTM2Mzk0NjIyOCwtMTcyNDc0MTQ2OCwtMTkwODk1OTA4
-MCw3OTY1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2OD
-E4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
-
+eyJoaXN0b3J5IjpbMTA5NjkyNjQxNiw4Nzk3MDcwNDQsODc5Nz
+A3MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3NDE0NjgsLTE5MDg5NTkw
+ODAsNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1Nj
+gxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJd
+fQ==
 -->
