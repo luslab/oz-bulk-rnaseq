@@ -169,6 +169,9 @@ Now that we have the accessions, we can get the sequence files in fastq format u
 In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type:
 ```bash
 fastq-dump SRR1553607
+
+sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242150"
+
 ```
 Generates `SRR1553607.fastq` file
 
@@ -296,7 +299,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwOTg5NzUyMSwtMTQ3ODM5NTE2MCwtMj
+eyJoaXN0b3J5IjpbMTM0NTEyNTkyOSwtMTQ3ODM5NTE2MCwtMj
 AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
 MDQ1NDddfQ==
 -->
