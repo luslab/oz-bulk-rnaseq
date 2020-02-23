@@ -762,11 +762,10 @@ for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -i $INDEX -o $OUT $READ"
 echo "Running $ID"
-echo "Running $OUT"
 done
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -i $INDEX -o $OUT $READ"
 
 	
 $READ/*Aligned.sortedByCoord.out.bam
@@ -814,7 +813,7 @@ NjMyNDNdfQ==
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODExNjQ5MTIzLDE0OTk5MTMzMjUsMTg1MT
+eyJoaXN0b3J5IjpbNzQzNDYyMTc5LDE0OTk5MTMzMjUsMTg1MT
 EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
 NF19
 -->
