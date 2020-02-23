@@ -172,6 +172,8 @@ fastq-dump SRR1553607
 ```
 Generates `SRR1553607.fastq` file
 
+### Download many fastq files in 1 command
+
 The `while loop` allows you to do this for all SRR IDs in a single command and `sbatch` speeds up the process by parallelising the request: 
 ```bash
 LINE=PRJNA342938
@@ -294,7 +296,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNjIxMjk3OCwtMTQ3ODM5NTE2MCwtMj
+eyJoaXN0b3J5IjpbLTMwOTg5NzUyMSwtMTQ3ODM5NTE2MCwtMj
 AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
 MDQ1NDddfQ==
 -->
