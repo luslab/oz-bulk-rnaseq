@@ -760,7 +760,8 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 ```bash
 ml kallisto
 
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
+
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fastq
 
 for READ in $SAMPLE;
@@ -770,7 +771,7 @@ OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
-
+```
 
 
 <!--stackedit_data:
@@ -784,8 +785,8 @@ NjMyNDNdfQ==
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODk5MzE1OTcsMTQxNTYwNTgyMiwxOT
-g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
-MzI1LDE4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLD
-E0Nzk3NTIxODRdfQ==
+eyJoaXN0b3J5IjpbLTg3ODA5OTU1MSwxNDE1NjA1ODIyLDE5OD
+Y4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMz
+MjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMT
+Q3OTc1MjE4NF19
 -->
