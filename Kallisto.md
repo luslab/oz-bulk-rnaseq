@@ -31,6 +31,11 @@ The main limitations to assigning reads to transcripts are:
 Sailfish and more updated version Salmon
 [Kallisto](https://www.nature.com/articles/nbt.3519)
 
+## Kallisto Workflow
+
+Two steps:
+1. Build Index (10mins to run) - only run the first time (or download from patcher lab)
+2. Quantify Reads (10mins to run)
 
 ##  Kallisto index
 
@@ -143,28 +148,16 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
-## Kallisto Workflow
 
-Two steps:
-1. Build Index (10mins to run) - only run the first time (or download from 
-2. Quantify Reads (10mins to run)
 
-For an individual single or paired end fastq file you can run:
+
+
 ```bash
-#set changable elements
-##set reference transcriptome (cDNA)
-REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 SAMPLE=CTRL_3
 R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}.fq
 ##if you have paired-end data then set the 2nd read files for input
 R2=PATH_TO_FASTQ_reverse_strand.fq
 
-#build kallisto index
-sbatch -N 1 -c 8 --mem 40 --wrap="kallisto index -i $IDX $REF"
-
-#create directory for kallisto data 
-mkdir -p kallisto
 #set subdirectory for output called out
 OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto
 #run kallisto quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
@@ -205,7 +198,6 @@ do
         cp $OUTDIR/abundance.tsv $OUTDIR.counts.tsv
     done
 done
-
 ```
 
 ### Kallisto Output
@@ -344,7 +336,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2NzI3MDQzMywxMzYzOTQ2MjI4LC0xNz
+eyJoaXN0b3J5IjpbMTAwOTk3NzczNSwxMzYzOTQ2MjI4LC0xNz
 I0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYx
 MDYsMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMT
 UzMzQxMDQxOCw2MzE2NjIyXX0=
