@@ -760,13 +760,12 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 
 ```
 
-# D21 airals kallisto
-
+# D21 Airals kallisto
+Ran this for correlating whole cell motor neurons with single cell motor neurons
 ```bash
 ml kallisto
-
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
-
+cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
+INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx 
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fastq
 
 for READ in $SAMPLE;
@@ -790,7 +789,7 @@ NjMyNDNdfQ==
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjk4MTE4MjAsMTQxNTYwNTgyMiwxOT
+eyJoaXN0b3J5IjpbLTEzMzc1MTQ3MDgsMTQxNTYwNTgyMiwxOT
 g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
 MzI1LDE4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLD
 E0Nzk3NTIxODRdfQ==
