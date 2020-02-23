@@ -184,8 +184,6 @@ Now convert from `sra` to `fastq` with `fastq-dump`.  In command line type:
 ```bash
 ml SRA-Toolkit
 OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/reads
-fastq-dump --outdir $OUT SRR4242150
-
 
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242150.sra"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242151.sra"
@@ -196,6 +194,10 @@ sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242156.sra"
 ```
 Generates `SRR1553607.fastq` file
+
+Alternatively can download directly from NCBI with (BUT takes longer & limited to 2 files at one time):
+`fastq-dump --outdir $OUT SRR4242150`
+
 
 ### Download many fastq files in parallel
 
@@ -320,8 +322,8 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTczMDEwMzAsNjcwNDAwNzMwLC0xND
-M2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0Nzgz
-OTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMj
-MzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTE0NzIwMzM0NzMsLTExMTczMDEwMzAsNj
+cwNDAwNzMwLC0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4
+OTg5MDUsLTE0NzgzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOT
+Q1NywxNjY2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
 -->
