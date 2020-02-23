@@ -671,6 +671,10 @@ run script: `bash rename.sh`
 
 ##  index
 
+Build index from FASTA:
+/camp/home/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+
+kallisto index 
 Download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
 This is the v96 ensembl file: 
 /camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
@@ -785,8 +789,8 @@ NjMyNDNdfQ==
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3ODA5OTU1MSwxNDE1NjA1ODIyLDE5OD
-Y4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMz
-MjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMT
-Q3OTc1MjE4NF19
+eyJoaXN0b3J5IjpbLTEyNjU5ODY0ODUsMTQxNTYwNTgyMiwxOT
+g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
+MzI1LDE4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLD
+E0Nzk3NTIxODRdfQ==
 -->
