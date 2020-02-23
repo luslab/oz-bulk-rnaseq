@@ -172,15 +172,6 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
  -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
 ```
 
-
-
-
-
-
-
-
-
-
 ## Kallisto Output
 
 Output files:
@@ -198,13 +189,6 @@ ERCC-00009  984	   814.059      319        4480.29
 Column 3 = eff_length = scales the transcript length by fragment length distribution . (transcript length - mean fragment length + 1)
 Column 4 = est_counts = transcript abundance count
 Column 5 = tpm = Transcripts Per Million
-
-
-**SVD (singular value decomposition) analysis**
-
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
-
-
 
 
 # Sleuth
@@ -322,10 +306,13 @@ ENST00000624726.1    6.73189    3.0668      1.16443     2.39545     4.31444     
 ```
 You can change the header to include the sample names.
 
+## SVD (singular value decomposition) analysis
+
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTkxMjE5NjcsMTM2Mzk0NjIyOCwtMT
-cyNDc0MTQ2OCwtMTkwODk1OTA4MCw3OTY1MjEyMiwtNDQ2NTY2
-MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LD
-E1MzM0MTA0MTgsNjMxNjYyMl19
+eyJoaXN0b3J5IjpbNDg4MDU3MDEzLDEzNjM5NDYyMjgsLTE3Mj
+Q3NDE0NjgsLTE5MDg5NTkwODAsNzk2NTIxMjIsLTQ0NjU2NjEw
+NiwxNzA3MTI4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkwNiwxNT
+MzNDEwNDE4LDYzMTY2MjJdfQ==
 -->
