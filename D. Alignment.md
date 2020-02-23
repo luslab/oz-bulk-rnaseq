@@ -755,6 +755,8 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 # D21 airals kallisto
 
 ```bash
+ml kallisto
+
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fastq
 
@@ -767,39 +769,6 @@ echo "Running $ID"
 done
 
 
-	
-$READ/*Aligned.sortedByCoord.out.bam
-echo "Running timepoint $READ"
-	for REPLICATE in $FASTQ
-	do
-	ID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $REPLICATE > $READ/${ID}"
-	echo "Running sample $ID"
-	done
-done
-
-
-# set timepoint folders
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
-
-for SAMPLE in $TIMEPOINT;
-do
-BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
-echo "Running timepoint $SAMPLE"
-	for REPLICATE in $BAM
-	do
-	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > $SAMPLE/${SRRID}.sam"
-	echo "Running sample $SRRID"
-	done
-done
-
-# quant for every sample at each timepoint & fraction (72 total)
-for
-	FASTQ=cytoplasmic.D0.ctrl1
-	sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT $FASTQ"
-
-```
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
@@ -810,10 +779,9 @@ ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
 ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
 NjMyNDNdfQ==
 -->
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0OTgzNDgxNywtMTMwNjY3OTgxMyw3ND
+eyJoaXN0b3J5IjpbMTk4Njg0NDQwMywtMTMwNjY3OTgxMyw3ND
 M0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNzU0NDg0
 MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
 -->
