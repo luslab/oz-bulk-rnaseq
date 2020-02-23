@@ -179,13 +179,14 @@ OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte
 fastq-dump --outdir $OUT SRR4242150
 
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -v SRR4242150"
+
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242150"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242151"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242152"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242153"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242154"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrapp="fastq-dump SRR4242155"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242156"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242152"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242153"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242154"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242155"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242156"
 
 ```
 Generates `SRR1553607.fastq` file
@@ -313,7 +314,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNzk2Nzg5MywxMDUyODk4OTA1LC0xND
+eyJoaXN0b3J5IjpbMTQ2MDEyNDM2NiwxMDUyODk4OTA1LC0xND
 c4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NTcsMTY2NjQx
 MjIzMywtMTMzNDkwNDU0N119
 -->
