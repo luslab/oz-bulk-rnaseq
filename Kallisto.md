@@ -123,14 +123,6 @@ OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
-
-for READ in $SAMPLE;
-do
-ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
-echo "Running $ID"
-done
 ```
 
 ### D7 Airals kallisto
@@ -310,7 +302,7 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyMzI0MDIwLDg3OTcwNzA0NCwxMzYzOT
+eyJoaXN0b3J5IjpbODc5NzA3MDQ0LDg3OTcwNzA0NCwxMzYzOT
 Q2MjI4LC0xNzI0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIy
 LC00NDY1NjYxMDYsMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1Nz
 I5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
