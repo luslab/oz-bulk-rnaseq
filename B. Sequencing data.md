@@ -182,7 +182,7 @@ done
 ```
 < SRR_Acc_List.txt
 
-Alternatively using the `ids.txt` file list of SRR run IDs & invoke `fastq-dump` on each ID:
+Alternatively create an `ids.txt` file list of SRR run IDs. Then invoke `fastq-dump` on each ID:
 ```bash
 fastq-fump -X 10000 --split-files SRR******` 
 
@@ -294,7 +294,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUyMjE1NzUxNSwtMTQ3ODM5NTE2MCwtMj
-AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
-MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbMzg2NDczMzAsLTE0NzgzOTUxNjAsLTIwMT
+I4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0
+NTQ3XX0=
 -->
