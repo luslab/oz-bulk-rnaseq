@@ -176,18 +176,19 @@ FastQC error correction programs correct or remove reads that appear to have err
 
 Re run MultiQC on these processed reads: 
 go to the `trimmed_fastqc_results` folder
-```
+```bash
 ml MultiQC
 ml matplotlib/2.2.3-foss-2018b-Python-3.6.6 # needs matplotlab < 3.0.0
-run: `multiqc .`
-
+multiqc . # run multiqc
+```
+open file `multiqc_report.html` via Finder.
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNjQ1MzkzMSwtMTk4NDc2NDY1NiwtMj
-EyODU2ODQ3OCwtMzcxOTczMzk4LC0xMjU4NzIxMDcsNDE4Mjcx
-MTEyLDE2MDcyNzI0MTAsLTEwMjkxNzI3NTcsLTE2MjUzNTQ5Mj
-UsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0ODI2NCwtMTg4
-MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MSwtNDg0NTU2OD
-Y1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEzNzQ2LDcyMDcw
-Mzk4NF19
+eyJoaXN0b3J5IjpbMTAzOTc3NzIyLC0xOTg0NzY0NjU2LC0yMT
+I4NTY4NDc4LC0zNzE5NzMzOTgsLTEyNTg3MjEwNyw0MTgyNzEx
+MTIsMTYwNzI3MjQxMCwtMTAyOTE3Mjc1NywtMTYyNTM1NDkyNS
+w3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4MjY0LC0xODgw
+MzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC00ODQ1NTY4Nj
+UsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNzAz
+OTg0XX0=
 -->
