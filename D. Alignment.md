@@ -680,6 +680,7 @@ To do:
 2. grep sample names ID
 
 ```bash
+ml kallisto
 source activate rtest
 # set sample folders
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
@@ -820,7 +821,7 @@ NjMyNDNdfQ==
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNTQxOTE3MSwxNDk5OTEzMzI1LDE4NT
+eyJoaXN0b3J5IjpbMTc1MzU2NzY5OSwxNDk5OTEzMzI1LDE4NT
 ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
 ODRdfQ==
 -->
