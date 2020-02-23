@@ -8,20 +8,6 @@
 
 [Kallisto](https://pachterlab.github.io/kallisto/)  extracts **both gene and transcript level** gene expression directly from fastq files using the raw fastq files. Results can be analysed with  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) for transcript level analysis or with DESeq2 (via tximport). 
 
-## Fastq file names
-
-### Create bash script to change file names:
-create 2 text files: list of old_names & list of new_names
-combine into 1 text file in 2 columns
-```bash
-paste old_names.txt new_names.txt > rename.txt
-paste oldnames.txt newnames.txt | column -s $'\t' -t > rename.txt
-sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
-```
-start file with: `#!/bin/bash`
-each line is a new `mv` command
-save text file on CAMP but with ending as `.sh`
-run script: `bash rename.sh`
 
 ##  Kallisto index
 
@@ -33,15 +19,10 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 Index is available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 
-Or can download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: 
-`/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar`
+Or can download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar`
 
 
 ##  Kallisto quant
-
-To do:
-1. sort * wildcard names: SAMPLE, FASTQ
-2. grep sample names ID
 
 ```bash
 ml kallisto
@@ -100,7 +81,7 @@ for
 
 ### D21 Airals kallisto
 Ran this kallisto quant for correlating whole cell motor neurons with single cell motor neurons.
-This is single unpaired reads. Calcualated transcript length & st
+This is single unpaired reads. Calculated transcript length from FastQC > MultiQC.
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
@@ -116,8 +97,7 @@ echo "Running $ID"
 done
 ```
 
-
-## merge
+## Kallisto merge
 
 ```bash
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
@@ -385,7 +365,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NTk4MTI5OSwtMTkwODk1OTA4MCw3OT
-Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
-LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
+eyJoaXN0b3J5IjpbMTA2MDUyMzIzLC0xOTA4OTU5MDgwLDc5Nj
+UyMTIyLC00NDY1NjYxMDYsMTcwNzEyODAyMyw3NTY4MTg4NjQs
+LTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
 -->
