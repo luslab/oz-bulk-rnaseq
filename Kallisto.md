@@ -3,11 +3,13 @@
 
 > # Kallisto
 
-[Kallisto](https://pachterlab.github.io/kallisto/)   is a user-friendly algo which extract both gene and transcript level gene expression directly from fastq files using the raw fastq files. Then use  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
-
-# Kallisto
 [https://pachterlab.github.io/kallisto/manual](https://pachterlab.github.io/kallisto/manual)
 [https://www.kallistobus.tools/getting_started_explained.html](https://www.kallistobus.tools/getting_started_explained.html)
+
+
+[Kallisto](https://pachterlab.github.io/kallisto/)  extracts **both gene and transcript level** gene expression directly from fastq files using the raw fastq files. Results can be analysed with  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) for transcript level analysis or with DESeq2 (via tximport). 
+
+# Kallisto
 
 ## file names
 
@@ -380,7 +382,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNTE5NDI5OCwtMTkwODk1OTA4MCw3OT
+eyJoaXN0b3J5IjpbLTk3MjQwNDgyNCwtMTkwODk1OTA4MCw3OT
 Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
 LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
 -->
