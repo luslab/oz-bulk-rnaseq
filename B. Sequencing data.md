@@ -276,7 +276,21 @@ Remove duplicated sequences: `seqkit rmdup --by-seq --ignore-case *.fq.gz > uniq
 
 Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-case --pattern-file *.gz` use the degenerate flag to identify pattern of interest
  
+## Fastq file names
+
+### Create bash script to change file names:
+create 2 text files: list of old_names & list of new_names
+combine into 1 text file in 2 columns
+```bash
+paste old_names.txt new_names.txt > rename.txt
+paste oldnames.txt newnames.txt | column -s $'\t' -t > rename.txt
+sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
+```
+start file with: `#!/bin/bash`
+each line is a new `mv` command
+save text file on CAMP but with ending as `.sh`
+run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNj
-Y2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTE0NzgzOTUxNjAsLTIwMTI4NjgzNjEsLT
+Y5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
 -->
