@@ -34,10 +34,10 @@ Index is available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 
 Or can download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: 
-`/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
+`/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar`
 
 
-##  quant
+##  Kallisto quant
 
 To do:
 1. sort * wildcard names: SAMPLE, FASTQ
@@ -96,8 +96,26 @@ done
 for
 	FASTQ=cytoplasmic.D0.ctrl1
 	sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT $FASTQ"
-
 ```
+
+### D21 Airals kallisto
+Ran this kallisto quant for correlating whole cell motor neurons with single cell motor neurons.
+This is single unpaired reads. Calcualated transcript length & st
+```bash
+ml kallisto
+cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
+INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx 
+SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fastq
+
+for READ in $SAMPLE;
+do
+ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
+OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
+echo "Running $ID"
+done
+```
+
 
 ## merge
 
@@ -116,22 +134,8 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 
 ```
 
-# D21 Airals kallisto
-Ran this for correlating whole cell motor neurons with single cell motor neurons
-```bash
-ml kallisto
-cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx 
-SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fastq
 
-for READ in $SAMPLE;
-do
-ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
-echo "Running $ID"
-done
-```
+
 
 
 <!--stackedit_data:
@@ -381,7 +385,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0Mjg3MDM5LC0xOTA4OTU5MDgwLDc5Nj
-UyMTIyLC00NDY1NjYxMDYsMTcwNzEyODAyMyw3NTY4MTg4NjQs
-LTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
+eyJoaXN0b3J5IjpbLTc5NTk4MTI5OSwtMTkwODk1OTA4MCw3OT
+Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
+LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
 -->
