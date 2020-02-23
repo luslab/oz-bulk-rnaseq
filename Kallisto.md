@@ -231,21 +231,12 @@ cd ~/working/oliver/projects/vcp_fractionation/expression/sleuth
 R --file=~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R
 ```
 
-Debugging conda:
-```bash
-conda clean --all
-conda update --all
-conda update -n base -c defaults conda
-conda install anaconda
-conda install --channel https://conda.anaconda.org/bioconda r-sleuth
-ml sleuth/0.28.0-foss-2016b-R-3.3.1
-```
 
 # Kallisto > DESeq2
 
 Load Gene Annotaiton & Import sample details as for Sleuth
 
-## Tximport 
+## Tximport (and Tximeta)
 [https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html)
 
 Import transcript abundance estimates for samples using the tximport. rows = gene ID, columns = sample ID. kallisto abundance.h5 files can be imported by setting type to "kallisto". 
@@ -311,7 +302,7 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg4MDU3MDEzLDEzNjM5NDYyMjgsLTE3Mj
+eyJoaXN0b3J5IjpbODc5NzA3MDQ0LDEzNjM5NDYyMjgsLTE3Mj
 Q3NDE0NjgsLTE5MDg5NTkwODAsNzk2NTIxMjIsLTQ0NjU2NjEw
 NiwxNzA3MTI4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkwNiwxNT
 MzNDEwNDE4LDYzMTY2MjJdfQ==
