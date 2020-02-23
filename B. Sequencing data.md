@@ -187,8 +187,8 @@ OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte
 fastq-dump --outdir $OUT SRR4242150
 
 
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242150"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242151"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242150.sra"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT SRR4242151.sra"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242152.sra"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242153.sra"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump --outdir $OUT  SRR4242154.sra"
@@ -320,8 +320,8 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjcwNDAwNzMwLC0xNDM2NTk2OTAxLC0xND
-UyODIxNjg5LDEwNTI4OTg5MDUsLTE0NzgzOTUxNjAsLTIwMTI4
-NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0NT
-Q3XX0=
+eyJoaXN0b3J5IjpbLTExMTczMDEwMzAsNjcwNDAwNzMwLC0xND
+M2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0Nzgz
+OTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMj
+MzLC0xMzM0OTA0NTQ3XX0=
 -->
