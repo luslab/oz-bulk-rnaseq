@@ -6,7 +6,30 @@
 [https://pachterlab.github.io/kallisto/manual](https://pachterlab.github.io/kallisto/manual)
 [https://www.kallistobus.tools/getting_started_explained.html](https://www.kallistobus.tools/getting_started_explained.html)
 
+Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
+
 [Kallisto](https://pachterlab.github.io/kallisto/)  extracts **both gene and transcript level** gene expression directly from fastq files using the raw fastq files. Results can be analysed with  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) for transcript level analysis or with DESeq2 (via tximport). 
+
+[Kallisto](https://www.youtube.com/watch?v=94wphB3GKBM) quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
+
+Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript. These use a **deBruikin graph** to assign reads to an isoform if they are compatible with that transcript structure.
+![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
+
+Schema of a simple deBruijn graph-based transcript assembly:
+- Read sequences are split into all subsequence k-mers (here: of length 5) from the reads.
+- A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases).
+- The transcripts are assembled by traversing the two paths in the graph
+
+Although much faster than alignment-counting routines it **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/)).
+
+The main limitations to assigning reads to transcripts are:
+- annotation transcripts are inconsistent
+- many isoforms with very different lengths
+- anti-sense and overlapping transcripts of different genes
+
+**Tools**:
+Sailfish and more updated version Salmon
+[Kallisto](https://www.nature.com/articles/nbt.3519)
 
 
 ##  Kallisto index
@@ -115,50 +138,13 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 
 
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
-g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
-LTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
-EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
-ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
-ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
-NjMyNDNdfQ==
--->
-
-
-
-
-
-
-
 
 **SVD (singular value decomposition) analysis**
 
--   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
-# Rapid Approach: Kallisto - Sleuth pipeline
-Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
+# Kallisto - Sleuth pipeline
 
-[Kallisto](https://www.youtube.com/watch?v=94wphB3GKBM) quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
-
-Method of pseudoalignment: for each read the program aims to identify the target that it originates from using k-mers. By ignoring exactly where in the genome a read originates from it is much faster than normal alignment. This approach does not generate a BAM file (alignment file) but instead produce a measure of how many reads indicate the presence of each transcript. These use a **deBruikin graph** to assign reads to an isoform if they are compatible with that transcript structure.
-![enter image description here](https://www.frontiersin.org/files/Articles/169488/fgene-06-00361-r2/image_m/fgene-06-00361-g002.jpg)
-
-Schema of a simple deBruijn graph-based transcript assembly:
-- Read sequences are split into all subsequence k-mers (here: of length 5) from the reads.
-- A deBruijn graph is constructed using unique k-mers as the nodes and overlapping k-mers connected by edges (a k-mer shifted by one base overlaps another k-mer by k􀀀1 bases).
-- The transcripts are assembled by traversing the two paths in the graph
-
-Although much faster than alignment-counting routines it **cant detect novel isoforms**. However, instead of direct isoform quantification, you can glean more accurate answers from alternative approaches, e.g., quantification of exons (Anders et al., 2012) or estimates of alternative splicing events such as exon skipping, intron retention etc. (e.g., MISO [Katz et al., 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3037023/), rMATS [Shen et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4280593/)).
-
-The main limitations to assigning reads to transcripts are:
-- annotation transcripts are inconsistent
-- many isoforms with very different lengths
-- anti-sense and overlapping transcripts of different genes
-
-**Tools**:
-Sailfish and more updated version Salmon
-[Kallisto](https://www.nature.com/articles/nbt.3519)
 
 ## Kallisto Workflow
 ml kallisto
@@ -362,7 +348,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NzA2NzAyNCwtMTkwODk1OTA4MCw3OT
+eyJoaXN0b3J5IjpbLTY2NTQ3MjgxOCwtMTkwODk1OTA4MCw3OT
 Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
 LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
 -->
