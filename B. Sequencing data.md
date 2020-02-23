@@ -144,7 +144,7 @@ isolate single-end reads: `cat sequencing_data.csv | cut -f 1,16 -d , | grep SRR
 
 ### Accession numbers
 
-1. Ctrl & F in manuscript PDF to find unique ID accession numbers. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
+1. Ctrl & F in manuscript PDF to find unique ID accession numbers - GEO, SRA. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
 2. For `GSE****` accession numbers go to: https://www.ncbi.nlm.nih.gov/geo/ and search the `GSE****` ID
 3. On the [GEO Accession Display](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98290) page click the BioProject or BioSample ID under Relations `PRJNA****`
 	- NCBI BioProjects accession IDs start with `PRJNA****`
@@ -304,7 +304,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1Mjg5ODkwNSwtMTQ3ODM5NTE2MCwtMj
-AxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5
-MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbODU0MzY0NDczLDEwNTI4OTg5MDUsLTE0Nz
+gzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEy
+MjMzLC0xMzM0OTA0NTQ3XX0=
 -->
