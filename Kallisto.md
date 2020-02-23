@@ -143,11 +143,7 @@ sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
-# Kallisto - Sleuth pipeline
-
-
 ## Kallisto Workflow
-ml kallisto
 
 Two steps:
 1. Build Index (10mins to run)
@@ -348,7 +344,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NTQ3MjgxOCwtMTkwODk1OTA4MCw3OT
-Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
-LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
+eyJoaXN0b3J5IjpbLTE3MjQ3NDE0NjgsLTE5MDg5NTkwODAsNz
+k2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1NjgxODg2
+NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJdfQ==
 -->
