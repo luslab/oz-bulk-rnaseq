@@ -760,8 +760,10 @@ SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fas
 
 for READ in $SAMPLE;
 do
-OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$SAMPLE
-echo "Running $SAMPLE"
+ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
+OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
+echo "Running $ID"
+echo "Running $OUT"
 done
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -i $INDEX -o $OUT $READ"
@@ -812,7 +814,7 @@ NjMyNDNdfQ==
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NjIzMjQxNiwxNDk5OTEzMzI1LDE4NT
-ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
-ODRdfQ==
+eyJoaXN0b3J5IjpbODExNjQ5MTIzLDE0OTk5MTMzMjUsMTg1MT
+EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
+NF19
 -->
