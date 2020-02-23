@@ -690,6 +690,7 @@ SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted
 
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
 
+OUT=/camp/home/ziffo/working/oliver/projects/airals/alignment/D21_samples/kallisto
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
 
 for READ in $SAMPLE;
@@ -771,7 +772,7 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1MDQ5NDA5MCwxNDk5OTEzMzI1LDE4NT
-ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
-ODRdfQ==
+eyJoaXN0b3J5IjpbODQzNzE1MDk0LDE0OTk5MTMzMjUsMTg1MT
+EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
+NF19
 -->
