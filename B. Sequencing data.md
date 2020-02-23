@@ -175,11 +175,11 @@ prefetch SRR****
 Now convert to fastq with `fastq-dump`. In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type:
 ```bash
 ml SRA-Toolkit
-OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-corelation/reads/
+OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/reads
 fastq-dump --outdir $OUT SRR4242150
 
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -v SRR4242150"
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242151"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump $OUT SRR4242151"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242152"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242153"
 sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242154"
@@ -312,7 +312,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjU3MzU5OTUsMTA1Mjg5ODkwNSwtMT
-Q3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0
-MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbMTYyMDMxNjM2LDEwNTI4OTg5MDUsLTE0Nz
+gzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEy
+MjMzLC0xMzM0OTA0NTQ3XX0=
 -->
