@@ -123,29 +123,15 @@ OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
-
-for READ in $SAMPLE;
-do
-ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=/camp/home/ziffo/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
-echo "Running $ID"
-done
 ```
 
 ### D7 Airals kallisto
 
 Run multiple fastq files at once
 ```bash
-# Create output folder
-mkdir -p kallisto
-
-# Exit this script on any error.
-set -euo pipefail
-
 # Set Reference transcriptome (not genome).
 REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-# Set index to build
+# Set index
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 
 for SAMPLE in VCP CTRL;
@@ -310,9 +296,9 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NjkyNjQxNiw4Nzk3MDcwNDQsODc5Nz
-A3MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3NDE0NjgsLTE5MDg5NTkw
-ODAsNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1Nj
-gxODg2NCwtMTU3Mjk3NDkwNiwxNTMzNDEwNDE4LDYzMTY2MjJd
-fQ==
+eyJoaXN0b3J5IjpbLTE2MjYyODE3NDksODc5NzA3MDQ0LDg3OT
+cwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4OTU5
+MDgwLDc5NjUyMTIyLC00NDY1NjYxMDYsMTcwNzEyODAyMyw3NT
+Y4MTg4NjQsLTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIy
+XX0=
 -->
