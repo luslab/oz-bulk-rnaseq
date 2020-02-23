@@ -169,7 +169,7 @@ ml SRA-Toolkit
 cd ~/working/oliver/projects/airals/reads/ # ensure you are in the read directory
 OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-correlation/reads
 prefetch SRR**** 
-sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -O $OUT SRR4242150"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -O $OUT SRR4242152"
 ```
 
 ## fastq-dump
@@ -315,7 +315,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTI4MjE2ODksMTA1Mjg5ODkwNSwtMT
-Q3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0
-MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbMTkyMzM3MTMzNywtMTQ1MjgyMTY4OSwxMD
+UyODk4OTA1LC0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTky
+MDk0NTcsMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
 -->
