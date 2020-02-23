@@ -5,6 +5,151 @@
 
 [Kallisto](https://pachterlab.github.io/kallisto/)   is a user-friendly algo which extract both gene and transcript level gene expression directly from fastq files using the raw fastq files. Then use  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) to perform differential gene and transcript expression analysis.
 
+# Kallisto
+[https://pachterlab.github.io/kallisto/manual](https://pachterlab.github.io/kallisto/manual)
+[https://www.kallistobus.tools/getting_started_explained.html](https://www.kallistobus.tools/getting_started_explained.html)
+
+## file names
+
+### Create bash script to change file names:
+create 2 text files: list of old_names & list of new_names
+combine into 1 text file in 2 columns
+```bash
+paste old_names.txt new_names.txt > rename.txt
+paste oldnames.txt newnames.txt | column -s $'\t' -t > rename.txt
+sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
+```
+start file with: `#!/bin/bash`
+each line is a new `mv` command
+save text file on CAMP but with ending as `.sh`
+run script: `bash rename.sh`
+
+##  index
+
+Build index from FASTA:
+/camp/home/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+```bash
+kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+```
+Or can download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
+This is the v96 ensembl file: 
+/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens.tar
+
+
+##  quant
+
+To do:
+1. sort * wildcard names: SAMPLE, FASTQ
+2. grep sample names ID
+
+```bash
+ml kallisto
+source activate rtest
+# set sample folders
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
+
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx 
+
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
+
+for READ in $SAMPLE;
+do
+CELLLINE=`echo $READ | grep -E -o 'CTRL1|CTRL3|CTRL4|CTRL5|GLIA|GLIB|CBID|CBIE'`
+DAY=`echo $READ | grep -E -o 'D[0-7]+'`
+FRACTION=`echo $READ | grep -E -o 'nuclear|cytoplasmic'`
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/$CELLLINE_$DAY_$FRACTION
+
+echo "Running $CELLLINE $DAY $FRACTION"
+done
+	for CELLLINE in $READ
+done
+
+$READ/*Aligned.sortedByCoord.out.bam
+echo "Running timepoint $READ"
+	for REPLICATE in $FASTQ
+	do
+	ID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $REPLICATE > $READ/${ID}"
+	echo "Running sample $ID"
+	done
+done
+
+
+# set timepoint folders
+TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
+
+for SAMPLE in $TIMEPOINT;
+do
+BAM=$SAMPLE/*Aligned.sortedByCoord.out.bam
+echo "Running timepoint $SAMPLE"
+	for REPLICATE in $BAM
+	do
+	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
+	sbatch -N 1 -c 8 --mem=40GB --wrap="samtools view -h $REPLICATE > $SAMPLE/${SRRID}.sam"
+	echo "Running sample $SRRID"
+	done
+done
+
+# quant for every sample at each timepoint & fraction (72 total)
+for
+	FASTQ=cytoplasmic.D0.ctrl1
+	sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT $FASTQ"
+
+```
+
+## merge
+
+```bash
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
+IN=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/ID519_A1_CTRL1_iPS-D0-Cyto*
+
+kallisto merge -i $INDEX -o $OUT ID519_A1_CTRL1_iPS-D0-Cyto_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L001 ID519_A1_CTRL1_iPS-D0-Cyto_S1_L002
+
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto merge -o /camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged 
+
+
+ -i /camp/home/ziffo/working/oliver/genomes/index/gencode.v29.transcripts.cdna.fa.idx /home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa"
+
+
+```
+
+# D21 Airals kallisto
+Ran this for correlating whole cell motor neurons with single cell motor neurons
+```bash
+ml kallisto
+cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
+INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx 
+SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed_depleted/*.fastq
+
+for READ in $SAMPLE;
+do
+ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
+OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
+echo "Running $ID"
+done
+```
+
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
+g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
+LTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
+EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
+ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
+ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
+NjMyNDNdfQ==
+-->
+
+
+
+
+
+
+
+
 **SVD (singular value decomposition) analysis**
 
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
@@ -235,7 +380,7 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDg5NTkwODAsNzk2NTIxMjIsLTQ0Nj
-U2NjEwNiwxNzA3MTI4MDIzLDc1NjgxODg2NCwtMTU3Mjk3NDkw
-NiwxNTMzNDEwNDE4LDYzMTY2MjJdfQ==
+eyJoaXN0b3J5IjpbLTUzNTE5NDI5OCwtMTkwODk1OTA4MCw3OT
+Y1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0
+LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNjMxNjYyMl19
 -->
