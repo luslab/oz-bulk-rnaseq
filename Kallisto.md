@@ -108,7 +108,7 @@ This is single unpaired reads. Calculated transcript length from FastQC > MultiQ
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx 
+INDEX=~/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fq.gz
 
 for READ in $SAMPLE;
@@ -344,8 +344,8 @@ You can change the header to include the sample names.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA3MTgxNzM3LC0xNzI0NzQxNDY4LC0xOT
-A4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYxMDYsMTcwNzEyODAy
-Myw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2Mz
-E2NjIyXX0=
+eyJoaXN0b3J5IjpbMTM2Mzk0NjIyOCwtMTcyNDc0MTQ2OCwtMT
+kwODk1OTA4MCw3OTY1MjEyMiwtNDQ2NTY2MTA2LDE3MDcxMjgw
+MjMsNzU2ODE4ODY0LC0xNTcyOTc0OTA2LDE1MzM0MTA0MTgsNj
+MxNjYyMl19
 -->
