@@ -672,6 +672,8 @@ run script: `bash rename.sh`
 ##  index
 
 Download from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
+This is the file:
+
 
 ##  quant
 
@@ -781,7 +783,8 @@ NjMyNDNdfQ==
 -->
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4Njg0NDQwMywtMTMwNjY3OTgxMyw3ND
-M0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNzU0NDg0
-MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbMTQxNTYwNTgyMiwxOTg2ODQ0NDAzLC0xMz
+A2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEzMzI1LDE4NTExMjQ3
+NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIxODRdfQ
+==
 -->
