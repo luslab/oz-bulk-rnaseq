@@ -178,13 +178,13 @@ ml SRA-Toolkit
 OUT=~/working/oliver/projects/single_cell_astrocytes/expression/seurat/astrocyte-corelation/reads/
 fastq-dump --outdir $OUT SRR4242150
 
-sbatch -N 1 -c 1 --mem=32G -t 12:00:00 --wrap="prefetch -v SRR4242150"
-sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump -X 5 -Z SRR4242151"
-sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242152"
-sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242153"
-sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242154"
-sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242155"
-sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242156"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="prefetch -v SRR4242150"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242151"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242152"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242153"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242154"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrapp="fastq-dump SRR4242155"
+sbatch -N 1 -c 1 --mem=40G -t 12:00:00 --wrap="fastq-dump SRR4242156"
 
 ```
 Generates `SRR1553607.fastq` file
@@ -312,7 +312,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODYzMTI3NjczLDEwNTI4OTg5MDUsLTE0Nz
-gzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEy
-MjMzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTEwNjU3MzU5OTUsMTA1Mjg5ODkwNSwtMT
+Q3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0
+MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
 -->
