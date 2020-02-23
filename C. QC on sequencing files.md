@@ -183,8 +183,9 @@ multiqc . # run multiqc
 ```
 open file `multiqc_report.html` via Finder.
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
+Note the read lengths.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzOTc3NzIyLC0xOTg0NzY0NjU2LC0yMT
+eyJoaXN0b3J5IjpbMjIxMzg5ODUwLC0xOTg0NzY0NjU2LC0yMT
 I4NTY4NDc4LC0zNzE5NzMzOTgsLTEyNTg3MjEwNyw0MTgyNzEx
 MTIsMTYwNzI3MjQxMCwtMTAyOTE3Mjc1NywtMTYyNTM1NDkyNS
 w3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4MjY0LC0xODgw
