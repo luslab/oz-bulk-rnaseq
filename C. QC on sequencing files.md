@@ -177,14 +177,14 @@ FastQC error correction programs correct or remove reads that appear to have err
 Re run MultiQC on these processed reads: 
 go to the `trimmed_fastqc_results` folder
 run: `multiqc .`
-   
+   displa
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTEyODI3MzYsLTIxMjg1Njg0NzgsLT
-M3MTk3MzM5OCwtMTI1ODcyMTA3LDQxODI3MTExMiwxNjA3Mjcy
-NDEwLC0xMDI5MTcyNzU3LC0xNjI1MzU0OTI1LDcyMzY4MjYwNy
-wtNjI1Mzg2NDgyLDE4NzExNDgyNjQsLTE4ODAzODAyNiwtNTU0
-MzA1NzcyLDE5MTA4NzcyNjEsLTQ4NDU1Njg2NSwtMTA4Mzc3MC
-wtMTExNDcwMjg3LDkwOTcxMzc0Niw3MjA3MDM5ODQsLTE0NzA0
-MTMxMzldfQ==
+eyJoaXN0b3J5IjpbMTc3OTU5Mzk5LC0yMTI4NTY4NDc4LC0zNz
+E5NzMzOTgsLTEyNTg3MjEwNyw0MTgyNzExMTIsMTYwNzI3MjQx
+MCwtMTAyOTE3Mjc1NywtMTYyNTM1NDkyNSw3MjM2ODI2MDcsLT
+YyNTM4NjQ4MiwxODcxMTQ4MjY0LC0xODgwMzgwMjYsLTU1NDMw
+NTc3MiwxOTEwODc3MjYxLC00ODQ1NTY4NjUsLTEwODM3NzAsLT
+ExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNzAzOTg0LC0xNDcwNDEz
+MTM5XX0=
 -->
