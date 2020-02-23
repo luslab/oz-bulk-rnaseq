@@ -686,6 +686,7 @@ SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
 
 SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/${SAMPLE}.fq
+SAMPLE=~/working/oliver/projects/airals/fastq_files/D21_samples/trimmed_depleted/SRR*.fastq
 
 
 
@@ -774,6 +775,7 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNz
-U0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbODI2NDYwNTMwLDE0OTk5MTMzMjUsMTg1MT
+EyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4
+NF19
 -->
