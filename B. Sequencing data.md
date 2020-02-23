@@ -141,7 +141,7 @@ isolate single-end reads: `cat sequencing_data.csv | cut -f 1,16 -d , | grep SRR
 
 
 ## Downloading from Sequence Database Repositories
-
+ml SRA-Toolkit
 ### Accession numbers
 
 1. Ctrl & F in manuscript PDF to find unique ID accession numbers - GEO, SRA. Summarised [here](https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data/).
@@ -150,7 +150,7 @@ isolate single-end reads: `cat sequencing_data.csv | cut -f 1,16 -d , | grep SRR
 	- NCBI BioProjects accession IDs start with `PRJNA****`
 	- NCBI BioSample start with `SAMN****` and `SRS****`. They describe biological source material
 4. On the [BioProject page](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA384592) click on SRA Experiments links under Project Data
-   -  `esearch`  the BioProject number: `esearch -db sra -query PRJNA******` . The reveals how many sequencing runs there are for the project ID.
+   -  `esearch`  the BioProject number: `esearch -db sra -query PRJNA******` . This shows how many sequencing runs there are for the project ID.
    - Format the output as a RunInfo.csv format: `esearch -db sra -query PRJNA****** | efetch -format runinfo > info.csv`
    - To see SRR IDs, head the first column: `cat info.csv | cut -f 1 -d ',' | head`
 	- Filter for `SRR` & store the first 10 IDs: `cat info.csv | cut -f 1 -d ',' | grep SRR | head > ids.txt`
@@ -168,6 +168,8 @@ Now that we have the accessions, we can get the sequence files in fastq format u
 
 In terminal download each of the `SRR****` IDs in the txt file using the [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc) tool `fastq-dump` - this converts the SRA sequences to a FASTQ file.  In command line type:
 ```bash
+ml SRA-Toolkit
+
 fastq-dump SRR1553607
 
 sbatch -N 1 -c 1 --mem 32 --wrap="fastq-dump SRR4242150"
@@ -304,7 +306,7 @@ each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU0MzY0NDczLDEwNTI4OTg5MDUsLTE0Nz
-gzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEy
-MjMzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTE1MTM5MzE0NTgsMTA1Mjg5ODkwNSwtMT
+Q3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0
+MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
 -->
