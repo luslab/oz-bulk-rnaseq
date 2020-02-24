@@ -113,7 +113,7 @@ This is single unpaired reads. Calculated transcript length from FastQC > MultiQ
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
-INDEX=~/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
+INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fq.gz
 
 for READ in $SAMPLE;
@@ -296,9 +296,9 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjYyODE3NDksODc5NzA3MDQ0LDg3OT
-cwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4OTU5
-MDgwLDc5NjUyMTIyLC00NDY1NjYxMDYsMTcwNzEyODAyMyw3NT
-Y4MTg4NjQsLTE1NzI5NzQ5MDYsMTUzMzQxMDQxOCw2MzE2NjIy
-XX0=
+eyJoaXN0b3J5IjpbLTE0Njc0OTY5MzYsLTE2MjYyODE3NDksOD
+c5NzA3MDQ0LDg3OTcwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0NzQx
+NDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1NjYxMDYsMT
+cwNzEyODAyMyw3NTY4MTg4NjQsLTE1NzI5NzQ5MDYsMTUzMzQx
+MDQxOCw2MzE2NjIyXX0=
 -->
