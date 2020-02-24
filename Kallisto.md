@@ -62,9 +62,25 @@ OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallis
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
 ```
 
-Run multiple at once:
+Run multiple at once by creating a bash script with each quant command listed. Run bash script with `bash rename.sh`
 ```bash
+#!/bin/bash
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
 
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/CTRL1_D0_cytoplasmic
+sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL3_D0_cytoplasmic*.fastq.gz
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/CTRL3_D0_cytoplasmic
+sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL4_D0_cytoplasmic*.fastq.gz
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/CTRL4_D0_cytoplasmic
+sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+```
+Or run as a for loop
+```bash
 for READ in $SAMPLE;
 do
 CELLLINE=`echo $READ | grep -E -o 'CTRL1|CTRL3|CTRL4|CTRL5|GLIA|GLIB|CBID|CBIE'`
@@ -332,11 +348,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTE5NTMxNDksNjUxODI5NjE4LC0xNz
-M4MTk4NDc3LDM4Mjc4NTk4NSwtODM0NzEzNzU1LDU2NDAwOTQ1
-OSwxMDQ0OTYwMDIzLDE1NTA3MDAwNTQsNTY2NzM5MzI4LC0xMj
-Y3Mjg1MjI1LDEyMzc1NDA2MDksLTE3NDg3MTY3MDUsLTE0Njc0
-OTY5MzYsLTE2MjYyODE3NDksODc5NzA3MDQ0LDg3OTcwNzA0NC
-wxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4OTU5MDgwLDc5
-NjUyMTIyXX0=
+eyJoaXN0b3J5IjpbLTY3MDk4MDU5MSw2NTE4Mjk2MTgsLTE3Mz
+gxOTg0NzcsMzgyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MDA5NDU5
+LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgsLTEyNj
+cyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMTQ2NzQ5
+NjkzNiwtMTYyNjI4MTc0OSw4Nzk3MDcwNDQsODc5NzA3MDQ0LD
+EzNjM5NDYyMjgsLTE3MjQ3NDE0NjgsLTE5MDg5NTkwODAsNzk2
+NTIxMjJdfQ==
 -->
