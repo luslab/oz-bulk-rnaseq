@@ -321,9 +321,32 @@ start file with: `#!/bin/bash`
 each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
+
+
+```
+#!/bin/bash
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R1.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R1.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R2.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R2.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L001_R1_001.fastq.gz              CTRL1_D22_nuclear_run2_lane1_R1.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L001_R2_001.fastq.gz              CTRL1_D22_nuclear_run2_lane1_R2.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L002_R1_001.fastq.gz              CTRL1_D22_nuclear_run2_lane2_R1.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L002_R2_001.fastq.gz              CTRL1_D22_nuclear_run2_lane2_R2.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_L001_R1.fastq.gz          CTRL1_D35_cytoplasmic_run1_lane1_R1.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_L001_R2.fastq.gz          CTRL1_D35_cytoplasmic_run1_lane1_R2.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001_R1_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane1_R1.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001_R2_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane1_R2.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002_R1_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane2_R1.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002_R2_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane2_R2.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_L001_R1.fastq.gz           CTRL1_D35_nuclear_run1_lane1_R1.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_L001_R2.fastq.gz           CTRL1_D35_nuclear_run1_lane1_R2.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane1_R1.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane1_R2.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R1.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzIwMzM0NzMsLTExMTczMDEwMzAsNj
-cwNDAwNzMwLC0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4
-OTg5MDUsLTE0NzgzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOT
-Q1NywxNjY2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbOTQwOTE1MDU2LC0xMTE3MzAxMDMwLDY3MD
+QwMDczMCwtMTQzNjU5NjkwMSwtMTQ1MjgyMTY4OSwxMDUyODk4
+OTA1LC0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NT
+csMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
 -->
