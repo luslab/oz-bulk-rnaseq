@@ -120,7 +120,7 @@ for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -135,7 +135,7 @@ for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 --wrap="kallisto quant --single -l 150 -s 5 -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 150 -s 5 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -150,7 +150,7 @@ for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -326,11 +326,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MD
-A5NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgs
-LTEyNjcyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMT
-Q2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4Nzk3MDcwNDQsODc5NzA3
-MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3NDE0NjgsLTE5MDg5NTkwOD
-AsNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3MTI4MDIzLDc1Njgx
-ODg2NF19
+eyJoaXN0b3J5IjpbLTE3MzgxOTg0NzcsMzgyNzg1OTg1LC04Mz
+Q3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1
+NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMTIzNzU0MDYwOSwtMT
+c0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4Nzk3
+MDcwNDQsODc5NzA3MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3NDE0Nj
+gsLTE5MDg5NTkwODAsNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3
+MTI4MDIzXX0=
 -->
