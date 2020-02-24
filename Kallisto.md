@@ -129,13 +129,13 @@ done
 ml kallisto
 cd ~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto
 INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
-SAMPLE=~/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/*.fq.gz
+SAMPLE=~/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/*.fastq
 
 for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 --wrap="kallisto quant -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=50G --wrap="kallisto quant -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -311,10 +311,10 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTU5NDMzMywtMTI2NzI4NTIyNSwxMj
-M3NTQwNjA5LC0xNzQ4NzE2NzA1LC0xNDY3NDk2OTM2LC0xNjI2
-MjgxNzQ5LDg3OTcwNzA0NCw4Nzk3MDcwNDQsMTM2Mzk0NjIyOC
-wtMTcyNDc0MTQ2OCwtMTkwODk1OTA4MCw3OTY1MjEyMiwtNDQ2
-NTY2MTA2LDE3MDcxMjgwMjMsNzU2ODE4ODY0LC0xNTcyOTc0OT
-A2LDE1MzM0MTA0MTgsNjMxNjYyMl19
+eyJoaXN0b3J5IjpbNTY2NzM5MzI4LC0xMjY3Mjg1MjI1LDEyMz
+c1NDA2MDksLTE3NDg3MTY3MDUsLTE0Njc0OTY5MzYsLTE2MjYy
+ODE3NDksODc5NzA3MDQ0LDg3OTcwNzA0NCwxMzYzOTQ2MjI4LC
+0xNzI0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1
+NjYxMDYsMTcwNzEyODAyMyw3NTY4MTg4NjQsLTE1NzI5NzQ5MD
+YsMTUzMzQxMDQxOCw2MzE2NjIyXX0=
 -->
