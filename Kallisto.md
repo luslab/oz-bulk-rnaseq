@@ -55,13 +55,15 @@ Or can download prebuilt ensemble reference transcriptome reference from [https:
 ```bash
 ml kallisto
 source activate rtest
-# set sample folders
-SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # sample folder 
-SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL_D0_cytoplasmic*.fastq.gz # sample folder 
-
+SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # 
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx 
+OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $SAMPLE" > $READ/${ID}"
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+```
+
+Run multiple at once:
+```bash
 
 for READ in $SAMPLE;
 do
@@ -330,11 +332,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUxODI5NjE4LC0xNzM4MTk4NDc3LDM4Mj
-c4NTk4NSwtODM0NzEzNzU1LDU2NDAwOTQ1OSwxMDQ0OTYwMDIz
-LDE1NTA3MDAwNTQsNTY2NzM5MzI4LC0xMjY3Mjg1MjI1LDEyMz
-c1NDA2MDksLTE3NDg3MTY3MDUsLTE0Njc0OTY5MzYsLTE2MjYy
-ODE3NDksODc5NzA3MDQ0LDg3OTcwNzA0NCwxMzYzOTQ2MjI4LC
-0xNzI0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1
-NjYxMDZdfQ==
+eyJoaXN0b3J5IjpbLTEwOTE5NTMxNDksNjUxODI5NjE4LC0xNz
+M4MTk4NDc3LDM4Mjc4NTk4NSwtODM0NzEzNzU1LDU2NDAwOTQ1
+OSwxMDQ0OTYwMDIzLDE1NTA3MDAwNTQsNTY2NzM5MzI4LC0xMj
+Y3Mjg1MjI1LDEyMzc1NDA2MDksLTE3NDg3MTY3MDUsLTE0Njc0
+OTY5MzYsLTE2MjYyODE3NDksODc5NzA3MDQ0LDg3OTcwNzA0NC
+wxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4OTU5MDgwLDc5
+NjUyMTIyXX0=
 -->
