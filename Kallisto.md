@@ -125,36 +125,6 @@ echo "Running $ID"
 done
 ```
 
-```bash
-ml kallisto
-cd ~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
-SAMPLE=~/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/*.fastq
-
-for READ in $SAMPLE;
-do
-ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 150 -s 5 -i $INDEX -o $OUT $READ"
-echo "Running $ID"
-done
-```
-
-```bash
-ml kallisto
-cd ~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
-SAMPLE=~/working/oliver/public/astrocyte-ipsc-windrem-2018/reads/*.fastq
-
-for READ in $SAMPLE;
-do
-ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
-OUT=~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
-echo "Running $ID"
-done
-```
-
 ### D7 Airals kallisto
 
 Run multiple fastq files at once
@@ -181,6 +151,40 @@ do
     done
 done
 ```
+
+
+### Clarke et al 2018 PNAS public data kallisto
+```bash
+ml kallisto
+cd ~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto
+INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
+SAMPLE=~/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/*.fastq
+
+for READ in $SAMPLE;
+do
+ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
+OUT=~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto/$ID
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 150 -s 5 -i $INDEX -o $OUT $READ"
+echo "Running $ID"
+done
+```
+### Windrem et al 2018 public astrocyte iPSC kallisto
+```bash
+ml kallisto
+cd ~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto
+INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
+SAMPLE=~/working/oliver/public/astrocyte-ipsc-windrem-2018/reads/*.fastq
+
+for READ in $SAMPLE;
+do
+ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
+OUT=~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto/$ID
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
+echo "Running $ID"
+done
+```
+
+
 
 ## Kallisto merge
 
@@ -326,11 +330,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzgxOTg0NzcsMzgyNzg1OTg1LC04Mz
-Q3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1
-NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMTIzNzU0MDYwOSwtMT
-c0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4Nzk3
-MDcwNDQsODc5NzA3MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3NDE0Nj
-gsLTE5MDg5NTkwODAsNzk2NTIxMjIsLTQ0NjU2NjEwNiwxNzA3
-MTI4MDIzXX0=
+eyJoaXN0b3J5IjpbNjUxODI5NjE4LC0xNzM4MTk4NDc3LDM4Mj
+c4NTk4NSwtODM0NzEzNzU1LDU2NDAwOTQ1OSwxMDQ0OTYwMDIz
+LDE1NTA3MDAwNTQsNTY2NzM5MzI4LC0xMjY3Mjg1MjI1LDEyMz
+c1NDA2MDksLTE3NDg3MTY3MDUsLTE0Njc0OTY5MzYsLTE2MjYy
+ODE3NDksODc5NzA3MDQ0LDg3OTcwNzA0NCwxMzYzOTQ2MjI4LC
+0xNzI0NzQxNDY4LC0xOTA4OTU5MDgwLDc5NjUyMTIyLC00NDY1
+NjYxMDZdfQ==
 -->
