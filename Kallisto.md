@@ -44,8 +44,9 @@ Build index from FASTA:
 ```bash
 kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
 ```
-Index is available at:
-`/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
+Kallisto index's are available at:
+`/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`.
+`/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download fr
 
 Or can download prebuilt ensemble reference transcriptome reference from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx`
 
@@ -147,9 +148,7 @@ done
 
 Run multiple fastq files at once
 ```bash
-# Set Reference transcriptome (not genome).
-REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
-# Set index
+Set index
 IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
 
 for SAMPLE in VCP CTRL;
@@ -348,11 +347,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc2NTU0NzA1LC02NzA5ODA1OTEsNjUxOD
-I5NjE4LC0xNzM4MTk4NDc3LDM4Mjc4NTk4NSwtODM0NzEzNzU1
-LDU2NDAwOTQ1OSwxMDQ0OTYwMDIzLDE1NTA3MDAwNTQsNTY2Nz
-M5MzI4LC0xMjY3Mjg1MjI1LDEyMzc1NDA2MDksLTE3NDg3MTY3
-MDUsLTE0Njc0OTY5MzYsLTE2MjYyODE3NDksODc5NzA3MDQ0LD
-g3OTcwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4
-OTU5MDgwXX0=
+eyJoaXN0b3J5IjpbMTQ2NDk3MTY5OCwtNjcwOTgwNTkxLDY1MT
+gyOTYxOCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1
+NSw1NjQwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2Nj
+czOTMyOCwtMTI2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4NzE2
+NzA1LC0xNDY3NDk2OTM2LC0xNjI2MjgxNzQ5LDg3OTcwNzA0NC
+w4Nzk3MDcwNDQsMTM2Mzk0NjIyOCwtMTcyNDc0MTQ2OCwtMTkw
+ODk1OTA4MF19
 -->
