@@ -47,7 +47,7 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 Kallisto index's are available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download from kallisto website - ensembl v96
-`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses cellranger fasta file as the reference genome. NB inde takes >12 hours to run kallisto quant
+`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses cellranger fasta file as the reference genome. NB index takes >12 hours to run kallisto quant
 
 Or can download prebuilt ensemble reference transcriptome reference from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx`
 
@@ -133,7 +133,7 @@ This is single unpaired reads. Calculated transcript length from FastQC > MultiQ
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fq.gz
 
 for READ in $SAMPLE;
@@ -175,7 +175,7 @@ done
 ```bash
 ml kallisto
 cd ~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
 SAMPLE=~/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/*.fastq
 
 for READ in $SAMPLE;
@@ -190,7 +190,7 @@ done
 ```bash
 ml kallisto
 cd ~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto
-INDEX=~/working/oliver/genomes/index/kallisto_gencode.v29.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
 SAMPLE=~/working/oliver/public/astrocyte-ipsc-windrem-2018/reads/*.fastq
 
 for READ in $SAMPLE;
@@ -348,11 +348,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzNzk0ODI2NSwtNjcwOTgwNTkxLDY1MT
-gyOTYxOCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1
-NSw1NjQwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2Nj
-czOTMyOCwtMTI2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4NzE2
-NzA1LC0xNDY3NDk2OTM2LC0xNjI2MjgxNzQ5LDg3OTcwNzA0NC
-w4Nzk3MDcwNDQsMTM2Mzk0NjIyOCwtMTcyNDc0MTQ2OCwtMTkw
-ODk1OTA4MF19
+eyJoaXN0b3J5IjpbMzkzOTYzOTIxLC02NzA5ODA1OTEsNjUxOD
+I5NjE4LC0xNzM4MTk4NDc3LDM4Mjc4NTk4NSwtODM0NzEzNzU1
+LDU2NDAwOTQ1OSwxMDQ0OTYwMDIzLDE1NTA3MDAwNTQsNTY2Nz
+M5MzI4LC0xMjY3Mjg1MjI1LDEyMzc1NDA2MDksLTE3NDg3MTY3
+MDUsLTE0Njc0OTY5MzYsLTE2MjYyODE3NDksODc5NzA3MDQ0LD
+g3OTcwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4
+OTU5MDgwXX0=
 -->
