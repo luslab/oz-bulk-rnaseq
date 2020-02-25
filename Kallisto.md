@@ -63,6 +63,8 @@ OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallis
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
 ```
+Kallisto will output a folder for each 
+
 
 Run multiple at once by creating a bash script with each quant command listed. Run bash script with `bash rename.sh`
 ```bash
@@ -348,11 +350,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkzOTYzOTIxLC02NzA5ODA1OTEsNjUxOD
-I5NjE4LC0xNzM4MTk4NDc3LDM4Mjc4NTk4NSwtODM0NzEzNzU1
-LDU2NDAwOTQ1OSwxMDQ0OTYwMDIzLDE1NTA3MDAwNTQsNTY2Nz
-M5MzI4LC0xMjY3Mjg1MjI1LDEyMzc1NDA2MDksLTE3NDg3MTY3
-MDUsLTE0Njc0OTY5MzYsLTE2MjYyODE3NDksODc5NzA3MDQ0LD
-g3OTcwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0NzQxNDY4LC0xOTA4
-OTU5MDgwXX0=
+eyJoaXN0b3J5IjpbLTUwNTM3NDEyMCwzOTM5NjM5MjEsLTY3MD
+k4MDU5MSw2NTE4Mjk2MTgsLTE3MzgxOTg0NzcsMzgyNzg1OTg1
+LC04MzQ3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MD
+cwMDA1NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMTIzNzU0MDYw
+OSwtMTc0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OS
+w4Nzk3MDcwNDQsODc5NzA3MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3
+NDE0NjhdfQ==
 -->
