@@ -63,8 +63,20 @@ OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallis
 
 sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
 ```
-Kallisto will output a folder for each 
-
+Kallisto will output a folder for each quant command. Kallisto will print:
+```bash
+[quant] fragment length distribution is truncated gaussian with mean = 150, sd = 5
+[index] k-mer length: 31
+[index] number of targets: 188,753
+[index] number of k-mers: 109,544,288
+[index] number of equivalence classes: 760,757
+[quant] running in single-end mode
+[quant] will process file 1: /camp/home/ziffo/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/SRR6279025.fastq
+[quant] finding pseudoalignments for the reads ... done
+[quant] processed 27,467,230 reads, 4,239,422 reads pseudoaligned
+[   em] quantifying the abundances ... done
+[   em] the Expectation-Maximization algorithm ran for 1,359 rounds
+```
 
 Run multiple at once by creating a bash script with each quant command listed. Run bash script with `bash rename.sh`
 ```bash
@@ -350,11 +362,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUwNTM3NDEyMCwzOTM5NjM5MjEsLTY3MD
-k4MDU5MSw2NTE4Mjk2MTgsLTE3MzgxOTg0NzcsMzgyNzg1OTg1
-LC04MzQ3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MD
-cwMDA1NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMTIzNzU0MDYw
-OSwtMTc0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OS
-w4Nzk3MDcwNDQsODc5NzA3MDQ0LDEzNjM5NDYyMjgsLTE3MjQ3
-NDE0NjhdfQ==
+eyJoaXN0b3J5IjpbLTE3ODgxNjU5MjcsMzkzOTYzOTIxLC02Nz
+A5ODA1OTEsNjUxODI5NjE4LC0xNzM4MTk4NDc3LDM4Mjc4NTk4
+NSwtODM0NzEzNzU1LDU2NDAwOTQ1OSwxMDQ0OTYwMDIzLDE1NT
+A3MDAwNTQsNTY2NzM5MzI4LC0xMjY3Mjg1MjI1LDEyMzc1NDA2
+MDksLTE3NDg3MTY3MDUsLTE0Njc0OTY5MzYsLTE2MjYyODE3ND
+ksODc5NzA3MDQ0LDg3OTcwNzA0NCwxMzYzOTQ2MjI4LC0xNzI0
+NzQxNDY4XX0=
 -->
