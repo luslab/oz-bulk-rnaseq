@@ -47,7 +47,8 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 Kallisto index's are available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download from kallisto website - ensembl v96
-`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses cellranger fasta file as the reference genome. NB this index taking >12 hours to run kallisto quant
+`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses cellranger fasta file as the reference genome `/camp/svc/reference/Genomics/10x/10x_transcriptomes/refdata-cellranger-GRCh38-3.0.0`
+ NB this index taking >12 hours to run kallisto quant
 
 Or can download prebuilt ensemble reference transcriptome reference from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx`
 
@@ -362,11 +363,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNzA0NDE2MiwtOTI0MTM4MDI5LC0xNz
-g4MTY1OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLDY1MTgyOTYx
-OCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1NSw1Nj
-QwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2NjczOTMy
-OCwtMTI2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4NzE2NzA1LC
-0xNDY3NDk2OTM2LC0xNjI2MjgxNzQ5LDg3OTcwNzA0NCw4Nzk3
-MDcwNDRdfQ==
+eyJoaXN0b3J5IjpbLTE5NTg5NjU1OTIsLTkyNDEzODAyOSwtMT
+c4ODE2NTkyNywzOTM5NjM5MjEsLTY3MDk4MDU5MSw2NTE4Mjk2
+MTgsLTE3MzgxOTg0NzcsMzgyNzg1OTg1LC04MzQ3MTM3NTUsNT
+Y0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3Mzkz
+MjgsLTEyNjcyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNS
+wtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4Nzk3MDcwNDQsODc5
+NzA3MDQ0XX0=
 -->
