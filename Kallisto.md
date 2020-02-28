@@ -143,7 +143,7 @@ for
 
 ### D21 Airals kallisto
 Ran this kallisto quant for correlating whole cell motor neurons with single cell motor neurons.
-This is single unpaired reads, which meeds the read length & SD. Calculated transcript length from FastQC > MultiQC.
+This is single unpaired reads, which **needs the read length & SD**. Calculated transcript length from FastQC > MultiQC report - graph showing Sequence Length Distribution.
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
@@ -362,7 +362,7 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNzUxMjc2OCwtOTI0MTM4MDI5LC0xNz
+eyJoaXN0b3J5IjpbMTEyMTY5NzMzNCwtOTI0MTM4MDI5LC0xNz
 g4MTY1OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLDY1MTgyOTYx
 OCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1NSw1Nj
 QwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2NjczOTMy
