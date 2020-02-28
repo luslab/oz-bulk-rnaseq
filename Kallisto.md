@@ -189,14 +189,14 @@ done
 ```bash
 ml kallisto
 cd ~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
 SAMPLE=~/working/oliver/public/astrocyte-clarke-PNAS-2018/reads/*.fastq
 
 for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/public/astrocyte-clarke-PNAS-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 150 -s 5 -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=0 -t 24:00:00 --wrap="kallisto quant --single -l 150 -s 10 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -204,14 +204,14 @@ done
 ```bash
 ml kallisto
 cd ~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
 SAMPLE=~/working/oliver/public/astrocyte-ipsc-windrem-2018/reads/*.fastq
 
 for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 100 -s 5 -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 100 -s 10 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -362,7 +362,7 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMTY5NzMzNCwtOTI0MTM4MDI5LC0xNz
+eyJoaXN0b3J5IjpbLTY3OTU0MjY1MywtOTI0MTM4MDI5LC0xNz
 g4MTY1OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLDY1MTgyOTYx
 OCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1NSw1Nj
 QwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2NjczOTMy
