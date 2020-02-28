@@ -147,16 +147,14 @@ This is single unpaired reads. Calculated transcript length from FastQC > MultiQ
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/kallisto_cellranger_GRCh38.3.0.0.idx.idx
-
-
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fq.gz
 
 for READ in $SAMPLE;
 do
 ID=`echo $READ | grep -E -o 'SRR[0-9]+'`
 OUT=~/working/oliver/projects/airals/alignment/D21_samples/kallisto/$ID
-sbatch -N 1 -c 8 --mem=0 -t 12:00:00 --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
+sbatch -N 1 -c 8 --mem=0 -t 24:00:00 --wrap="kallisto quant --single -l 60 -s 1 -i $INDEX -o $OUT $READ"
 echo "Running $ID"
 done
 ```
@@ -364,11 +362,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODgzMzA1MTcsLTkyNDEzODAyOSwtMTc4OD
-E2NTkyNywzOTM5NjM5MjEsLTY3MDk4MDU5MSw2NTE4Mjk2MTgs
-LTE3MzgxOTg0NzcsMzgyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MD
-A5NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgs
-LTEyNjcyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMT
-Q2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4Nzk3MDcwNDQsODc5NzA3
-MDQ0XX0=
+eyJoaXN0b3J5IjpbMTIwMjkzNjE5NSwtOTI0MTM4MDI5LC0xNz
+g4MTY1OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLDY1MTgyOTYx
+OCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1NSw1Nj
+QwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2NjczOTMy
+OCwtMTI2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4NzE2NzA1LC
+0xNDY3NDk2OTM2LC0xNjI2MjgxNzQ5LDg3OTcwNzA0NCw4Nzk3
+MDcwNDRdfQ==
 -->
