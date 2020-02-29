@@ -217,8 +217,6 @@ echo "Running $ID"
 done
 ```
 
-
-
 ## Kallisto merge
 
 ```bash
@@ -363,11 +361,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODU4NzU0MTYsLTM2MTk2NDIwMywtMT
-k3MDkyOTIsLTE5NTg5NjU1OTIsLTkyNDEzODAyOSwtMTc4ODE2
-NTkyNywzOTM5NjM5MjEsLTY3MDk4MDU5MSw2NTE4Mjk2MTgsLT
-E3MzgxOTg0NzcsMzgyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MDA5
-NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgsLT
-EyNjcyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMTQ2
-NzQ5NjkzNl19
+eyJoaXN0b3J5IjpbMTQzMjA1Mjg2OCwtMzYxOTY0MjAzLC0xOT
+cwOTI5MiwtMTk1ODk2NTU5MiwtOTI0MTM4MDI5LC0xNzg4MTY1
+OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLDY1MTgyOTYxOCwtMT
+czODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1NSw1NjQwMDk0
+NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2NjczOTMyOCwtMT
+I2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4NzE2NzA1LC0xNDY3
+NDk2OTM2XX0=
 -->
