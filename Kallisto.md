@@ -205,7 +205,7 @@ done
 ```bash
 ml kallisto
 cd ~/working/oliver/public/astrocyte-ipsc-windrem-2018/kallisto
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
 SAMPLE=~/working/oliver/public/astrocyte-ipsc-windrem-2018/reads/*.fastq
 
 for READ in $SAMPLE;
@@ -363,11 +363,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MTk2NDIwMywtMTk3MDkyOTIsLTE5NT
-g5NjU1OTIsLTkyNDEzODAyOSwtMTc4ODE2NTkyNywzOTM5NjM5
-MjEsLTY3MDk4MDU5MSw2NTE4Mjk2MTgsLTE3MzgxOTg0NzcsMz
-gyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAw
-MjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMT
-IzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYy
-NjI4MTc0OV19
+eyJoaXN0b3J5IjpbLTEyODU4NzU0MTYsLTM2MTk2NDIwMywtMT
+k3MDkyOTIsLTE5NTg5NjU1OTIsLTkyNDEzODAyOSwtMTc4ODE2
+NTkyNywzOTM5NjM5MjEsLTY3MDk4MDU5MSw2NTE4Mjk2MTgsLT
+E3MzgxOTg0NzcsMzgyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MDA5
+NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgsLT
+EyNjcyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMTQ2
+NzQ5NjkzNl19
 -->
