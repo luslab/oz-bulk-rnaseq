@@ -46,7 +46,7 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 ```
 Kallisto index's are available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
-`/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download from kallisto website - ensembl v96
+`/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download from kallisto website - ensembl v96 [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses the STP cellranger fasta file as the reference genome from `/camp/svc/reference/Genomics/10x/10x_transcriptomes/refdata-cellranger-GRCh38-3.0.0`
  NB this index taking >12 hours to run kallisto quant
 
@@ -363,11 +363,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzA5MjkyLC0xOTU4OTY1NTkyLC05Mj
-QxMzgwMjksLTE3ODgxNjU5MjcsMzkzOTYzOTIxLC02NzA5ODA1
-OTEsNjUxODI5NjE4LC0xNzM4MTk4NDc3LDM4Mjc4NTk4NSwtOD
-M0NzEzNzU1LDU2NDAwOTQ1OSwxMDQ0OTYwMDIzLDE1NTA3MDAw
-NTQsNTY2NzM5MzI4LC0xMjY3Mjg1MjI1LDEyMzc1NDA2MDksLT
-E3NDg3MTY3MDUsLTE0Njc0OTY5MzYsLTE2MjYyODE3NDksODc5
-NzA3MDQ0XX0=
+eyJoaXN0b3J5IjpbLTM2MTk2NDIwMywtMTk3MDkyOTIsLTE5NT
+g5NjU1OTIsLTkyNDEzODAyOSwtMTc4ODE2NTkyNywzOTM5NjM5
+MjEsLTY3MDk4MDU5MSw2NTE4Mjk2MTgsLTE3MzgxOTg0NzcsMz
+gyNzg1OTg1LC04MzQ3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAw
+MjMsMTU1MDcwMDA1NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMT
+IzNzU0MDYwOSwtMTc0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYy
+NjI4MTc0OV19
 -->
