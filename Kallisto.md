@@ -47,7 +47,7 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 Kallisto index's are available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download from kallisto website - ensembl v96
-`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses cellranger fasta file as the reference genome `/camp/svc/reference/Genomics/10x/10x_transcriptomes/refdata-cellranger-GRCh38-3.0.0`
+`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses the STP cellranger fasta file as the reference genome from `/camp/svc/reference/Genomics/10x/10x_transcriptomes/refdata-cellranger-GRCh38-3.0.0`
  NB this index taking >12 hours to run kallisto quant
 
 Or can download prebuilt ensemble reference transcriptome reference from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx`
@@ -148,7 +148,7 @@ This is single unpaired reads, which **needs the read length & SD**. Calculated 
 ```bash
 ml kallisto
 cd ~/working/oliver/projects/airals/alignment/D21_samples/kallisto
-INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx
+INDEX=/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx
 SAMPLE=~/working/oliver/projects/airals/reads/D21_samples/trimmed/*.fq.gz
 
 for READ in $SAMPLE;
@@ -363,11 +363,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTg5NjU1OTIsLTkyNDEzODAyOSwtMT
-c4ODE2NTkyNywzOTM5NjM5MjEsLTY3MDk4MDU5MSw2NTE4Mjk2
-MTgsLTE3MzgxOTg0NzcsMzgyNzg1OTg1LC04MzQ3MTM3NTUsNT
-Y0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MDcwMDA1NCw1NjY3Mzkz
-MjgsLTEyNjcyODUyMjUsMTIzNzU0MDYwOSwtMTc0ODcxNjcwNS
-wtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4Nzk3MDcwNDQsODc5
-NzA3MDQ0XX0=
+eyJoaXN0b3J5IjpbLTEzOTczNTYwMjUsLTE5NTg5NjU1OTIsLT
+kyNDEzODAyOSwtMTc4ODE2NTkyNywzOTM5NjM5MjEsLTY3MDk4
+MDU5MSw2NTE4Mjk2MTgsLTE3MzgxOTg0NzcsMzgyNzg1OTg1LC
+04MzQ3MTM3NTUsNTY0MDA5NDU5LDEwNDQ5NjAwMjMsMTU1MDcw
+MDA1NCw1NjY3MzkzMjgsLTEyNjcyODUyMjUsMTIzNzU0MDYwOS
+wtMTc0ODcxNjcwNSwtMTQ2NzQ5NjkzNiwtMTYyNjI4MTc0OSw4
+Nzk3MDcwNDRdfQ==
 -->
