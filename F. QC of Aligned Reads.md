@@ -628,6 +628,11 @@ ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002.bam
 ID519_E3_GLIA_D3-Cyto_L002.bam
 ```
 ## Plot allele frequencies in VCF files
+
+Run R script:
+`/camp/home/ziffo/working/oliver/projects/motor-neuron-fractionation-bulk-rnaseq/alignment/vcp_mutation_analysis/Plot_VCF.Rmd`
+
+
 [https://github.com/sndrtj/afplot](https://github.com/sndrtj/afplot)
 
 Use `afplot regions` to plot the single region as a histogram or scatter plot.
@@ -652,11 +657,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDUwMTI1MDQsMjUxMzU2MTAyLC0xNT
-MyNzU5NjgsLTEyNzE4Mjk3MTUsNDkyNDQ1OTQyLDIwMzE2MTgz
-MDksLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNzA3MjIzMTQsLT
-U5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMTk3NywxMTU5
-MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgxOTMyOTM4Ni
-w1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2ODI3MzQsMjA1NTAz
-OTE2NV19
+eyJoaXN0b3J5IjpbLTIwMjA5MTA5MjYsLTE4MDUwMTI1MDQsMj
+UxMzU2MTAyLC0xNTMyNzU5NjgsLTEyNzE4Mjk3MTUsNDkyNDQ1
+OTQyLDIwMzE2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLD
+ExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2
+MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNj
+M3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2
+ODI3MzRdfQ==
 -->
