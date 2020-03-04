@@ -584,6 +584,9 @@ With multiple samples variant call you can either:
 2. Call variants separately on each BAM file and then MERGE the VCFs
 
 Here we stick to the first approach as merging VCFs is error pone.
+
+Run this script:
+VCF_analysis_bcftools
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -657,11 +660,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MjUyNjI5LC0xODA1MDEyNTA0LDI1MT
-M1NjEwMiwtMTUzMjc1OTY4LC0xMjcxODI5NzE1LDQ5MjQ0NTk0
-MiwyMDMxNjE4MzA5LC0xMTUwODI1MDk3LDY4MTkxMTAzMywxMT
-cwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3
-MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNy
-w4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2MjYsMTE0Njgy
-NzM0XX0=
+eyJoaXN0b3J5IjpbLTE0MjgxNjAyNDYsLTQ2MjUyNjI5LC0xOD
+A1MDEyNTA0LDI1MTM1NjEwMiwtMTUzMjc1OTY4LC0xMjcxODI5
+NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC0xMTUwODI1MDk3LD
+Y4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0
+NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0Mz
+QsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2
+NzY2MjZdfQ==
 -->
