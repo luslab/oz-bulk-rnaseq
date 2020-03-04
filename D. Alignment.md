@@ -285,7 +285,7 @@ sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFi
 ```
 
 The above script needs editing for each sequencing file (redundant). 
-To create a script that runs all sequencing files (non-redundant) you can use a for loop or snakemake.
+To create a script that runs all sequencing files (non-redundant) you can use a for loop.
 
 **For Loop**
 
@@ -653,8 +653,8 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Nj
-g0NDQwMywtMTMwNjY3OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMy
-NSwxODUxMTI0NzQ5LDEwNzU0NDg0MTUsMTU3Nzc1MTM2MiwxND
-c5NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1Nj
+A1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5
+LDE0OTk5MTMzMjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nz
+c3NTEzNjIsMTQ3OTc1MjE4NF19
 -->
