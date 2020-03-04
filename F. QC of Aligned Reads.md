@@ -591,45 +591,30 @@ Run this script:
 # setting up environments, including paths
 ml SAMtools
 ml BamTools
-
+R155C=chr9:35065364-35065364
+R191Q=chr9:35065255-35065255
 FASTA=~/working/oliver/genomes/index/UCSC/hg38.fa
 BAM=~/working/oliver/projects/vcp_fractionation/alignment/roi_bam/*.bam
 OUT=~/working/oliver/projects/vcp_fractionation/alignment/vcp_mutation_analysis/bcftools
 
-#################
-# import region of interest BAM files from sango with rsync
-rsync -aP sango-ext:/work/LuscombeU/VCP_nuc_cyto_study/ROI/ .
+   ######### bcftools mpileup > call #########
+   ### run samtools mpileup on all BAM files simultaneous > produce 1 VCF for all samples
+   bcftools mpileup -a FMT/AD -Ovu -r $R155C -f $FASTA $BAM  | bcftools call -vc -Ov > R155C_all_samples.vcf
+   bcftools mpileup -Ovu -r $R191Q -f $FASTA $BAM | bcftools call -vc -Ov > R191Q_all_samples.vcf
+   sbatch -N 1 -c 8 --mem 8G --wrap="bcftools mpileup -Ovu -f $FASTA $BAM | bcftools call -vc -Ov > observed-mutations.vcf"
 
-# remove last two files starting {out} - unclear what these are from
-rm {out}ID519_A1_CTRL1_iPS-D0-Cyto_L001.bam {out}ID519_A1_CTRL1_iPS-D0-Cyto_L001.bam.bai
+   ## extract AD flag (Allele Depth). Transpose to make human readable  (NB incorrect alignment).
+   bcftools query -H -f '%CHROM\t%POS[\t%AD\t]\n' R155C_all_samples.vcf | rowsToCols -varCol stdin stdout > R155C_ADflag
+   bcftools query -H -f '%CHROM\t%POS[\t%AD\t]\n' R191Q_all_samples.vcf | rowsToCols -varCol stdin stdout > R191Q_ADflag
 
-######### samtools mpileup > bcftools view #######
+   ## sync AD column with sample name column in EXCEL. Remove top 2 rows (chr & region) > Ctrl & A select all > Paste into Atom & save as R1*_ADflag (no "" quotations around numbers)
+   ## remove path & AD from sample name column
+   sed -r 's/^(\[[0-9]+\])(\/camp\/home\/ziffo\/working\/oliver\/projects\/vcp_fractionation\/alignment\/roi_bam\/)[A-Z]+[1-9]+\_//' R155C_ADflag | sed 's/\.bam\:AD//' | sed 's/,/  /' | sed '1 i\sample_name  REF ALT' > R155C_ADflag.txt
+   sed -r 's/^(\[[0-9]+\])(\/camp\/home\/ziffo\/working\/oliver\/projects\/vcp_fractionation\/alignment\/roi_bam\/)[A-Z]+[1-9]+\_//' R191Q_ADflag | sed 's/\.bam\:AD//' | sed 's/,/  /' | sed '1 i\sample_name  REF ALT' > R191Q_ADflag.txt
 
-### run as merged samples into 1 VCF
-# R155C loc 35,065,364. GLIA, GLIB, CBID. Mutation G > A (RNA mutation is C > T). https://www.ncbi.nlm.nih.gov/clinvar/variation/8469/
-samtools mpileup -D -S -d 5000 -r chr9:35065364-35065364 -uf $FASTA *.bam | bcftools view > R155Cstatus_all_samples_merged.vcf
-
-# R191Q genomic location = 35,065,255. CB1E. RNA Mutation C > T (DNA mut is G > A). https://www.ncbi.nlm.nih.gov/clinvar/variation/8473/
-samtools mpileup -D -S -d 5000 -r chr9:35065255-35065255 -uf $FASTA *.bam | bcftools view > R191Qstatus_all_samples_merged.vcf
-
-###############
-### Extract info from VCF
-# check genomic location matches file name
-bcftools query -f '%CHROM %POS %REF %ALT\n' R155Cstatus_all_samples_merged.vcf
-bcftools query -f '%CHROM %POS %REF %ALT\n' R191Qstatus_all_samples_merged.vcf
-# list samples stored in VCF
-bcftools query -l R155Cstatus_all_samples_merged.vcf
-bcftools query -l R191Qstatus_all_samples_merged.vcf
-# extract per sample information
-## extract PL flag. GT flag not present - unclear why but not necessary to have as order of PL flag indicates Genotype. Transpose to make human readable.
-bcftools query -H -f '%CHROM\t%POS[\t%PL\t]\n' R155Cstatus_all_samples_merged.vcf | rowsToCols -varCol stdin stdout > R155Cstatus_PLflag.vcf
-bcftools query -H -f '%CHROM\t%POS[\t%PL\t]\n' R191Qstatus_all_samples_merged.vcf | rowsToCols -varCol stdin stdout > R191Qstatus_PLflag.vcf
-
-#### SAMPLES TO CHECK IN IGV:
-ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001.bam
-ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002.bam
-ID519_E3_GLIA_D3-Cyto_L002.bam
+   ## Open Rstudio and run VCF_plots.Rmd to produce box plots, scatter plots & density plots. RUN Rmd script /camp/home/ziffo/working/oliver/scripts/bulk-rnaseq/plot_vcf_allele_frequency_R191Q_R155C.Rmd #set input text vcf_files
 ```
+
 ## Plot allele frequencies in VCF files
 
 Run R script:
@@ -660,11 +645,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDIxMzQ2NDAsLTQ2MjUyNjI5LC0xOD
-A1MDEyNTA0LDI1MTM1NjEwMiwtMTUzMjc1OTY4LC0xMjcxODI5
-NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC0xMTUwODI1MDk3LD
-Y4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0
-NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0Mz
-QsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2
-NzY2MjZdfQ==
+eyJoaXN0b3J5IjpbLTExNDAzODYxMjEsLTExNDIxMzQ2NDAsLT
+Q2MjUyNjI5LC0xODA1MDEyNTA0LDI1MTM1NjEwMiwtMTUzMjc1
+OTY4LC0xMjcxODI5NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC
+0xMTUwODI1MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2
+NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMj
+YwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYx
+OTA0ODc2XX0=
 -->
