@@ -632,7 +632,7 @@ ID519_E3_GLIA_D3-Cyto_L002.bam
 Run R script:
 `/camp/home/ziffo/working/oliver/projects/motor-neuron-fractionation-bulk-rnaseq/alignment/vcp_mutation_analysis/Plot_VCF.Rmd`
 
-
+Alternatively use `afplot`
 [https://github.com/sndrtj/afplot](https://github.com/sndrtj/afplot)
 
 Use `afplot regions` to plot the single region as a histogram or scatter plot.
@@ -657,11 +657,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjA5MTA5MjYsLTE4MDUwMTI1MDQsMj
-UxMzU2MTAyLC0xNTMyNzU5NjgsLTEyNzE4Mjk3MTUsNDkyNDQ1
-OTQyLDIwMzE2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLD
-ExNzA3MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2
-MTcyMTk3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNj
-M3LDgxOTMyOTM4Niw1NjE5MDQ4NzYsLTkyMjY3NjYyNiwxMTQ2
-ODI3MzRdfQ==
+eyJoaXN0b3J5IjpbLTQ2MjUyNjI5LC0xODA1MDEyNTA0LDI1MT
+M1NjEwMiwtMTUzMjc1OTY4LC0xMjcxODI5NzE1LDQ5MjQ0NTk0
+MiwyMDMxNjE4MzA5LC0xMTUwODI1MDk3LDY4MTkxMTAzMywxMT
+cwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3
+MjE5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNy
+w4MTkzMjkzODYsNTYxOTA0ODc2LC05MjI2NzY2MjYsMTE0Njgy
+NzM0XX0=
 -->
