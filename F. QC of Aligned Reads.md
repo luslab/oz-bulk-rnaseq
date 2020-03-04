@@ -586,7 +586,7 @@ With multiple samples variant call you can either:
 Here we stick to the first approach as merging VCFs is error pone.
 
 Run this script:
-VCF_analysis_bcftools
+`/camp/home/ziffo/working/oliver/projects/motor-neuron-fractionation-bulk-rnaseq/alignment/vcp_mutation_analysis/VCF_analysis_bcftools`
 ```bash
 # setting up environments, including paths
 ml SAMtools
@@ -660,7 +660,7 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjgxNjAyNDYsLTQ2MjUyNjI5LC0xOD
+eyJoaXN0b3J5IjpbLTExNDIxMzQ2NDAsLTQ2MjUyNjI5LC0xOD
 A1MDEyNTA0LDI1MTM1NjEwMiwtMTUzMjc1OTY4LC0xMjcxODI5
 NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC0xMTUwODI1MDk3LD
 Y4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2NzAzODksLTE2MTE0
