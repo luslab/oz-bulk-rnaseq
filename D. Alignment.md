@@ -185,7 +185,7 @@ Do the same for the GTF file to the **Comprehensive gene annotation PRI (primary
  **ENSEMBL process:**
 http://www.ensembl.org/info/data/ftp/index.html
 Search for species of interest
-Click on Gene sets GTF link & DNA FASTA link
+Click on Gene sets **GTF** link)[ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens] & **DNA (FASTA)** link [ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/](ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/) NB cDNA is transcriptome (not genome).
 GTF: Right click on Human → copy link address
 FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.alt.fa.gz
 In command line (in appropriate Folder) `wget [paste link address]`
@@ -653,8 +653,9 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxOD
-gzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMTMwNjY3OTgx
-Myw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNz
-U0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbMTQzOTEzMTI4OCwxMjM3MDQ4ODI0LDY2OD
+k2OTQwOSwtMzE4ODM0MTIsMTQxNTYwNTgyMiwxOTg2ODQ0NDAz
+LC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEzMzI1LDE4NT
+ExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIx
+ODRdfQ==
 -->
