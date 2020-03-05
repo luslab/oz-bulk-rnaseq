@@ -186,8 +186,8 @@ Do the same for the GTF file to the **Comprehensive gene annotation PRI (primary
 http://www.ensembl.org/info/data/ftp/index.html
 Search for species of interest
 Click on Gene sets GTF link & DNA FASTA link
-GTF: Right click on Saccharomyces)cerevisiae.R64-1-1.92.gtf.gz → copy link address
-FASTA: Right click on DNA top level file.
+GTF: Right click on Human → copy link address
+FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.alt.fa.gz
 In command line (in appropriate Folder) `wget [paste link address]`
 Unzip file `gunzip file_name`
 
@@ -653,8 +653,8 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1Nj
-A1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5
-LDE0OTk5MTMzMjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nz
-c3NTEzNjIsMTQ3OTc1MjE4NF19
+eyJoaXN0b3J5IjpbMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxOD
+gzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMTMwNjY3OTgx
+Myw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNz
+U0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
 -->
