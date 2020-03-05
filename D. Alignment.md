@@ -179,8 +179,9 @@ GTF=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.gt
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.bed
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
 
+gtf2bed < $GTF > $BED
 
-gtf2bed --input=gtf --output=bed < $GTF > $BED
+convert2bed --input=gtf --output=bed < $GTF > $BED
 ```
 # Download Reference Sequence & Annotation files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
@@ -663,9 +664,9 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMzg0MTM2NywtMjEwMzA2MzA0NCwxNj
-U1ODU5Mjc4LDEyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQx
-MiwxNDE1NjA1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNz
-QzNDYyMTc5LDE0OTk5MTMzMjUsMTg1MTEyNDc0OSwxMDc1NDQ4
-NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1MjE4NF19
+eyJoaXN0b3J5IjpbLTE1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMT
+Y1NTg1OTI3OCwxMjM3MDQ4ODI0LDY2ODk2OTQwOSwtMzE4ODM0
+MTIsMTQxNTYwNTgyMiwxOTg2ODQ0NDAzLC0xMzA2Njc5ODEzLD
+c0MzQ2MjE3OSwxNDk5OTEzMzI1LDE4NTExMjQ3NDksMTA3NTQ0
+ODQxNSwxNTc3NzUxMzYyLDE0Nzk3NTIxODRdfQ==
 -->
