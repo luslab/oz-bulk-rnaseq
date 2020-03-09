@@ -322,7 +322,7 @@ paste old_names.txt new_names.txt | column -s $'\t' -t > rename.txt
 sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
 ```
 start file with: `#!/bin/bash`:
-`sed -1 '#!/bin/bash' rename.sh` 
+`sed -i '#!/bin/bash' rename.sh > rename.sh` 
 each line is a new `mv` command
 save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
@@ -376,7 +376,7 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NjA2MDE4NywtMTQ2NjIyOTQyMCw5NT
+eyJoaXN0b3J5IjpbLTM3MjY3MjEwNiwtMTQ2NjIyOTQyMCw5NT
 YzODczNDcsLTE0NjYyMjk0MjAsMjA2OTI3OTI2OCwtMzM5Njcy
 ODg1LDk0MDkxNTA1NiwtMTExNzMwMTAzMCw2NzA0MDA3MzAsLT
 E0MzY1OTY5MDEsLTE0NTI4MjE2ODksMTA1Mjg5ODkwNSwtMTQ3
