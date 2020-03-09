@@ -315,10 +315,10 @@ combine into 1 text file in 2 columns
 ```bash
 ls -1 > old_names.txt
 ls -1 > new_names.txt
-paste old_names.txt new_names.txt | column -s $'\t' -t > rename.txt
 ```
-edit the second column in rename.txt to desired new names. Then run `mv`
+edit new_names.txt in Atom to desired new names.Use regex to replace lanes with run1/2. Remove SXX. Then run `mv`
 ```bash
+paste old_names.txt new_names.txt | column -s $'\t' -t > rename.txt
 sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
 ```
 start file with: `#!/bin/bash`
@@ -375,10 +375,10 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjYyMjk0MjAsOTU2Mzg3MzQ3LC0xND
-Y2MjI5NDIwLDIwNjkyNzkyNjgsLTMzOTY3Mjg4NSw5NDA5MTUw
-NTYsLTExMTczMDEwMzAsNjcwNDAwNzMwLC0xNDM2NTk2OTAxLC
-0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0NzgzOTUxNjAsLTIw
-MTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OT
-A0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTE2NTI4MjQ2ODksLTE0NjYyMjk0MjAsOT
+U2Mzg3MzQ3LC0xNDY2MjI5NDIwLDIwNjkyNzkyNjgsLTMzOTY3
+Mjg4NSw5NDA5MTUwNTYsLTExMTczMDEwMzAsNjcwNDAwNzMwLC
+0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0
+NzgzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2ND
+EyMjMzLC0xMzM0OTA0NTQ3XX0=
 -->
