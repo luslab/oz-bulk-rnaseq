@@ -328,7 +328,6 @@ sed -i '1 i\#!/bin/bash' rename.sh
 each line is a new `mv` command. save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 
-
 ```bash
 #!/bin/bash
 mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R1.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R1.fastq.gz
@@ -439,10 +438,10 @@ mv CRE646A9_S53_L008_R1_001.fastq.gz   cytoplasmic_glia_run1_R1.fastq.gz
 mv CRE646A9_S53_L008_R2_001.fastq.gz   cytoplasmic_glia_run1_R2.fastq.gz
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzgxMDU2MjIsLTE0NjYyMjk0MjAsOT
-U2Mzg3MzQ3LC0xNDY2MjI5NDIwLDIwNjkyNzkyNjgsLTMzOTY3
-Mjg4NSw5NDA5MTUwNTYsLTExMTczMDEwMzAsNjcwNDAwNzMwLC
-0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0
-NzgzOTUxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2ND
-EyMjMzLC0xMzM0OTA0NTQ3XX0=
+eyJoaXN0b3J5IjpbLTU0MDcyNDI5MiwtMTM3ODEwNTYyMiwtMT
+Q2NjIyOTQyMCw5NTYzODczNDcsLTE0NjYyMjk0MjAsMjA2OTI3
+OTI2OCwtMzM5NjcyODg1LDk0MDkxNTA1NiwtMTExNzMwMTAzMC
+w2NzA0MDA3MzAsLTE0MzY1OTY5MDEsLTE0NTI4MjE2ODksMTA1
+Mjg5ODkwNSwtMTQ3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5Mj
+A5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
 -->
