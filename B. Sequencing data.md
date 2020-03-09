@@ -315,8 +315,10 @@ combine into 1 text file in 2 columns
 ```bash
 ls -1 > old_names.txt
 ls -1 > new_names.txt
-paste old_names.txt new_names.txt > rename.txt
 paste old_names.txt new_names.txt | column -s $'\t' -t > rename.txt
+```
+edit the second column in rename.txt to desired new names. Then run `mv`
+```bash
 sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
 ```
 start file with: `#!/bin/bash`
@@ -373,9 +375,9 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNjExMDU0MiwyMDY5Mjc5MjY4LC0zMz
-k2NzI4ODUsOTQwOTE1MDU2LC0xMTE3MzAxMDMwLDY3MDQwMDcz
-MCwtMTQzNjU5NjkwMSwtMTQ1MjgyMTY4OSwxMDUyODk4OTA1LC
-0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NTcsMTY2
-NjQxMjIzMywtMTMzNDkwNDU0N119
+eyJoaXN0b3J5IjpbLTE0NjYyMjk0MjAsMjA2OTI3OTI2OCwtMz
+M5NjcyODg1LDk0MDkxNTA1NiwtMTExNzMwMTAzMCw2NzA0MDA3
+MzAsLTE0MzY1OTY5MDEsLTE0NTI4MjE2ODksMTA1Mjg5ODkwNS
+wtMTQ3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2
+NjY0MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
 -->
