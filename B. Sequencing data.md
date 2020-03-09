@@ -321,14 +321,11 @@ edit new_names.txt in Atom to desired new names.Use regex to replace lanes with 
 paste old_names.txt new_names.txt | column -s $'\t' -t > rename.txt
 sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
 ```
-start file with: `#!/bin/bash`:
+start file with: `#!/bin/bash` in 1st line:
 ```bash
-sed '1 i\#!/bin/bash' rename.sh > rename.sh
-
-sed -i '1 i\#!/bin/bash' rename.sh > rename.sh
+sed -i '1 i\#!/bin/bash' rename.sh
 ```
-each line is a new `mv` command
-save text file on CAMP but with ending as `.sh`
+each line is a new `mv` command. save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 
 
@@ -354,9 +351,6 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CT
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
 ```
 
-
-rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/fastq/ .
-
 ```bash
 #!/bin/bash
 mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R1.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R1.fastq.gz
@@ -378,9 +372,74 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R2_001.fastq.gz   CT
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R1.fastq.gz
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
 ```
+### Astrocyte 
 
+rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/fastq/ .
+```bash
+#!/bin/bash
+mv CRE646A10_S27_L006_R1_001.fastq.gz  cytoplasmic_cb1e_run2_R1.fastq.gz
+mv CRE646A10_S27_L006_R2_001.fastq.gz  cytoplasmic_cb1e_run2_R2.fastq.gz
+mv CRE646A10_S27_L008_R1_001.fastq.gz  cytoplasmic_cb1e_run1_R1.fastq.gz
+mv CRE646A10_S27_L008_R2_001.fastq.gz  cytoplasmic_cb1e_run1_R2.fastq.gz
+mv CRE646A11_S41_L006_R1_001.fastq.gz  whole_ctrl1_run2_R1.fastq.gz
+mv CRE646A11_S41_L006_R2_001.fastq.gz  whole_ctrl1_run2_R2.fastq.gz
+mv CRE646A11_S41_L008_R1_001.fastq.gz  whole_ctrl1_run1_R1.fastq.gz
+mv CRE646A11_S41_L008_R2_001.fastq.gz  whole_ctrl1_run1_R2.fastq.gz
+mv CRE646A12_S54_L007_R1_001.fastq.gz  whole_ctrl2_run2_R1.fastq.gz
+mv CRE646A12_S54_L007_R2_001.fastq.gz  whole_ctrl2_run2_R2.fastq.gz
+mv CRE646A12_S54_L008_R1_001.fastq.gz  whole_ctrl2_run1_R1.fastq.gz
+mv CRE646A12_S54_L008_R2_001.fastq.gz  whole_ctrl2_run1_R2.fastq.gz
+mv CRE646A13_S2_L006_R1_001.fastq.gz   whole_ctrl5_run2_R1.fastq.gz
+mv CRE646A13_S2_L006_R2_001.fastq.gz   whole_ctrl5_run2_R2.fastq.gz
+mv CRE646A13_S2_L008_R1_001.fastq.gz   whole_ctrl5_run1_R1.fastq.gz
+mv CRE646A13_S2_L008_R2_001.fastq.gz   whole_ctrl5_run1_R2.fastq.gz
+mv CRE646A14_S32_L006_R1_001.fastq.gz  whole_glia_run2_R1.fastq.gz
+mv CRE646A14_S32_L006_R2_001.fastq.gz  whole_glia_run2_R2.fastq.gz
+mv CRE646A14_S32_L008_R1_001.fastq.gz  whole_glia_run1_R1.fastq.gz
+mv CRE646A14_S32_L008_R2_001.fastq.gz  whole_glia_run1_R2.fastq.gz
+mv CRE646A15_S30_L006_R1_001.fastq.gz  whole_cb1e_run2_R1.fastq.gz
+mv CRE646A15_S30_L006_R2_001.fastq.gz  whole_cb1e_run2_R2.fastq.gz
+mv CRE646A15_S30_L008_R1_001.fastq.gz  whole_cb1e_run1_R1.fastq.gz
+mv CRE646A15_S30_L008_R2_001.fastq.gz  whole_cb1e_run1_R2.fastq.gz
+mv CRE646A1_S47_L007_R1_001.fastq.gz   nuclear_ctrl1_run2_R1.fastq.gz
+mv CRE646A1_S47_L007_R2_001.fastq.gz   nuclear_ctrl1_run2_R2.fastq.gz
+mv CRE646A1_S47_L008_R1_001.fastq.gz   nuclear_ctrl1_run1_R1.fastq.gz
+mv CRE646A1_S47_L008_R2_001.fastq.gz   nuclear_ctrl1_run1_R2.fastq.gz
+mv CRE646A2_S29_L007_R1_001.fastq.gz   nuclear_ctrl2_run2_R1.fastq.gz
+mv CRE646A2_S29_L007_R2_001.fastq.gz   nuclear_ctrl2_run2_R2.fastq.gz
+mv CRE646A2_S29_L008_R1_001.fastq.gz   nuclear_ctrl2_run1_R1.fastq.gz
+mv CRE646A2_S29_L008_R2_001.fastq.gz   nuclear_ctrl2_run1_R2.fastq.gz
+mv CRE646A3_S7_L007_R1_001.fastq.gz    nuclear_ctrl5_run2_R1.fastq.gz
+mv CRE646A3_S7_L007_R2_001.fastq.gz    nuclear_ctrl5_run2_R2.fastq.gz
+mv CRE646A3_S7_L008_R1_001.fastq.gz    nuclear_ctrl5_run1_R1.fastq.gz
+mv CRE646A3_S7_L008_R2_001.fastq.gz    nuclear_ctrl5_run1_R2.fastq.gz
+mv CRE646A4_S49_L007_R1_001.fastq.gz   nuclear_glia_run2_R1.fastq.gz
+mv CRE646A4_S49_L007_R2_001.fastq.gz   nuclear_glia_run2_R2.fastq.gz
+mv CRE646A4_S49_L008_R1_001.fastq.gz   nuclear_glia_run1_R1.fastq.gz
+mv CRE646A4_S49_L008_R2_001.fastq.gz   nuclear_glia_run1_R2.fastq.gz
+mv CRE646A5_S40_L007_R1_001.fastq.gz   nuclear_cb1e_run2_R1.fastq.gz
+mv CRE646A5_S40_L007_R2_001.fastq.gz   nuclear_cb1e_run2_R2.fastq.gz
+mv CRE646A5_S40_L008_R1_001.fastq.gz   nuclear_cb1e_run1_R1.fastq.gz
+mv CRE646A5_S40_L008_R2_001.fastq.gz   nuclear_cb1e_run1_R2.fastq.gz
+mv CRE646A6_S20_L006_R1_001.fastq.gz   cytoplasmic_ctrl1_run2_R1.fastq.gz
+mv CRE646A6_S20_L006_R2_001.fastq.gz   cytoplasmic_ctrl1_run2_R2.fastq.gz
+mv CRE646A6_S20_L008_R1_001.fastq.gz   cytoplasmic_ctrl1_run1_R1.fastq.gz
+mv CRE646A6_S20_L008_R2_001.fastq.gz   cytoplasmic_ctrl1_run1_R2.fastq.gz
+mv CRE646A7_S38_L006_R1_001.fastq.gz   cytoplasmic_ctrl2_run2_R1.fastq.gz
+mv CRE646A7_S38_L006_R2_001.fastq.gz   cytoplasmic_ctrl2_run2_R2.fastq.gz
+mv CRE646A7_S38_L008_R1_001.fastq.gz   cytoplasmic_ctrl2_run1_R1.fastq.gz
+mv CRE646A7_S38_L008_R2_001.fastq.gz   cytoplasmic_ctrl2_run1_R2.fastq.gz
+mv CRE646A8_S10_L007_R1_001.fastq.gz   cytoplasmic_ctrl5_run2_R1.fastq.gz
+mv CRE646A8_S10_L007_R2_001.fastq.gz   cytoplasmic_ctrl5_run2_R2.fastq.gz
+mv CRE646A8_S10_L008_R1_001.fastq.gz   cytoplasmic_ctrl5_run1_R1.fastq.gz
+mv CRE646A8_S10_L008_R2_001.fastq.gz   cytoplasmic_ctrl5_run1_R2.fastq.gz
+mv CRE646A9_S53_L006_R1_001.fastq.gz   cytoplasmic_glia_run2_R1.fastq.gz
+mv CRE646A9_S53_L006_R2_001.fastq.gz   cytoplasmic_glia_run2_R2.fastq.gz
+mv CRE646A9_S53_L008_R1_001.fastq.gz   cytoplasmic_glia_run1_R1.fastq.gz
+mv CRE646A9_S53_L008_R2_001.fastq.gz   cytoplasmic_glia_run1_R2.fastq.gz
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzM5MDQ0NjEsLTE0NjYyMjk0MjAsOT
+eyJoaXN0b3J5IjpbLTEzNTI2NDk4MjAsLTE0NjYyMjk0MjAsOT
 U2Mzg3MzQ3LC0xNDY2MjI5NDIwLDIwNjkyNzkyNjgsLTMzOTY3
 Mjg4NSw5NDA5MTUwNTYsLTExMTczMDEwMzAsNjcwNDAwNzMwLC
 0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0
