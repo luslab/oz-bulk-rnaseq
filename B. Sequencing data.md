@@ -313,6 +313,8 @@ Locate a specific motif in FASTQ format: `seqkit locate --degenerate --ignore-ca
 create 2 text files: list of old_names & list of new_names
 combine into 1 text file in 2 columns
 ```bash
+ls -1 > old_names.txt
+
 paste old_names.txt new_names.txt > rename.txt
 paste oldnames.txt newnames.txt | column -s $'\t' -t > rename.txt
 sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
@@ -371,9 +373,9 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzOTY3Mjg4NSw5NDA5MTUwNTYsLTExMT
-czMDEwMzAsNjcwNDAwNzMwLC0xNDM2NTk2OTAxLC0xNDUyODIx
-Njg5LDEwNTI4OTg5MDUsLTE0NzgzOTUxNjAsLTIwMTI4NjgzNj
-EsLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
-
+eyJoaXN0b3J5IjpbMjA2OTI3OTI2OCwtMzM5NjcyODg1LDk0MD
+kxNTA1NiwtMTExNzMwMTAzMCw2NzA0MDA3MzAsLTE0MzY1OTY5
+MDEsLTE0NTI4MjE2ODksMTA1Mjg5ODkwNSwtMTQ3ODM5NTE2MC
+wtMjAxMjg2ODM2MSwtNjk5MjA5NDU3LDE2NjY0MTIyMzMsLTEz
+MzQ5MDQ1NDddfQ==
 -->
