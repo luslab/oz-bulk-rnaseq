@@ -323,7 +323,7 @@ save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
 
 
-```
+```bash
 #!/bin/bash
 mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R1.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R1.fastq.gz
 mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R2.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R2.fastq.gz
@@ -344,9 +344,36 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R2_001.fastq.gz   CT
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R1.fastq.gz
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
 ```
+
+
+rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/fastq/ .
+
+```bash
+#!/bin/bash
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R1.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R1.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_L001_R2.fastq.gz                      CTRL1_D22_nuclear_run1_lane1_R2.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L001_R1_001.fastq.gz              CTRL1_D22_nuclear_run2_lane1_R1.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L001_R2_001.fastq.gz              CTRL1_D22_nuclear_run2_lane1_R2.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L002_R1_001.fastq.gz              CTRL1_D22_nuclear_run2_lane2_R1.fastq.gz
+mv ID519_A10_CTRL1_immature-MNs-D22-Nuc_S10_L002_R2_001.fastq.gz              CTRL1_D22_nuclear_run2_lane2_R2.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_L001_R1.fastq.gz          CTRL1_D35_cytoplasmic_run1_lane1_R1.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_L001_R2.fastq.gz          CTRL1_D35_cytoplasmic_run1_lane1_R2.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001_R1_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane1_R1.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L001_R2_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane1_R2.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002_R1_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane2_R1.fastq.gz
+mv ID519_A11_CTRL1_electrically-active-MNs-D35-Cyto_S11_L002_R2_001.fastq.gz  CTRL1_D35_cytoplasmic_run2_lane2_R2.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_L001_R1.fastq.gz           CTRL1_D35_nuclear_run1_lane1_R1.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_L001_R2.fastq.gz           CTRL1_D35_nuclear_run1_lane1_R2.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane1_R1.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane1_R2.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R1.fastq.gz
+mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
+```
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQwOTE1MDU2LC0xMTE3MzAxMDMwLDY3MD
-QwMDczMCwtMTQzNjU5NjkwMSwtMTQ1MjgyMTY4OSwxMDUyODk4
-OTA1LC0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NT
-csMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
+eyJoaXN0b3J5IjpbLTMzOTY3Mjg4NSw5NDA5MTUwNTYsLTExMT
+czMDEwMzAsNjcwNDAwNzMwLC0xNDM2NTk2OTAxLC0xNDUyODIx
+Njg5LDEwNTI4OTg5MDUsLTE0NzgzOTUxNjAsLTIwMTI4NjgzNj
+EsLTY5OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
+
 -->
