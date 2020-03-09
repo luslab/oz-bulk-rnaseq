@@ -349,7 +349,11 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CT
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
 ```
 
+rsync -aP camp-ext:/camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/multiqc/multiqc_report.html .
+
 rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/multiqc/multiqc_report.html .
+
+
 
 rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/fastq/ .
 
@@ -376,9 +380,9 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODU4MjUwODcsLTE0NjYyMjk0MjAsMj
-A2OTI3OTI2OCwtMzM5NjcyODg1LDk0MDkxNTA1NiwtMTExNzMw
-MTAzMCw2NzA0MDA3MzAsLTE0MzY1OTY5MDEsLTE0NTI4MjE2OD
-ksMTA1Mjg5ODkwNSwtMTQ3ODM5NTE2MCwtMjAxMjg2ODM2MSwt
-Njk5MjA5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbOTU2Mzg3MzQ3LC0xNDY2MjI5NDIwLDIwNj
+kyNzkyNjgsLTMzOTY3Mjg4NSw5NDA5MTUwNTYsLTExMTczMDEw
+MzAsNjcwNDAwNzMwLC0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LD
+EwNTI4OTg5MDUsLTE0NzgzOTUxNjAsLTIwMTI4NjgzNjEsLTY5
+OTIwOTQ1NywxNjY2NDEyMjMzLC0xMzM0OTA0NTQ3XX0=
 -->
