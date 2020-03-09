@@ -372,7 +372,7 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L001_R2_001.fastq.gz   CT
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R1_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R1.fastq.gz
 mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CTRL1_D35_nuclear_run2_lane2_R2.fastq.gz
 ```
-### Astrocyte 
+### Astrocyte RNAseq
 
 rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/fastq/ .
 ```bash
@@ -439,7 +439,7 @@ mv CRE646A9_S53_L008_R1_001.fastq.gz   cytoplasmic_glia_run1_R1.fastq.gz
 mv CRE646A9_S53_L008_R2_001.fastq.gz   cytoplasmic_glia_run1_R2.fastq.gz
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTI2NDk4MjAsLTE0NjYyMjk0MjAsOT
+eyJoaXN0b3J5IjpbLTEzNzgxMDU2MjIsLTE0NjYyMjk0MjAsOT
 U2Mzg3MzQ3LC0xNDY2MjI5NDIwLDIwNjkyNzkyNjgsLTMzOTY3
 Mjg4NSw5NDA5MTUwNTYsLTExMTczMDEwMzAsNjcwNDAwNzMwLC
 0xNDM2NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0
