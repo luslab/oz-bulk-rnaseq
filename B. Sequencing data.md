@@ -324,6 +324,8 @@ sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
 start file with: `#!/bin/bash` in 1st line:
 ```bash
 sed -i '1 i\#!/bin/bash' rename.sh
+
+sed -i '1 i\target_id,gene_id,SYMBOL' transcripts_to_genes.csv
 ```
 each line is a new `mv` command. save text file on CAMP but with ending as `.sh`
 run script: `bash rename.sh`
@@ -387,10 +389,11 @@ mv CRE646A11_S41_L008_R2_001.fastq.gz  whole_ctrl1_lane8_R2.fastq.gz
 mv CRE646A12_S54_L007_R1_001.fastq.gz  whole_ctrl2_lane7_R1.fastq.gz
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU1OTYzNTQxLC0xMzc4MTA1NjIyLC0xND
-Y2MjI5NDIwLDk1NjM4NzM0NywtMTQ2NjIyOTQyMCwyMDY5Mjc5
-MjY4LC0zMzk2NzI4ODUsOTQwOTE1MDU2LC0xMTE3MzAxMDMwLD
-Y3MDQwMDczMCwtMTQzNjU5NjkwMSwtMTQ1MjgyMTY4OSwxMDUy
-ODk4OTA1LC0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMD
-k0NTcsMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
+eyJoaXN0b3J5IjpbLTE3MjE0ODc2ODMsOTU1OTYzNTQxLC0xMz
+c4MTA1NjIyLC0xNDY2MjI5NDIwLDk1NjM4NzM0NywtMTQ2NjIy
+OTQyMCwyMDY5Mjc5MjY4LC0zMzk2NzI4ODUsOTQwOTE1MDU2LC
+0xMTE3MzAxMDMwLDY3MDQwMDczMCwtMTQzNjU5NjkwMSwtMTQ1
+MjgyMTY4OSwxMDUyODk4OTA1LC0xNDc4Mzk1MTYwLC0yMDEyOD
+Y4MzYxLC02OTkyMDk0NTcsMTY2NjQxMjIzMywtMTMzNDkwNDU0
+N119
 -->
