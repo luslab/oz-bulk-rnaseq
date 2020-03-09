@@ -314,9 +314,9 @@ create 2 text files: list of old_names & list of new_names
 combine into 1 text file in 2 columns
 ```bash
 ls -1 > old_names.txt
-ls -1 > old_names.txt
+ls -1 > new_names.txt
 paste old_names.txt new_names.txt > rename.txt
-paste oldnames.txt newnames.txt | column -s $'\t' -t > rename.txt
+paste old_names.txt new_names.txt | column -s $'\t' -t > rename.txt
 sed 's/^/mv /' rename.txt | column -s $'\t' -t > rename.sh
 ```
 start file with: `#!/bin/bash`
@@ -373,7 +373,7 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwMTUzNDY5OSwyMDY5Mjc5MjY4LC0zMz
+eyJoaXN0b3J5IjpbMTkyNjExMDU0MiwyMDY5Mjc5MjY4LC0zMz
 k2NzI4ODUsOTQwOTE1MDU2LC0xMTE3MzAxMDMwLDY3MDQwMDcz
 MCwtMTQzNjU5NjkwMSwtMTQ1MjgyMTY4OSwxMDUyODk4OTA1LC
 0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMDk0NTcsMTY2
