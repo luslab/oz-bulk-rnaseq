@@ -376,72 +376,21 @@ mv ID519_A12_CTRL1_electrically-active-MNs-D35-Nuc_S12_L002_R2_001.fastq.gz   CT
 rsync -aP /camp/stp/babs/outputs/gandhi-patani/hamish.crerar/asf/RN19304/200306_K00102_0470_AHGG32BBXY/fastq/ .
 ```bash
 #!/bin/bash
-mv CRE646A10_S27_L006_R1_001.fastq.gz  cytoplasmic_cb1e_run2_R1.fastq.gz
-mv CRE646A10_S27_L006_R2_001.fastq.gz  cytoplasmic_cb1e_run2_R2.fastq.gz
-mv CRE646A10_S27_L008_R1_001.fastq.gz  cytoplasmic_cb1e_run1_R1.fastq.gz
-mv CRE646A10_S27_L008_R2_001.fastq.gz  cytoplasmic_cb1e_run1_R2.fastq.gz
-mv CRE646A11_S41_L006_R1_001.fastq.gz  whole_ctrl1_run2_R1.fastq.gz
-mv CRE646A11_S41_L006_R2_001.fastq.gz  whole_ctrl1_run2_R2.fastq.gz
-mv CRE646A11_S41_L008_R1_001.fastq.gz  whole_ctrl1_run1_R1.fastq.gz
-mv CRE646A11_S41_L008_R2_001.fastq.gz  whole_ctrl1_run1_R2.fastq.gz
-mv CRE646A12_S54_L007_R1_001.fastq.gz  whole_ctrl2_run2_R1.fastq.gz
-mv CRE646A12_S54_L007_R2_001.fastq.gz  whole_ctrl2_run2_R2.fastq.gz
-mv CRE646A12_S54_L008_R1_001.fastq.gz  whole_ctrl2_run1_R1.fastq.gz
-mv CRE646A12_S54_L008_R2_001.fastq.gz  whole_ctrl2_run1_R2.fastq.gz
-mv CRE646A13_S2_L006_R1_001.fastq.gz   whole_ctrl5_run2_R1.fastq.gz
-mv CRE646A13_S2_L006_R2_001.fastq.gz   whole_ctrl5_run2_R2.fastq.gz
-mv CRE646A13_S2_L008_R1_001.fastq.gz   whole_ctrl5_run1_R1.fastq.gz
-mv CRE646A13_S2_L008_R2_001.fastq.gz   whole_ctrl5_run1_R2.fastq.gz
-mv CRE646A14_S32_L006_R1_001.fastq.gz  whole_glia_run2_R1.fastq.gz
-mv CRE646A14_S32_L006_R2_001.fastq.gz  whole_glia_run2_R2.fastq.gz
-mv CRE646A14_S32_L008_R1_001.fastq.gz  whole_glia_run1_R1.fastq.gz
-mv CRE646A14_S32_L008_R2_001.fastq.gz  whole_glia_run1_R2.fastq.gz
-mv CRE646A15_S30_L006_R1_001.fastq.gz  whole_cb1e_run2_R1.fastq.gz
-mv CRE646A15_S30_L006_R2_001.fastq.gz  whole_cb1e_run2_R2.fastq.gz
-mv CRE646A15_S30_L008_R1_001.fastq.gz  whole_cb1e_run1_R1.fastq.gz
-mv CRE646A15_S30_L008_R2_001.fastq.gz  whole_cb1e_run1_R2.fastq.gz
-mv CRE646A1_S47_L007_R1_001.fastq.gz   nuclear_ctrl1_run2_R1.fastq.gz
-mv CRE646A1_S47_L007_R2_001.fastq.gz   nuclear_ctrl1_run2_R2.fastq.gz
-mv CRE646A1_S47_L008_R1_001.fastq.gz   nuclear_ctrl1_run1_R1.fastq.gz
-mv CRE646A1_S47_L008_R2_001.fastq.gz   nuclear_ctrl1_run1_R2.fastq.gz
-mv CRE646A2_S29_L007_R1_001.fastq.gz   nuclear_ctrl2_run2_R1.fastq.gz
-mv CRE646A2_S29_L007_R2_001.fastq.gz   nuclear_ctrl2_run2_R2.fastq.gz
-mv CRE646A2_S29_L008_R1_001.fastq.gz   nuclear_ctrl2_run1_R1.fastq.gz
-mv CRE646A2_S29_L008_R2_001.fastq.gz   nuclear_ctrl2_run1_R2.fastq.gz
-mv CRE646A3_S7_L007_R1_001.fastq.gz    nuclear_ctrl5_run2_R1.fastq.gz
-mv CRE646A3_S7_L007_R2_001.fastq.gz    nuclear_ctrl5_run2_R2.fastq.gz
-mv CRE646A3_S7_L008_R1_001.fastq.gz    nuclear_ctrl5_run1_R1.fastq.gz
-mv CRE646A3_S7_L008_R2_001.fastq.gz    nuclear_ctrl5_run1_R2.fastq.gz
-mv CRE646A4_S49_L007_R1_001.fastq.gz   nuclear_glia_run2_R1.fastq.gz
-mv CRE646A4_S49_L007_R2_001.fastq.gz   nuclear_glia_run2_R2.fastq.gz
-mv CRE646A4_S49_L008_R1_001.fastq.gz   nuclear_glia_run1_R1.fastq.gz
-mv CRE646A4_S49_L008_R2_001.fastq.gz   nuclear_glia_run1_R2.fastq.gz
-mv CRE646A5_S40_L007_R1_001.fastq.gz   nuclear_cb1e_run2_R1.fastq.gz
-mv CRE646A5_S40_L007_R2_001.fastq.gz   nuclear_cb1e_run2_R2.fastq.gz
-mv CRE646A5_S40_L008_R1_001.fastq.gz   nuclear_cb1e_run1_R1.fastq.gz
-mv CRE646A5_S40_L008_R2_001.fastq.gz   nuclear_cb1e_run1_R2.fastq.gz
-mv CRE646A6_S20_L006_R1_001.fastq.gz   cytoplasmic_ctrl1_run2_R1.fastq.gz
-mv CRE646A6_S20_L006_R2_001.fastq.gz   cytoplasmic_ctrl1_run2_R2.fastq.gz
-mv CRE646A6_S20_L008_R1_001.fastq.gz   cytoplasmic_ctrl1_run1_R1.fastq.gz
-mv CRE646A6_S20_L008_R2_001.fastq.gz   cytoplasmic_ctrl1_run1_R2.fastq.gz
-mv CRE646A7_S38_L006_R1_001.fastq.gz   cytoplasmic_ctrl2_run2_R1.fastq.gz
-mv CRE646A7_S38_L006_R2_001.fastq.gz   cytoplasmic_ctrl2_run2_R2.fastq.gz
-mv CRE646A7_S38_L008_R1_001.fastq.gz   cytoplasmic_ctrl2_run1_R1.fastq.gz
-mv CRE646A7_S38_L008_R2_001.fastq.gz   cytoplasmic_ctrl2_run1_R2.fastq.gz
-mv CRE646A8_S10_L007_R1_001.fastq.gz   cytoplasmic_ctrl5_run2_R1.fastq.gz
-mv CRE646A8_S10_L007_R2_001.fastq.gz   cytoplasmic_ctrl5_run2_R2.fastq.gz
-mv CRE646A8_S10_L008_R1_001.fastq.gz   cytoplasmic_ctrl5_run1_R1.fastq.gz
-mv CRE646A8_S10_L008_R2_001.fastq.gz   cytoplasmic_ctrl5_run1_R2.fastq.gz
-mv CRE646A9_S53_L006_R1_001.fastq.gz   cytoplasmic_glia_run2_R1.fastq.gz
-mv CRE646A9_S53_L006_R2_001.fastq.gz   cytoplasmic_glia_run2_R2.fastq.gz
-mv CRE646A9_S53_L008_R1_001.fastq.gz   cytoplasmic_glia_run1_R1.fastq.gz
-mv CRE646A9_S53_L008_R2_001.fastq.gz   cytoplasmic_glia_run1_R2.fastq.gz
+mv CRE646A10_S27_L006_R1_001.fastq.gz  cytoplasmic_cb1e_lane6_R1.fastq.gz
+mv CRE646A10_S27_L006_R2_001.fastq.gz  cytoplasmic_cb1e_lane6_R2.fastq.gz
+mv CRE646A10_S27_L008_R1_001.fastq.gz  cytoplasmic_cb1e_lane8_R1.fastq.gz
+mv CRE646A10_S27_L008_R2_001.fastq.gz  cytoplasmic_cb1e_lane8_R2.fastq.gz
+mv CRE646A11_S41_L006_R1_001.fastq.gz  whole_ctrl1_lane6_R1.fastq.gz
+mv CRE646A11_S41_L006_R2_001.fastq.gz  whole_ctrl1_lane6_R2.fastq.gz
+mv CRE646A11_S41_L008_R1_001.fastq.gz  whole_ctrl1_lane8_R1.fastq.gz
+mv CRE646A11_S41_L008_R2_001.fastq.gz  whole_ctrl1_lane8_R2.fastq.gz
+mv CRE646A12_S54_L007_R1_001.fastq.gz  whole_ctrl2_lane7_R1.fastq.gz
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0MDcyNDI5MiwtMTM3ODEwNTYyMiwtMT
-Q2NjIyOTQyMCw5NTYzODczNDcsLTE0NjYyMjk0MjAsMjA2OTI3
-OTI2OCwtMzM5NjcyODg1LDk0MDkxNTA1NiwtMTExNzMwMTAzMC
-w2NzA0MDA3MzAsLTE0MzY1OTY5MDEsLTE0NTI4MjE2ODksMTA1
-Mjg5ODkwNSwtMTQ3ODM5NTE2MCwtMjAxMjg2ODM2MSwtNjk5Mj
-A5NDU3LDE2NjY0MTIyMzMsLTEzMzQ5MDQ1NDddfQ==
+eyJoaXN0b3J5IjpbOTU1OTYzNTQxLC0xMzc4MTA1NjIyLC0xND
+Y2MjI5NDIwLDk1NjM4NzM0NywtMTQ2NjIyOTQyMCwyMDY5Mjc5
+MjY4LC0zMzk2NzI4ODUsOTQwOTE1MDU2LC0xMTE3MzAxMDMwLD
+Y3MDQwMDczMCwtMTQzNjU5NjkwMSwtMTQ1MjgyMTY4OSwxMDUy
+ODk4OTA1LC0xNDc4Mzk1MTYwLC0yMDEyODY4MzYxLC02OTkyMD
+k0NTcsMTY2NjQxMjIzMywtMTMzNDkwNDU0N119
 -->
