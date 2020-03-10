@@ -583,7 +583,8 @@ and so on. For samples of higher ploidy (multiple copies of chromosomes), there 
 
 ```bash
 ml SAMtools
-samtools view *.bam "chr9:35065255-35065364
+samtools view *.bam "chr9:35065255-35065364" > roi.bam
+```
 
 ### Run bcftools to create vcf file
 
@@ -658,11 +659,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0MjEwMTI0NywtMTE0MDM4NjEyMSwtMT
-E0MjEzNDY0MCwtNDYyNTI2MjksLTE4MDUwMTI1MDQsMjUxMzU2
-MTAyLC0xNTMyNzU5NjgsLTEyNzE4Mjk3MTUsNDkyNDQ1OTQyLD
-IwMzE2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNzA3
-MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMT
-k3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgx
-OTMyOTM4Nl19
+eyJoaXN0b3J5IjpbLTc4ODY5MDYzLC0xMTQwMzg2MTIxLC0xMT
+QyMTM0NjQwLC00NjI1MjYyOSwtMTgwNTAxMjUwNCwyNTEzNTYx
+MDIsLTE1MzI3NTk2OCwtMTI3MTgyOTcxNSw0OTI0NDU5NDIsMj
+AzMTYxODMwOSwtMTE1MDgyNTA5Nyw2ODE5MTEwMzMsMTE3MDcy
+MjMxNCwtNTk4NjcwMzg5LC0xNjExNDYyMTM5LC0xODYxNzIxOT
+c3LDExNTkwMTI2MDMsNjc0Mzg4NDM0LC02NDAyNzE2MzcsODE5
+MzI5Mzg2XX0=
 -->
