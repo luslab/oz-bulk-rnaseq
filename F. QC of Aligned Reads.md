@@ -579,6 +579,10 @@ and so on. For samples of higher ploidy (multiple copies of chromosomes), there 
  
  ## Variant Calling Pipeline
 
+### Create Region of Interest BAM files
+
+
+
 With multiple samples variant call you can either:
 1. Call the variants SIMULTANEOUSLY on all BAM files together; or
 2. Call variants separately on each BAM file and then MERGE the VCFs
@@ -645,11 +649,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDAzODYxMjEsLTExNDIxMzQ2NDAsLT
-Q2MjUyNjI5LC0xODA1MDEyNTA0LDI1MTM1NjEwMiwtMTUzMjc1
-OTY4LC0xMjcxODI5NzE1LDQ5MjQ0NTk0MiwyMDMxNjE4MzA5LC
-0xMTUwODI1MDk3LDY4MTkxMTAzMywxMTcwNzIyMzE0LC01OTg2
-NzAzODksLTE2MTE0NjIxMzksLTE4NjE3MjE5NzcsMTE1OTAxMj
-YwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4MTkzMjkzODYsNTYx
-OTA0ODc2XX0=
+eyJoaXN0b3J5IjpbMTgwOTYxMDgyMiwtMTE0MDM4NjEyMSwtMT
+E0MjEzNDY0MCwtNDYyNTI2MjksLTE4MDUwMTI1MDQsMjUxMzU2
+MTAyLC0xNTMyNzU5NjgsLTEyNzE4Mjk3MTUsNDkyNDQ1OTQyLD
+IwMzE2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNzA3
+MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMT
+k3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgx
+OTMyOTM4Nl19
 -->
