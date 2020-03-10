@@ -581,7 +581,7 @@ and so on. For samples of higher ploidy (multiple copies of chromosomes), there 
 
 ### Create Region of Interest BAM files
 
-
+### Run bcftools to create vcf file
 
 With multiple samples variant call you can either:
 1. Call the variants SIMULTANEOUSLY on all BAM files together; or
@@ -615,9 +615,14 @@ OUT=~/working/oliver/projects/vcp_fractionation/alignment/vcp_mutation_analysis/
    ## remove path & AD from sample name column
    sed -r 's/^(\[[0-9]+\])(\/camp\/home\/ziffo\/working\/oliver\/projects\/vcp_fractionation\/alignment\/roi_bam\/)[A-Z]+[1-9]+\_//' R155C_ADflag | sed 's/\.bam\:AD//' | sed 's/,/  /' | sed '1 i\sample_name  REF ALT' > R155C_ADflag.txt
    sed -r 's/^(\[[0-9]+\])(\/camp\/home\/ziffo\/working\/oliver\/projects\/vcp_fractionation\/alignment\/roi_bam\/)[A-Z]+[1-9]+\_//' R191Q_ADflag | sed 's/\.bam\:AD//' | sed 's/,/  /' | sed '1 i\sample_name  REF ALT' > R191Q_ADflag.txt
-
-   ## Open Rstudio and run VCF_plots.Rmd to produce box plots, scatter plots & density plots. RUN Rmd script /camp/home/ziffo/working/oliver/scripts/bulk-rnaseq/plot_vcf_allele_frequency_R191Q_R155C.Rmd #set input text vcf_files
 ```
+
+### Create plots in R
+
+Open Rstudio and run VCF_plots.Rmd to produce box plots, scatter plots & density plots. 
+RUN Rmd script `/camp/home/ziffo/working/oliver/scripts/bulk-rnaseq/plot_vcf_allele_frequency_R191Q_R155C.Rmd`
+Set input text vcf_files
+   
 
 ## Plot allele frequencies in VCF files
 
@@ -649,11 +654,11 @@ afplot regions histogram -v R191Q_all_samples.vcf.gz -o $OUT -R chr9:35065254-35
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwOTYxMDgyMiwtMTE0MDM4NjEyMSwtMT
-E0MjEzNDY0MCwtNDYyNTI2MjksLTE4MDUwMTI1MDQsMjUxMzU2
-MTAyLC0xNTMyNzU5NjgsLTEyNzE4Mjk3MTUsNDkyNDQ1OTQyLD
-IwMzE2MTgzMDksLTExNTA4MjUwOTcsNjgxOTExMDMzLDExNzA3
-MjIzMTQsLTU5ODY3MDM4OSwtMTYxMTQ2MjEzOSwtMTg2MTcyMT
-k3NywxMTU5MDEyNjAzLDY3NDM4ODQzNCwtNjQwMjcxNjM3LDgx
-OTMyOTM4Nl19
+eyJoaXN0b3J5IjpbLTEyNjk5MTYyNTcsLTExNDAzODYxMjEsLT
+ExNDIxMzQ2NDAsLTQ2MjUyNjI5LC0xODA1MDEyNTA0LDI1MTM1
+NjEwMiwtMTUzMjc1OTY4LC0xMjcxODI5NzE1LDQ5MjQ0NTk0Mi
+wyMDMxNjE4MzA5LC0xMTUwODI1MDk3LDY4MTkxMTAzMywxMTcw
+NzIyMzE0LC01OTg2NzAzODksLTE2MTE0NjIxMzksLTE4NjE3Mj
+E5NzcsMTE1OTAxMjYwMyw2NzQzODg0MzQsLTY0MDI3MTYzNyw4
+MTkzMjkzODZdfQ==
 -->
