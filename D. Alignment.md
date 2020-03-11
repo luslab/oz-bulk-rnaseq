@@ -241,13 +241,15 @@ REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assem
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir $IDX --genomeFastaFiles $REF  --sjdbGTFfile $GTF --sjdbOverhang 59 --runThreadN 8"
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir $IDX --genomeFastaFiles $REF  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8"
 ```
+
+think of --sjdbOverhang as the maximum possible overhang for your reads.
 
 The above code is resuable and applicable to all situations by editing the $changable elements.
 The "hard-coding" looks like this (very long and difficult to edit):
 ```bash
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 59 --runThreadN 8"
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 99 --runThreadN 8"
 ```
 Check it is running using `myq`
 If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
@@ -657,10 +659,10 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMT
-AzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0
-MDksLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMT
-MwNjY3OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0
-NzQ5LDEwNzU0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX
-0=
+eyJoaXN0b3J5IjpbMTM1NDE3NjY5NywtOTgyOTMzMDYsLTE1MT
+Q4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3MDQ4
+ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYwNTgyMiwxOT
+g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
+MzI1LDE4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLD
+E0Nzk3NTIxODRdfQ==
 -->
