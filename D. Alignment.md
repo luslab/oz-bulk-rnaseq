@@ -184,11 +184,22 @@ ucsc/
 
 
 **GENCODE process:**
-https://www.gencodegenes.org/releases/current.html
-find the latest human reference genome: currently this is Release 28 (GRCh38.p12)
-Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table. 
-Then in command line download to the appropriate directory: `wget [paste link address]` then `gunzip filename`
-Do the same for the GTF file to the **Comprehensive gene annotation PRI (primary) regions**.
+[https://www.gencodegenes.org/human/](https://www.gencodegenes.org/human/)
+Download the latest human reference genome: currently this is Release 33 (GRCh38.p13).
+Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table.  In command line download to the appropriate directory: 
+```bash
+cd ~/working/oliver/genomes/gencode
+#wget [paste link address]
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/GRCh38.primary_assembly.genome.fa.gz
+# gunzip filename
+gunzip GRCh38.primary_assembly.genome.fa.gz
+```
+Download the GTF file to the **Comprehensive gene annotation PRI (primary) regions**:
+```bash
+cd ~/working/oliver/genomes/gencode
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.primary_assembly.annotation.gff3.gz
+gunzip gencode.v33.primary_assembly.annotation.gff3.gz
+```
 
  **ENSEMBL process:**
 http://www.ensembl.org/info/data/ftp/index.html
@@ -663,7 +674,7 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NjA1ODMzOSwxMzU0MTc2Njk3LC05OD
+eyJoaXN0b3J5IjpbMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05OD
 I5MzMwNiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5
 Mjc4LDEyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxND
 E1NjA1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYy
