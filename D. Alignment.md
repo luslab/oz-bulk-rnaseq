@@ -220,8 +220,8 @@ cd ~/working/oliver/genomes/ensembl
 wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
-wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
-gunzip Homo_sapiens.GRCh38.99.gtf.gz
+wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
+gunzip Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
 chmod 777 Homo_sapiens.GRCh38.99.gtf Homo_sapiens.GRCh38.dna.primary_assembly.fa
 ```
 
@@ -690,11 +690,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExMDAzMDE2MSwxOTE5MDc5NDM3LDE1Mz
-cxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNTQxNzY2
-OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYzMDQ0LD
-E2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxODgz
-NDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMTMwNjY3OTgxMy
-w3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNzU0
-NDg0MTVdfQ==
+eyJoaXN0b3J5IjpbLTY2MjIzODUsMjExMDAzMDE2MSwxOTE5MD
+c5NDM3LDE1MzcxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUxMTQ4
+LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMT
+AzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0
+MDksLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMT
+MwNjY3OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0
+NzQ5XX0=
 -->
