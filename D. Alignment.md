@@ -183,7 +183,7 @@ ensembl/
 ucsc/
 
 
-**GENCODE process:**
+## GENCODE
 [https://www.gencodegenes.org/human/](https://www.gencodegenes.org/human/)
 Download the latest human reference genome: currently this is Release 33 (GRCh38.p13).
 Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table.  In command line download to the appropriate directory: 
@@ -201,7 +201,8 @@ wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.
 gunzip gencode.v33.primary_assembly.annotation.gtf.gz
 ```
 
- **ENSEMBL process:**
+## ENSEMBL
+
 http://www.ensembl.org/info/data/ftp/index.html
 Search for species of interest
 Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens) & **DNA (FASTA)** [link](ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/). NB cDNA is transcriptome (not genome).
@@ -210,7 +211,8 @@ FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.e
 In command line (in appropriate Folder) `wget [paste link address]`
 Unzip file `gunzip file_name`
 
-**UCSC process:**
+## UCSC process
+
 `ml Kent_tools`
 Download a GTF file of yeast transcripts from the UCSC Genome Table Browser https://genome.ucsc.edu/cgi-bin/hgTables
 Move the downloaded GTF file to the appropriate folder
@@ -674,10 +676,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNT
-QxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYz
-MDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0MDksLT
-MxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMTMwNjY3
-OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LD
-EwNzU0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbNTg0Mjg3Nzc4LDEzNjkwNjg1NzgsMjEwOD
+Y1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMTUxNDgzNDc4
+OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4MjQsNj
+Y4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5ODY4NDQ0
+MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMzMjUsMT
+g1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1
+MjE4NF19
 -->
