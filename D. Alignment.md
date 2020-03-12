@@ -197,8 +197,8 @@ gunzip GRCh38.primary_assembly.genome.fa.gz
 Download the GTF file to the **Comprehensive gene annotation PRI (primary) regions**:
 ```bash
 cd ~/working/oliver/genomes/gencode
-wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.primary_assembly.annotation.gff3.gz
-gunzip gencode.v33.primary_assembly.annotation.gff3.gz
+wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.primary_assembly.annotation.gtf.gz
+gunzip gencode.v33.primary_assembly.annotation.gtf.gz
 ```
 
  **ENSEMBL process:**
@@ -674,10 +674,10 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05OD
-I5MzMwNiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5
-Mjc4LDEyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxND
-E1NjA1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYy
-MTc5LDE0OTk5MTMzMjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LD
-E1Nzc3NTEzNjIsMTQ3OTc1MjE4NF19
+eyJoaXN0b3J5IjpbMTM2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNT
+QxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYz
+MDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0MDksLT
+MxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMTMwNjY3
+OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0NzQ5LD
+EwNzU0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5NzUyMTg0XX0=
 -->
