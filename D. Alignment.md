@@ -212,11 +212,12 @@ Unzip file `gunzip file_name`
 
 [http://www.ensembl.org/Homo_sapiens/Info/Index](http://www.ensembl.org/Homo_sapiens/Info/Index)
 ```bash
-wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/
-ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/
-
-wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/
-
+cd ~/working/oliver/genomes/ensembl
+wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.alt.fa.gz
+gunzip Homo_sapiens.GRCh38.dna.alt.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
+gunzip Homo_sapiens.GRCh38.99.gtf.gz
+```
 
 ## UCSC process
 
@@ -683,7 +684,7 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgwNDY0OTY3LDEzNjkwNjg1NzgsMjEwOD
+eyJoaXN0b3J5IjpbOTQ2ODcyNzc0LDEzNjkwNjg1NzgsMjEwOD
 Y1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMTUxNDgzNDc4
 OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4MjQsNj
 Y4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5ODY4NDQ0
