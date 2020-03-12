@@ -177,7 +177,11 @@ BED=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.be
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
 ```
 # Download Reference Sequence & Annotation files
-Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/sequences` and then make a new directory `mkdir`
+Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/` and place into repository subdirectories:
+gencode/
+ensembl/
+ucsc/
+
 
 **GENCODE process:**
 https://www.gencodegenes.org/releases/current.html
@@ -659,10 +663,10 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NDE3NjY5NywtOTgyOTMzMDYsLTE1MT
-Q4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3MDQ4
-ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYwNTgyMiwxOT
-g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
-MzI1LDE4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLD
-E0Nzk3NTIxODRdfQ==
+eyJoaXN0b3J5IjpbLTU2NjA1ODMzOSwxMzU0MTc2Njk3LC05OD
+I5MzMwNiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5
+Mjc4LDEyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxND
+E1NjA1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYy
+MTc5LDE0OTk5MTMzMjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LD
+E1Nzc3NTEzNjIsMTQ3OTc1MjE4NF19
 -->
