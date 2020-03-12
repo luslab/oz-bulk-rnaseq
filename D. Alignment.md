@@ -207,9 +207,9 @@ chmod 777 gencode.v33.primary_assembly.annotation.gtf.gz gencode.v33.primary_ass
 http://www.ensembl.org/info/data/ftp/index.html
 Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens) & **DNA (FASTA)** [link](ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/). NB cDNA is transcriptome (not genome).
 
-FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+FASTA: Right click on `dna.primary_assembly.fa.gz` →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
-GTF: Right click on Human → copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
+GTF: Right click on comprehensive Human → copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
 
 
 In command line (in appropriate Folder) `wget [paste link address]`
@@ -692,7 +692,7 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NzI3NDc2MSwxNTM3MTQ5NDE5LDEzNj
+eyJoaXN0b3J5IjpbMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNj
 kwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMw
 NiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LD
 EyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1
