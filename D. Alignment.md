@@ -210,7 +210,7 @@ Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_
 FASTA: Right click on `dna.primary_assembly.fa.gz` →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
 GTF: Right click on Human → copy link address  for largest gtf `chr_patch_hapl_scaff` e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
-gunzip Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
+
 
 
 In command line (in appropriate Folder) `wget [paste link address]`
@@ -225,15 +225,6 @@ wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.9
 gunzip Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
 chmod 777 Homo_sapiens.GRCh38.99.gtf Homo_sapiens.GRCh38.dna.primary_assembly.fa
 ```
-
-
-cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
-OUT=/camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
-FASTA=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
-GTF=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf
-
-#Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 
 ## UCSC process
 
@@ -276,16 +267,16 @@ To generate the index in STAR, specify the location of:
 4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
 ```bash
-#Set the changable elements
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
-REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/gencode.v28.primary_assembly.annotation.gtf
+cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
+OUT=/camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
+FASTA=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+GTF=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir $IDX --genomeFastaFiles $REF  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8"
+sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
-think of --sjdbOverhang as the maximum possible overhang for your reads.
+think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length
 
 The above code is resuable and applicable to all situations by editing the $changable elements.
 The "hard-coding" looks like this (very long and difficult to edit):
@@ -700,11 +691,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg5MjUyMDM5LC02NjIyMzg1LDIxMTAwMz
-AxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNjkwNjg1Nzgs
-MjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMTUxND
-gzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4
-MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5OD
-Y4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMz
-MjVdfQ==
+eyJoaXN0b3J5IjpbMTg4MDU0ODU4MiwtNjYyMjM4NSwyMTEwMD
+MwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMzY5MDY4NTc4
+LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMzMDYsLTE1MT
+Q4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3MDQ4
+ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYwNTgyMiwxOT
+g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
+MzI1XX0=
 -->
