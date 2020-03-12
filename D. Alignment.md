@@ -206,17 +206,20 @@ chmod 777 gencode.v33.primary_assembly.annotation.gtf.gz gencode.v33.primary_ass
 
 http://www.ensembl.org/info/data/ftp/index.html
 Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens) & **DNA (FASTA)** [link](ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/). NB cDNA is transcriptome (not genome).
+
+FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+
 GTF: Right click on Human → copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
-FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.alt.fa.gz
+
+
 In command line (in appropriate Folder) `wget [paste link address]`
 Unzip file `gunzip file_name`
 
 ```bash
 cd ~/working/oliver/genomes/ensembl
-wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.alt.fa.gz
-gunzip Homo_sapiens.GRCh38.dna.alt.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
-ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
 
 wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
@@ -689,11 +692,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMDY1NTIzLDE1MzcxNDk0MTksMTM2OT
-A2ODU3OCwyMTA4NjUxMTQ4LDEzNTQxNzY2OTcsLTk4MjkzMzA2
-LC0xNTE0ODM0Nzg5LC0yMTAzMDYzMDQ0LDE2NTU4NTkyNzgsMT
-IzNzA0ODgyNCw2Njg5Njk0MDksLTMxODgzNDEyLDE0MTU2MDU4
-MjIsMTk4Njg0NDQwMywtMTMwNjY3OTgxMyw3NDM0NjIxNzksMT
-Q5OTkxMzMyNSwxODUxMTI0NzQ5LDEwNzU0NDg0MTUsMTU3Nzc1
-MTM2Ml19
+eyJoaXN0b3J5IjpbLTk3NzI3NDc2MSwxNTM3MTQ5NDE5LDEzNj
+kwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMw
+NiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LD
+EyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1
+ODIyLDE5ODY4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LD
+E0OTk5MTMzMjUsMTg1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3
+NTEzNjJdfQ==
 -->
