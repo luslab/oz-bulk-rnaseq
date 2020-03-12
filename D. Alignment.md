@@ -210,7 +210,6 @@ FASTA: Right click on DNA top level file →  copy link address e.g. ftp://ftp.e
 In command line (in appropriate Folder) `wget [paste link address]`
 Unzip file `gunzip file_name`
 
-[http://www.ensembl.org/Homo_sapiens/Info/Index](http://www.ensembl.org/Homo_sapiens/Info/Index)
 ```bash
 cd ~/working/oliver/genomes/ensembl
 wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.alt.fa.gz
@@ -684,11 +683,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ2ODcyNzc0LDEzNjkwNjg1NzgsMjEwOD
-Y1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMTUxNDgzNDc4
-OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4MjQsNj
-Y4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5ODY4NDQ0
-MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMzMjUsMT
-g1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1
-MjE4NF19
+eyJoaXN0b3J5IjpbMTUzNzE0OTQxOSwxMzY5MDY4NTc4LDIxMD
+g2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMzMDYsLTE1MTQ4MzQ3
+ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3MDQ4ODI0LD
+Y2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYwNTgyMiwxOTg2ODQ0
+NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEzMzI1LD
+E4NTExMjQ3NDksMTA3NTQ0ODQxNSwxNTc3NzUxMzYyLDE0Nzk3
+NTIxODRdfQ==
 -->
