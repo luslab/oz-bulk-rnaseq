@@ -267,13 +267,14 @@ To generate the index in STAR, specify the location of:
 4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
 ```bash
+ml STAR/2.6.1c-foss-2018b # version used by nf-core/rnaseq - needs to match version for alignment
 cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
 OUT=/camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
 FASTA=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
 GTF=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+sbatch -N 1 -c 10 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
 think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length
@@ -691,11 +692,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4MDU0ODU4MiwtNjYyMjM4NSwyMTEwMD
-MwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMzY5MDY4NTc4
-LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMzMDYsLTE1MT
-Q4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3MDQ4
-ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYwNTgyMiwxOT
-g2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2MjE3OSwxNDk5OTEz
-MzI1XX0=
+eyJoaXN0b3J5IjpbLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNj
+YyMjM4NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQx
+OSwxMzY5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOT
+gyOTMzMDYsLTE1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1
+OTI3OCwxMjM3MDQ4ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMT
+QxNTYwNTgyMiwxOTg2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2
+MjE3OV19
 -->
