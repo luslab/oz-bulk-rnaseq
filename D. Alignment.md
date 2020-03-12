@@ -209,7 +209,8 @@ Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_
 
 FASTA: Right click on `dna.primary_assembly.fa.gz` →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
-GTF: Right click on comprehensive Human → copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.gtf.gz
+GTF: Right click on Human → copy link address  for largest gtf `chr_patch_hapl_scaff` e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
+gunzip Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
 
 
 In command line (in appropriate Folder) `wget [paste link address]`
@@ -224,6 +225,15 @@ wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.9
 gunzip Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
 chmod 777 Homo_sapiens.GRCh38.99.gtf Homo_sapiens.GRCh38.dna.primary_assembly.fa
 ```
+
+
+cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
+OUT=/camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
+FASTA=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+GTF=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf
+
+#Send cmd to generate index as batch job to cluster:
+sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 
 ## UCSC process
 
@@ -690,11 +700,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MjIzODUsMjExMDAzMDE2MSwxOTE5MD
-c5NDM3LDE1MzcxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUxMTQ4
-LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMT
-AzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0
-MDksLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0NDQwMywtMT
-MwNjY3OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMyNSwxODUxMTI0
-NzQ5XX0=
+eyJoaXN0b3J5IjpbOTg5MjUyMDM5LC02NjIyMzg1LDIxMTAwMz
+AxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNjkwNjg1Nzgs
+MjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMTUxND
+gzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4
+MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5OD
+Y4NDQ0MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMz
+MjVdfQ==
 -->
