@@ -213,7 +213,9 @@ Unzip file `gunzip file_name`
 [http://www.ensembl.org/Homo_sapiens/Info/Index](http://www.ensembl.org/Homo_sapiens/Info/Index)
 ```bash
 wget ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/
+ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/
 
+wget ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/
 
 
 ## UCSC process
@@ -681,11 +683,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDY1NTYwMDgsMTM2OTA2ODU3OCwyMT
-A4NjUxMTQ4LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0
-Nzg5LC0yMTAzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNC
-w2Njg5Njk0MDksLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0
-NDQwMywtMTMwNjY3OTgxMyw3NDM0NjIxNzksMTQ5OTkxMzMyNS
-wxODUxMTI0NzQ5LDEwNzU0NDg0MTUsMTU3Nzc1MTM2MiwxNDc5
-NzUyMTg0XX0=
+eyJoaXN0b3J5IjpbNjgwNDY0OTY3LDEzNjkwNjg1NzgsMjEwOD
+Y1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMTUxNDgzNDc4
+OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4MjQsNj
+Y4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5ODY4NDQ0
+MDMsLTEzMDY2Nzk4MTMsNzQzNDYyMTc5LDE0OTk5MTMzMjUsMT
+g1MTEyNDc0OSwxMDc1NDQ4NDE1LDE1Nzc3NTEzNjIsMTQ3OTc1
+MjE4NF19
 -->
