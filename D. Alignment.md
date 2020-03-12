@@ -284,9 +284,21 @@ The "hard-coding" looks like this (very long and difficult to edit):
 ```bash
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 99 --runThreadN 8"
 ```
-Check it is running using `myq`
-If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
-Open slurm file: `more slurm…` which will explain outcome of file eg FATAL INPUT PARAMETER ERROR
+
+### Gencode
+
+Gencode index GRCh38.p13 v33 with STAR version 7.1
+```bash
+ml STAR
+ml SAMtools
+cd /camp/home/ziffo/working/oliver/genomes/gencode/GRCh38.p13_STAR_index
+OUT=/camp/home/ziffo/working/oliver/genomes/gencode/GRCh38.p13_STAR_index
+FASTA=/camp/home/ziffo/working/oliver/genomes/gencode/GRCh38.p13.primary_assembly.genome.fa
+GTF=/camp/home/ziffo/working/oliver/genomes/gencode/gencode.v33.primary_assembly.annotation.gtf
+
+#Send cmd to generate index as batch job to cluster:
+sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+```
  
 ### 2. Align each FASTQ file to the Index
 ml STAR
@@ -692,11 +704,11 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNj
-YyMjM4NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQx
-OSwxMzY5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOT
-gyOTMzMDYsLTE1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1
-OTI3OCwxMjM3MDQ4ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMT
-QxNTYwNTgyMiwxOTg2ODQ0NDAzLC0xMzA2Njc5ODEzLDc0MzQ2
-MjE3OV19
+eyJoaXN0b3J5IjpbLTQ1NTQ4MzYxNywtMTU0NDg2NTE1NywxOD
+gwNTQ4NTgyLC02NjIyMzg1LDIxMTAwMzAxNjEsMTkxOTA3OTQz
+NywxNTM3MTQ5NDE5LDEzNjkwNjg1NzgsMjEwODY1MTE0OCwxMz
+U0MTc2Njk3LC05ODI5MzMwNiwtMTUxNDgzNDc4OSwtMjEwMzA2
+MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4MjQsNjY4OTY5NDA5LC
+0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2
+Nzk4MTNdfQ==
 -->
