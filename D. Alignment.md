@@ -199,7 +199,7 @@ Download the GTF file to the **Comprehensive gene annotation PRI (primary) regio
 cd ~/working/oliver/genomes/gencode
 wget ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_33/gencode.v33.primary_assembly.annotation.gtf.gz
 gunzip gencode.v33.primary_assembly.annotation.gtf.gz
-chmod 777 gencode.v33.primary_assembly.annotation.gtf.gz 
+chmod 777 gencode.v33.primary_assembly.annotation.gtf.gz gencode.v33.primary_assembly.annotation.gtf.gz
 ```
 
 ## ENSEMBL
@@ -685,7 +685,7 @@ Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read re
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNTk4ODM0NiwxNTM3MTQ5NDE5LDEzNj
+eyJoaXN0b3J5IjpbMTM4Mjc4ODYwNywxNTM3MTQ5NDE5LDEzNj
 kwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMw
 NiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LD
 EyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1
