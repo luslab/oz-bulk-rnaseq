@@ -91,35 +91,33 @@ adapter removal: `fastx_clipper -Q 33 -l 24 -a $adapt -i ${paths}${file} > ${pat
 Can assess after mapping to see how much RNA has mapped to ribosomal RNA reference genome. If >5% then consider depleting these reads.  There are disadvantages to removing these sequences. Generally for most RNA-seq remove rRNA at this point pre-alignment.
 
 The first time you do this you need to:
+
 1. Create rRNA&tRNA reference genome
-`ml BEDOPS`
 ```bash
-# cd to annotation/
-awk '/rRNA|tRNA|Mt_rRNA|Mt_tRNA|miRNA|misc_RNA|snRNA|snoRNA/{print $0}' gencode.v28.primary_assembly.annotation.gtf > temp.gtf
-awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' temp.gtf > gencode.v28_ribosomal.gtf
-gtf2bed < gencode.v28_ribosomal.gtf > gencode.v28_ribosomal.bed
-sed -i -r 's/^([0-9]+|[XY]|MT)/chr\1/' gencode.v28_ribosomal.bed
-# mv ribosomal.bed to ribosomal/
+ml BEDOPS  
+cd annotation/  
+awk '/rRNA|tRNA|Mt_rRNA|Mt_tRNA|miRNA|misc_RNA|snRNA|snoRNA/{print $0}' gencode.v28.primary_assembly.annotation.gtf > temp.gtf  
+awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' temp.gtf > gencode.v28_ribosomal.gtf  
+gtf2bed < gencode.v28_ribosomal.gtf > gencode.v28_ribosomal.bed  
+sed -i -r 's/^([0-9]+|[XY]|MT)/chr\1/' gencode.v28_ribosomal.bed  
+mv ribosomal.bed ribosomal/
 ```
-
-2. Index the rRNA reference genome
-ml Bowtie2
-ml BEDTools
-ml SAMtools
-ml BWA
-
+2. Index the rRNA reference genome  
 ```bash
-# cd to annotation/ribosomal/
-#BEDTools (any many other programs) need TABS, not spaces.
-#sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed
-#mv temp.bed Homo_sapiens.GRCh38.77_ribosomal.bed
-bedtools getfasta -fi /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa -bed gencode.v28_ribosomal.bed -fo gencode.v28_ribosomal.fa
-bwa index gencode.v28_ribosomal.bed
-bowtie2-build gencode.v28_ribosomal.fa gencode.v28_ribosomal
+ml Bowtie2  
+ml BEDTools  
+ml SAMtools  
+ml BWA  
+cd annotation/ribosomal/  
+#BEDTools (any many other programs) need TABS, not spaces.  
+sed 's/  */\t/g' Homo_sapiens.GRCh38.77_ribosomal.bed > temp.bed  
+mv temp.bed Homo_sapiens.GRCh38.77_ribosomal.bed  
+bedtools getfasta -fi /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa -bed gencode.v28_ribosomal.bed -fo gencode.v28_ribosomal.fa  
+bwa index gencode.v28_ribosomal.bed  
+bowtie2-build gencode.v28_ribosomal.fa gencode.v28_ribosomal  
 samtools faidx gencode.v28_ribosomal.fa
-```
-
 Once the rRNA reference genome is created & indexed then **map sequences** to the rRNA & tRNA genome
+```
 
 ```bash
 mkdir trimmed_depleted 
@@ -185,11 +183,11 @@ open file `multiqc_report.html` via Finder.
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 Note the read lengths.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIxMzg5ODUwLC0xOTg0NzY0NjU2LC0yMT
-I4NTY4NDc4LC0zNzE5NzMzOTgsLTEyNTg3MjEwNyw0MTgyNzEx
-MTIsMTYwNzI3MjQxMCwtMTAyOTE3Mjc1NywtMTYyNTM1NDkyNS
-w3MjM2ODI2MDcsLTYyNTM4NjQ4MiwxODcxMTQ4MjY0LC0xODgw
-MzgwMjYsLTU1NDMwNTc3MiwxOTEwODc3MjYxLC00ODQ1NTY4Nj
-UsLTEwODM3NzAsLTExMTQ3MDI4Nyw5MDk3MTM3NDYsNzIwNzAz
-OTg0XX0=
+eyJoaXN0b3J5IjpbNzU4Mjk0ODM2LDIyMTM4OTg1MCwtMTk4ND
+c2NDY1NiwtMjEyODU2ODQ3OCwtMzcxOTczMzk4LC0xMjU4NzIx
+MDcsNDE4MjcxMTEyLDE2MDcyNzI0MTAsLTEwMjkxNzI3NTcsLT
+E2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0
+ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MS
+wtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEz
+NzQ2XX0=
 -->
