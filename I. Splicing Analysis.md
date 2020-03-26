@@ -84,9 +84,9 @@ DNA is double stranded: the 2 strands can produce different isoforms. But even o
 
 Deal with opposite strand issue with strand-specific library prep:
 
-Isoform resolution approach deals with same strand isoforms calculate the **maximum likelihood estimation** to determine probability of a read belonging to a particular isoform. Overlapping genes are a major problem: they increase the number of transcripts & potential for overlapping exons.
+Isoform resolution approach deals with same strand isoforms calculate the **maximum likelihood estimation** to determine probability of a read belonging to a particular isoform. **Overlapping genes are a major problem**: they increase the number of transcripts & potential for overlapping exons.
 
-Exon based approach deals with this by aggregating overlapping genes into a single group and testing differential exon usage within the group. Then removals all overlapping exons and tests remaining structures. This looses exons. For overlapping genes it has ambuguity at gene level for differential splicing - mistake differential gene expression for differential exon usage.
+Exon based approach deals with this by **aggregating overlapping genes** into a single group and testing differential exon usage within the group. Then removals all overlapping exons and tests remaining structures. This looses exons. For overlapping genes it has ambuguity at gene level for differential splicing - mistake differential gene expression for differential exon usage.
 
 Splicing event approach deals with this by identifying splicing events based on transcriptome annotation. Then annotates events separately for each gene. Then tests each event of each gene independently (doesnt group genes together). The disadvantage of this is that ambiguious reads aligning to more than 1 gene will be counted towards the expression of both isoforms.
 
@@ -118,7 +118,7 @@ C1 and C2 = the upstream and downstream constitutive exons, respectively.  C1Si 
 
 **4. Alternative Splicing Graphs Approach**
 - [ASGAL](https://asgal.algolab.eu/): predicts events that use splice sites which are novel with respect to a splicing graph.  Directly align reads to a splicing graph.
-- [SGSeq](https://bioconductor.org/packages/release/bioc/html/SGSeq.html) - Jack Humphrey uses this. Rstudio based. Input = BAM. Novel events found from splice graph. Author = Leonard Goldstein from Genentech. See [vignette](http://127.0.0.1:28705/library/SGSeq/doc/SGSeq.html)
+- [SGSeq](https://bioconductor.org/packages/release/bioc/html/SGSeq.html) - Jack Humphrey uses this. Rstudio based. Input = BAM. Novel events found from splice graph. Author = Leonard Goldstein from Genentech. See [vignette]([https://bioconductor.org/packages/release/bioc/vignettes/SGSeq/inst/doc/SGSeq.html](https://bioconductor.org/packages/release/bioc/vignettes/SGSeq/inst/doc/SGSeq.html))
 .
 - [Portcullis](https://github.com/TGAC/portcullis): removes invalid splice junctions from pre-aligned RNA seq data. Splice aware aligners often produce many false positive splice junctions. Filters culls splice sites which are unlikely to be genuine. 
  - QoRTs
@@ -987,11 +987,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTQ0NTExMTEsOTg2NzExMDgzLDQ0Mz
-U2MjQ3NSwyMDU5NDQ3NDUxLC0xODI0NjY5NDE3LC0xNzAwMzU0
-NzU5LDIwNjc0MDE5MDYsLTE3MDk1NTc2MzksMTkyNzUyMTE3OS
-w3NzM2NzY0NTYsLTEwNzAxNTU2MzUsMTI1MjM0ODk1NywxMTE1
-MzMyNTg0LDMzNzUwMjUxNiwtMjA3NjI2MzYxMCwxMjQ3MDg5MT
-A3LC0xNTI2NjA2NzY1LC01MjM2NzUyNzksLTEzMTMxMzcxMDQs
-NjA3NjM4Mzk2XX0=
+eyJoaXN0b3J5IjpbMTQyMjQzMjYwNywtMTM1NDQ1MTExMSw5OD
+Y3MTEwODMsNDQzNTYyNDc1LDIwNTk0NDc0NTEsLTE4MjQ2Njk0
+MTcsLTE3MDAzNTQ3NTksMjA2NzQwMTkwNiwtMTcwOTU1NzYzOS
+wxOTI3NTIxMTc5LDc3MzY3NjQ1NiwtMTA3MDE1NTYzNSwxMjUy
+MzQ4OTU3LDExMTUzMzI1ODQsMzM3NTAyNTE2LC0yMDc2MjYzNj
+EwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUyMzY3NTI3OSwt
+MTMxMzEzNzEwNF19
 -->
