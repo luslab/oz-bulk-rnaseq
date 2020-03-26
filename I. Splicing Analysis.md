@@ -153,11 +153,11 @@ SplicePie [25800735](http://www.ncbi.nlm.nih.gov/pubmed/25800735)
 ## Analysis approach
 https://www.nature.com/articles/nmeth.1503.pdf
 
-Infer structural infromation about the transcript 
-Infer the strand by examining splice site spanning reads
-Each transcript isoform has very few exons & exon-exon junctions that are unique to that isoform.
+1. Infer structural infromation about the transcript 
+2. Infer the **DNA strand** (+ or -) by examining splice site spanning reads
 
-Can ignore structure of full length transcript & focus on individual sequence features.
+Each transcript isoform has very few exons & **exon-exon splice junctions** that are unique to that isoform.
+Ignore structure of full length transcript & focus on individual sequence features.
 
 ![enter image description here](https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=info:doi/10.1371/journal.pcbi.1004393.g006)
 yellow gene = noncoding RNA gene.
@@ -987,11 +987,11 @@ par(mfrow=c(1,1),mar=c(3,20,3,3),cex=0.7)  # artificially set margins for barplo
 barplot(height = dat.dr.mf,horiz=T,las=1, font.size = 20)
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMjQzMjYwNywtMTM1NDQ1MTExMSw5OD
-Y3MTEwODMsNDQzNTYyNDc1LDIwNTk0NDc0NTEsLTE4MjQ2Njk0
-MTcsLTE3MDAzNTQ3NTksMjA2NzQwMTkwNiwtMTcwOTU1NzYzOS
-wxOTI3NTIxMTc5LDc3MzY3NjQ1NiwtMTA3MDE1NTYzNSwxMjUy
-MzQ4OTU3LDExMTUzMzI1ODQsMzM3NTAyNTE2LC0yMDc2MjYzNj
-EwLDEyNDcwODkxMDcsLTE1MjY2MDY3NjUsLTUyMzY3NTI3OSwt
-MTMxMzEzNzEwNF19
+eyJoaXN0b3J5IjpbMjQxMjY3MDI1LC0xMzU0NDUxMTExLDk4Nj
+cxMTA4Myw0NDM1NjI0NzUsMjA1OTQ0NzQ1MSwtMTgyNDY2OTQx
+NywtMTcwMDM1NDc1OSwyMDY3NDAxOTA2LC0xNzA5NTU3NjM5LD
+E5Mjc1MjExNzksNzczNjc2NDU2LC0xMDcwMTU1NjM1LDEyNTIz
+NDg5NTcsMTExNTMzMjU4NCwzMzc1MDI1MTYsLTIwNzYyNjM2MT
+AsMTI0NzA4OTEwNywtMTUyNjYwNjc2NSwtNTIzNjc1Mjc5LC0x
+MzEzMTM3MTA0XX0=
 -->
