@@ -72,9 +72,9 @@ There are many QC tools available (most in bash but some in R - bioconductor) ea
 
 for multiple sequences can parallelise by using for loop & sbatch:
 ```bash
-for file in ~/working/oliver/projects/airals/reads/D112_samples/SRR5*_1.fastq
+for file in /camp/home/ziffo/working/oliver/projects/luisier-nature-comms-2018-sfpq-ir/reads/D35_samples/*.fastq
 do
-	sbatch -N 1 -c 1 --mem 32 --wrap="trim_galore -q 20 --length 20 --gzip -fastqc -o /home/camp/ziffo/working/oliver/projects/airals/reads/D112_samples/trimmed $file";
+	sbatch -N 1 -c 1 --mem 32 --wrap="trim_galore -q 20 --length 20 --gzip -fastqc -o /camp/home/ziffo/working/oliver/projects/luisier-nature-comms-2018-sfpq-ir/reads/D35_samples/trimmed $file";
 done
 ```
 
@@ -183,11 +183,11 @@ open file `multiqc_report.html` via Finder.
 Compare this new processed reads MultiQC HTML report with the report on the Raw FastQC.
 Note the read lengths.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU4Mjk0ODM2LDIyMTM4OTg1MCwtMTk4ND
-c2NDY1NiwtMjEyODU2ODQ3OCwtMzcxOTczMzk4LC0xMjU4NzIx
-MDcsNDE4MjcxMTEyLDE2MDcyNzI0MTAsLTEwMjkxNzI3NTcsLT
-E2MjUzNTQ5MjUsNzIzNjgyNjA3LC02MjUzODY0ODIsMTg3MTE0
-ODI2NCwtMTg4MDM4MDI2LC01NTQzMDU3NzIsMTkxMDg3NzI2MS
-wtNDg0NTU2ODY1LC0xMDgzNzcwLC0xMTE0NzAyODcsOTA5NzEz
-NzQ2XX0=
+eyJoaXN0b3J5IjpbMTAyNzc3MTk1OSw3NTgyOTQ4MzYsMjIxMz
+g5ODUwLC0xOTg0NzY0NjU2LC0yMTI4NTY4NDc4LC0zNzE5NzMz
+OTgsLTEyNTg3MjEwNyw0MTgyNzExMTIsMTYwNzI3MjQxMCwtMT
+AyOTE3Mjc1NywtMTYyNTM1NDkyNSw3MjM2ODI2MDcsLTYyNTM4
+NjQ4MiwxODcxMTQ4MjY0LC0xODgwMzgwMjYsLTU1NDMwNTc3Mi
+wxOTEwODc3MjYxLC00ODQ1NTY4NjUsLTEwODM3NzAsLTExMTQ3
+MDI4N119
 -->
