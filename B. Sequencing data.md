@@ -159,7 +159,7 @@ ml SRA-Toolkit
 	- SRA experiment IDs start with `SRS****`. Unique sequencing library for a sample.
 	- SRA run IDs start with  `SRR****` and `ERR****`. Data file linked to the sequencing library.
 6. On the [SRA Run Selector page](https://www.ncbi.nlm.nih.gov/Traces/study/?WebEnv=NCID_1_2827488_130.14.18.97_5555_1539957447_3051893689_0MetA0_S_HStore&query_key=3) click Accession List icon under Download. This downloads a text file of each Sequencing run ID.
-
+[https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=33&WebEnv=NCID_1_66944451_130.14.22.76_5555_1586255724_3423667682_0MetA0_S_HStore&o=acc_s%3Aa](https://www.ncbi.nlm.nih.gov/Traces/study/?query_key=33&WebEnv=NCID_1_66944451_130.14.22.76_5555_1586255724_3423667682_0MetA0_S_HStore&o=acc_s%3Aa)
 ![enter image description here](https://lh3.googleusercontent.com/MtirNCqJgzENksukOhrIZnqNwDpcXbbx_LTHMz17FZpe-p3Mn3iN0bsRAxsKgVbHJn3PjIOmyOOe5Q)
 
 ## prefetch
@@ -389,11 +389,11 @@ mv CRE646A11_S41_L008_R2_001.fastq.gz  whole_ctrl1_lane8_R2.fastq.gz
 mv CRE646A12_S54_L007_R1_001.fastq.gz  whole_ctrl2_lane7_R1.fastq.gz
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjE0ODc2ODMsOTU1OTYzNTQxLC0xMz
-c4MTA1NjIyLC0xNDY2MjI5NDIwLDk1NjM4NzM0NywtMTQ2NjIy
-OTQyMCwyMDY5Mjc5MjY4LC0zMzk2NzI4ODUsOTQwOTE1MDU2LC
-0xMTE3MzAxMDMwLDY3MDQwMDczMCwtMTQzNjU5NjkwMSwtMTQ1
-MjgyMTY4OSwxMDUyODk4OTA1LC0xNDc4Mzk1MTYwLC0yMDEyOD
-Y4MzYxLC02OTkyMDk0NTcsMTY2NjQxMjIzMywtMTMzNDkwNDU0
-N119
+eyJoaXN0b3J5IjpbMTk5NTM2MTgxNCwtMTcyMTQ4NzY4Myw5NT
+U5NjM1NDEsLTEzNzgxMDU2MjIsLTE0NjYyMjk0MjAsOTU2Mzg3
+MzQ3LC0xNDY2MjI5NDIwLDIwNjkyNzkyNjgsLTMzOTY3Mjg4NS
+w5NDA5MTUwNTYsLTExMTczMDEwMzAsNjcwNDAwNzMwLC0xNDM2
+NTk2OTAxLC0xNDUyODIxNjg5LDEwNTI4OTg5MDUsLTE0NzgzOT
+UxNjAsLTIwMTI4NjgzNjEsLTY5OTIwOTQ1NywxNjY2NDEyMjMz
+LC0xMzM0OTA0NTQ3XX0=
 -->
