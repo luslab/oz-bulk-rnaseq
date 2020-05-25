@@ -17,12 +17,12 @@ The alternative approach is to use a transcript-level count rather than gene lev
 
 
 # Raw Counts
-Raw referes to non-normalised read counts. Simply assign reads to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
+Raw refers to non-normalised read counts. Simply assign reads to a defined set of genes/transcripts & determine raw counts. Does not have a step to calculate assembly and different isoforms.
 
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
 **Tools**: 
-[HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) - Raphaelle uses this. It is slow as you cant multithread.
+[HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) 
 featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
@@ -219,11 +219,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTY3MzI5MDIxLDU2NjI0MTg3MSwtMTc3OD
-M2NTEwMyw5Njc3ODU1MTYsMTk3NjI4ODc5LDE3MzM1OTc1OTEs
-MTE4NjY5NTc2NiwxODY0MTA4MjgxLDEwNzUxMjI4ODIsMjgwOD
-k2OTUzLC04MjQ5ODMzODgsNTI3Mzc2NzE0LC03MzgzMTM5MzMs
-MTA3NzQ2NzYyNywtMjQ1NjEwOTg3LDk4NjMyMDY1OSwtNDIzOD
-M4NjQ0LDIwOTE1NzIxMDYsMTI3OTM4NTEyMSwxMzMyMDYxNTI5
+eyJoaXN0b3J5IjpbLTEzMTQwMTMyNSw5NjczMjkwMjEsNTY2Mj
+QxODcxLC0xNzc4MzY1MTAzLDk2Nzc4NTUxNiwxOTc2Mjg4Nzks
+MTczMzU5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NT
+EyMjg4MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQs
+LTczODMxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2Mz
+IwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIx
 XX0=
 -->
