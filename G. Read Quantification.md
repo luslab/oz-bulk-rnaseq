@@ -78,7 +78,7 @@ head htseq_counts_table.tsv
 ```
 Raphaelle runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we run the Differential Gene Expression & Visualisation steps. This logs read counts, filters out low read counts & normalises read counts. She then runs heirachical clustering, PCA & SVD 
 
-This output can then be analysed for differential expression using edgeR or DESeq2 (see next chapter)
+This merged output can then be analysed for differential expression using edgeR or DESeq2 (see next chapter)
 
 ## QoRTs
 ml QoRTs
@@ -219,11 +219,11 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MDIxOTU2Nyw5NjczMjkwMjEsNTY2Mj
-QxODcxLC0xNzc4MzY1MTAzLDk2Nzc4NTUxNiwxOTc2Mjg4Nzks
-MTczMzU5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NT
-EyMjg4MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQs
-LTczODMxMzkzMywxMDc3NDY3NjI3LC0yNDU2MTA5ODcsOTg2Mz
-IwNjU5LC00MjM4Mzg2NDQsMjA5MTU3MjEwNiwxMjc5Mzg1MTIx
-XX0=
+eyJoaXN0b3J5IjpbMzY2OTAxMzM3LDk2NzMyOTAyMSw1NjYyND
+E4NzEsLTE3NzgzNjUxMDMsOTY3Nzg1NTE2LDE5NzYyODg3OSwx
+NzMzNTk3NTkxLDExODY2OTU3NjYsMTg2NDEwODI4MSwxMDc1MT
+IyODgyLDI4MDg5Njk1MywtODI0OTgzMzg4LDUyNzM3NjcxNCwt
+NzM4MzEzOTMzLDEwNzc0Njc2MjcsLTI0NTYxMDk4Nyw5ODYzMj
+A2NTksLTQyMzgzODY0NCwyMDkxNTcyMTA2LDEyNzkzODUxMjFd
+fQ==
 -->
