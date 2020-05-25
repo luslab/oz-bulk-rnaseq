@@ -22,13 +22,13 @@ Raw refers to non-normalised read counts. Simply assign reads to a defined set o
 Use a BAM file & GTF file and assign each read as best as possible to a known gene to calculate counts. Then run statistical methods on these counts for differental expression.
 
 **Tools**: 
-[HTSeq count](http://htseq.readthedocs.io/en/release_0.10.0/index.html) 
+[HTSeq](http://htseq.readthedocs.io/en/release_0.10.0/index.html) 
 featureCounts
 QoRTs (Nobby uses this as it also does QC simultaneously)
 STAR (also does counts if you give it GTF file)
 
 
-## HTSeq-Count
+## HTSeq
 ml HTSeq
 ml Pysam
 
@@ -76,7 +76,7 @@ cat header.txt htseq_counts_table_temp.tsv | grep -v "__" | perl -ne 'chomp $_; 
 rm -f htseq_counts_table_temp.tsv header.txt
 head htseq_counts_table.tsv
 ```
-Raphaelle uses htseq.  She runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we run the Differential Gene Expression & Visualisation steps. This logs read counts, filters out low read counts & normalises read counts. She then runs heirachical clustering, PCA & SVD 
+Raphaelle runs htseq on each sample from each time point separately to create one output table per sample. The output of these are then loaded into the R script **SVD_analysis.Rmd** script where we run the Differential Gene Expression & Visualisation steps. This logs read counts, filters out low read counts & normalises read counts. She then runs heirachical clustering, PCA & SVD 
 
 This output can then be analysed for differential expression using edgeR or DESeq2 (see next chapter)
 
@@ -219,7 +219,7 @@ chmod +x Tutorial_ERCC_expression.R
 To view the resulting figure, navigate to the below URL replacing  **YOUR_IP_ADDRESS** with your IP address:
 -   http://**YOUR_IP_ADDRESS**/rnaseq/expression/htseq_counts/Tutorial_ERCC_expression.pdf
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTQwMTMyNSw5NjczMjkwMjEsNTY2Mj
+eyJoaXN0b3J5IjpbMTI0MDIxOTU2Nyw5NjczMjkwMjEsNTY2Mj
 QxODcxLC0xNzc4MzY1MTAzLDk2Nzc4NTUxNiwxOTc2Mjg4Nzks
 MTczMzU5NzU5MSwxMTg2Njk1NzY2LDE4NjQxMDgyODEsMTA3NT
 EyMjg4MiwyODA4OTY5NTMsLTgyNDk4MzM4OCw1MjczNzY3MTQs
