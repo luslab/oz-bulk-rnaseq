@@ -8,7 +8,14 @@
 
 Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
 
-[Kallisto](https://pachterlab.github.io/kallisto/)  extracts **both gene and transcript level** gene expression directly from fastq files using the raw fastq files. Results can be analysed with  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) for transcript level analysis or with DESeq2 (via tximport). 
+[Kallisto](https://pachterlab.github.io/kallisto/)   is a user-friendly algo which extracts ** both gene and transcript level** gene expression directly from fastq files using the raw fastq files. Results can be analysed withThen use  [Sleuth](https://pachterlab.github.io/sleuth/)  (also developed by Pachter lab) for transcript level analysis or with DESeq2 (via tximport). to perform differential gene and transcript expression analysis.
+
+**SVD (singular value decomposition) analysis**
+
+-   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some litterature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
+
+# Rapid Approach: Kallisto - Sleuth pipeline
+Author = [Lior Patcher](https://en.wikipedia.org/wiki/Lior_Pachter)
 
 [Kallisto](https://www.youtube.com/watch?v=94wphB3GKBM) quantifies transcript abundances. It pseudoaligns reads against a transcriptome (not genome). Simple count-based approaches underperform when determining transcript level counts as they disregard reads that overlap with more than one gene. If the genomic feature becomes a transcript rather than a gene it keeps many reads that would have been discarded.
 
@@ -32,6 +39,7 @@ Sailfish and more updated version Salmon
 [Kallisto](https://www.nature.com/articles/nbt.3519)
 
 ## Kallisto Workflow
+ml kallisto
 
 Two steps:
 1. Build Index (10mins to run) - only run the first time (or download from patcher lab)
@@ -47,7 +55,17 @@ kallisto index -i kallisto_gencode.v29.idx /camp/home/ziffo/working/oliver/genom
 Kallisto index's are available at:
 `/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx`
 `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx` # download from kallisto website - ensembl v96 [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases)
-`/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses the STP cellranger fasta file as the reference genome from `/camp/svc/reference/Genomics/10x/10x_transcriptomes/refdata-cellranger-GRCh38-3.0.0`
+`
+2. Quantify Reads (10mins to run)
+
+For an individual single or paired end fastq file you can run:
+```bash
+#set changable elements
+##set reference transcriptome (cDNA)
+REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
+SAMPLE=CTRL_3
+R1=/home/camp/home/ziffo/working/oliver/genomes/index/kallisto_cellranger_GRCh38.3.0.0.idx` # uses the STP cellranger projects/airals/fasta q_file as the reference genome from `/camp/svc/reference/Genomics/10x/10x_transcriptomes/refdata-cellranger-GRCh38-3.0.0`
  NB this index taking >12 hours to run kallisto quant
 
 Or can download prebuilt ensemble reference transcriptome reference from [https://github.com/pachterlab/kallisto-transcriptome-indices/releases](https://github.com/pachterlab/kallisto-transcriptome-indices/releases). This is the v96 ensembl file: `/camp/home/ziffo/working/oliver/genomes/index/homo_sapiens/transcriptome.idx`
@@ -61,8 +79,12 @@ source activate rtest
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz # 
 INDEX=/camp/home/ziffo/working/oliver/genomes/index/kallisto_gencode.v29.idx 
 OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto
+s/D7_samples/trimmed_depleted/${SAMPLE}.fq
+##if you have paired-end data then set the 2nd read files for input
+R2=PATH_TO_FASTQ_reverse_strand.fq
 
-sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+#build kallisto index
+sbatch -N 1 -c 8 --mem= 40GB --wrap="kallisto quantindex -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
 ```
 Kallisto will output a folder for each quant command. Kallisto will print:
 ```bash
@@ -76,7 +98,13 @@ Kallisto will output a folder for each quant command. Kallisto will print:
 [quant] finding pseudoalignments for the reads ... done
 [quant] processed 27,467,230 reads, 4,239,422 reads pseudoaligned
 [   em] quantifying the abundances ... done
-[   em] the Expectation-Maximization algorithm ran for 1,359 rounds
+[   em] the Expectation-MaximizatioDX $REF"
+
+#create directory for kallisto data 
+mkdir -p kallisto
+#set subdirectory for output called out
+OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto
+#run kalgorithm ran for 1,359 rounds
 ```
 
 Run multiple at once by creating a bash script with each quant command listed. Run bash script with `bash rename.sh`
@@ -86,11 +114,14 @@ INDEX=/camp/home/ziffo/working/oliver/genomes/index/transcriptome.idx
 
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL1_D0_cytoplasmic*.fastq.gz
 OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/CTRL1_D0_cytoplasmic
-sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="listo quantification with quant command. -o sets output directory. -b specifies the bootstap sample number.
+##paired-end mode
+kallisto quant -i $INDEDX -o $OUTDIR -b 100 --rf-stranded $SAMPLE"
 
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL3_D0_cytoplasmic*.fastq.gz
 OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/CTRL3_D0_cytoplasmic
-sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-stranded $SAMPLE"
+sbatch -N 1 -c 8 --mem=40GB -t 12:00:00 --wrap="kallisto quant -i $INDEX -o $OUT -b 100 --rf-$R1 $R2
+##single-end mode (set fragment mean length & stranded $SAMPLE"
 
 SAMPLE=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/reads/CTRL4_D0_cytoplasmic*.fastq.gz
 OUT=/camp/home/ziffo/working/oliver/projects/vcp_fractionation/expression/kallisto/merged/CTRL4_D0_cytoplasmic
@@ -115,7 +146,8 @@ echo "Running timepoint $READ"
 	for REPLICATE in $FASTQ
 	do
 	ID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
-	sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto quant -i $INDEX -o $OUT $REPLICATE > $READ/${ID}"
+	sbatch -N 1 -c 8 --mem=40GB --wrap="ard deviation - Illumina generates fragments 180-200bp - acurately determine this from a library quantification with an instrument such as an Agilent Bioanalyzer)
+kallisto quant -i $INDEDX -o $OUT $REPLICATE > $READ/${ID}"
 	echo "Running sample $ID"
 	done
 done
@@ -237,7 +269,51 @@ Output files:
 - abundance.txt
 - abundance.h5 (large scale format form of txt file) - used by tximport
 - run_info.json
+SAMPLE -b 100 --single -l 187 -s 70 $R1
+```
+However for multiple fastq files use a For Loop:
+```bash
+# Create output folder
+mkdir -p kallisto
 
+# Exit this script on any error.
+set -euo pipefail
+
+# Set Reference transcriptome (not genome).
+REF=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.fa
+# Set index to build
+IDX=/home/camp/ziffo/working/oliver/genomes/sequences/human/gencode.v29.transcripts.cdna.fa.idx
+
+# Build kallisto index
+sbatch -N 1 -c 8 --mem=40GB --wrap="kallisto index -i $IDX  $REF"
+
+for SAMPLE in VCP CTRL;
+do
+    for REPLICATE in 1 2 3;
+    do
+        # Build the name of the files.
+        R1=/home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/trimmed_depleted/${SAMPLE}_${REPLICATE}.fq
+        # The kallisto output directory.
+        OUTDIR=/home/camp/ziffo/working/oliver/projects/airals/expression/D7_samples/kallisto/${SAMPLE}_${REPLICATE}
+        # Run kallisto quantification in single-end mode.
+        echo "*** Running kallisto on single end sample: $SAMPLE"
+        kallisto quant --single -l 187 -s 70 -i $IDX -o $OUTDIR -b 100 $R1
+
+        # Copy the abundance file to a proper name - i.e. remove the long path name so that it only contains information on the sample e.g. VCP_3.tsv
+        cp $OUTDIR/abundance.tsv $OUTDIR.counts.tsv
+    done
+done
+
+```
+
+### Kallisto Output
+
+Output files:
+- abundance.txt
+- abundance.h5 (large scale format form of txt file)
+- run_info.json
+
+The main output of Kallisto is the **abundance.tsv** file with columns:
 ```
 target_id   length eff_length est_counts 	tpm
 ERCC-00002  1061   891.059      18946      243099
@@ -290,6 +366,15 @@ cd ~/working/oliver/projects/vcp_fractionation/expression/sleuth
 R --file=~/working/oliver/projects/vcp_fractionation/expression/sleuth/sleuth_camp.R
 ```
 
+Debugging conda:
+```bash
+conda clean --all
+conda update --all
+conda update -n base -c defaults conda
+conda install anaconda
+conda install --channel https://conda.anaconda.org/bioconda r-sleuth
+ml sleuth/0.28.0-foss-2016b-R-3.3.1
+```
 
 # Kallisto > DESeq2
 
@@ -361,11 +446,11 @@ You can change the header to include the sample names.
 -   For doing this you can use the gene-level count table obtained from Kallisto. I wrote everything in R and I can send you some literature which explains a bit the underlying math and idea. Also happy to speak about it over skype.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzMjA1Mjg2OCwtMzYxOTY0MjAzLC0xOT
-cwOTI5MiwtMTk1ODk2NTU5MiwtOTI0MTM4MDI5LC0xNzg4MTY1
-OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLDY1MTgyOTYxOCwtMT
-czODE5ODQ3NywzODI3ODU5ODUsLTgzNDcxMzc1NSw1NjQwMDk0
-NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LDU2NjczOTMyOCwtMT
-I2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4NzE2NzA1LC0xNDY3
-NDk2OTM2XX0=
+eyJoaXN0b3J5IjpbLTEyOTIxNzg1OTYsMTQzMjA1Mjg2OCwtMz
+YxOTY0MjAzLC0xOTcwOTI5MiwtMTk1ODk2NTU5MiwtOTI0MTM4
+MDI5LC0xNzg4MTY1OTI3LDM5Mzk2MzkyMSwtNjcwOTgwNTkxLD
+Y1MTgyOTYxOCwtMTczODE5ODQ3NywzODI3ODU5ODUsLTgzNDcx
+Mzc1NSw1NjQwMDk0NTksMTA0NDk2MDAyMywxNTUwNzAwMDU0LD
+U2NjczOTMyOCwtMTI2NzI4NTIyNSwxMjM3NTQwNjA5LC0xNzQ4
+NzE2NzA1XX0=
 -->
