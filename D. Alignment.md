@@ -128,7 +128,7 @@ Annotation files store start sites, exon, introns. They contain spacial coordina
 Both formats contain information:
 - Span: start & end coordinates
 - Hierarchy: feature belongs to another feature e.g. exon to a transcript
-- Value: at a spsecific coordinate
+- Value: at a sapsecific coordinate
 - Annotation: feature X is also characterised by Y & Z
 
 2 types of genome formats exist:
@@ -165,6 +165,7 @@ The relationship is built from data distributed over multiple lines.
 Always use GFF based formats. [Can convert between the two formats using:](https://www.biostars.org/p/56280/)
 ```bash
 ml BEDOPS
+
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
@@ -175,6 +176,7 @@ ml BEDOPS
 GTF=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.gtf
 BED=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.bed
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
+
 ```
 # Download Reference Sequence & Annotation files
 Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/` and place into repository subdirectories:
@@ -185,8 +187,13 @@ ucsc/
 
 ## GENCODE
 [https://www.gencodegenes.org/human/](https://www.gencodegenes.org/human/)
-Download the latest human reference genome: currently this is Release 33 (GRCh38.p13).
-Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table.  In command line download to the appropriate directory: 
+Downloasequences` and then make a new directory `mkdir`
+
+**GENCODE process:**
+https://www.gencodegenes.org/releases/current.html
+find the latest human reference genome: currently this is Release 3328 (GRCh38.p13).2)
+Copy the Link address to download the FASTA file to the GENOME SEQUENCE  PRI (primary) - bottom of 2nd table.  I
+Then in command line download to the appropriate directory: 
 ```bash
 cd ~/working/oliver/genomes/gencode
 #wget [paste link address]
@@ -203,13 +210,19 @@ chmod 777 gencode.v33.primary_assembly.annotation.gtf.gz gencode.v33.primary_ass
 ```
 
 ## ENSEMBL
+`wget [paste link address]` then `gunzip filename`
+Do the same for the GTF file to the **Comprehensive gene annotation PRI (primary) regions**.
 
+ **ENSEMBL process:**
 http://www.ensembl.org/info/data/ftp/index.html
-Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens) & **DNA (FASTA)** [link](ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/). NB cDNA is transcriptome (not genome).
+Search for species of interest
+Click on Gene sets **GTF** [link](ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens) link & **DNA (FASTA)** [link](ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/). NB cDNA is transcriptome (not genome).
 
-FASTA: Right click on `dna.primary_assembly.fa.gz` →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+FASTA: Right click on `dna.primary_assembly.fa link
+GTF: Right click on Saccharomyces)cerevisiae.R64-1-1.92.gtf.gz` →  copy link address e.g. ftp://ftp.ensembl.org/pub/release-99/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
-GTF: Right click on Human → copy link address  for largest gtf `chr_patch_hapl_scaff` e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
+GTF
+FASTA: Right click on Human → cDNA topy link address  for largest gtf `chr_patch_hapl_scaff` e.g. ftp://ftp.ensembl.org/pub/release-99/gtf/homo_sapiens/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
 
 
 
@@ -226,8 +239,12 @@ gunzip Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf.gz
 chmod 777 Homo_sapiens.GRCh38.99.gtf Homo_sapiens.GRCh38.dna.primary_assembly.fa
 ```
 
-## UCSC process
+## evel file.
+In command line (in appropriate Folder) `wget [paste link address]`
+Unzip file `gunzip file_name`
 
+**UCSC process
+:**
 `ml Kent_tools`
 Download a GTF file of yeast transcripts from the UCSC Genome Table Browser https://genome.ucsc.edu/cgi-bin/hgTables
 Move the downloaded GTF file to the appropriate folder
@@ -269,20 +286,22 @@ To generate the index in STAR, specify the location of:
 ```bash
 ml STAR/2.6.1c-foss-2018b # version used by nf-core/rnaseq - needs to match version for alignment
 cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
-OUT=/camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
-FASTA=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
-GTF=/camp/home/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaff.gtf
+OUT=#Set the changable elements
+IDX=/home/camp/home/ziffo/working/oliver/genomes/ensemblindex/GRCh38.99_ensemblp12_STAR_index
+FASTA=/camp/homeREF=/home/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.sequences/human/GRCh38.dna.primary_assembly.genome.fa
+GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaffannotation/gencode.v28.primary_assembly.annotation.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 10 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+sbatch -N 1 -c 108 --mem=0 -t 48:00:00 40G --wrap="STAR --runMode genomeGenerate --genomeDir $OUTIDX --genomeFastaFiles $FASTAREF  --sjdbGTFfile $GTF --sjdbOverhang 959 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
-think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length
+think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length8"
+```
 
 The above code is resuable and applicable to all situations by editing the $changable elements.
 The "hard-coding" looks like this (very long and difficult to edit):
 ```bash
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 99 --runThreadN 8"
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 959 --runThreadN 8"
 ```
 
 ### Gencode
@@ -298,7 +317,9 @@ GTF=/camp/home/ziffo/working/oliver/genomes/gencode/gencode.v33.primary_assembly
 
 #Send cmd to generate index as batch job to cluster:
 sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
-```
+```Check it is running using `myq`
+If it isn’t seen there then `ls` the folder → look for output file named “slurm…”
+Open slurm file: `more slurm…` which will explain outcome of file eg FATAL INPUT PARAMETER ERROR
  
 ### 2. Align each FASTQ file to the Index
 ml STAR
@@ -336,7 +357,7 @@ sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFi
 ```
 
 The above script needs editing for each sequencing file (redundant). 
-To create a script that runs all sequencing files (non-redundant) you can use a for loop.
+To create a script that runs all sequencing files (non-redundant) you can use a for loop or snakemake.
 
 **For Loop**
 
@@ -701,14 +722,27 @@ Interpret the [HTML report](https://www.youtube.com/watch?v=qPbIlO_KWN0).
 
 Compare the  alignment MultiQC HTML reports (the raw unprocessed aligned read report & the trimmed, filtered & depleted aligned read report)
 
+# Kallisto
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1NTQ4MzYxNywtMTU0NDg2NTE1NywxOD
-gwNTQ4NTgyLC02NjIyMzg1LDIxMTAwMzAxNjEsMTkxOTA3OTQz
-NywxNTM3MTQ5NDE5LDEzNjkwNjg1NzgsMjEwODY1MTE0OCwxMz
-U0MTc2Njk3LC05ODI5MzMwNiwtMTUxNDgzNDc4OSwtMjEwMzA2
-MzA0NCwxNjU1ODU5Mjc4LDEyMzcwNDg4MjQsNjY4OTY5NDA5LC
-0zMTg4MzQxMiwxNDE1NjA1ODIyLDE5ODY4NDQ0MDMsLTEzMDY2
-Nzk4MTNdfQ==
+eyJoaXN0b3J5IjpbMTAyMTEzOTg3NCw3MjYxNzI1NjQsNjE1Mj
+g1MzAwLDE0NDM2NTI0NzIsOTQwNzM2NzUzLC04NjQ1NzQ0Mjcs
+LTE1NDk2Nzc3OTksLTE3MDE2NTc0NzAsLTU5NDM0MTY4NywtMj
+EzOTg5MTU5NCw3NTg5NDQ4NzEsLTEwMzUzOTU1NSw2MDgyMzgw
+ODMsMTAxMzY0MTcwMCw3MjI1MzA0MTQsLTE4MzA3NDg0OTksLT
+ExNjI2Nzg0OTMsLTE4MTIwMTA1OTQsNjEwMTg0MjEwLDE3Mzg0
+NjMyNDNdfQ==
+-->
+
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTcxNTM0MTgyMiwtNDU1NDgzNjE3LC0xNT
+Q0ODY1MTU3LDE4ODA1NDg1ODIsLTY2MjIzODUsMjExMDAzMDE2
+MSwxOTE5MDc5NDM3LDE1MzcxNDk0MTksMTM2OTA2ODU3OCwyMT
+A4NjUxMTQ4LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0
+Nzg5LC0yMTAzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNC
+w2Njg5Njk0MDksLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0
+NDQwM119
 -->
