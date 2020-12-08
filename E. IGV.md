@@ -152,9 +152,9 @@ IGV does not normalise for read number per sample in sashimi plots so dont overi
 
 # UCSC genome browser
 
-Create a public link to a UCSC genome browser session displaying the uploaded sequence tracks 
+Follow instructions in this video: https://www.youtube.com/watch?v=UvHihNbyCh8
 
-https://genome.ucsc.edu/cgi-bin/hgGateway
+Create a public link to a UCSC genome browser session displaying the uploaded sequence tracks: https://genome.ucsc.edu/cgi-bin/hgGateway
 
 Instructions are available here
 http://genome.ucsc.edu/goldenPath/help/hgSessionHelp.html#NAR
@@ -176,7 +176,7 @@ sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -
 ```
 Move files to shareable location (Dropbox) and make shareable with others
 
-## Create track
+## Create track settings
 
 Create script with track line variables:
 
@@ -189,11 +189,13 @@ track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 
 ```
 Ensure dropbox link is dl=1 at end
 
-## Upload
+## Upload to UCSC
+
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1MzAzNjA0MSwtMTk0MTM4Mzg1NSwyND
+eyJoaXN0b3J5IjpbMTk3MDQ0OTkyNywtMTk0MTM4Mzg1NSwyND
 U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
 NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
 AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
