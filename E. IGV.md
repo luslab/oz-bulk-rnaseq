@@ -179,7 +179,7 @@ Move files to shareable location (Dropbox) and make shareable with others
 cd /Users/ziffo/'Dropbox (The Francis Crick)'/Medical\ Files/Research/PhD/projects/inter-neuron-bulk-rnaseq/bigWigs
 rsync -aP camp-ext:/camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged/*.bw .
 ```
-Create link > Copy link
+Create link > Copy link > paste into track lines script
 
 ## Create track lines settings script
 
@@ -213,7 +213,7 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjM2NzE2MjIsNDE1NDQxOTY1LC0xOT
+eyJoaXN0b3J5IjpbLTEyNDg2MjI3MTIsNDE1NDQxOTY1LC0xOT
 QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
 MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
 EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
