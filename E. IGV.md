@@ -185,8 +185,8 @@ Create link > Copy link > paste into track lines script
 
 ```bash
 track type=bigWig name="IN D18" description="interneuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/g7bond1pr88xqym/in_d18_ctrl.bw?dl=1
-track type=bigWig name="IN D25" description="interneuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/hkkzry6wex226rn/ac_who_vcp.bw?dl=1
-track type=bigWig name="MN D18" description="motor neuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/vfs64xhluajzroz/ac_nuc_ctrl.bw?dl=1
+track type=bigWig name="IN D25" description="interneuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/jt18a30ik9qz5zk/in_d25_ctrl.bw?dl=1
+track type=bigWig name="MN D18" description="motor neuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/jvyrath43s7kp33/mn_d18_ctrl.bw?dl=1
 track type=bigWig name="MN D25" description="motor neuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/rsn2waae8m8mi6z/mn_d25_ctrl.bw?dl=1
 track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 visibility=3 bigDataUrl=https://www.dropbox.com/s/ke2ddj4zwl6bs74/Human.GRCh38.GENCODEv24.bed?dl=1
 ```
@@ -204,7 +204,7 @@ http://genome.ucsc.edu/cgi-bin/hgTracks?hgsid=968366871_acZUce1tkq5mADRGXsXv022M
 
 Add custom tracks
 
-In top box> paste the track lines settings into box > submit
+In top box > paste the track lines settings into box > submit
 
 Save as a new UCSC session:
 http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2TiOUEW2&hgS_doMainPage=1
@@ -213,11 +213,11 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDg2MjI3MTIsNDE1NDQxOTY1LC0xOT
-QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
-MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
-EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
-NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOT
-MyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYx
-MTk1XX0=
+eyJoaXN0b3J5IjpbNjQ5Mjk5NCw0MTU0NDE5NjUsLTE5NDEzOD
+M4NTUsMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3
+NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNj
+AyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1Njcs
+NTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NT
+Y5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTVd
+fQ==
 -->
