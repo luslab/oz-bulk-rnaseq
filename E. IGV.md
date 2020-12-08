@@ -188,20 +188,22 @@ track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 
 Ensure dropbox link is dl=1 at end
 
 ## Upload to UCSC
+ 
+Configure genome browser
+http://genome.ucsc.edu/cgi-bin/hgTracks?hgTracksConfigPage=configure
 
-
-Create a new UCSC session:
+Save as a new UCSC session:
 http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2TiOUEW2&hgS_doMainPage=1
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA4MzEzNDk5LDQxNTQ0MTk2NSwtMTk0MT
-M4Mzg1NSwyNDU4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEy
-LDc1MjM5MjY5NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMD
-I2MDI0NzYsNjAyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2
-Nyw1MDY5NTcwMjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMj
-U1NjkzLDE2NzkyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5
-NV19
+eyJoaXN0b3J5IjpbLTIwNDUyNzQxOTYsNDE1NDQxOTY1LC0xOT
+QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
+MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
+EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
+NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOT
+MyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYx
+MTk1XX0=
 -->
