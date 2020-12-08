@@ -175,18 +175,16 @@ cd /camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -o in_d18_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 ```
 Move files to shareable location (Dropbox) and make shareable with others
-
 ```bash
 cd /Users/ziffo/'Dropbox (The Francis Crick)'/Medical\ Files/Research/PhD/projects/inter-neuron-bulk-rnaseq/bigWigs
 rsync -aP camp-ext:/camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged/*.bw .
-
-
 ```
+Create link > Copy link
 
 ## Create track lines settings script
 
 ```bash
-track type=bigWig name="IN D18" description="interneuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/66gp21o2jl72tzt/ac_who_ctrl.bw?dl=1
+track type=bigWig name="IN D18" description="interneuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/g7bond1pr88xqym/in_d18_ctrl.bw?dl=1
 track type=bigWig name="IN D25" description="interneuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/hkkzry6wex226rn/ac_who_vcp.bw?dl=1
 track type=bigWig name="MN D18" description="motor neuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/vfs64xhluajzroz/ac_nuc_ctrl.bw?dl=1
 track type=bigWig name="MN D25" description="motor neuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/aab19owmv5iq2o4/ac_nuc_vcp.bw?dl=1
@@ -215,7 +213,7 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0Mzk3ODE2MSw0MTU0NDE5NjUsLTE5ND
+eyJoaXN0b3J5IjpbMTA0MDA5MzE4OSw0MTU0NDE5NjUsLTE5ND
 EzODM4NTUsMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQx
 Miw3NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMT
 AyNjAyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1
