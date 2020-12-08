@@ -216,14 +216,27 @@ Save as a new UCSC session:
 http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2TiOUEW2&hgS_doMainPage=1
 
 
+After creating your custom tracks and viewing your data on the Genome Browser, you can save all of your tracks and settings to a snapshot of the Genome Browser called a  _session_. You can easily save a session by following these five steps:
 
+1.  **Configure the Genome Browser to your preference**  
+    Make sure the display of your custom tracks is to your liking on the Genome Browser.
+2.  **Navigate to the sessions page**  
+    Once you are satisfied with the display, go to the  [My Sessions](http://genome.ucsc.edu/cgi-bin/hgSession)  page by either:
+    -   Going to  _**My Data**_  ->  _**My Sessions**_  from the navigation bar.
+    -   Using the "_**s**  then  **s**_" keyboard shortcut when viewing the main page of the  [Genome Browser](http://genome.ucsc.edu/cgi-bin/hgTracks).
+3.  **Login to the UCSC Genome Browser**  
+    You must sign in to be able to save named sessions which will then be displayed with Browser and Email links.
+4.  **Save your session**  
+    Go to the  **Save Settings**  section and in the  _Save current settings as named session_  text box, enter a name for your session. When saving the session, be sure to have the "_allow this session to be loaded by others_" option checked and then click  _**submit**_.
+5.  **Edit the session description**  
+    Once the session is created, you can click the  _**details**_  button to add a description to the session. If you eventually make a Public Session, and provide a detailed description, anyone can find it by searching for terms you share. For example, navigate to the  [Public Sessions](http://genome.ucsc.edu/cgi-bin/hgPublicSessions)  page and search "NAR" to see some example sessions.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg4MTMyNDEzLDY0OTI5OTQsNDE1NDQxOT
-Y1LC0xOTQxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5
-MTYxMDY0MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NT
-k2NjgsMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0Nywx
-Njg5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MT
-g2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0XX0=
+eyJoaXN0b3J5IjpbLTQ4NDI3NDExMyw1ODgxMzI0MTMsNjQ5Mj
+k5NCw0MTU0NDE5NjUsLTE5NDEzODM4NTUsMjQ1ODE2NzgxLDg4
+MTQwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2OTcsLTE5MjUxMD
+Q4NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LDYwMjIyMzgyMywx
+MDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3MDIyLDYwODk0Mz
+kzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNjc5MjE1MjY4XX0=
 
 -->
