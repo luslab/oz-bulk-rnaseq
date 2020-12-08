@@ -192,6 +192,11 @@ Ensure dropbox link is dl=1 at end
 Configure genome browser
 http://genome.ucsc.edu/cgi-bin/hgTracks?hgTracksConfigPage=configure
 
+Reset user settings
+http://genome.ucsc.edu/cgi-bin/cartReset
+
+
+
 Save as a new UCSC session:
 http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2TiOUEW2&hgS_doMainPage=1
 
@@ -199,11 +204,11 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDUyNzQxOTYsNDE1NDQxOTY1LC0xOT
-QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
-MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
-EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
-NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOT
-MyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYx
-MTk1XX0=
+eyJoaXN0b3J5IjpbLTEyMTk2NDg3OCw0MTU0NDE5NjUsLTE5ND
+EzODM4NTUsMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQx
+Miw3NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMT
+AyNjAyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1
+NjcsNTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5Mz
+I1NTY5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjEx
+OTVdfQ==
 -->
