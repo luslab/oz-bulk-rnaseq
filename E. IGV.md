@@ -174,7 +174,7 @@ python -m pip install deeptools
 cd /camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -o in_d18_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 ```
-Move files to shareable location (Dropbox)
+Move files to shareable location (Dropbox) and make shareable with others
 
 ## Create track
 
@@ -187,16 +187,17 @@ track type=bigWig name="MN D18" description="motor neuron day 18 control" color=
 track type=bigWig name="MN D25" description="motor neuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/aab19owmv5iq2o4/ac_nuc_vcp.bw?dl=1
 track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/ke2ddj4zwl6bs74/Human.GRCh38.GENCODEv24.bed?dl=1
 ```
+Ensure dropbox link is dl=1 at end
 
 ## Upload
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMTIyMzk3MzIsLTE5NDEzODM4NTUsMj
-Q1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2
-OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LD
-YwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3
-MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNj
-c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
-MjU0MjRdfQ==
+eyJoaXN0b3J5IjpbMTI1MzAzNjA0MSwtMTk0MTM4Mzg1NSwyND
+U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
+NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
+AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
+MjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2Nz
+kyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAy
+NTQyNF19
 -->
