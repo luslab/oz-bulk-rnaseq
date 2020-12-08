@@ -187,7 +187,7 @@ Create link > Copy link
 track type=bigWig name="IN D18" description="interneuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/g7bond1pr88xqym/in_d18_ctrl.bw?dl=1
 track type=bigWig name="IN D25" description="interneuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/hkkzry6wex226rn/ac_who_vcp.bw?dl=1
 track type=bigWig name="MN D18" description="motor neuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/vfs64xhluajzroz/ac_nuc_ctrl.bw?dl=1
-track type=bigWig name="MN D25" description="motor neuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/aab19owmv5iq2o4/ac_nuc_vcp.bw?dl=1
+track type=bigWig name="MN D25" description="motor neuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/rsn2waae8m8mi6z/mn_d25_ctrl.bw?dl=1
 track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 visibility=3 bigDataUrl=https://www.dropbox.com/s/ke2ddj4zwl6bs74/Human.GRCh38.GENCODEv24.bed?dl=1
 ```
 Ensure dropbox link is dl=1 at end
@@ -213,11 +213,11 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0MDA5MzE4OSw0MTU0NDE5NjUsLTE5ND
-EzODM4NTUsMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQx
-Miw3NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMT
-AyNjAyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1
-NjcsNTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5Mz
-I1NTY5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjEx
-OTVdfQ==
+eyJoaXN0b3J5IjpbLTE3NjM2NzE2MjIsNDE1NDQxOTY1LC0xOT
+QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
+MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
+EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
+NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOT
+MyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYx
+MTk1XX0=
 -->
