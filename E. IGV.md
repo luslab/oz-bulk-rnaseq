@@ -183,7 +183,7 @@ track type=bigWig name="IN D18" description="interneuron day 18 control" color=0
 track type=bigWig name="IN D25" description="interneuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/hkkzry6wex226rn/ac_who_vcp.bw?dl=1
 track type=bigWig name="MN D18" description="motor neuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/vfs64xhluajzroz/ac_nuc_ctrl.bw?dl=1
 track type=bigWig name="MN D25" description="motor neuron day 25 control" color=255,0,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/aab19owmv5iq2o4/ac_nuc_vcp.bw?dl=1
-track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 visibility=2 bigDataUrl=https://www.dropbox.com/s/ke2ddj4zwl6bs74/Human.GRCh38.GENCODEv24.bed?dl=1
+track type=BED name="annotation" description="GENCODE annotation" color=0,255,0 visibility=3 bigDataUrl=https://www.dropbox.com/s/ke2ddj4zwl6bs74/Human.GRCh38.GENCODEv24.bed?dl=1
 ```
 Ensure dropbox link is dl=1 at end
 
@@ -193,11 +193,11 @@ Ensure dropbox link is dl=1 at end
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjUzNjExNDIsLTE5NDEzODM4NTUsMj
-Q1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2
-OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LD
-YwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3
-MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNj
-c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
-MjU0MjRdfQ==
+eyJoaXN0b3J5IjpbMTY4NjYxMjc3NywtMTk0MTM4Mzg1NSwyND
+U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
+NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
+AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
+MjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2Nz
+kyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAy
+NTQyNF19
 -->
