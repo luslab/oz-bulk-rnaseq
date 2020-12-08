@@ -176,6 +176,13 @@ sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -
 ```
 Move files to shareable location (Dropbox) and make shareable with others
 
+```bash
+cd /Users/ziffo/'Dropbox (The Francis Crick)'/Medical\ Files/Research/PhD/projects/inter-neuron-bulk-rnaseq/bigWigs
+rsync -aP camp-ext:/camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged/*.bw .
+
+
+```
+
 ## Create track lines settings script
 
 ```bash
@@ -208,11 +215,11 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDQ2ODA2NDUsNDE1NDQxOTY1LC0xOT
-QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
-MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
-EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
-NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MTg2LDEzOT
-MyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0LC0xMjg4NTYx
-MTk1XX0=
+eyJoaXN0b3J5IjpbLTI0Mzk3ODE2MSw0MTU0NDE5NjUsLTE5ND
+EzODM4NTUsMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQx
+Miw3NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMT
+AyNjAyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1
+NjcsNTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5Mz
+I1NTY5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjEx
+OTVdfQ==
 -->
