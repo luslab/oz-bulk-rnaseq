@@ -161,13 +161,36 @@ http://genome.ucsc.edu/goldenPath/help/hgSessionHelp.html#NAR
 
 ## Create bigWig files
 
+## BAM > bigwigs
+
+[https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html)
+```bash
+module load Anaconda3
+python -m venv /camp/home/ziffo/home/envs 
+source /camp/home/ziffo/home/envs/bin/activate  
+python -m pip install deeptools
+
+# For merged BAM files:
+cd /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/STAR/merged
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_cyt_ctrl.bam -o ac_cyt_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_cyt_vcp.bam -o ac_cyt_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_nuc_ctrl.bam -o ac_nuc_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_nuc_vcp.bam -o ac_nuc_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_who_ctrl.bam -o ac_who_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_who_vcp.bam -o ac_who_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+
+
+# For individual files:
+bamCoverage -b /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/STAR/ac_who_ctrl1.bam -o /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/STAR/ac_who_ctrl1.bw
+```
+
 ## Create track
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NDEzODM4NTUsMjQ1ODE2NzgxLDg4MT
-QwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2OTcsLTE5MjUxMDQ4
-NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LDYwMjIyMzgyMywxMD
-YxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3MDIyLDYwODk0Mzkz
-MCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNj
-AxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2
-ODU4NjVdfQ==
+eyJoaXN0b3J5IjpbMTAwNDU2MDcyMSwtMTk0MTM4Mzg1NSwyND
+U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
+NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
+AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
+MjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2Nz
+kyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAy
+NTQyNF19
 -->
