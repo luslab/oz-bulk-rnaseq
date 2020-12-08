@@ -176,22 +176,19 @@ sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d25_ctrl.bam -o in_d25_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_vcp.bam -o in_d18_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d25_vcp.bam -o in_d25_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
-sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_nuc_vcp.bam -o ac_nuc_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
-sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_who_ctrl.bam -o ac_who_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
-sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_who_vcp.bam -o ac_who_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
-
-
-# For individual files:
-bamCoverage -b /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/STAR/ac_who_ctrl1.bam -o /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/STAR/ac_who_ctrl1.bw
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b mn_d18_ctrl.bam -o mn_d18_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b mn_d25_ctrl.bam -o mn_d25_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b mn_d18_vcp.bam -o mn_d18_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b mn_d25_vcp.bam -o mn_d25_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 ```
 
 ## Create track
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMDUwNzE0NSwtMTk0MTM4Mzg1NSwyND
-U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
-NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
-AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
-MjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2Nz
-kyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAy
-NTQyNF19
+eyJoaXN0b3J5IjpbLTE4ODYxMzI2NzYsLTE5NDEzODM4NTUsMj
+Q1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2
+OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LD
+YwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3
+MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNj
+c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
+MjU0MjRdfQ==
 -->
