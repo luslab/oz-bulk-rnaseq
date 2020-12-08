@@ -176,9 +176,7 @@ sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -
 ```
 Move files to shareable location (Dropbox) and make shareable with others
 
-## Create track settings
-
-Create script with track line variables:
+## Create track lines settings script
 
 ```bash
 track type=bigWig name="IN D18" description="interneuron day 18 control" color=0,0,255 visibility=2 bigDataUrl=https://www.dropbox.com/s/66gp21o2jl72tzt/ac_who_ctrl.bw?dl=1
@@ -195,11 +193,11 @@ Ensure dropbox link is dl=1 at end
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MDQ0OTkyNywtMTk0MTM4Mzg1NSwyND
-U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
-NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
-AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
-MjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2Nz
-kyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAy
-NTQyNF19
+eyJoaXN0b3J5IjpbLTE2MjUzNjExNDIsLTE5NDEzODM4NTUsMj
+Q1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2
+OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LD
+YwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3
+MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNj
+c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
+MjU0MjRdfQ==
 -->
