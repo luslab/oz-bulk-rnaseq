@@ -174,6 +174,12 @@ python -m pip install deeptools
 cd /camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -o in_d18_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 ```
+
+Convert GTF > BED > bigBed format
+
+
+
+
 Move files to shareable location (Dropbox) and make shareable with others
 ```bash
 cd /Users/ziffo/'Dropbox (The Francis Crick)'/Medical\ Files/Research/PhD/projects/inter-neuron-bulk-rnaseq/bigWigs
@@ -213,11 +219,11 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQ5Mjk5NCw0MTU0NDE5NjUsLTE5NDEzOD
-M4NTUsMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3
-NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNj
-AyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1Njcs
-NTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NT
-Y5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTVd
-fQ==
+eyJoaXN0b3J5IjpbNTg4MTMyNDEzLDY0OTI5OTQsNDE1NDQxOT
+Y1LC0xOTQxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5
+MTYxMDY0MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NT
+k2NjgsMTEwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0Nywx
+Njg5NjM2NTY3LDUwNjk1NzAyMiw2MDg5NDM5MzAsMTM3MDA3MT
+g2LDEzOTMyNTU2OTMsMTY3OTIxNTI2OCwxMjYwMTgxMTg0XX0=
+
 -->
