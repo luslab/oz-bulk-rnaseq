@@ -199,14 +199,7 @@ http://genome.ucsc.edu/cgi-bin/hgTracks?hgsid=968366871_acZUce1tkq5mADRGXsXv022M
 
 Add custom tracks
 
-Choose File
-
-
-http://genome.ucsc.edu/cgi-bin/hgTracks?hgTracksConfigPage=configure
-
-
-
-
+In top box> paste the track lines settings into box > submit
 
 Save as a new UCSC session:
 http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2TiOUEW2&hgS_doMainPage=1
@@ -215,7 +208,7 @@ http://genome.ucsc.edu/cgi-bin/hgSession?hgsid=968355787_90NOUDSzGcMJd8jgzNvA2Ti
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzY0MjMwMDYsNDE1NDQxOTY1LC0xOT
+eyJoaXN0b3J5IjpbLTE3MDQ2ODA2NDUsNDE1NDQxOTY1LC0xOT
 QxMzgzODU1LDI0NTgxNjc4MSw4ODE0MDg0MDEsLTE5MTYxMDY0
 MTIsNzUyMzkyNjk3LC0xOTI1MTA0ODcwLC0yNTc5NTk2NjgsMT
 EwMjYwMjQ3Niw2MDIyMjM4MjMsMTA2MTM2NzI0NywxNjg5NjM2
