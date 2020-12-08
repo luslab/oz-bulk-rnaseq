@@ -171,10 +171,11 @@ source /camp/home/ziffo/home/envs/bin/activate
 python -m pip install deeptools
 
 # For merged BAM files:
-cd /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/STAR/merged
-sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_cyt_ctrl.bam -o ac_cyt_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
-sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_cyt_vcp.bam -o ac_cyt_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
-sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_nuc_ctrl.bam -o ac_nuc_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+cd /camp/home/ziffo/home/projects/inter-neuron-bulk-rnaseq/alignment/STAR/merged
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_ctrl.bam -o in_d18_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d25_ctrl.bam -o in_d25_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d18_vcp.bam -o in_d18_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
+sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b in_d25_vcp.bam -o in_d25_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_nuc_vcp.bam -o ac_nuc_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_who_ctrl.bam -o ac_who_ctrl.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
 sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b ac_who_vcp.bam -o ac_who_vcp.bw" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk --job-name=bamCoverage --output=bamCoverage-%j.out --error=bamCoverage-%j.err
@@ -186,7 +187,7 @@ bamCoverage -b /camp/home/ziffo/home/projects/astrocyte-meta-analysis/alignment/
 
 ## Create track
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNDU2MDcyMSwtMTk0MTM4Mzg1NSwyND
+eyJoaXN0b3J5IjpbLTYwMDUwNzE0NSwtMTk0MTM4Mzg1NSwyND
 U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
 NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
 AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
