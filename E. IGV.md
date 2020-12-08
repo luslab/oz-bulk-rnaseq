@@ -149,12 +149,16 @@ Bar graph height =  read coverage
 Arcs = splice junctions
 Numbers = number of reads that contain the respective splice junction.
 IGV does not normalise for read number per sample in sashimi plots so dont overinterepret the read counts.
+
+# UCSC genome browser
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ1ODE2NzgxLDg4MTQwODQwMSwtMTkxNj
-EwNjQxMiw3NTIzOTI2OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2
-OCwxMTAyNjAyNDc2LDYwMjIyMzgyMywxMDYxMzY3MjQ3LDE2OD
-k2MzY1NjcsNTA2OTU3MDIyLDYwODk0MzkzMCwxMzcwMDcxODYs
-MTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNjAxODExODQsLTEyOD
-g1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2ODU4NjUsMTM1Mzkx
-NzgyM119
+eyJoaXN0b3J5IjpbLTExNTAxMTU4MDUsMjQ1ODE2NzgxLDg4MT
+QwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2OTcsLTE5MjUxMDQ4
+NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LDYwMjIyMzgyMywxMD
+YxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3MDIyLDYwODk0Mzkz
+MCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNj
+AxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2
+ODU4NjVdfQ==
 -->
