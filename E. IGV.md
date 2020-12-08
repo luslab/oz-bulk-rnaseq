@@ -161,7 +161,7 @@ http://genome.ucsc.edu/goldenPath/help/hgSessionHelp.html#NAR
 
 ## Create bigWig files
 
-## BAM > bigwigs
+BAM > bigwigs
 
 [https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html)
 ```bash
@@ -184,11 +184,11 @@ sbatch -N 1 -c 10 --mem=40G -t 48:00:00 --wrap="bamCoverage -b mn_d25_vcp.bam -o
 
 ## Create track
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODYxMzI2NzYsLTE5NDEzODM4NTUsMj
-Q1ODE2NzgxLDg4MTQwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2
-OTcsLTE5MjUxMDQ4NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LD
-YwMjIyMzgyMywxMDYxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3
-MDIyLDYwODk0MzkzMCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNj
-c5MjE1MjY4LDEyNjAxODExODQsLTEyODg1NjExOTUsLTE4MzQw
-MjU0MjRdfQ==
+eyJoaXN0b3J5IjpbMTM5MDM1NTYwOCwtMTk0MTM4Mzg1NSwyND
+U4MTY3ODEsODgxNDA4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5
+NywtMTkyNTEwNDg3MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNj
+AyMjIzODIzLDEwNjEzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcw
+MjIsNjA4OTQzOTMwLDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2Nz
+kyMTUyNjgsMTI2MDE4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAy
+NTQyNF19
 -->
