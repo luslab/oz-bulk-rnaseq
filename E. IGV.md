@@ -152,13 +152,19 @@ IGV does not normalise for read number per sample in sashimi plots so dont overi
 
 # UCSC genome browser
 
+Create a public link to a UCSC genome browser session displaying the uploaded sequence tracks 
+
+https://genome.ucsc.edu/cgi-bin/hgGateway
+
+Instructions are available here
+http://genome.ucsc.edu/goldenPath/help/hgSessionHelp.html#NAR
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTAxMTU4MDUsMjQ1ODE2NzgxLDg4MT
-QwODQwMSwtMTkxNjEwNjQxMiw3NTIzOTI2OTcsLTE5MjUxMDQ4
-NzAsLTI1Nzk1OTY2OCwxMTAyNjAyNDc2LDYwMjIyMzgyMywxMD
-YxMzY3MjQ3LDE2ODk2MzY1NjcsNTA2OTU3MDIyLDYwODk0Mzkz
-MCwxMzcwMDcxODYsMTM5MzI1NTY5MywxNjc5MjE1MjY4LDEyNj
-AxODExODQsLTEyODg1NjExOTUsLTE4MzQwMjU0MjQsLTEwNDQ2
-ODU4NjVdfQ==
+eyJoaXN0b3J5IjpbMTMyMzM5MTg0MiwyNDU4MTY3ODEsODgxND
+A4NDAxLC0xOTE2MTA2NDEyLDc1MjM5MjY5NywtMTkyNTEwNDg3
+MCwtMjU3OTU5NjY4LDExMDI2MDI0NzYsNjAyMjIzODIzLDEwNj
+EzNjcyNDcsMTY4OTYzNjU2Nyw1MDY5NTcwMjIsNjA4OTQzOTMw
+LDEzNzAwNzE4NiwxMzkzMjU1NjkzLDE2NzkyMTUyNjgsMTI2MD
+E4MTE4NCwtMTI4ODU2MTE5NSwtMTgzNDAyNTQyNCwtMTA0NDY4
+NTg2NV19
 -->
