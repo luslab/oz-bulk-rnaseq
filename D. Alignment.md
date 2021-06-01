@@ -166,20 +166,20 @@ Always use GFF based formats. [Can convert between the two formats using:](https
 ```bash
 ml BEDOPS
 
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
+GTF=/camp/home/ziffo/home/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf
+BED=/camp/home/ziffo/home/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.bed
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
 ```
 
 ```bash
 ml BEDOPS
-GTF=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.gtf
-BED=/home/camp/ziffo/working/oliver/genomes/annotation/Homo_sapiens.GRCh38.99.bed
+GTF=/camp/home/ziffo/home/genomes/annotation/Homo_sapiens.GRCh38.99.gtf
+BED=/camp/home/ziffo/home/genomes/annotation/Homo_sapiens.GRCh38.99.bed
 awk '{ if ($0 ~ "transcript_id") print $0; else print $0" transcript_id \"\";"; }' $GTF | gtf2bed - > $BED
 
 ```
 # Download Reference Sequence & Annotation files
-Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/home/camp/ziffo/working/oliver/genomes/` and place into repository subdirectories:
+Keep reference genomes in a more general location rather than the local folder, since you will reuse them frequently: `/camp/home/ziffo/home/genomes/` and place into repository subdirectories:
 gencode/
 ensembl/
 ucsc/
@@ -287,9 +287,9 @@ To generate the index in STAR, specify the location of:
 ml STAR # version 2.7.1 noted in Log.out file
 cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
 OUT=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
-IDX=/home/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
-FASTA=/camp/home
-REF=/home/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.sequences/human/GRCh38.dna.primary_assembly.genome.fa
+IDX=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
+FASTA=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+REF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
 GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaffannotation/gencode.v28.primary_assembly.annotation.gtf
 
 #Send cmd to generate index as batch job to cluster:
@@ -302,7 +302,7 @@ think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally
 The above code is resuable and applicable to all situations by editing the $changable elements.
 The "hard-coding" looks like this (very long and difficult to edit):
 ```bash
-sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /home/camp/ziffo/working/oliver/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /home/camp/ziffo/working/oliver/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 959 --runThreadN 8"
+sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /camp/home/ziffo/home/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /camp/home/ziffo/home/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 959 --runThreadN 8"
 ```
 
 ### Gencode
@@ -336,7 +336,7 @@ By allocating all file names to the `$INPUT` term it means all the FASTQ files a
 
 * List fast.qz files separated by commas and remove white spaces:
 
-`INPUT= ls -m /home/camp/ziffo/working/oliver/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
+`INPUT= ls -m /camp/home/ziffo/home/projects/airals/fastq_files/SRR5*.fastq| sed 's/ //g' | echo $INPUT | sed 's/ //g'`
 
 `ls -m` list, fill width with a comma separated list of entries all the fastq files.
 `sed` remove a space from each file name
@@ -345,13 +345,13 @@ By allocating all file names to the `$INPUT` term it means all the FASTQ files a
 
 ```bash
 #set the index
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+IDX=/camp/home/ziffo/home/genomes/index/GRCh38.p12_STAR_index
 #set the fastq sequencing file to read in
-READ1=/home/camp/ziffo/working/oliver/projects/airals/reads/D0_samples/trimmed_depleted/*.sam
+READ1=/camp/home/ziffo/home/projects/airals/reads/D0_samples/trimmed_depleted/*.sam
 #set the paired fastq sequencing file to read in (for paired end data only)
 READ2=
 #set name under which to store the BAM file output
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_
+BAM=/camp/home/ziffo/home/projects/airals/alignment_STAR/D7_samples/trimmed_filtered_depleted/SRR5483788_
 
 #SEND ALIGNMENT AS SBATCH
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $READ1 --outFileNamePrefix $BAM --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
@@ -367,9 +367,9 @@ To create a script that runs all sequencing files (non-redundant) you can use a 
 mkdir D0_samples D7_samples D14_samples D21_samples D35_samples D112_samples
 
 #set the index
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+IDX=/camp/home/ziffo/home/genomes/index/GRCh38.p12_STAR_index
 # set timepoint folders
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
+TIMEPOINT=/camp/home/ziffo/home/projects/airals/reads/D*_samples
 
 ## run multiple alignments using in for loop
 for SAMPLE in $TIMEPOINT;
@@ -380,7 +380,7 @@ READ1=$SAMPLE/trimmed_depleted/*.fastq
 	for REPLICATE in $READ1 
 	do
 	#set BAM output file aligned to human genome
-	BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/$DAY
+	BAM=/camp/home/ziffo/home/projects/airals/alignment/$DAY
 	SRRID=`echo $REPLICATE | grep -E -o 'SRR[0-9]+'`
 	sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runThreadN 1 --genomeDir $IDX --readFilesIn $REPLICATE --outFileNamePrefix ${BAM}/${SRRID}_ --outFilterMultimapNmax 1 --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx --twopassMode Basic"
 	# Index each BAM file as they are produced
@@ -394,7 +394,7 @@ Biostars approach to alignment:
 # Create output folder
 mkdir -p bam
 # set the index
-IDX=/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index
+IDX=/camp/home/ziffo/home/genomes/index/GRCh38.p12_STAR_index
 
 for SAMPLE in VCP CTRL;
 do
@@ -420,17 +420,17 @@ bash align.sh
 ```bash
 rule star_map:
 input: 
-	index="/home/camp/ziffo/working/oliver/genomes/index/GRCh38.p12_STAR_index"
-	sample="/home/camp/ziffo/working/oliver/projects/airals/fastq_files/{sample}.fastq", 
+	index="/camp/home/ziffo/home/genomes/index/GRCh38.p12_STAR_index"
+	sample="/camp/home/ziffo/home/projects/airals/fastq_files/{sample}.fastq", 
 output: 
-	"/home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam"
+	"/camp/home/ziffo/home/projects/airals/alignment_STAR/{sample}.sam"
 shell:
 	"STAR --genomeDir {input.index} --readFilesIn {input.sample} --outFileNamePrefix {output}_ --outFilterMultimapNmax 1 --outReadsUnmapped Fastx --outSAMtype BAM SortedByCoordinate --twopassMode Basic --runThreadN 1"
 
 #dry run workflow:
-`snakemake -np /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
+`snakemake -np /camp/home/ziffo/home/projects/airals/alignment_STAR/{sample}.sam`
 #execute workflow:
-`snakemake /home/camp/ziffo/working/oliver/projects/airals/alignment_STAR/{sample}.sam`
+`snakemake /camp/home/ziffo/home/projects/airals/alignment_STAR/{sample}.sam`
 ```
 ## STAR output
 
@@ -461,7 +461,7 @@ STAR ENCODE options: `outFilterMultimapNmax 1` max number of multiple alignments
 
 3. check that the number of reads in the fastq files matches the STAR log output: 
 `more SRR5483788_Log.final.out`
-`echo $( cat /home/camp/ziffo/working/oliver/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq | wc -l)/4 | bc`
+`echo $( cat /camp/home/ziffo/home/projects/airals/fastq_files/D7_samples/SRR5483789_1.fastq | wc -l)/4 | bc`
 
 ## Index BAM read alignment files
 ml SAMtools
@@ -473,7 +473,7 @@ for individual files: `samtools index filename_Aligned.sortedByCoord.out.bam`
 
 Using the STAR alignment For Loop above you can automate this with the above phase as each BAM file is produced:
 ```bash
-for file in /home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
+for file in /camp/home/ziffo/home/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR5*_Aligned.sortedByCoord.out.bam
 do
 	sbatch -N 1 -c 8 --mem 40 --wrap="samtools index $file";
 done
@@ -481,7 +481,7 @@ done
 
 ```bash
 # set timepoint folders
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/reads/D*_samples
+TIMEPOINT=/camp/home/ziffo/home/projects/airals/reads/D*_samples
 
 for SAMPLE in $TIMEPOINT;
 do
@@ -592,9 +592,9 @@ Scoring is based on the value you associate with a match, mismatch or a space. A
 ## Convert BAM > SAM
 ```bash
 #set BAM input files
-BAM=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
+BAM=/camp/home/ziffo/home/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/SRR54837*_Aligned.sortedByCoord.out.bam
 #set output file directory
-OUT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/
+OUT=/camp/home/ziffo/home/projects/airals/alignment/D7_samples/trimmed_filtered_depleted/
 
 #run samtools on each BAM file separately
 for SAMPLE in $BAM
@@ -604,7 +604,7 @@ do
 done
 
 # set timepoint folders
-TIMEPOINT=/home/camp/ziffo/working/oliver/projects/airals/alignment/D*_samples
+TIMEPOINT=/camp/home/ziffo/home/projects/airals/alignment/D*_samples
 
 for SAMPLE in $TIMEPOINT;
 do
@@ -739,7 +739,7 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2MzE5MTQ1NiwxNzE1MzQxODIyLC00NT
+eyJoaXN0b3J5IjpbMTM2NDc3MTYzNSwxNzE1MzQxODIyLC00NT
 U0ODM2MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4
 NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMz
 Y5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMz
