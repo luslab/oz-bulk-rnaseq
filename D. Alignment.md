@@ -291,7 +291,7 @@ FASTA=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_asse
 GTF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 8 --mem=40G -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+sbatch -N 1 -c 10 --mem=80G -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
 think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length"
@@ -737,11 +737,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTMwMzkzMzEwLDE3MTUzNDE4MjIsLTQ1NT
-Q4MzYxNywtMTU0NDg2NTE1NywxODgwNTQ4NTgyLC02NjIyMzg1
-LDIxMTAwMzAxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNj
-kwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMw
-NiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LD
-EyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1
-ODIyXX0=
+eyJoaXN0b3J5IjpbLTM2ODg4NDQxNSw1MzAzOTMzMTAsMTcxNT
+M0MTgyMiwtNDU1NDgzNjE3LC0xNTQ0ODY1MTU3LDE4ODA1NDg1
+ODIsLTY2MjIzODUsMjExMDAzMDE2MSwxOTE5MDc5NDM3LDE1Mz
+cxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNTQxNzY2
+OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYzMDQ0LD
+E2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxODgz
+NDEyXX0=
 -->
