@@ -286,7 +286,7 @@ To generate the index in STAR, specify the location of:
 ```bash
 ml STAR # version 2.7.1 noted in Log.out file
 cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99_STAR_index
-OUT=#Set the changable elements
+OUT=GRCh38.99.STAR_index
 IDX=/home/camp/home/ziffo/home/genomes/ensemblindex/GRCh38.99_ensemblp12_STAR_index
 FASTA=/camp/homeREF=/home/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.sequences/human/GRCh38.dna.primary_assembly.genome.fa
 GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaffannotation/gencode.v28.primary_assembly.annotation.gtf
@@ -738,11 +738,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2MTM1NjE4LDE3MTUzNDE4MjIsLTQ1NT
-Q4MzYxNywtMTU0NDg2NTE1NywxODgwNTQ4NTgyLC02NjIyMzg1
-LDIxMTAwMzAxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNj
-kwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMw
-NiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LD
-EyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1
-ODIyXX0=
+eyJoaXN0b3J5IjpbLTEzODc3NDQ4ODYsMTcxNTM0MTgyMiwtND
+U1NDgzNjE3LC0xNTQ0ODY1MTU3LDE4ODA1NDg1ODIsLTY2MjIz
+ODUsMjExMDAzMDE2MSwxOTE5MDc5NDM3LDE1MzcxNDk0MTksMT
+M2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNTQxNzY2OTcsLTk4Mjkz
+MzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYzMDQ0LDE2NTU4NTkyNz
+gsMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxODgzNDEyLDE0MTU2
+MDU4MjJdfQ==
 -->
