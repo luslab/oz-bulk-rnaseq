@@ -285,10 +285,11 @@ To generate the index in STAR, specify the location of:
 
 ```bash
 ml STAR # version 2.7.1 noted in Log.out file
-cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99_STAR_index
-OUT=GRCh38.99.STAR_index
-IDX=/home/camp/home/ziffo/home/genomes/ensemblindex/GRCh38.99_ensemblp12_STAR_index
-FASTA=/camp/homeREF=/home/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.sequences/human/GRCh38.dna.primary_assembly.genome.fa
+cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
+OUT=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
+IDX=/home/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
+FASTA=/camp/home
+REF=/home/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.sequences/human/GRCh38.dna.primary_assembly.genome.fa
 GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaffannotation/gencode.v28.primary_assembly.annotation.gtf
 
 #Send cmd to generate index as batch job to cluster:
@@ -738,11 +739,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODc3NDQ4ODYsMTcxNTM0MTgyMiwtND
-U1NDgzNjE3LC0xNTQ0ODY1MTU3LDE4ODA1NDg1ODIsLTY2MjIz
-ODUsMjExMDAzMDE2MSwxOTE5MDc5NDM3LDE1MzcxNDk0MTksMT
-M2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNTQxNzY2OTcsLTk4Mjkz
-MzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYzMDQ0LDE2NTU4NTkyNz
-gsMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxODgzNDEyLDE0MTU2
-MDU4MjJdfQ==
+eyJoaXN0b3J5IjpbMTE2MzE5MTQ1NiwxNzE1MzQxODIyLC00NT
+U0ODM2MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4
+NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMz
+Y5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMz
+MDYsLTE1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OC
+wxMjM3MDQ4ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYw
+NTgyMl19
 -->
