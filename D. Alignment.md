@@ -307,8 +307,7 @@ sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --
 
 Gencode index GRCh38.p13 v33 with STAR version 7.1
 ```bash
-ml STAR
-ml SAMtools
+ml STAR SAMtools
 cd /camp/home/ziffo/home/genomes/gencode/GRCh38.p13_STAR_index
 OUT=/camp/home/ziffo/home/genomes/gencode/GRCh38.p13_STAR_index
 FASTA=/camp/home/ziffo/home/genomes/gencode/GRCh38.p13.primary_assembly.genome.fa
@@ -737,11 +736,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2ODg4NDQxNSw1MzAzOTMzMTAsMTcxNT
-M0MTgyMiwtNDU1NDgzNjE3LC0xNTQ0ODY1MTU3LDE4ODA1NDg1
-ODIsLTY2MjIzODUsMjExMDAzMDE2MSwxOTE5MDc5NDM3LDE1Mz
-cxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUxMTQ4LDEzNTQxNzY2
-OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC0yMTAzMDYzMDQ0LD
-E2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5Njk0MDksLTMxODgz
-NDEyXX0=
+eyJoaXN0b3J5IjpbLTE4NTIzMTIxMTAsLTM2ODg4NDQxNSw1Mz
+AzOTMzMTAsMTcxNTM0MTgyMiwtNDU1NDgzNjE3LC0xNTQ0ODY1
+MTU3LDE4ODA1NDg1ODIsLTY2MjIzODUsMjExMDAzMDE2MSwxOT
+E5MDc5NDM3LDE1MzcxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUx
+MTQ4LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC
+0yMTAzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5
+Njk0MDldfQ==
 -->
