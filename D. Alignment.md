@@ -287,13 +287,11 @@ To generate the index in STAR, specify the location of:
 ml STAR # version 2.7.1 noted in Log.out file
 cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
 OUT=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
-IDX=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
 FASTA=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
-REF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
-GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaffannotation/gencode.v28.primary_assembly.annotation.gtf
+GTF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 108 --mem=0 -t 48:00:00 40G --wrap="STAR --runMode genomeGenerate --genomeDir $OUTIDX --genomeFastaFiles $FASTAREF  --sjdbGTFfile $GTF --sjdbOverhang 959 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+sbatch -N 1 -c 108 --mem=0 -t 48:00:00 40G --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
 think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length"
@@ -739,7 +737,7 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2NDc3MTYzNSwxNzE1MzQxODIyLC00NT
+eyJoaXN0b3J5IjpbMTI3MjU2MTEzNSwxNzE1MzQxODIyLC00NT
 U0ODM2MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4
 NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMz
 Y5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMz
