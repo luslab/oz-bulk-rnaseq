@@ -284,7 +284,7 @@ To generate the index in STAR, specify the location of:
 4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
 ```bash
-ml STAR/2.6.1c-foss-2018b # version used by nf-core/rnaseq - needs to match version for alignment
+ml STAR/2.6.1c-foss-2018b
 cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
 OUT=#Set the changable elements
 IDX=/home/camp/home/ziffo/working/oliver/genomes/ensemblindex/GRCh38.99_ensemblp12_STAR_index
@@ -738,11 +738,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxNTM0MTgyMiwtNDU1NDgzNjE3LC0xNT
-Q0ODY1MTU3LDE4ODA1NDg1ODIsLTY2MjIzODUsMjExMDAzMDE2
-MSwxOTE5MDc5NDM3LDE1MzcxNDk0MTksMTM2OTA2ODU3OCwyMT
-A4NjUxMTQ4LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0
-Nzg5LC0yMTAzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNC
-w2Njg5Njk0MDksLTMxODgzNDEyLDE0MTU2MDU4MjIsMTk4Njg0
-NDQwM119
+eyJoaXN0b3J5IjpbMTU2NzkxMjY2NCwxNzE1MzQxODIyLC00NT
+U0ODM2MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4
+NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMz
+Y5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMz
+MDYsLTE1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OC
+wxMjM3MDQ4ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYw
+NTgyMl19
 -->
