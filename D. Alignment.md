@@ -284,10 +284,10 @@ To generate the index in STAR, specify the location of:
 4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
 ```bash
-ml STAR/2.6.1c-foss-2018b
-cd /camp/home/ziffo/working/oliver/genomes/ensembl/GRCh38.99_ensembl_STAR_index
+ml STAR # version 2.7.1 noted in Log.out file
+cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99_STAR_index
 OUT=#Set the changable elements
-IDX=/home/camp/home/ziffo/working/oliver/genomes/ensemblindex/GRCh38.99_ensemblp12_STAR_index
+IDX=/home/camp/home/ziffo/home/genomes/ensemblindex/GRCh38.99_ensemblp12_STAR_index
 FASTA=/camp/homeREF=/home/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.sequences/human/GRCh38.dna.primary_assembly.genome.fa
 GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38.99.chr_patch_hapl_scaffannotation/gencode.v28.primary_assembly.annotation.gtf
 
@@ -295,7 +295,7 @@ GTF=/camp/homehome/camp/ziffo/working/oliver/genomes/ensembl/Homo_sapiens.GRCh38
 sbatch -N 1 -c 108 --mem=0 -t 48:00:00 40G --wrap="STAR --runMode genomeGenerate --genomeDir $OUTIDX --genomeFastaFiles $FASTAREF  --sjdbGTFfile $GTF --sjdbOverhang 959 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
-think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length8"
+think of --sjdbOverhang as the maximum possible overhang for your reads. Ideally 1- read length"
 ```
 
 The above code is resuable and applicable to all situations by editing the $changable elements.
@@ -310,10 +310,10 @@ Gencode index GRCh38.p13 v33 with STAR version 7.1
 ```bash
 ml STAR
 ml SAMtools
-cd /camp/home/ziffo/working/oliver/genomes/gencode/GRCh38.p13_STAR_index
-OUT=/camp/home/ziffo/working/oliver/genomes/gencode/GRCh38.p13_STAR_index
-FASTA=/camp/home/ziffo/working/oliver/genomes/gencode/GRCh38.p13.primary_assembly.genome.fa
-GTF=/camp/home/ziffo/working/oliver/genomes/gencode/gencode.v33.primary_assembly.annotation.gtf
+cd /camp/home/ziffo/home/genomes/gencode/GRCh38.p13_STAR_index
+OUT=/camp/home/ziffo/home/genomes/gencode/GRCh38.p13_STAR_index
+FASTA=/camp/home/ziffo/home/genomes/gencode/GRCh38.p13.primary_assembly.genome.fa
+GTF=/camp/home/ziffo/home/genomes/gencode/gencode.v33.primary_assembly.annotation.gtf
 
 #Send cmd to generate index as batch job to cluster:
 sbatch -N 1 -c 8 --mem=0 -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 8 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
@@ -738,11 +738,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NzkxMjY2NCwxNzE1MzQxODIyLC00NT
-U0ODM2MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4
-NSwyMTEwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMz
-Y5MDY4NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMz
-MDYsLTE1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OC
-wxMjM3MDQ4ODI0LDY2ODk2OTQwOSwtMzE4ODM0MTIsMTQxNTYw
-NTgyMl19
+eyJoaXN0b3J5IjpbMTc2MTM1NjE4LDE3MTUzNDE4MjIsLTQ1NT
+Q4MzYxNywtMTU0NDg2NTE1NywxODgwNTQ4NTgyLC02NjIyMzg1
+LDIxMTAwMzAxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNj
+kwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMw
+NiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LD
+EyMzcwNDg4MjQsNjY4OTY5NDA5LC0zMTg4MzQxMiwxNDE1NjA1
+ODIyXX0=
 -->
