@@ -285,10 +285,10 @@ To generate the index in STAR, specify the location of:
 
 ```bash
 ml STAR # version 2.7.1 noted in Log.out file
-cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
-OUT=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR_index
-FASTA=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
-GTF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
+cd /camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR_index
+OUT=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR_index
+FASTA=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+GTF=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
 
 #Send cmd to generate index as batch job to cluster:
 sbatch -N 1 -c 10 --mem=80G -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
@@ -308,13 +308,14 @@ sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --
 STAR/2.7.7a-GCC-10.2.0
 ```bash
 ml STAR/2.7.7a-GCC-10.2.0 # version 2.7.7 noted in Log.out file
-cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
-OUT=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
-FASTA=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
-GTF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
+mkdir /camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
+cd /camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
+OUT=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
+FASTA=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+GTF=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
 
 #Send cmd to generate index as batch job to cluster:
-sbatch -N 1 -c 10 --mem=80G -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+sbatch -N 1 -c 10 --mem=80G -t 4:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
 ```
 
 
@@ -751,11 +752,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MDkxNDg1NiwtMTg1MjMxMjExMCwtMz
-Y4ODg0NDE1LDUzMDM5MzMxMCwxNzE1MzQxODIyLC00NTU0ODM2
-MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4NSwyMT
-EwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMzY5MDY4
-NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMzMDYsLT
-E1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3
-MDQ4ODI0XX0=
+eyJoaXN0b3J5IjpbMjA4MDE5NzY3LC0xODUyMzEyMTEwLC0zNj
+g4ODQ0MTUsNTMwMzkzMzEwLDE3MTUzNDE4MjIsLTQ1NTQ4MzYx
+NywtMTU0NDg2NTE1NywxODgwNTQ4NTgyLC02NjIyMzg1LDIxMT
+AwMzAxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNjkwNjg1
+NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMT
+UxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcw
+NDg4MjRdfQ==
 -->
