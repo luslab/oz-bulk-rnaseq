@@ -283,8 +283,9 @@ To generate the index in STAR, specify the location of:
 3. GTF annotation file
 4. Overhand: read length minus 1. Read length distribution are shown in the MultiQC report. This is length of the genomic sequence around the annotated junction to be used for the splice junctions database
 
+#### STAR version 2.6.1
 ```bash
-ml STAR # version 2.7.1 noted in Log.out file
+ml STAR # version 2.6.1 noted in Log.out file
 cd /camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR_index
 OUT=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/GRCh38.99.STAR_index
 FASTA=/camp/lab/luscomben/home/users/ziffo/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
@@ -304,6 +305,7 @@ sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --
 ```
 
 #### STAR 2.7.7
+Used with rMATS version 2.4.1
 
 STAR/2.7.7a-GCC-10.2.0
 ```bash
@@ -752,11 +754,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MDE5NzY3LC0xODUyMzEyMTEwLC0zNj
-g4ODQ0MTUsNTMwMzkzMzEwLDE3MTUzNDE4MjIsLTQ1NTQ4MzYx
-NywtMTU0NDg2NTE1NywxODgwNTQ4NTgyLC02NjIyMzg1LDIxMT
-AwMzAxNjEsMTkxOTA3OTQzNywxNTM3MTQ5NDE5LDEzNjkwNjg1
-NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC05ODI5MzMwNiwtMT
-UxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1ODU5Mjc4LDEyMzcw
-NDg4MjRdfQ==
+eyJoaXN0b3J5IjpbLTExNjUyMjUyOTQsMjA4MDE5NzY3LC0xOD
+UyMzEyMTEwLC0zNjg4ODQ0MTUsNTMwMzkzMzEwLDE3MTUzNDE4
+MjIsLTQ1NTQ4MzYxNywtMTU0NDg2NTE1NywxODgwNTQ4NTgyLC
+02NjIyMzg1LDIxMTAwMzAxNjEsMTkxOTA3OTQzNywxNTM3MTQ5
+NDE5LDEzNjkwNjg1NzgsMjEwODY1MTE0OCwxMzU0MTc2Njk3LC
+05ODI5MzMwNiwtMTUxNDgzNDc4OSwtMjEwMzA2MzA0NCwxNjU1
+ODU5Mjc4XX0=
 -->
