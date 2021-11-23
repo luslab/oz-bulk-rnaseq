@@ -303,6 +303,21 @@ The "hard-coding" looks like this (very long and difficult to edit):
 sbatch -N 1 -c 8 --mem 40G --wrap="STAR --runMode genomeGenerate --genomeDir  --genomeFastaFiles /camp/home/ziffo/home/genomes/sequences/human/GRCh38.primary_assembly.genome.fa --sjdbGTFfile /camp/home/ziffo/home/genomes/annotation/GRCh38.p12/gencode.v28.primary_assembly.annotation.gtf --sjdbOverhang 959 --runThreadN 8"
 ```
 
+#### STAR 2.7.7
+
+STAR/2.7.7a-GCC-10.2.0
+```bash
+ml STAR/2.7.7a-GCC-10.2.0 # version 2.7.7 noted in Log.out file
+cd /camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
+OUT=/camp/home/ziffo/home/genomes/ensembl/GRCh38.99.STAR.2.7.7_index
+FASTA=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+GTF=/camp/home/ziffo/home/genomes/ensembl/Homo_sapiens.GRCh38.99.gtf
+
+#Send cmd to generate index as batch job to cluster:
+sbatch -N 1 -c 10 --mem=80G -t 48:00:00 --wrap="STAR --runMode genomeGenerate --genomeDir $OUT --genomeFastaFiles $FASTA  --sjdbGTFfile $GTF --sjdbOverhang 99 --runThreadN 20 --limitGenomeGenerateRAM 170263683456" --mail-type=ALL,ARRAY_TASKS --mail-user=oliver.ziff@crick.ac.uk 
+```
+
+
 ### Gencode
 
 Gencode index GRCh38.p13 v33 with STAR version 7.1
@@ -736,11 +751,11 @@ NjMyNDNdfQ==
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTIzMTIxMTAsLTM2ODg4NDQxNSw1Mz
-AzOTMzMTAsMTcxNTM0MTgyMiwtNDU1NDgzNjE3LC0xNTQ0ODY1
-MTU3LDE4ODA1NDg1ODIsLTY2MjIzODUsMjExMDAzMDE2MSwxOT
-E5MDc5NDM3LDE1MzcxNDk0MTksMTM2OTA2ODU3OCwyMTA4NjUx
-MTQ4LDEzNTQxNzY2OTcsLTk4MjkzMzA2LC0xNTE0ODM0Nzg5LC
-0yMTAzMDYzMDQ0LDE2NTU4NTkyNzgsMTIzNzA0ODgyNCw2Njg5
-Njk0MDldfQ==
+eyJoaXN0b3J5IjpbMTc0MDkxNDg1NiwtMTg1MjMxMjExMCwtMz
+Y4ODg0NDE1LDUzMDM5MzMxMCwxNzE1MzQxODIyLC00NTU0ODM2
+MTcsLTE1NDQ4NjUxNTcsMTg4MDU0ODU4MiwtNjYyMjM4NSwyMT
+EwMDMwMTYxLDE5MTkwNzk0MzcsMTUzNzE0OTQxOSwxMzY5MDY4
+NTc4LDIxMDg2NTExNDgsMTM1NDE3NjY5NywtOTgyOTMzMDYsLT
+E1MTQ4MzQ3ODksLTIxMDMwNjMwNDQsMTY1NTg1OTI3OCwxMjM3
+MDQ4ODI0XX0=
 -->
